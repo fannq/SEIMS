@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_measurement.html" title="Get site data by site type and time." alt="" coords="5,32,107,61"/>
-<area shape="rect" id="node3" href="$class_not_regular_measurement.html" title="inherited from Measurement class" alt="" coords="156,5,321,35"/>
-<area shape="rect" id="node5" href="$class_regular_measurement.html" title="inherited from Measurement class" alt="" coords="165,59,312,88"/>
+<area shape="rect" id="node1" href="$class_measurement.html" title="Get site data by site type and time." alt="" coords="7,33,124,66"/>
+<area shape="rect" id="node3" href="$class_not_regular_measurement.html" title="inherited from Measurement class" alt="" coords="175,5,375,38"/>
+<area shape="rect" id="node5" href="$class_regular_measurement.html" title="inherited from Measurement class" alt="" coords="187,61,363,94"/>
 </map>

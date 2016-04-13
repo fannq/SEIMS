@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$cls_raster_data_8h.html" title="Define clsRasterData class." alt="" coords="799,83,916,112"/>
-<area shape="rect" id="node17" href="$utils_8h.html" title="definition of utils class" alt="" coords="331,83,387,112"/>
-<area shape="rect" id="node33" href="$_model_exception_8h.html" title="Define ModelException class." alt="" coords="524,83,649,112"/>
-<area shape="rect" id="node38" href="$text_8h.html" title="Predefined of some const string names." alt="" coords="1105,83,1159,112"/>
-<area shape="rect" id="node40" href="$_d_b_manager_8h.html" title="Database manager for Sqlite." alt="" coords="673,83,775,112"/>
+<area shape="rect" id="node3" href="$cls_raster_data_8h.html" title="Define clsRasterData class." alt="" coords="888,89,1024,122"/>
+<area shape="rect" id="node17" href="$utils_8h.html" title="definition of utils class" alt="" coords="364,89,428,122"/>
+<area shape="rect" id="node33" href="$_model_exception_8h.html" title="Define ModelException class." alt="" coords="571,89,720,122"/>
+<area shape="rect" id="node38" href="$text_8h.html" title="Predefined of some const string names." alt="" coords="1227,89,1285,122"/>
+<area shape="rect" id="node40" href="$_d_b_manager_8h.html" title="Database manager for Sqlite." alt="" coords="744,89,864,122"/>
 </map>

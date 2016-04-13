@@ -1,11 +1,11 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$itemsets_8c.html#ab348ad8f89d70692400d7602e3a824bf" title="itemsets_project_matrix" alt="" coords="265,85,425,115"/>
-<area shape="rect" id="node18" href="$csr_8c.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="299,139,392,168"/>
-<area shape="rect" id="node5" href="$csr_8c.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="495,32,601,61"/>
-<area shape="rect" id="node16" href="$gk__proto_8h.html#a87b4cd1adb002c1987c1537130e8ee31" title="gk_ikvsorti" alt="" coords="505,85,591,115"/>
-<area shape="rect" id="node7" href="$gk__proto_8h.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="673,5,753,35"/>
-<area shape="rect" id="node14" href="$csr_8c.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="671,59,756,88"/>
-<area shape="rect" id="node9" href="$error_8c.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="972,7,1049,36"/>
-<area shape="rect" id="node11" href="$gk__proto_8h.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="807,32,921,61"/>
-<area shape="rect" id="node20" href="$csr_8c.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="475,139,621,168"/>
+<area shape="rect" id="node3" href="$itemsets_8c.html#ab348ad8f89d70692400d7602e3a824bf" title="itemsets_project_matrix" alt="" coords="305,89,495,122"/>
+<area shape="rect" id="node18" href="$csr_8c.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="345,145,455,178"/>
+<area shape="rect" id="node5" href="$csr_8c.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="569,33,695,66"/>
+<area shape="rect" id="node16" href="$gk__proto_8h.html#a87b4cd1adb002c1987c1537130e8ee31" title="gk_ikvsorti" alt="" coords="583,89,681,122"/>
+<area shape="rect" id="node7" href="$gk__proto_8h.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="771,5,864,38"/>
+<area shape="rect" id="node14" href="$csr_8c.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="768,61,867,94"/>
+<area shape="rect" id="node9" href="$error_8c.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1103,5,1193,38"/>
+<area shape="rect" id="node11" href="$gk__proto_8h.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="915,31,1053,65"/>
+<area shape="rect" id="node20" href="$csr_8c.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="545,145,719,178"/>
 </map>

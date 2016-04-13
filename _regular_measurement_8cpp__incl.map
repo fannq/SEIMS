@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$_regular_measurement_8h.html" title="RegularMeasurement.h" alt="" coords="96,83,253,112"/>
-<area shape="rect" id="node15" href="$utils_8h.html" title="definition of utils class" alt="" coords="412,160,468,189"/>
-<area shape="rect" id="node31" href="$text_8h.html" title="Predefined of some const string names." alt="" coords="563,83,616,112"/>
-<area shape="rect" id="node33" href="$_model_exception_8h.html" title="Define ModelException class." alt="" coords="277,83,403,112"/>
-<area shape="rect" id="node7" href="$_measurement_8h.html" title="Measurement.h" alt="" coords="119,160,231,189"/>
+<area shape="rect" id="node5" href="$_regular_measurement_8h.html" title="RegularMeasurement.h" alt="" coords="104,89,293,122"/>
+<area shape="rect" id="node15" href="$utils_8h.html" title="definition of utils class" alt="" coords="472,171,536,205"/>
+<area shape="rect" id="node31" href="$text_8h.html" title="Predefined of some const string names." alt="" coords="635,89,693,122"/>
+<area shape="rect" id="node33" href="$_model_exception_8h.html" title="Define ModelException class." alt="" coords="317,89,467,122"/>
+<area shape="rect" id="node7" href="$_measurement_8h.html" title="Measurement.h" alt="" coords="135,171,265,205"/>
 </map>

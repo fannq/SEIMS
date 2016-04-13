@@ -1,5 +1,5 @@
 <map id="structs" name="structs">
-<area shape="rect" id="node1" href="$group__module__setting.html" title="module_setting group" alt="" coords="108,5,217,35"/>
-<area shape="rect" id="node2" href="$group___util.html" title="include classes of MetadataInfo, ModelException and SimulationModule et al." alt="" coords="141,59,184,88"/>
-<area shape="rect" id="node4" href="$group__data.html" title="include classes related to data, eg. Measurement, HydroClimateData etc.." alt="" coords="137,112,188,141"/>
+<area shape="rect" id="node1" href="$group__module__setting.html" title="module_setting group" alt="" coords="112,5,243,38"/>
+<area shape="rect" id="node2" href="$group___util.html" title="include classes of MetadataInfo, ModelException and SimulationModule et al." alt="" coords="155,61,200,94"/>
+<area shape="rect" id="node4" href="$group__data.html" title="include classes related to data, eg. Measurement, HydroClimateData etc.." alt="" coords="149,117,205,150"/>
 </map>

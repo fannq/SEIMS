@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$wspace_8c.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="164,32,268,61"/>
-<area shape="rect" id="node5" href="$gk__proto_8h.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="317,32,435,61"/>
-<area shape="rect" id="node7" href="$gk__proto_8h.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="621,5,723,35"/>
-<area shape="rect" id="node11" href="$gk__proto_8h.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="484,57,564,87"/>
-<area shape="rect" id="node9" href="$error_8c.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="780,57,857,87"/>
-<area shape="rect" id="node14" href="$gk__proto_8h.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="615,109,729,139"/>
+<area shape="rect" id="node3" href="$wspace_8c.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="183,31,305,65"/>
+<area shape="rect" id="node5" href="$gk__proto_8h.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="355,31,493,65"/>
+<area shape="rect" id="node7" href="$gk__proto_8h.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="695,5,815,38"/>
+<area shape="rect" id="node11" href="$gk__proto_8h.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="543,58,636,91"/>
+<area shape="rect" id="node9" href="$error_8c.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="873,58,964,91"/>
+<area shape="rect" id="node14" href="$gk__proto_8h.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="685,111,824,145"/>
 </map>
