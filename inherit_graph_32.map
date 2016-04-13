@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_simulation_module.html" title="Base module for all simulation modules in SEIMS." alt="" coords="5,32,131,61"/>
+<area shape="rect" id="node3" href="$class_diffusive_wave.html" title="Routing in the channel." alt="" coords="180,5,287,35"/>
+<area shape="rect" id="node5" href="$class_m_u_s_k___c_h.html" title="channel flow routing using Muskingum method" alt="" coords="189,59,277,88"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$coarsen_8c.html#a70dc59d4c7190507e7ad9a4cc0d80707" title="CreateCoarseGraphNoMask" alt="" coords="192,96,379,125"/>
+<area shape="rect" id="node5" href="$coarsen_8c.html#a113522304bf628b09d0b69b4db05050e" title="SetupCoarseGraph" alt="" coords="427,51,560,80"/>
+<area shape="rect" id="node18" href="$wspace_8c.html#a24ba749ade92aef079e88d233317c068" title="iwspacemalloc" alt="" coords="440,109,547,139"/>
+<area shape="rect" id="node28" href="$coarsen_8c.html#ab69ab96ec78174da232dff05e9c79d2f" title="ReAdjustMemory" alt="" coords="432,175,555,204"/>
+<area shape="rect" id="node7" href="$libmetis_2graph_8c.html#a01903fa912de9fc7f01dace993a3fc85" title="CreateGraph" alt="" coords="613,51,709,80"/>
+<area shape="rect" id="node9" href="$gk__proto_8h.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="929,57,1009,87"/>
+<area shape="rect" id="node16" href="$libmetis_2graph_8c.html#af046766ada304a0cf49db44b544810a8" title="InitGraph" alt="" coords="784,5,859,35"/>
+<area shape="rect" id="node11" href="$error_8c.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1225,57,1303,87"/>
+<area shape="rect" id="node13" href="$gk__proto_8h.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="1060,5,1175,35"/>
+<area shape="rect" id="node20" href="$wspace_8c.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="609,109,713,139"/>
+<area shape="rect" id="node22" href="$gk__proto_8h.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="763,109,880,139"/>
+<area shape="rect" id="node24" href="$gk__proto_8h.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="1067,109,1168,139"/>
+</map>
