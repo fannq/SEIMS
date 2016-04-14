@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/iuh/IUHCalculator.cpp Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/iuh/util.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,122 +111,87 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">IUHCalculator.cpp</div>  </div>
+<div class="title">util.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dec/a00090.html">IUHCalculator.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;IUHCalculator::IUHCalculator(<span class="keywordtype">string</span> inputfile, <span class="keywordtype">string</span> watershedfile, </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">string</span> stream_networkfile, <span class="keywordtype">string</span> t0file, <span class="keywordtype">string</span> deltafile)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    :inputFile(inputfile), watershedFile(watershedfile),</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    strnetworkFile(stream_networkfile), t0File(t0file), deltaFile(deltafile),</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    mt(200), nRows(0), nCols(0), dt(24), nCells(0), nSubs(0), nLinks(0)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#ada0a43ef89e61b07de87d672e5240b5e">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/a00026.html#ada0a43ef89e61b07de87d672e5240b5e">IUHCalculator::readData</a>()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">string</span> strTemp;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*   Purpose:    Utility functions</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*   Created:    Junzhi Liu</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*   Date:       29-July-2010</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*   Revision:</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">*   Date:</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*---------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef NEW_WETSPA_UTIL_INCLUDE</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NEW_WETSPA_UTIL_INCLUDE</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define NODATA -99.0f</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ifstream watershedIf(watershedFile.c_str());  <span class="comment">// subbasin.asc</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    watershedIf &gt;&gt; strTemp &gt;&gt; nCols;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    watershedIf &gt;&gt; strTemp &gt;&gt; nRows;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; ++i)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        getline(watershedIf, strTemp);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    ifstream strnetworkIf(strnetworkFile.c_str());</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ifstream t0If(t0File.c_str());</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ifstream deltaIf(deltaFile.c_str());</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//ifstream runoffCoIf(runoffCoFile.c_str());</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 7; ++i)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        getline(strnetworkIf, strTemp);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        getline(t0If, strTemp);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        getline(deltaIf, strTemp);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//getline(runoffCoIf,strTemp);</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    watershed.resize(nRows);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    strnetwork.resize(nRows);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    link.resize(nRows);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    t0.resize(nRows);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    delta.resize(nRows);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//runoffCo.resize(nRows);</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nRows; ++i)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        watershed[i].resize(nCols);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        strnetwork[i].resize(nCols);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        link[i].resize(nCols);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        t0[i].resize(nCols);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        delta[i].resize(nCols);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//runoffCo[i].resize(nCols);</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//read the watershed and link data</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    nCells = 0;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nRows; ++i)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; nCols; ++j)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            watershedIf &gt;&gt; watershed[i][j];</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            strnetworkIf &gt;&gt; strnetwork[i][j];</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> (watershed[i][j] &lt;= 0 || strnetwork[i][j] &lt;= 0)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                link[i][j] = -99;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            } </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="comment">//linkIf &gt;&gt; link[i][j];</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            t0If &gt;&gt; t0[i][j];</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            deltaIf &gt;&gt; delta[i][j];</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="comment">//runoffCoIf &gt;&gt; runoffCo[i][j];</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span>(watershed[i][j] &gt; 0)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                nCells += 1;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                nSubs = max(nSubs, watershed[i][j]);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">if</span> (strnetwork[i][j] &gt; 0)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    link[i][j] = watershed[i][j] * strnetwork[i][j];</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    nLinks += 1;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    watershedIf.close();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    strnetworkIf.close();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    t0If.close();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    deltaIf.close();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//runoffCoIf.close();</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;IUHCalculator::~IUHCalculator(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a39da0e3315d838724ff5f3ac5f98303e">  101</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d6/d5b/a00026.html#a39da0e3315d838724ff5f3ac5f98303e">IUHCalculator::IUHti</a>(<span class="keywordtype">double</span> delta0, <span class="keywordtype">double</span> t00, <span class="keywordtype">double</span> ti)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">double</span> tmp1 = 1 / (delta0 * sqrt(2*3.1416*pow(ti,3.0)/pow(t00,3.0)));</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">double</span> tmp2 = pow(ti-t00, 2.0) / (2.0 * pow(delta0,2.0) * ti / t00);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> tmp1 * exp(-tmp2);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="ttc" id="a00026_html_ada0a43ef89e61b07de87d672e5240b5e"><div class="ttname"><a href="../../d6/d5b/a00026.html#ada0a43ef89e61b07de87d672e5240b5e">IUHCalculator::readData</a></div><div class="ttdeci">virtual void readData()</div><div class="ttdoc">Read data. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00015">IUHCalculator.cpp:15</a></div></div>
-<div class="ttc" id="a00026_html_a39da0e3315d838724ff5f3ac5f98303e"><div class="ttname"><a href="../../d6/d5b/a00026.html#a39da0e3315d838724ff5f3ac5f98303e">IUHCalculator::IUHti</a></div><div class="ttdeci">double IUHti(double delta0, double t00, double ti)</div><div class="ttdoc">Calculate IUH for time step ti. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00101">IUHCalculator.cpp:101</a></div></div>
-<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">IUHCalculator.h</a></div><div class="ttdoc">Class of IUH calculation. </div></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">enum</span> LayeringMethod</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    UP_DOWN,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    DOWN_UP</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/dc3/a00657.html#ga2e0081340c7a443a4d1c228f3ad93845">DoubleEqual</a>(<span class="keywordtype">double</span> d1, <span class="keywordtype">double</span> d2);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/dc3/a00657.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(<span class="keywordtype">float</span> d1, <span class="keywordtype">float</span> d2);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code" href="../../da/dc3/a00657.html#ga3af7247f80b17b677cbca847155bb92c">GetPathFromFullName</a>(<span class="keywordtype">string</span> fullFileName);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/dc3/a00657.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(<span class="keywordtype">string</span> text1, <span class="keywordtype">string</span> text2);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code" href="../../da/dc3/a00657.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a>(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> StatusMessage(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc3/a00657.html#ga1100f7a77b63fdeb138d3317b67cce47">Read2DArray</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename, <span class="keywordtype">int</span>&amp; nRows, <span class="keywordtype">float</span>**&amp; data);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc3/a00657.html#ga26936c570e03b87655065abe7c6e4a3f">Read1DArray</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename, <span class="keywordtype">int</span>&amp; nRows, <span class="keywordtype">float</span>*&amp; data);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc3/a00657.html#ga23ec84665e45f44b404668a460479ced">Output1DArray</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data, <span class="keyword">const</span> <span class="keywordtype">char</span>* filename);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc3/a00657.html#ga95278befef92ef1f585ebe873fffa1e1">Output2DArray</a>(<span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data, <span class="keyword">const</span> <span class="keywordtype">char</span>* filename);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> <a class="code" href="../../da/dc3/a00657.html#gacf3678c566f95d8be61b91a854235bb4">Max</a>(<span class="keywordtype">double</span> *a, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">double</span> <a class="code" href="../../da/dc3/a00657.html#ga4561fdc3ede1c064016ce672c7ebc939">Sum</a>(<span class="keywordtype">double</span> *a, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">string</span>&amp; <a class="code" href="../../da/dc3/a00657.html#ga9587137137d995b8818aa26e76f66f61">trim</a>(<span class="keywordtype">string</span>&amp; s);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="../../da/dc3/a00657.html#ga09f99f8f12c6e312ec9efabb775cbb2b">FindFiles</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *lpPath, <span class="keyword">const</span> <span class="keywordtype">char</span> *expression, vector&lt;string&gt;&amp; vecFiles);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code" href="../../da/dc3/a00657.html#gaa19efd2980a7e4dc34a452286fb0e7fc">GetCoreFileName</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fullFileName);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc3/a00657.html#ga7f1e850489085e4cbb0eff1691f805bf">Read2DArrayFromString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* s, <span class="keywordtype">int</span>&amp; nRows, <span class="keywordtype">float</span>**&amp; data);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../da/dc3/a00657.html#ga4cb904f49f472cbb990e86c0dc6d8dd6">GetAppPath</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define strprintf sprintf_s</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define StringTok strtok_s</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define strprintf snprintf</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define StringTok strtok_r</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span>    <span class="keyword">extern</span> <span class="keywordtype">int</span> copyfile_linux(<span class="keyword">const</span> <span class="keywordtype">char</span>* srcfile, <span class="keyword">const</span> <span class="keywordtype">char</span>* dstfile);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00657_html_ga95278befef92ef1f585ebe873fffa1e1"><div class="ttname"><a href="../../da/dc3/a00657.html#ga95278befef92ef1f585ebe873fffa1e1">Output2DArray</a></div><div class="ttdeci">void Output2DArray(int nRows, int nCols, float **data, const char *filename)</div><div class="ttdoc">Write 2D array to a file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00235">util.cpp:235</a></div></div>
+<div class="ttc" id="a00657_html_ga9587137137d995b8818aa26e76f66f61"><div class="ttname"><a href="../../da/dc3/a00657.html#ga9587137137d995b8818aa26e76f66f61">trim</a></div><div class="ttdeci">string &amp; trim(string &amp;s)</div><div class="ttdoc">trim </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00111">util.cpp:111</a></div></div>
+<div class="ttc" id="a00657_html_ga9514a21bb5926342aa2b07e7cac8f31a"><div class="ttname"><a href="../../da/dc3/a00657.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a></div><div class="ttdeci">bool FloatEqual(float d1, float d2)</div><div class="ttdoc">FloatEqual. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00147">util.cpp:147</a></div></div>
+<div class="ttc" id="a00657_html_ga2e0081340c7a443a4d1c228f3ad93845"><div class="ttname"><a href="../../da/dc3/a00657.html#ga2e0081340c7a443a4d1c228f3ad93845">DoubleEqual</a></div><div class="ttdeci">bool DoubleEqual(double d1, double d2)</div><div class="ttdoc">DoubleEqual. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00139">util.cpp:139</a></div></div>
+<div class="ttc" id="a00657_html_ga09f99f8f12c6e312ec9efabb775cbb2b"><div class="ttname"><a href="../../da/dc3/a00657.html#ga09f99f8f12c6e312ec9efabb775cbb2b">FindFiles</a></div><div class="ttdeci">int FindFiles(const char *lpPath, const char *expression, vector&lt; string &gt; &amp;vecFiles)</div><div class="ttdoc">Find files in given paths. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00040">util.cpp:40</a></div></div>
+<div class="ttc" id="a00657_html_gae875280d1d04d9c64f41a2bc46403f88"><div class="ttname"><a href="../../da/dc3/a00657.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a></div><div class="ttdeci">bool StringMatch(string text1, string text2)</div><div class="ttdoc">Match String. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00127">util.cpp:127</a></div></div>
+<div class="ttc" id="a00657_html_gacf3678c566f95d8be61b91a854235bb4"><div class="ttname"><a href="../../da/dc3/a00657.html#gacf3678c566f95d8be61b91a854235bb4">Max</a></div><div class="ttdeci">double Max(double *a, int n)</div><div class="ttdoc">Max value of a double array. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00261">util.cpp:261</a></div></div>
+<div class="ttc" id="a00657_html_ga201344a7ea57c0c4eee3d5f686330b8b"><div class="ttname"><a href="../../da/dc3/a00657.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a></div><div class="ttdeci">string GetUpper(string)</div><div class="ttdoc">GetUpper. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00120">util.cpp:120</a></div></div>
+<div class="ttc" id="a00657_html_ga4561fdc3ede1c064016ce672c7ebc939"><div class="ttname"><a href="../../da/dc3/a00657.html#ga4561fdc3ede1c064016ce672c7ebc939">Sum</a></div><div class="ttdeci">double Sum(double *a, int n)</div><div class="ttdoc">Sum of a double array. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00251">util.cpp:251</a></div></div>
+<div class="ttc" id="a00657_html_ga4cb904f49f472cbb990e86c0dc6d8dd6"><div class="ttname"><a href="../../da/dc3/a00657.html#ga4cb904f49f472cbb990e86c0dc6d8dd6">GetAppPath</a></div><div class="ttdeci">string GetAppPath()</div><div class="ttdoc">Get the root path of the current executable. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00275">util.cpp:275</a></div></div>
+<div class="ttc" id="a00657_html_ga26936c570e03b87655065abe7c6e4a3f"><div class="ttname"><a href="../../da/dc3/a00657.html#ga26936c570e03b87655065abe7c6e4a3f">Read1DArray</a></div><div class="ttdeci">void Read1DArray(const char *filename, int &amp;nRows, float *&amp;data)</div><div class="ttdoc">Read 1D array from file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00194">util.cpp:194</a></div></div>
+<div class="ttc" id="a00657_html_ga3af7247f80b17b677cbca847155bb92c"><div class="ttname"><a href="../../da/dc3/a00657.html#ga3af7247f80b17b677cbca847155bb92c">GetPathFromFullName</a></div><div class="ttdeci">string GetPathFromFullName(string &amp;fullFileName)</div><div class="ttdoc">GetPathFromFullName. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00155">util.cpp:155</a></div></div>
+<div class="ttc" id="a00657_html_gaa19efd2980a7e4dc34a452286fb0e7fc"><div class="ttname"><a href="../../da/dc3/a00657.html#gaa19efd2980a7e4dc34a452286fb0e7fc">GetCoreFileName</a></div><div class="ttdeci">string GetCoreFileName(const string &amp;fullFileName)</div><div class="ttdoc">GetCoreFileName. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00092">util.cpp:92</a></div></div>
+<div class="ttc" id="a00657_html_ga23ec84665e45f44b404668a460479ced"><div class="ttname"><a href="../../da/dc3/a00657.html#ga23ec84665e45f44b404668a460479ced">Output1DArray</a></div><div class="ttdeci">void Output1DArray(int n, float *data, const char *filename)</div><div class="ttdoc">Write 1D array to a file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00225">util.cpp:225</a></div></div>
+<div class="ttc" id="a00657_html_ga1100f7a77b63fdeb138d3317b67cce47"><div class="ttname"><a href="../../da/dc3/a00657.html#ga1100f7a77b63fdeb138d3317b67cce47">Read2DArray</a></div><div class="ttdeci">void Read2DArray(const char *filename, int &amp;nRows, float **&amp;data)</div><div class="ttdoc">Read 2D array from file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00176">util.cpp:176</a></div></div>
+<div class="ttc" id="a00657_html_ga7f1e850489085e4cbb0eff1691f805bf"><div class="ttname"><a href="../../da/dc3/a00657.html#ga7f1e850489085e4cbb0eff1691f805bf">Read2DArrayFromString</a></div><div class="ttdeci">void Read2DArrayFromString(const char *s, int &amp;nRows, float **&amp;data)</div><div class="ttdoc">Read 2D array from string. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00207">util.cpp:207</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_a88dfb3a5bada831a77afbd22f5524a9.html">iuh</a></li><li class="navelem"><b>IUHCalculator.cpp</b></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:38 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_a88dfb3a5bada831a77afbd22f5524a9.html">iuh</a></li><li class="navelem"><b>util.h</b></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:28 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/programs/ndmetis.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/programs/metisbin.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,191 +111,69 @@ $(document).ready(function(){initNavTree('dd/ded/a00211_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ndmetis.c</div>  </div>
+<div class="title">metisbin.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1994-2011, Regents of the University of Minnesota</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * metisbin.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * ndmetis.c</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file contains the various header inclusions</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Driver programs for nested disection ordering</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Started 8/28/94</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * George</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * $Id: ndmetis.c 13900 2013-03-24 15:27:07Z karypis $</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;metisbin.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d9/db6/a00146.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  idx_t options[METIS_NOPTIONS];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="../../d7/de0/a00022.html">graph_t</a> *graph;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  idx_t *perm, *iperm;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="../../d8/d41/a00038.html">params_t</a> *params;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">int</span> status=0;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Started 8/9/02</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * George</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;setjmp.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#if defined(ENABLE_OPENMP)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #include &lt;omp.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  params = <a class="code" href="../../d9/db6/a00146.html#aea2aa8c9b5bb7c64a3f316d7760f0341">parse_cmdline</a>(argc, argv);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  gk_startcputimer(params-&gt;iotimer);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  graph = ReadGraph(params);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  gk_stopcputimer(params-&gt;iotimer);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">/* This is just for internal use to clean up some files</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  {</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    char fileout[8192];</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">    gk_free((void **)&amp;graph-&gt;vwgt, &amp;graph-&gt;adjwgt, &amp;graph-&gt;vsize, LTERM);</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">    sprintf(fileout, &quot;ND/%s&quot;, params-&gt;filename);</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    if (graph-&gt;nvtxs &gt; 25000)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">      WriteGraph(graph, fileout);</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    exit(0);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">  }</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">/* Check if the graph is contiguous */</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">if</span> (graph-&gt;ncon != 1) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    printf(<span class="stringliteral">&quot;***The input graph contains %&quot;</span>PRIDX<span class="stringliteral">&quot; constraints..\n&quot;</span> </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;           <span class="stringliteral">&quot;***Ordering requires a graph with one constraint.\n&quot;</span>, graph-&gt;ncon);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    exit(0);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  NDPrintInfo(params, graph);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  perm  = imalloc(graph-&gt;nvtxs, <span class="stringliteral">&quot;main: perm&quot;</span>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  iperm = imalloc(graph-&gt;nvtxs, <span class="stringliteral">&quot;main: iperm&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="../../d3/df8/a00155.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a>(options);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  options[METIS_OPTION_CTYPE]    = params-&gt;ctype;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  options[METIS_OPTION_IPTYPE]   = params-&gt;iptype;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  options[METIS_OPTION_RTYPE]    = params-&gt;rtype;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  options[METIS_OPTION_DBGLVL]   = params-&gt;dbglvl;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  options[METIS_OPTION_UFACTOR]  = params-&gt;ufactor;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  options[METIS_OPTION_NO2HOP]   = params-&gt;no2hop;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  options[METIS_OPTION_COMPRESS] = params-&gt;compress;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  options[METIS_OPTION_CCORDER]  = params-&gt;ccorder;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  options[METIS_OPTION_SEED]     = params-&gt;seed;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  options[METIS_OPTION_NITER]    = params-&gt;niter;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  options[METIS_OPTION_NSEPS]    = params-&gt;nseps;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  options[METIS_OPTION_PFACTOR]  = params-&gt;pfactor;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="../../d4/d98/a00120.html#a24633cc1c72a7e92836912c2adcf570a">gk_malloc_init</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  gk_startcputimer(params-&gt;parttimer);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  status = METIS_NodeND(&amp;graph-&gt;nvtxs, graph-&gt;xadj, graph-&gt;adjncy, graph-&gt;vwgt, </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;               options, perm, iperm);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  gk_stopcputimer(params-&gt;parttimer);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">if</span> (gk_GetCurMemoryUsed() != 0)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    printf(<span class="stringliteral">&quot;***It seems that Metis did not free all of its memory! Report this.\n&quot;</span>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  params-&gt;maxmemory = gk_GetMaxMemoryUsed();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="../../d4/d98/a00120.html#a47156a22528b5bc8c7c6e9849af34e62">gk_malloc_cleanup</a>(0);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">if</span> (status != <a class="code" href="../../d3/d65/a00154.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a>) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    printf(<span class="stringliteral">&quot;\n***Metis returned with an error.\n&quot;</span>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (!params-&gt;nooutput) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="comment">/* Write the solution */</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      gk_startcputimer(params-&gt;iotimer);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      WritePermutation(params-&gt;filename, iperm, graph-&gt;nvtxs); </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      gk_stopcputimer(params-&gt;iotimer);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    NDReportResults(params, graph, perm, iperm);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <a class="code" href="../../df/dcd/a00127.html#a6af2646733e761482dafebbb5e351240">FreeGraph</a>(&amp;graph);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  gk_free((<span class="keywordtype">void</span> **)&amp;perm, &amp;iperm, LTERM);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  gk_free((<span class="keywordtype">void</span> **)&amp;params-&gt;filename, &amp;params-&gt;tpwgtsfile, &amp;params-&gt;tpwgts, </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      &amp;params-&gt;ubvec, &amp;params, LTERM);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> NDPrintInfo(<a class="code" href="../../d8/d41/a00038.html">params_t</a> *params, <a class="code" href="../../d7/de0/a00022.html">graph_t</a> *graph)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{ </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  printf(<span class="stringliteral">&quot;******************************************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  printf(<span class="stringliteral">&quot;%s&quot;</span>, METISTITLE);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  printf(<span class="stringliteral">&quot; (HEAD: %s, Built on: %s, %s)\n&quot;</span>, SVNINFO, __DATE__, __TIME__);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  printf(<span class="stringliteral">&quot; size of idx_t: %zubits, real_t: %zubits, idx_t *: %zubits\n&quot;</span>, </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      8*<span class="keyword">sizeof</span>(idx_t), 8*<span class="keyword">sizeof</span>(real_t), 8*<span class="keyword">sizeof</span>(idx_t *));</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  printf(<span class="stringliteral">&quot;Graph Information -----------------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  printf(<span class="stringliteral">&quot; Name: %s, #Vertices: %&quot;</span>PRIDX<span class="stringliteral">&quot;, #Edges: %&quot;</span>PRIDX<span class="stringliteral">&quot;\n&quot;</span>, </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      params-&gt;filename, graph-&gt;nvtxs, graph-&gt;nedges/2);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  printf(<span class="stringliteral">&quot;Options ---------------------------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  printf(<span class="stringliteral">&quot; ctype=%s, rtype=%s, iptype=%s, seed=%&quot;</span>PRIDX<span class="stringliteral">&quot;, dbglvl=%&quot;</span>PRIDX<span class="stringliteral">&quot;\n&quot;</span>,</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      ctypenames[params-&gt;ctype], rtypenames[params-&gt;rtype], </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      iptypenames[params-&gt;iptype], params-&gt;seed, params-&gt;dbglvl);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  printf(<span class="stringliteral">&quot; ufactor=%.3f, pfactor=%.2f, no2hop=%s, ccorder=%s, compress=%s, , nooutput=%s\n&quot;</span>,</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      I2RUBFACTOR(params-&gt;ufactor), </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      0.1*params-&gt;pfactor,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      (params-&gt;no2hop   ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>), </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      (params-&gt;ccorder  ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>), </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      (params-&gt;compress ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>), </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      (params-&gt;nooutput ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      );</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  printf(<span class="stringliteral">&quot; niter=%&quot;</span>PRIDX<span class="stringliteral">&quot;, nseps=%&quot;</span>PRIDX<span class="stringliteral">&quot;\n&quot;</span>, params-&gt;niter, params-&gt;nseps);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  printf(<span class="stringliteral">&quot;Node-based Nested Dissection ------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">void</span> NDReportResults(<a class="code" href="../../d8/d41/a00038.html">params_t</a> *params, <a class="code" href="../../d7/de0/a00022.html">graph_t</a> *graph, idx_t *perm, </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;         idx_t *iperm)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{ </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordtype">size_t</span> maxlnz, opc;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  gk_startcputimer(params-&gt;reporttimer);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  ComputeFillIn(graph, perm, iperm, &amp;maxlnz, &amp;opc);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  printf(<span class="stringliteral">&quot;  Nonzeros: %6.3le \tOperation Count: %6.3le\n&quot;</span>, (<span class="keywordtype">double</span>)maxlnz, (<span class="keywordtype">double</span>)opc);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  gk_stopcputimer(params-&gt;reporttimer);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  printf(<span class="stringliteral">&quot;\nTiming Information ----------------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  printf(<span class="stringliteral">&quot;  I/O:          \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot; sec\n&quot;</span>, gk_getcputimer(params-&gt;iotimer));</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  printf(<span class="stringliteral">&quot;  Ordering:     \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot; sec   (METIS time)\n&quot;</span>, gk_getcputimer(params-&gt;parttimer));</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  printf(<span class="stringliteral">&quot;  Reporting:    \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot; sec\n&quot;</span>, gk_getcputimer(params-&gt;reporttimer));</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  printf(<span class="stringliteral">&quot;\nMemory Information ----------------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  printf(<span class="stringliteral">&quot;  Max memory used:\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot; MB\n&quot;</span>, (real_t)(params-&gt;maxmemory/(1024.0*1024.0)));</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  printf(<span class="stringliteral">&quot;******************************************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
-<div class="ttc" id="a00022_html"><div class="ttname"><a href="../../d7/de0/a00022.html">graph_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/db1/a00197_source.html#l00082">struct.h:82</a></div></div>
-<div class="ttc" id="a00120_html_a47156a22528b5bc8c7c6e9849af34e62"><div class="ttname"><a href="../../d4/d98/a00120.html#a47156a22528b5bc8c7c6e9849af34e62">gk_malloc_cleanup</a></div><div class="ttdeci">void gk_malloc_cleanup(int showstats)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00118">memory.c:118</a></div></div>
-<div class="ttc" id="a00146_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d9/db6/a00146.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00110">fis.c:110</a></div></div>
-<div class="ttc" id="a00120_html_a24633cc1c72a7e92836912c2adcf570a"><div class="ttname"><a href="../../d4/d98/a00120.html#a24633cc1c72a7e92836912c2adcf570a">gk_malloc_init</a></div><div class="ttdeci">int gk_malloc_init()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00099">memory.c:99</a></div></div>
-<div class="ttc" id="a00038_html"><div class="ttname"><a href="../../d8/d41/a00038.html">params_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00015">fis.c:15</a></div></div>
-<div class="ttc" id="a00154_html_ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656"><div class="ttname"><a href="../../d3/d65/a00154.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00242">metis.h:242</a></div></div>
-<div class="ttc" id="a00146_html_aea2aa8c9b5bb7c64a3f316d7760f0341"><div class="ttname"><a href="../../d9/db6/a00146.html#aea2aa8c9b5bb7c64a3f316d7760f0341">parse_cmdline</a></div><div class="ttdeci">params_t * parse_cmdline(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00194">fis.c:194</a></div></div>
-<div class="ttc" id="a00127_html_a6af2646733e761482dafebbb5e351240"><div class="ttname"><a href="../../df/dcd/a00127.html#a6af2646733e761482dafebbb5e351240">FreeGraph</a></div><div class="ttdeci">void FreeGraph(graph_t **r_graph)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dcd/a00127_source.html#l00247">graph.c:247</a></div></div>
-<div class="ttc" id="a00155_html_abea67bb0c6286795ac5fc9bee605dc5d"><div class="ttname"><a href="../../d3/df8/a00155.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a></div><div class="ttdeci">int METIS_SetDefaultOptions(idx_t *options)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00036">auxapi.c:36</a></div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d34/a00156.html">metis.h</a>&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;../libmetis/rename.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;../libmetis/gklib_defs.h&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;../libmetis/defs.h&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;../libmetis/struct.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;../libmetis/macros.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;../libmetis/proto.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;defs.h&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;struct.h&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;proto.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#if defined(COMPILER_GCC)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="keywordtype">char</span>* strdup (<span class="keyword">const</span> <span class="keywordtype">char</span> *);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#if defined(COMPILER_MSC)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if defined(rint)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #undef rint</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define rint(x) ((idx_t)((x)+0.5))  </span><span class="comment">/* MSC does not have rint() function */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __func__ &quot;dummy-function&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00156_html"><div class="ttname"><a href="../../d2/d34/a00156.html">metis.h</a></div><div class="ttdoc">This file contains function prototypes and constant definitions for METIS. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_191e76d4301b50d959103fb7ff475e31.html">programs</a></li><li class="navelem"><b>ndmetis.c</b></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:39 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_191e76d4301b50d959103fb7ff475e31.html">programs</a></li><li class="navelem"><b>metisbin.h</b></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:29 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

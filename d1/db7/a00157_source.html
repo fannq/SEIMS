@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/bucketsort.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/auxapi.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,62 +111,42 @@ $(document).ready(function(){initNavTree('d1/db7/a00157_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">bucketsort.c</div>  </div>
+<div class="title">auxapi.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * bucketsort.c</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains code that implement a variety of counting sorting</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * algorithms</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * Started 7/25/97</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * George</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> */</span></div>
+<a href="../../d1/db7/a00157.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* This function uses simple counting sort to return a permutation array</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* corresponding to the sorted order. The keys are arsumed to start from</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* 0 and they are positive.  This sorting is used during matching.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> BucketSortKeysInc(<a class="code" href="../../d7/d7a/a00016.html">ctrl_t</a> *ctrl, idx_t n, idx_t max, idx_t *keys, </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;         idx_t *tperm, idx_t *perm)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  idx_t i, ii;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  idx_t *counts;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d1/db7/a00157.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">   23</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d1/db7/a00157.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">METIS_Free</a>(<span class="keywordtype">void</span> *ptr)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordflow">if</span> (ptr != NULL) free(ptr);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d2/d34/a00156.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  WCOREPUSH;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  counts = iset(max+2, 0, <a class="code" href="../../d3/db1/a00200.html#a24ba749ade92aef079e88d233317c068">iwspacemalloc</a>(ctrl, max+2));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">for</span> (i=0; i&lt;n; i++)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    counts[keys[i]]++;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  MAKECSR(i, max+1, counts);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordflow">for</span> (ii=0; ii&lt;n; ii++) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    i = tperm[ii];</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    perm[counts[keys[i]]++] = i;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  WCOREPOP;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="ttc" id="a00200_html_a24ba749ade92aef079e88d233317c068"><div class="ttname"><a href="../../d3/db1/a00200.html#a24ba749ade92aef079e88d233317c068">iwspacemalloc</a></div><div class="ttdeci">idx_t * iwspacemalloc(ctrl_t *ctrl, idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db1/a00200_source.html#l00136">wspace.c:136</a></div></div>
-<div class="ttc" id="a00016_html"><div class="ttname"><a href="../../d7/d7a/a00016.html">ctrl_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/db1/a00197_source.html#l00139">struct.h:139</a></div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d1/db7/a00157.html#abea67bb0c6286795ac5fc9bee605dc5d">   36</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d1/db7/a00157.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a>(idx_t *options)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  iset(METIS_NOPTIONS, -1, options);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d2/d34/a00156.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="ttc" id="a00157_html_abea67bb0c6286795ac5fc9bee605dc5d"><div class="ttname"><a href="../../d1/db7/a00157.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a></div><div class="ttdeci">int METIS_SetDefaultOptions(idx_t *options)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/db7/a00157_source.html#l00036">auxapi.c:36</a></div></div>
+<div class="ttc" id="a00156_html_ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656"><div class="ttname"><a href="../../d2/d34/a00156.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d34/a00156_source.html#l00242">metis.h:242</a></div></div>
+<div class="ttc" id="a00157_html_a8b3f46b67d6ec9fccaa8c72b9ad10b71"><div class="ttname"><a href="../../d1/db7/a00157.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">METIS_Free</a></div><div class="ttdeci">int METIS_Free(void *ptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/db7/a00157_source.html#l00023">auxapi.c:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><b>bucketsort.c</b></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:39 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><a class="el" href="../../d1/db7/a00157.html">auxapi.c</a></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:29 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

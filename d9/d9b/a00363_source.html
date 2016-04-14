@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/Measurement.h Source File</title>
+<title>SEIMS-2016: src/base/data/Measurement.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,71 +111,51 @@ $(document).ready(function(){initNavTree('d9/d9b/a00363_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Measurement.h</div>  </div>
+<div class="title">Measurement.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d9b/a00363.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;mongo.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d33/a00027.html">Measurement</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../d0/d33/a00027.html">Measurement</a>(mongo* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startDate, time_t endDate);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="../../d0/d33/a00027.html">Measurement</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span>* GetSiteDataByTime(time_t t) = 0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a797e90045c3f01415abc68ebe02683d8">   36</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d0/d33/a00027.html#a797e90045c3f01415abc68ebe02683d8">NumberOfSites</a>()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> m_siteIDList.size();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#abce1040e808838a0a8c4fba864e1ffcb">   41</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d0/d33/a00027.html#abce1040e808838a0a8c4fba864e1ffcb">Type</a>()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> m_type;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#ad839a0019995f509b5802b8948513a6b">   46</a></span>&#160;    time_t <a class="code" href="../../d0/d33/a00027.html#ad839a0019995f509b5802b8948513a6b">StartTime</a>()</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> m_startTime;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a6bdfbe35c64f4efa24989c10474d078c">   51</a></span>&#160;    time_t <a class="code" href="../../d0/d33/a00027.html#a6bdfbe35c64f4efa24989c10474d078c">EndTime</a>()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> m_endTime;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a6dedcd0bf15198a844d64562cbfb3f00">   57</a></span>&#160;    mongo* <a class="code" href="../../d0/d33/a00027.html#a6dedcd0bf15198a844d64562cbfb3f00">m_conn</a>; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a801eb1c569a843a5326b36e7bb76119e">   58</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d0/d33/a00027.html#a801eb1c569a843a5326b36e7bb76119e">m_hydroDBName</a>; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">   60</a></span>&#160;    vector&lt;int&gt; <a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#ae17b0ffa8e6e6b5ac42092b485c4f204">   61</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d0/d33/a00027.html#ae17b0ffa8e6e6b5ac42092b485c4f204">m_type</a>; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a1d95627d0865cc35b930939076aa7da6">   63</a></span>&#160;    time_t <a class="code" href="../../d0/d33/a00027.html#a1d95627d0865cc35b930939076aa7da6">m_startTime</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a1c62f2abba7a613bc6edeca6152751f9">   64</a></span>&#160;    time_t <a class="code" href="../../d0/d33/a00027.html#a1c62f2abba7a613bc6edeca6152751f9">m_endTime</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">   66</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">pData</a>; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="ttc" id="a00027_html_a6dedcd0bf15198a844d64562cbfb3f00"><div class="ttname"><a href="../../d0/d33/a00027.html#a6dedcd0bf15198a844d64562cbfb3f00">Measurement::m_conn</a></div><div class="ttdeci">mongo * m_conn</div><div class="ttdoc">mongo object </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00057">Measurement.h:57</a></div></div>
-<div class="ttc" id="a00027_html_a797e90045c3f01415abc68ebe02683d8"><div class="ttname"><a href="../../d0/d33/a00027.html#a797e90045c3f01415abc68ebe02683d8">Measurement::NumberOfSites</a></div><div class="ttdeci">int NumberOfSites()</div><div class="ttdoc">sites number </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00036">Measurement.h:36</a></div></div>
-<div class="ttc" id="a00027_html"><div class="ttname"><a href="../../d0/d33/a00027.html">Measurement</a></div><div class="ttdoc">Get site data by site type and time. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00028">Measurement.h:28</a></div></div>
-<div class="ttc" id="a00027_html_ad839a0019995f509b5802b8948513a6b"><div class="ttname"><a href="../../d0/d33/a00027.html#ad839a0019995f509b5802b8948513a6b">Measurement::StartTime</a></div><div class="ttdeci">time_t StartTime()</div><div class="ttdoc">start time </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00046">Measurement.h:46</a></div></div>
-<div class="ttc" id="a00027_html_acffdb39ed0357326cec16264231ae695"><div class="ttname"><a href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">Measurement::m_siteIDList</a></div><div class="ttdeci">vector&lt; int &gt; m_siteIDList</div><div class="ttdoc">site ID list </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00060">Measurement.h:60</a></div></div>
-<div class="ttc" id="a00027_html_ae17b0ffa8e6e6b5ac42092b485c4f204"><div class="ttname"><a href="../../d0/d33/a00027.html#ae17b0ffa8e6e6b5ac42092b485c4f204">Measurement::m_type</a></div><div class="ttdeci">string m_type</div><div class="ttdoc">site type </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00061">Measurement.h:61</a></div></div>
-<div class="ttc" id="a00027_html_abce1040e808838a0a8c4fba864e1ffcb"><div class="ttname"><a href="../../d0/d33/a00027.html#abce1040e808838a0a8c4fba864e1ffcb">Measurement::Type</a></div><div class="ttdeci">string Type()</div><div class="ttdoc">site type </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00041">Measurement.h:41</a></div></div>
-<div class="ttc" id="a00027_html_a6bdfbe35c64f4efa24989c10474d078c"><div class="ttname"><a href="../../d0/d33/a00027.html#a6bdfbe35c64f4efa24989c10474d078c">Measurement::EndTime</a></div><div class="ttdeci">time_t EndTime()</div><div class="ttdoc">end time </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00051">Measurement.h:51</a></div></div>
-<div class="ttc" id="a00027_html_a2114a606e03739f92b2ba8825fc1334c"><div class="ttname"><a href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">Measurement::pData</a></div><div class="ttdeci">float * pData</div><div class="ttdoc">site data </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00066">Measurement.h:66</a></div></div>
-<div class="ttc" id="a00027_html_a801eb1c569a843a5326b36e7bb76119e"><div class="ttname"><a href="../../d0/d33/a00027.html#a801eb1c569a843a5326b36e7bb76119e">Measurement::m_hydroDBName</a></div><div class="ttdeci">string m_hydroDBName</div><div class="ttdoc">hydro database name </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00058">Measurement.h:58</a></div></div>
-<div class="ttc" id="a00027_html_a1d95627d0865cc35b930939076aa7da6"><div class="ttname"><a href="../../d0/d33/a00027.html#a1d95627d0865cc35b930939076aa7da6">Measurement::m_startTime</a></div><div class="ttdeci">time_t m_startTime</div><div class="ttdoc">start time </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00063">Measurement.h:63</a></div></div>
-<div class="ttc" id="a00027_html_a1c62f2abba7a613bc6edeca6152751f9"><div class="ttname"><a href="../../d0/d33/a00027.html#a1c62f2abba7a613bc6edeca6152751f9">Measurement::m_endTime</a></div><div class="ttdeci">time_t m_endTime</div><div class="ttdoc">end time </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00064">Measurement.h:64</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d59/a00364.html">Measurement.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d00/a00401.html">utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d53/a00399.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/a00394.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a9ebd8e7288e0d3686f3d425b270f7b07">   20</a></span>&#160;<a class="code" href="../../d0/d33/a00027.html#a9ebd8e7288e0d3686f3d425b270f7b07">Measurement::Measurement</a>(mongo* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    :m_conn(conn), m_startTime(startTime), m_endTime(endTime), pData(NULL)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    vector&lt;string&gt; vecSites = <a class="code" href="../../d3/dea/a00046.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a>(sitesList, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> nSites = vecSites.size();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//convert from string to int and sort</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSite = 0; iSite &lt; nSites; iSite++)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.push_back(atoi(vecSites[iSite].c_str()));</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    sort(<a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.begin(), <a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.end());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">pData</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[nSites];</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a6743c23fdd99a63831f93979bef779c8">   35</a></span>&#160;<a class="code" href="../../d0/d33/a00027.html#a6743c23fdd99a63831f93979bef779c8">Measurement::~Measurement</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">pData</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="ttc" id="a00401_html"><div class="ttname"><a href="../../d7/d00/a00401.html">utils.h</a></div><div class="ttdoc">definition of utils class </div></div>
+<div class="ttc" id="a00364_html"><div class="ttname"><a href="../../dc/d59/a00364.html">Measurement.h</a></div></div>
+<div class="ttc" id="a00027_html_acffdb39ed0357326cec16264231ae695"><div class="ttname"><a href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">Measurement::m_siteIDList</a></div><div class="ttdeci">vector&lt; int &gt; m_siteIDList</div><div class="ttdoc">site ID list </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00060">Measurement.h:60</a></div></div>
+<div class="ttc" id="a00027_html_a6743c23fdd99a63831f93979bef779c8"><div class="ttname"><a href="../../d0/d33/a00027.html#a6743c23fdd99a63831f93979bef779c8">Measurement::~Measurement</a></div><div class="ttdeci">~Measurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00035">Measurement.cpp:35</a></div></div>
+<div class="ttc" id="a00399_html"><div class="ttname"><a href="../../d1/d53/a00399.html">text.h</a></div><div class="ttdoc">Predefined of some const string names. </div></div>
+<div class="ttc" id="a00027_html_a2114a606e03739f92b2ba8825fc1334c"><div class="ttname"><a href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">Measurement::pData</a></div><div class="ttdeci">float * pData</div><div class="ttdoc">site data </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00066">Measurement.h:66</a></div></div>
+<div class="ttc" id="a00046_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../d3/dea/a00046.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00127">utils.cpp:127</a></div></div>
+<div class="ttc" id="a00394_html"><div class="ttname"><a href="../../d9/dad/a00394.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="ttc" id="a00027_html_a9ebd8e7288e0d3686f3d425b270f7b07"><div class="ttname"><a href="../../d0/d33/a00027.html#a9ebd8e7288e0d3686f3d425b270f7b07">Measurement::Measurement</a></div><div class="ttdeci">Measurement(mongo *conn, string hydroDBName, string sitesList, string siteType, time_t startDate, time_t endDate)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00020">Measurement.cpp:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">Measurement.h</a></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">Measurement.cpp</a></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:30 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

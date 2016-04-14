@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/rw.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/pqueue.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,92 +111,65 @@ $(document).ready(function(){initNavTree('d5/d4e/a00141.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">rw.c File Reference</div>  </div>
+<div class="title">pqueue.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Various routines that perform random-walk based operations on graphs stored as gk_csr_t matrices.  
+<p>This file implements various max-priority queues.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for rw.c:</div>
+Include dependency graph for pqueue.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/df1/a00685.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2rw_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2rw_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2rw_8c">
-<area shape="rect" id="node2" href="../../de/d36/a00123_source.html" title="GKlib.h" alt="" coords="1719,101,1792,131"/><area shape="rect" id="node3" href="../../d1/dd6/a00108.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,179,313,208"/><area shape="rect" id="node25" href="../../df/dc8/a00122.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,179,2021,208"/><area shape="rect" id="node26" href="../../d8/dfa/a00121.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,179,2144,208"/><area shape="rect" id="node27" href="../../d4/d81/a00110.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,179,2281,208"/><area shape="rect" id="node28" href="../../dd/d42/a00109.html" title="This file contains various constants definitions. " alt="" coords="2307,179,2397,208"/><area shape="rect" id="node29" href="../../db/d57/a00112.html" title="This file contains various macros. " alt="" coords="2422,179,2535,208"/><area shape="rect" id="node30" href="../../dd/d6d/a00111.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,179,2664,208"/><area shape="rect" id="node31" href="../../d8/d87/a00118.html" title="Templates for the qsort routine. " alt="" coords="2689,179,2796,208"/><area shape="rect" id="node32" href="../../d3/d00/a00113.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,179,2932,208"/><area shape="rect" id="node33" href="../../d8/d17/a00114.html" title="Templates for memory allocation routines. " alt="" coords="2957,179,3096,208"/><area shape="rect" id="node34" href="../../d2/da3/a00115.html" title="Templates for priority queues. " alt="" coords="3120,179,3255,208"/><area shape="rect" id="node35" href="../../d4/d3e/a00116.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,179,3425,208"/><area shape="rect" id="node36" href="../../d9/d4b/a00117.html" title="Templates for portable random number generation. " alt="" coords="3451,179,3585,208"/><area shape="rect" id="node37" href="../../df/d6a/a00119.html" title="Templates for various utility routines. " alt="" coords="3611,179,3721,208"/><area shape="rect" id="node38" href="../../d4/d98/a00120.html" title="This file contains function prototypes. " alt="" coords="3746,179,3843,208"/></map>
+<div class="center"><img src="../../db/d77/a00683.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pqueue_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pqueue_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pqueue_8c">
+<area shape="rect" id="node2" href="../../dc/dfe/a00125_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../d4/d81/a00110.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../da/d72/a00124.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../de/d36/a00123.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../db/d57/a00112.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../dd/d6d/a00111.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d8/d17/a00114.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d3/d00/a00113.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../d4/d98/a00120.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d2/da3/a00115.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../d4/d3e/a00116.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d9/d4b/a00117.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../d8/d87/a00118.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../df/d6a/a00119.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d8/dfa/a00121.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../df/dc8/a00122.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
 </div>
 </div>
 <p><a href="../../d5/d4e/a00141_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a5f79542ae883d026565a71bab5bca8d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a5f79542ae883d026565a71bab5bca8d4">gk_rw_PageRank</a> (gk_csr_t *mat, float lamda, float eps, int max_niter, float *pr)</td></tr>
-<tr class="separator:a5f79542ae883d026565a71bab5bca8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a89b02dbc0bd6ec64351eff7c65c6440e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>(a, b)&#160;&#160;&#160;((a) &gt; (b))</td></tr>
+<tr class="separator:a89b02dbc0bd6ec64351eff7c65c6440e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Various routines that perform random-walk based operations on graphs stored as gk_csr_t matrices. </p>
-<dl class="section author"><dt>Author</dt><dd>George Karypis </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: rw.c 11078 2011-11-12 00:20:44Z karypis $ </pre> </dd></dl>
+<div class="textblock"><p>This file implements various max-priority queues. </p>
+<p>The priority queues are generated using the GK_MKPQUEUE macro.</p>
+<dl class="section date"><dt>Date</dt><dd>Started 3/27/2007 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>George </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: pqueue.c 10711 2011-08-31 22:23:04Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">rw.c</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5f79542ae883d026565a71bab5bca8d4"></a>
+<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">pqueue.c</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a89b02dbc0bd6ec64351eff7c65c6440e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int gk_rw_PageRank </td>
+          <td class="memname">#define key_gt</td>
           <td>(</td>
-          <td class="paramtype">gk_csr_t *&#160;</td>
-          <td class="paramname"><em>mat</em>, </td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>lamda</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>eps</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>max_niter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pr</em>&#160;</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td>&#160;&#160;&#160;((a) &gt; (b))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Computes the (personalized) page-rank of the vertices in a graph.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mat</td><td>is the matrix storing the graph. </td></tr>
-    <tr><td class="paramname">lamda</td><td>is the restart probability. </td></tr>
-    <tr><td class="paramname">eps</td><td>is the error tolerance for convergance. </td></tr>
-    <tr><td class="paramname">max_niter</td><td>is the maximum number of allowed iterations. </td></tr>
-    <tr><td class="paramname">pr</td><td>on entry stores the restart distribution of the vertices. This allows for the computation of personalized page-rank scores by appropriately setting that parameter. On return, pr stores the computed page ranks.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the number of iterations that were performed. </dd></dl>
+<p>Create the various max priority queues </p>
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00029">29</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">rw.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00018">18</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">pqueue.c</a>.</p>
 
 </div>
 </div>
@@ -205,8 +178,8 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">rw.c</a></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">pqueue.c</a></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:30 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

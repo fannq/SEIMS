@@ -1,11 +1,16 @@
 var a00161 =
 [
-    [ "ComputeBFSOrdering", "d6/d7d/a00161.html#a5a549d240e59b4a6dedd991e0c4e82c1", null ],
-    [ "EliminateComponents", "d6/d7d/a00161.html#a002ad59e8624946cc9450cb9b3c10741", null ],
-    [ "FindPartitionInducedComponents", "d6/d7d/a00161.html#a9fe01ab71e17df2db81db0ce0376cc96", null ],
-    [ "FindSepInducedComponents", "d6/d7d/a00161.html#a47a30c466b82022d1c12f2aac5653223", null ],
-    [ "IsConnected", "d6/d7d/a00161.html#a06638e74c8e49f9fb9881b960f8c4f05", null ],
-    [ "IsConnectedSubdomain", "d6/d7d/a00161.html#aa6e8cf71404dada70fbba7451df92acb", null ],
-    [ "MoveGroupContigForCut", "d6/d7d/a00161.html#a59be93c110982dd4b4e918957804e3b7", null ],
-    [ "MoveGroupContigForVol", "d6/d7d/a00161.html#ac9671fbb0e67a5e8bee0d578ebcd0382", null ]
+    [ "CoarsenGraph", "d6/d7d/a00161.html#adeb2c7c9bffbeca00fcc97854fb88ada", null ],
+    [ "CoarsenGraphNlevels", "d6/d7d/a00161.html#afa83320e3b311e0feef90d0bf4303716", null ],
+    [ "CreateCoarseGraph", "d6/d7d/a00161.html#aac8820421b1c25698140c1b470c50e07", null ],
+    [ "CreateCoarseGraphNoMask", "d6/d7d/a00161.html#a70dc59d4c7190507e7ad9a4cc0d80707", null ],
+    [ "CreateCoarseGraphPerm", "d6/d7d/a00161.html#a0aba484ba693edd6d56426d04bd7fd4b", null ],
+    [ "Match_2Hop", "d6/d7d/a00161.html#aead846b2c69509c914426ff087509934", null ],
+    [ "Match_2HopAll", "d6/d7d/a00161.html#aa56d53cace160be27fb1750dcaffbc04", null ],
+    [ "Match_2HopAny", "d6/d7d/a00161.html#a838a4013e3b5cc5278ecc7a8757ce0ef", null ],
+    [ "Match_RM", "d6/d7d/a00161.html#a892d2ea16d613abc2276ad5fc6999724", null ],
+    [ "Match_SHEM", "d6/d7d/a00161.html#af3ec72f3170ccdca06d8ad018d86cc58", null ],
+    [ "PrintCGraphStats", "d6/d7d/a00161.html#aac3e480e7e3bd02bfdf001d858a93562", null ],
+    [ "ReAdjustMemory", "d6/d7d/a00161.html#ab69ab96ec78174da232dff05e9c79d2f", null ],
+    [ "SetupCoarseGraph", "d6/d7d/a00161.html#a113522304bf628b09d0b69b4db05050e", null ]
 ];

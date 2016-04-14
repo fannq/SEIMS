@@ -2,8 +2,8 @@ var NAVTREE =
 [
   [ "SEIMS-2016", "index.html", [
     [ "Changelog", "d7/d46/a00002.html", null ],
-    [ "Preprocessing for SEIMS", "d0/d0b/a00004.html", null ],
-    [ "Manual for Developers in Chinese v1.1", "de/d21/a00006.html", null ],
+    [ "Manual for Developers in Chinese v1.1", "d0/d0b/a00004.html", null ],
+    [ "Preprocessing for SEIMS", "de/d21/a00006.html", null ],
     [ "Todo List", "df/d46/a00664.html", null ],
     [ "Deprecated List", "d9/d41/a00666.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -35,12 +35,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d2/dee/a00049.html#ae32050bde46f5545e1c306853afd8d97",
-"d4/d98/a00120.html#a92bfa3f7bc76f9fb591ad67f665383e9",
-"d6/d80/a00371.html",
-"d9/db6/a00146.html",
-"dc/d87/a00032.html#a289b64822dbb8e8fe47bfa060e0deb7a",
-"df/d98/a00107.html#a1c3b8d80bd9620dc66f24d4854c0f6d3"
+"d2/d34/a00156.html#a25f2f86771b268567d2b948b32961812ad909ca987348cb382f8d3ac7a768f04a",
+"d5/d13/a00205_source.html",
+"d7/df7/a00058_source.html",
+"da/dc3/a00657.html#ga96686b43fea284176a5de2f143e52698",
+"dd/da2/a00192_source.html",
+"df/dc8/a00122.html#ac59047c4a89fa4680d746fcdce4aa1a7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

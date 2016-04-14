@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SettingsOutput.h File Reference</title>
+<title>SEIMS-2016: src/base/module_setting/SettingsOutput.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,21 +111,20 @@ $(document).ready(function(){initNavTree('d9/dc1/a00388.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SettingsOutput.h File Reference</div>  </div>
+<div class="title">SettingsOutput.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d56/a00384_source.html">Settings.h</a>&quot;</code><br/>
-<code>#include &quot;PrintInfo.h&quot;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/dfc/a00349_source.html">clsRasterData.h</a>&quot;</code><br/>
-<code>#include &quot;mongo.h&quot;</code><br/>
-<code>#include &quot;gridfs.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/dc9/a00389_source.html">SettingsOutput.h</a>&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d00/a00401_source.html">utils.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d53/a00399_source.html">text.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/dad/a00394_source.html">ModelException.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SettingsOutput.h:</div>
+Include dependency graph for SettingsOutput.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d95/a00757.png" border="0" usemap="#src_2base_2module__setting_2_settings_output_8h" alt=""/></div>
-<map name="src_2base_2module__setting_2_settings_output_8h" id="src_2base_2module__setting_2_settings_output_8h">
-<area shape="rect" id="node2" href="../../d2/d56/a00384.html" title="Settings class. " alt="" coords="355,101,448,131"/><area shape="rect" id="node12" href="../../d7/d08/a00378_source.html" title="PrintInfo.h" alt="" coords="1035,101,1129,131"/><area shape="rect" id="node17" href="../../d7/dfc/a00349.html" title="Define clsRasterData class. " alt="" coords="1171,256,1305,285"/><area shape="rect" id="node9" href="../../d9/d95/a00400.html" title="definition of utils class " alt="" coords="263,179,327,208"/><area shape="rect" id="node13" href="../../d6/db8/a00376.html" title="Class to store parameter information. " alt="" coords="937,179,1044,208"/><area shape="rect" id="node16" href="../../d3/dc9/a00355.html" title="clsSpecificOutput.h" alt="" coords="754,179,912,208"/><area shape="rect" id="node14" href="../../db/d95/a00391.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="875,256,1044,285"/></map>
+<div class="center"><img src="../../d9/d77/a00756.png" border="0" usemap="#src_2base_2module__setting_2_settings_output_8cpp" alt=""/></div>
+<map name="src_2base_2module__setting_2_settings_output_8cpp" id="src_2base_2module__setting_2_settings_output_8cpp">
+<area shape="rect" id="node2" href="../../dc/dc9/a00389.html" title="SettingsOutput.h" alt="" coords="455,101,595,131"/><area shape="rect" id="node10" href="../../d7/d00/a00401.html" title="definition of utils class " alt="" coords="1263,256,1327,285"/><area shape="rect" id="node22" href="../../d1/d53/a00399.html" title="Predefined of some const string names. " alt="" coords="1349,101,1408,131"/><area shape="rect" id="node23" href="../../d9/dad/a00394.html" title="Define ModelException class. " alt="" coords="1093,101,1243,131"/><area shape="rect" id="node3" href="../../d5/d05/a00385.html" title="Settings class. " alt="" coords="1016,179,1109,208"/><area shape="rect" id="node13" href="../../d8/d95/a00379_source.html" title="PrintInfo.h" alt="" coords="478,179,572,208"/><area shape="rect" id="node18" href="../../db/d10/a00350.html" title="Define clsRasterData class. " alt="" coords="135,333,269,363"/><area shape="rect" id="node14" href="../../d4/d13/a00377.html" title="Class to store parameter information. " alt="" coords="393,256,500,285"/><area shape="rect" id="node17" href="../../d6/de1/a00356.html" title="clsSpecificOutput.h" alt="" coords="525,256,683,285"/><area shape="rect" id="node15" href="../../d4/d27/a00392.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="399,333,568,363"/></map>
 </div>
 </div>
 <p><a href="../../d9/dc1/a00388_source.html">Go to the source code of this file.</a></p>
@@ -134,14 +133,14 @@ Include dependency graph for SettingsOutput.h:</div>
 <dl class="section version"><dt>Version</dt><dd></dd></dl>
 <dl class="section date"><dt>Date</dt><dd>June 2015 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d9/dc1/a00388_source.html">SettingsOutput.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/dc1/a00388_source.html">SettingsOutput.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/dc1/a00388.html">SettingsOutput.h</a></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/dc1/a00388.html">SettingsOutput.cpp</a></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:31 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

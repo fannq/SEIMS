@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: Preprocessing for SEIMS</title>
+<title>SEIMS-2016: Manual for Developers in Chinese v1.1</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -105,147 +105,456 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Preprocessing for SEIMS </div>  </div>
+<div class="title">Manual for Developers in Chinese v1.1 </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>prepared by Liangjun Zhu</p>
-<p>2015/6/20</p>
-<h2>1 Prepared Data</h2>
-<p>像所有的水文模型一样，我们的准备数据有气象、水文、空间数据等，下图先入为主，展示了输入数据的文件结构。</p>
-<div class="image">
-<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fprepareddata.png" />
-</div>
-<p>**图1 模型数据准备**</p>
-<h3>1.1 Climate Data</h3>
-<p>Include <b>Precipitation</b> and <b>Meteorological</b> daily data. </p>
-<div class="fragment"><div class="line">preprocess/<a class="code" href="../../d9/db6/a00146.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>.py</div>
-<div class="line">--ImportDailyMeteoData(hostname,port,climateDBName,MeteoVarFile,MeteoDailyFile,MetroSiteFile)</div>
-<div class="line">--ImportDailyPrecData(hostname,port,climateDBName,PrecSitesVorShp,PrecExcelPrefix,PrecDataYear)</div>
-</div><!-- fragment --><p> <b>TODO</b>:</p>
+<div class="textblock"><p>prepared by Liangjun Zhu （zlj.ac.cn）</p>
+<h2>Latest Updated：Apr.14, 2016 </h2>
+<h1>目录</h1>
+<p><a href="../../#前言">**前言**</a></p>
+<p><a href="../../#github使用说明">**Github使用说明**</a></p>
+<ol type="1">
+<li><a href="../../#windows下安装git">Windows下安装Git</a></li>
+<li><a href="../../#从github中克隆代码库">从Github中克隆代码库</a></li>
+<li><a href="../../#代码同步与更新">代码同步与更新</a></li>
+</ol>
+<p><a href="../../#seims源码编译">**SEIMS源码编译**</a></p>
+<ol type="1">
+<li><a href="../../#源码结构">源码结构</a></li>
+<li><a href="../../#windows下vs编译">Windows下VS编译</a></li>
+<li><a href="../../#linux下gnu编译">Linux下GNU编译</a></li>
+</ol>
+<p><a href="../../#运行seims">**运行SEIMS**</a></p>
+<ol type="1">
+<li><a href="../../#mongodb">mongoDB</a></li>
+<li><a href="../../#模型配置文件">模型配置文件</a></li>
+<li><a href="../../#运行命令">运行命令</a></li>
+</ol>
+<p><a href="../../#seims基本框架">**SEIMS基本框架**</a></p>
+<ol type="1">
+<li><a href="../../#模型运行流程">模型运行流程</a></li>
+</ol>
+<p><a href="../../#seims模块编写流程">**SEIMS模块编写流程**</a></p>
+<p><a href="../../#编码规范">**编码规范**</a></p>
+<ol type="1">
+<li><a href="../../#doxygen注释规则">doxygen注释规则</a></li>
+</ol>
+<p><a href="http://pan.baidu.com/s/1bng29AJ">需要用的的软件</a></p>
+<h2># 前言 </h2>
+<p>SEIMS（Spatially Explicit Integrated Modeling System）模型是由刘军志等人开发的以栅格为基本模拟单元、能体现水流空间运动的全分布式水文模型。SEIMS在借鉴Wetspa、LISEM、CASC2D、DHSVM和流溪河模型等多个模型基础上开发的模块化水文模型，采用C++编写，实现了子流域-基本单元的双层并行，采用的并行策略为共享内存（OpenMP）和消息传递（MPI），并利用NoSql数据库MongoDB进行数据组织管理。模型可在Windows及Linux平台下运行。</p>
+<p>目前，模型还不完善，主要存在以下主要问题：</p>
+<ol type="1">
+<li>生态和养分循环模块还很初步，距实用还相差很远；</li>
+<li>水文和侵蚀模块虽相对成熟，但尚缺乏进一步的验证工作。</li>
+</ol>
+<p>因此需要大家群策群力完善模型，主要有以下几个目标：</p>
+<ol type="1">
+<li>每个模块都具有完善的理论和开发文档，添加符合doxygen规范的代码注释；</li>
+<li>编码规范（包括模块和变量命名，编程习惯等），空闲了可以多看看Google C++ Code Style（<a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.html">EN</a>，<a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/02/2310278.html">CN</a>）；</li>
+<li>编写模块需要与当前主流的其他模型进行对比验证，多做测试；</li>
+<li>为用户提供易用的Web界面，用户可选择在服务器端运行模型，也可以选择把模型和数据下载到本机运行。</li>
+</ol>
+<h1>Github使用说明</h1>
+<p>为了便于模型开发的多人协作，计划采用Github平台进行版本控制。关于Git的详细教程，推荐阅读<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/">廖学峰的网站</a>这一节主要介绍我们需要用到的一些命令操作。快速记忆一些<a href="http://www.codeceo.com/article/git-command-guide.html">常用的Git命令</a>吧！ <a href="../../#目录">返回目录</a> </p>
+<h2>Windows下安装Git</h2>
+<p><a href="http://msysgit.github.io/">msysgit</a>是windows版的Git，直接下载安装即可，安装完成后，打开“开始”菜单，找到Git-&gt;Git Bash，出现一个类似命令行的窗口，说明Git安装成功了。 安装完成后，在git bash 命令行里输入：</p>
+<div class="fragment"><div class="line">$ git config --global user.name <span class="stringliteral">&quot;Your Name&quot;</span></div>
+<div class="line">$ git config --global user.email <span class="stringliteral">&quot;email@example.com&quot;</span></div>
+</div><!-- fragment --><p>这两行表示，这台机器上的所有Git仓库都使用这个配置。当然，你也可以为不同的仓库配置不同的用户名，详情请参阅相关文档。</p>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>从Github中克隆代码库</h2>
+<p>配置好本地的Git环境之后，我们需要将代码库从Github上克隆到本地计算机。</p>
 <ul>
-<li>降水数据和气象数据的准备形式不同，应尽量简单化，如都用文本文件，逐条存储，并带有表头，用于匹配Variables名。</li>
-<li>站点泰森多边形此处并没有什么用处，只是读取了站点信息，应当将站点信息存入文本文件，而将泰森多边形作为<a href="../../#13-spatial-data">Spatial Data</a>的输入信息</li>
-</ul>
-<h3>1.2 Hydrological Data</h3>
-<p>Include <b>Discharge</b> daily and storm date. </p>
-<div class="fragment"><div class="line">ImportDailyDischargeData(hostname,port,climateDBName,DischargeExcelPrefix,DischargeYear)</div>
-</div><!-- fragment --><p> <b>TODO</b>:</p>
-<ul>
-<li>流量日值数据的导入和气象数据存在问题一样，需组织成二维矩阵形式的excel表格，非常不方便。</li>
-<li>现在没将暴雨流量数据导入放进来，之后也需要对其进行统一格式整理</li>
-<li>我觉得最好是将流量测量的原始数据存入数据库，用的时候再读取出来，处理后使用</li>
-</ul>
-<h3>1.3 Spatial Data</h3>
-<p>空间数据主要输入数据为DEM、流域出口、土壤粘粒砂粒含量及有机质含量、土地利用。 处理的步骤为：</p>
-<ul>
-<li>调用<a href="http://hydrology.usu.edu/taudem/taudem5/index.html">TauDEM</a>进行坡度、流向、河网提取、子流域划分等</li>
-<li>根据SQLite数据库，通过土地利用和土壤属性及水文变量，进行模型参数提取，包括CN值、水力半径、曼宁系数、流速、IUH、潜在径流系数等等</li>
-<li>最后，将所有栅格文件导入MongoDB数据库 <div class="fragment"><div class="line"><span class="preprocessor">## Spatial Data</span></div>
-<div class="line"><span class="preprocessor"></span>SubbasinDelineation(np, WORKING_DIR,dem,outlet_file, threshold, mpiexeDir=MPIEXEC_DIR,exeDir=CPP_PROGRAM_DIR)</div>
-<div class="line">f = open(WORKING_DIR + os.sep + &quot;ProjConfig.txt&quot;)</div>
-<div class="line">proj4Str = f.readlines()[2].strip()</div>
-<div class="line">f.close()</div>
-<div class="line">GenerateSubbasins(WORKING_DIR, proj4Str,exeDir=CPP_PROGRAM_DIR)</div>
-<div class="line"><span class="preprocessor">## Extract parameters from landuse, soil properties etc.</span></div>
-<div class="line"><span class="preprocessor"></span>ExtractParameters(landuseFile, sandList, clayList, orgList, WORKING_DIR, True, True, True, True)</div>
-<div class="line"><span class="preprocessor">## Import to MongoDB database</span></div>
-<div class="line"><span class="preprocessor">BuildMongoDB(WORKING_DIR, SpatialDBName, stormMode, forCluster, ClimateDBName, PrecSitesVorShp,MeteorSitesVorShp)</span></div>
+<li>首先在Github.com上注册一个账号。注册好之后，需要设置SSH key，在<code>git bash</code>中输入： <div class="fragment"><div class="line">ssh-keygen -t rsa -C youremail@example.com</div>
 </div><!-- fragment --></li>
 </ul>
-<h2>2 Configuration for Preprocessing Program</h2>
-<p>以上输入数据准备完成之后，我们首先需要编译一下预处理需要的C++程序。</p>
+<p>一路回车，如果顺利的话，在用户目录里能找到&lt;tt&gt;.ssh目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的密钥对，前者是私钥，后者是公钥。</p>
 <ul>
-<li>在源代码外新建一个build文件夹，如E:, 打开 “开始”-&gt;Microsoft Visual Studio 2010-&gt;Visual Studio Tools-&gt;Visual Studio 命令提示(2010)，以管理员方式运行，依次输入以下命令： <div class="fragment"><div class="line">cd e:\build</div>
+<li>然后，登录Github，打开 Account Settings，SSH key页面，点Add SSH Key，Title任意填，在Key文本框里填上<code>id_rsa.pub</code>的内容，点击Add key就好啦。</li>
+<li>打开SEIMS模型的首页https://github.com/seims/SEIMS， 点击<code>Fork</code>，来创建自己账户下的SEIMS克隆，克隆结束之后，复制克隆库的SSH地址，这样它会自动使用你自己的SSH密钥，而不用每次在<code>git pull</code>或者<code>push</code>时询问你的用户名和密码。下一步，我们将克隆一份代码库到本地计算机。</li>
+</ul>
+<div class="fragment"><div class="line">cd &lt;destination folder&gt;</div>
+<div class="line">git clone git@github.com:&lt;yourname&gt;/SEIMS.git</div>
+<div class="line">or</div>
+<div class="line">git clone https:<span class="comment">//github.com/&lt;yourname&gt;/SEIMS.git</span></div>
+</div><!-- fragment --><p>两种克隆方式推荐使用https，不用每次push时都要输入密码，如果用第一种方式，可以采用如下方式免输密码：</p>
+<div class="fragment"><div class="line">open git bash</div>
+<div class="line">cd</div>
+<div class="line">touch .git-credentials <span class="comment">//创建.git-credentials文件</span></div>
+<div class="line">vim .git-creditials    <span class="comment">//用vim编辑此文件，输入以下内容</span></div>
+<div class="line">touch .git-credentials</div>
+<div class="line">vim .git-credentials</div>
+<div class="line">https:<span class="comment">//{username}:{password}@github.com</span></div>
+<div class="line"><span class="comment">//然后输入</span></div>
+<div class="line">git config --global credential.helper store</div>
+<div class="line"><span class="comment">//而后查看.gitconfig文件，发现多了一项：</span></div>
+<div class="line">[credential]</div>
+<div class="line">    helper = store</div>
+<div class="line"><span class="comment">//重启git bash就会发现，git push时不用再输入密码了</span></div>
+</div><!-- fragment --><ul>
+<li>切换到克隆目录，在这里可以添加上游远程仓库： <div class="fragment"><div class="line">git remote add upstream git@github.com:seims/SEIMS.git</div>
+</div><!-- fragment --></li>
+<li>这样，我们就将SEIMS代码克隆到了本地计算机一份。接下来，我们尝试对本地SEIMS文件做一下修改，然后提交到远程库（你自己的），最后通过<code>pull request</code> 提交给SEIMS代码拥有者。</li>
+</ul>
+<p>为了说明问题，我简单修改了一下README文件，然后 <code>git status</code> 查看本地和远程的差别 随后 </p>
+<div class="fragment"><div class="line">Git add README.md</div>
+<div class="line">Git commit –m <span class="stringliteral">&quot;modification test”</span></div>
+<div class="line"><span class="stringliteral">Git push –u origin master</span></div>
+</div><!-- fragment --><p>这样就把本地的本次修改提交到了远程库中。</p>
+<ul>
+<li>在我的github目录下可以看到刚才提交的修改，这时候，如果想把这个修改，提交到<code>seims/SEIMS</code>，需要点击<code>pull request</code>按钮,然后点击<code>Create pull request</code>， 便把本次修改提交完成了。而SEIMS拥有者就会收到新的<code>pull request</code>并处理了。</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>代码同步与更新</h2>
+<p>以上我们知道了如何将本地的修改提交到源代码库，接下来，看看如何将源代码库中的更新同步到本地库中。</p>
+<p>比如我在<code>seims/SEIMS</code>下修改了README.md文件，现在同步到本地。</p>
+<ul>
+<li>查看远程主机地址 <div class="fragment"><div class="line">git remote -v</div>
+</div><!-- fragment --> 经过以上的设置，正常情况应该看到类似结果,如果没有upstream则需添加上游远程库</li>
+</ul>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fgitremotev.png" />
+</div>
+<ul>
+<li>将源代码库更新的内容同步到本地，检查差异，然后再和本机分支合并 <div class="fragment"><div class="line">git fetch upstream</div>
+<div class="line">git checkout master</div>
+<div class="line">git merge upstream/master</div>
+</div><!-- fragment --></li>
+<li>多数情况下，git可以自动合并，如果出现冲突，则需手动处理后，再<code>commit</code>提交，冲突结果类似：</li>
+</ul>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fconflictwhenmerge.png" />
+</div>
+<p><a href="../../#目录">返回目录</a></p>
+<h1>SEIMS源码编译</h1>
+<p>这部分介绍如何在不同平台下编译安装SEIMS。</p>
+<h2>源码结构</h2>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fsrcdir.png" />
+</div>
+<p>根目录如上图所示，其中: </p>
+<div class="fragment"><div class="line">.git Github版本管理的一些文件，勿动</div>
+<div class="line">doc  存放模型开发文档（doxygen自动生成）</div>
+<div class="line">include和lib为外部依赖库的文件，勿改动</div>
+<div class="line">model_data为测试数据，使用时应复制到他处</div>
+<div class="line">src为SEIMS源码</div>
+<div class="line">preprocess为预处理程序源码</div>
+<div class="line">postprocess为后处理程序源码</div>
+<div class="line">.gitignore为github管理时忽略的文件后缀名</div>
+<div class="line">Changelog.md为版本更新日志</div>
+<div class="line">CMakeLists.txt为CMake命令文件，跨平台编译源码</div>
+<div class="line">LICENSE为GNU LICENSE</div>
+<div class="line">READEME.md为模型介绍</div>
+</div><!-- fragment --><p> <code>src</code>内有3个文件夹，<code>base</code>为模型基本模块组，<code>modules</code>为功能模块组，<code>main</code>为主程序入口模块组。</p>
+<p><code>modules</code>中包含了SEIMS功能模块组：<code>hydrology</code>和<code>Hydrology_longterm</code>为水文模块组，<code>erosion</code>为侵蚀模块组，<code>nutrient</code>为养分循环模块组，<code>growth</code>为植被生长模块组。 每个模块组下又包括不同的算法模块。</p>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>Windows下VS编译</h2>
+<ul>
+<li>安装好Microsoft Visual Studio 2010以及<a href="http://www.microsoft.com/en-us/download/details.aspx?id=36045">Microsoft HPC Pack 2012 MS-MPI</a>（即MPICH2的Microsoft实现版本）、<a href="http://www.cmake.org/files/v3.2/cmake-3.2.3-win32-x86.exe">cmake-3.2.2</a></li>
+<li>“开始”-&gt;Microsoft Visual Studio 2010-&gt;Visual Studio Tools-&gt;Visual Studio 命令提示(2010)，以管理员方式运行；</li>
+<li>在源码外，新建一个文件夹用于存放编译出的VS工程，比如我的是E:-zlj <div class="fragment"><div class="line">cd E:\github-zlj\SEIMS_MPI</div>
 <div class="line">e:</div>
-<div class="line">cmake &lt;SEIMS Folder&gt;/preprocess</div>
-<div class="line">mkdir metis</div>
-<div class="line">cd .\metis</div>
-<div class="line">cmake &lt;SEIMS Folder&gt;/preprocess/cpp_src/metis-5.1.0-pk</div>
 </div><!-- fragment --></li>
-<li>用VS打开<code>e:\build</code>文件夹下的<code>SEIMS_Preprocess.sln</code>，并生成解决方案，此时，预处理程序目录为<code>CPP_PROGRAM_DIR = r'E:\build\Debug'</code>，或者<code>CPP_PROGRAM_DIR = r'E:\build\Release'</code></li>
-<li>用VS打开<code>e:\build\metis</code>文件夹下的<code>METIS.sln</code>，并生成解决方案，此时，用于任务划分的<code>METIS</code>程序目录为<code>METIS_DIR = r'E:\build\metis\programs\Debug'</code>，或者<code>METIS_DIR = r'E:\build\metis\programs\Release'</code></li>
+<li>打开根目录下的CMakeLists.txt，如果想生成&lt;tt&gt;OpenMP的版本，则把 <div class="fragment"><div class="line">SET(SEIMS_VERSION <span class="stringliteral">&quot;MPI&quot;</span>)</div>
+</div><!-- fragment --> 注释掉，反之亦然，然后： <div class="fragment"><div class="line">cmake &lt;source path&gt;</div>
+<div class="line">我的是cmake E:\github-zlj\SIMS</div>
+</div><!-- fragment --></li>
+<li>cmake会自动生成sln项目文件，随后打开SEIMS.sln。命令行界面如下（左），VS解决方案如下（右）。</li>
 </ul>
-<p>编译完成后，打开<code>./preprocess/config.py</code>进行程序运行前的配置</p>
-<ul>
-<li>首先是一些目录的指定，下面是<code>Windows</code>的设置，<code>Linux</code>也类似： <div class="fragment"><div class="line"><span class="preprocessor">## Directionaries </span></div>
-<div class="line"><span class="preprocessor"></span><span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
-<div class="line">    DATA_BASE_DIR = r<span class="stringliteral">&#39;E:\data_prepare&#39;</span></div>
-<div class="line">    PREPROC_SCRIPT_DIR = r<span class="stringliteral">&#39;&lt;SEIMS Folder&gt;\preprocess&#39;</span></div>
-<div class="line">    CPP_PROGRAM_DIR = r<span class="stringliteral">&#39;E:\build\Debug&#39;</span></div>
-<div class="line">    METIS_DIR = r<span class="stringliteral">&#39;E:\build\metis\programs\Debug&#39;</span></div>
-<div class="line">    MPIEXEC_DIR = None</div>
-</div><!-- fragment --></li>
-<li>然后，设置<code>mongoDB</code>数据库相关,下例为本机数据库地址： <div class="fragment"><div class="line"><span class="preprocessor">## MongoDB related</span></div>
-<div class="line"><span class="preprocessor"></span>HOSTNAME = <span class="stringliteral">&#39;127.0.0.1&#39;</span></div>
-<div class="line">PORT = 27017</div>
-<div class="line">ClimateDBName = <span class="stringliteral">&#39;climate_dianbu&#39;</span></div>
-<div class="line">SpatialDBName = <span class="stringliteral">&#39;model_dianbu_30m_longterm&#39;</span></div>
-<div class="line">forCluster = True </div>
-<div class="line">stormMode = False</div>
-</div><!-- fragment --> <code>forCluster</code> 如为<code>True</code>，则说明所建数据库是为<code>MPI</code>并行程序准备的，此时，所有栅格数据均按照子流域编号进行分别存储，如坡度数据在<code>forCluster</code>为<code>False</code>时，数据库中存储为<code>1_SLOPE</code>,而<code>forCluster</code>为True时，则存储为<code>1_SLOPE</code>, <code>2_SLOPE</code>...<code>N_SLOPE</code></li>
-</ul>
-<p>stormMode指示数据库是为暴雨模拟还是长时段模拟所建</p>
-<ul>
-<li>再然后，需要设置<code>Climate</code>数据的路径，其中<code>PrecDataYear</code>如果有多个年份，则可为[2011,2012,2013]等 <div class="fragment"><div class="line"><span class="preprocessor">## Climate Input</span></div>
-<div class="line"><span class="preprocessor"></span>PrecSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor.shp&#39;</span></div>
-<div class="line"><span class="keywordflow">if</span> stormMode:</div>
-<div class="line">    PrecStormSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor_storm.shp&#39;</span></div>
-<div class="line">MeteorSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Metero_hefei_Vor.shp&#39;</span></div>
-<div class="line">PrecExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;precipitation_by_day_&#39;</span></div>
-<div class="line">PrecDataYear = [2014]</div>
-<div class="line">MeteoVarFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Variables.txt&#39;</span></div>
-<div class="line">MeteoDailyFile = CLIMATE_DATA_DIR + os.sep+ <span class="stringliteral">&#39;meteorology_dianbu_daily.txt&#39;</span></div>
-<div class="line">MetroSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;sites_hefei.txt&#39;</span></div>
-<div class="line">DischargeExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;discharge_by_day_&#39;</span></div>
-<div class="line">DischargeYear = [2014]</div>
-</div><!-- fragment --></li>
-<li>随后，设置<code>SQLite</code>数据库名 <div class="fragment"><div class="line"><span class="preprocessor">## Parameters for SEIMS</span></div>
-<div class="line"><span class="preprocessor">sqliteFile = DATA_BASE_DIR + os.sep + &quot;Parameter.db3&quot;</span></div>
-</div><!-- fragment --></li>
-<li>随后，设置空间数据路径及<code>TauDEM</code>运行的并行核数 <div class="fragment"><div class="line"><span class="preprocessor">## Spatial Input</span></div>
-<div class="line"><span class="preprocessor"></span>dem = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;dem_30m.tif&#39;</span></div>
-<div class="line">outlet_file = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;outlet_30m.shp&#39;</span></div>
-<div class="line"></div>
-<div class="line">threshold = 0  # threshold <span class="keywordflow">for</span> stream extraction from D8-flow accumulation weighted Peuker-Douglas stream sources</div>
-<div class="line"><span class="preprocessor">               # if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
-<div class="line"><span class="preprocessor"></span>np = 4  # number of parallel processors</div>
-<div class="line">landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
-<div class="line">sandList = []</div>
-<div class="line">clayList = []</div>
-<div class="line">orgList = []</div>
-<div class="line"><span class="keywordflow">for</span> i in [1,2]:</div>
-<div class="line">    sandFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;sand&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span> </div>
-<div class="line">    clayFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;clay&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
-<div class="line">    orgFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;org&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
-<div class="line">    sandList.append(sandFile)</div>
-<div class="line">    clayList.append(clayFile)</div>
-<div class="line">    orgList.append(orgFile)</div>
-<div class="line">defaultSand = 40</div>
-<div class="line">defaultClay = 30</div>
-<div class="line">defaultOrg = 2.5</div>
-</div><!-- fragment --></li>
-<li>最后，可以选择根据土地利用和土壤属性查找表的项目，其中<code>LANDUSE_ATTR_LIST</code>为导入数据库时的表名，<code>LANDUSE_ATTR_DB</code>为<code>SQLite</code>数据库表中的属性列名 <div class="fragment"><div class="line"><span class="preprocessor"># LANDUSE_ATTR_LIST and SOIL_ATTR_LIST is selected from sqliteFile database</span></div>
-<div class="line"><span class="preprocessor"></span>LANDUSE_ATTR_LIST = [<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;Interc_max&quot;</span>, <span class="stringliteral">&quot;Interc_min&quot;</span>, <span class="stringliteral">&quot;RootDepth&quot;</span>, \</div>
-<div class="line">                    <span class="stringliteral">&quot;USLE_C&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>,<span class="stringliteral">&quot;USLE_P&quot;</span>]</div>
-<div class="line">LANDUSE_ATTR_DB = [<span class="stringliteral">&quot;manning&quot;</span>,<span class="stringliteral">&quot;i_max&quot;</span>,<span class="stringliteral">&quot;i_min&quot;</span>, <span class="stringliteral">&quot;root_depth&quot;</span>, <span class="stringliteral">&quot;usle_c&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>]</div>
-<div class="line">SOIL_ATTR_LIST = [<span class="stringliteral">&quot;Sand&quot;</span>, <span class="stringliteral">&quot;Clay&quot;</span>, <span class="stringliteral">&quot;FieldCap&quot;</span>, <span class="stringliteral">&quot;Conductivity&quot;</span>, <span class="stringliteral">&quot;Porosity&quot;</span>,\</div>
-<div class="line">                <span class="stringliteral">&quot;USLE_K&quot;</span>, <span class="stringliteral">&quot;WiltingPoint&quot;</span>, <span class="stringliteral">&quot;Poreindex&quot;</span>, <span class="stringliteral">&quot;Residual&quot;</span>, <span class="stringliteral">&quot;Density&quot;</span>]</div>
-<div class="line">SOIL_ATTR_DB  = [<span class="stringliteral">&quot;sand&quot;</span>, <span class="stringliteral">&quot;clay&quot;</span>, <span class="stringliteral">&quot;fc&quot;</span>, <span class="stringliteral">&quot;ks&quot;</span>, <span class="stringliteral">&quot;porosity&quot;</span>,<span class="stringliteral">&quot;usle_k&quot;</span>,<span class="stringliteral">&quot;wp&quot;</span>,\</div>
-<div class="line">                    <span class="stringliteral">&quot;P_INDEX&quot;</span>,<span class="stringliteral">&quot;rm&quot;</span>,<span class="stringliteral">&quot;B_DENSITY&quot;</span>]</div>
-</div><!-- fragment --></li>
-</ul>
-<h2>3 Running Preprocessing Program</h2>
-<p>以上设置完成之后，直接运行<code>./preprocess/main.py</code>即可！ 如果一切顺利，在<code>mongoDB</code>中我们可以看到自动创建的气象数据库和空间数据库，如下图所示：</p>
 <div class="image">
-<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fdatabases.png" />
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fcmake.png" />
 </div>
-<p>**图2 数据库列表** </p>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fvsproject.png" />
+</div>
+<ul>
+<li>按F6生成解决方案，在<code>Debug</code>或<code>Release</code>下可以看到一系列<code>lib</code>、<code>dll</code>库以及<code>seims_omp.exe</code>或<code>seims.exe</code>可执行文件。</li>
+<li>至此，由源码到VS工程的转换已经完成。在此基础上对代码所做的修改都是对&lt;source path&gt;内源文件的修改。</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>Linux下GNU编译</h2>
+<p>TODO: <code>CMakelist.txt</code>还未适配<code>Linux</code></p>
+<p><a href="../../#目录">返回目录</a> </p>
+<h1>运行SEIMS</h1>
+<p>SEIMS的运行分为两个版本：<code>OpenMP</code>和<code>MPI</code> 源码库中<code>model_data</code>中存放的为示例数据，建议将此文件夹拷到本机的其他位置，再运行模型。</p>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>mongoDB</h2>
+<p>运行模型需要两个数据库源：气象数据库和参数数据库。</p>
+<ol type="1">
+<li>气象数据库：一个存放有降水和气象数据的<code>mongodb</code>数据库</li>
+<li>参数数据库 一个以模型名称命名的mongodb数据库，包括下面几个表：</li>
+</ol>
+<ul>
+<li>parameters：包含模型的各个输入参数的信息，可以通过调整Impact参数进行调参</li>
+<li>reaches：河道相关信息</li>
+<li>SiteList：模拟所需的降水和气象站点</li>
+<li>Spatial：模拟所需的栅格数据、插值权重数据等，以<code>GridFS</code>方式存储 数据库的准备由预处理程序完成。</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>模型配置文件</h2>
+<p>在每个模型的文件夹下包含三个主要的文件：</p>
+<ul>
+<li><code>config.fig</code>：包括模型运行所需的模块信息。模型运行时会按照顺序依次加载该文件中指定的各个模块（每行的最后一个以‘|’分隔的字符串），并顺序执行。</li>
+</ul>
+<p>通用格式为： </p>
+<div class="fragment"><div class="line">No. | SettingString | | ModuleName</div>
+<div class="line">i.e.</div>
+<div class="line">0 | TimeSeries_P | | TSD_RD</div>
+<div class="line"><span class="keywordflow">if</span> <span class="keyword">this</span>, the corresponding module name should be TSD_RD_P so that the module name is unique.</div>
+</div><!-- fragment --><ul>
+<li><code>file.in</code>：包括模型运行的:<ul>
+<li>MODE（<code>Daily</code>指定模型做日尺度的模拟；<code>Storm</code>指定模型做次降水的模拟）；</li>
+<li>Interval（步长，如果为Daily模拟，步长默认为1天，不可修改；如果为Storm模拟，步长单位为秒，可以分别指定坡面过程和河道过程的模拟步长，如“60, 60”指定次降水模拟的坡面和河道过程步长都是60s）；</li>
+<li>模拟开始时间（格式：YYYY-MM-DD HH:MM:SS）</li>
+<li>模拟结束时间</li>
+</ul>
+</li>
+<li><code>file.out</code>：指定模拟的输出，格式示例如下：<ul>
+<li>OUTPUTID|T_PET</li>
+<li>SITECOUNT|1</li>
+<li>SITEID|53399</li>
+<li>STARTTIME|2009-12-30 00:00:00</li>
+<li>ENDTIME|2010-12-31 00:00:00</li>
+<li>FILENAME|T_PET_1.asc <div class="fragment"><div class="line">可选标签有：</div>
+<div class="line">OUTPUTID: 输出变量名</div>
+<div class="line">INTERVAL: INTERVAL is used only <span class="keywordflow">for</span> the PET_TS output</div>
+<div class="line">SITECOUNT: is used only <span class="keywordflow">for</span> the time series output <span class="keywordflow">for</span> sites</div>
+<div class="line">SITENAME:</div>
+<div class="line">SITEID: </div>
+<div class="line">REACHNAME: </div>
+<div class="line">COUNT: </div>
+<div class="line">TYPE: 整合类型-&gt;</div>
+<div class="line">   <span class="keyword">enum</span> AggregationType</div>
+<div class="line">   {</div>
+<div class="line">      AT_Unknown = 0,  </div>
+<div class="line">      AT_Sum = 1,      </div>
+<div class="line">      AT_Average = 2,  </div>
+<div class="line">      AT_Minimum = 3,  </div>
+<div class="line">      AT_Maximum = 4,  </div>
+<div class="line">      AT_SpecificCells = 5 </div>
+<div class="line">   };</div>
+<div class="line">DATA_TYPE: </div>
+<div class="line">WEIGHT: </div>
+<div class="line">VERTICALINTERPOLATION: </div>
+<div class="line">SUBBASINCOUNT:  is used only <span class="keywordflow">for</span> the time series output <span class="keywordflow">for</span> subbasins</div>
+<div class="line">SUBBASINID: </div>
+<div class="line">RESERVOIRCOUNT: </div>
+<div class="line">RESERVOIRID: </div>
+<div class="line">STARTTIME: 开始时间</div>
+<div class="line">ENDTIME: 结束时间</div>
+<div class="line">FILENAME: 指定输出文件名及扩展名，如变量为Raster类型，则输出（.tif）文件</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+</ul>
+<p>如果输出变量为"QOUTLET"、"QTotal"、"SEDOUTLET"、"DissovePOutlet"、"AmmoniumOutlet"、"NitrateOutlet"，则需要有STARTTIME、ENDTIME、FILENAME</p>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>运行命令</h2>
+<ul>
+<li>OpenMP调用格式为： <div class="fragment"><div class="line">seims_omp &lt;ModelPath&gt; &lt;threadsNum&gt; [&lt;layeringMethod&gt; &lt;IP&gt; &lt;port&gt;]</div>
+<div class="line"></div>
+<div class="line">&lt;ModelPath&gt; is the path of the configuration of the Model.</div>
+<div class="line">&lt;threadsNum&gt; must be greater or equal than 1.</div>
+<div class="line">&lt;layeringMethod&gt; 0 and 1, which means UP_DOWN and DOWN_UP respectively.</div>
+<div class="line">&lt;IP&gt; is the address of mongodb database, and &lt;port&gt; is its port number.</div>
+</div><!-- fragment --> ModelPath的文件夹名称需与mongodb中数据库名称对应，且文件夹内需包含<code>config.fig</code>、<code>file.in</code>、<code>file.out</code>。其中<code>config.fig</code>指定模型的算法选择，<code>file.in</code>指定模型模拟尺度和模拟时段，<code>file.out</code>指定模型输出。</li>
+<li>MPI调用格式为： <div class="fragment"><div class="line">mpiexec –n 6 seims &lt;parallel.config file&gt;</div>
+<div class="line">-n 指定并行计算的核数</div>
+<div class="line">&lt;parallel.config file&gt; 为配置文件，包含</div>
+<div class="line">    ModelName，ProjectPath，ModulePath，DBHost，DBPort，TreadNumber，LayeringMethod</div>
+</div><!-- fragment --> 与OpenMP版本一样，ProjectPath内也需有<code>config.fig</code>、<code>file.in</code>、<code>file.out</code>。</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h1>SEIMS基本框架</h1>
+<p>在SEIMS模型中，每个子过程模拟方法对应一个独立的模块，并以动态链接库的形式存在（Windows 系统中的<code>DLL</code>文件，Linux系统中的<code>so</code>文件）。多个子过程模块构成子过程模块库，在应用时可以从模块库中选择一系列相互配合的子过程模块以动态组合运行的方式完成水文模拟任务。为了保证各个模块具有相同的接口，SEIMS模型中定义了一个模拟功能的父类<a href="../../../src/base/util/SimulationModule.h">`SimulationModule`</a>，所有模块中都必须包含一个继承该父类的子类，并实现相应的接口函数（见下表）。</p>
+<table class="doxtable">
+<tr>
+<th>接口函数 </th><th>功能  </th></tr>
+<tr>
+<td>MetadataInformation </td><td>获取模块输入输出的元数据 </td></tr>
+<tr>
+<td>SetDate </td><td>设置时间 </td></tr>
+<tr>
+<td>SetValue </td><td>设置数值类型的输入 </td></tr>
+<tr>
+<td>Set1DData </td><td>设置一维数组类型的输入 </td></tr>
+<tr>
+<td>Set2DData </td><td>设置二维数组类型的输入 </td></tr>
+<tr>
+<td>Set3DData </td><td>设置三维数组类型的输入 </td></tr>
+<tr>
+<td>GetValue </td><td>获取数值类型的输出 </td></tr>
+<tr>
+<td>Get1DData </td><td>获取一维数组类型的输出 </td></tr>
+<tr>
+<td>Get2DData </td><td>获取二维数组类型的输出 </td></tr>
+<tr>
+<td>Get3DData </td><td>获取三维数组类型的输出 </td></tr>
+<tr>
+<td>Execute </td><td>执行模块功能 </td></tr>
+</table>
+<p>模块中包含的接口函数可分为三类：</p>
+<ul>
+<li>元数据获取函数</li>
+</ul>
+<p><code>MetadataInformation</code>函数负责为主程序提供模块的输入输出等元数据信息。模块的元数据信息采用<code>XML（eXtensible Markup Language）</code>文档表达，包括如下几部分：</p>
+<ul>
+<li>模块的基本信息：包括模块 ID、列表、作者、描述、版本等；</li>
+<li>来源于水文数据库的静态输入信息：包括各个输入参数的 ID、类型、单 位、描述、来源数据库名称等；</li>
+<li>来源于其他模型输出结果的动态输入信息：包括各个输入参数的 ID、类 型、单位、描述等；</li>
+<li>模型的输出信息：包括各个输出参数的 ID、类型、单位、描述等。</li>
+</ul>
+<p>数据设置与获取函数</p>
+<ul>
+<li>模块接口中的 <code>SetValue</code> 和 <code>SetXDData</code> 系列函数负责设置模块所需参数，而<code>GetValue</code> 和 <code>GetXDData</code> 系列函数负责获取模型的计算结果。模块中的变量类型包括时间、单个值、一维数组、二维数组和三维数组。为提高数据传递效率，数组类型的变量通过指针的方式进行数据传递，即不同模块中的同一个变量的指针指向内存中的同一块区域。</li>
+</ul>
+<p>模拟功能的执行函数</p>
+<ul>
+<li><code>Execution</code>函数执行一个时间步长的模拟功能，而其时间循环由主程序控制。</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>模型运行流程</h2>
+<p>在子过程模块库的基础上，SEIMS模型的主程序（main模块）负责对一系列模块进行动态组合构建水文模拟工作流完成模拟任务，其总体运行流程如下：</p>
+<ul>
+<li>模型初始化<ul>
+<li>首先读取配置文件中参与模拟的模块列表、模拟时段及步长等信息；</li>
+<li>根据配置信息动态加载所需模块并调用 <code>MetadataInformation</code>函数获取XML格式的元数据；</li>
+<li>解析元数据信息构建模块之间的输入输出关系，对模块进行动态组合构建水文模拟工作流；</li>
+<li>从数据库读取模拟所需数据，并调用各模块的相应接口函数为模块的输入变量赋值。</li>
+</ul>
+</li>
+<li>水文模拟工作流的运行</li>
+</ul>
+<p>水文模拟工作流的运行包括一个时间循环，在每个时间步长按照初始化阶段构建的水文模拟工作流一次运行各模块即可。运行时需要在每个时间步长开始时更新降水、气温等驱动因子的输入。如果参与计算的模块时间步长不一致，需要在运行时调整各模块的运行次数。对于存在数据依赖关系且时间步长不一致的模块，需要对其输入输出进行调整。</p>
+<ul>
+<li>输出模拟结果,输出配置文件中指定的模拟结果。</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h1>SEIMS模块编写流程</h1>
+<p>模块编写的一般步骤：</p>
+<ul>
+<li>阅读相关文献和模型文档，编写模型文档的理论部分；</li>
+<li>根据模型的相关理论，参考已有成熟模型的代码，列出模型的输入（包括以其他模块的输出作为输入）、输出，编写元数据函数(<code>MetadataInformation</code>)代码</li>
+<li>在头文件中定义所需变量，并做初始化、赋值和有效性检查的工作</li>
+<li>初始化：构造函数末尾, <code>initalOutputs</code>(为本模块的输出变量开辟内存空间，并注意在析构函数中删除所开辟的空间)</li>
+<li>赋值：<code>SetValue</code>, <code>Set1DData</code>, <code>Set2DData</code></li>
+<li>有效性检查：<code>CheckInputData</code></li>
+<li>根据公式，编写<code>Execute</code>函数的代码，实现模拟功能</li>
+<li>编写输出代码，<code>Get1DData</code>，<code>Get2DData</code>等</li>
+</ul>
+<p><a href="../../#目录">返回目录</a> </p>
+<h1>编码规范</h1>
+<p>为了使模型代码具有更好的可读性、传承性，我们使用<a href="http://www.doxygen.nl/">doxygen</a>规则对代码进行注释。 下面介绍如何在VS2010中借助VAssistX进行快速添加注释。</p>
+<p><a href="../../#目录">返回目录</a> </p>
+<h2>doxygen注释规则</h2>
+<p>装VAssistX之后，便可以在菜单栏里看到VAssistX选项了。</p>
+<p>依次打开VAssistX -&gt; Visual Assist X Options -&gt; Edit VA Snippets，如图：</p>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fvassistx.png" />
+</div>
+<p>现在我们需要添加一些符合doxygen规则的C++注释模板，为了方便起见，快捷键Shortcut统一设置为<code>/*!</code>，这样，当需要输入注释模板时，输入<code>/*!</code>后便会出现只能提示，如下图，选择合适的便可快速插入。</p>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fdoxygentemplate.png" />
+</div>
+<ul>
+<li>最基本的注释，对任何对象（<code>file</code>，<code>function</code>，<code>class</code>…）均适用，使用格式如下</li>
+</ul>
+<div class="fragment"><div class="line">```</div>
+<div class="line"></div>
+<div class="line">```</div>
+</div><!-- fragment --><p>在VA中设置如下（<code>Title</code>，<code>Description</code>可以按照自己想法设置，下面均不再重复）：</p>
+<div class="fragment"><div class="line">```</div>
+<div class="line">Title: generalCommentBlock</div>
+<div class="line">Shortcut: </div>
+<div class="line"></div>
+<div class="line"></div>
+</div><!-- fragment --><ul>
+<li>doxygen有三种机制用于将文档分组。<code>module</code>,<code>member groups</code>, <code>subpaging</code>. 我们将采用<code>module</code>方式，首先需要用<code>defgroup</code>标签定义一个<code>module</code>，注意**只能定义一次**，然后在添加其他对象（类、函数、变量、枚举、宏定义、<code>typedef</code>等）注释的时候用<code>ingroup</code>标签将其纳入<code>module</code>：</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>在VA中设置</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>对于一些变量或函数的定义，希望在一行内对其注释，使用格式如下：</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">void function1();    </div>
+<div class="line"><span class="keywordtype">void</span> function2(<span class="keywordtype">int</span> i);    </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> function3(<span class="keywordtype">int</span> i);    </div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>上面的例子说明，对于含有参数的函数定义，不能用<code>in-line comment</code>的方式。VA中的设置如下：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>在*.h, *.cpp文件头部的注释,使用格式：</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>在VA中设置：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>类定义的注释</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>VA中的设置：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>函数注释块</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>VA中设置：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>数学公式的输入, 采用<a href="http://www.mathjax.org/">MATHJAX</a>规则</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">\f$, \f$ … though the same, have to come in pair; inserts an in-text (LaTeX) formula; e.g. \f$\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\f$</div>
+<div class="line">\f[, \f] … inserts a long (LaTeX) formula that is displayed centered on a separate line</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>其他一些有用的标签</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">\attention … paragraph where a message that needs attention may be entered</div>
+<div class="line">\author … paragraph where one or more author names may be entered</div>
+<div class="line">\brief … paragraph that serves as a brief description</div>
+<div class="line">\bug … paragraph where one or more bugs may be reported</div>
+<div class="line">\date … paragraph where one or more dates may be entered</div>
+<div class="line">\deprecated … paragraph indicating that <span class="keyword">this</span> documentation block belongs to a deprecated entity</div>
+<div class="line">\exception &lt;exception-<span class="keywordtype">object</span>&gt; or \throw &lt;exception-<span class="keywordtype">object</span>&gt; … exception description <span class="keywordflow">for</span> an exception <span class="keywordtype">object</span> with name &lt;exception-<span class="keywordtype">object</span>&gt;, followed by a description of the exception</div>
+<div class="line">\invariant … paragraph where the invariant of an entity can be described</div>
+<div class="line">\note … paragraph where a note can be entered</div>
+<div class="line">\par [(paragraph title)] … <span class="keywordflow">if</span> a paragraph title is given <span class="keyword">this</span> command starts a paragraph with a user defined heading</div>
+<div class="line">\param &lt;parameter-name&gt; … parameter description <span class="keywordflow">for</span> a <span class="keyword">function</span> parameter with name &lt;parameter-name&gt;; multiple adjacent \param commands will be joined into a single paragraph; direction of the attribute may be specified:</div>
+<div class="line">e.g.</div>
+<div class="line">  \param[in] param1 Description</div>
+<div class="line">  \param[out] param1 Description</div>
+<div class="line">  \param[in,out] param1 Description</div>
+<div class="line">\remarks … paragraph where one or more remarks may be entered</div>
+<div class="line">\return … <span class="keywordflow">return</span> value description <span class="keywordflow">for</span> a function</div>
+<div class="line">\retval &lt;return value&gt; … <span class="keywordflow">return</span> value description <span class="keywordflow">for</span> a <span class="keyword">function</span> with name &lt;return value&gt;</div>
+<div class="line">\sa or \see … paragraph where one or more cross-references to classes, functions, methods, variables, files or URL may be specified; two names joined by either :: or # are understood as referring to a <span class="keyword">class </span>and one of its members; one of several overloaded methods or constructors may be selected by including a parenthesized list of argument types after the method name</div>
+<div class="line">\since … used to specify since when (version or time) an entity is available</div>
+<div class="line">\test … paragraph where a test <span class="keywordflow">case</span> can be described</div>
+<div class="line">\todo … paragraph where a TODO item is described</div>
+<div class="line">\version … paragraph where one or more version strings may be entered</div>
+<div class="line">\warning … paragraph where one or more warning messages may be entered</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p><a href="../../#目录">返回目录</a> </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:31 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

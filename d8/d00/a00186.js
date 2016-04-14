@@ -1,7 +1,9 @@
 var a00186 =
 [
-    [ "METIS_PartGraphRecursive", "d8/d00/a00186.html#a25fc90fd934931239b3c98ac4bdbce76", null ],
-    [ "MlevelRecursiveBisection", "d8/d00/a00186.html#a5510f276b321a8450b2e9cc913c2f00f", null ],
-    [ "MultilevelBisect", "d8/d00/a00186.html#a33c48a23cc94ea0221fa5c7317cd0222", null ],
-    [ "SplitGraphPart", "d8/d00/a00186.html#a49d272affb67ce57b2d20dccd7f15f53", null ]
+    [ "CheckParams", "d8/d00/a00186.html#a279ffe27d8412909f9117b5ca4721dce", null ],
+    [ "FreeCtrl", "d8/d00/a00186.html#ab44b3384fa925eae532b7bcc825159d7", null ],
+    [ "PrintCtrl", "d8/d00/a00186.html#a2c75ede1a41b19cb3705b998aba3200b", null ],
+    [ "Setup2WayBalMultipliers", "d8/d00/a00186.html#ab7bde9f22de07a798b97f1f8e83768b1", null ],
+    [ "SetupCtrl", "d8/d00/a00186.html#a1420c4ffbe28e4c3349678037adcb918", null ],
+    [ "SetupKWayBalMultipliers", "d8/d00/a00186.html#a3444d1d3ffb5ca450a1affaeb6d71b61", null ]
 ];

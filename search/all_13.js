@@ -5,6 +5,6 @@ var searchData=
   ['vkrinfo_5ft',['vkrinfo_t',['../d4/dca/a00048.html',1,'']]],
   ['vnbr_5ft',['vnbr_t',['../d2/dee/a00049.html',1,'']]],
   ['vnbrpool',['vnbrpool',['../d7/d7a/a00016.html#a1f7258a6dc2780d0f8224293ecff26b7',1,'ctrl_t']]],
-  ['vnbrpoolgetnext',['vnbrpoolGetNext',['../d3/db1/a00200.html#a371b41152c6e40d6866b357a4ffee5f1',1,'wspace.c']]],
-  ['vnbrpoolreset',['vnbrpoolReset',['../d3/db1/a00200.html#a0eac0ea6853b8ee210cbd739e17782aa',1,'wspace.c']]]
+  ['vnbrpoolgetnext',['vnbrpoolGetNext',['../db/d53/a00202.html#a371b41152c6e40d6866b357a4ffee5f1',1,'wspace.c']]],
+  ['vnbrpoolreset',['vnbrpoolReset',['../db/d53/a00202.html#a0eac0ea6853b8ee210cbd739e17782aa',1,'wspace.c']]]
 ];

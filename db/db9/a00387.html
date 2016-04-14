@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SettingsOutput.cpp File Reference</title>
+<title>SEIMS-2016: src/base/module_setting/SettingsInput.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,37 +110,47 @@ $(document).ready(function(){initNavTree('db/db9/a00387.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">SettingsOutput.cpp File Reference</div>  </div>
+<div class="title">SettingsInput.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dc1/a00388_source.html">SettingsOutput.h</a>&quot;</code><br/>
-<code>#include &quot;util.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/d95/a00400_source.html">utils.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/dd1/a00398_source.html">text.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/dbf/a00393_source.html">ModelException.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d05/a00385_source.html">Settings.h</a>&quot;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/dd7/a00362_source.html">InputStation.h</a>&quot;</code><br/>
+<code>#include &quot;Scenario.h&quot;</code><br/>
+<code>#include &quot;mongo.h&quot;</code><br/>
+<code>#include &lt;set&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SettingsOutput.cpp:</div>
+Include dependency graph for SettingsInput.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d77/a00756.png" border="0" usemap="#src_2base_2module__setting_2_settings_output_8cpp" alt=""/></div>
-<map name="src_2base_2module__setting_2_settings_output_8cpp" id="src_2base_2module__setting_2_settings_output_8cpp">
-<area shape="rect" id="node2" href="../../d9/dc1/a00388.html" title="SettingsOutput.h" alt="" coords="455,101,595,131"/><area shape="rect" id="node10" href="../../d9/d95/a00400.html" title="definition of utils class " alt="" coords="1263,256,1327,285"/><area shape="rect" id="node22" href="../../d9/dd1/a00398.html" title="Predefined of some const string names. " alt="" coords="1349,101,1408,131"/><area shape="rect" id="node23" href="../../da/dbf/a00393.html" title="Define ModelException class. " alt="" coords="1093,101,1243,131"/><area shape="rect" id="node3" href="../../d2/d56/a00384.html" title="Settings class. " alt="" coords="1016,179,1109,208"/><area shape="rect" id="node13" href="../../d7/d08/a00378_source.html" title="PrintInfo.h" alt="" coords="478,179,572,208"/><area shape="rect" id="node18" href="../../d7/dfc/a00349.html" title="Define clsRasterData class. " alt="" coords="135,333,269,363"/><area shape="rect" id="node14" href="../../d6/db8/a00376.html" title="Class to store parameter information. " alt="" coords="393,256,500,285"/><area shape="rect" id="node17" href="../../d3/dc9/a00355.html" title="clsSpecificOutput.h" alt="" coords="525,256,683,285"/><area shape="rect" id="node15" href="../../db/d95/a00391.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="399,333,568,363"/></map>
+<div class="center"><img src="../../d2/ddd/a00755.png" border="0" usemap="#src_2base_2module__setting_2_settings_input_8h" alt=""/></div>
+<map name="src_2base_2module__setting_2_settings_input_8h" id="src_2base_2module__setting_2_settings_input_8h">
+<area shape="rect" id="node2" href="../../d5/d05/a00385.html" title="Settings class. " alt="" coords="492,488,585,517"/><area shape="rect" id="node13" href="../../de/dd7/a00362.html" title="InputStation.h" alt="" coords="241,488,361,517"/><area shape="rect" id="node17" href="../../dc/d84/a00338_source.html" title="Scenario.h" alt="" coords="1304,101,1403,131"/><area shape="rect" id="node9" href="../../d7/d00/a00401.html" title="definition of utils class " alt="" coords="880,565,944,595"/><area shape="rect" id="node16" href="../../dc/d59/a00364.html" title="Measurement.h" alt="" coords="94,565,225,595"/><area shape="rect" id="node18" href="../../d0/d65/a00360.html" title="Database manager for Sqlite. " alt="" coords="1495,333,1616,363"/><area shape="rect" id="node20" href="../../de/de9/a00322_source.html" title="BMPText.h" alt="" coords="1069,565,1171,595"/><area shape="rect" id="node21" href="../../d2/d71/a00309_source.html" title="BMPBase.h" alt="" coords="1157,488,1264,517"/><area shape="rect" id="node27" href="../../d1/d5d/a00311_source.html" title="BMPFactory.h" alt="" coords="1231,256,1353,285"/><area shape="rect" id="node28" href="../../da/de0/a00317_source.html" title="BMPReachFlowDiversion.h" alt="" coords="869,333,1088,363"/><area shape="rect" id="node30" href="../../de/dab/a00319_source.html" title="BMPReachPointSource.h" alt="" coords="1164,333,1369,363"/><area shape="rect" id="node31" href="../../db/d53/a00321_source.html" title="BMPReachReservoir.h" alt="" coords="1641,333,1828,363"/><area shape="rect" id="node35" href="../../d4/d6f/a00315_source.html" title="BMPReachFactory.h" alt="" coords="1479,179,1649,208"/><area shape="rect" id="node37" href="../../d4/db5/a00328_source.html" title="ManagementOperation.h" alt="" coords="2347,256,2545,285"/><area shape="rect" id="node39" href="../../da/d75/a00334_source.html" title="ManagementOperationPlant.h" alt="" coords="2007,179,2240,208"/><area shape="rect" id="node41" href="../../dc/d50/a00332_source.html" title="ManagementOperationHarvest.h" alt="" coords="2536,179,2789,208"/><area shape="rect" id="node42" href="../../dd/dbb/a00330_source.html" title="ManagementOperationFertilizer.h" alt="" coords="1723,179,1983,208"/><area shape="rect" id="node44" href="../../dd/d1d/a00336_source.html" title="ManagementOperationTillage.h" alt="" coords="2265,179,2511,208"/><area shape="rect" id="node23" href="../../d9/dad/a00394.html" title="Define ModelException class. " alt="" coords="1479,565,1629,595"/><area shape="rect" id="node29" href="../../dd/db3/a00313_source.html" title="BMPReach.h" alt="" coords="1208,411,1324,440"/><area shape="rect" id="node32" href="../../d2/daf/a00346.html" title="clsInterpolationWeighData.h" alt="" coords="1705,488,1927,517"/><area shape="rect" id="node34" href="../../d6/d9c/a00352.html" title="clsSimpleTxtData.h" alt="" coords="2002,488,2163,517"/><area shape="rect" id="node38" href="../../dc/d0f/a00303_source.html" title="ArealParameter.h" alt="" coords="2107,411,2253,440"/><area shape="rect" id="node40" href="../../d4/d8f/a00324_source.html" title="CropParameter.h" alt="" coords="1996,256,2140,285"/><area shape="rect" id="node43" href="../../d8/d23/a00326_source.html" title="FertilizerParameter.h" alt="" coords="1801,256,1972,285"/><area shape="rect" id="node45" href="../../df/df1/a00340_source.html" title="TillageParameter.h" alt="" coords="2165,256,2323,285"/></map>
 </div>
 </div>
 <p><a href="../../db/db9/a00387_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html">SettingsInput</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">inherited from Settings class  <a href="../../d5/db6/a00042.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>[your name] </dd></dl>
 <dl class="section version"><dt>Version</dt><dd></dd></dl>
 <dl class="section date"><dt>Date</dt><dd>June 2015 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../db/db9/a00387_source.html">SettingsOutput.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../db/db9/a00387_source.html">SettingsInput.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../db/db9/a00387.html">SettingsOutput.cpp</a></li>
-    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../db/db9/a00387.html">SettingsInput.h</a></li>
+    <li class="footer">Generated on Thu Apr 14 2016 14:35:31 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
