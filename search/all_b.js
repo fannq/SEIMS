@@ -94,7 +94,7 @@ var searchData=
   ['mcore',['mcore',['../structctrl__t.html#a70ca2e591af5d7b1ec3116fe138fce85',1,'ctrl_t']]],
   ['mcore_2ec',['mcore.c',['../mcore_8c.html',1,'']]],
   ['mctype_5fet',['mctype_et',['../metis_8h.html#a51d3bfb2bd8dc4a84636b2b489f575bc',1,'metis.h']]],
-  ['manual_20for_20developers_20in_20chinese_20v1_2e0',['Manual for Developers in Chinese v1.0',['../md_src__developers.html',1,'']]],
+  ['manual_20for_20developers_20in_20chinese_20v1_2e1',['Manual for Developers in Chinese v1.1',['../md_src__developers.html',1,'']]],
   ['mdbglvl_5fet',['mdbglvl_et',['../metis_8h.html#ac50415aa8003f9b7bf0aabb2b0d50877',1,'metis.h']]],
   ['measurement',['Measurement',['../class_measurement.html',1,'Measurement'],['../class_measurement.html#a9ebd8e7288e0d3686f3d425b270f7b07',1,'Measurement::Measurement()']]],
   ['measurement_2ecpp',['Measurement.cpp',['../_measurement_8cpp.html',1,'']]],

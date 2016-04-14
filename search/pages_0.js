@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bug_20list',['Bug List',['../bug.html',1,'']]]
+  ['changelog',['Changelog',['../md__changelog.html',1,'']]]
 ];

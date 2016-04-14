@@ -1,7 +1,6 @@
 var searchData=
 [
   ['ckrinfo_5ft',['ckrinfo_t',['../structckrinfo__t.html',1,'']]],
-  ['class',['class',['../classclass.html',1,'']]],
   ['clshydroclimatedata',['clsHydroClimateData',['../classcls_hydro_climate_data.html',1,'']]],
   ['clslapsedata',['clsLapseData',['../classcls_lapse_data.html',1,'']]],
   ['clsrasterdata',['clsRasterData',['../classcls_raster_data.html',1,'']]],

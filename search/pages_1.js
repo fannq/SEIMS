@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['changelog',['Changelog',['../md__changelog.html',1,'']]]
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]]
 ];

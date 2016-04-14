@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: Manual for Developers in Chinese v1.0</title>
+<title>SEIMS-2016: Manual for Developers in Chinese v1.1</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,11 +84,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Manual for Developers in Chinese v1.0 </div>  </div>
+<div class="title">Manual for Developers in Chinese v1.1 </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>prepared by Liangjun Zhu （zlj.ac.cn） </p>
-<hr/>
+<div class="textblock"><p>prepared by Liangjun Zhu （zlj.ac.cn）</p>
+<h2>Latest Updated：Apr.14, 2016 </h2>
 <h1>目录</h1>
 <p><a href="#前言">**前言**</a></p>
 <p><a href="#github使用说明">**Github使用说明**</a></p>
@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ol type="1">
 <li><a href="#doxygen注释规则">doxygen注释规则</a></li>
 </ol>
-<p><a href="http://pan.baidu.com/s/1bng29AJ">可能需要用的的软件</a> </p>
+<p><a href="http://pan.baidu.com/s/1bng29AJ">需要用的的软件</a></p>
 <h2># 前言 </h2>
 <p>SEIMS（Spatially Explicit Integrated Modeling System）模型是由刘军志等人开发的以栅格为基本模拟单元、能体现水流空间运动的全分布式水文模型。SEIMS在借鉴Wetspa、LISEM、CASC2D、DHSVM和流溪河模型等多个模型基础上开发的模块化水文模型，采用C++编写，实现了子流域-基本单元的双层并行，采用的并行策略为共享内存（OpenMP）和消息传递（MPI），并利用NoSql数据库MongoDB进行数据组织管理。模型可在Windows及Linux平台下运行。</p>
 <p>目前，模型还不完善，主要存在以下主要问题：</p>
@@ -189,27 +189,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>比如我在<code>seims/SEIMS</code>下修改了README.md文件，现在同步到本地。</p>
 <ul>
 <li>查看远程主机地址 <div class="fragment"><div class="line">git remote -v</div>
-</div><!-- fragment --> 经过以上的设置，正常情况应该看到类似结果,如果没有upstream则需添加上游远程库 <div class="image">
-<img src="../doc/img/gitremotev.png"  alt="查看远程主机地址"/>
+</div><!-- fragment --> 经过以上的设置，正常情况应该看到类似结果,如果没有upstream则需添加上游远程库</li>
+</ul>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fgitremotev.png" />
 </div>
-</li>
+<ul>
 <li>将源代码库更新的内容同步到本地，检查差异，然后再和本机分支合并 <div class="fragment"><div class="line">git fetch upstream</div>
 <div class="line">git checkout master</div>
 <div class="line">git merge upstream/master</div>
 </div><!-- fragment --></li>
-<li>多数情况下，git可以自动合并，如果出现冲突，则需手动处理后，再<code>commit</code>提交，冲突结果类似： <div class="image">
-<img src="../doc/img/conflictwhenmerge.png"  alt="手动修改合并冲突"/>
-</div>
-</li>
+<li>多数情况下，git可以自动合并，如果出现冲突，则需手动处理后，再<code>commit</code>提交，冲突结果类似：</li>
 </ul>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fconflictwhenmerge.png" />
+</div>
 <p><a href="#目录">返回目录</a></p>
 <h1>SEIMS源码编译</h1>
 <p>这部分介绍如何在不同平台下编译安装SEIMS。</p>
 <h2>源码结构</h2>
 <div class="image">
-<img src="../doc/img/srcdir.png"  alt="源代码根目录"/>
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fsrcdir.png" />
 </div>
-<p> 根目录如上图所示，其中: </p>
+<p>根目录如上图所示，其中: </p>
 <div class="fragment"><div class="line">.git Github版本管理的一些文件，勿动</div>
 <div class="line">doc  存放模型开发文档（doxygen自动生成）</div>
 <div class="line">include和lib为外部依赖库的文件，勿改动</div>
@@ -236,13 +238,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> 注释掉，反之亦然，然后： <div class="fragment"><div class="line">cmake &lt;source path&gt;</div>
 <div class="line">我的是cmake E:\github-zlj\SIMS</div>
 </div><!-- fragment --></li>
-<li>cmake会自动生成sln项目文件，随后打开SEIMS.sln。命令行界面如下（左），VS解决方案如下（右）。 <div class="image">
-<img src="../doc/img/cmake.png"  alt="CMake运行界面"/>
+<li>cmake会自动生成sln项目文件，随后打开SEIMS.sln。命令行界面如下（左），VS解决方案如下（右）。</li>
+</ul>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fcmake.png" />
 </div>
- <div class="image">
-<img src="../doc/img/vsproject.png"  alt="VS解决方案"/>
+<div class="image">
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fvsproject.png" />
 </div>
-</li>
+<ul>
 <li>按F6生成解决方案，在<code>Debug</code>或<code>Release</code>下可以看到一系列<code>lib</code>、<code>dll</code>库以及<code>seims_omp.exe</code>或<code>seims.exe</code>可执行文件。</li>
 <li>至此，由源码到VS工程的转换已经完成。在此基础上对代码所做的修改都是对&lt;source path&gt;内源文件的修改。</li>
 </ul>
@@ -423,26 +427,111 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a href="#目录">返回目录</a> </p>
 <h2>doxygen注释规则</h2>
 <p>装VAssistX之后，便可以在菜单栏里看到VAssistX选项了。</p>
-<p>依次打开VAssistX -&gt; Visual Assist X Options -&gt; Edit VA Snippets，如图： </p>
+<p>依次打开VAssistX -&gt; Visual Assist X Options -&gt; Edit VA Snippets，如图：</p>
 <div class="image">
-<img src="../doc/img/vassistx.png"  alt="VAssistX"/>
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fvassistx.png" />
 </div>
-<p> 现在我们需要添加一些符合doxygen规则的C++注释模板，为了方便起见，快捷键Shortcut统一设置为<code>/*!</code>，这样，当需要输入注释模板时，输入<code>/*!</code>后便会出现只能提示，如下图，选择合适的便可快速插入。 </p>
+<p>现在我们需要添加一些符合doxygen规则的C++注释模板，为了方便起见，快捷键Shortcut统一设置为<code>/*!</code>，这样，当需要输入注释模板时，输入<code>/*!</code>后便会出现只能提示，如下图，选择合适的便可快速插入。</p>
 <div class="image">
-<img src="../doc/img/doxygentemplate.png"  alt="doxygen注释模板"/>
+<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fdoxygentemplate.png" />
 </div>
 <ul>
-<li>最基本的注释，对任何对象（<code>file</code>，<code>function</code>，<code>class</code>…）均适用，使用格式如下 <div class="fragment"><div class="line"></div>
-</div><!-- fragment --> 在VA中设置如下（<code>Title</code>，<code>Description</code>可以按照自己想法设置，下面均不再重复）： <div class="fragment"><div class="line">Title: generalCommentBlock</div>
+<li>最基本的注释，对任何对象（<code>file</code>，<code>function</code>，<code>class</code>…）均适用，使用格式如下</li>
+</ul>
+<div class="fragment"><div class="line">```</div>
+<div class="line"></div>
+<div class="line">```</div>
+</div><!-- fragment --><p>在VA中设置如下（<code>Title</code>，<code>Description</code>可以按照自己想法设置，下面均不再重复）：</p>
+<div class="fragment"><div class="line">```</div>
+<div class="line">Title: generalCommentBlock</div>
 <div class="line">Shortcut: </div>
 <div class="line"></div>
-</div><!-- fragment --></li>
-<li>doxygen有三种机制用于将文档分组。<code>module</code>,<code>member groups</code>, <code>subpaging</code>. 我们将采用<code>module</code>方式，首先需要用` </li>
+<div class="line"></div>
+</div><!-- fragment --><ul>
+<li>doxygen有三种机制用于将文档分组。<code>module</code>,<code>member groups</code>, <code>subpaging</code>. 我们将采用<code>module</code>方式，首先需要用<code>defgroup</code>标签定义一个<code>module</code>，注意**只能定义一次**，然后在添加其他对象（类、函数、变量、枚举、宏定义、<code>typedef</code>等）注释的时候用<code>ingroup</code>标签将其纳入<code>module</code>：</li>
 </ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>在VA中设置</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>对于一些变量或函数的定义，希望在一行内对其注释，使用格式如下：</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">void function1();    </div>
+<div class="line"><span class="keywordtype">void</span> function2(<span class="keywordtype">int</span> i);    </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> function3(<span class="keywordtype">int</span> i);    </div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>上面的例子说明，对于含有参数的函数定义，不能用<code>in-line comment</code>的方式。VA中的设置如下：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>在*.h, *.cpp文件头部的注释,使用格式：</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>在VA中设置：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>类定义的注释</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>VA中的设置：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>函数注释块</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p>VA中设置：</p>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>数学公式的输入, 采用<a href="http://www.mathjax.org/">MATHJAX</a>规则</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">\f$, \f$ … though the same, have to come in pair; inserts an in-text (LaTeX) formula; e.g. \f$\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\f$</div>
+<div class="line">\f[, \f] … inserts a long (LaTeX) formula that is displayed centered on a separate line</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><ul>
+<li>其他一些有用的标签</li>
+</ul>
+<div class="fragment"><div class="line">~~~</div>
+<div class="line">\attention … paragraph where a message that needs attention may be entered</div>
+<div class="line">\author … paragraph where one or more author names may be entered</div>
+<div class="line">\brief … paragraph that serves as a brief description</div>
+<div class="line">\bug … paragraph where one or more bugs may be reported</div>
+<div class="line">\date … paragraph where one or more dates may be entered</div>
+<div class="line">\deprecated … paragraph indicating that <span class="keyword">this</span> documentation block belongs to a deprecated entity</div>
+<div class="line">\exception &lt;exception-<span class="keywordtype">object</span>&gt; or \throw &lt;exception-<span class="keywordtype">object</span>&gt; … exception description <span class="keywordflow">for</span> an exception <span class="keywordtype">object</span> with name &lt;exception-<span class="keywordtype">object</span>&gt;, followed by a description of the exception</div>
+<div class="line">\invariant … paragraph where the invariant of an entity can be described</div>
+<div class="line">\note … paragraph where a note can be entered</div>
+<div class="line">\par [(paragraph title)] … <span class="keywordflow">if</span> a paragraph title is given <span class="keyword">this</span> command starts a paragraph with a user defined heading</div>
+<div class="line">\param &lt;parameter-name&gt; … parameter description <span class="keywordflow">for</span> a <span class="keyword">function</span> parameter with name &lt;parameter-name&gt;; multiple adjacent \param commands will be joined into a single paragraph; direction of the attribute may be specified:</div>
+<div class="line">e.g.</div>
+<div class="line">  \param[in] param1 Description</div>
+<div class="line">  \param[out] param1 Description</div>
+<div class="line">  \param[in,out] param1 Description</div>
+<div class="line">\remarks … paragraph where one or more remarks may be entered</div>
+<div class="line">\return … <span class="keywordflow">return</span> value description <span class="keywordflow">for</span> a function</div>
+<div class="line">\retval &lt;return value&gt; … <span class="keywordflow">return</span> value description <span class="keywordflow">for</span> a <span class="keyword">function</span> with name &lt;return value&gt;</div>
+<div class="line">\sa or \see … paragraph where one or more cross-references to classes, functions, methods, variables, files or URL may be specified; two names joined by either :: or # are understood as referring to a <span class="keyword">class </span>and one of its members; one of several overloaded methods or constructors may be selected by including a parenthesized list of argument types after the method name</div>
+<div class="line">\since … used to specify since when (version or time) an entity is available</div>
+<div class="line">\test … paragraph where a test <span class="keywordflow">case</span> can be described</div>
+<div class="line">\todo … paragraph where a TODO item is described</div>
+<div class="line">\version … paragraph where one or more version strings may be entered</div>
+<div class="line">\warning … paragraph where one or more warning messages may be entered</div>
+<div class="line">~~~</div>
+</div><!-- fragment --><p><a href="#目录">返回目录</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 02:22:56 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 03:01:47 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
