@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -104,6 +111,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_func_t.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -123,39 +144,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>test_dkvsort()
-: <a class="el" href="db/d7e/gksort_8c.html#a91e0ce6fc88d5ab6695cda68dc4e79b5">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#a91e0ce6fc88d5ab6695cda68dc4e79b5">gksort.c</a>
 </li>
 <li>test_fkvsort()
-: <a class="el" href="db/d7e/gksort_8c.html#a179814629e9b2ff14387734d6ac52a38">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#a179814629e9b2ff14387734d6ac52a38">gksort.c</a>
 </li>
 <li>test_fsort()
-: <a class="el" href="db/d7e/gksort_8c.html#a92bfe9a7c6bec5eab568c71eda7eb1f1">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#a92bfe9a7c6bec5eab568c71eda7eb1f1">gksort.c</a>
 </li>
 <li>test_idxkvsort()
-: <a class="el" href="db/d7e/gksort_8c.html#ab63d10c508d01adca7672ac341b950ba">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#ab63d10c508d01adca7672ac341b950ba">gksort.c</a>
 </li>
 <li>test_idxsort()
-: <a class="el" href="db/d7e/gksort_8c.html#a3a4da1d3370fc7c176261dfc8eef5691">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#a3a4da1d3370fc7c176261dfc8eef5691">gksort.c</a>
 </li>
 <li>test_ikvsort()
-: <a class="el" href="db/d7e/gksort_8c.html#a03d0ef2537e50ad38d65892cc9c28118">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#a03d0ef2537e50ad38d65892cc9c28118">gksort.c</a>
 </li>
 <li>test_isort()
-: <a class="el" href="db/d7e/gksort_8c.html#a8de21ffeb988c6322635a778ecdd4066">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#a8de21ffeb988c6322635a778ecdd4066">gksort.c</a>
 </li>
 <li>test_skvsort()
-: <a class="el" href="db/d7e/gksort_8c.html#ae2471bde9a7e9419d330392c2e2b35fd">gksort.c</a>
+: <a class="el" href="db/d48/a00148.html#ae2471bde9a7e9419d330392c2e2b35fd">gksort.c</a>
 </li>
 <li>test_strstr_replace()
-: <a class="el" href="d2/d48/strings_8c.html#a3666be16b4df33d86374ee780353af54">strings.c</a>
+: <a class="el" href="da/d1e/a00149.html#a3666be16b4df33d86374ee780353af54">strings.c</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:28 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,10 @@
+<map id="gk_csr_Read" name="gk_csr_Read">
+<area shape="rect" id="node2" href="$d5/d1e/a00103.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="681,44,773,73"/>
+<area shape="rect" id="node3" href="$d9/dcc/a00102.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="171,99,298,128"/>
+<area shape="rect" id="node7" href="$d4/d98/a00120.html#ad8263f64108434d7ebab9799b5ab9632" title="gk_getline" alt="" coords="187,45,283,75"/>
+<area shape="rect" id="node8" href="$d7/d70/a00106.html#a739112cb142f2e96d6952140c66cd31c" title="gk_getfilestats" alt="" coords="173,152,297,181"/>
+<area shape="rect" id="node9" href="$d5/d1e/a00103.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="201,205,268,235"/>
+<area shape="rect" id="node4" href="$d4/d98/a00120.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="349,45,443,75"/>
+<area shape="rect" id="node6" href="$d9/dcc/a00102.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="347,99,445,128"/>
+<area shape="rect" id="node5" href="$d4/d98/a00120.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="493,96,632,125"/>
+</map>

@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -106,6 +113,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_s.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -125,45 +146,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>SelectQueue()
-: <a class="el" href="d2/d1b/fm_8c.html#a51193f4b76d298d94234642136879390">fm.c</a>
+: <a class="el" href="d0/d48/a00165.html#a51193f4b76d298d94234642136879390">fm.c</a>
 </li>
 <li>Setup2WayBalMultipliers()
-: <a class="el" href="de/dc5/options_8c.html#ab7bde9f22de07a798b97f1f8e83768b1">options.c</a>
+: <a class="el" href="d2/d94/a00184.html#ab7bde9f22de07a798b97f1f8e83768b1">options.c</a>
 </li>
 <li>SetupCoarseGraph()
-: <a class="el" href="d4/d7c/coarsen_8c.html#a113522304bf628b09d0b69b4db05050e">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#a113522304bf628b09d0b69b4db05050e">coarsen.c</a>
 </li>
 <li>SetupCtrl()
-: <a class="el" href="de/dc5/options_8c.html#a1420c4ffbe28e4c3349678037adcb918">options.c</a>
+: <a class="el" href="d2/d94/a00184.html#a1420c4ffbe28e4c3349678037adcb918">options.c</a>
 </li>
 <li>SetupGraph()
-: <a class="el" href="de/d2f/libmetis_2graph_8c.html#a9192cba632de98d1759721a5676eaf05">graph.c</a>
+: <a class="el" href="df/dcd/a00127.html#a9192cba632de98d1759721a5676eaf05">graph.c</a>
 </li>
 <li>SetupGraph_label()
-: <a class="el" href="de/d2f/libmetis_2graph_8c.html#a6513355a80c360956e3f38816621ae1e">graph.c</a>
+: <a class="el" href="df/dcd/a00127.html#a6513355a80c360956e3f38816621ae1e">graph.c</a>
 </li>
 <li>SetupGraph_tvwgt()
-: <a class="el" href="de/d2f/libmetis_2graph_8c.html#a274db8b39f4bc294fcb5757b01ae31f1">graph.c</a>
+: <a class="el" href="df/dcd/a00127.html#a274db8b39f4bc294fcb5757b01ae31f1">graph.c</a>
 </li>
 <li>SetupKWayBalMultipliers()
-: <a class="el" href="de/dc5/options_8c.html#a3444d1d3ffb5ca450a1affaeb6d71b61">options.c</a>
+: <a class="el" href="d2/d94/a00184.html#a3444d1d3ffb5ca450a1affaeb6d71b61">options.c</a>
 </li>
 <li>SetupSplitGraph()
-: <a class="el" href="de/d2f/libmetis_2graph_8c.html#ad1dfd83fc2dc5e9f855c2d86b960c809">graph.c</a>
+: <a class="el" href="df/dcd/a00127.html#ad1dfd83fc2dc5e9f855c2d86b960c809">graph.c</a>
 </li>
 <li>SplitGraphPart()
-: <a class="el" href="d6/d7a/pmetis_8c.html#a49d272affb67ce57b2d20dccd7f15f53">pmetis.c</a>
+: <a class="el" href="d8/d00/a00186.html#a49d272affb67ce57b2d20dccd7f15f53">pmetis.c</a>
 </li>
 <li>string2DArray
-: <a class="el" href="d4/d4a/_settings_8h.html#a805e3681a549ff730cd1fcdf3d31c445">Settings.h</a>
+: <a class="el" href="d2/d56/a00384.html#a805e3681a549ff730cd1fcdf3d31c445">Settings.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:28 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

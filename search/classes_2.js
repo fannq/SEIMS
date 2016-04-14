@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dbmanager',['DBManager',['../d8/d9e/class_d_b_manager.html',1,'']]],
-  ['diffusivewave',['DiffusiveWave',['../d0/d88/class_diffusive_wave.html',1,'']]]
+  ['dbmanager',['DBManager',['../d4/d51/a00017.html',1,'']]],
+  ['diffusivewave',['DiffusiveWave',['../d1/d2b/a00018.html',1,'']]]
 ];

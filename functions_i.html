@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -108,6 +115,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_i.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -127,35 +148,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>id
-: <a class="el" href="d0/d0a/structckrinfo__t.html#a6d1da388f70555f25dc90fdcc011bb9b">ckrinfo_t</a>
+: <a class="el" href="d4/dee/a00008.html#a6d1da388f70555f25dc90fdcc011bb9b">ckrinfo_t</a>
 </li>
 <li>inbr
-: <a class="el" href="d0/d0a/structckrinfo__t.html#aca4e2d97adbc1b6401b4ee8acba70770">ckrinfo_t</a>
-, <a class="el" href="df/dd2/structvkrinfo__t.html#a85a0150ff0f0fe87b0fc3bf445b60bca">vkrinfo_t</a>
+: <a class="el" href="d4/dee/a00008.html#aca4e2d97adbc1b6401b4ee8acba70770">ckrinfo_t</a>
+, <a class="el" href="d4/dca/a00048.html#a85a0150ff0f0fe87b0fc3bf445b60bca">vkrinfo_t</a>
 </li>
 <li>initalOutputs()
-: <a class="el" href="d0/d88/class_diffusive_wave.html#ad2ffd915deabd117350947ebe5c4082a">DiffusiveWave</a>
-, <a class="el" href="de/d70/class_m_u_s_k___c_h.html#a0063a15974ae017e6546862c20079aab">MUSK_CH</a>
+: <a class="el" href="d1/d2b/a00018.html#ad2ffd915deabd117350947ebe5c4082a">DiffusiveWave</a>
+, <a class="el" href="dc/d87/a00032.html#a0063a15974ae017e6546862c20079aab">MUSK_CH</a>
 </li>
 <li>Insert()
-: <a class="el" href="da/d81/class_string_list.html#aea2bfd74ecef6c8698d5094cdb183a64">StringList</a>
+: <a class="el" href="d6/d97/a00045.html#aea2bfd74ecef6c8698d5094cdb183a64">StringList</a>
 </li>
 <li>IsError()
-: <a class="el" href="d8/d9e/class_d_b_manager.html#aebd9e5246ae9f047eedbb199699005ae">DBManager</a>
+: <a class="el" href="d4/d51/a00017.html#aebd9e5246ae9f047eedbb199699005ae">DBManager</a>
 </li>
 <li>IsTableExist()
-: <a class="el" href="d8/d9e/class_d_b_manager.html#a0739d27b1ca7443329e5e4d24409b8ac">DBManager</a>
+: <a class="el" href="d4/d51/a00017.html#a0739d27b1ca7443329e5e4d24409b8ac">DBManager</a>
 </li>
 <li>IUHti()
-: <a class="el" href="d0/d20/class_i_u_h_calculator.html#a39da0e3315d838724ff5f3ac5f98303e">IUHCalculator</a>
+: <a class="el" href="d6/d5b/a00026.html#a39da0e3315d838724ff5f3ac5f98303e">IUHCalculator</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:27 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

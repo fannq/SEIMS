@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -67,6 +74,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('dir_b5f74835798975ca25f8dc97c6c852fc.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="dir_b5f74835798975ca25f8dc97c6c852fc.html">GWATER_RESERVOIR</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">GWATER_RESERVOIR Directory Reference</div>  </div>
@@ -101,20 +118,24 @@ Directory dependency graph for GWATER_RESERVOIR:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:d4/da1/hydrology_2_g_w_a_t_e_r___r_e_s_e_r_v_o_i_r_2api_8cpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>api.cpp</b> <a href="d4/da1/hydrology_2_g_w_a_t_e_r___r_e_s_e_r_v_o_i_r_2api_8cpp_source.html">[code]</a></td></tr>
+<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>api.cpp</b> <a href="da/db6/a00427_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d5/d2b/_g_water_reservoir_8cpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>GWaterReservoir.cpp</b> <a href="d5/d2b/_g_water_reservoir_8cpp_source.html">[code]</a></td></tr>
+<tr class="memitem:dc/d1c/a00504"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>GWaterReservoir.cpp</b> <a href="dc/d1c/a00504_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d5/d24/_g_water_reservoir_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d5/d24/_g_water_reservoir_8h.html">GWaterReservoir.h</a> <a href="d5/d24/_g_water_reservoir_8h_source.html">[code]</a></td></tr>
-<tr class="memdesc:d5/d24/_g_water_reservoir_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Green Ampt Method to calculate infiltration and excess precipitation. <br/></td></tr>
+<tr class="memitem:d7/d37/a00505"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d7/d37/a00505.html">GWaterReservoir.h</a> <a href="d7/d37/a00505_source.html">[code]</a></td></tr>
+<tr class="memdesc:d7/d37/a00505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Green Ampt Method to calculate infiltration and excess precipitation. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:27 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="dir_b5f74835798975ca25f8dc97c6c852fc.html">GWATER_RESERVOIR</a></li>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

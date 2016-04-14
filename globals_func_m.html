@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -104,6 +111,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_func_m.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -123,65 +144,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
-: <a class="el" href="d7/ddd/fis_8c.html#a0ddf1224851353fc92bfbff6f499fa97">fis.c</a>
-, <a class="el" href="df/d6e/gkgraph_8c.html#a0ddf1224851353fc92bfbff6f499fa97">gkgraph.c</a>
-, <a class="el" href="df/d30/test_2rw_8c.html#a0ddf1224851353fc92bfbff6f499fa97">rw.c</a>
+: <a class="el" href="d9/db6/a00146.html#a0ddf1224851353fc92bfbff6f499fa97">fis.c</a>
+, <a class="el" href="d0/d4a/a00147.html#a0ddf1224851353fc92bfbff6f499fa97">gkgraph.c</a>
+, <a class="el" href="d2/d82/a00142.html#a0ddf1224851353fc92bfbff6f499fa97">rw.c</a>
 </li>
 <li>Match_2Hop()
-: <a class="el" href="d4/d7c/coarsen_8c.html#aead846b2c69509c914426ff087509934">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#aead846b2c69509c914426ff087509934">coarsen.c</a>
 </li>
 <li>Match_2HopAll()
-: <a class="el" href="d4/d7c/coarsen_8c.html#aa56d53cace160be27fb1750dcaffbc04">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#aa56d53cace160be27fb1750dcaffbc04">coarsen.c</a>
 </li>
 <li>Match_2HopAny()
-: <a class="el" href="d4/d7c/coarsen_8c.html#a838a4013e3b5cc5278ecc7a8757ce0ef">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#a838a4013e3b5cc5278ecc7a8757ce0ef">coarsen.c</a>
 </li>
 <li>Match_RM()
-: <a class="el" href="d4/d7c/coarsen_8c.html#a892d2ea16d613abc2276ad5fc6999724">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#a892d2ea16d613abc2276ad5fc6999724">coarsen.c</a>
 </li>
 <li>Match_SHEM()
-: <a class="el" href="d4/d7c/coarsen_8c.html#af3ec72f3170ccdca06d8ad018d86cc58">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#af3ec72f3170ccdca06d8ad018d86cc58">coarsen.c</a>
 </li>
 <li>METIS_Free()
-: <a class="el" href="d4/da1/auxapi_8c.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">auxapi.c</a>
+: <a class="el" href="d3/df8/a00155.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">auxapi.c</a>
 </li>
 <li>METIS_PartGraphKway()
-: <a class="el" href="de/d23/kmetis_8c.html#af89851458c047aba436b36ed567441e4">kmetis.c</a>
+: <a class="el" href="d6/dfb/a00172.html#af89851458c047aba436b36ed567441e4">kmetis.c</a>
 </li>
 <li>METIS_PartGraphRecursive()
-: <a class="el" href="d6/d7a/pmetis_8c.html#a25fc90fd934931239b3c98ac4bdbce76">pmetis.c</a>
+: <a class="el" href="d8/d00/a00186.html#a25fc90fd934931239b3c98ac4bdbce76">pmetis.c</a>
 </li>
 <li>METIS_SetDefaultOptions()
-: <a class="el" href="d4/da1/auxapi_8c.html#abea67bb0c6286795ac5fc9bee605dc5d">auxapi.c</a>
+: <a class="el" href="d3/df8/a00155.html#abea67bb0c6286795ac5fc9bee605dc5d">auxapi.c</a>
 </li>
 <li>MlevelKWayPartitioning()
-: <a class="el" href="de/d23/kmetis_8c.html#a7973c78504ad6711d3516082b1112805">kmetis.c</a>
+: <a class="el" href="d6/dfb/a00172.html#a7973c78504ad6711d3516082b1112805">kmetis.c</a>
 </li>
 <li>MlevelRecursiveBisection()
-: <a class="el" href="d6/d7a/pmetis_8c.html#a5510f276b321a8450b2e9cc913c2f00f">pmetis.c</a>
+: <a class="el" href="d8/d00/a00186.html#a5510f276b321a8450b2e9cc913c2f00f">pmetis.c</a>
 </li>
 <li>MoveGroupContigForCut()
-: <a class="el" href="d1/d25/contig_8c.html#a59be93c110982dd4b4e918957804e3b7">contig.c</a>
+: <a class="el" href="d6/d7d/a00161.html#a59be93c110982dd4b4e918957804e3b7">contig.c</a>
 </li>
 <li>MoveGroupContigForVol()
-: <a class="el" href="d1/d25/contig_8c.html#ac9671fbb0e67a5e8bee0d578ebcd0382">contig.c</a>
+: <a class="el" href="d6/d7d/a00161.html#ac9671fbb0e67a5e8bee0d578ebcd0382">contig.c</a>
 </li>
 <li>MoveGroupMinConnForCut()
-: <a class="el" href="dc/d85/minconn_8c.html#a39d997df18cf07ea8609a66db133a8b6">minconn.c</a>
+: <a class="el" href="d0/d81/a00180.html#a39d997df18cf07ea8609a66db133a8b6">minconn.c</a>
 </li>
 <li>MoveGroupMinConnForVol()
-: <a class="el" href="dc/d85/minconn_8c.html#acab0293e31c438218cd4b37b608466c6">minconn.c</a>
+: <a class="el" href="d0/d81/a00180.html#acab0293e31c438218cd4b37b608466c6">minconn.c</a>
 </li>
 <li>MultilevelBisect()
-: <a class="el" href="d6/d7a/pmetis_8c.html#a33c48a23cc94ea0221fa5c7317cd0222">pmetis.c</a>
+: <a class="el" href="d8/d00/a00186.html#a33c48a23cc94ea0221fa5c7317cd0222">pmetis.c</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:28 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<map id="ProjectKWayPartition" name="ProjectKWayPartition">
+<area shape="rect" id="node2" href="$d8/df1/a00174.html#a22a23a687ef7ed0d4f66ab58e3a81d12" title="AllocateKWayPartitionMemory" alt="" coords="825,47,1063,77"/>
+<area shape="rect" id="node4" href="$d5/d1e/a00103.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1443,98,1535,127"/>
+<area shape="rect" id="node6" href="$d3/db1/a00200.html#a24ba749ade92aef079e88d233317c068" title="iwspacemalloc" alt="" coords="475,151,603,181"/>
+<area shape="rect" id="node10" href="$d3/db1/a00200.html#ab24df9968589b0cfabb8f1a8b4661d0d" title="cnbrpoolReset" alt="" coords="265,151,391,181"/>
+<area shape="rect" id="node11" href="$d3/db1/a00200.html#a5c7982f300512c943ce53a0531529ae8" title="cnbrpoolGetNext" alt="" coords="257,205,399,234"/>
+<area shape="rect" id="node12" href="$d3/db1/a00200.html#a0eac0ea6853b8ee210cbd739e17782aa" title="vnbrpoolReset" alt="" coords="265,258,391,287"/>
+<area shape="rect" id="node13" href="$d3/db1/a00200.html#a371b41152c6e40d6866b357a4ffee5f1" title="vnbrpoolGetNext" alt="" coords="257,311,399,341"/>
+<area shape="rect" id="node14" href="$d8/df1/a00174.html#acd248e19a1ba82c235d52479e231e2f7" title="ComputeKWayVolGains" alt="" coords="230,98,426,127"/>
+<area shape="rect" id="node15" href="$df/dcd/a00127.html#a6af2646733e761482dafebbb5e351240" title="FreeGraph" alt="" coords="279,415,377,445"/>
+<area shape="rect" id="node3" href="$d4/d98/a00120.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="1113,125,1207,154"/>
+<area shape="rect" id="node5" href="$d4/d98/a00120.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="1256,98,1395,127"/>
+<area shape="rect" id="node7" href="$d3/db1/a00200.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="651,151,775,181"/>
+<area shape="rect" id="node8" href="$d4/d98/a00120.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="875,151,1013,181"/>
+<area shape="rect" id="node9" href="$d5/deb/a00132.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="1265,202,1386,231"/>
+<area shape="rect" id="node16" href="$df/dcd/a00127.html#a12a6bda050dc470113f4d1cd5aa5777d" title="FreeRData" alt="" coords="488,415,589,445"/>
+</map>

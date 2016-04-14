@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$dd/d6a/class_simulation_module.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="6,32,157,61"/>
-<area shape="rect" id="node2" href="$d0/d88/class_diffusive_wave.html" title="Routing in the channel. " alt="" coords="205,5,331,35"/>
-<area shape="rect" id="node3" href="$de/d70/class_m_u_s_k___c_h.html" title="channel flow routing using Muskingum method " alt="" coords="217,59,319,88"/>
+<area shape="rect" id="node1" href="$d6/d42/a00043.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="6,32,157,61"/>
+<area shape="rect" id="node2" href="$d1/d2b/a00018.html" title="Routing in the channel. " alt="" coords="205,5,331,35"/>
+<area shape="rect" id="node3" href="$dc/d87/a00032.html" title="channel flow routing using Muskingum method " alt="" coords="217,59,319,88"/>
 </map>

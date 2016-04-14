@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -106,6 +113,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_p.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -125,49 +146,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>parse_cmdline()
-: <a class="el" href="d7/ddd/fis_8c.html#aea2aa8c9b5bb7c64a3f316d7760f0341">fis.c</a>
-, <a class="el" href="df/d6e/gkgraph_8c.html#a0e7ce196a2f8882777957bf898739f6f">gkgraph.c</a>
-, <a class="el" href="d3/d90/cmdline__gpmetis_8c.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_gpmetis.c</a>
-, <a class="el" href="df/dba/cmdline__m2gmetis_8c.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_m2gmetis.c</a>
-, <a class="el" href="df/d30/test_2rw_8c.html#a0e7ce196a2f8882777957bf898739f6f">rw.c</a>
-, <a class="el" href="d0/dbc/cmdline__mpmetis_8c.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_mpmetis.c</a>
-, <a class="el" href="de/d0f/cmdline__ndmetis_8c.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_ndmetis.c</a>
+: <a class="el" href="d9/db6/a00146.html#aea2aa8c9b5bb7c64a3f316d7760f0341">fis.c</a>
+, <a class="el" href="d0/d4a/a00147.html#a0e7ce196a2f8882777957bf898739f6f">gkgraph.c</a>
+, <a class="el" href="dd/de3/a00201.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_gpmetis.c</a>
+, <a class="el" href="db/d53/a00202.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_m2gmetis.c</a>
+, <a class="el" href="d2/d82/a00142.html#a0e7ce196a2f8882777957bf898739f6f">rw.c</a>
+, <a class="el" href="de/d79/a00203.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_mpmetis.c</a>
+, <a class="el" href="d1/d72/a00204.html#a0e7ce196a2f8882777957bf898739f6f">cmdline_ndmetis.c</a>
 </li>
 <li>Print2WayRefineStats()
-: <a class="el" href="d2/d1b/fm_8c.html#a6e4663b4acc63be2c1b33533e7827f1a">fm.c</a>
+: <a class="el" href="d0/d48/a00165.html#a6e4663b4acc63be2c1b33533e7827f1a">fm.c</a>
 </li>
 <li>print_an_itemset()
-: <a class="el" href="d7/ddd/fis_8c.html#a3b3cc293672156bbc5026fd567f52462">fis.c</a>
+: <a class="el" href="d9/db6/a00146.html#a3b3cc293672156bbc5026fd567f52462">fis.c</a>
 </li>
 <li>print_final_info()
-: <a class="el" href="d7/ddd/fis_8c.html#a702976a4c55992ddbfc1918ec1b70943">fis.c</a>
-, <a class="el" href="df/d6e/gkgraph_8c.html#a702976a4c55992ddbfc1918ec1b70943">gkgraph.c</a>
-, <a class="el" href="df/d30/test_2rw_8c.html#a702976a4c55992ddbfc1918ec1b70943">rw.c</a>
+: <a class="el" href="d9/db6/a00146.html#a702976a4c55992ddbfc1918ec1b70943">fis.c</a>
+, <a class="el" href="d0/d4a/a00147.html#a702976a4c55992ddbfc1918ec1b70943">gkgraph.c</a>
+, <a class="el" href="d2/d82/a00142.html#a702976a4c55992ddbfc1918ec1b70943">rw.c</a>
 </li>
 <li>print_init_info()
-: <a class="el" href="d7/ddd/fis_8c.html#a2270624f104a1d261314dd112e4a1d1d">fis.c</a>
-, <a class="el" href="df/d30/test_2rw_8c.html#a2270624f104a1d261314dd112e4a1d1d">rw.c</a>
-, <a class="el" href="df/d6e/gkgraph_8c.html#a4598b170c85571dc5cabc5cf4c0a960f">gkgraph.c</a>
+: <a class="el" href="d9/db6/a00146.html#a2270624f104a1d261314dd112e4a1d1d">fis.c</a>
+, <a class="el" href="d2/d82/a00142.html#a2270624f104a1d261314dd112e4a1d1d">rw.c</a>
+, <a class="el" href="d0/d4a/a00147.html#a4598b170c85571dc5cabc5cf4c0a960f">gkgraph.c</a>
 </li>
 <li>PrintCGraphStats()
-: <a class="el" href="d4/d7c/coarsen_8c.html#aac3e480e7e3bd02bfdf001d858a93562">coarsen.c</a>
+: <a class="el" href="de/db9/a00159.html#aac3e480e7e3bd02bfdf001d858a93562">coarsen.c</a>
 </li>
 <li>PrintCtrl()
-: <a class="el" href="de/dc5/options_8c.html#a2c75ede1a41b19cb3705b998aba3200b">options.c</a>
+: <a class="el" href="d2/d94/a00184.html#a2c75ede1a41b19cb3705b998aba3200b">options.c</a>
 </li>
 <li>PrintSubDomainGraph()
-: <a class="el" href="dc/d85/minconn_8c.html#a9723ce68d6093abc3aca1086e672cde9">minconn.c</a>
+: <a class="el" href="d0/d81/a00180.html#a9723ce68d6093abc3aca1086e672cde9">minconn.c</a>
 </li>
 <li>ProjectKWayPartition()
-: <a class="el" href="dc/d73/kwayrefine_8c.html#a974cb62c010e195c90f8fb900359957c">kwayrefine.c</a>
+: <a class="el" href="d8/df1/a00174.html#a974cb62c010e195c90f8fb900359957c">kwayrefine.c</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:28 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

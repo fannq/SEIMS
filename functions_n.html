@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -108,6 +115,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_n.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -127,66 +148,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>name
-: <a class="el" href="d9/dbd/structgk__option.html#aa47d0e4e90d3cd1793fc5344b1e99afc">gk_option</a>
+: <a class="el" href="de/d11/a00021.html#aa47d0e4e90d3cd1793fc5344b1e99afc">gk_option</a>
 </li>
 <li>nbrpoolcpos
-: <a class="el" href="d1/d68/structctrl__t.html#acafe4ebea8585403e053dc33e7b4ac64">ctrl_t</a>
+: <a class="el" href="d7/d7a/a00016.html#acafe4ebea8585403e053dc33e7b4ac64">ctrl_t</a>
 </li>
 <li>nbrpoolreallocs
-: <a class="el" href="d1/d68/structctrl__t.html#a091baa9be72262dca61c641d1f1e4ad3">ctrl_t</a>
+: <a class="el" href="d7/d7a/a00016.html#a091baa9be72262dca61c641d1f1e4ad3">ctrl_t</a>
 </li>
 <li>nbrpoolsize
-: <a class="el" href="d1/d68/structctrl__t.html#ae37af5d894dbeea35f735361503e58a9">ctrl_t</a>
+: <a class="el" href="d7/d7a/a00016.html#ae37af5d894dbeea35f735361503e58a9">ctrl_t</a>
 </li>
 <li>nCols
-: <a class="el" href="d8/dd0/classsl_table.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">slTable</a>
+: <a class="el" href="d5/df9/a00044.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">slTable</a>
 </li>
 <li>ncon
-: <a class="el" href="d1/d68/structctrl__t.html#afb1fd1cb311eb4bcefa46a14ef05afa0">ctrl_t</a>
-, <a class="el" href="de/d18/structmesh__t.html#ad18b1da90165616c622c16ce79c6907f">mesh_t</a>
+: <a class="el" href="d7/d7a/a00016.html#afb1fd1cb311eb4bcefa46a14ef05afa0">ctrl_t</a>
+, <a class="el" href="dc/d3c/a00028.html#ad18b1da90165616c622c16ce79c6907f">mesh_t</a>
 </li>
 <li>ned
-: <a class="el" href="df/dd2/structvkrinfo__t.html#a0af0fec11cab7aa7a343c268832cc709">vkrinfo_t</a>
-, <a class="el" href="d9/d67/structvnbr__t.html#ae32050bde46f5545e1c306853afd8d97">vnbr_t</a>
+: <a class="el" href="d4/dca/a00048.html#a0af0fec11cab7aa7a343c268832cc709">vkrinfo_t</a>
+, <a class="el" href="d2/dee/a00049.html#ae32050bde46f5545e1c306853afd8d97">vnbr_t</a>
 </li>
 <li>nid
-: <a class="el" href="df/dd2/structvkrinfo__t.html#a9befff2ea2c811563ad38aaf921a8f21">vkrinfo_t</a>
+: <a class="el" href="d4/dca/a00048.html#a9befff2ea2c811563ad38aaf921a8f21">vkrinfo_t</a>
 </li>
 <li>nmops
-: <a class="el" href="de/de6/structgk__mcore__t.html#a30d17f8009db5d7cf61094259ff9e26f">gk_mcore_t</a>
+: <a class="el" href="dd/da2/a00019.html#a30d17f8009db5d7cf61094259ff9e26f">gk_mcore_t</a>
 </li>
 <li>nn
-: <a class="el" href="de/d18/structmesh__t.html#a6321957b37b2040997c84db2fd2b8427">mesh_t</a>
+: <a class="el" href="dc/d3c/a00028.html#a6321957b37b2040997c84db2fd2b8427">mesh_t</a>
 </li>
 <li>nnbrs
-: <a class="el" href="d0/d0a/structckrinfo__t.html#a73fbc8555b843b3fd414ac0a9ec244f1">ckrinfo_t</a>
-, <a class="el" href="df/dd2/structvkrinfo__t.html#aa337d338d253918348c5ba9e4a5082ca">vkrinfo_t</a>
+: <a class="el" href="d4/dee/a00008.html#a73fbc8555b843b3fd414ac0a9ec244f1">ckrinfo_t</a>
+, <a class="el" href="d4/dca/a00048.html#aa337d338d253918348c5ba9e4a5082ca">vkrinfo_t</a>
 </li>
 <li>NotRegularMeasurement()
-: <a class="el" href="dd/dcb/class_not_regular_measurement.html#ac9be129499c58740965eb43f0bae9dd4">NotRegularMeasurement</a>
+: <a class="el" href="d0/dc0/a00033.html#ac9be129499c58740965eb43f0bae9dd4">NotRegularMeasurement</a>
 </li>
 <li>nparts
-: <a class="el" href="d1/d68/structctrl__t.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee">ctrl_t</a>
+: <a class="el" href="d7/d7a/a00016.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee">ctrl_t</a>
 </li>
 <li>nRows
-: <a class="el" href="d8/dd0/classsl_table.html#adea6ff1f79a5048f86d45a1a77ec9ae2">slTable</a>
+: <a class="el" href="d5/df9/a00044.html#adea6ff1f79a5048f86d45a1a77ec9ae2">slTable</a>
 </li>
 <li>num_callocs
-: <a class="el" href="de/de6/structgk__mcore__t.html#afd16bb0581bc9e98172b2ab35cbc310c">gk_mcore_t</a>
+: <a class="el" href="dd/da2/a00019.html#afd16bb0581bc9e98172b2ab35cbc310c">gk_mcore_t</a>
 </li>
 <li>num_hallocs
-: <a class="el" href="de/de6/structgk__mcore__t.html#a2ad475b19470a6a7b0c65e53cfd1096b">gk_mcore_t</a>
+: <a class="el" href="dd/da2/a00019.html#a2ad475b19470a6a7b0c65e53cfd1096b">gk_mcore_t</a>
 </li>
 <li>NumberOfSites()
-: <a class="el" href="d4/d30/class_measurement.html#a797e90045c3f01415abc68ebe02683d8">Measurement</a>
+: <a class="el" href="d0/d33/a00027.html#a797e90045c3f01415abc68ebe02683d8">Measurement</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 03:35:27 for SEIMS-2016 by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Apr 14 2016 04:59:41 for SEIMS-2016 by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>
