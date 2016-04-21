@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/gklib.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/fm.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,99 +111,73 @@ $(document).ready(function(){initNavTree('d5/dcb/a00170.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">gklib.c File Reference</div>  </div>
+<div class="title">fm.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Various helper routines generated using GKlib's templates.  
+<p>Functions for the edge-based FM refinement.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;metislib.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for gklib.c:</div>
+Include dependency graph for fm.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d57/a00701.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2gklib_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2gklib_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2gklib_8c">
-<area shape="rect" id="node2" href="../../d8/d64/a00181_source.html" title="metislib.h" alt="" coords="4009,117,4100,147"/><area shape="rect" id="node3" href="../../dc/dfe/a00125_source.html" title="GKlib.h" alt="" coords="1724,195,1797,224"/><area shape="rect" id="node40" href="../../d2/d34/a00156.html" title="This file contains function prototypes and constant definitions for METIS. " alt="" coords="3735,195,3808,224"/><area shape="rect" id="node41" href="../../dd/da2/a00192_source.html" title="rename.h" alt="" coords="3833,195,3921,224"/><area shape="rect" id="node42" href="../../d1/d0d/a00171.html" title="Data structures and prototypes for GKlib integration. " alt="" coords="3946,195,4053,224"/><area shape="rect" id="node44" href="../../d0/d48/a00165_source.html" title="defs.h" alt="" coords="4078,195,4143,224"/><area shape="rect" id="node45" href="../../d8/d72/a00199_source.html" title="struct.h" alt="" coords="4167,195,4240,224"/><area shape="rect" id="node46" href="../../dd/d4c/a00177_source.html" title="macros.h" alt="" coords="4265,195,4351,224"/><area shape="rect" id="node47" href="../../da/deb/a00189_source.html" title="proto.h" alt="" coords="4375,195,4445,224"/><area shape="rect" id="node4" href="../../d4/d81/a00110.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="175,272,267,301"/><area shape="rect" id="node26" href="../../da/d72/a00124.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1876,272,1975,301"/><area shape="rect" id="node27" href="../../de/d36/a00123.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="1999,272,2097,301"/><area shape="rect" id="node28" href="../../db/d57/a00112.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2122,272,2235,301"/><area shape="rect" id="node29" href="../../dd/d6d/a00111.html" title="This file contains various constants definitions. " alt="" coords="2260,272,2351,301"/><area shape="rect" id="node30" href="../../d8/d17/a00114.html" title="This file contains various macros. " alt="" coords="2375,272,2488,301"/><area shape="rect" id="node31" href="../../d3/d00/a00113.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2513,272,2617,301"/><area shape="rect" id="node32" href="../../d4/d98/a00120.html" title="Templates for the qsort routine. " alt="" coords="2642,272,2749,301"/><area shape="rect" id="node33" href="../../d2/da3/a00115.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2775,272,2885,301"/><area shape="rect" id="node34" href="../../d4/d3e/a00116.html" title="Templates for memory allocation routines. " alt="" coords="2911,272,3049,301"/><area shape="rect" id="node35" href="../../d9/d4b/a00117.html" title="Templates for priority queues. " alt="" coords="3073,272,3208,301"/><area shape="rect" id="node36" href="../../d8/d87/a00118.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3234,272,3379,301"/><area shape="rect" id="node37" href="../../df/d6a/a00119.html" title="Templates for portable random number generation. " alt="" coords="3404,272,3539,301"/><area shape="rect" id="node38" href="../../d8/dfa/a00121.html" title="Templates for various utility routines. " alt="" coords="3565,272,3675,301"/><area shape="rect" id="node39" href="../../df/dc8/a00122.html" title="This file contains function prototypes. " alt="" coords="3699,272,3796,301"/><area shape="rect" id="node43" href="../../d6/dfb/a00172.html" title="gklib_rename.h" alt="" coords="3934,272,4065,301"/></map>
+<div class="center"><img src="../../da/d6b/a00708.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2fm_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2fm_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2fm_8c">
+<area shape="rect" id="node2" href="../../d2/d94/a00184_source.html" title="metislib.h" alt="" coords="4009,101,4100,131"/><area shape="rect" id="node3" href="../../d1/d88/a00128_source.html" title="GKlib.h" alt="" coords="1724,179,1797,208"/><area shape="rect" id="node40" href="../../de/db9/a00159.html" title="This file contains function prototypes and constant definitions for METIS. " alt="" coords="3735,179,3808,208"/><area shape="rect" id="node41" href="../../d3/d2a/a00195_source.html" title="rename.h" alt="" coords="3833,179,3921,208"/><area shape="rect" id="node42" href="../../d8/df1/a00174.html" title="Data structures and prototypes for GKlib integration. " alt="" coords="3946,179,4053,208"/><area shape="rect" id="node44" href="../../dd/da7/a00168_source.html" title="defs.h" alt="" coords="4078,179,4143,208"/><area shape="rect" id="node45" href="../../db/d53/a00202_source.html" title="struct.h" alt="" coords="4167,179,4240,208"/><area shape="rect" id="node46" href="../../d0/d81/a00180_source.html" title="macros.h" alt="" coords="4265,179,4351,208"/><area shape="rect" id="node47" href="../../dd/da2/a00192_source.html" title="proto.h" alt="" coords="4375,179,4445,208"/><area shape="rect" id="node4" href="../../d3/d00/a00113.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="175,256,267,285"/><area shape="rect" id="node26" href="../../df/dcd/a00127.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1876,256,1975,285"/><area shape="rect" id="node27" href="../../d7/d12/a00126.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="1999,256,2097,285"/><area shape="rect" id="node28" href="../../d2/da3/a00115.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2122,256,2235,285"/><area shape="rect" id="node29" href="../../d8/d17/a00114.html" title="This file contains various constants definitions. " alt="" coords="2260,256,2351,285"/><area shape="rect" id="node30" href="../../d9/d4b/a00117.html" title="This file contains various macros. " alt="" coords="2375,256,2488,285"/><area shape="rect" id="node31" href="../../d4/d3e/a00116.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2513,256,2617,285"/><area shape="rect" id="node32" href="../../de/d36/a00123.html" title="Templates for the qsort routine. " alt="" coords="2642,256,2749,285"/><area shape="rect" id="node33" href="../../d8/d87/a00118.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2775,256,2885,285"/><area shape="rect" id="node34" href="../../df/d6a/a00119.html" title="Templates for memory allocation routines. " alt="" coords="2911,256,3049,285"/><area shape="rect" id="node35" href="../../d4/d98/a00120.html" title="Templates for priority queues. " alt="" coords="3073,256,3208,285"/><area shape="rect" id="node36" href="../../d8/dfa/a00121.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3234,256,3379,285"/><area shape="rect" id="node37" href="../../df/dc8/a00122.html" title="Templates for portable random number generation. " alt="" coords="3404,256,3539,285"/><area shape="rect" id="node38" href="../../da/d72/a00124.html" title="Templates for various utility routines. " alt="" coords="3565,256,3675,285"/><area shape="rect" id="node39" href="../../dc/dfe/a00125.html" title="This file contains function prototypes. " alt="" coords="3699,256,3796,285"/><area shape="rect" id="node43" href="../../de/d45/a00175.html" title="gklib_rename.h" alt="" coords="3934,256,4065,285"/></map>
 </div>
 </div>
 <p><a href="../../d5/dcb/a00170_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a89b02dbc0bd6ec64351eff7c65c6440e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>(a, b)&#160;&#160;&#160;((a) &gt; (b))</td></tr>
-<tr class="separator:a89b02dbc0bd6ec64351eff7c65c6440e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afc154279aa00bea9ce5c90b8c6906cc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#afc154279aa00bea9ce5c90b8c6906cc6">isorti</a> (size_t n, idx_t *base)</td></tr>
-<tr class="separator:afc154279aa00bea9ce5c90b8c6906cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c215aad2804a5cba2e54e93113bc0d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a1c215aad2804a5cba2e54e93113bc0d5">FM_2WayCutRefine</a> (<a class="el" href="../../d1/d2b/a00018.html">ctrl_t</a> *ctrl, <a class="el" href="../../dc/de2/a00024.html">graph_t</a> *graph, real_t *ntpwgts, idx_t niter)</td></tr>
+<tr class="separator:a1c215aad2804a5cba2e54e93113bc0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa49d065f964af00512da0c4b3d4cad6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#aaa49d065f964af00512da0c4b3d4cad6">FM_Mc2WayCutRefine</a> (<a class="el" href="../../d1/d2b/a00018.html">ctrl_t</a> *ctrl, <a class="el" href="../../dc/de2/a00024.html">graph_t</a> *graph, real_t *ntpwgts, idx_t niter)</td></tr>
+<tr class="separator:aaa49d065f964af00512da0c4b3d4cad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51193f4b76d298d94234642136879390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a51193f4b76d298d94234642136879390">SelectQueue</a> (<a class="el" href="../../dc/de2/a00024.html">graph_t</a> *graph, real_t *pijbm, real_t *ubfactors, rpq_t **queues, idx_t *from, idx_t *cnum)</td></tr>
+<tr class="separator:a51193f4b76d298d94234642136879390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4663b4acc63be2c1b33533e7827f1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a6e4663b4acc63be2c1b33533e7827f1a">Print2WayRefineStats</a> (<a class="el" href="../../d1/d2b/a00018.html">ctrl_t</a> *ctrl, <a class="el" href="../../dc/de2/a00024.html">graph_t</a> *graph, real_t *ntpwgts, real_t deltabal, idx_t mincutorder)</td></tr>
+<tr class="separator:a6e4663b4acc63be2c1b33533e7827f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Various helper routines generated using GKlib's templates. </p>
-<p>Functions for printing various statistics for the computed partitionings and orderings.</p>
-<dl class="section date"><dt>Date</dt><dd>Started 4/12/2007 </dd></dl>
+<div class="textblock"><p>Functions for the edge-based FM refinement. </p>
+<dl class="section date"><dt>Date</dt><dd>Started 7/23/97 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>George </dd>
 <dd>
-Copyright 1997-2009, Regents of the University of Minnesota </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: gklib.c 10395 2011-06-23 23:28:06Z karypis $ </pre></dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Started 7/25/1997 </dd></dl>
-<dl class="section author"><dt>Author</dt><dd>George </dd>
-<dd>
-Copyright 1997-2009, Regents of the University of Minnesota </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: stat.c 10046 2011-06-01 14:13:40Z karypis $ </pre> </dd></dl>
+Copyright 1997-2011, Regents of the University of Minnesota </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: fm.c 10187 2011-06-13 13:46:57Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d5/dcb/a00170_source.html">gklib.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a89b02dbc0bd6ec64351eff7c65c6440e"></a>
+<p>Definition in file <a class="el" href="../../d5/dcb/a00170_source.html">fm.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a1c215aad2804a5cba2e54e93113bc0d5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define key_gt</td>
+          <td class="memname">void FM_2WayCutRefine </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a, </td>
+          <td class="paramtype"><a class="el" href="../../d1/d2b/a00018.html">ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>ctrl</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">b&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((a) &gt; (b))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>BLAS routines</p>
-<p>Memory allocation routines</p>
-<p>Priority queues routines </p>
-
-<p>Definition at line <a class="el" href="../../d5/dcb/a00170_source.html#l00032">32</a> of file <a class="el" href="../../d5/dcb/a00170_source.html">gklib.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="afc154279aa00bea9ce5c90b8c6906cc6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void isorti </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">idx_t *&#160;</td>
-          <td class="paramname"><em>base</em>&#160;</td>
+          <td class="paramtype">real_t *&#160;</td>
+          <td class="paramname"><em>ntpwgts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>niter</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -212,11 +186,168 @@ Copyright 1997-2009, Regents of the University of Minnesota </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Random number generation routines</p>
-<p>Utility routines</p>
-<p>Sorting routines </p>
+<p>This function performs a cut-focused FM refinement </p>
 
-<p>Definition at line <a class="el" href="../../d5/dcb/a00170_source.html#l00050">50</a> of file <a class="el" href="../../d5/dcb/a00170_source.html">gklib.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/dcb/a00170_source.html#l00029">29</a> of file <a class="el" href="../../d5/dcb/a00170_source.html">fm.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/dcb/a00170_a1c215aad2804a5cba2e54e93113bc0d5_cgraph.png" border="0" usemap="#d5/dcb/a00170_a1c215aad2804a5cba2e54e93113bc0d5_cgraph" alt=""/></div>
+<map name="d5/dcb/a00170_a1c215aad2804a5cba2e54e93113bc0d5_cgraph" id="d5/dcb/a00170_a1c215aad2804a5cba2e54e93113bc0d5_cgraph">
+<area shape="rect" id="node2" href="../../d5/d13/a00205.html#a24ba749ade92aef079e88d233317c068" title="iwspacemalloc" alt="" coords="247,32,375,61"/><area shape="rect" id="node9" href="../../d5/dcb/a00170.html#a6e4663b4acc63be2c1b33533e7827f1a" title="Print2WayRefineStats" alt="" coords="221,85,400,115"/><area shape="rect" id="node3" href="../../d5/d13/a00205.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="449,32,573,61"/><area shape="rect" id="node4" href="../../dc/dfe/a00125.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="621,32,760,61"/><area shape="rect" id="node5" href="../../d2/df5/a00137.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="961,5,1082,35"/><area shape="rect" id="node7" href="../../dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="809,57,903,87"/><area shape="rect" id="node6" href="../../d1/dd6/a00108.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1139,57,1231,87"/><area shape="rect" id="node8" href="../../dc/dfe/a00125.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="952,109,1091,139"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa49d065f964af00512da0c4b3d4cad6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FM_Mc2WayCutRefine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d2b/a00018.html">ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real_t *&#160;</td>
+          <td class="paramname"><em>ntpwgts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>niter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function performs a cut-focused multi-constraint FM refinement </p>
+
+<p>Definition at line <a class="el" href="../../d5/dcb/a00170_source.html#l00207">207</a> of file <a class="el" href="../../d5/dcb/a00170_source.html">fm.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/dcb/a00170_aaa49d065f964af00512da0c4b3d4cad6_cgraph.png" border="0" usemap="#d5/dcb/a00170_aaa49d065f964af00512da0c4b3d4cad6_cgraph" alt=""/></div>
+<map name="d5/dcb/a00170_aaa49d065f964af00512da0c4b3d4cad6_cgraph" id="d5/dcb/a00170_aaa49d065f964af00512da0c4b3d4cad6_cgraph">
+<area shape="rect" id="node2" href="../../d5/d13/a00205.html#a24ba749ade92aef079e88d233317c068" title="iwspacemalloc" alt="" coords="268,5,396,35"/><area shape="rect" id="node3" href="../../d5/d13/a00205.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="470,57,594,87"/><area shape="rect" id="node9" href="../../d5/d13/a00205.html#a194ce386758eefa7996960b928c5d0aa" title="rwspacemalloc" alt="" coords="267,109,397,139"/><area shape="rect" id="node10" href="../../d5/dcb/a00170.html#a6e4663b4acc63be2c1b33533e7827f1a" title="Print2WayRefineStats" alt="" coords="243,163,421,192"/><area shape="rect" id="node11" href="../../d5/dcb/a00170.html#a51193f4b76d298d94234642136879390" title="SelectQueue" alt="" coords="275,216,389,245"/><area shape="rect" id="node4" href="../../dc/dfe/a00125.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="643,57,781,87"/><area shape="rect" id="node5" href="../../d2/df5/a00137.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="982,31,1103,60"/><area shape="rect" id="node7" href="../../dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="830,83,925,112"/><area shape="rect" id="node6" href="../../d1/dd6/a00108.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1161,83,1253,112"/><area shape="rect" id="node8" href="../../dc/dfe/a00125.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="973,135,1112,164"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e4663b4acc63be2c1b33533e7827f1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Print2WayRefineStats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d2b/a00018.html">ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real_t *&#160;</td>
+          <td class="paramname"><em>ntpwgts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real_t&#160;</td>
+          <td class="paramname"><em>deltabal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>mincutorder</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prints statistics about the refinement </p>
+
+<p>Definition at line <a class="el" href="../../d5/dcb/a00170_source.html#l00515">515</a> of file <a class="el" href="../../d5/dcb/a00170_source.html">fm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51193f4b76d298d94234642136879390"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SelectQueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real_t *&#160;</td>
+          <td class="paramname"><em>pijbm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real_t *&#160;</td>
+          <td class="paramname"><em>ubfactors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">rpq_t **&#160;</td>
+          <td class="paramname"><em>queues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>cnum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function selects the partition number and the queue from which we will move vertices out. </p>
+
+<p>Definition at line <a class="el" href="../../d5/dcb/a00170_source.html#l00439">439</a> of file <a class="el" href="../../d5/dcb/a00170_source.html">fm.c</a>.</p>
 
 </div>
 </div>
@@ -225,8 +356,8 @@ Copyright 1997-2009, Regents of the University of Minnesota </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><a class="el" href="../../d5/dcb/a00170.html">gklib.c</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><a class="el" href="../../d5/dcb/a00170.html">fm.c</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

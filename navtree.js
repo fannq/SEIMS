@@ -3,9 +3,10 @@ var NAVTREE =
   [ "SEIMS-2016", "index.html", [
     [ "Changelog", "d7/d46/a00002.html", null ],
     [ "Manual for Developers in Chinese v1.1", "d0/d0b/a00004.html", null ],
-    [ "Preprocessing for SEIMS", "de/d21/a00006.html", null ],
-    [ "Todo List", "df/d46/a00664.html", null ],
-    [ "Deprecated List", "d9/d41/a00666.html", null ],
+    [ "# 生态模块设计", "de/d21/a00006.html", null ],
+    [ "Preprocessing for SEIMS", "d4/dee/a00008.html", null ],
+    [ "Todo List", "d5/d40/a00672.html", null ],
+    [ "Deprecated List", "d8/d73/a00674.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
@@ -35,12 +36,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d2/d34/a00156.html#a25f2f86771b268567d2b948b32961812ad909ca987348cb382f8d3ac7a768f04a",
-"d5/d13/a00205_source.html",
-"d7/df7/a00058_source.html",
-"da/dc3/a00657.html#ga96686b43fea284176a5de2f143e52698",
-"dd/da2/a00192_source.html",
-"df/dc8/a00122.html#ac59047c4a89fa4680d746fcdce4aa1a7"
+"d3/df8/a00155_source.html",
+"d6/d9c/a00352_source.html",
+"d9/da5/a00075_source.html",
+"db/dd9/a00179.html#acd248e19a1ba82c235d52479e231e2f7",
+"dc/dfe/a00125.html#afc3115833e0ad293dbe9fd4028b12f20",
+"df/d98/a00107.html#a06edc174c5986841b589900ffce6600f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

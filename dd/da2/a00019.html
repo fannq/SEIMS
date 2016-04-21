@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: gk_mcore_t Struct Reference</title>
+<title>SEIMS-2016: DBManager Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,271 +113,77 @@ $(document).ready(function(){initNavTree('dd/da2/a00019.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d7/d4f/a00819.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d8/d1c/a00824.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gk_mcore_t Struct Reference</div>  </div>
+<div class="title">DBManager Class Reference<div class="ingroups"><a class="el" href="../../dc/df1/a00662.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>&gt;</code></p>
+<p>sqlite database management class  
+ <a href="../../dd/da2/a00019.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d9/d9b/a00363_source.html">DBManager.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a834677bb8263a1b0475104889883c86c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a834677bb8263a1b0475104889883c86c">coresize</a></td></tr>
-<tr class="separator:a834677bb8263a1b0475104889883c86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cc856b4f3049f9d49c9f3ec10b73739"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a5cc856b4f3049f9d49c9f3ec10b73739">corecpos</a></td></tr>
-<tr class="separator:a5cc856b4f3049f9d49c9f3ec10b73739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d0056e8cc124fad35b901e89668b8b1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a2d0056e8cc124fad35b901e89668b8b1">core</a></td></tr>
-<tr class="separator:a2d0056e8cc124fad35b901e89668b8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30d17f8009db5d7cf61094259ff9e26f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a30d17f8009db5d7cf61094259ff9e26f">nmops</a></td></tr>
-<tr class="separator:a30d17f8009db5d7cf61094259ff9e26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3631e211c793af96e0abf21cb95de4ae"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a3631e211c793af96e0abf21cb95de4ae">cmop</a></td></tr>
-<tr class="separator:a3631e211c793af96e0abf21cb95de4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e825c8a07e7c040dbf947bedac3339"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/db2/a00020.html">gk_mop_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a74e825c8a07e7c040dbf947bedac3339">mops</a></td></tr>
-<tr class="separator:a74e825c8a07e7c040dbf947bedac3339"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd16bb0581bc9e98172b2ab35cbc310c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#afd16bb0581bc9e98172b2ab35cbc310c">num_callocs</a></td></tr>
-<tr class="separator:afd16bb0581bc9e98172b2ab35cbc310c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ad475b19470a6a7b0c65e53cfd1096b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a2ad475b19470a6a7b0c65e53cfd1096b">num_hallocs</a></td></tr>
-<tr class="separator:a2ad475b19470a6a7b0c65e53cfd1096b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa407f9b9ca318fa8afa36ab1c936ec07"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aa407f9b9ca318fa8afa36ab1c936ec07">size_callocs</a></td></tr>
-<tr class="separator:aa407f9b9ca318fa8afa36ab1c936ec07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c180c60538546b4ab67bb91264e1c6e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a4c180c60538546b4ab67bb91264e1c6e">size_hallocs</a></td></tr>
-<tr class="separator:a4c180c60538546b4ab67bb91264e1c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a488b0e7fbec1333c47a736af554a640c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a488b0e7fbec1333c47a736af554a640c">cur_callocs</a></td></tr>
-<tr class="separator:a488b0e7fbec1333c47a736af554a640c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69514abe8ce1822030428ca391a903e7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a69514abe8ce1822030428ca391a903e7">cur_hallocs</a></td></tr>
-<tr class="separator:a69514abe8ce1822030428ca391a903e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a536a8ab027c1f70bfe5b56a26059589b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a536a8ab027c1f70bfe5b56a26059589b">max_callocs</a></td></tr>
-<tr class="separator:a536a8ab027c1f70bfe5b56a26059589b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74723a880e8829c81bd3a38ed474f09a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a74723a880e8829c81bd3a38ed474f09a">max_hallocs</a></td></tr>
-<tr class="separator:a74723a880e8829c81bd3a38ed474f09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0b70068a52d94cb2a0b8eba773b4e121"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b70068a52d94cb2a0b8eba773b4e121"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a0b70068a52d94cb2a0b8eba773b4e121">DBManager</a> (void)</td></tr>
+<tr class="memdesc:a0b70068a52d94cb2a0b8eba773b4e121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a0b70068a52d94cb2a0b8eba773b4e121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf19331a14657f1c2e4453999218c416"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf19331a14657f1c2e4453999218c416"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#abf19331a14657f1c2e4453999218c416">~DBManager</a> (void)</td></tr>
+<tr class="memdesc:abf19331a14657f1c2e4453999218c416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:abf19331a14657f1c2e4453999218c416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451113a0e298f84c030ea7b9892d8f8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a451113a0e298f84c030ea7b9892d8f8b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a451113a0e298f84c030ea7b9892d8f8b">Open</a> (string filename)</td></tr>
+<tr class="memdesc:a451113a0e298f84c030ea7b9892d8f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the given sqlite database. <br/></td></tr>
+<tr class="separator:a451113a0e298f84c030ea7b9892d8f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bcd1fc4e7c5b0ae658f3e779a176268"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a1bcd1fc4e7c5b0ae658f3e779a176268">Close</a> (void)</td></tr>
+<tr class="memdesc:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the currently open database. <br/></td></tr>
+<tr class="separator:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd9e5246ae9f047eedbb199699005ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd9e5246ae9f047eedbb199699005ae"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aebd9e5246ae9f047eedbb199699005ae">IsError</a> ()</td></tr>
+<tr class="memdesc:aebd9e5246ae9f047eedbb199699005ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a flag indicating if an error occured. <br/></td></tr>
+<tr class="separator:aebd9e5246ae9f047eedbb199699005ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8713d2e4335e298ffb825ec07cad11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f8713d2e4335e298ffb825ec07cad11"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a6f8713d2e4335e298ffb825ec07cad11">GetErrorMessage</a> ()</td></tr>
+<tr class="memdesc:a6f8713d2e4335e298ffb825ec07cad11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error message for the last error if any. <br/></td></tr>
+<tr class="separator:a6f8713d2e4335e298ffb825ec07cad11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dba35872dea3b8a49782ab7b880306e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dba35872dea3b8a49782ab7b880306e"></a>
+<a class="el" href="../../d3/dea/a00046.html">slTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a8dba35872dea3b8a49782ab7b880306e">Load</a> (string strSQL)</td></tr>
+<tr class="memdesc:a8dba35872dea3b8a49782ab7b880306e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given SQL query and return an instance of a <a class="el" href="../../d3/dea/a00046.html" title="Table class for sqlite database tables. ">slTable</a> class containing the results. <br/></td></tr>
+<tr class="separator:a8dba35872dea3b8a49782ab7b880306e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e73a7e86d1217f6bc32bbd0983e271"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5e73a7e86d1217f6bc32bbd0983e271"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#af5e73a7e86d1217f6bc32bbd0983e271">Execute</a> (string strSQL)</td></tr>
+<tr class="memdesc:af5e73a7e86d1217f6bc32bbd0983e271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a non-query SQL string. <br/></td></tr>
+<tr class="separator:af5e73a7e86d1217f6bc32bbd0983e271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0739d27b1ca7443329e5e4d24409b8ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0739d27b1ca7443329e5e4d24409b8ac"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a0739d27b1ca7443329e5e4d24409b8ac">IsTableExist</a> (string databasePath, string tableName)</td></tr>
+<tr class="memdesc:a0739d27b1ca7443329e5e4d24409b8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the given table exists <br/></td></tr>
+<tr class="separator:a0739d27b1ca7443329e5e4d24409b8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The following structure stores information used by Metis </p>
+<div class="textblock"><p>sqlite database management class </p>
+<dl class="deprecated"><dt><b><a class="el" href="../../d4/d4f/a00673.html#_deprecated000007">Deprecated:</a></b></dt><dd>Currently, this is no longer used.</dd></dl>
 
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00242">242</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3631e211c793af96e0abf21cb95de4ae"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::cmop</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Index of the first free location in maops </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00251">251</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2d0056e8cc124fad35b901e89668b8b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* gk_mcore_t::core</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Pointer to the core itself </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00246">246</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5cc856b4f3049f9d49c9f3ec10b73739"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::corecpos</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Index of the first free location in core </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00245">245</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a834677bb8263a1b0475104889883c86c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::coresize</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The amount of core memory that has been allocated </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00244">244</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a488b0e7fbec1333c47a736af554a640c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::cur_callocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The current # of bytes in core mallocs </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00259">259</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a69514abe8ce1822030428ca391a903e7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::cur_hallocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The current # of bytes in heap mallocs </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00260">260</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a536a8ab027c1f70bfe5b56a26059589b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::max_callocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The maximum # of bytes in core mallocs at any given time </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00261">261</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a74723a880e8829c81bd3a38ed474f09a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::max_hallocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The maximum # of bytes in heap mallocs at any given time </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00262">262</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a74e825c8a07e7c040dbf947bedac3339"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/db2/a00020.html">gk_mop_t</a>* gk_mcore_t::mops</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The array recording the maop_t operations </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00252">252</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a30d17f8009db5d7cf61094259ff9e26f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::nmops</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of maop_t entries that have been allocated </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00250">250</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afd16bb0581bc9e98172b2ab35cbc310c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::num_callocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of core mallocs </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00255">255</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2ad475b19470a6a7b0c65e53cfd1096b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::num_hallocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of heap mallocs </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00256">256</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa407f9b9ca318fa8afa36ab1c936ec07"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::size_callocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The total # of bytes in core mallocs </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00257">257</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4c180c60538546b4ab67bb91264e1c6e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t gk_mcore_t::size_hallocs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The total # of bytes in heap mallocs </p>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00258">258</a> of file <a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/GKlib/<a class="el" href="../../de/d36/a00123_source.html">gk_struct.h</a></li>
+<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00052">52</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">DBManager.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/data/<a class="el" href="../../d9/d9b/a00363_source.html">DBManager.h</a></li>
+<li>src/base/data/<a class="el" href="../../de/dd7/a00362_source.html">DBManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/da2/a00019.html">gk_mcore_t</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dd/da2/a00019.html">DBManager</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

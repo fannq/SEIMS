@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: vnbr_t Struct Reference</title>
+<title>SEIMS-2016: uvw_t Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,83 +114,49 @@ $(document).ready(function(){initNavTree('d2/dee/a00049.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d9/dbb/a00852.html">List of all members</a>  </div>
+<a href="../../d0/d66/a00858.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vnbr_t Struct Reference</div>  </div>
+<div class="title">uvw_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/df1/a00174_source.html">gklib_defs.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a93adf79b4e57cd0477e9afc9b25da653"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a93adf79b4e57cd0477e9afc9b25da653">pid</a></td></tr>
-<tr class="separator:a93adf79b4e57cd0477e9afc9b25da653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae32050bde46f5545e1c306853afd8d97"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#ae32050bde46f5545e1c306853afd8d97">ned</a></td></tr>
-<tr class="separator:ae32050bde46f5545e1c306853afd8d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f3fc7f5d884e78e1dfff0f9cc438d0"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a29f3fc7f5d884e78e1dfff0f9cc438d0">gv</a></td></tr>
-<tr class="separator:a29f3fc7f5d884e78e1dfff0f9cc438d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8b9f1185850e05876ee066a461c0d9d"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#ad8b9f1185850e05876ee066a461c0d9d">w</a></td></tr>
+<tr class="separator:ad8b9f1185850e05876ee066a461c0d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure stores volume-based k-way refinement info about an adjacent subdomain for a given vertex. </p>
+<div class="textblock"><p>Stores a weighted edge </p>
 
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00047">47</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00018">18</a> of file <a class="el" href="../../d8/df1/a00174_source.html">gklib_defs.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a29f3fc7f5d884e78e1dfff0f9cc438d0"></a>
+<a class="anchor" id="ad8b9f1185850e05876ee066a461c0d9d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">idx_t vnbr_t::gv</td>
+          <td class="memname">idx_t uvw_t::w</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The gain in volume achieved by moving the vertex to pid </p>
+<p>Edge (u,v) with weight w </p>
 
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00051">51</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae32050bde46f5545e1c306853afd8d97"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vnbr_t::ned</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of the adjacent edges that are incident on pid </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00049">49</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a93adf79b4e57cd0477e9afc9b25da653"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vnbr_t::pid</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The partition ID </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00048">48</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00019">19</a> of file <a class="el" href="../../d8/df1/a00174_source.html">gklib_defs.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d8/d72/a00199_source.html">struct.h</a></li>
+<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d8/df1/a00174_source.html">gklib_defs.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/dee/a00049.html">vnbr_t</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d2/dee/a00049.html">uvw_t</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

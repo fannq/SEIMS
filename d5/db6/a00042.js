@@ -1,12 +1,8 @@
 var a00042 =
 [
-    [ "SettingsInput", "d5/db6/a00042.html#ab9ec0c5f845c2cbefc63c47ad15f34b4", null ],
-    [ "~SettingsInput", "d5/db6/a00042.html#ac02fb28dab1753e8ca2bdfeae9308c3f", null ],
-    [ "buildQuery", "d5/db6/a00042.html#a0a443214e95941450bd7c5644e5eedfe", null ],
-    [ "readDate", "d5/db6/a00042.html#a27e69c51229535700b5fa683cab78a14", null ],
-    [ "m_dtCh", "d5/db6/a00042.html#a68396d28a25a25af0a70054ab2d3019c", null ],
-    [ "m_dtHs", "d5/db6/a00042.html#a4b26228ba3e9f0109951fcbbf8d3b74a", null ],
-    [ "m_endDate", "d5/db6/a00042.html#a0b2dd70eee0ff83818e5e15717b914c3", null ],
-    [ "m_mode", "d5/db6/a00042.html#a7f93c75b7d1750b7f5e84e2bb89f3192", null ],
-    [ "m_startDate", "d5/db6/a00042.html#a90cd7c4a484ed1294a80ec6e515c5458", null ]
+    [ "RegularMeasurement", "d5/db6/a00042.html#ac39dc03e509bcf3ba91876a1dc2a56a0", null ],
+    [ "~RegularMeasurement", "d5/db6/a00042.html#a1f44d19ffde71e64385f25b24732ff83", null ],
+    [ "GetSiteDataByTime", "d5/db6/a00042.html#a6528f99c36c06961b7eeafbccc2a5f52", null ],
+    [ "m_interval", "d5/db6/a00042.html#a6fffb32a797276d7cc6b2bd8b2f369c8", null ],
+    [ "m_siteData", "d5/db6/a00042.html#a9e9eee588a575d7a89a66b9728b9f81c", null ]
 ];

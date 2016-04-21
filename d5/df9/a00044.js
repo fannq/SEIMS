@@ -1,9 +1,12 @@
 var a00044 =
 [
-    [ "slTable", "d5/df9/a00044.html#ac847356c51cf0f2de2ad033525bbf23e", null ],
-    [ "~slTable", "d5/df9/a00044.html#a6e89beb6ee7638c477ee8dc96f85dd66", null ],
-    [ "FieldValue", "d5/df9/a00044.html#abb56a581d1fd10567ad208347ec578a7", null ],
-    [ "nCols", "d5/df9/a00044.html#a4e2965e5fd32bef8dd66b8e46cd00a9f", null ],
-    [ "nRows", "d5/df9/a00044.html#adea6ff1f79a5048f86d45a1a77ec9ae2", null ],
-    [ "pData", "d5/df9/a00044.html#adfbf7d70ba482dcc689ef8eb248e27b0", null ]
+    [ "SettingsInput", "d5/df9/a00044.html#ab9ec0c5f845c2cbefc63c47ad15f34b4", null ],
+    [ "~SettingsInput", "d5/df9/a00044.html#ac02fb28dab1753e8ca2bdfeae9308c3f", null ],
+    [ "buildQuery", "d5/df9/a00044.html#a0a443214e95941450bd7c5644e5eedfe", null ],
+    [ "readDate", "d5/df9/a00044.html#a27e69c51229535700b5fa683cab78a14", null ],
+    [ "m_dtCh", "d5/df9/a00044.html#a68396d28a25a25af0a70054ab2d3019c", null ],
+    [ "m_dtHs", "d5/df9/a00044.html#a4b26228ba3e9f0109951fcbbf8d3b74a", null ],
+    [ "m_endDate", "d5/df9/a00044.html#a0b2dd70eee0ff83818e5e15717b914c3", null ],
+    [ "m_mode", "d5/df9/a00044.html#a7f93c75b7d1750b7f5e84e2bb89f3192", null ],
+    [ "m_startDate", "d5/df9/a00044.html#a90cd7c4a484ed1294a80ec6e515c5458", null ]
 ];

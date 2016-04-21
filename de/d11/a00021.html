@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: gk_option Struct Reference</title>
+<title>SEIMS-2016: gk_mcore_t Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,106 +114,270 @@ $(document).ready(function(){initNavTree('de/d11/a00021.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d6/d8b/a00821.html">List of all members</a>  </div>
+<a href="../../dc/d1b/a00827.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gk_option Struct Reference</div>  </div>
+<div class="title">gk_mcore_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The structure that stores the information about the command-line options.  
- <a href="../../de/d11/a00021.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa47d0e4e90d3cd1793fc5344b1e99afc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#aa47d0e4e90d3cd1793fc5344b1e99afc">name</a></td></tr>
-<tr class="separator:aa47d0e4e90d3cd1793fc5344b1e99afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66d2ab88446836cef777d756098151f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a66d2ab88446836cef777d756098151f5">has_arg</a></td></tr>
-<tr class="separator:a66d2ab88446836cef777d756098151f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9e56a3e65a631de45dd019a07c621b4"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ae9e56a3e65a631de45dd019a07c621b4">flag</a></td></tr>
-<tr class="separator:ae9e56a3e65a631de45dd019a07c621b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf964c7489d269515ec8e5e62b2164ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#abf964c7489d269515ec8e5e62b2164ba">val</a></td></tr>
-<tr class="separator:abf964c7489d269515ec8e5e62b2164ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a834677bb8263a1b0475104889883c86c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a834677bb8263a1b0475104889883c86c">coresize</a></td></tr>
+<tr class="separator:a834677bb8263a1b0475104889883c86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc856b4f3049f9d49c9f3ec10b73739"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a5cc856b4f3049f9d49c9f3ec10b73739">corecpos</a></td></tr>
+<tr class="separator:a5cc856b4f3049f9d49c9f3ec10b73739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0056e8cc124fad35b901e89668b8b1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a2d0056e8cc124fad35b901e89668b8b1">core</a></td></tr>
+<tr class="separator:a2d0056e8cc124fad35b901e89668b8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d17f8009db5d7cf61094259ff9e26f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a30d17f8009db5d7cf61094259ff9e26f">nmops</a></td></tr>
+<tr class="separator:a30d17f8009db5d7cf61094259ff9e26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3631e211c793af96e0abf21cb95de4ae"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a3631e211c793af96e0abf21cb95de4ae">cmop</a></td></tr>
+<tr class="separator:a3631e211c793af96e0abf21cb95de4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e825c8a07e7c040dbf947bedac3339"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de0/a00022.html">gk_mop_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a74e825c8a07e7c040dbf947bedac3339">mops</a></td></tr>
+<tr class="separator:a74e825c8a07e7c040dbf947bedac3339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd16bb0581bc9e98172b2ab35cbc310c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#afd16bb0581bc9e98172b2ab35cbc310c">num_callocs</a></td></tr>
+<tr class="separator:afd16bb0581bc9e98172b2ab35cbc310c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad475b19470a6a7b0c65e53cfd1096b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a2ad475b19470a6a7b0c65e53cfd1096b">num_hallocs</a></td></tr>
+<tr class="separator:a2ad475b19470a6a7b0c65e53cfd1096b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa407f9b9ca318fa8afa36ab1c936ec07"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#aa407f9b9ca318fa8afa36ab1c936ec07">size_callocs</a></td></tr>
+<tr class="separator:aa407f9b9ca318fa8afa36ab1c936ec07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c180c60538546b4ab67bb91264e1c6e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a4c180c60538546b4ab67bb91264e1c6e">size_hallocs</a></td></tr>
+<tr class="separator:a4c180c60538546b4ab67bb91264e1c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488b0e7fbec1333c47a736af554a640c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a488b0e7fbec1333c47a736af554a640c">cur_callocs</a></td></tr>
+<tr class="separator:a488b0e7fbec1333c47a736af554a640c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69514abe8ce1822030428ca391a903e7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a69514abe8ce1822030428ca391a903e7">cur_hallocs</a></td></tr>
+<tr class="separator:a69514abe8ce1822030428ca391a903e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536a8ab027c1f70bfe5b56a26059589b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a536a8ab027c1f70bfe5b56a26059589b">max_callocs</a></td></tr>
+<tr class="separator:a536a8ab027c1f70bfe5b56a26059589b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74723a880e8829c81bd3a38ed474f09a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a74723a880e8829c81bd3a38ed474f09a">max_hallocs</a></td></tr>
+<tr class="separator:a74723a880e8829c81bd3a38ed474f09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The structure that stores the information about the command-line options. </p>
-<p>This structure describes a single long option name for the sake of <a class="el" href="../../dd/d42/a00109.html#a1c3b8d80bd9620dc66f24d4854c0f6d3" title="Parse command-line arguments with long options. ">gk_getopt_long()</a>. The argument <code>long_options</code> must be an array of these structures, one for each long option. Terminate the array with an element containing all zeros. </p>
+<div class="textblock"><p>The following structure stores information used by Metis </p>
 
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00028">28</a> of file <a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00242">242</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ae9e56a3e65a631de45dd019a07c621b4"></a>
+<a class="anchor" id="a3631e211c793af96e0abf21cb95de4ae"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int* gk_option::flag</td>
+          <td class="memname">size_t gk_mcore_t::cmop</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>See the discussion on <a class="el" href="../../de/d11/a00021.html#abf964c7489d269515ec8e5e62b2164ba">gk_option::val</a> </p>
+<p>Index of the first free location in maops </p>
 
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00034">34</a> of file <a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00251">251</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a66d2ab88446836cef777d756098151f5"></a>
+<a class="anchor" id="a2d0056e8cc124fad35b901e89668b8b1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int gk_option::has_arg</td>
+          <td class="memname">void* gk_mcore_t::core</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This field says whether the option takes an argument. It is an integer, and there are three legitimate values: no_argument, required_argument and optional_argument. </p>
+<p>Pointer to the core itself </p>
 
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00030">30</a> of file <a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00246">246</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa47d0e4e90d3cd1793fc5344b1e99afc"></a>
+<a class="anchor" id="a5cc856b4f3049f9d49c9f3ec10b73739"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_option::name</td>
+          <td class="memname">size_t gk_mcore_t::corecpos</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This field is the name of the option. </p>
+<p>Index of the first free location in core </p>
 
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00029">29</a> of file <a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00245">245</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abf964c7489d269515ec8e5e62b2164ba"></a>
+<a class="anchor" id="a834677bb8263a1b0475104889883c86c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int gk_option::val</td>
+          <td class="memname">size_t gk_mcore_t::coresize</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>These fields control how to report or act on the option when it occurs.</p>
-<p>If flag is a null pointer, then the val is a value which identifies this option. Often these values are chosen to uniquely identify particular long options.</p>
-<p>If flag is not a null pointer, it should be the address of an int variable which is the flag for this option. The value in val is the value to store in the flag to indicate that the option was seen. </p>
+<p>The amount of core memory that has been allocated </p>
 
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00035">35</a> of file <a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00244">244</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a488b0e7fbec1333c47a736af554a640c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::cur_callocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The current # of bytes in core mallocs </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00259">259</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a69514abe8ce1822030428ca391a903e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::cur_hallocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The current # of bytes in heap mallocs </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00260">260</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a536a8ab027c1f70bfe5b56a26059589b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::max_callocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The maximum # of bytes in core mallocs at any given time </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00261">261</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74723a880e8829c81bd3a38ed474f09a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::max_hallocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The maximum # of bytes in heap mallocs at any given time </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00262">262</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74e825c8a07e7c040dbf947bedac3339"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/de0/a00022.html">gk_mop_t</a>* gk_mcore_t::mops</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The array recording the maop_t operations </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00252">252</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30d17f8009db5d7cf61094259ff9e26f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::nmops</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of maop_t entries that have been allocated </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00250">250</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd16bb0581bc9e98172b2ab35cbc310c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::num_callocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of core mallocs </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00255">255</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ad475b19470a6a7b0c65e53cfd1096b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::num_hallocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of heap mallocs </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00256">256</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa407f9b9ca318fa8afa36ab1c936ec07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::size_callocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The total # of bytes in core mallocs </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00257">257</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c180c60538546b4ab67bb91264e1c6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t gk_mcore_t::size_hallocs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The total # of bytes in heap mallocs </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00258">258</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/GKlib/<a class="el" href="../../d3/d00/a00113_source.html">gk_getopt.h</a></li>
+<li>preprocess/cpp_src/metis-5.1.0-pk/GKlib/<a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/d11/a00021.html">gk_option</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../de/d11/a00021.html">gk_mcore_t</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: clsRasterData Class Reference</title>
+<title>SEIMS-2016: clsHydroClimateData Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,198 +114,41 @@ $(document).ready(function(){initNavTree('da/d45/a00011.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d4/dfd/a00810.html">List of all members</a>  </div>
+<a href="../../d7/d60/a00816.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">clsRasterData Class Reference<div class="ingroups"><a class="el" href="../../d9/d2a/a00654.html">Data</a></div></div>  </div>
+<div class="title">clsHydroClimateData Class Reference<div class="ingroups"><a class="el" href="../../dc/df1/a00662.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Raster data class to get access to raster data.  
+<p>Hydrological climate data class.  
  <a href="../../da/d45/a00011.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../db/d10/a00350_source.html">clsRasterData.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/dc6/a00347_source.html">clsHydroClimateData.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0464a8edbfb45df8c13c7c2a3770e10f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a0464a8edbfb45df8c13c7c2a3770e10f">clsRasterData</a> (string)</td></tr>
-<tr class="memdesc:a0464a8edbfb45df8c13c7c2a3770e10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of <a class="el" href="../../da/d45/a00011.html" title="Raster data class to get access to raster data. ">clsRasterData</a> instance from ascFile.  <a href="#a0464a8edbfb45df8c13c7c2a3770e10f">More...</a><br/></td></tr>
-<tr class="separator:a0464a8edbfb45df8c13c7c2a3770e10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba9d971bd5f490d71e25f10d0044e4e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba9d971bd5f490d71e25f10d0044e4e5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#aba9d971bd5f490d71e25f10d0044e4e5">clsRasterData</a> ()</td></tr>
-<tr class="memdesc:aba9d971bd5f490d71e25f10d0044e4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">set <em>m_rasterPositionData</em>, <em>m_rasterData</em>, <em>m_mask</em> to NULL <br/></td></tr>
-<tr class="separator:aba9d971bd5f490d71e25f10d0044e4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea74857164137d8a3b667dfbee9038c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#aea74857164137d8a3b667dfbee9038c2">clsRasterData</a> (string, <a class="el" href="../../da/d45/a00011.html">clsRasterData</a> *)</td></tr>
-<tr class="memdesc:aea74857164137d8a3b667dfbee9038c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of <a class="el" href="../../da/d45/a00011.html" title="Raster data class to get access to raster data. ">clsRasterData</a> instance from ascFile and mask.  <a href="#aea74857164137d8a3b667dfbee9038c2">More...</a><br/></td></tr>
-<tr class="separator:aea74857164137d8a3b667dfbee9038c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addaaf49b2b333437c21470ee9856672c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addaaf49b2b333437c21470ee9856672c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#addaaf49b2b333437c21470ee9856672c">~clsRasterData</a> (void)</td></tr>
-<tr class="memdesc:addaaf49b2b333437c21470ee9856672c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:addaaf49b2b333437c21470ee9856672c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7defa777e6641d023693aa2ca30802"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f7defa777e6641d023693aa2ca30802"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a9f7defa777e6641d023693aa2ca30802">getPosition</a> (int row, int col)</td></tr>
-<tr class="memdesc:a9f7defa777e6641d023693aa2ca30802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get position in 1-d raster data array for specific row and column. <br/></td></tr>
-<tr class="separator:a9f7defa777e6641d023693aa2ca30802"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af465e7c744d6aad870df6229cc086988"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af465e7c744d6aad870df6229cc086988"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#af465e7c744d6aad870df6229cc086988">getRasterDataPointer</a> ()</td></tr>
-<tr class="memdesc:af465e7c744d6aad870df6229cc086988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get raster data pointer. <br/></td></tr>
-<tr class="separator:af465e7c744d6aad870df6229cc086988"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86d66f72fc47850379643e28d885fbe4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a86d66f72fc47850379643e28d885fbe4">clsRasterData</a> (gridfs *gfs, const char *remoteFilename, <a class="el" href="../../da/d45/a00011.html">clsRasterData</a> *templateRaster=NULL)</td></tr>
-<tr class="memdesc:a86d66f72fc47850379643e28d885fbe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for using mongodb.  <a href="#a86d66f72fc47850379643e28d885fbe4">More...</a><br/></td></tr>
-<tr class="separator:a86d66f72fc47850379643e28d885fbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a185677470c3fcef6210719bb8995db3a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a185677470c3fcef6210719bb8995db3a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a185677470c3fcef6210719bb8995db3a">ReadFromMongoDB</a> (gridfs *gfs, const char *remoteFilename)</td></tr>
-<tr class="memdesc:a185677470c3fcef6210719bb8995db3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read raster data from MongoDB. <br/></td></tr>
-<tr class="separator:a185677470c3fcef6210719bb8995db3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c82824713adc57aee1f68216e40e77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36c82824713adc57aee1f68216e40e77"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a36c82824713adc57aee1f68216e40e77">ReadFromMongoDB</a> (gridfs *gfs, const char *remoteFilename, <a class="el" href="../../da/d45/a00011.html">clsRasterData</a> *mask)</td></tr>
-<tr class="memdesc:a36c82824713adc57aee1f68216e40e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read raster data from MongoDB and select by mask. <br/></td></tr>
-<tr class="separator:a36c82824713adc57aee1f68216e40e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a5d10d5329d0489ab40410f1976ef9ae8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d10d5329d0489ab40410f1976ef9ae8"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a5d10d5329d0489ab40410f1976ef9ae8">getASCHeaders</a> (string databasePath, map&lt; string, float &gt; *headers)</td></tr>
-<tr class="memdesc:a5d10d5329d0489ab40410f1976ef9ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Ascii file headers information. <br/></td></tr>
-<tr class="separator:a5d10d5329d0489ab40410f1976ef9ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f54026cc3a5cb58b973c75139cc93d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74f54026cc3a5cb58b973c75139cc93d"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a74f54026cc3a5cb58b973c75139cc93d">getValue</a> (<a class="el" href="../../da/d45/a00011.html">clsRasterData</a> *templateRasterData, float *rasterData, int row, int col)</td></tr>
-<tr class="memdesc:a74f54026cc3a5cb58b973c75139cc93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value corresponding to specific row and column. <br/></td></tr>
-<tr class="separator:a74f54026cc3a5cb58b973c75139cc93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa70226a4554eed8ed452ee1c280f98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fa70226a4554eed8ed452ee1c280f98"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a0fa70226a4554eed8ed452ee1c280f98">clsHydroClimateData</a> ()</td></tr>
+<tr class="memdesc:a0fa70226a4554eed8ed452ee1c280f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for mongodb. <br/></td></tr>
+<tr class="separator:a0fa70226a4554eed8ed452ee1c280f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Raster data class to get access to raster data. </p>
+<div class="textblock"><p>Hydrological climate data class. </p>
+<p>This class is for Sqlite. But currently SEIMS adopts MongoDB as data manager. </p>
+<dl class="deprecated"><dt><b><a class="el" href="../../d4/d4f/a00673.html#_deprecated000001">Deprecated:</a></b></dt><dd>So, this was deprecated!</dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/d10/a00350_source.html#l00030">30</a> of file <a class="el" href="../../db/d10/a00350_source.html">clsRasterData.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0464a8edbfb45df8c13c7c2a3770e10f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">clsRasterData::clsRasterData </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>ascFileName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor of <a class="el" href="../../da/d45/a00011.html" title="Raster data class to get access to raster data. ">clsRasterData</a> instance from ascFile. </p>
-<dl class="section see"><dt>See Also</dt><dd>readASCFile()</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ascFileName</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d7/dfc/a00349_source.html#l00035">35</a> of file <a class="el" href="../../d7/dfc/a00349_source.html">clsRasterData.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aea74857164137d8a3b667dfbee9038c2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">clsRasterData::clsRasterData </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>ascFileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d45/a00011.html">clsRasterData</a> *&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor of <a class="el" href="../../da/d45/a00011.html" title="Raster data class to get access to raster data. ">clsRasterData</a> instance from ascFile and mask. </p>
-<dl class="section see"><dt>See Also</dt><dd>readASCFile()</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ascFileName,mask</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d7/dfc/a00349_source.html#l00072">72</a> of file <a class="el" href="../../d7/dfc/a00349_source.html">clsRasterData.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a86d66f72fc47850379643e28d885fbe4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">clsRasterData::clsRasterData </td>
-          <td>(</td>
-          <td class="paramtype">gridfs *&#160;</td>
-          <td class="paramname"><em>gfs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>remoteFilename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d45/a00011.html">clsRasterData</a> *&#160;</td>
-          <td class="paramname"><em>templateRaster</em> = <code>NULL</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor for using mongodb. </p>
-<p>Constructor of <a class="el" href="../../da/d45/a00011.html" title="Raster data class to get access to raster data. ">clsRasterData</a> instance from mongoDB.</p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../da/d45/a00011.html#a185677470c3fcef6210719bb8995db3a" title="Read raster data from MongoDB. ">ReadFromMongoDB()</a></dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">gfs,romoteFilename,templateRaster</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d7/dfc/a00349_source.html#l00057">57</a> of file <a class="el" href="../../d7/dfc/a00349_source.html">clsRasterData.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d45/a00011_a86d66f72fc47850379643e28d885fbe4_cgraph.png" border="0" usemap="#da/d45/a00011_a86d66f72fc47850379643e28d885fbe4_cgraph" alt=""/></div>
-<map name="da/d45/a00011_a86d66f72fc47850379643e28d885fbe4_cgraph" id="da/d45/a00011_a86d66f72fc47850379643e28d885fbe4_cgraph">
-<area shape="rect" id="node2" href="../../da/d45/a00011.html#a185677470c3fcef6210719bb8995db3a" title="Read raster data from MongoDB. " alt="" coords="286,4,565,33"/><area shape="rect" id="node3" href="../../da/dc3/a00657.html#ga9514a21bb5926342aa2b07e7cac8f31a" title="FloatEqual. " alt="" coords="614,4,714,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/data/<a class="el" href="../../db/d10/a00350_source.html">clsRasterData.h</a></li>
-<li>src/base/data/<a class="el" href="../../d7/dfc/a00349_source.html">clsRasterData.cpp</a></li>
+<p>Definition at line <a class="el" href="../../d1/dc6/a00347_source.html#l00030">30</a> of file <a class="el" href="../../d1/dc6/a00347_source.html">clsHydroClimateData.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/data/<a class="el" href="../../d1/dc6/a00347_source.html">clsHydroClimateData.h</a></li>
+<li>src/base/data/<a class="el" href="../../d2/daf/a00346_source.html">clsHydroClimateData.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d45/a00011.html">clsRasterData</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../da/d45/a00011.html">clsHydroClimateData</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

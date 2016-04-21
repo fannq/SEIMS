@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: slTable Class Reference</title>
+<title>SEIMS-2016: SettingsInput Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,64 +114,81 @@ $(document).ready(function(){initNavTree('d5/df9/a00044.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d4/d60/a00847.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d9/dbb/a00852.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">slTable Class Reference<div class="ingroups"><a class="el" href="../../d9/d2a/a00654.html">Data</a></div></div>  </div>
+<div class="title">SettingsInput Class Reference<div class="ingroups"><a class="el" href="../../d7/d5f/a00663.html">Module_setting</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Table class for sqlite database tables.  
+<p>inherited from Settings class  
  <a href="../../d5/df9/a00044.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d65/a00360_source.html">DBManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d0a/a00390_source.html">SettingsInput.h</a>&gt;</code></p>
+
+<p>Inherits Settings.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac847356c51cf0f2de2ad033525bbf23e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac847356c51cf0f2de2ad033525bbf23e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#ac847356c51cf0f2de2ad033525bbf23e">slTable</a> ()</td></tr>
-<tr class="memdesc:ac847356c51cf0f2de2ad033525bbf23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="separator:ac847356c51cf0f2de2ad033525bbf23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e89beb6ee7638c477ee8dc96f85dd66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e89beb6ee7638c477ee8dc96f85dd66"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a6e89beb6ee7638c477ee8dc96f85dd66">~slTable</a> ()</td></tr>
-<tr class="memdesc:a6e89beb6ee7638c477ee8dc96f85dd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a6e89beb6ee7638c477ee8dc96f85dd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb56a581d1fd10567ad208347ec578a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb56a581d1fd10567ad208347ec578a7"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#abb56a581d1fd10567ad208347ec578a7">FieldValue</a> (int row, int col)</td></tr>
-<tr class="memdesc:abb56a581d1fd10567ad208347ec578a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value in the field defined by the given row and column. <br/></td></tr>
-<tr class="separator:abb56a581d1fd10567ad208347ec578a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ec0c5f845c2cbefc63c47ad15f34b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9ec0c5f845c2cbefc63c47ad15f34b4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#ab9ec0c5f845c2cbefc63c47ad15f34b4">SettingsInput</a> (string fileName, mongo *conn, string dbName, int nSubbasin=1, int scenarioID=-1)</td></tr>
+<tr class="memdesc:ab9ec0c5f845c2cbefc63c47ad15f34b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:ab9ec0c5f845c2cbefc63c47ad15f34b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac02fb28dab1753e8ca2bdfeae9308c3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac02fb28dab1753e8ca2bdfeae9308c3f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#ac02fb28dab1753e8ca2bdfeae9308c3f">~SettingsInput</a> (void)</td></tr>
+<tr class="memdesc:ac02fb28dab1753e8ca2bdfeae9308c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:ac02fb28dab1753e8ca2bdfeae9308c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:adea6ff1f79a5048f86d45a1a77ec9ae2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adea6ff1f79a5048f86d45a1a77ec9ae2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#adea6ff1f79a5048f86d45a1a77ec9ae2">nRows</a></td></tr>
-<tr class="memdesc:adea6ff1f79a5048f86d45a1a77ec9ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">rows <br/></td></tr>
-<tr class="separator:adea6ff1f79a5048f86d45a1a77ec9ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e2965e5fd32bef8dd66b8e46cd00a9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e2965e5fd32bef8dd66b8e46cd00a9f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">nCols</a></td></tr>
-<tr class="memdesc:a4e2965e5fd32bef8dd66b8e46cd00a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">cols <br/></td></tr>
-<tr class="separator:a4e2965e5fd32bef8dd66b8e46cd00a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfbf7d70ba482dcc689ef8eb248e27b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfbf7d70ba482dcc689ef8eb248e27b0"></a>
-char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#adfbf7d70ba482dcc689ef8eb248e27b0">pData</a></td></tr>
-<tr class="memdesc:adfbf7d70ba482dcc689ef8eb248e27b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">data <br/></td></tr>
-<tr class="separator:adfbf7d70ba482dcc689ef8eb248e27b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a27e69c51229535700b5fa683cab78a14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27e69c51229535700b5fa683cab78a14"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a27e69c51229535700b5fa683cab78a14">readDate</a> (void)</td></tr>
+<tr class="memdesc:a27e69c51229535700b5fa683cab78a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read start and end date, simulation mode and time interval. <br/></td></tr>
+<tr class="separator:a27e69c51229535700b5fa683cab78a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a443214e95941450bd7c5644e5eedfe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a443214e95941450bd7c5644e5eedfe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a0a443214e95941450bd7c5644e5eedfe">buildQuery</a> (const set&lt; int &gt; &amp;idSet, const string &amp;type, bson *query)</td></tr>
+<tr class="memdesc:a0a443214e95941450bd7c5644e5eedfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">build query for mongodb <br/></td></tr>
+<tr class="separator:a0a443214e95941450bd7c5644e5eedfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a90cd7c4a484ed1294a80ec6e515c5458"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90cd7c4a484ed1294a80ec6e515c5458"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a></td></tr>
+<tr class="memdesc:a90cd7c4a484ed1294a80ec6e515c5458"><td class="mdescLeft">&#160;</td><td class="mdescRight">start date <br/></td></tr>
+<tr class="separator:a90cd7c4a484ed1294a80ec6e515c5458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b2dd70eee0ff83818e5e15717b914c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b2dd70eee0ff83818e5e15717b914c3"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a></td></tr>
+<tr class="memdesc:a0b2dd70eee0ff83818e5e15717b914c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">end date <br/></td></tr>
+<tr class="separator:a0b2dd70eee0ff83818e5e15717b914c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b26228ba3e9f0109951fcbbf8d3b74a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b26228ba3e9f0109951fcbbf8d3b74a"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a></td></tr>
+<tr class="memdesc:a4b26228ba3e9f0109951fcbbf8d3b74a"><td class="mdescLeft">&#160;</td><td class="mdescRight">time interval for hillslope <br/></td></tr>
+<tr class="separator:a4b26228ba3e9f0109951fcbbf8d3b74a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68396d28a25a25af0a70054ab2d3019c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68396d28a25a25af0a70054ab2d3019c"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a></td></tr>
+<tr class="memdesc:a68396d28a25a25af0a70054ab2d3019c"><td class="mdescLeft">&#160;</td><td class="mdescRight">time interval for channel <br/></td></tr>
+<tr class="separator:a68396d28a25a25af0a70054ab2d3019c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f93c75b7d1750b7f5e84e2bb89f3192"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f93c75b7d1750b7f5e84e2bb89f3192"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a7f93c75b7d1750b7f5e84e2bb89f3192">m_mode</a></td></tr>
+<tr class="memdesc:a7f93c75b7d1750b7f5e84e2bb89f3192"><td class="mdescLeft">&#160;</td><td class="mdescRight">simulation mode, can be DAILY or HOURLY <br/></td></tr>
+<tr class="separator:a7f93c75b7d1750b7f5e84e2bb89f3192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Table class for sqlite database tables. </p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d46/a00665.html#_deprecated000006">Deprecated:</a></b></dt><dd>Currently, this is no longer used.</dd></dl>
+<div class="textblock"><p>inherited from Settings class </p>
 
-<p>Definition at line <a class="el" href="../../d0/d65/a00360_source.html#l00030">30</a> of file <a class="el" href="../../d0/d65/a00360_source.html">DBManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00031">31</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">SettingsInput.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/data/<a class="el" href="../../d0/d65/a00360_source.html">DBManager.h</a></li>
-<li>src/base/data/<a class="el" href="../../d4/def/a00359_source.html">DBManager.cpp</a></li>
+<li>src/base/module_setting/<a class="el" href="../../d9/d0a/a00390_source.html">SettingsInput.h</a></li>
+<li>src/base/module_setting/<a class="el" href="../../dc/dc9/a00389_source.html">SettingsInput.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d5/df9/a00044.html">slTable</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d5/df9/a00044.html">SettingsInput</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/Measurement.cpp Source File</title>
+<title>SEIMS-2016: src/base/data/DBManager.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,51 +111,65 @@ $(document).ready(function(){initNavTree('d9/d9b/a00363_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Measurement.cpp</div>  </div>
+<div class="title">DBManager.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d9b/a00363.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d59/a00364.html">Measurement.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d00/a00401.html">utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d53/a00399.html">text.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/a00394.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a9ebd8e7288e0d3686f3d425b270f7b07">   20</a></span>&#160;<a class="code" href="../../d0/d33/a00027.html#a9ebd8e7288e0d3686f3d425b270f7b07">Measurement::Measurement</a>(mongo* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    :m_conn(conn), m_startTime(startTime), m_endTime(endTime), pData(NULL)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    vector&lt;string&gt; vecSites = <a class="code" href="../../d3/dea/a00046.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a>(sitesList, <span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> nSites = vecSites.size();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//convert from string to int and sort</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSite = 0; iSite &lt; nSites; iSite++)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.push_back(atoi(vecSites[iSite].c_str()));</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    sort(<a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.begin(), <a class="code" href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.end());</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">pData</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[nSites];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a6743c23fdd99a63831f93979bef779c8">   35</a></span>&#160;<a class="code" href="../../d0/d33/a00027.html#a6743c23fdd99a63831f93979bef779c8">Measurement::~Measurement</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">pData</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;sqlite3.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/dea/a00046.html">slTable</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#adea6ff1f79a5048f86d45a1a77ec9ae2">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d3/dea/a00046.html#adea6ff1f79a5048f86d45a1a77ec9ae2">nRows</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d3/dea/a00046.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">nCols</a>; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#adfbf7d70ba482dcc689ef8eb248e27b0">   35</a></span>&#160;    <span class="keywordtype">char</span>** <a class="code" href="../../d3/dea/a00046.html#adfbf7d70ba482dcc689ef8eb248e27b0">pData</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d3/dea/a00046.html">slTable</a> ();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d3/dea/a00046.html">slTable</a>();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="ttc" id="a00401_html"><div class="ttname"><a href="../../d7/d00/a00401.html">utils.h</a></div><div class="ttdoc">definition of utils class </div></div>
-<div class="ttc" id="a00364_html"><div class="ttname"><a href="../../dc/d59/a00364.html">Measurement.h</a></div></div>
-<div class="ttc" id="a00027_html_acffdb39ed0357326cec16264231ae695"><div class="ttname"><a href="../../d0/d33/a00027.html#acffdb39ed0357326cec16264231ae695">Measurement::m_siteIDList</a></div><div class="ttdeci">vector&lt; int &gt; m_siteIDList</div><div class="ttdoc">site ID list </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00060">Measurement.h:60</a></div></div>
-<div class="ttc" id="a00027_html_a6743c23fdd99a63831f93979bef779c8"><div class="ttname"><a href="../../d0/d33/a00027.html#a6743c23fdd99a63831f93979bef779c8">Measurement::~Measurement</a></div><div class="ttdeci">~Measurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00035">Measurement.cpp:35</a></div></div>
-<div class="ttc" id="a00399_html"><div class="ttname"><a href="../../d1/d53/a00399.html">text.h</a></div><div class="ttdoc">Predefined of some const string names. </div></div>
-<div class="ttc" id="a00027_html_a2114a606e03739f92b2ba8825fc1334c"><div class="ttname"><a href="../../d0/d33/a00027.html#a2114a606e03739f92b2ba8825fc1334c">Measurement::pData</a></div><div class="ttdeci">float * pData</div><div class="ttdoc">site data </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00066">Measurement.h:66</a></div></div>
-<div class="ttc" id="a00046_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../d3/dea/a00046.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00127">utils.cpp:127</a></div></div>
-<div class="ttc" id="a00394_html"><div class="ttname"><a href="../../d9/dad/a00394.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
-<div class="ttc" id="a00027_html_a9ebd8e7288e0d3686f3d425b270f7b07"><div class="ttname"><a href="../../d0/d33/a00027.html#a9ebd8e7288e0d3686f3d425b270f7b07">Measurement::Measurement</a></div><div class="ttdeci">Measurement(mongo *conn, string hydroDBName, string sitesList, string siteType, time_t startDate, time_t endDate)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00020">Measurement.cpp:20</a></div></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">string</span> FieldValue(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html">   52</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/da2/a00019.html">DBManager</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    sqlite3* m_Database;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">char</span>* errMsg;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../dd/da2/a00019.html">DBManager</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ~<a class="code" href="../../dd/da2/a00019.html">DBManager</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> Open(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> Close(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> IsError();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">string</span> GetErrorMessage();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../d3/dea/a00046.html">slTable</a>* Load(<span class="keywordtype">string</span> strSQL);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> Execute(<span class="keywordtype">string</span> strSQL);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> IsTableExist(<span class="keywordtype">string</span> databasePath,<span class="keywordtype">string</span> tableName);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="ttc" id="a00046_html_adfbf7d70ba482dcc689ef8eb248e27b0"><div class="ttname"><a href="../../d3/dea/a00046.html#adfbf7d70ba482dcc689ef8eb248e27b0">slTable::pData</a></div><div class="ttdeci">char ** pData</div><div class="ttdoc">data </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00035">DBManager.h:35</a></div></div>
+<div class="ttc" id="a00046_html_a4e2965e5fd32bef8dd66b8e46cd00a9f"><div class="ttname"><a href="../../d3/dea/a00046.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">slTable::nCols</a></div><div class="ttdeci">int nCols</div><div class="ttdoc">cols </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00034">DBManager.h:34</a></div></div>
+<div class="ttc" id="a00046_html"><div class="ttname"><a href="../../d3/dea/a00046.html">slTable</a></div><div class="ttdoc">Table class for sqlite database tables. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00030">DBManager.h:30</a></div></div>
+<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">DBManager</a></div><div class="ttdoc">sqlite database management class </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00052">DBManager.h:52</a></div></div>
+<div class="ttc" id="a00046_html_adea6ff1f79a5048f86d45a1a77ec9ae2"><div class="ttname"><a href="../../d3/dea/a00046.html#adea6ff1f79a5048f86d45a1a77ec9ae2">slTable::nRows</a></div><div class="ttdeci">int nRows</div><div class="ttdoc">rows </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00033">DBManager.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">Measurement.cpp</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:49 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">DBManager.h</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

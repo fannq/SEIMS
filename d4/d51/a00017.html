@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: DBManager Class Reference</title>
+<title>SEIMS-2016: cnbr_t Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,77 +113,67 @@ $(document).ready(function(){initNavTree('d4/d51/a00017.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d7/d60/a00816.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d6/da7/a00822.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">DBManager Class Reference<div class="ingroups"><a class="el" href="../../d9/d2a/a00654.html">Data</a></div></div>  </div>
+<div class="title">cnbr_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>sqlite database management class  
- <a href="../../d4/d51/a00017.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d0/d65/a00360_source.html">DBManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../db/d53/a00202_source.html">struct.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b70068a52d94cb2a0b8eba773b4e121"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b70068a52d94cb2a0b8eba773b4e121"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a0b70068a52d94cb2a0b8eba773b4e121">DBManager</a> (void)</td></tr>
-<tr class="memdesc:a0b70068a52d94cb2a0b8eba773b4e121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="separator:a0b70068a52d94cb2a0b8eba773b4e121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf19331a14657f1c2e4453999218c416"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf19331a14657f1c2e4453999218c416"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#abf19331a14657f1c2e4453999218c416">~DBManager</a> (void)</td></tr>
-<tr class="memdesc:abf19331a14657f1c2e4453999218c416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:abf19331a14657f1c2e4453999218c416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a451113a0e298f84c030ea7b9892d8f8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a451113a0e298f84c030ea7b9892d8f8b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a451113a0e298f84c030ea7b9892d8f8b">Open</a> (string filename)</td></tr>
-<tr class="memdesc:a451113a0e298f84c030ea7b9892d8f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the given sqlite database. <br/></td></tr>
-<tr class="separator:a451113a0e298f84c030ea7b9892d8f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bcd1fc4e7c5b0ae658f3e779a176268"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a1bcd1fc4e7c5b0ae658f3e779a176268">Close</a> (void)</td></tr>
-<tr class="memdesc:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the currently open database. <br/></td></tr>
-<tr class="separator:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd9e5246ae9f047eedbb199699005ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd9e5246ae9f047eedbb199699005ae"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#aebd9e5246ae9f047eedbb199699005ae">IsError</a> ()</td></tr>
-<tr class="memdesc:aebd9e5246ae9f047eedbb199699005ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a flag indicating if an error occured. <br/></td></tr>
-<tr class="separator:aebd9e5246ae9f047eedbb199699005ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f8713d2e4335e298ffb825ec07cad11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f8713d2e4335e298ffb825ec07cad11"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a6f8713d2e4335e298ffb825ec07cad11">GetErrorMessage</a> ()</td></tr>
-<tr class="memdesc:a6f8713d2e4335e298ffb825ec07cad11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error message for the last error if any. <br/></td></tr>
-<tr class="separator:a6f8713d2e4335e298ffb825ec07cad11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dba35872dea3b8a49782ab7b880306e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dba35872dea3b8a49782ab7b880306e"></a>
-<a class="el" href="../../d5/df9/a00044.html">slTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a8dba35872dea3b8a49782ab7b880306e">Load</a> (string strSQL)</td></tr>
-<tr class="memdesc:a8dba35872dea3b8a49782ab7b880306e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given SQL query and return an instance of a <a class="el" href="../../d5/df9/a00044.html" title="Table class for sqlite database tables. ">slTable</a> class containing the results. <br/></td></tr>
-<tr class="separator:a8dba35872dea3b8a49782ab7b880306e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5e73a7e86d1217f6bc32bbd0983e271"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5e73a7e86d1217f6bc32bbd0983e271"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#af5e73a7e86d1217f6bc32bbd0983e271">Execute</a> (string strSQL)</td></tr>
-<tr class="memdesc:af5e73a7e86d1217f6bc32bbd0983e271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a non-query SQL string. <br/></td></tr>
-<tr class="separator:af5e73a7e86d1217f6bc32bbd0983e271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0739d27b1ca7443329e5e4d24409b8ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0739d27b1ca7443329e5e4d24409b8ac"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a0739d27b1ca7443329e5e4d24409b8ac">IsTableExist</a> (string databasePath, string tableName)</td></tr>
-<tr class="memdesc:a0739d27b1ca7443329e5e4d24409b8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the given table exists <br/></td></tr>
-<tr class="separator:a0739d27b1ca7443329e5e4d24409b8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a22be164ee3de87a051946a9ab71ae3b9"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a22be164ee3de87a051946a9ab71ae3b9">pid</a></td></tr>
+<tr class="separator:a22be164ee3de87a051946a9ab71ae3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd27d862ee4554553d909072a8931f3"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a2dd27d862ee4554553d909072a8931f3">ed</a></td></tr>
+<tr class="separator:a2dd27d862ee4554553d909072a8931f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>sqlite database management class </p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d46/a00665.html#_deprecated000007">Deprecated:</a></b></dt><dd>Currently, this is no longer used.</dd></dl>
+<div class="textblock"><p>This data structure stores cut-based k-way refinement info about an adjacent subdomain for a given vertex. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d65/a00360_source.html#l00052">52</a> of file <a class="el" href="../../d0/d65/a00360_source.html">DBManager.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/data/<a class="el" href="../../d0/d65/a00360_source.html">DBManager.h</a></li>
-<li>src/base/data/<a class="el" href="../../d4/def/a00359_source.html">DBManager.cpp</a></li>
+<p>Definition at line <a class="el" href="../../db/d53/a00202_source.html#l00023">23</a> of file <a class="el" href="../../db/d53/a00202_source.html">struct.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a2dd27d862ee4554553d909072a8931f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">idx_t cnbr_t::ed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The sum of the weights of the adjacent edges that are incident on pid </p>
+
+<p>Definition at line <a class="el" href="../../db/d53/a00202_source.html#l00025">25</a> of file <a class="el" href="../../db/d53/a00202_source.html">struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22be164ee3de87a051946a9ab71ae3b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">idx_t cnbr_t::pid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The partition ID </p>
+
+<p>Definition at line <a class="el" href="../../db/d53/a00202_source.html#l00024">24</a> of file <a class="el" href="../../db/d53/a00202_source.html">struct.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../db/d53/a00202_source.html">struct.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d51/a00017.html">DBManager</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d4/d51/a00017.html">cnbr_t</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

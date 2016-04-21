@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/text.h File Reference</title>
+<title>SEIMS-2016: src/base/util/SimulationModule.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,42 +111,53 @@ $(document).ready(function(){initNavTree('d1/d53/a00399.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">text.h File Reference</div>  </div>
+<div class="title">SimulationModule.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Predefined of some const string names.  
+<p>Parent class for all modules in SEIMS.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d93/a00397_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for SimulationModule.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d9c/a00772.png" border="0" usemap="#src_2base_2util_2_simulation_module_8h" alt=""/></div>
+<map name="src_2base_2util_2_simulation_module_8h" id="src_2base_2util_2_simulation_module_8h">
+<area shape="rect" id="node3" href="../../d7/d93/a00397.html" title="Define ModelException class. " alt="" coords="67,101,217,131"/></map>
+</div>
+</div>
 <p><a href="../../d1/d53/a00399_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a68708abef7564622952446ec7829c219"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68708abef7564622952446ec7829c219"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d53/a00399.html#a68708abef7564622952446ec7829c219">MapWindowRasterExtension</a>&#160;&#160;&#160;&quot;.asc&quot;</td></tr>
-<tr class="memdesc:a68708abef7564622952446ec7829c219"><td class="mdescLeft">&#160;</td><td class="mdescRight">string constants used in the code <br/></td></tr>
-<tr class="separator:a68708abef7564622952446ec7829c219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0936b056e3b42408d61014aad01785e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0936b056e3b42408d61014aad01785e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d53/a00399.html#aa0936b056e3b42408d61014aad01785e">Tag_NoDataValue</a>&#160;&#160;&#160;&quot;NoDataValue&quot;</td></tr>
-<tr class="memdesc:aa0936b056e3b42408d61014aad01785e"><td class="mdescLeft">&#160;</td><td class="mdescRight">define string constants used in the code <br/></td></tr>
-<tr class="separator:aa0936b056e3b42408d61014aad01785e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html">SimulationModule</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base module for all simulation modules in SEIMS.  <a href="../../d6/d97/a00045.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gad2dde160974c283ccf8f0ce280f791ba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d46/a00665.html#gad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a> { <a class="el" href="../../da/d46/a00665.html#gad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff">TIMESTEP_HILLSLOPE</a>, 
+<a class="el" href="../../da/d46/a00665.html#gad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a>, 
+<a class="el" href="../../da/d46/a00665.html#gad2dde160974c283ccf8f0ce280f791baa1c1736570b6e4cbb0118b07b67b2c3ce">TIMESTEP_ECOLOGY</a>
+ }</td></tr>
+<tr class="separator:gad2dde160974c283ccf8f0ce280f791ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Predefined of some const string names. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>June 2010 </dd></dl>
+<div class="textblock"><p>Parent class for all modules in SEIMS. </p>
 
-<p>Definition in file <a class="el" href="../../d1/d53/a00399_source.html">text.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/d53/a00399_source.html">SimulationModule.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d53/a00399.html">text.h</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d53/a00399.html">SimulationModule.h</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

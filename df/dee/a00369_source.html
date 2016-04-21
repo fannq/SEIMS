@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/SiteInfo.cpp Source File</title>
+<title>SEIMS-2016: src/base/data/NotRegularMeasurement.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,82 +111,44 @@ $(document).ready(function(){initNavTree('df/dee/a00369_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SiteInfo.cpp</div>  </div>
+<div class="title">NotRegularMeasurement.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../df/dee/a00369.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d30/a00370.html">SiteInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d00/a00401.html">utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;SiteInfo::SiteInfo(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Reset();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;SiteInfo::~SiteInfo(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> SiteInfo::Reset(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    m_ID = 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    m_Name = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    m_XPR = 0.0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    m_YPR = 0.0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_Latitude = 0.0;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_Longitude = 0.0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    m_Elevation = 0.0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    m_Area = 0.0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> SiteInfo::ID(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> m_ID;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">string</span> SiteInfo::Name(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> m_Name;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">float</span> SiteInfo::XPR(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> m_XPR;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">float</span> SiteInfo::YPR(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> m_YPR;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">float</span> SiteInfo::Latitude(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> m_Latitude;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">float</span> SiteInfo::Longitude(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> m_Longitude;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">float</span> SiteInfo::Elevation(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> m_Elevation;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">float</span> SiteInfo::Area(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> m_Area;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="ttc" id="a00401_html"><div class="ttname"><a href="../../d7/d00/a00401.html">utils.h</a></div><div class="ttdoc">definition of utils class </div></div>
-<div class="ttc" id="a00370_html"><div class="ttname"><a href="../../d3/d30/a00370.html">SiteInfo.h</a></div><div class="ttdoc">Class to store the site information from the Hydroclimate database stations table. </div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../df/dc2/a00367.html">Measurement.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d4/d8c/a00035.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d8c/a00035.html">NotRegularMeasurement</a> : <span class="keyword">public</span> <a class="code" href="../../d5/d16/a00029.html">Measurement</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="../../d4/d8c/a00035.html#ac9be129499c58740965eb43f0bae9dd4">NotRegularMeasurement</a>(mongo* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../d4/d8c/a00035.html#a156ee633e6dfc626a362bb826525ea6e">~NotRegularMeasurement</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span>* <a class="code" href="../../d4/d8c/a00035.html#af77a1b276a9f174603a977b2a6e4c5cc">GetSiteDataByTime</a>(time_t t);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d4/d8c/a00035.html#ac49bfde12525e6ad88d058122eba3aba">   35</a></span>&#160;    vector&lt; vector&lt;time_t&gt; &gt; <a class="code" href="../../d4/d8c/a00035.html#ac49bfde12525e6ad88d058122eba3aba">m_timeList</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    vector&lt; vector&lt;float&gt; &gt; m_valueList;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d4/d8c/a00035.html#abb545ecf27b9011ea628ad92bc0ac697">   37</a></span>&#160;    vector&lt;int&gt; <a class="code" href="../../d4/d8c/a00035.html#abb545ecf27b9011ea628ad92bc0ac697">m_curIndexList</a>; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="ttc" id="a00035_html"><div class="ttname"><a href="../../d4/d8c/a00035.html">NotRegularMeasurement</a></div><div class="ttdoc">inherited from Measurement class </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dee/a00369_source.html#l00025">NotRegularMeasurement.h:25</a></div></div>
+<div class="ttc" id="a00035_html_af77a1b276a9f174603a977b2a6e4c5cc"><div class="ttname"><a href="../../d4/d8c/a00035.html#af77a1b276a9f174603a977b2a6e4c5cc">NotRegularMeasurement::GetSiteDataByTime</a></div><div class="ttdeci">virtual float * GetSiteDataByTime(time_t t)</div><div class="ttdoc">Get site data by time. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d21/a00368_source.html#l00107">NotRegularMeasurement.cpp:107</a></div></div>
+<div class="ttc" id="a00367_html"><div class="ttname"><a href="../../df/dc2/a00367.html">Measurement.h</a></div></div>
+<div class="ttc" id="a00035_html_a156ee633e6dfc626a362bb826525ea6e"><div class="ttname"><a href="../../d4/d8c/a00035.html#a156ee633e6dfc626a362bb826525ea6e">NotRegularMeasurement::~NotRegularMeasurement</a></div><div class="ttdeci">~NotRegularMeasurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d21/a00368_source.html#l00103">NotRegularMeasurement.cpp:103</a></div></div>
+<div class="ttc" id="a00029_html"><div class="ttname"><a href="../../d5/d16/a00029.html">Measurement</a></div><div class="ttdoc">Get site data by site type and time. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00028">Measurement.h:28</a></div></div>
+<div class="ttc" id="a00035_html_ac49bfde12525e6ad88d058122eba3aba"><div class="ttname"><a href="../../d4/d8c/a00035.html#ac49bfde12525e6ad88d058122eba3aba">NotRegularMeasurement::m_timeList</a></div><div class="ttdeci">vector&lt; vector&lt; time_t &gt; &gt; m_timeList</div><div class="ttdoc">site data : the first dimension is site, and the second dimension is time </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dee/a00369_source.html#l00035">NotRegularMeasurement.h:35</a></div></div>
+<div class="ttc" id="a00035_html_ac9be129499c58740965eb43f0bae9dd4"><div class="ttname"><a href="../../d4/d8c/a00035.html#ac9be129499c58740965eb43f0bae9dd4">NotRegularMeasurement::NotRegularMeasurement</a></div><div class="ttdeci">NotRegularMeasurement(mongo *conn, string hydroDBName, string sitesList, string siteType, time_t startTime, time_t endTime)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d21/a00368_source.html#l00019">NotRegularMeasurement.cpp:19</a></div></div>
+<div class="ttc" id="a00035_html_abb545ecf27b9011ea628ad92bc0ac697"><div class="ttname"><a href="../../d4/d8c/a00035.html#abb545ecf27b9011ea628ad92bc0ac697">NotRegularMeasurement::m_curIndexList</a></div><div class="ttdeci">vector&lt; int &gt; m_curIndexList</div><div class="ttdoc">initialized as 0 </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dee/a00369_source.html#l00037">NotRegularMeasurement.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../df/dee/a00369.html">SiteInfo.cpp</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:49 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../df/dee/a00369.html">NotRegularMeasurement.h</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

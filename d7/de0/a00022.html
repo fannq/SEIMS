@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: graph_t Struct Reference</title>
+<title>SEIMS-2016: gk_mop_t Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,67 +113,27 @@ $(document).ready(function(){initNavTree('d7/de0/a00022.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d6/da7/a00822.html">List of all members</a>  </div>
+<a href="../../d8/d64/a00828.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">graph_t Struct Reference</div>  </div>
+<div class="title">gk_mop_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a84db37e157fc91c4680ba19377f720b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dee/a00008.html">ckrinfo_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a84db37e157fc91c4680ba19377f720b4">ckrinfo</a></td></tr>
-<tr class="separator:a84db37e157fc91c4680ba19377f720b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65c5b927198432cf7e6c9314eb10e5c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dca/a00048.html">vkrinfo_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a65c5b927198432cf7e6c9314eb10e5c8">vkrinfo</a></td></tr>
-<tr class="separator:a65c5b927198432cf7e6c9314eb10e5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
+<p><code>#include &lt;<a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure holds a graph </p>
+<div class="textblock"><p>The following data structure stores information about a memory allocation operation that can either be served from <a class="el" href="../../de/d11/a00021.html">gk_mcore_t</a> or by a gk_malloc if not sufficient workspace memory is available. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00082">82</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a84db37e157fc91c4680ba19377f720b4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/dee/a00008.html">ckrinfo_t</a>* graph_t::ckrinfo</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The per-vertex cut-based refinement info </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00113">113</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a65c5b927198432cf7e6c9314eb10e5c8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/dca/a00048.html">vkrinfo_t</a>* graph_t::vkrinfo</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The per-vertex volume-based refinement info </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00114">114</a> of file <a class="el" href="../../d8/d72/a00199_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d8/d72/a00199_source.html">struct.h</a></li>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00232">232</a> of file <a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>preprocess/cpp_src/metis-5.1.0-pk/GKlib/<a class="el" href="../../d7/d12/a00126_source.html">gk_struct.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/de0/a00022.html">graph_t</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d7/de0/a00022.html">gk_mop_t</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,14 +1,19 @@
 var a00045 =
 [
-    [ "StringList", "d6/d97/a00045.html#ab92785f26e12fce6ecc9797c6f4e2090", null ],
-    [ "~StringList", "d6/d97/a00045.html#a1c7bf7a04fa791e1b5504fb96355efa9", null ],
-    [ "Add", "d6/d97/a00045.html#a39d7276a511637ca2bbf01b9375f2a5e", null ],
-    [ "Append", "d6/d97/a00045.html#a335f0ecc2c08af9a96a5b412eeb14090", null ],
-    [ "At", "d6/d97/a00045.html#a82d4957073abf405e92934c69a4adf6c", null ],
-    [ "Clear", "d6/d97/a00045.html#a0129bfe44ed9c9a5839c5c8688a4bdc6", null ],
-    [ "Contains", "d6/d97/a00045.html#a69e219abaa4afe8023ae9e0d00b8abc3", null ],
-    [ "Count", "d6/d97/a00045.html#a897d79a72fab72faec233a10667c7c5d", null ],
-    [ "Insert", "d6/d97/a00045.html#aea2bfd74ecef6c8698d5094cdb183a64", null ],
-    [ "operator=", "d6/d97/a00045.html#a1d1858fa95ef9d5b991e59b36bbd5426", null ],
-    [ "Resize", "d6/d97/a00045.html#a91e4c52c28c9bf1126e9932f3ceb42e7", null ]
+    [ "SimulationModule", "d6/d97/a00045.html#aa9934866122995dc98611de6515f47c5", null ],
+    [ "~SimulationModule", "d6/d97/a00045.html#a75fc67bcf8bc5a1dc0eb467af5a9861c", null ],
+    [ "Execute", "d6/d97/a00045.html#a686c39c1c4894cc144699ba0681d509d", null ],
+    [ "Get1DData", "d6/d97/a00045.html#ad834fe6ed6d11b333fd34e1ff605ebb7", null ],
+    [ "Get2DData", "d6/d97/a00045.html#ab6dc960ad0a7bd7714e9644b64dc0acb", null ],
+    [ "GetTimeStepType", "d6/d97/a00045.html#a272481bef46db20353da33e95a5f5426", null ],
+    [ "GetValue", "d6/d97/a00045.html#aafd60bc9d4176a0cf64af01aed881980", null ],
+    [ "ResetSubTimeStep", "d6/d97/a00045.html#a1a3a7bd2ff8748ec360e9464c358500b", null ],
+    [ "Set1DData", "d6/d97/a00045.html#aba2d6fc2b0e4f8ccf202e0752c45d55c", null ],
+    [ "Set2DData", "d6/d97/a00045.html#a497fa950bc9c4d85cfb1ae13d83f06c9", null ],
+    [ "SetDataType", "d6/d97/a00045.html#ada9172c6eaa09a831a727dfba7da1c0d", null ],
+    [ "SetDate", "d6/d97/a00045.html#a20bb3a6443b9bd60a0c5a22d18deafa2", null ],
+    [ "SetTheadNumber", "d6/d97/a00045.html#a46191d743a839a5290fd42d318b500d0", null ],
+    [ "SetValue", "d6/d97/a00045.html#afcfef6ce1ce8761a961f694e3a7969bb", null ],
+    [ "m_date", "d6/d97/a00045.html#aabd631c05d3e74aa9970f7415f2f5de7", null ],
+    [ "m_tsCounter", "d6/d97/a00045.html#adee1865c86a9761af76cec98cac30a44", null ]
 ];

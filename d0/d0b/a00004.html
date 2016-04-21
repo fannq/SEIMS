@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 <p>SEIMS（Spatially Explicit Integrated Modeling System）模型是由刘军志等人开发的以栅格为基本模拟单元、能体现水流空间运动的全分布式水文模型。SEIMS在借鉴Wetspa、LISEM、CASC2D、DHSVM和流溪河模型等多个模型基础上开发的模块化水文模型，采用C++编写，实现了子流域-基本单元的双层并行，采用的并行策略为共享内存（OpenMP）和消息传递（MPI），并利用NoSql数据库MongoDB进行数据组织管理。模型可在Windows及Linux平台下运行。</p>
 <p>目前，模型还不完善，主要存在以下主要问题：</p>
 <ol type="1">
-<li>生态和养分循环模块还很初步，距实用还相差很远；</li>
+<li>生态和养分循环还很初步，距实用还相差很远；</li>
 <li>水文和侵蚀模块虽相对成熟，但尚缺乏进一步的验证工作。</li>
 </ol>
 <p>因此需要大家群策群力完善模型，主要有以下几个目标：</p>
@@ -440,6 +440,7 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 <p>模块编写的一般步骤：</p>
 <ul>
 <li>阅读相关文献和模型文档，编写模型文档的理论部分；</li>
+<li>设计模块名，基本命名规则为<code>模块功能_算法</code>，缩写规范自行查找，比如<code>YLD</code>可以是作物产量<code>Yield</code>的缩写，没有指定具体算法的，命名只有<code>模块功能</code>即可</li>
 <li>根据模型的相关理论，参考已有成熟模型的代码，列出模型的输入（包括以其他模块的输出作为输入）、输出，编写元数据函数(<code>MetadataInformation</code>)代码</li>
 <li>在头文件中定义所需变量，并做初始化、赋值和有效性检查的工作</li>
 <li>初始化：构造函数末尾, <code>initalOutputs</code>(为本模块的输出变量开辟内存空间，并注意在析构函数中删除所开辟的空间)</li>
@@ -560,7 +561,7 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

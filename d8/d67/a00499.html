@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology/CH_DW/DiffusiveWave.h File Reference</title>
+<title>SEIMS-2016: src/modules/erosion/SPLASHERO_PARK/SplashEro_Park.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,51 +110,40 @@ $(document).ready(function(){initNavTree('d8/d67/a00499.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">DiffusiveWave.h File Reference</div>  </div>
+<div class="title">SplashEro_Park.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>routing in the channel cells using 4-point implicit finite difference method  
+<p>Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_C, USLE_K in the calculation of splash erosion.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;ctime&gt;</code><br/>
-<code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/da1/a00396_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;api.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d53/a00399_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for DiffusiveWave.h:</div>
+Include dependency graph for SplashEro_Park.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d5d/a00775.png" border="0" usemap="#src_2modules_2hydrology_2_c_h___d_w_2_diffusive_wave_8h" alt=""/></div>
-<map name="src_2modules_2hydrology_2_c_h___d_w_2_diffusive_wave_8h" id="src_2modules_2hydrology_2_c_h___d_w_2_diffusive_wave_8h">
-<area shape="rect" id="node7" href="../../d9/da1/a00396.html" title="Parent class for all modules in SEIMS. " alt="" coords="366,101,529,131"/><area shape="rect" id="node8" href="../../d9/dad/a00394.html" title="Define ModelException class. " alt="" coords="306,179,456,208"/></map>
+<div class="center"><img src="../../d6/d86/a00781.png" border="0" usemap="#src_2modules_2erosion_2_s_p_l_a_s_h_e_r_o___p_a_r_k_2_splash_ero___park_8h" alt=""/></div>
+<map name="src_2modules_2erosion_2_s_p_l_a_s_h_e_r_o___p_a_r_k_2_splash_ero___park_8h" id="src_2modules_2erosion_2_s_p_l_a_s_h_e_r_o___p_a_r_k_2_splash_ero___park_8h">
+<area shape="rect" id="node4" href="../../d5/db5/a00374_source.html" title="api.h" alt="" coords="146,117,203,147"/><area shape="rect" id="node5" href="../../d1/d53/a00399.html" title="Parent class for all modules in SEIMS. " alt="" coords="106,195,269,224"/><area shape="rect" id="node6" href="../../d7/d93/a00397.html" title="Define ModelException class. " alt="" coords="113,272,263,301"/></map>
 </div>
 </div>
 <p><a href="../../d8/d67/a00499_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/a00018.html">DiffusiveWave</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routing in the channel.  <a href="../../d1/d2b/a00018.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>routing in the channel cells using 4-point implicit finite difference method </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<div class="textblock"><p>Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_C, USLE_K in the calculation of splash erosion. </p>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>23-Febrary-2011 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Hui Wu </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>16-February-2012 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d8/d67/a00499_source.html">DiffusiveWave.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d8/d67/a00499_source.html">SplashEro_Park.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_90eba37f54a0cdac52e254435b0f22c4.html">CH_DW</a></li><li class="navelem"><a class="el" href="../../d8/d67/a00499.html">DiffusiveWave.h</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 02:51:50 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_dcd95ff35297d5aa74f812bf513a1acc.html">SPLASHERO_PARK</a></li><li class="navelem"><a class="el" href="../../d8/d67/a00499.html">SplashEro_Park.h</a></li>
+    <li class="footer">Generated on Thu Apr 21 2016 12:57:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

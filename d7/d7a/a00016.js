@@ -1,15 +1,11 @@
 var a00016 =
 [
-    [ "cfactor", "d7/d7a/a00016.html#a90cc3aac501d85a6b43edc4b1e7e7e5e", null ],
-    [ "cnbrpool", "d7/d7a/a00016.html#a3743efedf432aec050a9ebfb2e4a166a", null ],
-    [ "mcore", "d7/d7a/a00016.html#a70ca2e591af5d7b1ec3116fe138fce85", null ],
-    [ "nbrpoolcpos", "d7/d7a/a00016.html#acafe4ebea8585403e053dc33e7b4ac64", null ],
-    [ "nbrpoolreallocs", "d7/d7a/a00016.html#a091baa9be72262dca61c641d1f1e4ad3", null ],
-    [ "nbrpoolsize", "d7/d7a/a00016.html#ae37af5d894dbeea35f735361503e58a9", null ],
-    [ "ncon", "d7/d7a/a00016.html#afb1fd1cb311eb4bcefa46a14ef05afa0", null ],
-    [ "nparts", "d7/d7a/a00016.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee", null ],
-    [ "pijbm", "d7/d7a/a00016.html#ae347c6497954a20166af15a2ddd4e286", null ],
-    [ "tpwgts", "d7/d7a/a00016.html#a37fcd7cb16b54211eed8bd8ec8b5385a", null ],
-    [ "ubfactors", "d7/d7a/a00016.html#ac7c04d9f87e4028ee55135f0f790e670", null ],
-    [ "vnbrpool", "d7/d7a/a00016.html#a1f7258a6dc2780d0f8224293ecff26b7", null ]
+    [ "clsWgnData", "d7/d7a/a00016.html#a3f04ec5883590ee2e953bbef4af580e5", null ],
+    [ "~clsWgnData", "d7/d7a/a00016.html#ab3d63f329531bd498e272057a26c5b79", null ],
+    [ "getWgnData", "d7/d7a/a00016.html#aebc00d5baf9e09d2e1d44f0c433a88ac", null ],
+    [ "readWgnData", "d7/d7a/a00016.html#a35213b076acce178f6953469016e3c84", null ],
+    [ "show", "d7/d7a/a00016.html#a8cc140a53f7099c46215a3f39f6fbb4b", null ],
+    [ "m_columns", "d7/d7a/a00016.html#a2a0f633156f50038d623f28e55049f96", null ],
+    [ "m_wgnData", "d7/d7a/a00016.html#ab7a59f7e26b36f0e51734fa89ef41c22", null ],
+    [ "m_wtgTableName", "d7/d7a/a00016.html#a0b43da215ebd51fe8c0aa418fca08373", null ]
 ];
