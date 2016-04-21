@@ -216,10 +216,16 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 <img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fgitremotev.png" />
 </div>
 <ul>
-<li>将源代码库更新的内容同步到本地，检查差异，然后再和本机分支合并 <div class="fragment"><div class="line">git fetch upstream</div>
+<li>将源代码库更新的内容同步到本地，检查差异，然后再和本机分支合并 <div class="fragment"><div class="line">git fetch upstream &lt;branch&gt;</div>
 <div class="line">git checkout master</div>
 <div class="line">git merge upstream/master</div>
 </div><!-- fragment --></li>
+</ul>
+<blockquote class="doxtable">
+<p>fetch远程库的时候注意，如果仅用git fetch upstream命令，会把所有远程库分支下载，速度慢，因此推荐使用 git fetch upstream master</p>
+<p></p>
+</blockquote>
+<ul>
 <li>多数情况下，git可以自动合并，如果出现冲突，则需手动处理后，再<code>commit</code>提交，冲突结果类似：</li>
 </ul>
 <div class="image">
@@ -554,7 +560,7 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Apr 20 2016 09:13:33 for SEIMS-2016 by
+    <li class="footer">Generated on Thu Apr 21 2016 00:00:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
