@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('d2/daf/a00346_source.html','../../');}
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(*type,DataType_Meteorology)) </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(*type,DataType_Precipitation)) </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(*type,<a class="code" href="../../d4/d6d/a00402.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>)) </div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(*type,DataType_MinimumTemperature)) </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -433,6 +433,7 @@ $(document).ready(function(){initNavTree('d2/daf/a00346_source.html','../../');}
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        *fs &lt;&lt; util.<a class="code" href="../../d4/dca/a00048.html#a053b28c53a117d59e0f5050b0d9af225">ConvertToString2</a>(&amp;(it-&gt;first)) &lt;&lt; <span class="stringliteral">&quot;  &quot;</span> &lt;&lt; right &lt;&lt; fixed &lt;&lt; setw(15) &lt;&lt; setfill(<span class="charliteral">&#39; &#39;</span>) &lt;&lt; setprecision(4) &lt;&lt; it-&gt;second &lt;&lt; endl;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
+<div class="ttc" id="a00402_html_a90664723be86eee7dbc8bcbcaceff261"><div class="ttname"><a href="../../d4/d6d/a00402.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a></div><div class="ttdeci">#define DataType_Precipitation</div><div class="ttdoc">Climate data type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00034">text.h:34</a></div></div>
 <div class="ttc" id="a00019_html_aebd9e5246ae9f047eedbb199699005ae"><div class="ttname"><a href="../../dd/da2/a00019.html#aebd9e5246ae9f047eedbb199699005ae">DBManager::IsError</a></div><div class="ttdeci">bool IsError()</div><div class="ttdoc">Returns a flag indicating if an error occured. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd7/a00362_source.html#l00057">DBManager.cpp:57</a></div></div>
 <div class="ttc" id="a00019_html_a0739d27b1ca7443329e5e4d24409b8ac"><div class="ttname"><a href="../../dd/da2/a00019.html#a0739d27b1ca7443329e5e4d24409b8ac">DBManager::IsTableExist</a></div><div class="ttdeci">static bool IsTableExist(string databasePath, string tableName)</div><div class="ttdoc">if the given table exists </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd7/a00362_source.html#l00158">DBManager.cpp:158</a></div></div>
 <div class="ttc" id="a00347_html"><div class="ttname"><a href="../../d1/dc6/a00347.html">clsHydroClimateData.h</a></div><div class="ttdoc">Hydrological climate data class. </div></div>
@@ -460,7 +461,7 @@ $(document).ready(function(){initNavTree('d2/daf/a00346_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d2/daf/a00346.html">clsHydroClimateData.cpp</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 12:59:54 for SEIMS-2016 by
+    <li class="footer">Generated on Mon Apr 25 2016 03:10:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

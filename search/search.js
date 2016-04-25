@@ -15,8 +15,8 @@ var indexSectionsWithContent =
   5: "gs",
   6: "dmrtw",
   7: "dmtw",
-  8: "cgkmt",
-  9: "bcdhmu",
+  8: "cdgkmtuv",
+  9: "bcdhmpu",
   10: "cdmpt"
 };
 

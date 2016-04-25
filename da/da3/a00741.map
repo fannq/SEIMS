@@ -1,2 +1,5 @@
-<map id="src/base/data/DBManager.h" name="src/base/data/DBManager.h">
+<map id="src/base/data/DBManager.cpp" name="src/base/data/DBManager.cpp">
+<area shape="rect" id="node2" href="$d9/d9b/a00363.html" title="Database manager for Sqlite. " alt="" coords="37,83,157,112"/>
+<area shape="rect" id="node5" href="$d7/d93/a00397.html" title="Define ModelException class. " alt="" coords="182,83,332,112"/>
+<area shape="rect" id="node7" href="$d9/de6/a00404.html" title="definition of utils class " alt="" coords="467,83,531,112"/>
 </map>

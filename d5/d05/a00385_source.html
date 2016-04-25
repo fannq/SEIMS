@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('d5/d05/a00385_source.html','../../');}
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">float</span> SEIMSModuleSetting::dataTypeString2Float(<span class="keywordtype">string</span> dataType)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(dataType,DataType_Precipitation)) <span class="keywordflow">return</span> 1.0f;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(dataType,<a class="code" href="../../d4/d6d/a00402.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>)) <span class="keywordflow">return</span> 1.0f;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(dataType,DataType_MinimumTemperature)) <span class="keywordflow">return</span> 2.0f;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(dataType,DataType_MaximumTemperature)) <span class="keywordflow">return</span> 3.0f;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(dataType,DataType_PotentialEvapotranspiration)) <span class="keywordflow">return</span> 4.0f;</div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('d5/d05/a00385_source.html','../../');}
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">switch</span>((<span class="keywordtype">int</span>)dataType)</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> DataType_Precipitation;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d4/d6d/a00402.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">case</span> 2:</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> DataType_MinimumTemperature;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">case</span> 3:</div>
@@ -227,6 +227,7 @@ $(document).ready(function(){initNavTree('d5/d05/a00385_source.html','../../');}
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="ttc" id="a00402_html_a90664723be86eee7dbc8bcbcaceff261"><div class="ttname"><a href="../../d4/d6d/a00402.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a></div><div class="ttdeci">#define DataType_Precipitation</div><div class="ttdoc">Climate data type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00034">text.h:34</a></div></div>
 <div class="ttc" id="a00665_html_gae875280d1d04d9c64f41a2bc46403f88"><div class="ttname"><a href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a></div><div class="ttdeci">bool StringMatch(string text1, string text2)</div><div class="ttdoc">Match String. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00127">util.cpp:127</a></div></div>
 <div class="ttc" id="a00048_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../d4/dca/a00048.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00127">utils.cpp:127</a></div></div>
 <div class="ttc" id="a00386_html"><div class="ttname"><a href="../../dd/df5/a00386.html">SEIMS_ModuleSetting.h</a></div></div>
@@ -241,7 +242,7 @@ $(document).ready(function(){initNavTree('d5/d05/a00385_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d5/d05/a00385.html">SEIMS_ModuleSetting.cpp</a></li>
-    <li class="footer">Generated on Thu Apr 21 2016 12:59:54 for SEIMS-2016 by
+    <li class="footer">Generated on Mon Apr 25 2016 03:10:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
