@@ -58,8 +58,8 @@ var a00673 =
       [ "~utils", "d2/d79/a00051.html#a259cc9e8f541c05a20df28dfeb3b11be", null ]
     ] ],
     [ "TimeStepType", "d4/d4f/a00673.html#gad2dde160974c283ccf8f0ce280f791ba", [
-      [ "TIMESTEP_HILLSLOPE", "df/d38/a00468.html#gad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff", null ],
-      [ "TIMESTEP_CHANNEL", "df/d38/a00468.html#gad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c", null ]
+      [ "TIMESTEP_HILLSLOPE", "d0/da0/a00403.html#gad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff", null ],
+      [ "TIMESTEP_CHANNEL", "d0/da0/a00403.html#gad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c", null ]
     ] ],
     [ "DoubleEqual", "d4/d4f/a00673.html#ga2e0081340c7a443a4d1c228f3ad93845", null ],
     [ "FindFiles", "d4/d4f/a00673.html#ga09f99f8f12c6e312ec9efabb775cbb2b", null ],

@@ -1,2 +1,6 @@
-<map id="src/base/data/clsSimpleTxtData.h" name="src/base/data/clsSimpleTxtData.h">
+<map id="src/base/data/clsLapseData.cpp" name="src/base/data/clsLapseData.cpp">
+<area shape="rect" id="node2" href="$d3/dc9/a00355.html" title="Define clsLapseData class. " alt="" coords="5,83,139,112"/>
+<area shape="rect" id="node4" href="$df/dc2/a00367.html" title="Database manager for Sqlite. " alt="" coords="214,83,335,112"/>
+<area shape="rect" id="node6" href="$d1/d8b/a00406.html" title="Predefined of some const string names. " alt="" coords="534,83,593,112"/>
+<area shape="rect" id="node9" href="$d7/d00/a00401.html" title="Define ModelException class. " alt="" coords="359,83,509,112"/>
 </map>

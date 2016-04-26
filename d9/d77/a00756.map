@@ -1,2 +1,4 @@
-<map id="src/base/data/DBManager.h" name="src/base/data/DBManager.h">
+<map id="src/base/data/clsSiteData.h" name="src/base/data/clsSiteData.h">
+<area shape="rect" id="node3" href="$d4/d13/a00377.html" title="Class to store the site information from the Hydroclimate database stations table. " alt="" coords="257,83,345,112"/>
+<area shape="rect" id="node5" href="$d0/d48/a00351.html" title="Hydrological climate data class. " alt="" coords="45,83,232,112"/>
 </map>

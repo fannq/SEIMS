@@ -1,8 +1,5 @@
-<map id="Hydrology_longterm" name="Hydrology_longterm">
-<area shape="rect" id="node1" href="$d4/d9b/a00680.html" title="Calculate potential evapotranspiration using Hargreaves method. " alt="" coords="261,5,336,35"/>
-<area shape="rect" id="node2" href="$da/d31/a00678.html" title="DEP_LINSLEY" alt="" coords="233,59,365,88"/>
-<area shape="rect" id="node4" href="$d2/d85/a00679.html" title="MUSKINGUM_CH" alt="" coords="221,112,376,141"/>
-<area shape="rect" id="node5" href="$db/d77/a00683.html" title="SNO_DD" alt="" coords="253,165,344,195"/>
-<area shape="rect" id="node6" href="$d8/dba/a00681.html" title="Calculate potential evapotranspiration using Penman&#45;Monteith method. " alt="" coords="255,219,342,248"/>
-<area shape="rect" id="node7" href="$d7/dc3/a00682.html" title="Calculate potential evapotranspiration using PriestleyTaylor method. " alt="" coords="257,272,341,301"/>
+<map id="Hydrology_strom" name="Hydrology_strom">
+<area shape="rect" id="node1" href="$d3/db4/a00684.html" title="Calculate groundwater using reservoir method. " alt="" coords="329,5,527,35"/>
+<area shape="rect" id="node2" href="$d6/da1/a00675.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node3" href="$db/d77/a00683.html" title="Channel routing using diffusive wave equation. " alt="" coords="387,59,469,88"/>
 </map>

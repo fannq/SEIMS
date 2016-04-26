@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">def </span>GenerateSubbasinVector(dstdir, subbasinRaster, subbasinVector):</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    subbasinVectorTmp = dstdir + os.sep + <span class="stringliteral">&quot;subbasin_tmp.shp&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(subbasinVectorTmp)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(subbasinVectorTmp)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    strCmd = <span class="stringliteral">&#39;python %s/gdal_polygonize.py -f &quot;ESRI Shapefile&quot; %s %s&#39;</span> % (PREPROC_SCRIPT_DIR, subbasinRaster, subbasinVectorTmp)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">print</span> strCmd</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    os.system(strCmd)</div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        ft = layer.GetNextFeature()</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    drv = ogr.GetDriverByName(<span class="stringliteral">&quot;ESRI Shapefile&quot;</span>)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(subbasinVector)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(subbasinVector)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    dsNew = drv.CreateDataSource(subbasinVector)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    lyrName = <span class="stringliteral">&quot;subbasin&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    lyr = dsNew.CreateLayer(lyrName, layer.GetSpatialRef(), ogr.wkbPolygon)</div>
@@ -267,9 +267,9 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                outputStream[i][j] = outputSubbasin[i][j]</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(outputSubbasinFile, nRows, nCols, outputSubbasin, \</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(outputSubbasinFile, nRows, nCols, outputSubbasin, \</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            subbasin.geotrans, subbasin.srs, noDataValue, gdal.GDT_Int32)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(outputStreamLinkFile, nRows, nCols, outputStream, \</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(outputStreamLinkFile, nRows, nCols, outputStream, \</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            streamRaster.geotrans, streamRaster.srs, noDataValue, gdal.GDT_Int32)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            </div>
@@ -291,7 +291,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            value = int(dataTau[i]) - 1</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            output[i] = dirMap[value]</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    output.shape = (nRows, nCols)    </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(flowDirFileEsri, nRows, nCols, output, \</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(flowDirFileEsri, nRows, nCols, output, \</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            flowDirTau.geotrans, flowDirTau.srs, noDataValue, gdal.GDT_Int32)</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        </div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
@@ -312,7 +312,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            output[i] = 100*data[i]</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    output.shape = (nRows, nCols)    </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#ada7840b06c894cacf22cadd0aa98e892">util.WriteGTiffFileByMask</a>(outputFile, output, slopeTau, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#ada7840b06c894cacf22cadd0aa98e892">util.WriteGTiffFileByMask</a>(outputFile, output, slopeTau, gdal.GDT_Float32)</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">def </span>AddWidthToReach(reachFile, stramLinkFile, width):</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    streamLink = ReadRaster(stramLinkFile)</div>
@@ -399,7 +399,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    </div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    accFile = dstdir + os.sep + accM</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    chwidthFile = dstdir + os.sep + chwidthName</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    width = <a class="code" href="../../d6/dfa/a00626.html">chwidth</a>(accFile, chwidthFile)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    width = <a class="code" href="../../d3/da3/a00627.html">chwidth</a>(accFile, chwidthFile)</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    AddWidthToReach(outputReachFile, outputStreamLinkFile, width)</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;Generating subbasin vector...&quot;</span></div>
@@ -407,7 +407,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    maskFile = dstdir + os.sep + mask_to_ext</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    basinVectorTmp = dstdir + os.sep + <span class="stringliteral">&quot;basin_tmp.shp&quot;</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(basinVectorTmp)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(basinVectorTmp)</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    strCmd = <span class="stringliteral">&#39;python %s/gdal_polygonize.py -f &quot;ESRI Shapefile&quot; %s %s&#39;</span> % (PREPROC_SCRIPT_DIR, maskFile, basinVectorTmp)</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    os.system(strCmd)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
@@ -417,7 +417,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    basinVector = dstdir + os.sep + basinVec</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    drv = ogr.GetDriverByName(<span class="stringliteral">&quot;ESRI Shapefile&quot;</span>)</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <a class="code" href="../../d9/d41/a00666.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(basinVector)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a>(basinVector)</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    dsNew = drv.CreateDataSource(basinVector)</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    lyrName = <span class="stringliteral">&quot;basin&quot;</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    lyr = dsNew.CreateLayer(lyrName, layer.GetSpatialRef(), ogr.wkbPolygon)</div>
@@ -459,17 +459,17 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">#ChangeFlowDir(flowDirFileTau, outputFlowDirFile)</span></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    </div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;The outputs of TauDEM are serialized.&quot;</span></div>
-<div class="ttc" id="a00666_html_ada7840b06c894cacf22cadd0aa98e892"><div class="ttname"><a href="../../d9/d41/a00666.html#ada7840b06c894cacf22cadd0aa98e892">util.WriteGTiffFileByMask</a></div><div class="ttdeci">def WriteGTiffFileByMask</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00270">util.py:270</a></div></div>
-<div class="ttc" id="a00666_html_a2a3075d47ab4f3b17ba165c67820a5ea"><div class="ttname"><a href="../../d9/d41/a00666.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a></div><div class="ttdeci">def RemoveShpFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00121">util.py:121</a></div></div>
-<div class="ttc" id="a00666_html_acfba40e23f24bf57f47c23b7e096aa4b"><div class="ttname"><a href="../../d9/d41/a00666.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a></div><div class="ttdeci">def WriteGTiffFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00259">util.py:259</a></div></div>
-<div class="ttc" id="a00626_html"><div class="ttname"><a href="../../d6/dfa/a00626.html">chwidth</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de8/a00061_source.html#l00001">chwidth.py:1</a></div></div>
+<div class="ttc" id="a00627_html"><div class="ttname"><a href="../../d3/da3/a00627.html">chwidth</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de8/a00061_source.html#l00001">chwidth.py:1</a></div></div>
+<div class="ttc" id="a00667_html_ada7840b06c894cacf22cadd0aa98e892"><div class="ttname"><a href="../../d2/d6e/a00667.html#ada7840b06c894cacf22cadd0aa98e892">util.WriteGTiffFileByMask</a></div><div class="ttdeci">def WriteGTiffFileByMask</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00270">util.py:270</a></div></div>
+<div class="ttc" id="a00667_html_acfba40e23f24bf57f47c23b7e096aa4b"><div class="ttname"><a href="../../d2/d6e/a00667.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a></div><div class="ttdeci">def WriteGTiffFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00259">util.py:259</a></div></div>
+<div class="ttc" id="a00667_html_a2a3075d47ab4f3b17ba165c67820a5ea"><div class="ttname"><a href="../../d2/d6e/a00667.html#a2a3075d47ab4f3b17ba165c67820a5ea">util.RemoveShpFile</a></div><div class="ttdeci">def RemoveShpFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00121">util.py:121</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>post_process_taudem.py</b></li>
-    <li class="footer">Generated on Tue Apr 26 2016 02:23:33 for SEIMS-2016 by
+    <li class="footer">Generated on Tue Apr 26 2016 06:12:45 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

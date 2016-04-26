@@ -1,7 +1,3 @@
-<map id="src/base/data/RegularMeasurement.cpp" name="src/base/data/RegularMeasurement.cpp">
-<area shape="rect" id="node3" href="$de/df8/a00440.html" title="RegularMeasurement.h" alt="" coords="104,83,293,112"/>
-<area shape="rect" id="node8" href="$dc/d8e/a00473.html" title="definition of utils class " alt="" coords="475,160,539,189"/>
-<area shape="rect" id="node15" href="$d4/d4b/a00471.html" title="Predefined of some const string names. " alt="" coords="639,83,699,112"/>
-<area shape="rect" id="node16" href="$db/d2c/a00466.html" title="Define ModelException class. " alt="" coords="318,83,468,112"/>
-<area shape="rect" id="node4" href="$d4/d82/a00436.html" title="Measurement.h" alt="" coords="134,160,265,189"/>
+<map id="src/base/data/InputStation.h" name="src/base/data/InputStation.h">
+<area shape="rect" id="node6" href="$d6/d80/a00371.html" title="Measurement.h" alt="" coords="233,83,364,112"/>
 </map>
