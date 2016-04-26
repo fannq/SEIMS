@@ -1,8 +1,0 @@
-<map id="parse_cmdline" name="parse_cmdline">
-<area shape="rect" id="node2" href="$dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="401,28,495,57"/>
-<area shape="rect" id="node5" href="$db/d57/a00112.html#abb224612ca0aae2d39bd87f6146bd67d" title="Parse command&#45;line arguments with only long options. " alt="" coords="181,26,352,56"/>
-<area shape="rect" id="node6" href="$dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="221,80,313,109"/>
-<area shape="rect" id="node7" href="$d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="233,133,300,162"/>
-<area shape="rect" id="node3" href="$d1/dd6/a00108.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="731,28,823,57"/>
-<area shape="rect" id="node4" href="$dc/dfe/a00125.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="544,53,683,82"/>
-</map>

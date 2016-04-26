@@ -1,0 +1,6 @@
+<map id="PETHargreaves::Execute" name="PETHargreaves::Execute">
+<area shape="rect" id="node2" href="$d5/db6/a00042.html#a7e04f825331f418ccf131194dd4eb48c" title="check the input data. Make sure all the input data is available. " alt="" coords="267,5,527,35"/>
+<area shape="rect" id="node3" href="$d5/db6/a00042.html#a4f672a6a86ce8e6b8a801b8c7482a593" title="Get the Julian day of one day. " alt="" coords="289,59,506,88"/>
+<area shape="rect" id="node5" href="$d5/db6/a00042.html#afd65322c64989753054da3925edf833d" title="Calculate the max solar radiation for a station of one day. " alt="" coords="256,112,539,141"/>
+<area shape="rect" id="node4" href="$d4/d4f/a00673.html#ga96686b43fea284176a5de2f143e52698" title="Get local time. " alt="" coords="587,59,685,88"/>
+</map>

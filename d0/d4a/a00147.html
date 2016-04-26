@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/test/rw.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/pdb.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,125 +111,200 @@ $(document).ready(function(){initNavTree('d0/d4a/a00147.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">rw.c File Reference</div>  </div>
+<div class="title">pdb.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A simple frequent itemset discovery program to test GKlib's routines.  
+<p>Functions for parsing pdb files.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for rw.c:</div>
+Include dependency graph for pdb.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d5b/a00695.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2test_2rw_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2test_2rw_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2test_2rw_8c">
-<area shape="rect" id="node2" href="../../d1/d88/a00128_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../d3/d00/a00113.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../df/dcd/a00127.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d7/d12/a00126.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../d2/da3/a00115.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d8/d17/a00114.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d9/d4b/a00117.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d4/d3e/a00116.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../de/d36/a00123.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d8/d87/a00118.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../df/d6a/a00119.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d4/d98/a00120.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../d8/dfa/a00121.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../df/dc8/a00122.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../da/d72/a00124.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../dc/dfe/a00125.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
+<div class="center"><img src="../../d8/d86/a00703.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pdb_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pdb_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pdb_8c">
+<area shape="rect" id="node2" href="../../d5/deb/a00132_source.html" title="GKlib.h" alt="" coords="1719,101,1792,131"/><area shape="rect" id="node3" href="../../d9/d4b/a00117.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,179,313,208"/><area shape="rect" id="node25" href="../../d7/d06/a00131.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,179,2021,208"/><area shape="rect" id="node26" href="../../d6/db3/a00130.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,179,2144,208"/><area shape="rect" id="node27" href="../../df/d6a/a00119.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,179,2281,208"/><area shape="rect" id="node28" href="../../d8/d87/a00118.html" title="This file contains various constants definitions. " alt="" coords="2307,179,2397,208"/><area shape="rect" id="node29" href="../../d8/dfa/a00121.html" title="This file contains various macros. " alt="" coords="2422,179,2535,208"/><area shape="rect" id="node30" href="../../d4/d98/a00120.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,179,2664,208"/><area shape="rect" id="node31" href="../../df/dcd/a00127.html" title="Templates for the qsort routine. " alt="" coords="2689,179,2796,208"/><area shape="rect" id="node32" href="../../df/dc8/a00122.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,179,2932,208"/><area shape="rect" id="node33" href="../../de/d36/a00123.html" title="Templates for memory allocation routines. " alt="" coords="2957,179,3096,208"/><area shape="rect" id="node34" href="../../da/d72/a00124.html" title="Templates for priority queues. " alt="" coords="3120,179,3255,208"/><area shape="rect" id="node35" href="../../dc/dfe/a00125.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,179,3425,208"/><area shape="rect" id="node36" href="../../d7/d12/a00126.html" title="Templates for portable random number generation. " alt="" coords="3451,179,3585,208"/><area shape="rect" id="node37" href="../../d1/d88/a00128.html" title="Templates for various utility routines. " alt="" coords="3611,179,3721,208"/><area shape="rect" id="node38" href="../../d9/d47/a00129.html" title="This file contains function prototypes. " alt="" coords="3746,179,3843,208"/></map>
 </div>
 </div>
 <p><a href="../../d0/d4a/a00147_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3a/a00040.html">params_t</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a26e9eb9179a727d896d5524a20dd80fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a26e9eb9179a727d896d5524a20dd80fd">CMD_NITER</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a26e9eb9179a727d896d5524a20dd80fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2270624f104a1d261314dd112e4a1d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a2270624f104a1d261314dd112e4a1d1d">print_init_info</a> (<a class="el" href="../../db/d3a/a00040.html">params_t</a> *params, gk_csr_t *mat)</td></tr>
-<tr class="separator:a2270624f104a1d261314dd112e4a1d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702976a4c55992ddbfc1918ec1b70943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a702976a4c55992ddbfc1918ec1b70943">print_final_info</a> (<a class="el" href="../../db/d3a/a00040.html">params_t</a> *params)</td></tr>
-<tr class="separator:a702976a4c55992ddbfc1918ec1b70943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e7ce196a2f8882777957bf898739f6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d3a/a00040.html">params_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a0e7ce196a2f8882777957bf898739f6f">parse_cmdline</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0e7ce196a2f8882777957bf898739f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eb7d344c153ba6c0bbe608c18a4a2a1"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a6eb7d344c153ba6c0bbe608c18a4a2a1">gk_threetoone</a> (char *res)</td></tr>
+<tr class="memdesc:a6eb7d344c153ba6c0bbe608c18a4a2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts three-letter amino acid codes to one-leter codes.  <a href="#a6eb7d344c153ba6c0bbe608c18a4a2a1">More...</a><br/></td></tr>
+<tr class="separator:a6eb7d344c153ba6c0bbe608c18a4a2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab49542f55191276b91d65ad61a198ab2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#ab49542f55191276b91d65ad61a198ab2">gk_freepdbf</a> (pdbf *p)</td></tr>
+<tr class="memdesc:ab49542f55191276b91d65ad61a198ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory of a pdbf structure.  <a href="#ab49542f55191276b91d65ad61a198ab2">More...</a><br/></td></tr>
+<tr class="separator:ab49542f55191276b91d65ad61a198ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297ec0561d579a1772f424fce8886d96"><td class="memItemLeft" align="right" valign="top">pdbf *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a297ec0561d579a1772f424fce8886d96">gk_readpdbfile</a> (char *fname)</td></tr>
+<tr class="memdesc:a297ec0561d579a1772f424fce8886d96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a pdb file into a pdbf structure.  <a href="#a297ec0561d579a1772f424fce8886d96">More...</a><br/></td></tr>
+<tr class="separator:a297ec0561d579a1772f424fce8886d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b1b4f30c03454894d5218edd8296e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a39b1b4f30c03454894d5218edd8296e0">gk_writefastafrompdb</a> (pdbf *pb, char *fname)</td></tr>
+<tr class="memdesc:a39b1b4f30c03454894d5218edd8296e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the sequence of residues from a pdb file.  <a href="#a39b1b4f30c03454894d5218edd8296e0">More...</a><br/></td></tr>
+<tr class="separator:a39b1b4f30c03454894d5218edd8296e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6be4d6cf94a1dace5677865e8958b7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a6be4d6cf94a1dace5677865e8958b7b3">gk_writecentersofmass</a> (pdbf *p, char *fname)</td></tr>
+<tr class="memdesc:a6be4d6cf94a1dace5677865e8958b7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all centers of mass in pdb-format to file fname.  <a href="#a6be4d6cf94a1dace5677865e8958b7b3">More...</a><br/></td></tr>
+<tr class="separator:a6be4d6cf94a1dace5677865e8958b7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786192984ea62e6824ae9a2d1b902574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a786192984ea62e6824ae9a2d1b902574">gk_writefullatom</a> (pdbf *p, char *fname)</td></tr>
+<tr class="memdesc:a786192984ea62e6824ae9a2d1b902574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all atoms in p in pdb-format to file fname.  <a href="#a786192984ea62e6824ae9a2d1b902574">More...</a><br/></td></tr>
+<tr class="separator:a786192984ea62e6824ae9a2d1b902574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04817c574e29493f0363ef81b41f82df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#a04817c574e29493f0363ef81b41f82df">gk_writebackbone</a> (pdbf *p, char *fname)</td></tr>
+<tr class="memdesc:a04817c574e29493f0363ef81b41f82df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes out all the backbone atoms of a structure in pdb format.  <a href="#a04817c574e29493f0363ef81b41f82df">More...</a><br/></td></tr>
+<tr class="separator:a04817c574e29493f0363ef81b41f82df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0eef52d1d7e2da669accced22e821a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#ad0eef52d1d7e2da669accced22e821a4">gk_writealphacarbons</a> (pdbf *p, char *fname)</td></tr>
+<tr class="memdesc:ad0eef52d1d7e2da669accced22e821a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes out all the alpha carbon atoms of a structure.  <a href="#ad0eef52d1d7e2da669accced22e821a4">More...</a><br/></td></tr>
+<tr class="separator:ad0eef52d1d7e2da669accced22e821a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07e046d84d58f44124e9b28e90d619c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4a/a00147.html#ac07e046d84d58f44124e9b28e90d619c">gk_showcorruption</a> (pdbf *p)</td></tr>
+<tr class="memdesc:ac07e046d84d58f44124e9b28e90d619c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes the corruption bitswitch and prints any problems.  <a href="#ac07e046d84d58f44124e9b28e90d619c">More...</a><br/></td></tr>
+<tr class="separator:ac07e046d84d58f44124e9b28e90d619c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple frequent itemset discovery program to test GKlib's routines. </p>
-<dl class="section date"><dt>Date</dt><dd>6/12/2008 </dd></dl>
-<dl class="section author"><dt>Author</dt><dd>George </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: rw.c 11387 2012-01-21 23:36:23Z karypis $ </pre> </dd></dl>
+<div class="textblock"><p>Functions for parsing pdb files. </p>
+<p>Pdb reader (parser). Loads arrays of pointers for easy backbone access.</p>
+<dl class="section date"><dt>Date</dt><dd>Started 10/20/06 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Kevin </dd></dl>
+<dl class="section version"><dt>Version</dt><dd></dd></dl>
+<dl class="section rcs"><dt>Id:</dt><dd><a class="el" href="../../d0/d4a/a00147.html" title="Functions for parsing pdb files. ">pdb.c</a> 10711 2011-08-31 22:23:04Z karypis </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d0/d4a/a00147_source.html">rw.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a26e9eb9179a727d896d5524a20dd80fd"></a>
+<p>Definition in file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ab49542f55191276b91d65ad61a198ab2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CMD_NITER&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Constants </p>
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00028">28</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">rw.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
+          <td class="memname">void gk_freepdbf </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the entry point </p>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00103">103</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">rw.c</a>.</p>
+<p>Frees the memory of a pdbf structure. </p>
+<p>This function takes a pdbf pointer and frees all the memory below it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdbf structure to be freed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00105">105</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a297ec0561d579a1772f424fce8886d96"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pdbf* gk_readpdbfile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads a pdb file into a pdbf structure. </p>
+<p>This function allocates a pdbf structure and reads the file fname into that structure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>is the file name to be read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A filled pdbf structure. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00132">132</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d4a/a00147_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#d0/d4a/a00147_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
-<map name="d0/d4a/a00147_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="d0/d4a/a00147_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" id="node2" href="../../d0/d4a/a00147.html#a0e7ce196a2f8882777957bf898739f6f" title="parse_cmdline" alt="" coords="125,95,251,124"/><area shape="rect" id="node9" href="../../df/d98/a00107.html#a8ebc19fe9a291bdf67677ebdaae56592" title="gk_csr_Read" alt="" coords="129,254,247,283"/><area shape="rect" id="node14" href="../../d0/d4a/a00147.html#a2270624f104a1d261314dd112e4a1d1d" title="print_init_info" alt="" coords="129,307,247,336"/><area shape="rect" id="node15" href="../../d9/db6/a00146.html#a5f79542ae883d026565a71bab5bca8d4" title="gk_rw_PageRank" alt="" coords="113,360,263,390"/><area shape="rect" id="node16" href="../../df/d98/a00107.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="133,414,243,443"/><area shape="rect" id="node18" href="../../d0/d4a/a00147.html#a702976a4c55992ddbfc1918ec1b70943" title="print_final_info" alt="" coords="125,467,251,496"/><area shape="rect" id="node3" href="../../dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="538,255,633,284"/><area shape="rect" id="node6" href="../../db/d57/a00112.html#abb224612ca0aae2d39bd87f6146bd67d" title="Parse command&#45;line arguments with only long options. " alt="" coords="315,42,485,71"/><area shape="rect" id="node7" href="../../dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="354,95,446,124"/><area shape="rect" id="node8" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="367,148,433,178"/><area shape="rect" id="node4" href="../../d1/dd6/a00108.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="870,307,962,336"/><area shape="rect" id="node5" href="../../dc/dfe/a00125.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="683,255,821,284"/><area shape="rect" id="node10" href="../../df/d98/a00107.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="337,308,463,338"/><area shape="rect" id="node12" href="../../dc/dfe/a00125.html#ad8263f64108434d7ebab9799b5ab9632" title="gk_getline" alt="" coords="352,255,448,284"/><area shape="rect" id="node13" href="../../dd/d6d/a00111.html#a739112cb142f2e96d6952140c66cd31c" title="gk_getfilestats" alt="" coords="338,202,462,231"/><area shape="rect" id="node11" href="../../df/d98/a00107.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="536,308,635,338"/><area shape="rect" id="node17" href="../../df/d98/a00107.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="313,414,487,443"/></map>
+<div class="center"><img src="../../d0/d4a/a00147_a297ec0561d579a1772f424fce8886d96_cgraph.png" border="0" usemap="#d0/d4a/a00147_a297ec0561d579a1772f424fce8886d96_cgraph" alt=""/></div>
+<map name="d0/d4a/a00147_a297ec0561d579a1772f424fce8886d96_cgraph" id="d0/d4a/a00147_a297ec0561d579a1772f424fce8886d96_cgraph">
+<area shape="rect" id="node2" href="../../d9/d47/a00129.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="355,23,450,52"/><area shape="rect" id="node5" href="../../d0/d4a/a00147.html#a6eb7d344c153ba6c0bbe608c18a4a2a1" title="Converts three&#45;letter amino acid codes to one&#45;leter codes. " alt="" coords="182,21,306,51"/><area shape="rect" id="node6" href="../../d9/d47/a00129.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="198,75,290,104"/><area shape="rect" id="node3" href="../../db/d57/a00112.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="686,23,778,52"/><area shape="rect" id="node4" href="../../d9/d47/a00129.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="499,48,637,77"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a0e7ce196a2f8882777957bf898739f6f"></a>
+<a class="anchor" id="ac07e046d84d58f44124e9b28e90d619c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d3a/a00040.html">params_t</a>* parse_cmdline </td>
+          <td class="memname">void gk_showcorruption </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decodes the corruption bitswitch and prints any problems. </p>
+<p>Due to the totally unreliable nature of the pdb format, reading a pdb file stores a corruption bitswitch, and this function decodes that switch and prints the result on stdout.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdb structure to write out. </td></tr>
+    <tr><td class="paramname">fname</td><td>is the file name to be written. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00435">435</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6eb7d344c153ba6c0bbe608c18a4a2a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char gk_threetoone </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts three-letter amino acid codes to one-leter codes. </p>
+<p>This function takes a three letter <code>*</code> and converts it to a single <code></code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">res</td><td>is the three-letter code to be converted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>representing</code> the amino acid. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00024">24</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0eef52d1d7e2da669accced22e821a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_writealphacarbons </td>
+          <td>(</td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
+          <td class="paramname"><em>fname</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -238,55 +313,36 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is the entry point of the command-line argument parser </p>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00240">240</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">rw.c</a>.</p>
+<p>Writes out all the alpha carbon atoms of a structure. </p>
+<p>This function takes a pdbf structure p and writes only the alpha carbon atoms to a filename fname.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdb structure to write out. </td></tr>
+    <tr><td class="paramname">fname</td><td>is the file name to be written. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/d4a/a00147_a0e7ce196a2f8882777957bf898739f6f_cgraph.png" border="0" usemap="#d0/d4a/a00147_a0e7ce196a2f8882777957bf898739f6f_cgraph" alt=""/></div>
-<map name="d0/d4a/a00147_a0e7ce196a2f8882777957bf898739f6f_cgraph" id="d0/d4a/a00147_a0e7ce196a2f8882777957bf898739f6f_cgraph">
-<area shape="rect" id="node2" href="../../dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="401,28,495,57"/><area shape="rect" id="node5" href="../../db/d57/a00112.html#abb224612ca0aae2d39bd87f6146bd67d" title="Parse command&#45;line arguments with only long options. " alt="" coords="181,26,352,56"/><area shape="rect" id="node6" href="../../dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="221,80,313,109"/><area shape="rect" id="node7" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="233,133,300,162"/><area shape="rect" id="node3" href="../../d1/dd6/a00108.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="731,28,823,57"/><area shape="rect" id="node4" href="../../dc/dfe/a00125.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="544,53,683,82"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00413">413</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a702976a4c55992ddbfc1918ec1b70943"></a>
+<a class="anchor" id="a04817c574e29493f0363ef81b41f82df"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_final_info </td>
+          <td class="memname">void gk_writebackbone </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d3a/a00040.html">params_t</a> *&#160;</td>
-          <td class="paramname"><em>params</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function prints final statistics </p>
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00227">227</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">rw.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2270624f104a1d261314dd112e4a1d1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_init_info </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d3a/a00040.html">params_t</a> *&#160;</td>
-          <td class="paramname"><em>params</em>, </td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">gk_csr_t *&#160;</td>
-          <td class="paramname"><em>mat</em>&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fname</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -295,10 +351,132 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function prototypes</p>
-<p>This function prints run parameters </p>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00206">206</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">rw.c</a>.</p>
+<p>Writes out all the backbone atoms of a structure in pdb format. </p>
+<p>This function takes a pdbf structure p and writes only the backbone atoms to a filename fname.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdb structure to write out. </td></tr>
+    <tr><td class="paramname">fname</td><td>is the file name to be written. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00392">392</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6be4d6cf94a1dace5677865e8958b7b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_writecentersofmass </td>
+          <td>(</td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes all centers of mass in pdb-format to file fname. </p>
+<p>This function takes a pdbf structure and writes out the calculated mass center information to file fname as though each one was a c-alpha.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdbf structure to write out </td></tr>
+    <tr><td class="paramname">fname</td><td>is the file name to be written </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00350">350</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39b1b4f30c03454894d5218edd8296e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_writefastafrompdb </td>
+          <td>(</td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>pb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes the sequence of residues from a pdb file. </p>
+<p>This function takes a pdbf structure and a filename, and writes out the amino acid sequence according to the atomic coordinates. The output is in fasta format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdbf structure with the sequence of interest </td></tr>
+    <tr><td class="paramname">fname</td><td>is the file name to be written </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00326">326</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a786192984ea62e6824ae9a2d1b902574"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_writefullatom </td>
+          <td>(</td>
+          <td class="paramtype">pdbf *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes all atoms in p in pdb-format to file fname. </p>
+<p>This function takes a pdbf structure and writes out all the atom information to file fname.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>is the pdbf structure to write out </td></tr>
+    <tr><td class="paramname">fname</td><td>is the file name to be written </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00371">371</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">pdb.c</a>.</p>
 
 </div>
 </div>
@@ -307,8 +485,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../dir_727261e497349a1838e9b65de4041ecc.html">test</a></li><li class="navelem"><a class="el" href="../../d0/d4a/a00147.html">rw.c</a></li>
-    <li class="footer">Generated on Mon Apr 25 2016 03:10:48 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d0/d4a/a00147.html">pdb.c</a></li>
+    <li class="footer">Generated on Tue Apr 26 2016 02:23:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/programs/cmdline_gpmetis.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/struct.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,409 +111,235 @@ $(document).ready(function(){initNavTree('d5/df1/a00206_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">cmdline_gpmetis.c</div>  </div>
+<div class="title">struct.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/df1/a00206.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;metisbin.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/*-------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * Command-line options </span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *-------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">static</span> <span class="keyword">struct </span><a class="code" href="../../d3/d52/a00023.html">gk_option</a> long_options[] = {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  {<span class="stringliteral">&quot;ptype&quot;</span>,          1,      0,      METIS_OPTION_PTYPE},</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  {<span class="stringliteral">&quot;objtype&quot;</span>,        1,      0,      METIS_OPTION_OBJTYPE}, </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  {<span class="stringliteral">&quot;ctype&quot;</span>,          1,      0,      METIS_OPTION_CTYPE},</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  {<span class="stringliteral">&quot;iptype&quot;</span>,         1,      0,      METIS_OPTION_IPTYPE},</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*  {&quot;rtype&quot;,          1,      0,      METIS_OPTION_RTYPE}, */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*  {&quot;balanced&quot;,       0,      0,      METIS_OPTION_BALANCE}, */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  {<span class="stringliteral">&quot;no2hop&quot;</span>,         0,      0,      METIS_OPTION_NO2HOP},</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  {<span class="stringliteral">&quot;minconn&quot;</span>,        0,      0,      METIS_OPTION_MINCONN},</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {<span class="stringliteral">&quot;contig&quot;</span>,         0,      0,      METIS_OPTION_CONTIG},</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * struct.h</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains data structures for ILU routines.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Started 9/26/95</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * George</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * $Id: struct.h 13900 2013-03-24 15:27:07Z karypis $</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef _LIBMETIS_STRUCT_H_</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _LIBMETIS_STRUCT_H_</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d1/d2b/a00018.html">cnbr_t</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a22be164ee3de87a051946a9ab71ae3b9">   24</a></span>&#160;  idx_t <a class="code" href="../../d1/d2b/a00018.html#a22be164ee3de87a051946a9ab71ae3b9">pid</a>;            </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a2dd27d862ee4554553d909072a8931f3">   25</a></span>&#160;  idx_t <a class="code" href="../../d1/d2b/a00018.html#a2dd27d862ee4554553d909072a8931f3">ed</a>;             </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <a class="code" href="../../d1/d2b/a00018.html">cnbr_t</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  {<span class="stringliteral">&quot;nooutput&quot;</span>,       0,      0,      METIS_OPTION_NOOUTPUT},</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {<span class="stringliteral">&quot;ufactor&quot;</span>,        1,      0,      METIS_OPTION_UFACTOR},</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  {<span class="stringliteral">&quot;niter&quot;</span>,          1,      0,      METIS_OPTION_NITER},</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  {<span class="stringliteral">&quot;ncuts&quot;</span>,          1,      0,      METIS_OPTION_NCUTS},</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  {<span class="stringliteral">&quot;tpwgts&quot;</span>,         1,      0,      METIS_OPTION_TPWGTS},</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  {<span class="stringliteral">&quot;ubvec&quot;</span>,          1,      0,      METIS_OPTION_UBVEC},</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  {<span class="stringliteral">&quot;seed&quot;</span>,           1,      0,      METIS_OPTION_SEED},</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  {<span class="stringliteral">&quot;dbglvl&quot;</span>,         1,      0,      METIS_OPTION_DBGLVL},</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html">   34</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d7/dec/a00010.html">ckrinfo_t</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a6d1da388f70555f25dc90fdcc011bb9b">   35</a></span>&#160; idx_t <a class="code" href="../../d7/dec/a00010.html#a6d1da388f70555f25dc90fdcc011bb9b">id</a>;              </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a57270f8839a5146d9342569f12865e57">   36</a></span>&#160; idx_t <a class="code" href="../../d7/dec/a00010.html#a57270f8839a5146d9342569f12865e57">ed</a>;              </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a73fbc8555b843b3fd414ac0a9ec244f1">   37</a></span>&#160; idx_t <a class="code" href="../../d7/dec/a00010.html#a73fbc8555b843b3fd414ac0a9ec244f1">nnbrs</a>;           </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#aca4e2d97adbc1b6401b4ee8acba70770">   38</a></span>&#160; idx_t <a class="code" href="../../d7/dec/a00010.html#aca4e2d97adbc1b6401b4ee8acba70770">inbr</a>;            </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <a class="code" href="../../d7/dec/a00010.html">ckrinfo_t</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {<span class="stringliteral">&quot;help&quot;</span>,           0,      0,      METIS_OPTION_HELP},</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  {0,                0,      0,      0}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/*-------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> * Mappings for the various parameter values</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> *-------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">static</span> gk_StringMap_t ptype_options[] = {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; {<span class="stringliteral">&quot;rb&quot;</span>,                 METIS_PTYPE_RB},</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; {<span class="stringliteral">&quot;kway&quot;</span>,               METIS_PTYPE_KWAY},</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; {NULL,                 0}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">static</span> gk_StringMap_t objtype_options[] = {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; {<span class="stringliteral">&quot;cut&quot;</span>,                METIS_OBJTYPE_CUT},</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; {<span class="stringliteral">&quot;vol&quot;</span>,                METIS_OBJTYPE_VOL},</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; {NULL,                 0}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">static</span> gk_StringMap_t ctype_options[] = {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; {<span class="stringliteral">&quot;rm&quot;</span>,                 METIS_CTYPE_RM},</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; {<span class="stringliteral">&quot;shem&quot;</span>,               METIS_CTYPE_SHEM},</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; {NULL,                 0}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html">   47</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d1/dea/a00054.html">vnbr_t</a> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a93adf79b4e57cd0477e9afc9b25da653">   48</a></span>&#160;  idx_t <a class="code" href="../../d1/dea/a00054.html#a93adf79b4e57cd0477e9afc9b25da653">pid</a>;            </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#ae32050bde46f5545e1c306853afd8d97">   49</a></span>&#160;  idx_t <a class="code" href="../../d1/dea/a00054.html#ae32050bde46f5545e1c306853afd8d97">ned</a>;            </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a29f3fc7f5d884e78e1dfff0f9cc438d0">   51</a></span>&#160;  idx_t <a class="code" href="../../d1/dea/a00054.html#a29f3fc7f5d884e78e1dfff0f9cc438d0">gv</a>;             </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <a class="code" href="../../d1/dea/a00054.html">vnbr_t</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html">   60</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../dc/dee/a00053.html">vkrinfo_t</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a9befff2ea2c811563ad38aaf921a8f21">   61</a></span>&#160; idx_t <a class="code" href="../../dc/dee/a00053.html#a9befff2ea2c811563ad38aaf921a8f21">nid</a>;             </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a0af0fec11cab7aa7a343c268832cc709">   62</a></span>&#160; idx_t <a class="code" href="../../dc/dee/a00053.html#a0af0fec11cab7aa7a343c268832cc709">ned</a>;             </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a8d9e4e351610f7b03203940a134bcd74">   63</a></span>&#160; idx_t <a class="code" href="../../dc/dee/a00053.html#a8d9e4e351610f7b03203940a134bcd74">gv</a>;              </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#aa337d338d253918348c5ba9e4a5082ca">   64</a></span>&#160; idx_t <a class="code" href="../../dc/dee/a00053.html#aa337d338d253918348c5ba9e4a5082ca">nnbrs</a>;           </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a85a0150ff0f0fe87b0fc3bf445b60bca">   65</a></span>&#160; idx_t <a class="code" href="../../dc/dee/a00053.html#a85a0150ff0f0fe87b0fc3bf445b60bca">inbr</a>;            </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <a class="code" href="../../dc/dee/a00053.html">vkrinfo_t</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">static</span> gk_StringMap_t iptype_options[] = {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; {<span class="stringliteral">&quot;grow&quot;</span>,               METIS_IPTYPE_GROW},</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; {<span class="stringliteral">&quot;random&quot;</span>,             METIS_IPTYPE_RANDOM},</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; {NULL,                 0}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">static</span> gk_StringMap_t rtype_options[] = {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; {<span class="stringliteral">&quot;fm&quot;</span>,                METIS_RTYPE_FM},</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; {<span class="stringliteral">&quot;greedy&quot;</span>,            METIS_RTYPE_GREEDY},</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; {NULL,                 0}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*-------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> * Mini help</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> *-------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> helpstr[][100] =</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">&quot;Usage: gpmetis [options] graphfile nparts&quot;</span>,</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">&quot; Required parameters&quot;</span>,</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">&quot;    graphfile   Stores the graph to be partitioned.&quot;</span>,</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">&quot;    nparts      The number of partitions to split the graph.&quot;</span>,</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">&quot; Optional parameters&quot;</span>,</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">&quot;  -ptype=string&quot;</span>,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="stringliteral">&quot;     Specifies the scheme to be used for computing the k-way partitioning.&quot;</span>,</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">&quot;     The possible values are:&quot;</span>,</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="stringliteral">&quot;        rb       - Recursive bisectioning&quot;</span>,</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="stringliteral">&quot;        kway     - Direct k-way partitioning [default]&quot;</span>,</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="stringliteral">&quot;  -ctype=string&quot;</span>,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="stringliteral">&quot;     Specifies the scheme to be used to match the vertices of the graph&quot;</span>,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="stringliteral">&quot;     during the coarsening.&quot;</span>,</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="stringliteral">&quot;     The possible values are:&quot;</span>,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="stringliteral">&quot;        rm       - Random matching&quot;</span>,</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="stringliteral">&quot;        shem     - Sorted heavy-edge matching [default]&quot;</span>,</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="stringliteral">&quot;  -iptype=string [applies only when -ptype=rb]&quot;</span>,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="stringliteral">&quot;     Specifies the scheme to be used to compute the initial partitioning&quot;</span>,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="stringliteral">&quot;     of the graph.&quot;</span>,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="stringliteral">&quot;     The possible values are:&quot;</span>,</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="stringliteral">&quot;        grow     - Grow a bisection using a greedy scheme [default for ncon=1]&quot;</span>,</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="stringliteral">&quot;        random   - Compute a bisection at random [default for ncon&gt;1]&quot;</span>,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="stringliteral">&quot;  -objtype=string [applies only when -ptype=kway]&quot;</span>,</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="stringliteral">&quot;     Specifies the objective that the partitioning routines will optimize.&quot;</span>,</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="stringliteral">&quot;     The possible values are:&quot;</span>,</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="stringliteral">&quot;        cut      - Minimize the edgecut [default]&quot;</span>,</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="stringliteral">&quot;        vol      - Minimize the total communication volume&quot;</span>,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">&quot;  -rtype=string&quot;,</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">&quot;     Specifies the scheme to be used for refinement.&quot;,</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">&quot;     The possible values are:&quot;,</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">&quot;        fm       - 2-way FM refinement [default for -ptype=rb]&quot;,</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">&quot;        random   - Random k-way refinement&quot;,</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">&quot;        greedy   - Greedy k-way refinement [default for -ptype=kway]&quot;,</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">&quot; &quot;,</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="stringliteral">&quot;  -no2hop&quot;</span>,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="stringliteral">&quot;     Specifies that the coarsening will not perform any 2-hop matchings&quot;</span>,</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="stringliteral">&quot;     when the standard matching fails to sufficiently contract the graph.&quot;</span>,</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="stringliteral">&quot;  -contig [applies only when -ptype=kway]&quot;</span>,</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="stringliteral">&quot;     Specifies that the partitioning routines should try to produce&quot;</span>,</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="stringliteral">&quot;     partitions that are contiguous. Note that if the input graph is not&quot;</span>,</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="stringliteral">&quot;     connected this option is ignored.&quot;</span>,</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="stringliteral">&quot;  -minconn [applies only when -ptype=kway]&quot;</span>,</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="stringliteral">&quot;     Specifies that the partitioning routines should try to minimize the&quot;</span>,</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="stringliteral">&quot;     maximum degree of the subdomain graph, i.e., the graph in which each&quot;</span>,</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="stringliteral">&quot;     partition is a node, and edges connect subdomains with a shared&quot;</span>,</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="stringliteral">&quot;     interface.&quot;</span>,</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="stringliteral">&quot;  -tpwgts=filename&quot;</span>,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="stringliteral">&quot;     Specifies the name of the file that stores the target weights for&quot;</span>,</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="stringliteral">&quot;     each partition. By default, all partitions are assumed to be of &quot;</span>,</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="stringliteral">&quot;     the same size.&quot;</span>,</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="stringliteral">&quot;  -ufactor=int&quot;</span>,</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="stringliteral">&quot;     Specifies the maximum allowed load imbalance among the partitions.&quot;</span>,</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="stringliteral">&quot;     A value of x indicates that the allowed load imbalance is 1+x/1000.&quot;</span>,</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="stringliteral">&quot;     For ptype=rb, the load imbalance is measured as the ratio of the &quot;</span>,</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="stringliteral">&quot;     2*max(left,right)/(left+right), where left and right are the sizes&quot;</span>,</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="stringliteral">&quot;     of the respective partitions at each bisection. &quot;</span>,</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="stringliteral">&quot;     For ptype=kway, the load imbalance is measured as the ratio of &quot;</span>,</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="stringliteral">&quot;     max_i(pwgts[i])/avgpwgt, where pwgts[i] is the weight of the ith&quot;</span>,</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="stringliteral">&quot;     partition and avgpwgt is the sum of the total vertex weights divided&quot;</span>,</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral">&quot;     by the number of partitions requested.&quot;</span>,</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">&quot;     For ptype=rb, the default value is 1 (i.e., load imbalance of 1.001).&quot;</span>,</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral">&quot;     For ptype=kway, the default value is 30 (i.e., load imbalance of 1.03).&quot;</span>,</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">&quot;  -ubvec=string&quot;</span>,</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral">&quot;     Applies only for multi-constraint partitioning and specifies the per&quot;</span>,</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="stringliteral">&quot;     constraint allowed load imbalance among partitions. The required &quot;</span>,</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="stringliteral">&quot;     parameter corresponds to a space separated set of floating point&quot;</span>,</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="stringliteral">&quot;     numbers, one for each of the constraints. For example, for three&quot;</span>,</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="stringliteral">&quot;     constraints, the string can be \&quot;1.02 1.2 1.35\&quot; indicating a &quot;</span>,</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="stringliteral">&quot;     desired maximum load imbalance of 2%, 20%, and 35%, respectively.&quot;</span>,</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="stringliteral">&quot;     The load imbalance is defined in a way similar to ufactor.&quot;</span>,</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="stringliteral">&quot;     If supplied, this parameter takes priority over ufactor.&quot;</span>,</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="stringliteral">&quot;  -niter=int&quot;</span>,</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="stringliteral">&quot;     Specifies the number of iterations for the refinement algorithms&quot;</span>,</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="stringliteral">&quot;     at each stage of the uncoarsening process. Default is 10.&quot;</span>,</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="stringliteral">&quot;  -ncuts=int&quot;</span>,</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="stringliteral">&quot;     Specifies the number of different partitionings that it will compute.&quot;</span>,</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="stringliteral">&quot;     The final partitioning is the one that achieves the best edgecut or&quot;</span>,</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="stringliteral">&quot;     communication volume. Default is 1.&quot;</span>,</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="stringliteral">&quot;  -nooutput&quot;</span>,</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="stringliteral">&quot;     Specifies that no partitioning file should be generated.&quot;</span>,</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">&quot;  -balance&quot;,</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">&quot;     Specifies that the final partitioning should contain nparts-1 equal&quot;,</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">&quot;     size partitions with the last partition having upto nparts-1 fewer&quot;,</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">&quot;     vertices.&quot;,</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">&quot; &quot;,</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="stringliteral">&quot;  -seed=int&quot;</span>,</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="stringliteral">&quot;     Selects the seed of the random number generator.  &quot;</span>,</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="stringliteral">&quot;  -dbglvl=int      &quot;</span>,</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="stringliteral">&quot;     Selects the dbglvl.  &quot;</span>,</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="stringliteral">&quot;  -help&quot;</span>,</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="stringliteral">&quot;     Prints this message.&quot;</span>,</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d1/dc6/a00037.html">   74</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d1/dc6/a00037.html">nrinfo_t</a> {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; idx_t edegrees[2];  </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <a class="code" href="../../d1/dc6/a00037.html">nrinfo_t</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html">   82</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d3/dfe/a00025.html">graph_t</a> {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  idx_t nvtxs, nedges;  <span class="comment">/* The # of vertices and edges in the graph */</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  idx_t ncon;       <span class="comment">/* The # of constrains */</span> </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  idx_t *xadj;      <span class="comment">/* Pointers to the locally stored vertices */</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  idx_t *vwgt;      <span class="comment">/* Vertex weights */</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  idx_t *vsize;     <span class="comment">/* Vertex sizes for min-volume formulation */</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  idx_t *adjncy;        <span class="comment">/* Array that stores the adjacency lists of nvtxs */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  idx_t *adjwgt;        <span class="comment">/* Array that stores the weights of the adjacency lists */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  idx_t *tvwgt;         <span class="comment">/* The sum of the vertex weights in the graph */</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  real_t *invtvwgt;     <span class="comment">/* The inverse of the sum of the vertex weights in the graph */</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="comment">/* These are to keep track control if the corresponding fields correspond to</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">     application or library memory */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">int</span> free_xadj, free_vwgt, free_vsize, free_adjncy, free_adjwgt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  idx_t *label;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  idx_t *cmap;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">/* Partition parameters */</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  idx_t mincut, minvol;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  idx_t *where, *pwgts;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  idx_t nbnd;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  idx_t *bndptr, *bndind;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">/* Bisection refinement parameters */</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  idx_t *id, *ed;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">/* K-way refinement parameters */</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#a84db37e157fc91c4680ba19377f720b4">  113</a></span>&#160;  <a class="code" href="../../d7/dec/a00010.html">ckrinfo_t</a> *<a class="code" href="../../d3/dfe/a00025.html#a84db37e157fc91c4680ba19377f720b4">ckrinfo</a>;   </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#a65c5b927198432cf7e6c9314eb10e5c8">  114</a></span>&#160;  <a class="code" href="../../dc/dee/a00053.html">vkrinfo_t</a> *<a class="code" href="../../d3/dfe/a00025.html#a65c5b927198432cf7e6c9314eb10e5c8">vkrinfo</a>;   </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">/* Node refinement information */</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <a class="code" href="../../d1/dc6/a00037.html">nrinfo_t</a> *nrinfo;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">struct </span><a class="code" href="../../d3/dfe/a00025.html">graph_t</a> *coarser, *finer;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;} <a class="code" href="../../d3/dfe/a00025.html">graph_t</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html">  126</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../df/d61/a00031.html">mesh_t</a> {</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a6321957b37b2040997c84db2fd2b8427">  127</a></span>&#160;  idx_t ne, <a class="code" href="../../df/d61/a00031.html#a6321957b37b2040997c84db2fd2b8427">nn</a>;         </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#ad18b1da90165616c622c16ce79c6907f">  128</a></span>&#160;  idx_t <a class="code" href="../../df/d61/a00031.html#ad18b1da90165616c622c16ce79c6907f">ncon</a>;           </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#aea23f507e73665abf78ffc3ecc540210">  130</a></span>&#160;  idx_t *eptr, *<a class="code" href="../../df/d61/a00031.html#aea23f507e73665abf78ffc3ecc540210">eind</a>;   </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a0a2369b26fbcc6229681ec8cb9e8f713">  131</a></span>&#160;  idx_t *<a class="code" href="../../df/d61/a00031.html#a0a2369b26fbcc6229681ec8cb9e8f713">ewgt</a>;          </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} <a class="code" href="../../df/d61/a00031.html">mesh_t</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html">  139</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../dd/da2/a00019.html">ctrl_t</a> {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <a class="code" href="../../dd/dae/a00163.html#a64ee21e6d3a57701a812d0903a2f0401">moptype_et</a>  optype;           <span class="comment">/* Type of operation */</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  mobjtype_et objtype;          <span class="comment">/* Type of refinement objective */</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <a class="code" href="../../dd/dae/a00163.html#ac50415aa8003f9b7bf0aabb2b0d50877">mdbglvl_et</a>  dbglvl;       <span class="comment">/* Controls the debuging output of the program */</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <a class="code" href="../../dd/dae/a00163.html#a51d3bfb2bd8dc4a84636b2b489f575bc">mctype_et</a>   ctype;        <span class="comment">/* The type of coarsening */</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <a class="code" href="../../dd/dae/a00163.html#a7f13d793623003e25bbbcd5dd7dead89">miptype_et</a>  iptype;       <span class="comment">/* The type of initial partitioning */</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <a class="code" href="../../dd/dae/a00163.html#a54ec0069de1eb28daca5cf43617e57e4">mrtype_et</a>   rtype;        <span class="comment">/* The type of refinement */</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  idx_t CoarsenTo;      <span class="comment">/* The # of vertices in the coarsest graph */</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  idx_t nIparts;                <span class="comment">/* The number of initial partitions to compute */</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  idx_t no2hop;                 <span class="comment">/* Indicates if 2-hop matching will be used */</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  idx_t minconn;                <span class="comment">/* Indicates if the subdomain connectivity will be minimized */</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  idx_t contig;                 <span class="comment">/* Indicates if contigous partitions are required */</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  idx_t nseps;          <span class="comment">/* The number of separators to be found during multiple bisections */</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  idx_t ufactor;                <span class="comment">/* The user-supplied load imbalance factor */</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  idx_t compress;               <span class="comment">/* If the graph will be compressed prior to ordering */</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  idx_t ccorder;                <span class="comment">/* If connected components will be ordered separately */</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  idx_t seed;                   <span class="comment">/* The seed for the random number generator */</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  idx_t ncuts;                  <span class="comment">/* The number of different partitionings to compute */</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  idx_t niter;                  <span class="comment">/* The number of iterations during each refinement */</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  idx_t numflag;                <span class="comment">/* The user-supplied numflag for the graph */</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  idx_t *maxvwgt;       <span class="comment">/* The maximum allowed weight for a vertex */</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#afb1fd1cb311eb4bcefa46a14ef05afa0">  162</a></span>&#160;  idx_t <a class="code" href="../../dd/da2/a00019.html#afb1fd1cb311eb4bcefa46a14ef05afa0">ncon</a>;                   </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee">  163</a></span>&#160;  idx_t <a class="code" href="../../dd/da2/a00019.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee">nparts</a>;                 </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  real_t pfactor;       <span class="comment">/* .1*(user-supplied prunning factor) */</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#ac7c04d9f87e4028ee55135f0f790e670">  167</a></span>&#160;  real_t *<a class="code" href="../../dd/da2/a00019.html#ac7c04d9f87e4028ee55135f0f790e670">ubfactors</a>;            </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a37fcd7cb16b54211eed8bd8ec8b5385a">  169</a></span>&#160;  real_t *<a class="code" href="../../dd/da2/a00019.html#a37fcd7cb16b54211eed8bd8ec8b5385a">tpwgts</a>;               </div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#ae347c6497954a20166af15a2ddd4e286">  170</a></span>&#160;  real_t *<a class="code" href="../../dd/da2/a00019.html#ae347c6497954a20166af15a2ddd4e286">pijbm</a>;                </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a90cc3aac501d85a6b43edc4b1e7e7e5e">  173</a></span>&#160;  real_t <a class="code" href="../../dd/da2/a00019.html#a90cc3aac501d85a6b43edc4b1e7e7e5e">cfactor</a>;               </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="comment">/* Various Timers */</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordtype">double</span> TotalTmr, InitPartTmr, MatchTmr, ContractTmr, CoarsenTmr, UncoarsenTmr, </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;         RefTmr, ProjectTmr, SplitTmr, Aux1Tmr, Aux2Tmr, Aux3Tmr;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="comment">/* Workspace information */</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a70ca2e591af5d7b1ec3116fe138fce85">  180</a></span>&#160;  <a class="code" href="../../d7/de0/a00022.html">gk_mcore_t</a> *<a class="code" href="../../dd/da2/a00019.html#a70ca2e591af5d7b1ec3116fe138fce85">mcore</a>;    </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="comment">/* These are for use by the k-way refinement routines */</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#ae37af5d894dbeea35f735361503e58a9">  184</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dd/da2/a00019.html#ae37af5d894dbeea35f735361503e58a9">nbrpoolsize</a>;      </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#acafe4ebea8585403e053dc33e7b4ac64">  185</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dd/da2/a00019.html#acafe4ebea8585403e053dc33e7b4ac64">nbrpoolcpos</a>;      </div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a091baa9be72262dca61c641d1f1e4ad3">  186</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dd/da2/a00019.html#a091baa9be72262dca61c641d1f1e4ad3">nbrpoolreallocs</a>;  </div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a3743efedf432aec050a9ebfb2e4a166a">  188</a></span>&#160;  <a class="code" href="../../d1/d2b/a00018.html">cnbr_t</a> *<a class="code" href="../../dd/da2/a00019.html#a3743efedf432aec050a9ebfb2e4a166a">cnbrpool</a>;     </div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a1f7258a6dc2780d0f8224293ecff26b7">  191</a></span>&#160;  <a class="code" href="../../d1/dea/a00054.html">vnbr_t</a> *<a class="code" href="../../dd/da2/a00019.html#a1f7258a6dc2780d0f8224293ecff26b7">vnbrpool</a>;     </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">/* The subdomain graph, in sparse format  */</span> </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  idx_t *maxnads;               <span class="comment">/* The maximum allocated number of adjacent domains */</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  idx_t *nads;                  <span class="comment">/* The number of adjacent domains */</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  idx_t **adids;                <span class="comment">/* The IDs of the adjacent domains */</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  idx_t **adwgts;               <span class="comment">/* The edge-weight to the adjacent domains */</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  idx_t *pvec1, *pvec2;         <span class="comment">/* Auxiliar nparts-size vectors for efficiency */</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;} <a class="code" href="../../dd/da2/a00019.html">ctrl_t</a>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> shorthelpstr[][100] = {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="stringliteral">&quot;   Usage: gpmetis [options] &lt;filename&gt; &lt;nparts&gt;&quot;</span>,</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="stringliteral">&quot;          use &#39;gpmetis -help&#39; for a summary of the options.&quot;</span>,</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">* This is the entry point of the command-line argument parser</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="../../d5/df1/a00206.html#a0e7ce196a2f8882777957bf898739f6f">  217</a></span>&#160;<a class="code" href="../../db/d3a/a00040.html">params_t</a> *<a class="code" href="../../d5/df1/a00206.html#a0e7ce196a2f8882777957bf898739f6f">parse_cmdline</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;{</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordtype">int</span> i, j, k;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keywordtype">int</span> c, option_index;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <a class="code" href="../../db/d3a/a00040.html">params_t</a> *params;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  params = (<a class="code" href="../../db/d3a/a00040.html">params_t</a> *)<a class="code" href="../../dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../db/d3a/a00040.html">params_t</a>), <span class="stringliteral">&quot;parse_cmdline&quot;</span>);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  memset((<span class="keywordtype">void</span> *)params, 0, <span class="keyword">sizeof</span>(<a class="code" href="../../db/d3a/a00040.html">params_t</a>));</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="comment">/* initialize the params data structure */</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  params-&gt;ptype         = METIS_PTYPE_KWAY;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  params-&gt;objtype       = METIS_OBJTYPE_CUT;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  params-&gt;ctype         = METIS_CTYPE_SHEM;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  params-&gt;iptype        = -1;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  params-&gt;rtype         = -1;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  params-&gt;no2hop        = 0;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  params-&gt;minconn       = 0;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  params-&gt;contig        = 0;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  params-&gt;nooutput      = 0;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  params-&gt;wgtflag       = 3;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  params-&gt;ncuts         = 1;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  params-&gt;niter         = 10;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  params-&gt;dbglvl        = 0;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  params-&gt;balance       = 0;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  params-&gt;seed          = -1;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  params-&gt;dbglvl        = 0;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  params-&gt;tpwgtsfile    = NULL;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  params-&gt;filename      = NULL;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  params-&gt;nparts        = 1;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  params-&gt;ufactor       = -1;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  params-&gt;ubvecstr      = NULL;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  params-&gt;ubvec         = NULL;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  gk_clearcputimer(params-&gt;iotimer);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  gk_clearcputimer(params-&gt;parttimer);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  gk_clearcputimer(params-&gt;reporttimer);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="comment">/* Parse the command line arguments  */</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordflow">while</span> ((c = <a class="code" href="../../db/d57/a00112.html#abb224612ca0aae2d39bd87f6146bd67d">gk_getopt_long_only</a>(argc, argv, <span class="stringliteral">&quot;&quot;</span>, long_options, &amp;option_index)) != -1) {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordflow">switch</span> (c) {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_PTYPE:</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;          <span class="keywordflow">if</span> ((params-&gt;ptype = gk_GetStringID(ptype_options, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)) == -1)</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Invalid option -%s=%s\n&quot;</span>, long_options[option_index].<a class="code" href="../../d3/d52/a00023.html#aa47d0e4e90d3cd1793fc5344b1e99afc">name</a>, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_OBJTYPE:</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;          <span class="keywordflow">if</span> ((params-&gt;objtype = gk_GetStringID(objtype_options, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)) == -1)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Invalid option -%s=%s\n&quot;</span>, long_options[option_index].name, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_CTYPE:</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;          <span class="keywordflow">if</span> ((params-&gt;ctype = gk_GetStringID(ctype_options, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)) == -1)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Invalid option -%s=%s\n&quot;</span>, long_options[option_index].name, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_IPTYPE:</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;          <span class="keywordflow">if</span> ((params-&gt;iptype = gk_GetStringID(iptype_options, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)) == -1)</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Invalid option -%s=%s\n&quot;</span>, long_options[option_index].name, <a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">      case METIS_OPTION_RTYPE:</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">        if (gk_optarg)</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">          if ((params-&gt;rtype = gk_GetStringID(rtype_options, gk_optarg)) == -1)</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">            errexit(&quot;Invalid option -%s=%s\n&quot;, long_options[option_index].name, gk_optarg);</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">        break;</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_NO2HOP:</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        params-&gt;no2hop = 1;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_CONTIG:</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        params-&gt;contig = 1;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_MINCONN:</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        params-&gt;minconn = 1;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_NOOUTPUT:</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        params-&gt;nooutput = 1;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_BALANCE:</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        params-&gt;balance = 1;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_TPWGTS:</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;tpwgtsfile = <a class="code" href="../../dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_UBVEC:</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;ubvecstr = <a class="code" href="../../dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_NCUTS:</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;ncuts = (idx_t)atoi(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_NITER:</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;niter = (idx_t)atoi(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_UFACTOR:</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;ufactor = (idx_t)atoi(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_SEED:</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;seed = (idx_t)atoi(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_DBGLVL:</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;dbglvl = (idx_t)atoi(<a class="code" href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_HELP:</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">for</span> (i=0; strlen(helpstr[i]) &gt; 0; i++)</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;          printf(<span class="stringliteral">&quot;%s\n&quot;</span>, helpstr[i]);</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        exit(0);</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Illegal command-line option(s)\n&quot;</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                <span class="stringliteral">&quot;Use %s -help for a summary of the options.\n&quot;</span>, argv[0]);</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    }</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  }</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  <span class="keywordflow">if</span> (argc-<a class="code" href="../../db/d57/a00112.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a> != 2) {</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    printf(<span class="stringliteral">&quot;Missing parameters.&quot;</span>);</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">for</span> (i=0; strlen(shorthelpstr[i]) &gt; 0; i++)</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      printf(<span class="stringliteral">&quot;%s\n&quot;</span>, shorthelpstr[i]);</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    exit(0);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  }</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  params-&gt;filename = <a class="code" href="../../dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(argv[<a class="code" href="../../db/d57/a00112.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a>++]);</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  params-&gt;nparts   = atoi(argv[<a class="code" href="../../db/d57/a00112.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a>++]);</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  <span class="keywordflow">if</span> (params-&gt;nparts &lt; 2) </div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;The number of partitions should be greater than 1!\n&quot;</span>);</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  <span class="comment">/* Set the ptype-specific defaults */</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  <span class="keywordflow">if</span> (params-&gt;ptype == METIS_PTYPE_RB) {</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    params-&gt;rtype   = METIS_RTYPE_FM;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  }</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keywordflow">if</span> (params-&gt;ptype == METIS_PTYPE_KWAY) {</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    params-&gt;iptype  = METIS_IPTYPE_METISRB;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    params-&gt;rtype   = METIS_RTYPE_GREEDY;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  }</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  <span class="comment">/* Check for invalid parameter combination */</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  <span class="keywordflow">if</span> (params-&gt;ptype == METIS_PTYPE_RB) {</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">if</span> (params-&gt;contig)</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;***The -contig option cannot be specified with rb partitioning. Will be ignored.\n&quot;</span>);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">if</span> (params-&gt;minconn)</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;***The -minconn option cannot be specified with rb partitioning. Will be ignored. \n&quot;</span>);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">if</span> (params-&gt;objtype == METIS_OBJTYPE_VOL)</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <a class="code" href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;The -objtype=vol option cannot be specified with rb partitioning.\n&quot;</span>);</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  }</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keywordflow">return</span> params;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;}</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;</div>
-<div class="ttc" id="a00023_html_aa47d0e4e90d3cd1793fc5344b1e99afc"><div class="ttname"><a href="../../d3/d52/a00023.html#aa47d0e4e90d3cd1793fc5344b1e99afc">gk_option::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00029">gk_getopt.h:29</a></div></div>
-<div class="ttc" id="a00023_html"><div class="ttname"><a href="../../d3/d52/a00023.html">gk_option</a></div><div class="ttdoc">The structure that stores the information about the command-line options. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00028">gk_getopt.h:28</a></div></div>
-<div class="ttc" id="a00112_html_ab70fc0e7e22192b687bd0d377bf61e32"><div class="ttname"><a href="../../db/d57/a00112.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a></div><div class="ttdeci">int gk_optind</div><div class="ttdoc">Index in ARGV of the next element to be scanned. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00068">getopt.c:68</a></div></div>
-<div class="ttc" id="a00125_html_aba6f76f5c67b9b7e9c2e45988d3d3e9d"><div class="ttname"><a href="../../dc/dfe/a00125.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a></div><div class="ttdeci">void * gk_malloc(size_t nbytes, char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00140">memory.c:140</a></div></div>
-<div class="ttc" id="a00206_html_a0e7ce196a2f8882777957bf898739f6f"><div class="ttname"><a href="../../d5/df1/a00206.html#a0e7ce196a2f8882777957bf898739f6f">parse_cmdline</a></div><div class="ttdeci">params_t * parse_cmdline(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00217">cmdline_gpmetis.c:217</a></div></div>
-<div class="ttc" id="a00112_html_abb224612ca0aae2d39bd87f6146bd67d"><div class="ttname"><a href="../../db/d57/a00112.html#abb224612ca0aae2d39bd87f6146bd67d">gk_getopt_long_only</a></div><div class="ttdeci">int gk_getopt_long_only(int argc, char **argv, char *options, struct gk_option *long_options, int *opt_index)</div><div class="ttdoc">Parse command-line arguments with only long options. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00849">getopt.c:849</a></div></div>
-<div class="ttc" id="a00125_html_af62038e97ca55f14ec2557a01bd85ca2"><div class="ttname"><a href="../../dc/dfe/a00125.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a></div><div class="ttdeci">char * gk_strdup(char *orgstr)</div><div class="ttdoc">Duplicates a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7d/a00150_source.html#l00372">string.c:372</a></div></div>
-<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">params_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00015">fis.c:15</a></div></div>
-<div class="ttc" id="a00108_html_a56d0f2cc40cd8633a784582d6200d8b5"><div class="ttname"><a href="../../d1/dd6/a00108.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a></div><div class="ttdeci">void errexit(char *f_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dd6/a00108_source.html#l00054">error.c:54</a></div></div>
-<div class="ttc" id="a00112_html_a7e251e946564d7de41aa8f602b94e74e"><div class="ttname"><a href="../../db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a></div><div class="ttdeci">char * gk_optarg</div><div class="ttdoc">For communication arguments to the caller. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00056">getopt.c:56</a></div></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00031_html_ad18b1da90165616c622c16ce79c6907f"><div class="ttname"><a href="../../df/d61/a00031.html#ad18b1da90165616c622c16ce79c6907f">mesh_t::ncon</a></div><div class="ttdeci">idx_t ncon</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00128">struct.h:128</a></div></div>
+<div class="ttc" id="a00054_html_a93adf79b4e57cd0477e9afc9b25da653"><div class="ttname"><a href="../../d1/dea/a00054.html#a93adf79b4e57cd0477e9afc9b25da653">vnbr_t::pid</a></div><div class="ttdeci">idx_t pid</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00048">struct.h:48</a></div></div>
+<div class="ttc" id="a00022_html"><div class="ttname"><a href="../../d7/de0/a00022.html">gk_mcore_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db3/a00130_source.html#l00242">gk_struct.h:242</a></div></div>
+<div class="ttc" id="a00010_html"><div class="ttname"><a href="../../d7/dec/a00010.html">ckrinfo_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00034">struct.h:34</a></div></div>
+<div class="ttc" id="a00053_html_a85a0150ff0f0fe87b0fc3bf445b60bca"><div class="ttname"><a href="../../dc/dee/a00053.html#a85a0150ff0f0fe87b0fc3bf445b60bca">vkrinfo_t::inbr</a></div><div class="ttdeci">idx_t inbr</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00065">struct.h:65</a></div></div>
+<div class="ttc" id="a00054_html_a29f3fc7f5d884e78e1dfff0f9cc438d0"><div class="ttname"><a href="../../d1/dea/a00054.html#a29f3fc7f5d884e78e1dfff0f9cc438d0">vnbr_t::gv</a></div><div class="ttdeci">idx_t gv</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00051">struct.h:51</a></div></div>
+<div class="ttc" id="a00010_html_aca4e2d97adbc1b6401b4ee8acba70770"><div class="ttname"><a href="../../d7/dec/a00010.html#aca4e2d97adbc1b6401b4ee8acba70770">ckrinfo_t::inbr</a></div><div class="ttdeci">idx_t inbr</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00038">struct.h:38</a></div></div>
+<div class="ttc" id="a00053_html_a0af0fec11cab7aa7a343c268832cc709"><div class="ttname"><a href="../../dc/dee/a00053.html#a0af0fec11cab7aa7a343c268832cc709">vkrinfo_t::ned</a></div><div class="ttdeci">idx_t ned</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00062">struct.h:62</a></div></div>
+<div class="ttc" id="a00019_html_a091baa9be72262dca61c641d1f1e4ad3"><div class="ttname"><a href="../../dd/da2/a00019.html#a091baa9be72262dca61c641d1f1e4ad3">ctrl_t::nbrpoolreallocs</a></div><div class="ttdeci">size_t nbrpoolreallocs</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00186">struct.h:186</a></div></div>
+<div class="ttc" id="a00019_html_a3743efedf432aec050a9ebfb2e4a166a"><div class="ttname"><a href="../../dd/da2/a00019.html#a3743efedf432aec050a9ebfb2e4a166a">ctrl_t::cnbrpool</a></div><div class="ttdeci">cnbr_t * cnbrpool</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00188">struct.h:188</a></div></div>
+<div class="ttc" id="a00018_html_a2dd27d862ee4554553d909072a8931f3"><div class="ttname"><a href="../../d1/d2b/a00018.html#a2dd27d862ee4554553d909072a8931f3">cnbr_t::ed</a></div><div class="ttdeci">idx_t ed</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00025">struct.h:25</a></div></div>
+<div class="ttc" id="a00019_html_afb1fd1cb311eb4bcefa46a14ef05afa0"><div class="ttname"><a href="../../dd/da2/a00019.html#afb1fd1cb311eb4bcefa46a14ef05afa0">ctrl_t::ncon</a></div><div class="ttdeci">idx_t ncon</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00162">struct.h:162</a></div></div>
+<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">cnbr_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00023">struct.h:23</a></div></div>
+<div class="ttc" id="a00031_html_aea23f507e73665abf78ffc3ecc540210"><div class="ttname"><a href="../../df/d61/a00031.html#aea23f507e73665abf78ffc3ecc540210">mesh_t::eind</a></div><div class="ttdeci">idx_t * eind</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00130">struct.h:130</a></div></div>
+<div class="ttc" id="a00018_html_a22be164ee3de87a051946a9ab71ae3b9"><div class="ttname"><a href="../../d1/d2b/a00018.html#a22be164ee3de87a051946a9ab71ae3b9">cnbr_t::pid</a></div><div class="ttdeci">idx_t pid</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00024">struct.h:24</a></div></div>
+<div class="ttc" id="a00019_html_a90cc3aac501d85a6b43edc4b1e7e7e5e"><div class="ttname"><a href="../../dd/da2/a00019.html#a90cc3aac501d85a6b43edc4b1e7e7e5e">ctrl_t::cfactor</a></div><div class="ttdeci">real_t cfactor</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00173">struct.h:173</a></div></div>
+<div class="ttc" id="a00019_html_a98f3c9d6ea8b5d18b51d500dcb54d1ee"><div class="ttname"><a href="../../dd/da2/a00019.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee">ctrl_t::nparts</a></div><div class="ttdeci">idx_t nparts</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00163">struct.h:163</a></div></div>
+<div class="ttc" id="a00010_html_a73fbc8555b843b3fd414ac0a9ec244f1"><div class="ttname"><a href="../../d7/dec/a00010.html#a73fbc8555b843b3fd414ac0a9ec244f1">ckrinfo_t::nnbrs</a></div><div class="ttdeci">idx_t nnbrs</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00037">struct.h:37</a></div></div>
+<div class="ttc" id="a00019_html_a37fcd7cb16b54211eed8bd8ec8b5385a"><div class="ttname"><a href="../../dd/da2/a00019.html#a37fcd7cb16b54211eed8bd8ec8b5385a">ctrl_t::tpwgts</a></div><div class="ttdeci">real_t * tpwgts</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00169">struct.h:169</a></div></div>
+<div class="ttc" id="a00163_html_a54ec0069de1eb28daca5cf43617e57e4"><div class="ttname"><a href="../../dd/dae/a00163.html#a54ec0069de1eb28daca5cf43617e57e4">mrtype_et</a></div><div class="ttdeci">mrtype_et</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00318">metis.h:318</a></div></div>
+<div class="ttc" id="a00019_html_a70ca2e591af5d7b1ec3116fe138fce85"><div class="ttname"><a href="../../dd/da2/a00019.html#a70ca2e591af5d7b1ec3116fe138fce85">ctrl_t::mcore</a></div><div class="ttdeci">gk_mcore_t * mcore</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00180">struct.h:180</a></div></div>
+<div class="ttc" id="a00010_html_a57270f8839a5146d9342569f12865e57"><div class="ttname"><a href="../../d7/dec/a00010.html#a57270f8839a5146d9342569f12865e57">ckrinfo_t::ed</a></div><div class="ttdeci">idx_t ed</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00036">struct.h:36</a></div></div>
+<div class="ttc" id="a00019_html_ac7c04d9f87e4028ee55135f0f790e670"><div class="ttname"><a href="../../dd/da2/a00019.html#ac7c04d9f87e4028ee55135f0f790e670">ctrl_t::ubfactors</a></div><div class="ttdeci">real_t * ubfactors</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00167">struct.h:167</a></div></div>
+<div class="ttc" id="a00037_html"><div class="ttname"><a href="../../d1/dc6/a00037.html">nrinfo_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00074">struct.h:74</a></div></div>
+<div class="ttc" id="a00053_html_a9befff2ea2c811563ad38aaf921a8f21"><div class="ttname"><a href="../../dc/dee/a00053.html#a9befff2ea2c811563ad38aaf921a8f21">vkrinfo_t::nid</a></div><div class="ttdeci">idx_t nid</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00061">struct.h:61</a></div></div>
+<div class="ttc" id="a00163_html_a64ee21e6d3a57701a812d0903a2f0401"><div class="ttname"><a href="../../dd/dae/a00163.html#a64ee21e6d3a57701a812d0903a2f0401">moptype_et</a></div><div class="ttdeci">moptype_et</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00250">metis.h:250</a></div></div>
+<div class="ttc" id="a00054_html"><div class="ttname"><a href="../../d1/dea/a00054.html">vnbr_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00047">struct.h:47</a></div></div>
+<div class="ttc" id="a00025_html"><div class="ttname"><a href="../../d3/dfe/a00025.html">graph_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00082">struct.h:82</a></div></div>
+<div class="ttc" id="a00163_html_a7f13d793623003e25bbbcd5dd7dead89"><div class="ttname"><a href="../../dd/dae/a00163.html#a7f13d793623003e25bbbcd5dd7dead89">miptype_et</a></div><div class="ttdeci">miptype_et</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00308">metis.h:308</a></div></div>
+<div class="ttc" id="a00031_html_a0a2369b26fbcc6229681ec8cb9e8f713"><div class="ttname"><a href="../../df/d61/a00031.html#a0a2369b26fbcc6229681ec8cb9e8f713">mesh_t::ewgt</a></div><div class="ttdeci">idx_t * ewgt</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00131">struct.h:131</a></div></div>
+<div class="ttc" id="a00025_html_a65c5b927198432cf7e6c9314eb10e5c8"><div class="ttname"><a href="../../d3/dfe/a00025.html#a65c5b927198432cf7e6c9314eb10e5c8">graph_t::vkrinfo</a></div><div class="ttdeci">vkrinfo_t * vkrinfo</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00114">struct.h:114</a></div></div>
+<div class="ttc" id="a00054_html_ae32050bde46f5545e1c306853afd8d97"><div class="ttname"><a href="../../d1/dea/a00054.html#ae32050bde46f5545e1c306853afd8d97">vnbr_t::ned</a></div><div class="ttdeci">idx_t ned</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00049">struct.h:49</a></div></div>
+<div class="ttc" id="a00025_html_a84db37e157fc91c4680ba19377f720b4"><div class="ttname"><a href="../../d3/dfe/a00025.html#a84db37e157fc91c4680ba19377f720b4">graph_t::ckrinfo</a></div><div class="ttdeci">ckrinfo_t * ckrinfo</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00113">struct.h:113</a></div></div>
+<div class="ttc" id="a00163_html_a51d3bfb2bd8dc4a84636b2b489f575bc"><div class="ttname"><a href="../../dd/dae/a00163.html#a51d3bfb2bd8dc4a84636b2b489f575bc">mctype_et</a></div><div class="ttdeci">mctype_et</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00302">metis.h:302</a></div></div>
+<div class="ttc" id="a00019_html_ae37af5d894dbeea35f735361503e58a9"><div class="ttname"><a href="../../dd/da2/a00019.html#ae37af5d894dbeea35f735361503e58a9">ctrl_t::nbrpoolsize</a></div><div class="ttdeci">size_t nbrpoolsize</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00184">struct.h:184</a></div></div>
+<div class="ttc" id="a00019_html_ae347c6497954a20166af15a2ddd4e286"><div class="ttname"><a href="../../dd/da2/a00019.html#ae347c6497954a20166af15a2ddd4e286">ctrl_t::pijbm</a></div><div class="ttdeci">real_t * pijbm</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00170">struct.h:170</a></div></div>
+<div class="ttc" id="a00031_html"><div class="ttname"><a href="../../df/d61/a00031.html">mesh_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00126">struct.h:126</a></div></div>
+<div class="ttc" id="a00019_html_acafe4ebea8585403e053dc33e7b4ac64"><div class="ttname"><a href="../../dd/da2/a00019.html#acafe4ebea8585403e053dc33e7b4ac64">ctrl_t::nbrpoolcpos</a></div><div class="ttdeci">size_t nbrpoolcpos</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00185">struct.h:185</a></div></div>
+<div class="ttc" id="a00010_html_a6d1da388f70555f25dc90fdcc011bb9b"><div class="ttname"><a href="../../d7/dec/a00010.html#a6d1da388f70555f25dc90fdcc011bb9b">ckrinfo_t::id</a></div><div class="ttdeci">idx_t id</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00035">struct.h:35</a></div></div>
+<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">vkrinfo_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00060">struct.h:60</a></div></div>
+<div class="ttc" id="a00053_html_aa337d338d253918348c5ba9e4a5082ca"><div class="ttname"><a href="../../dc/dee/a00053.html#aa337d338d253918348c5ba9e4a5082ca">vkrinfo_t::nnbrs</a></div><div class="ttdeci">idx_t nnbrs</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00064">struct.h:64</a></div></div>
+<div class="ttc" id="a00163_html_ac50415aa8003f9b7bf0aabb2b0d50877"><div class="ttname"><a href="../../dd/dae/a00163.html#ac50415aa8003f9b7bf0aabb2b0d50877">mdbglvl_et</a></div><div class="ttdeci">mdbglvl_et</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00327">metis.h:327</a></div></div>
+<div class="ttc" id="a00053_html_a8d9e4e351610f7b03203940a134bcd74"><div class="ttname"><a href="../../dc/dee/a00053.html#a8d9e4e351610f7b03203940a134bcd74">vkrinfo_t::gv</a></div><div class="ttdeci">idx_t gv</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00063">struct.h:63</a></div></div>
+<div class="ttc" id="a00031_html_a6321957b37b2040997c84db2fd2b8427"><div class="ttname"><a href="../../df/d61/a00031.html#a6321957b37b2040997c84db2fd2b8427">mesh_t::nn</a></div><div class="ttdeci">idx_t nn</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00127">struct.h:127</a></div></div>
+<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">ctrl_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00139">struct.h:139</a></div></div>
+<div class="ttc" id="a00019_html_a1f7258a6dc2780d0f8224293ecff26b7"><div class="ttname"><a href="../../dd/da2/a00019.html#a1f7258a6dc2780d0f8224293ecff26b7">ctrl_t::vnbrpool</a></div><div class="ttdeci">vnbr_t * vnbrpool</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00191">struct.h:191</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_191e76d4301b50d959103fb7ff475e31.html">programs</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">cmdline_gpmetis.c</a></li>
-    <li class="footer">Generated on Mon Apr 25 2016 03:10:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><b>struct.h</b></li>
+    <li class="footer">Generated on Tue Apr 26 2016 02:23:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/nutrient/DisNut_OL/api.cpp Source File</title>
+<title>SEIMS-2016: src/base/util/text.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,107 +111,252 @@ $(document).ready(function(){initNavTree('d4/d4b/a00471_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">api.cpp</div>  </div>
+<div class="title">text.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;DissolvedNutrient_OL.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d53/a00399.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/a00394.html">MetadataInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/dbc/a00395.html">MetadataInfoConst.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <a class="code" href="../../d6/d97/a00045.html">SimulationModule</a>* GetInstance()</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> DissolvedNutrient_OL();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// function to return the XML Metadata document string</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d2/d6e/a00667.html#ga0087c853569e2c94d58c3499365662e9">   17</a></span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../d2/d6e/a00667.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>()</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">string</span> res = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../df/d61/a00031.html">MetadataInfo</a> mdi;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// set the information properties</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    mdi.SetAuthor(<span class="stringliteral">&quot;Hui Wu&quot;</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    mdi.SetClass(<span class="stringliteral">&quot;Dissolved Nutrient OL&quot;</span>, <span class="stringliteral">&quot;Dissolved Nutrient Overland.&quot;</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    mdi.SetDescription(<span class="stringliteral">&quot;Dissolved Nutrient Overland transport method using Knisel functions.&quot;</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    mdi.SetEmail(<span class="stringliteral">&quot;SEIMS2015@163.com&quot;</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    mdi.SetHelpfile(<span class="stringliteral">&quot;DissolvedNutrient_OL.chm&quot;</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    mdi.SetID(<span class="stringliteral">&quot;DissolvedNutrient_OL&quot;</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mdi.SetName(<span class="stringliteral">&quot;DissolvedNutrient_OL&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    mdi.SetVersion(<span class="stringliteral">&quot;0.1&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mdi.SetWebsite(<span class="stringliteral">&quot;http://seims.github.io/SEIMS&quot;</span>);</div>
+<a href="../../d4/d4b/a00471.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef TEXT_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TEXT_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// string constants used in the code</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// TODO - you may consider moving these to an external resource file </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//        to make it easier to change them later </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define App_Config_File &quot;app.config&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#aea3e29d6e3fb9c54bc3c41b9281575ff">   23</a></span>&#160;<span class="preprocessor">#define CONS_IN_ELEV                        &quot;Elevation&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CONS_IN_LAT                         &quot;Latitude&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CONS_IN_XPR                         &quot;xpr&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CONS_IN_YPR                         &quot;ypr&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="comment">//#define Contant_Input_FlowdiversionProperty           &quot;FlowDiversion_property&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//#define Contant_Input_PointsourceProperty         &quot;PointSource_property&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//#define Contant_Input_ReservoirProperty               &quot;Reservoir_property&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//#define Contant_Input_ReservoirRatingCurve            &quot;Reservoir_RatingCurve&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//#define Contant_Input_ReservoirOperationSchedual  &quot;Reservoir_OperationSchedual&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;DT_HS&quot;</span>, <span class="stringliteral">&quot;second&quot;</span>, <span class="stringliteral">&quot;Time step of the simulation&quot;</span>, <span class="stringliteral">&quot;file.in&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>); </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;CellWidth&quot;</span>, <span class="stringliteral">&quot;m&quot;</span>, <span class="stringliteral">&quot;Cell size&quot;</span>, <span class="stringliteral">&quot;file.in&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>); </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;Slope&quot;</span>, <span class="stringliteral">&quot;%&quot;</span>, <span class="stringliteral">&quot;Slope&quot;</span>, <span class="stringliteral">&quot;ParameterDB_WaterBalance&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//mdi.AddParameter(&quot;Theta&quot;, &quot;&quot;, &quot;theta parameter for 4-point implicit finite difference&quot;, &quot;ParameterDB_Discharge&quot;, DT_Single); </span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;InitConc_P&quot;</span>, <span class="stringliteral">&quot;kg/kg&quot;</span>, <span class="stringliteral">&quot;Initial average concentration of P in the soil&quot;</span>, <span class="stringliteral">&quot;ParameterDB_soil&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;InitConc_NH4&quot;</span>, <span class="stringliteral">&quot;kg/kg&quot;</span>, <span class="stringliteral">&quot;Initial average concentration of ammonium in the soil&quot;</span>, <span class="stringliteral">&quot;ParameterDB_soil&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;InitConc_NO3&quot;</span>, <span class="stringliteral">&quot;kg/kg&quot;</span>, <span class="stringliteral">&quot;Initial average concentration of nitrate in the soil&quot;</span>, <span class="stringliteral">&quot;ParameterDB_soil&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;Clay&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;Clay proportion in soil&quot;</span>, <span class="stringliteral">&quot;ParameterDB_WaterBalance&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;Porosity&quot;</span>, <span class="stringliteral">&quot;m/m&quot;</span>, <span class="stringliteral">&quot;Soil porosity&quot;</span>, <span class="stringliteral">&quot;ParameterDB_WaterBalance&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;CHWIDTH&quot;</span>, <span class="stringliteral">&quot;m&quot;</span>, <span class="stringliteral">&quot;Channel width&quot;</span>, <span class="stringliteral">&quot;ParameterDB_Discharge&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_FlowWidth&quot;</span>,<span class="stringliteral">&quot;m&quot;</span>, <span class="stringliteral">&quot;Flow width of overland plane&quot;</span>,<span class="stringliteral">&quot;Module&quot;</span>,<a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//mdi.AddInput(&quot;D_FlowLen&quot;,&quot;m&quot;, &quot;Flow length of overland plane&quot;,&quot;Module&quot;,DT_Raster);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;STREAM_LINK&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;Stream link&quot;</span>, <span class="stringliteral">&quot;ParameterDB_Discharge&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;Manning&#39;s roughness&quot;</span>, <span class="stringliteral">&quot;ParameterDB_Discharge&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//mdi.AddParameter(&quot;FLOW_DIR&quot;, &quot;&quot;, &quot;Flow direction  by the rule of ArcGIS&quot;, &quot;ParameterDB_Discharge&quot;, DT_Raster);    </span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//mdi.AddParameter(&quot;FLOWOUT_INDEX&quot;, &quot;&quot;, &quot;The index of flow in cell in the compressed array&quot;, &quot;ParameterDB_Discharge&quot;, DT_Array1D);</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;FLOWIN_INDEX_D8&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;The index of flow in cell in the compressed array,&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="stringliteral">&quot; and the first element in each sub-array is the number of flow in cells in this sub-array&quot;</span>, <span class="stringliteral">&quot;ParameterDB_Discharge&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;ROUTING_LAYERS&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;Routing layers according to the flow direction&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="stringliteral">&quot;There are not flow relationships within each layer, and the first element in each layer is the number of cells in the layer&quot;</span>, <span class="stringliteral">&quot;ParameterDB_Discharge&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_CELLQ&quot;</span>, <span class="stringliteral">&quot;m3/s&quot;</span>, <span class="stringliteral">&quot;Flux in the downslope boundary of cells&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>,<a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_CELLH&quot;</span>,<span class="stringliteral">&quot;mm&quot;</span>,<span class="stringliteral">&quot;Water depth in the downslope boundary of cells&quot;</span>,<span class="stringliteral">&quot;Module&quot;</span>,<a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);   </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_INFIL&quot;</span>,<span class="stringliteral">&quot;mm&quot;</span>,<span class="stringliteral">&quot;Infiltration map of watershed&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_DPST&quot;</span>, <span class="stringliteral">&quot;mm&quot;</span>, <span class="stringliteral">&quot;Distribution of depression storage&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_HTOCH&quot;</span>, <span class="stringliteral">&quot;mm&quot;</span>, <span class="stringliteral">&quot;Water depth added to channel water depth&quot;</span>,<span class="stringliteral">&quot;Module&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;DissovP&quot;</span>, <span class="stringliteral">&quot;kg/s&quot;</span>, <span class="stringliteral">&quot;distribution of dissovlved P&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;Ammonium&quot;</span>, <span class="stringliteral">&quot;kg/s&quot;</span>, <span class="stringliteral">&quot;distribution of nutrient, ammonium&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;NitrateDisNutOL&quot;</span>, <span class="stringliteral">&quot;kg/s&quot;</span>, <span class="stringliteral">&quot;distribution of nutrient, nitrate&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;DissovPToCh&quot;</span>, <span class="stringliteral">&quot;kg&quot;</span>, <span class="stringliteral">&quot;dissovlved P flow to channel&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;AmmoniumToCh&quot;</span>, <span class="stringliteral">&quot;kg&quot;</span>, <span class="stringliteral">&quot;ammonium flow to channel&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;NitrateToCh&quot;</span>, <span class="stringliteral">&quot;kg&quot;</span>, <span class="stringliteral">&quot;nitrate flow to channel&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">//test</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;TESTDPST&quot;</span>, <span class="stringliteral">&quot;mm&quot;</span>, <span class="stringliteral">&quot;Distribution of depression storage&quot;</span>, <a class="code" href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">//mdi.AddOutput(&quot;ID_OUTLET&quot;, &quot;&quot;, &quot;index of outlet in the compressed array&quot;, DT_Single);</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// set the dependencies</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    mdi.AddDependency(<span class="stringliteral">&quot;Depression&quot;</span>,<span class="stringliteral">&quot;Calculate depression storage&quot;</span>); </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    mdi.AddDependency(<span class="stringliteral">&quot;Overland routing&quot;</span>,<span class="stringliteral">&quot;Overland routing module&quot;</span>);      <span class="comment">//for WH</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//mdi.AddDependency(&quot;Soil Detachment&quot;,&quot;Rain and overland soil detachment erosion module&quot;);    </span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    res = mdi.GetXMLDocument();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">char</span>* tmp = <span class="keyword">new</span> <span class="keywordtype">char</span>[res.size()+1];</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    strprintf(tmp, res.size()+1, <span class="stringliteral">&quot;%s&quot;</span>, res.c_str());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="ttc" id="a00399_html"><div class="ttname"><a href="../../d1/d53/a00399.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00395_html_ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088"><div class="ttname"><a href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a></div><div class="ttdoc">Single numeric. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbc/a00395_source.html#l00069">MetadataInfoConst.h:69</a></div></div>
-<div class="ttc" id="a00395_html"><div class="ttname"><a href="../../db/dbc/a00395.html">MetadataInfoConst.h</a></div><div class="ttdoc">Define some const variables used by MetadataInfo class. </div></div>
-<div class="ttc" id="a00395_html_ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2"><div class="ttname"><a href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a></div><div class="ttdoc">Raster data. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbc/a00395_source.html#l00074">MetadataInfoConst.h:74</a></div></div>
-<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00037">SimulationModule.h:37</a></div></div>
-<div class="ttc" id="a00031_html"><div class="ttname"><a href="../../df/d61/a00031.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00121">MetadataInfo.h:121</a></div></div>
-<div class="ttc" id="a00394_html"><div class="ttname"><a href="../../d9/dad/a00394.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
-<div class="ttc" id="a00667_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../d2/d6e/a00667.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation()</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00047">api.cpp:47</a></div></div>
-<div class="ttc" id="a00395_html_ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9"><div class="ttname"><a href="../../db/dbc/a00395.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a></div><div class="ttdoc">2D array </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbc/a00395_source.html#l00071">MetadataInfoConst.h:71</a></div></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#a90664723be86eee7dbc8bcbcaceff261">   34</a></span>&#160;<span class="preprocessor">#define DataType_Precipitation &quot;P&quot;                  //1</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_MeanTemperature &quot;T&quot;                //2</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_MinimumTemperature &quot;TMIN&quot;          //3</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_MaximumTemperature &quot;TMAX&quot;          //4</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_PotentialEvapotranspiration &quot;PET&quot;  //5</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_SolarRadiation &quot;SR&quot;                //6</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_WindSpeed &quot;WS&quot;                     //7</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_RelativeAirMoisture &quot;RM&quot;           //8</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DataType_Meteorology &quot;M&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#define Tag_Elevation &quot;Elevation&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Configuration &quot;Configuration&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ProjectsPath &quot;ProjectsPath&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_StationElevation &quot;StationElevation&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Elevation_Meteorology &quot;StationElevation_M&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Elevation_Precipitation &quot;StationElevation_P&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Latitude_Meteorology &quot;Latitude_M&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_LapseRate &quot;LapseRate&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define Tag_ModuleDirectoryName &quot;\\&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEP &quot;\\&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define Tag_ModuleExt &quot;.dll&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define Tag_ModuleDirectoryName &quot;/&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEP &quot;/&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define Tag_ModuleExt &quot;.so&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#define Tag_OutputID &quot;OUTPUTID&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Interval &quot;INTERVAL&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SiteCount &quot;SITECOUNT&quot;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SiteName &quot;SITENAME&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SiteID &quot;SITEID&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ReachName &quot;REACHNAME&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_StartTime &quot;STARTTIME&quot;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_EndTime &quot;ENDTIME&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FileName &quot;FILENAME&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Type &quot;TYPE&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Count &quot;COUNT&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_DataType &quot;DATA_TYPE&quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Weight &quot;WEIGHT&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_VerticalInterpolation &quot;VERTICALINTERPOLATION&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SubbasinCount &quot;SUBBASINCOUNT&quot;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SubbasinId &quot;SUBBASINID&quot;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ReservoirCount &quot;RESERVOIRCOUNT&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ReservoirId &quot;RESERVOIRID&quot;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SubbasinSelected &quot;subbasinSelected&quot;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_CellSize &quot;CELLSIZE&quot;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Mask &quot;MASK&quot;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_TimeStep &quot;TimeStep&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_StormTimeStep &quot;DT_HS&quot;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ChannelTimeStep &quot;DT_CH&quot;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_CellWidth &quot;CellWidth&quot;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_PStat &quot;P_STAT&quot;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">// D8 Flow model</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#define Tag_FLOWIN_INDEX &quot;FLOWIN_INDEX_D8&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_INDEX &quot;FLOWOUT_INDEX_D8&quot;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ROUTING_LAYERS &quot;ROUTING_LAYERS&quot;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">// TODO: Dinf, MFD, MFD-md integrated into SEIMS.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#ac375b66b6fbbb6422be77a86e633b2a1">   98</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define Tag_FLOWIN_INDEX_DINF &quot;FLOWIN_INDEX_DINF&quot;</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWIN_PERCENTAGE_DINF &quot;FLOWIN_PERCENTAGE_DINF&quot;</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_INDEX_DINF &quot;FLOWOUT_INDEX_DINF&quot;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_PERCENTAGE_DINF &quot;FLOWOUT_PERCENTAGE_DINF&quot;</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ROUTING_LAYERS_DINF &quot;ROUTING_LAYERS_DINF&quot;</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWIN_INDEX_MFD &quot;FLOWIN_INDEX_MFD&quot;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWIN_PERCENTAGE_MFD &quot;FLOWIN_PERCENTAGE_MFD&quot;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_INDEX_MFD &quot;FLOWOUT_INDEX_MFD&quot;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_PERCENTAGE_MFD &quot;FLOWOUT_PERCENTAGE_MFD&quot;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ROUTING_LAYERS_MFD &quot;ROUTING_LAYERS_MFD&quot;</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWIN_INDEX_MFD_MD &quot;FLOWIN_INDEX_MFD_MD&quot;</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWIN_PERCENTAGE_MFD_MD &quot;FLOWIN_PERCENTAGE_MFD_MD&quot;</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_INDEX_MFD_MD &quot;FLOWOUT_INDEX_MFD_MD&quot;</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_FLOWOUT_PERCENTAGE_MFD_MD &quot;FLOWOUT_PERCENTAGE_MFD_MD&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_ROUTING_LAYERS_MFD_MD &quot;ROUTING_LAYERS_MFD_MD&quot;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#define Tag_ReachParameter &quot;ReachParameter&quot;</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_RchParam &quot;RchParam&quot;</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_QOUTLET &quot;QOUTLET&quot;</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_QTotal &quot;QTotal&quot;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SEDOUTLET &quot;SEDOUTLET&quot;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_OL_IUH &quot;OL_IUH&quot;</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_DisPOutlet &quot;DissovePOutlet&quot;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_AmmoOutlet &quot;AmmoniumOutlet&quot;</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_NitrOutlet &quot;NitrateOutlet&quot;</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_QSUBBASIN &quot;QSUBBASIN&quot;</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#define ModID_PET_RD &quot;PET_RD&quot;</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ModId_ITP_AU &quot;ITP_AU&quot;</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ModId_PI_MSM &quot;PI_MSM&quot;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#a56ce08a6824937e6f9be6c907b4bd333">  132</a></span>&#160;<span class="preprocessor">#define DIVERSION   &quot;flowdiversion&quot;</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define POINTSOURCE &quot;pointsource&quot;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RESERVOIR   &quot;reservoir&quot;</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FLOW        &quot;flow&quot;</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SDEIDMENT   &quot;sediment&quot;</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ORGANICN    &quot;organicN&quot;</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ORGANICP    &quot;organicP&quot;</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NO3         &quot;NO3&quot;</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NH3         &quot;NH3&quot;</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NO2         &quot;NO2&quot;</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MINERALP    &quot;mineralP&quot;</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#a68708abef7564622952446ec7829c219">  145</a></span>&#160;<span class="preprocessor">#define MapWindowRasterExtension &quot;.asc&quot;</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RasterExtension &quot;.asc&quot;</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GTiffExtension &quot;.tif&quot;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TextExtension &quot;.txt&quot;</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_HydroClimateDB &quot;HydroClimate.db3&quot;</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_ParameterDB &quot;Parameter.db3&quot;</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_BMPDB &quot;BMP.db3&quot;</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Table_LapseRate &quot;lapse_rate&quot;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Table_WGN &quot;wgt&quot;</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NAME_MASK &quot;MASK&quot;</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_Mask &quot;MASK.asc&quot;</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_DEM &quot;dem.asc&quot;</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#define File_Config &quot;config.fig&quot;</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_Input &quot;file.in&quot;</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define File_Output &quot;file.out&quot;</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Source_HydroClimateDB &quot;HydroClimateDB&quot;</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Source_ParameterDB &quot;ParameterDB&quot;</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Source_Module &quot;Module&quot;</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#aa0936b056e3b42408d61014aad01785e">  167</a></span>&#160;<span class="preprocessor">#define Tag_NoDataValue &quot;NoDataValue&quot;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_SubbasinSelected &quot;subbasinSelected&quot;</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Tag_Mode &quot;MODE&quot;</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#define Type_Scenario &quot;SCENARIO&quot;</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_LapseRateArray &quot;LAPSERATEARRAY&quot;</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_SiteInformation &quot;SITEINFORMATION&quot;</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_MapWindowRaster &quot;MAPWINDOWRASTER&quot;</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_Array1DDateValue &quot;ARRAY1DDATEVALUE&quot;</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_Array3D &quot;ARRAY3D&quot;</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_Array2D &quot;ARRAY2D&quot;</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_Array1D &quot;ARRAY1D&quot;</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Type_Single &quot;SINGLE&quot;</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#define Print_D_PREC &quot;D_PREC&quot;</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Print_D_POET &quot;D_POET&quot;</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Print_D_TEMP &quot;D_TEMP&quot;</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Print_D_INLO &quot;D_INLO&quot;</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Print_D_INET &quot;D_INET&quot;</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define Print_D_NEPR &quot;D_NEPR&quot;</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#define ModID_PI_MSM &quot;PI_MSM&quot;</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ModID_ITP_AU &quot;ITP_AU&quot;</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#define PARAMETERS_TABLE &quot;parameters&quot;</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LANDUSE_TABLE &quot;LanduseLookup&quot;</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SOIL_TABLE &quot;SoilLookup&quot;</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STATIONS_TABLE &quot;stations&quot;</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TOPOLOGY_TABLE &quot;reaches&quot;</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SPATIAL_TABLE &quot;spatial.files&quot;</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MEASUREMENT_TABLE &quot;measurement&quot;</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#define SITES_TABLE &quot;Sites&quot;</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATADAY_TABLE_PREFIX &quot;DataValuesDay_&quot;</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SITELIST_TABLE &quot;SiteList&quot;</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SITELIST_TABLE_STORM &quot;StormSiteList&quot;</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#ac32b2302253735ba479b5a7b6a93297e">  210</a></span>&#160;<span class="preprocessor">#define VAR_CO2 &quot;Co2&quot;                               </span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#define VAR_COND_MAX &quot;Cond_max&quot;                     </span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#define VAR_COND_RATE &quot;Cond_rate&quot;                   </span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#define VAR_OMP_THREADNUM &quot;ThreadNum&quot;               </span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#define VAR_PET_HCOEF &quot;HCoef_pet&quot;                   </span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">#define VAR_PET_K &quot;K_pet&quot;                           </span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">#define VAR_PET_T &quot;T_PET&quot;                           </span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">#define VAR_VP_SAT &quot;svp&quot;                            </span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">#define VAR_VP_ACT &quot;avp&quot;                            </span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#define VAR_SNOW_TEMP &quot;T_snow&quot;                      </span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">#define VAR_SR_MAX &quot;srMax&quot;                          </span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#a7725836907ba1e21cba7c855d67051f1">  229</a></span>&#160;<span class="preprocessor">#define UNIT_AREA_KM2 &quot;km2&quot;                         </span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define UNIT_CONDRATE_MSPA &quot;m/s/kPa&quot;                </span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor">#define UNIT_CONT_KGKM2 &quot;kg/km2&quot;                    </span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">#define UNIT_DEPTH_MM &quot;mm&quot;                          </span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="preprocessor">#define UNIT_FLOW_CMS &quot;m3/s&quot;                        </span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">#define UNIT_GAS_PPMV &quot;ppmv&quot;                        </span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="preprocessor">#define UNIT_LEN_M &quot;m&quot;                              </span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#define UNIT_LONLAT_DEG &quot;degree&quot;                    </span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor">#define UNIT_NON_DIM &quot;&quot;                             </span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#define UNIT_PRESSURE &quot;kPa&quot;                         </span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="preprocessor">#define UNIT_SPEED_MS &quot;m/s&quot;                         </span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor">#define UNIT_SR &quot;MJ/m2/d&quot;                           </span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="preprocessor">#define UNIT_TEMP_DEG &quot;deg C&quot;                       </span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="preprocessor">#define UNIT_WTRDLT_MMD &quot;mm/d&quot;                      </span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="../../d4/d4b/a00471.html#ab022fb9e7f030510b47213f07df7414d">  250</a></span>&#160;<span class="preprocessor">#define DESC_CO2 &quot;CO2 Concentration&quot;</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor">#define DESC_CONDRATE &quot;Rate of decline in stomatal conductance per unit increase in vapor pressure deficit&quot;</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_MAXCOND &quot;Maximum stomatal conductance&quot;</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_MAXTEMP &quot;Maximum Celsius degree of air temperature&quot;</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_MEANTEMP &quot;Mean Celsius degree of air temperature&quot;</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_METEOLAT &quot;Latitude of MeteoClimate station&quot;</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_MINTEMP &quot;Minimum Celsius degree of air temperature&quot;</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_PET_HCOEF &quot;Coefficient related to radiation used in Hargreaves method&quot;</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_PET_K &quot;Correction factor for PET&quot;</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_PET_T &quot;Potential Evapotranspiration of day&quot;</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_RM &quot;Relative humidity&quot;</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_SNOW_TEMP &quot;Snowfall temperature&quot;</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_SR &quot;Solar radiation&quot;</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_SR_MAX &quot;Max solar radiation&quot;</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_VP_SAT &quot;Saturated vapor pressure&quot;</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_VP_ACT &quot;actual vapor pressure&quot;</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DESC_WS &quot;Wind speed (measured at 10 meters above surface)&quot;</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_6473bde8ef713f36ab62cf860bfab21e.html">DisNut_OL</a></li><li class="navelem"><b>api.cpp</b></li>
-    <li class="footer">Generated on Mon Apr 25 2016 03:10:47 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d4b/a00471.html">text.h</a></li>
+    <li class="footer">Generated on Tue Apr 26 2016 02:23:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

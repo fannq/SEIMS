@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/StringList.cpp Source File</title>
+<title>SEIMS-2016: src/modules/nutrient/Denitri/api.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,112 +111,73 @@ $(document).ready(function(){initNavTree('d9/d95/a00400_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">StringList.cpp</div>  </div>
+<div class="title">api.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/d95/a00400.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d00/a00401.html">StringList.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#ab92785f26e12fce6ecc9797c6f4e2090">   14</a></span>&#160;<a class="code" href="../../d6/d2d/a00047.html#ab92785f26e12fce6ecc9797c6f4e2090">StringList::StringList</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a1c7bf7a04fa791e1b5504fb96355efa9">   19</a></span>&#160;<a class="code" href="../../d6/d2d/a00047.html#a1c7bf7a04fa791e1b5504fb96355efa9">StringList::~StringList</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_List.clear();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a39d7276a511637ca2bbf01b9375f2a5e">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2d/a00047.html#a39d7276a511637ca2bbf01b9375f2a5e">StringList::Add</a>(<span class="keywordtype">string</span> item)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    m_List.push_back(item);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#aea2bfd74ecef6c8698d5094cdb183a64">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2d/a00047.html#aea2bfd74ecef6c8698d5094cdb183a64">StringList::Insert</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">string</span> item)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    m_List[index] = item;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a335f0ecc2c08af9a96a5b412eeb14090">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2d/a00047.html#a335f0ecc2c08af9a96a5b412eeb14090">StringList::Append</a>(<span class="keywordtype">string</span> item)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    m_List.insert(m_List.end(), item);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a69e219abaa4afe8023ae9e0d00b8abc3">   43</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d2d/a00047.html#a69e219abaa4afe8023ae9e0d00b8abc3">StringList::Contains</a>(<span class="keywordtype">string</span> item)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> bStatus = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (m_List.size() &gt; 0)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;m_List.size(); i++)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(m_List[i], item))</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                bStatus = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> bStatus;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a897d79a72fab72faec233a10667c7c5d">   62</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d2d/a00047.html#a897d79a72fab72faec233a10667c7c5d">StringList::Count</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> m_List.size();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2d/a00047.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">StringList::Clear</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    m_List.clear();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a82d4957073abf405e92934c69a4adf6c">   74</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d6/d2d/a00047.html#a82d4957073abf405e92934c69a4adf6c">StringList::At</a>(<span class="keywordtype">int</span> position)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">string</span> res = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (position &gt;= 0 &amp;&amp; position &lt; (<span class="keywordtype">int</span>)m_List.size())</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        res = m_List[position];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a1d1858fa95ef9d5b991e59b36bbd5426">   87</a></span>&#160;<a class="code" href="../../d6/d2d/a00047.html">StringList</a>&amp; <a class="code" href="../../d6/d2d/a00047.html#a1d1858fa95ef9d5b991e59b36bbd5426">StringList::operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d2d/a00047.html">StringList</a> &amp;obj)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    m_List.resize(obj.m_List.size());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> itm=0; itm&lt;obj.m_List.size(); itm++)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        m_List[itm] = obj.m_List[itm];</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a91e4c52c28c9bf1126e9932f3ceb42e7">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2d/a00047.html#a91e4c52c28c9bf1126e9932f3ceb42e7">StringList::Resize</a>(<span class="keywordtype">int</span> newsize, <span class="keywordtype">string</span> value)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    m_List.resize(newsize, value);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="ttc" id="a00047_html_a1d1858fa95ef9d5b991e59b36bbd5426"><div class="ttname"><a href="../../d6/d2d/a00047.html#a1d1858fa95ef9d5b991e59b36bbd5426">StringList::operator=</a></div><div class="ttdeci">StringList &amp; operator=(const StringList &amp;obj)</div><div class="ttdoc">Assignment operator overload. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00087">StringList.cpp:87</a></div></div>
-<div class="ttc" id="a00047_html_a897d79a72fab72faec233a10667c7c5d"><div class="ttname"><a href="../../d6/d2d/a00047.html#a897d79a72fab72faec233a10667c7c5d">StringList::Count</a></div><div class="ttdeci">int Count(void)</div><div class="ttdoc">Return the number of items in the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00062">StringList.cpp:62</a></div></div>
-<div class="ttc" id="a00401_html"><div class="ttname"><a href="../../d7/d00/a00401.html">StringList.h</a></div><div class="ttdoc">Utility class to store a list of strings. </div></div>
-<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">StringList</a></div><div class="ttdoc">Common operation of string vector. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d00/a00401_source.html#l00025">StringList.h:25</a></div></div>
-<div class="ttc" id="a00047_html_a0129bfe44ed9c9a5839c5c8688a4bdc6"><div class="ttname"><a href="../../d6/d2d/a00047.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">StringList::Clear</a></div><div class="ttdeci">void Clear(void)</div><div class="ttdoc">Clear the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00068">StringList.cpp:68</a></div></div>
-<div class="ttc" id="a00047_html_aea2bfd74ecef6c8698d5094cdb183a64"><div class="ttname"><a href="../../d6/d2d/a00047.html#aea2bfd74ecef6c8698d5094cdb183a64">StringList::Insert</a></div><div class="ttdeci">void Insert(int index, string item)</div><div class="ttdoc">Insert an item into the list at the given position. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00031">StringList.cpp:31</a></div></div>
-<div class="ttc" id="a00047_html_a69e219abaa4afe8023ae9e0d00b8abc3"><div class="ttname"><a href="../../d6/d2d/a00047.html#a69e219abaa4afe8023ae9e0d00b8abc3">StringList::Contains</a></div><div class="ttdeci">bool Contains(string item)</div><div class="ttdoc">Return a flag indicating if the given string is in the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00043">StringList.cpp:43</a></div></div>
-<div class="ttc" id="a00047_html_ab92785f26e12fce6ecc9797c6f4e2090"><div class="ttname"><a href="../../d6/d2d/a00047.html#ab92785f26e12fce6ecc9797c6f4e2090">StringList::StringList</a></div><div class="ttdeci">StringList(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00014">StringList.cpp:14</a></div></div>
-<div class="ttc" id="a00665_html_gae875280d1d04d9c64f41a2bc46403f88"><div class="ttname"><a href="../../da/d46/a00665.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a></div><div class="ttdeci">bool StringMatch(string text1, string text2)</div><div class="ttdoc">Match String. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00127">util.cpp:127</a></div></div>
-<div class="ttc" id="a00047_html_a1c7bf7a04fa791e1b5504fb96355efa9"><div class="ttname"><a href="../../d6/d2d/a00047.html#a1c7bf7a04fa791e1b5504fb96355efa9">StringList::~StringList</a></div><div class="ttdeci">~StringList(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00019">StringList.cpp:19</a></div></div>
-<div class="ttc" id="a00047_html_a91e4c52c28c9bf1126e9932f3ceb42e7"><div class="ttname"><a href="../../d6/d2d/a00047.html#a91e4c52c28c9bf1126e9932f3ceb42e7">StringList::Resize</a></div><div class="ttdeci">void Resize(int newsize, string value)</div><div class="ttdoc">Resize the list to the given size with the given default values. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00098">StringList.cpp:98</a></div></div>
-<div class="ttc" id="a00047_html_a39d7276a511637ca2bbf01b9375f2a5e"><div class="ttname"><a href="../../d6/d2d/a00047.html#a39d7276a511637ca2bbf01b9375f2a5e">StringList::Add</a></div><div class="ttdeci">void Add(string item)</div><div class="ttdoc">Add an item to the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00025">StringList.cpp:25</a></div></div>
-<div class="ttc" id="a00047_html_a335f0ecc2c08af9a96a5b412eeb14090"><div class="ttname"><a href="../../d6/d2d/a00047.html#a335f0ecc2c08af9a96a5b412eeb14090">StringList::Append</a></div><div class="ttdeci">void Append(string item)</div><div class="ttdoc">Append an item to the end of the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00037">StringList.cpp:37</a></div></div>
-<div class="ttc" id="a00047_html_a82d4957073abf405e92934c69a4adf6c"><div class="ttname"><a href="../../d6/d2d/a00047.html#a82d4957073abf405e92934c69a4adf6c">StringList::At</a></div><div class="ttdeci">string At(int postion)</div><div class="ttdoc">Get the item in the list at the given position. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00074">StringList.cpp:74</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Denitrification.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d38/a00468.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d5d/a00463.html">MetadataInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d9d/a00464.html">MetadataInfoConst.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <a class="code" href="../../d4/dca/a00048.html">SimulationModule</a>* GetInstance()</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> Denitrification();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// function to return the XML Metadata document string</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d6/da1/a00675.html#ga0087c853569e2c94d58c3499365662e9">   17</a></span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../d6/da1/a00675.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>()</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">string</span> res = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../dc/d87/a00032.html">MetadataInfo</a> mdi;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// set the information properties</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    mdi.SetAuthor(<span class="stringliteral">&quot;Wang Lin&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    mdi.SetClass(<span class="stringliteral">&quot;Denitrification&quot;</span>, <span class="stringliteral">&quot;Denitrification.&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    mdi.SetDescription(<span class="stringliteral">&quot;Denitrification.&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    mdi.SetEmail(<span class="stringliteral">&quot;SEIMS2015@163.com&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    mdi.SetHelpfile(<span class="stringliteral">&quot;Denitrification.chm&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    mdi.SetID(<span class="stringliteral">&quot;Denitrification&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mdi.SetName(<span class="stringliteral">&quot;Denitrification&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    mdi.SetVersion(<span class="stringliteral">&quot;0.1&quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mdi.SetWebsite(<span class="stringliteral">&quot;http://seims.github.io/SEIMS&quot;</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mdi.AddParameter(<span class="stringliteral">&quot;DenRC&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;rate coefficient for denitrification&quot;</span>, <span class="stringliteral">&quot;file.in&quot;</span>, <a class="code" href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>); </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//mdi.AddParameter(&quot;OrgCar&quot;, &quot;%&quot;, &quot;amount of organic carbon in the layer&quot;, &quot;ParameterDB_soil&quot;, DT_Array2D); </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">//mdi.AddParameter(&quot;DenWF&quot;, &quot;&quot;, &quot;threshold value of nutrient cycling water factor for denitrification to occur&quot;, &quot;ParameterDB_soil&quot;, DT_Array2D); </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_Nitrate&quot;</span>, <span class="stringliteral">&quot;kg N/ha&quot;</span>, <span class="stringliteral">&quot;amount of nitrate&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>, <a class="code" href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_TF&quot;</span>,<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;nutrient cycling temperature factor&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>, <a class="code" href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;D_WF&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;nutrient cycling water factor&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>, <a class="code" href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>); </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    mdi.AddOutput(<span class="stringliteral">&quot;DenLostN&quot;</span>, <span class="stringliteral">&quot;kg N/ha&quot;</span>, <span class="stringliteral">&quot;amount of nitrogen lost to denitrication&quot;</span>, <a class="code" href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>); </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    res = mdi.GetXMLDocument();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">char</span>* tmp = <span class="keyword">new</span> <span class="keywordtype">char</span>[res.size()+1];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    strprintf(tmp, res.size()+1, <span class="stringliteral">&quot;%s&quot;</span>, res.c_str());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="ttc" id="a00468_html"><div class="ttname"><a href="../../df/d38/a00468.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00464_html"><div class="ttname"><a href="../../d2/d9d/a00464.html">MetadataInfoConst.h</a></div><div class="ttdoc">Define some const variables used by MetadataInfo class. </div></div>
+<div class="ttc" id="a00464_html_ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088"><div class="ttname"><a href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a></div><div class="ttdoc">Single numeric. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d9d/a00464_source.html#l00069">MetadataInfoConst.h:69</a></div></div>
+<div class="ttc" id="a00464_html_ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9"><div class="ttname"><a href="../../d2/d9d/a00464.html#ac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a></div><div class="ttdoc">2D array </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d9d/a00464_source.html#l00071">MetadataInfoConst.h:71</a></div></div>
+<div class="ttc" id="a00463_html"><div class="ttname"><a href="../../d3/d5d/a00463.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
+<div class="ttc" id="a00675_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../d6/da1/a00675.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation()</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/def/a00359_source.html#l00047">api.cpp:47</a></div></div>
+<div class="ttc" id="a00032_html"><div class="ttname"><a href="../../dc/d87/a00032.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d5d/a00463_source.html#l00121">MetadataInfo.h:121</a></div></div>
+<div class="ttc" id="a00048_html"><div class="ttname"><a href="../../d4/dca/a00048.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d38/a00468_source.html#l00040">SimulationModule.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">StringList.cpp</a></li>
-    <li class="footer">Generated on Mon Apr 25 2016 03:10:47 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_49858faf33bf3d22f266f9d986cef468.html">Denitri</a></li><li class="navelem"><b>api.cpp</b></li>
+    <li class="footer">Generated on Tue Apr 26 2016 02:23:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

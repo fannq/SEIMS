@@ -1,9 +1,11 @@
 var a00046 =
 [
-    [ "slTable", "d3/dea/a00046.html#ac847356c51cf0f2de2ad033525bbf23e", null ],
-    [ "~slTable", "d3/dea/a00046.html#a6e89beb6ee7638c477ee8dc96f85dd66", null ],
-    [ "FieldValue", "d3/dea/a00046.html#abb56a581d1fd10567ad208347ec578a7", null ],
-    [ "nCols", "d3/dea/a00046.html#a4e2965e5fd32bef8dd66b8e46cd00a9f", null ],
-    [ "nRows", "d3/dea/a00046.html#adea6ff1f79a5048f86d45a1a77ec9ae2", null ],
-    [ "pData", "d3/dea/a00046.html#adfbf7d70ba482dcc689ef8eb248e27b0", null ]
+    [ "SEIMSModule", "d3/dea/a00046.html#ab8fe2454147cec15aff0443c70ba1b80", null ],
+    [ "~SEIMSModule", "d3/dea/a00046.html#aff75b2e2dc0f0654e914caee401270e5", null ],
+    [ "CheckInputData", "d3/dea/a00046.html#a5d9914736640a75c80981c31f32a4746", null ],
+    [ "CheckInputSize", "d3/dea/a00046.html#a13869abaa288d21f2eb3588e1edd9241", null ],
+    [ "CreateBasicMetadataInfo", "d3/dea/a00046.html#acf2fb28583bb5849af4fe0d05cbfc258", null ],
+    [ "MetadataInformation", "d3/dea/a00046.html#a5eb27c0499ed1c6b9f2590e7845729e6", null ],
+    [ "SetDate", "d3/dea/a00046.html#a994d63884d44b202c96fb0c0ee86253d", null ],
+    [ "SetValue", "d3/dea/a00046.html#a2f5460b94d05ab6f0e09d90806ac0fa5", null ]
 ];

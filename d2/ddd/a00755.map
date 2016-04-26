@@ -1,7 +1,5 @@
-<map id="src/base/module_setting/MongoUtil.cpp" name="src/base/module_setting/MongoUtil.cpp">
-<area shape="rect" id="node2" href="$d7/d08/a00378.html" title="Read data from MongoDB. " alt="" coords="255,101,363,131"/>
-<area shape="rect" id="node11" href="$d7/d93/a00397.html" title="Define ModelException class. " alt="" coords="517,101,667,131"/>
-<area shape="rect" id="node13" href="$d9/de6/a00404.html" title="definition of utils class " alt="" coords="813,101,877,131"/>
-<area shape="rect" id="node19" href="$d4/d6d/a00402.html" title="Predefined of some const string names. " alt="" coords="902,101,961,131"/>
-<area shape="rect" id="node7" href="$db/ddc/a00353.html" title="Define clsRasterData class. " alt="" coords="136,179,271,208"/>
+<map id="src/base/data/DBManager.cpp" name="src/base/data/DBManager.cpp">
+<area shape="rect" id="node2" href="$d9/dd5/a00432.html" title="Database manager for Sqlite. " alt="" coords="37,83,157,112"/>
+<area shape="rect" id="node5" href="$db/d2c/a00466.html" title="Define ModelException class. " alt="" coords="182,83,332,112"/>
+<area shape="rect" id="node7" href="$dc/d8e/a00473.html" title="definition of utils class " alt="" coords="467,83,531,112"/>
 </map>

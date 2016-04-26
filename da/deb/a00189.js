@@ -1,9 +1,9 @@
 var a00189 =
 [
-    [ "CheckParams", "da/deb/a00189.html#a279ffe27d8412909f9117b5ca4721dce", null ],
-    [ "FreeCtrl", "da/deb/a00189.html#ab44b3384fa925eae532b7bcc825159d7", null ],
-    [ "PrintCtrl", "da/deb/a00189.html#a2c75ede1a41b19cb3705b998aba3200b", null ],
-    [ "Setup2WayBalMultipliers", "da/deb/a00189.html#ab7bde9f22de07a798b97f1f8e83768b1", null ],
-    [ "SetupCtrl", "da/deb/a00189.html#a1420c4ffbe28e4c3349678037adcb918", null ],
-    [ "SetupKWayBalMultipliers", "da/deb/a00189.html#a3444d1d3ffb5ca450a1affaeb6d71b61", null ]
+    [ "ComputeSubDomainGraph", "da/deb/a00189.html#a78c50bcdffefbd90914a77c4add573cc", null ],
+    [ "EliminateSubDomainEdges", "da/deb/a00189.html#a6dab60a85abb88ada807831e84cb84fc", null ],
+    [ "MoveGroupMinConnForCut", "da/deb/a00189.html#a39d997df18cf07ea8609a66db133a8b6", null ],
+    [ "MoveGroupMinConnForVol", "da/deb/a00189.html#acab0293e31c438218cd4b37b608466c6", null ],
+    [ "PrintSubDomainGraph", "da/deb/a00189.html#a9723ce68d6093abc3aca1086e672cde9", null ],
+    [ "UpdateEdgeSubDomainGraph", "da/deb/a00189.html#a004451dc6b5a9ebe36a063f7bcd6495a", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/auxapi.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/tokenizer.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,100 +110,38 @@ $(document).ready(function(){initNavTree('de/d38/a00160.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">auxapi.c File Reference</div>  </div>
+<div class="title">tokenizer.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains various helper API routines for using METIS.  
+<p>String tokenization routines.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;metislib.h&quot;</code><br/>
+<div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for auxapi.c:</div>
+Include dependency graph for tokenizer.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/df1/a00705.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2auxapi_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2auxapi_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2auxapi_8c">
-<area shape="rect" id="node2" href="../../d2/d94/a00184_source.html" title="metislib.h" alt="" coords="4009,117,4100,147"/><area shape="rect" id="node3" href="../../d1/d88/a00128_source.html" title="GKlib.h" alt="" coords="1724,195,1797,224"/><area shape="rect" id="node40" href="../../de/db9/a00159.html" title="This file contains function prototypes and constant definitions for METIS. " alt="" coords="3735,195,3808,224"/><area shape="rect" id="node41" href="../../d3/d2a/a00195_source.html" title="rename.h" alt="" coords="3833,195,3921,224"/><area shape="rect" id="node42" href="../../d8/df1/a00174.html" title="Data structures and prototypes for GKlib integration. " alt="" coords="3946,195,4053,224"/><area shape="rect" id="node44" href="../../dd/da7/a00168_source.html" title="defs.h" alt="" coords="4078,195,4143,224"/><area shape="rect" id="node45" href="../../db/d53/a00202_source.html" title="struct.h" alt="" coords="4167,195,4240,224"/><area shape="rect" id="node46" href="../../d0/d81/a00180_source.html" title="macros.h" alt="" coords="4265,195,4351,224"/><area shape="rect" id="node47" href="../../dd/da2/a00192_source.html" title="proto.h" alt="" coords="4375,195,4445,224"/><area shape="rect" id="node4" href="../../d3/d00/a00113.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="175,272,267,301"/><area shape="rect" id="node26" href="../../df/dcd/a00127.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1876,272,1975,301"/><area shape="rect" id="node27" href="../../d7/d12/a00126.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="1999,272,2097,301"/><area shape="rect" id="node28" href="../../d2/da3/a00115.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2122,272,2235,301"/><area shape="rect" id="node29" href="../../d8/d17/a00114.html" title="This file contains various constants definitions. " alt="" coords="2260,272,2351,301"/><area shape="rect" id="node30" href="../../d9/d4b/a00117.html" title="This file contains various macros. " alt="" coords="2375,272,2488,301"/><area shape="rect" id="node31" href="../../d4/d3e/a00116.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2513,272,2617,301"/><area shape="rect" id="node32" href="../../de/d36/a00123.html" title="Templates for the qsort routine. " alt="" coords="2642,272,2749,301"/><area shape="rect" id="node33" href="../../d8/d87/a00118.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2775,272,2885,301"/><area shape="rect" id="node34" href="../../df/d6a/a00119.html" title="Templates for memory allocation routines. " alt="" coords="2911,272,3049,301"/><area shape="rect" id="node35" href="../../d4/d98/a00120.html" title="Templates for priority queues. " alt="" coords="3073,272,3208,301"/><area shape="rect" id="node36" href="../../d8/dfa/a00121.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3234,272,3379,301"/><area shape="rect" id="node37" href="../../df/dc8/a00122.html" title="Templates for portable random number generation. " alt="" coords="3404,272,3539,301"/><area shape="rect" id="node38" href="../../da/d72/a00124.html" title="Templates for various utility routines. " alt="" coords="3565,272,3675,301"/><area shape="rect" id="node39" href="../../dc/dfe/a00125.html" title="This file contains function prototypes. " alt="" coords="3699,272,3796,301"/><area shape="rect" id="node43" href="../../de/d45/a00175.html" title="gklib_rename.h" alt="" coords="3934,272,4065,301"/></map>
+<div class="center"><img src="../../d3/d3b/a00715.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2tokenizer_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2tokenizer_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2tokenizer_8c">
+<area shape="rect" id="node2" href="../../d5/deb/a00132_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../d9/d4b/a00117.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d7/d06/a00131.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d6/db3/a00130.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../df/d6a/a00119.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d8/d87/a00118.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d8/dfa/a00121.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d4/d98/a00120.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../df/dcd/a00127.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../df/dc8/a00122.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../de/d36/a00123.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../da/d72/a00124.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../dc/dfe/a00125.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../d7/d12/a00126.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d1/d88/a00128.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d9/d47/a00129.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
 </div>
 </div>
 <p><a href="../../de/d38/a00160_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a8b3f46b67d6ec9fccaa8c72b9ad10b71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">METIS_Free</a> (void *ptr)</td></tr>
-<tr class="separator:a8b3f46b67d6ec9fccaa8c72b9ad10b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abea67bb0c6286795ac5fc9bee605dc5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a> (idx_t *options)</td></tr>
-<tr class="separator:abea67bb0c6286795ac5fc9bee605dc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains various helper API routines for using METIS. </p>
-<dl class="section date"><dt>Date</dt><dd>Started 5/12/2011 </dd></dl>
-<dl class="section author"><dt>Author</dt><dd>George </dd>
-<dd>
-Copyright 1997-2009, Regents of the University of Minnesota </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: auxapi.c 10409 2011-06-25 16:58:34Z karypis $ </pre> </dd></dl>
+<div class="textblock"><p>String tokenization routines. </p>
+<p>This file contains various routines for splitting an input string into tokens and returning them in form of a list. The goal is to mimic perl's split function.</p>
+<dl class="section date"><dt>Date</dt><dd>Started 11/23/04 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>George </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: tokenizer.c 10711 2011-08-31 22:23:04Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../de/d38/a00160_source.html">auxapi.c</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a8b3f46b67d6ec9fccaa8c72b9ad10b71"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int METIS_Free </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function free memory that was allocated by METIS and retuned to the application.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptr</td><td>points to the memory that was previously allocated by METIS. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../de/d38/a00160_source.html#l00023">23</a> of file <a class="el" href="../../de/d38/a00160_source.html">auxapi.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abea67bb0c6286795ac5fc9bee605dc5d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int METIS_SetDefaultOptions </td>
-          <td>(</td>
-          <td class="paramtype">idx_t *&#160;</td>
-          <td class="paramname"><em>options</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function sets the default values for the options.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">options</td><td>points to an array of size at least METIS_NOPTIONS. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../de/d38/a00160_source.html#l00036">36</a> of file <a class="el" href="../../de/d38/a00160_source.html">auxapi.c</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../de/d38/a00160_source.html">tokenizer.c</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">auxapi.c</a></li>
-    <li class="footer">Generated on Mon Apr 25 2016 03:10:48 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">tokenizer.c</a></li>
+    <li class="footer">Generated on Tue Apr 26 2016 02:23:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

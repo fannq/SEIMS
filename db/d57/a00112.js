@@ -1,13 +1,10 @@
 var a00112 =
 [
-    [ "REQUIRE_ORDER", "db/d57/a00112.html#a06fc87d81c62e9abb8790b6e5713c55ba0e73a0691c110b1442d8364d1d12eccc", null ],
-    [ "PERMUTE", "db/d57/a00112.html#a06fc87d81c62e9abb8790b6e5713c55bacfdde4b47c27f4efbd832e1ac7f8a8fc", null ],
-    [ "RETURN_IN_ORDER", "db/d57/a00112.html#a06fc87d81c62e9abb8790b6e5713c55ba3c56550bfafe809d9214b863b69c31c5", null ],
-    [ "gk_getopt", "db/d57/a00112.html#af82cf3b0fb9ec4411a987f02df3b2e47", null ],
-    [ "gk_getopt_long", "db/d57/a00112.html#a1c3b8d80bd9620dc66f24d4854c0f6d3", null ],
-    [ "gk_getopt_long_only", "db/d57/a00112.html#abb224612ca0aae2d39bd87f6146bd67d", null ],
-    [ "gk_optarg", "db/d57/a00112.html#a7e251e946564d7de41aa8f602b94e74e", null ],
-    [ "gk_opterr", "db/d57/a00112.html#abf798c082a4ebebbd9482c931c109541", null ],
-    [ "gk_optind", "db/d57/a00112.html#ab70fc0e7e22192b687bd0d377bf61e32", null ],
-    [ "gk_optopt", "db/d57/a00112.html#ac77d8583b792a19e5afae69bb702a23a", null ]
+    [ "errexit", "db/d57/a00112.html#a56d0f2cc40cd8633a784582d6200d8b5", null ],
+    [ "gk_errexit", "db/d57/a00112.html#a4c320c13bcdc9967613253ef4c73f59f", null ],
+    [ "gk_set_exit_on_error", "db/d57/a00112.html#ac8478262a791bb8b09708996ad1a548e", null ],
+    [ "gk_sigthrow", "db/d57/a00112.html#ad17d21ff26300b9b5bdb291e8ad2bcef", null ],
+    [ "gk_sigtrap", "db/d57/a00112.html#a05869524d1c30cfaab2a8690e7da6fd4", null ],
+    [ "gk_siguntrap", "db/d57/a00112.html#a08f287b6dbdc0779c916ecbd49540a1e", null ],
+    [ "gk_strerror", "db/d57/a00112.html#a4e5e21eb7f29fcdabd4ef027223bbdf0", null ]
 ];

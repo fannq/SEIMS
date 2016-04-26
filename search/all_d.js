@@ -1,10 +1,23 @@
 var searchData=
 [
-  ['open',['Open',['../dd/da2/a00019.html#a451113a0e298f84c030ea7b9892d8f8b',1,'DBManager']]],
-  ['opentag',['OpenTag',['../df/d61/a00031.html#a69ae39fafa99f5df99219f6ceba83ae9',1,'MetadataInfo']]],
-  ['operator_3d',['operator=',['../da/da0/a00009.html#aeaa920192f4d517065eed71344ccea3c',1,'base_VariableData::operator=()'],['../d6/d2d/a00047.html#a1d1858fa95ef9d5b991e59b36bbd5426',1,'StringList::operator=()']]],
-  ['options_2ec',['options.c',['../da/deb/a00189.html',1,'']]],
-  ['output1darray',['Output1DArray',['../da/d46/a00665.html#ga23ec84665e45f44b404668a460479ced',1,'Output1DArray(int n, float *data, const char *filename):&#160;util.cpp'],['../da/d46/a00665.html#ga23ec84665e45f44b404668a460479ced',1,'Output1DArray(int n, float *data, const char *filename):&#160;util.cpp'],['../da/d46/a00665.html#ga23ec84665e45f44b404668a460479ced',1,'Output1DArray(int n, float *data, const char *filename):&#160;util.cpp'],['../da/d46/a00665.html#ga23ec84665e45f44b404668a460479ced',1,'Output1DArray(int n, float *data, const char *filename):&#160;util.cpp']]],
-  ['output2darray',['Output2DArray',['../da/d46/a00665.html#ga95278befef92ef1f585ebe873fffa1e1',1,'Output2DArray(int nRows, int nCols, float **data, const char *filename):&#160;util.cpp'],['../da/d46/a00665.html#ga95278befef92ef1f585ebe873fffa1e1',1,'Output2DArray(int nRows, int nCols, float **data, const char *filename):&#160;util.cpp'],['../da/d46/a00665.html#ga95278befef92ef1f585ebe873fffa1e1',1,'Output2DArray(int nRows, int nCols, float **data, const char *filename):&#160;util.cpp'],['../da/d46/a00665.html#ga95278befef92ef1f585ebe873fffa1e1',1,'Output2DArray(int nRows, int nCols, float **data, const char *filename):&#160;util.cpp']]],
-  ['outputvariable',['OutputVariable',['../d1/dc6/a00037.html',1,'']]]
+  ['name',['name',['../dc/de2/a00024.html#aa47d0e4e90d3cd1793fc5344b1e99afc',1,'gk_option']]],
+  ['nbrpoolcpos',['nbrpoolcpos',['../dd/da2/a00019.html#acafe4ebea8585403e053dc33e7b4ac64',1,'ctrl_t']]],
+  ['nbrpoolreallocs',['nbrpoolreallocs',['../dd/da2/a00019.html#a091baa9be72262dca61c641d1f1e4ad3',1,'ctrl_t']]],
+  ['nbrpoolsize',['nbrpoolsize',['../dd/da2/a00019.html#ae37af5d894dbeea35f735361503e58a9',1,'ctrl_t']]],
+  ['ncols',['nCols',['../d2/dee/a00049.html#a4e2965e5fd32bef8dd66b8e46cd00a9f',1,'slTable']]],
+  ['ncon',['ncon',['../df/d61/a00031.html#ad18b1da90165616c622c16ce79c6907f',1,'mesh_t::ncon()'],['../dd/da2/a00019.html#afb1fd1cb311eb4bcefa46a14ef05afa0',1,'ctrl_t::ncon()']]],
+  ['ned',['ned',['../d1/dea/a00054.html#ae32050bde46f5545e1c306853afd8d97',1,'vnbr_t::ned()'],['../dc/dee/a00053.html#a0af0fec11cab7aa7a343c268832cc709',1,'vkrinfo_t::ned()']]],
+  ['nid',['nid',['../dc/dee/a00053.html#a9befff2ea2c811563ad38aaf921a8f21',1,'vkrinfo_t']]],
+  ['nmops',['nmops',['../d7/de0/a00022.html#a30d17f8009db5d7cf61094259ff9e26f',1,'gk_mcore_t']]],
+  ['nn',['nn',['../df/d61/a00031.html#a6321957b37b2040997c84db2fd2b8427',1,'mesh_t']]],
+  ['nnbrs',['nnbrs',['../d7/dec/a00010.html#a73fbc8555b843b3fd414ac0a9ec244f1',1,'ckrinfo_t::nnbrs()'],['../dc/dee/a00053.html#aa337d338d253918348c5ba9e4a5082ca',1,'vkrinfo_t::nnbrs()']]],
+  ['notregularmeasurement',['NotRegularMeasurement',['../de/d8c/a00036.html',1,'NotRegularMeasurement'],['../de/d8c/a00036.html#ac9be129499c58740965eb43f0bae9dd4',1,'NotRegularMeasurement::NotRegularMeasurement()']]],
+  ['notregularmeasurement_2ecpp',['NotRegularMeasurement.cpp',['../d4/da8/a00437.html',1,'']]],
+  ['notregularmeasurement_2eh',['NotRegularMeasurement.h',['../dd/dfd/a00438.html',1,'']]],
+  ['nparts',['nparts',['../dd/da2/a00019.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee',1,'ctrl_t']]],
+  ['nrinfo_5ft',['nrinfo_t',['../d1/dc6/a00037.html',1,'']]],
+  ['nrows',['nRows',['../d2/dee/a00049.html#adea6ff1f79a5048f86d45a1a77ec9ae2',1,'slTable']]],
+  ['num_5fcallocs',['num_callocs',['../d7/de0/a00022.html#afd16bb0581bc9e98172b2ab35cbc310c',1,'gk_mcore_t']]],
+  ['num_5fhallocs',['num_hallocs',['../d7/de0/a00022.html#a2ad475b19470a6a7b0c65e53cfd1096b',1,'gk_mcore_t']]],
+  ['numberofsites',['NumberOfSites',['../d5/d79/a00030.html#a797e90045c3f01415abc68ebe02683d8',1,'Measurement']]]
 ];

@@ -1,8 +1,14 @@
 var a00050 =
 [
-    [ "gv", "d5/de0/a00050.html#a8d9e4e351610f7b03203940a134bcd74", null ],
-    [ "inbr", "d5/de0/a00050.html#a85a0150ff0f0fe87b0fc3bf445b60bca", null ],
-    [ "ned", "d5/de0/a00050.html#a0af0fec11cab7aa7a343c268832cc709", null ],
-    [ "nid", "d5/de0/a00050.html#a9befff2ea2c811563ad38aaf921a8f21", null ],
-    [ "nnbrs", "d5/de0/a00050.html#aa337d338d253918348c5ba9e4a5082ca", null ]
+    [ "StringList", "d5/de0/a00050.html#ab92785f26e12fce6ecc9797c6f4e2090", null ],
+    [ "~StringList", "d5/de0/a00050.html#a1c7bf7a04fa791e1b5504fb96355efa9", null ],
+    [ "Add", "d5/de0/a00050.html#a39d7276a511637ca2bbf01b9375f2a5e", null ],
+    [ "Append", "d5/de0/a00050.html#a335f0ecc2c08af9a96a5b412eeb14090", null ],
+    [ "At", "d5/de0/a00050.html#a82d4957073abf405e92934c69a4adf6c", null ],
+    [ "Clear", "d5/de0/a00050.html#a0129bfe44ed9c9a5839c5c8688a4bdc6", null ],
+    [ "Contains", "d5/de0/a00050.html#a69e219abaa4afe8023ae9e0d00b8abc3", null ],
+    [ "Count", "d5/de0/a00050.html#a897d79a72fab72faec233a10667c7c5d", null ],
+    [ "Insert", "d5/de0/a00050.html#aea2bfd74ecef6c8698d5094cdb183a64", null ],
+    [ "operator=", "d5/de0/a00050.html#a1d1858fa95ef9d5b991e59b36bbd5426", null ],
+    [ "Resize", "d5/de0/a00050.html#a91e4c52c28c9bf1126e9932f3ceb42e7", null ]
 ];

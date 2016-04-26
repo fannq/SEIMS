@@ -1,6 +1,7 @@
 var modules =
 [
-    [ "Base", "df/d46/a00664.html", "df/d46/a00664" ],
-    [ "Hydrology", "d9/d41/a00666.html", "d9/d41/a00666" ],
-    [ "Hydrology_longterm", "d0/d5c/a00668.html", "d0/d5c/a00668" ]
+    [ "CLIMATE", "d8/d7a/a00669.html", "d8/d7a/a00669" ],
+    [ "Base", "d5/d40/a00672.html", "d5/d40/a00672" ],
+    [ "Hydrology", "d8/d73/a00674.html", "d8/d73/a00674" ],
+    [ "Hydrology_longterm", "dc/de4/a00677.html", "dc/de4/a00677" ]
 ];

@@ -1,11 +1,10 @@
 var a00016 =
 [
-    [ "clsWgnData", "d7/d7a/a00016.html#a3f04ec5883590ee2e953bbef4af580e5", null ],
-    [ "~clsWgnData", "d7/d7a/a00016.html#ab3d63f329531bd498e272057a26c5b79", null ],
-    [ "getWgnData", "d7/d7a/a00016.html#aebc00d5baf9e09d2e1d44f0c433a88ac", null ],
-    [ "readWgnData", "d7/d7a/a00016.html#a35213b076acce178f6953469016e3c84", null ],
-    [ "show", "d7/d7a/a00016.html#a8cc140a53f7099c46215a3f39f6fbb4b", null ],
-    [ "m_columns", "d7/d7a/a00016.html#a2a0f633156f50038d623f28e55049f96", null ],
-    [ "m_wgnData", "d7/d7a/a00016.html#ab7a59f7e26b36f0e51734fa89ef41c22", null ],
-    [ "m_wtgTableName", "d7/d7a/a00016.html#a0b43da215ebd51fe8c0aa418fca08373", null ]
+    [ "clsSiteData", "d7/d7a/a00016.html#a86466ce9c646d3bacc3309bdca359410", null ],
+    [ "addDataTypeMongo", "d7/d7a/a00016.html#adfb501124ee05dca18201a6e6f242aa5", null ],
+    [ "checkData", "d7/d7a/a00016.html#a61b2e9e67cf6c9922058894a85ebf032", null ],
+    [ "dump", "d7/d7a/a00016.html#af66654e0615072db737ae55fd19bd897", null ],
+    [ "readSiteBasicInfo", "d7/d7a/a00016.html#ab4991c290ec91a6f4ca77514b2f7f0b1", null ],
+    [ "m_databasePath", "d7/d7a/a00016.html#ad964d12db5efdac326428c2fc1430997", null ],
+    [ "m_timeSerieseData", "d7/d7a/a00016.html#a748df1d01df2a500dd830de51fe092d1", null ]
 ];

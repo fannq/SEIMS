@@ -1,5 +1,7 @@
 var a00024 =
 [
-    [ "ckrinfo", "dc/de2/a00024.html#a84db37e157fc91c4680ba19377f720b4", null ],
-    [ "vkrinfo", "dc/de2/a00024.html#a65c5b927198432cf7e6c9314eb10e5c8", null ]
+    [ "flag", "dc/de2/a00024.html#ae9e56a3e65a631de45dd019a07c621b4", null ],
+    [ "has_arg", "dc/de2/a00024.html#a66d2ab88446836cef777d756098151f5", null ],
+    [ "name", "dc/de2/a00024.html#aa47d0e4e90d3cd1793fc5344b1e99afc", null ],
+    [ "val", "dc/de2/a00024.html#abf964c7489d269515ec8e5e62b2164ba", null ]
 ];

@@ -1,6 +1,2 @@
-<map id="src/base/module_setting/SEIMS_ModuleSetting.cpp" name="src/base/module_setting/SEIMS_ModuleSetting.cpp">
-<area shape="rect" id="node2" href="$dd/df5/a00386.html" title="SEIMS_ModuleSetting.h" alt="" coords="441,101,639,131"/>
-<area shape="rect" id="node5" href="$d9/de6/a00404.html" title="definition of utils class " alt="" coords="331,101,395,131"/>
-<area shape="rect" id="node11" href="$d7/d93/a00397.html" title="Define ModelException class. " alt="" coords="663,101,813,131"/>
-<area shape="rect" id="node14" href="$d4/d6d/a00402.html" title="Predefined of some const string names. " alt="" coords="919,101,979,131"/>
+<map id="src/base/data/Measurement.h" name="src/base/data/Measurement.h">
 </map>
