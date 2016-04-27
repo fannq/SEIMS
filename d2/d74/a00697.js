@@ -1,25 +1,23 @@
 var a00697 =
 [
-    [ "PETPriestleyTaylor.cpp", "d8/d9b/a00577.html", null ],
-    [ "PETPriestleyTaylor", "d4/dca/a00048.html", [
-      [ "CheckInputData", "d4/dca/a00048.html#ae3be944e3a102d9320b1883e46adf272", null ],
-      [ "CheckInputSize", "d4/dca/a00048.html#a8cbeda4ba3fbd6d16d29c205550d363e", null ],
-      [ "Execute", "d4/dca/a00048.html#a9bf650cb6873d018f386052fa8316b4d", null ],
-      [ "Get1DData", "d4/dca/a00048.html#a7e4c4ab31efb971bf3a2ce7dcfaea0a3", null ],
-      [ "JulianDay", "d4/dca/a00048.html#ad6327a96c7c9f07ec171ea37df6752f0", null ],
-      [ "MaxSolarRadiation", "d4/dca/a00048.html#a8d7d8fb4eb8d15bf42987382aa02ada4", null ],
-      [ "SaturationVaporPressure", "d4/dca/a00048.html#a8b3efb016cba7f2d51d6112f523916e9", null ],
-      [ "Set1DData", "d4/dca/a00048.html#ad375b33ce478fe6ec65c411ebfc785e8", null ],
-      [ "SetValue", "d4/dca/a00048.html#adcf5aab7b16c6e275bb2f19780b852dd", null ],
-      [ "m_elev", "d4/dca/a00048.html#a260940b4b18f30ae587822c8f91c00d6", null ],
-      [ "m_latitude", "d4/dca/a00048.html#a268e5e5c4a08605654767e313fc46215", null ],
-      [ "m_pet", "d4/dca/a00048.html#a07747c55e20e6c6b56e2e713b486f42a", null ],
-      [ "m_petFactor", "d4/dca/a00048.html#a168bea4e347c922dfba4b65d2f2089c4", null ],
-      [ "m_rhd", "d4/dca/a00048.html#ac3d90046ba1cadafe2b02aee5331ca04", null ],
-      [ "m_size", "d4/dca/a00048.html#aacda62a6d519648417281601db5cdea9", null ],
-      [ "m_sr", "d4/dca/a00048.html#ae9785cefa110963fd303daa85cc7885f", null ],
-      [ "m_tMax", "d4/dca/a00048.html#a2794f21690ee16019b2bde6542056701", null ],
-      [ "m_tMin", "d4/dca/a00048.html#aaab3f1310d53734bb09943910a42e843", null ],
-      [ "m_tSnow", "d4/dca/a00048.html#a46c481c173eecaf97d48637926878208", null ]
-    ] ]
+    [ "PETHargreaves.cpp", "d4/dbe/a00574.html", null ],
+    [ "PETHargreaves", "d3/dea/a00046.html", [
+      [ "CheckInputData", "d3/dea/a00046.html#a7e04f825331f418ccf131194dd4eb48c", null ],
+      [ "CheckInputSize", "d3/dea/a00046.html#a00bd74f194c86eae40b0d95cd4bba6a7", null ],
+      [ "Execute", "d3/dea/a00046.html#aaf05ab866192717802d14fa26189224b", null ],
+      [ "Get1DData", "d3/dea/a00046.html#af5e4b87dc5fcf0804b8adabcc085e70b", null ],
+      [ "Set1DData", "d3/dea/a00046.html#ab588ffc7c5abc04603910f951801f79b", null ],
+      [ "SetValue", "d3/dea/a00046.html#a6d353a208f981a5b9b048c506e7d227c", null ],
+      [ "m_HCoef_pet", "d3/dea/a00046.html#acaf6d54c4471fe0a6d6e4b5af8918e36", null ],
+      [ "m_jday", "d3/dea/a00046.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6", null ],
+      [ "m_latitude", "d3/dea/a00046.html#afbb2148f57db1a0ce4e343e8f56ccbeb", null ],
+      [ "m_pet", "d3/dea/a00046.html#a7bb48f6000aaef40a221a51a5e267816", null ],
+      [ "m_petFactor", "d3/dea/a00046.html#a8727d0b39c3f9db1c3c4db8f9809616d", null ],
+      [ "m_size", "d3/dea/a00046.html#a884c87f974059a72aba03d6ddc4efab9", null ],
+      [ "m_srMax", "d3/dea/a00046.html#a408f2239d3446b7047177f2602ef031c", null ],
+      [ "m_tMax", "d3/dea/a00046.html#adf77f62f87e78a9f1a76091fdeb21705", null ],
+      [ "m_tMean", "d3/dea/a00046.html#ac314113751262beca529b1180a166763", null ],
+      [ "m_tMin", "d3/dea/a00046.html#a5df9ae68bd6846c98a389fa4126f9227", null ]
+    ] ],
+    [ "MetadataInformation", "d2/d74/a00697.html#ga0087c853569e2c94d58c3499365662e9", null ]
 ];

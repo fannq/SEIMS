@@ -1,5 +1,8 @@
-<map id="Hydrology" name="Hydrology">
-<area shape="rect" id="node1" href="$d0/db6/a00692.html" title="Calculate groundwater using reservoir method. " alt="" coords="281,5,479,35"/>
-<area shape="rect" id="node2" href="$d8/dba/a00681.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
-<area shape="rect" id="node3" href="$db/dde/a00691.html" title="Channel routing using diffusive wave equation. " alt="" coords="339,59,421,88"/>
+<map id="Modules" name="Modules">
+<area shape="rect" id="node1" href="$df/d1b/a00687.html" title="Erosion related modules. " alt="" coords="181,5,259,35"/>
+<area shape="rect" id="node3" href="$df/d9e/a00686.html" title="Longterm hydrology related modules. " alt="" coords="137,59,303,88"/>
+<area shape="rect" id="node4" href="$d6/dd3/a00688.html" title="Nutrient related modules. " alt="" coords="181,112,259,141"/>
+<area shape="rect" id="node5" href="$d3/db4/a00684.html" title="Climate related modules. " alt="" coords="181,165,259,195"/>
+<area shape="rect" id="node6" href="$d1/d87/a00689.html" title="Ecology related modules. " alt="" coords="180,219,260,248"/>
+<area shape="rect" id="node7" href="$d0/df1/a00685.html" title="Hydrology related modules, include storm processes. " alt="" coords="173,272,267,301"/>
 </map>

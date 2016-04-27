@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/iuh/Raster.cpp Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/import_raster/Raster.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_nCols;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_nRows;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    rasterFile &gt;&gt; setprecision(8) &gt;&gt; tmp &gt;&gt; m_xllCenter;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d2/d85/a00679.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(tmp, <span class="stringliteral">&quot;xllcorner&quot;</span>))</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d8/dba/a00681.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(tmp, <span class="stringliteral">&quot;xllcorner&quot;</span>))</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        isCorner = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_yllCenter;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_dx;</div>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_nCols;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_nRows;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    rasterFile &gt;&gt; setprecision(8) &gt;&gt; tmp &gt;&gt; m_xllCenter;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d2/d85/a00679.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(tmp, <span class="stringliteral">&quot;xllcorner&quot;</span>))</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d8/dba/a00681.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(tmp, <span class="stringliteral">&quot;xllcorner&quot;</span>))</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        isCorner = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_yllCenter;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    rasterFile &gt;&gt; tmp &gt;&gt; m_dx;</div>
@@ -570,7 +570,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    {</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; m_nCols; ++j)</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        {</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d85/a00679.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(m_data[i][j] ,m_noDataValue))</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../d8/dba/a00681.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(m_data[i][j] ,m_noDataValue))</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            {</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                m_data[i][j] = 0;</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            }</div>
@@ -585,7 +585,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    {</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; m_nCols; ++j)</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        {</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d2/d85/a00679.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(<span class="keywordtype">float</span>(m_data[i][j]), <span class="keywordtype">float</span>(m_noDataValue)))</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d8/dba/a00681.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(<span class="keywordtype">float</span>(m_data[i][j]), <span class="keywordtype">float</span>(m_noDataValue)))</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            {</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                m_data[i][j] = value;</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            }</div>
@@ -628,7 +628,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    {</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; m_nCols; ++j)</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        {</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d2/d85/a00679.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(m_data[i][j], m_noDataValue))</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d8/dba/a00681.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a>(m_data[i][j], m_noDataValue))</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            m_data[i][j] += otherRaster.m_data[i][j];</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        }</div>
@@ -662,15 +662,15 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;}</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a00679_html_gae875280d1d04d9c64f41a2bc46403f88"><div class="ttname"><a href="../../d2/d85/a00679.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a></div><div class="ttdeci">bool StringMatch(string text1, string text2)</div><div class="ttdoc">Match String. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00127">util.cpp:127</a></div></div>
-<div class="ttc" id="a00679_html_ga9514a21bb5926342aa2b07e7cac8f31a"><div class="ttname"><a href="../../d2/d85/a00679.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a></div><div class="ttdeci">bool FloatEqual(float d1, float d2)</div><div class="ttdoc">FloatEqual. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00147">util.cpp:147</a></div></div>
+<div class="ttc" id="a00681_html_gae875280d1d04d9c64f41a2bc46403f88"><div class="ttname"><a href="../../d8/dba/a00681.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a></div><div class="ttdeci">bool StringMatch(string text1, string text2)</div><div class="ttdoc">Match String. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d74/a00099_source.html#l00127">util.cpp:127</a></div></div>
+<div class="ttc" id="a00681_html_ga9514a21bb5926342aa2b07e7cac8f31a"><div class="ttname"><a href="../../d8/dba/a00681.html#ga9514a21bb5926342aa2b07e7cac8f31a">FloatEqual</a></div><div class="ttdeci">bool FloatEqual(float d1, float d2)</div><div class="ttdoc">FloatEqual. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d74/a00099_source.html#l00147">util.cpp:147</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_a88dfb3a5bada831a77afbd22f5524a9.html">iuh</a></li><li class="navelem"><b>Raster.cpp</b></li>
-    <li class="footer">Generated on Wed Apr 27 2016 01:49:00 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_b607f9b4e3e34282ee5a018d400801cb.html">import_raster</a></li><li class="navelem"><b>Raster.cpp</b></li>
+    <li class="footer">Generated on Wed Apr 27 2016 02:07:38 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

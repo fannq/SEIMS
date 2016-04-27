@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/soil_texture.py Source File</title>
+<title>SEIMS-2016: preprocess/soil_param.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,110 +111,188 @@ $(document).ready(function(){initNavTree('d0/da2/a00307_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">soil_texture.py</div>  </div>
+<div class="title">soil_param.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> os</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> zeros</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> config <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span>GetTexture(clay, sand):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    silt = 100 - sand - clay</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (clay &gt;= 40 <span class="keywordflow">and</span> silt &lt;= 40 <span class="keywordflow">and</span> sand &lt;= 45):</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">return</span> [12, 1, 0.22] <span class="comment"># clay / nian tu</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 40 <span class="keywordflow">and</span> silt &gt;= 40):</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> [11, 1, 0.26] <span class="comment"># silt caly / fen nian tu</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 35) <span class="keywordflow">and</span> (sand &gt;= 45):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> [10, 1, 0.28] <span class="comment"># sandy clay / sha nian tu</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 25 <span class="keywordflow">and</span> sand &lt;= 45 <span class="keywordflow">and</span> sand &gt;= 20):</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> [9, 2, 0.3] <span class="comment"># clay loam / nian rang tu</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 25 <span class="keywordflow">and</span> sand &lt;= 20):</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> [8, 2, 0.32] <span class="comment"># silt clay loam / fen zhi nian rang tu</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 20 <span class="keywordflow">and</span> silt &lt;= 30 <span class="keywordflow">and</span> sand &gt;= 45):</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> [7, 2, 0.2] <span class="comment"># sandy clay loam / sha zhi nian rang tu</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 10) <span class="keywordflow">and</span> (silt &gt;= 30) <span class="keywordflow">and</span> (silt &lt;= 50) <span class="keywordflow">and</span> (sand &lt;= 50):</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> [6, 3, 0.3] <span class="comment"># loam / rang tu</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">elif</span> (silt &gt;= 50 <span class="keywordflow">and</span> silt &lt;= 80) <span class="keywordflow">or</span> (clay &gt;= 15 <span class="keywordflow">and</span> silt &gt;= 80):</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> [4, 3, 0.38] <span class="comment"># silt loam / fen zhi rang tu</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">elif</span> (silt &gt;= 80 <span class="keywordflow">and</span> clay &lt;= 15):</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> [5, 3, 0.34] <span class="comment"># silt / fen tu</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">elif</span> (clay &lt;= 10 <span class="keywordflow">and</span> sand &lt;= 50) <span class="keywordflow">or</span> (sand &gt;= 50 <span class="keywordflow">and</span> sand &lt;= 80):</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> [3, 4, 0.13] <span class="comment"># sandy loam / sha zhi rang tu</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">elif</span> (sand &lt;= 90):</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> [2, 4, 0.04] <span class="comment"># loamy sand / rang zhi sha tu</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> [1, 4, 0.02] <span class="comment"># sand / sha tu</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">def </span>SoilTexture(workingDir):</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    sandFile = workingDir + os.sep + <span class="stringliteral">&quot;sand.tif&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    clayFile = workingDir + os.sep + <span class="stringliteral">&quot;clay.tif&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    sandRaster = ReadRaster(sandFile)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    clayRaster = ReadRaster(clayFile)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    nCols = sandRaster.nCols</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    nRows = sandRaster.nRows</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    noDataValue = sandRaster.noDataValue</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    dataSand = sandRaster.data</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    dataClay = clayRaster.data</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    st = zeros((nRows, nCols)) <span class="comment"># soil texture code</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    hg = zeros((nRows, nCols)) <span class="comment"># hydrological group</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    usleK_array = zeros((nRows, nCols)) <span class="comment"># USLE K factor</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> abs(dataSand[i][j] - noDataValue) &lt; DELTA:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                st[i][j] = -9999</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                hg[i][j] = -9999</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                usleK_array[i][j] = -9999</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                values = GetTexture(dataClay[i][j], dataSand[i][j])</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="comment">#values = GetTexture(dataClay[i][j]*100, dataSand[i][j]*100)</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                st[i][j] = values[0]</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                hg[i][j] = values[1]</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                usleK_array[i][j] = values[2]</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    textureFile = workingDir + os.sep + soilTexture</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    WriteGTiffFile(textureFile, nRows, nCols, st, sandRaster.geotrans,\</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    hgFile = workingDir + os.sep + hydroGroup</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    WriteGTiffFile(hgFile, nRows, nCols, hg, sandRaster.geotrans,\</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    kFile = workingDir + os.sep + usleK</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    WriteGTiffFile(kFile, nRows, nCols, usleK_array, sandRaster.geotrans,\</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;Soil texture is generated.&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="stringliteral">Created on Thu Jan 10 15:36:19 2013</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="stringliteral">@author: junzhi</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> math <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> pyproj <span class="keyword">import</span> Proj, transform</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> config <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> os</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;NODATA = -9999</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">## Calculate soil properties from sand, clay and organic matter.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">## TODO, add reference.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">def </span>GetProperties(s, c, om):</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">#wilting point</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    wpt = -0.024*s + 0.487*c + 0.006*om + 0.005*s*om - 0.013*c*om + 0.068*s*c + 0.031</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    wp = 1.14*wpt - 0.02</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">#field capacity</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    fct = -0.251*s + 0.195*c + 0.011*om + 0.006*s*om - 0.027*c*om + 0.452*s*c + 0.299</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    fc = fct + 1.283*fct*fct - 0.374*fct - 0.015</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    s33t = 0.278*s + 0.034*c + 0.022*om - 0.018*s*om - 0.027*c*om - 0.584*s*c + 0.078</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    s33 = 1.636*s33t - 0.107</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    sat = fc + s33 - 0.097*s + 0.043</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    pn = 2.65*(1.0 - sat)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment"># df means density effects</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    p_df = pn</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    sat_df = 1 - p_df/2.65</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    fc_df = fc - 0.2*(sat - sat_df)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment"># pore disconnectedness index</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    b = (log(1500.) - log(33.)) / (log(fc) - log(wp))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    lamda = 1.0/b</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment"># saturated conductivity</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">#print s, c, sat, fc, 3-lamda</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ks = 1930*pow(sat-fc, 3-lamda)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">#print wpt, fct, s33, fc, sat</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> wp, fc_df, sat_df, p_df, ks, lamda</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">def </span>GetValue(geoMask, geoMap, data, i, j):</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">#pGeo = Proj(&quot;+proj=longlat +ellps=krass +no_defs&quot;)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">#pAlbers = Proj(&quot;+proj=aea +ellps=krass +lon_0=105 +lat_0=0 +lat_1=25 +lat_2=47&quot;)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">#xMask = geoMask[0] + (j+0.5)*geoMask[1]</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">#yMask = geoMask[3] + (i+0.5)*geoMask[5]</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">#xMap, yMap = transform(pAlbers, pGeo, xMask, yMask)</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    xMap = geoMask[0] + (j+0.5)*geoMask[1]</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    yMap = geoMask[3] + (i+0.5)*geoMask[5]</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    jMap = (xMap - geoMap[0])/geoMap[1]</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    iMap = (yMap - geoMap[3])/geoMap[5]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> data[iMap][jMap]</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">def </span>GenerateSoilAttributes(outputFolder, layerNum, sandFile=None, clayFile=None, somFile=None):</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    maskFile = outputFolder + os.sep + mask_to_ext</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">#    if sandFile is None:</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">#        sandFile = &#39;%s/sand%d_albers.img&#39; % (SPATIAL_DATA_DIR, layerNum)</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">#    if clayFile is None:</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">#        clayFile = &#39;%s/clay%d_albers.img&#39; % (SPATIAL_DATA_DIR, layerNum)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    dataSom = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> somFile <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> os.path.exists(somFile):</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        dsSom = gdal.Open(somFile)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        bandSom = dsSom.GetRasterBand(1)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        dataSom = bandSom.ReadAsArray()</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> [textureFile, hgFile, kFile]</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">print</span> GetTexture(60, 30)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">print</span> GetTexture(50, 5)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 55)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 30)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 10)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">print</span> GetTexture(25, 60)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">print</span> GetTexture(15, 45)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">print</span> GetTexture(10, 20)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 5)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">print</span> GetTexture(10, 60)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 85)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 92)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">print</span> sandFile</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">print</span> clayFile</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    dsSand = gdal.Open(sandFile)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> dsSand <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;Open file:&quot;</span>, sandFile, <span class="stringliteral">&quot; failed.\n&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    bandSand = dsSand.GetRasterBand(1)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    dataSand = bandSand.ReadAsArray()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    geoSand = dsSand.GetGeoTransform()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    dsClay = gdal.Open(clayFile)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> dsClay <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;Open file:&quot;</span>, clayFile, <span class="stringliteral">&quot; failed.\n&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    bandClay = dsClay.GetRasterBand(1)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    dataClay = bandClay.ReadAsArray()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    dsMask = gdal.Open(maskFile)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    bandMask = dsMask.GetRasterBand(1)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    dataMask = bandMask.ReadAsArray()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    xSizeMask = bandMask.XSize</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    ySizeMask = bandMask.YSize</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    geoMask = dsMask.GetGeoTransform()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    noDataValue = bandMask.GetNoDataValue()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">print</span> noDataValue</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    srs = osr.SpatialReference()</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    srs.ImportFromWkt(dsMask.GetProjection())</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    attrMapList = []</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    n = 6 </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        attrMapList.append(zeros((ySizeMask, xSizeMask)))</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    attrPool = {}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    lastKey = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(ySizeMask):</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="comment">#print &quot;soil&quot;, i</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(xSizeMask):</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span> abs(dataMask[i][j] - noDataValue) &lt; DELTA:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">for</span> iAttr <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    attrMapList[iAttr][i][j] = NODATA</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            s = GetValue(geoMask, geoSand, dataSand, i, j) </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            c = GetValue(geoMask, geoSand, dataClay, i, j) </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            k = <span class="stringliteral">&quot;%d_%d_%d&quot;</span> % (int(s*1000), int(c*1000), layerNum)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">#print s, c</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">if</span> dataSom <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                om = dataSom[i][j]</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                om = defaultOrg  <span class="comment"># om=2.5</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keywordflow">if</span> layerNum &gt;= 1:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    om = 1.0</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordflow">if</span> s &lt; 0 <span class="keywordflow">or</span> c &lt; 0:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                attrs = attrPool[lastKey]</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                k = lastKey</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">elif</span> k <span class="keywordflow">in</span> attrPool.keys():</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                attrs = attrPool[k]</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                attrs = GetProperties(s * 0.01, c * 0.01, om)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="keywordflow">print</span> dataMask[i][j], s, c</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="comment">#attrs = GetProperties(s, c, om)</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                attrPool[k] = attrs</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            lastKey = k</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">for</span> iAttr <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                attrMapList[iAttr][i][j] = attrs[iAttr]</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    attrList = []</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    layerStr = str(layerNum) <span class="keywordflow">if</span> layerNum &gt; 1 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        filename = outputFolder + os.sep + <span class="stringliteral">r&quot;%s%s.tif&quot;</span> % (SOIL_ATTR_LIST[i+2], layerStr)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        WriteGTiffFile(filename, ySizeMask, xSizeMask, attrMapList[i], \</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                   geoMask, srs, NODATA, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        attrList.append(filename)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">return</span> attrList</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">#if __name__ == &quot;__main__&quot;:</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">#testList = [[0.84627,0.04302,0.0208], [0.85,0.05,0.025], [0.65,0.1,0.025]]</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">#for s in testList:</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">#    print s[0], s[1], s[2]</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">#    print GetProperties(s[0], s[1], s[2]*100)</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">#    layerNum = 1</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">#    inputFolder = r&#39;F:\data\soilmap_china&#39;</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">#    #outputFolder = r&#39;F:\data\fenkeng_30m\data&#39;</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">#    outputFolder = r&#39;F:\data\poyanghu\fenkeng\data&#39;</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">#    GenerateAttrMap(inputFolder, outputFolder, layerNum)</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">#    print &#39;done!&#39;</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_texture.py</b></li>
-    <li class="footer">Generated on Wed Apr 27 2016 01:49:01 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_param.py</b></li>
+    <li class="footer">Generated on Wed Apr 27 2016 02:07:39 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

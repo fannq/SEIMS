@@ -1,3 +1,5 @@
-<map id="Erosion" name="Erosion">
-<area shape="rect" id="node2" href="$d8/dba/a00681.html" title="All functional modules in SEIMS. " alt="" coords="5,4,88,33"/>
+<map id="Hydrology" name="Hydrology">
+<area shape="rect" id="node1" href="$da/d3a/a00694.html" title="Calculate groundwater using reservoir method. " alt="" coords="281,5,479,35"/>
+<area shape="rect" id="node2" href="$db/d77/a00683.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node3" href="$d3/dd2/a00693.html" title="Channel routing using diffusive wave equation. " alt="" coords="339,59,421,88"/>
 </map>

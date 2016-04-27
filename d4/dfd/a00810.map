@@ -1,4 +1,5 @@
-<map id="src/modules/climate/ITP/Interpolate.h" name="src/modules/climate/ITP/Interpolate.h">
-<area shape="rect" id="node5" href="$de/d3d/a00409.html" title="Parent class for all modules in SEIMS. " alt="" coords="206,101,369,131"/>
-<area shape="rect" id="node6" href="$d1/d98/a00407.html" title="Define ModelException class. " alt="" coords="146,179,296,208"/>
+<map id="src/modules/climate/ICLIM/ClimateParams.h" name="src/modules/climate/ICLIM/ClimateParams.h">
+<area shape="rect" id="node3" href="$d5/d05/a00385_source.html" title="api.h" alt="" coords="74,101,131,131"/>
+<area shape="rect" id="node4" href="$d8/d91/a00410.html" title="Parent class for all modules in SEIMS. " alt="" coords="87,179,251,208"/>
+<area shape="rect" id="node5" href="$dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="110,256,260,285"/>
 </map>
