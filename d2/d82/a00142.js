@@ -1,8 +1,11 @@
 var a00142 =
 [
-    [ "gk_AllocMatrix", "d2/d82/a00142.html#af59ba46496f920cc424b8088f4cd7818", null ],
-    [ "gk_FreeMatrix", "d2/d82/a00142.html#ad4ae7d30c5b5a0128a25d996755f6acb", null ],
-    [ "gk_malloc", "d2/d82/a00142.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d", null ],
-    [ "gk_malloc_cleanup", "d2/d82/a00142.html#a47156a22528b5bc8c7c6e9849af34e62", null ],
-    [ "gk_malloc_init", "d2/d82/a00142.html#a24633cc1c72a7e92836912c2adcf570a", null ]
+    [ "CreateGraph", "d2/d82/a00142.html#a01903fa912de9fc7f01dace993a3fc85", null ],
+    [ "FreeGraph", "d2/d82/a00142.html#a6af2646733e761482dafebbb5e351240", null ],
+    [ "FreeRData", "d2/d82/a00142.html#a12a6bda050dc470113f4d1cd5aa5777d", null ],
+    [ "InitGraph", "d2/d82/a00142.html#af046766ada304a0cf49db44b544810a8", null ],
+    [ "SetupGraph", "d2/d82/a00142.html#a9192cba632de98d1759721a5676eaf05", null ],
+    [ "SetupGraph_label", "d2/d82/a00142.html#a6513355a80c360956e3f38816621ae1e", null ],
+    [ "SetupGraph_tvwgt", "d2/d82/a00142.html#a274db8b39f4bc294fcb5757b01ae31f1", null ],
+    [ "SetupSplitGraph", "d2/d82/a00142.html#ad1dfd83fc2dc5e9f855c2d86b960c809", null ]
 ];

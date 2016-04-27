@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/chwidth.py Source File</title>
+<title>SEIMS-2016: doc/Developers.md Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d4/de8/a00061_source.html','../../');});
+$(document).ready(function(){initNavTree('d4/de8/a00061.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -111,62 +111,553 @@ $(document).ready(function(){initNavTree('d4/de8/a00061_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">chwidth.py</div>  </div>
+<div class="title">doc/Developers.md</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal,osr</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> math, os</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> util</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">def </span><a class="code" href="../../d3/da3/a00627.html">chwidth</a>(accFile, chwidthFile):</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    ds = gdal.Open(accFile)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    band = ds.GetRasterBand(1)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    dataAcc = band.ReadAsArray()</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    xsize = band.XSize</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ysize = band.YSize</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    noDataValue = band.GetNoDataValue()</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span> noDataValue <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        noDataValue = -9999</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    srs = osr.SpatialReference()</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    srs.ImportFromWkt(ds.GetProjection())</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    geotransform = ds.GetGeoTransform()</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    dx = geotransform[1]</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    cellArea = dx*dx</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment"># storm frequency   a      b</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment"># 2                 1      0.56</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment"># 10                1.2    0.56</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment"># 100               1.4    0.56</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    a = 1.2</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    b = 0.56</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    noDataValue = -9999</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    width = zeros((ysize, xsize))</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            if(abs(dataAcc[i][j] - noDataValue) &lt; util.DELTA):</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                width[i][j] = noDataValue</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                width[i][j] =  math.pow(a*(dataAcc[i][j] + 1)*cellArea/1000000, b)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../d2/d6e/a00667.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(chwidthFile, ysize, xsize, width, \</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        geotransform, srs, noDataValue, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> width</div>
-<div class="ttc" id="a00627_html"><div class="ttname"><a href="../../d3/da3/a00627.html">chwidth</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de8/a00061_source.html#l00001">chwidth.py:1</a></div></div>
-<div class="ttc" id="a00667_html_acfba40e23f24bf57f47c23b7e096aa4b"><div class="ttname"><a href="../../d2/d6e/a00667.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a></div><div class="ttdeci">def WriteGTiffFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d07/a00305_source.html#l00259">util.py:259</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Manual <span class="keywordflow">for</span> Developers in Chinese v1.1</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;==========</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;prepared by Liangjun Zhu （zlj@lreis.ac.cn）</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;Latest Updated：Apr.14, 2016 </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;----------</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;[TOC]</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"># 目录</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span>[**前言**](#前言)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;[**Github使用说明**](#github使用说明)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;1. [Windows下安装Git](#windows下安装git)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;2. [从Github中克隆代码库](#从github中克隆代码库)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;3. [代码同步与更新](#代码同步与更新)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;[**SEIMS源码编译**](#seims源码编译)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;1. [源码结构](#源码结构)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;2. [Windows下VS编译](#windows下vs编译)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;3. [Linux下GNU编译](#linux下gnu编译)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;[**运行SEIMS**](#运行seims)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;1. [mongoDB](#mongodb)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;2. [模型配置文件](#模型配置文件)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;3. [运行命令](#运行命令)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;[**SEIMS基本框架**](#seims基本框架)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;1. [模型运行流程](#模型运行流程)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;[**SEIMS模块编写流程**](#seims模块编写流程)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;[**编码规范**](#编码规范)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;1. [doxygen注释规则](#doxygen注释规则)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;[需要用的的软件](http:<span class="comment">//pan.baidu.com/s/1bng29AJ)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"># 前言</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span>-----------</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;SEIMS（Spatially Explicit Integrated Modeling System）模型是由刘军志等人开发的以栅格为基本模拟单元、能体现水流空间运动的全分布式水文模型。SEIMS在借鉴Wetspa、LISEM、CASC2D、DHSVM和流溪河模型等多个模型基础上开发的模块化水文模型，采用C++编写，实现了子流域-基本单元的双层并行，采用的并行策略为共享内存（OpenMP）和消息传递（MPI），并利用NoSql数据库MongoDB进行数据组织管理。模型可在Windows及Linux平台下运行。</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;目前，模型还不完善，主要存在以下主要问题：</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;1. 生态和养分循环还很初步，距实用还相差很远；</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;2. 水文和侵蚀模块虽相对成熟，但尚缺乏进一步的验证工作。</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;因此需要大家群策群力完善模型，主要有以下几个目标：</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;1. 每个模块都具有完善的理论和开发文档，添加符合doxygen规范的代码注释；</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;2. 编码规范（包括模块和变量命名，编程习惯等），空闲了可以多看看Google C++ Code Style（[EN](http:<span class="comment">//google-styleguide.googlecode.com/svn/trunk/cppguide.html)，[CN](http://www.cnblogs.com/ggjucheng/archive/2012/01/02/2310278.html)）；</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;3. 编写模块需要与当前主流的其他模型进行对比验证，多做测试；</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;4. 为用户提供易用的Web界面，用户可选择在服务器端运行模型，也可以选择把模型和数据下载到本机运行。</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"># Github使用说明</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>为了便于模型开发的多人协作，计划采用Github平台进行版本控制。关于Git的详细教程，推荐阅读[廖学峰的网站](http:<span class="comment">//www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)这一节主要介绍我们需要用到的一些命令操作。快速记忆一些[常用的Git命令](http://www.codeceo.com/article/git-command-guide.html)吧！</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;[返回目录](#目录)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;## Windows下安装Git</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;[msysgit](http:<span class="comment">//msysgit.github.io/)是windows版的Git，直接下载安装即可，安装完成后，打开“开始”菜单，找到Git-&gt;Git Bash，出现一个类似命令行的窗口，说明Git安装成功了。</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;安装完成后，在git bash 命令行里输入：</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;~~~</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;$ git config --global user.name <span class="stringliteral">&quot;Your Name&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;$ git config --global user.email <span class="stringliteral">&quot;email@example.com&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;~~~</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;这两行表示，这台机器上的所有Git仓库都使用这个配置。当然，你也可以为不同的仓库配置不同的用户名，详情请参阅相关文档。</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;[返回目录](#目录)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">## 从Github中克隆代码库</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span>配置好本地的Git环境之后，我们需要将代码库从Github上克隆到本地计算机。</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;+ 首先在Github.com上注册一个账号。注册好之后，需要设置SSH key，在`git bash`中输入：</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;~~~</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;ssh-keygen -t rsa -C youremail@example.com</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;~~~</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;一路回车，如果顺利的话，在用户目录里能找到`.ssh`目录，里面有`id_rsa`和`id_rsa.pub`两个文件，这两个就是SSH Key的密钥对，前者是私钥，后者是公钥。</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;+ 然后，登录Github，打开 Account Settings，SSH key页面，点Add SSH Key，Title任意填，在Key文本框里填上`id_rsa.pub`的内容，点击Add key就好啦。</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;+ 打开SEIMS模型的首页https:<span class="comment">//github.com/seims/SEIMS， 点击`Fork`，来创建自己账户下的SEIMS克隆，克隆结束之后，复制克隆库的SSH地址，这样它会自动使用你自己的SSH密钥，而不用每次在`git pull`或者`push`时询问你的用户名和密码。下一步，我们将克隆一份代码库到本地计算机。</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;~~~</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;cd &lt;destination folder&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;git clone git@github.com:&lt;yourname&gt;/SEIMS.git</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;or</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;git clone https:<span class="comment">//github.com/&lt;yourname&gt;/SEIMS.git</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;~~~</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;两种克隆方式推荐使用https，不用每次push时都要输入密码，如果用第一种方式，可以采用如下方式免输密码：</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;~~~</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;open git bash</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;cd</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;touch .git-credentials <span class="comment">//创建.git-credentials文件</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;vim .git-creditials    <span class="comment">//用vim编辑此文件，输入以下内容</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;touch .git-credentials</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;vim .git-credentials</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;https:<span class="comment">//{username}:{password}@github.com</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">//然后输入</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;git config --global credential.helper store</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">//而后查看.gitconfig文件，发现多了一项：</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;[credential]</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    helper = store</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">//重启git bash就会发现，git push时不用再输入密码了</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;~~~</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;+ 切换到克隆目录，在这里可以添加上游远程仓库：</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;~~~</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;git remote add upstream git@github.com:seims/SEIMS.git</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;~~~</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;+ 这样，我们就将SEIMS代码克隆到了本地计算机一份。接下来，我们尝试对本地SEIMS文件做一下修改，然后提交到远程库（你自己的），最后通过`pull request` 提交给SEIMS代码拥有者。</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;为了说明问题，我简单修改了一下README文件，然后 `git status`  查看本地和远程的差别</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;随后</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;~~~</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;Git add README.md</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;Git commit –m <span class="stringliteral">&quot;modification test”</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="stringliteral">Git push –u origin master</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="stringliteral">这样就把本地的本次修改提交到了远程库中。</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="stringliteral">+ 在我的github目录下可以看到刚才提交的修改，这时候，如果想把这个修改，提交到`seims/SEIMS`，需要点击`pull request`按钮,然后点击`Create pull request`， 便把本次修改提交完成了。而SEIMS拥有者就会收到新的`pull request`并处理了。</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="stringliteral">## 代码同步与更新</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="stringliteral">以上我们知道了如何将本地的修改提交到源代码库，接下来，看看如何将源代码库中的更新同步到本地库中。</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="stringliteral">比如我在`seims/SEIMS`下修改了README.md文件，现在同步到本地。</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="stringliteral">+ 查看远程主机地址</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="stringliteral">git remote -v</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="stringliteral">经过以上的设置，正常情况应该看到类似结果,如果没有upstream则需添加上游远程库</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fgitremotev.png)</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="stringliteral">+ 将源代码库更新的内容同步到本地，检查差异，然后再和本机分支合并</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="stringliteral">git fetch upstream &lt;branch&gt;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="stringliteral">git checkout master</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="stringliteral">git merge upstream/master</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="stringliteral">&gt; fetch远程库的时候注意，如果仅用git fetch upstream命令，会把所有远程库分支下载，速度慢，因此推荐使用</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="stringliteral">&gt; git fetch upstream master</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="stringliteral">+ 多数情况下，git可以自动合并，如果出现冲突，则需手动处理后，再`commit`提交，冲突结果类似：</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fconflictwhenmerge.png)</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="stringliteral"># SEIMS源码编译</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="stringliteral">这部分介绍如何在不同平台下编译安装SEIMS。</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="stringliteral">## 源码结构</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fsrcdir.png)</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="stringliteral">根目录如上图所示，其中:</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="stringliteral">.git Github版本管理的一些文件，勿动</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="stringliteral">doc  存放模型开发文档（doxygen自动生成）</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="stringliteral">include和lib为外部依赖库的文件，勿改动</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="stringliteral">model_data为测试数据，使用时应复制到他处</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="stringliteral">src为SEIMS源码</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="stringliteral">preprocess为预处理程序源码</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="stringliteral">postprocess为后处理程序源码</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="stringliteral">.gitignore为github管理时忽略的文件后缀名</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="stringliteral">Changelog.md为版本更新日志</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="stringliteral">CMakeLists.txt为CMake命令文件，跨平台编译源码</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="stringliteral">LICENSE为GNU LICENSE</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="stringliteral">READEME.md为模型介绍</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="stringliteral">`src`内有3个文件夹，`base`为模型基本模块组，`modules`为功能模块组，`main`为主程序入口模块组。</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="stringliteral">`modules`中包含了SEIMS功能模块组：`hydrology`和`Hydrology_longterm`为水文模块组，`erosion`为侵蚀模块组，`nutrient`为养分循环模块组，`growth`为植被生长模块组。</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="stringliteral">每个模块组下又包括不同的算法模块。</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="stringliteral">## Windows下VS编译</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="stringliteral">+ 安装好Microsoft Visual Studio 2010以及[Microsoft HPC Pack 2012 MS-MPI](http://www.microsoft.com/en-us/download/details.aspx?id=36045)（即MPICH2的Microsoft实现版本）、[cmake-3.2.2](http://www.cmake.org/files/v3.2/cmake-3.2.3-win32-x86.exe)</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="stringliteral">+ “开始”-&gt;Microsoft Visual Studio 2010-&gt;Visual Studio Tools-&gt;Visual Studio 命令提示(2010)，以管理员方式运行；</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="stringliteral">+ 在源码外，新建一个文件夹用于存放编译出的VS工程，比如我的是E:\github-zlj\SEIMS_VS  </span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="stringliteral">cd E:\github-zlj\SEIMS_MPI</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="stringliteral">e:</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="stringliteral">~~~  </span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="stringliteral">+ 打开根目录下的CMakeLists.txt，如果想生成`OpenMP`的版本，则把</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="stringliteral">SET(SEIMS_VERSION &quot;</span>MPI<span class="stringliteral">&quot;)</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="stringliteral">注释掉，反之亦然，然后：</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="stringliteral">cmake &lt;source path&gt;</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="stringliteral">我的是cmake E:\github-zlj\SIMS</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="stringliteral">+ cmake会自动生成sln项目文件，随后打开SEIMS.sln。命令行界面如下（左），VS解决方案如下（右）。</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fcmake.png)</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fvsproject.png)</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="stringliteral">+ 按F6生成解决方案，在`Debug`或`Release`下可以看到一系列`lib`、`dll`库以及`seims_omp.exe`或`seims.exe`可执行文件。</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="stringliteral"> </span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="stringliteral">+ 至此，由源码到VS工程的转换已经完成。在此基础上对代码所做的修改都是对&lt;source path&gt;内源文件的修改。</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="stringliteral">## Linux下GNU编译</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="stringliteral">TODO: `CMakelist.txt`还未适配`Linux`</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="stringliteral"># 运行SEIMS</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="stringliteral">SEIMS的运行分为两个版本：`OpenMP`和`MPI`</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="stringliteral">源码库中`model_data`中存放的为示例数据，建议将此文件夹拷到本机的其他位置，再运行模型。</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="stringliteral">## mongoDB</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="stringliteral">运行模型需要两个数据库源：气象数据库和参数数据库。</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="stringliteral">1. 气象数据库：一个存放有降水和气象数据的`mongodb`数据库</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="stringliteral">2. 参数数据库</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="stringliteral">一个以模型名称命名的mongodb数据库，包括下面几个表：</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="stringliteral">+ parameters：包含模型的各个输入参数的信息，可以通过调整Impact参数进行调参</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="stringliteral">+ reaches：河道相关信息</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="stringliteral">+ SiteList：模拟所需的降水和气象站点</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="stringliteral">+ Spatial：模拟所需的栅格数据、插值权重数据等，以`GridFS`方式存储</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="stringliteral">数据库的准备由预处理程序完成。</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="stringliteral">## 模型配置文件</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="stringliteral">在每个模型的文件夹下包含三个主要的文件：</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="stringliteral">+ `config.fig`：包括模型运行所需的模块信息。模型运行时会按照顺序依次加载该文件中指定的各个模块（每行的最后一个以‘|’分隔的字符串），并顺序执行。</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="stringliteral">通用格式为：</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="stringliteral">No. | SettingString | | ModuleName</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="stringliteral">i.e.</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="stringliteral">0 | TimeSeries_P | | TSD_RD</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="stringliteral">if this, the corresponding module name should be TSD_RD_P so that the module name is unique.</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="stringliteral">+ `file.in`：包括模型运行的:</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="stringliteral">  + MODE（`Daily`指定模型做日尺度的模拟；`Storm`指定模型做次降水的模拟）；</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="stringliteral">  + Interval（步长，如果为Daily模拟，步长默认为1天，不可修改；如果为Storm模拟，步长单位为秒，可以分别指定坡面过程和河道过程的模拟步长，如“60, 60”指定次降水模拟的坡面和河道过程步长都是60s）；</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="stringliteral">  + 模拟开始时间（格式：YYYY-MM-DD HH:MM:SS）</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="stringliteral">  + 模拟结束时间</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="stringliteral">+ `file.out`：指定模拟的输出，格式示例如下：</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="stringliteral">  + OUTPUTID|T_PET</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="stringliteral">  + SITECOUNT|1</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="stringliteral">  + SITEID|53399</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="stringliteral">  + STARTTIME|2009-12-30 00:00:00</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="stringliteral">  + ENDTIME|2010-12-31 00:00:00</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="stringliteral">  + FILENAME|T_PET_1.asc</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="stringliteral">可选标签有：</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="stringliteral">OUTPUTID: 输出变量名</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="stringliteral">INTERVAL: INTERVAL is used only for the PET_TS output</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="stringliteral">SITECOUNT: is used only for the time series output for sites</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="stringliteral">SITENAME:</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="stringliteral">SITEID: </span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="stringliteral">REACHNAME: </span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="stringliteral">COUNT: </span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="stringliteral">TYPE: 整合类型-&gt;</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="stringliteral">   enum AggregationType</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="stringliteral">   {</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="stringliteral">      AT_Unknown = 0,  ///&lt; unknown</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="stringliteral">      AT_Sum = 1,      ///&lt; sum</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="stringliteral">      AT_Average = 2,  ///&lt; ave</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="stringliteral">      AT_Minimum = 3,  ///&lt; min</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="stringliteral">      AT_Maximum = 4,  ///&lt; max</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="stringliteral">      AT_SpecificCells = 5 ///&lt; output values of specific cells</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="stringliteral">   };</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="stringliteral">DATA_TYPE: </span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="stringliteral">WEIGHT: </span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="stringliteral">VERTICALINTERPOLATION: </span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="stringliteral">SUBBASINCOUNT:  is used only for the time series output for subbasins</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="stringliteral">SUBBASINID: </span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="stringliteral">RESERVOIRCOUNT: </span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="stringliteral">RESERVOIRID: </span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="stringliteral">STARTTIME: 开始时间</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="stringliteral">ENDTIME: 结束时间</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="stringliteral">FILENAME: 指定输出文件名及扩展名，如变量为Raster类型，则输出（.tif）文件</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="stringliteral"> + 如果输出变量为&quot;</span>QOUTLET<span class="stringliteral">&quot;、&quot;</span>QTotal<span class="stringliteral">&quot;、&quot;</span>SEDOUTLET<span class="stringliteral">&quot;、&quot;</span>DissovePOutlet<span class="stringliteral">&quot;、&quot;</span>AmmoniumOutlet<span class="stringliteral">&quot;、&quot;</span>NitrateOutlet<span class="stringliteral">&quot;，则需要有STARTTIME、ENDTIME、FILENAME</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="stringliteral">## 运行命令</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="stringliteral">+ OpenMP调用格式为：</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="stringliteral">seims_omp &lt;ModelPath&gt; &lt;threadsNum&gt; [&lt;layeringMethod&gt; &lt;IP&gt; &lt;port&gt;]</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="stringliteral">&lt;ModelPath&gt; is the path of the configuration of the Model.</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="stringliteral">&lt;threadsNum&gt; must be greater or equal than 1.</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="stringliteral">&lt;layeringMethod&gt; 0 and 1, which means UP_DOWN and DOWN_UP respectively.</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="stringliteral">&lt;IP&gt; is the address of mongodb database, and &lt;port&gt; is its port number.</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="stringliteral">ModelPath的文件夹名称需与mongodb中数据库名称对应，且文件夹内需包含`config.fig`、`file.in`、`file.out`。其中`config.fig`指定模型的算法选择，`file.in`指定模型模拟尺度和模拟时段，`file.out`指定模型输出。</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="stringliteral">+ MPI调用格式为：</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="stringliteral">mpiexec –n 6 seims &lt;parallel.config file&gt;</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="stringliteral">-n 指定并行计算的核数</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="stringliteral">&lt;parallel.config file&gt; 为配置文件，包含</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="stringliteral">    ModelName，ProjectPath，ModulePath，DBHost，DBPort，TreadNumber，LayeringMethod</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="stringliteral">与OpenMP版本一样，ProjectPath内也需有`config.fig`、`file.in`、`file.out`。</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="stringliteral"># SEIMS基本框架</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="stringliteral">在SEIMS模型中，每个子过程模拟方法对应一个独立的模块，并以动态链接库的形式存在（Windows 系统中的`DLL`文件，Linux系统中的`so`文件）。多个子过程模块构成子过程模块库，在应用时可以从模块库中选择一系列相互配合的子过程模块以动态组合运行的方式完成水文模拟任务。为了保证各个模块具有相同的接口，SEIMS模型中定义了一个模拟功能的父类[`SimulationModule`](../src/base/util/SimulationModule.h)，所有模块中都必须包含一个继承该父类的子类，并实现相应的接口函数（见下表）。</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="stringliteral">接口函数 | 功能</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="stringliteral">-------- | -------</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="stringliteral">MetadataInformation | 获取模块输入输出的元数据</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="stringliteral">SetDate | 设置时间</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="stringliteral">SetValue | 设置数值类型的输入</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="stringliteral">Set1DData | 设置一维数组类型的输入</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="stringliteral">Set2DData | 设置二维数组类型的输入</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="stringliteral">Set3DData | 设置三维数组类型的输入</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="stringliteral">GetValue | 获取数值类型的输出</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="stringliteral">Get1DData | 获取一维数组类型的输出</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="stringliteral">Get2DData | 获取二维数组类型的输出</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="stringliteral">Get3DData | 获取三维数组类型的输出</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="stringliteral">Execute |执行模块功能</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="stringliteral">模块中包含的接口函数可分为三类：</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="stringliteral">+ 元数据获取函数</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="stringliteral">`MetadataInformation`函数负责为主程序提供模块的输入输出等元数据信息。模块的元数据信息采用`XML（eXtensible Markup Language）`文档表达，包括如下几部分：</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="stringliteral">  + 模块的基本信息：包括模块 ID、列表、作者、描述、版本等；</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="stringliteral">  + 来源于水文数据库的静态输入信息：包括各个输入参数的 ID、类型、单 位、描述、来源数据库名称等；</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="stringliteral">  + 来源于其他模型输出结果的动态输入信息：包括各个输入参数的 ID、类 型、单位、描述等；</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="stringliteral">  + 模型的输出信息：包括各个输出参数的 ID、类型、单位、描述等。 </span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="stringliteral">+ 数据设置与获取函数</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="stringliteral">  + 模块接口中的 `SetValue` 和 `SetXDData` 系列函数负责设置模块所需参数，而`GetValue` 和 `GetXDData` 系列函数负责获取模型的计算结果。模块中的变量类型包括时间、单个值、一维数组、二维数组和三维数组。为提高数据传递效率，数组类型的变量通过指针的方式进行数据传递，即不同模块中的同一个变量的指针指向内存中的同一块区域。</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="stringliteral">+ 模拟功能的执行函数</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="stringliteral">  + `Execution`函数执行一个时间步长的模拟功能，而其时间循环由主程序控制。</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="stringliteral">## 模型运行流程</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="stringliteral">在子过程模块库的基础上，SEIMS模型的主程序（main模块）负责对一系列模块进行动态组合构建水文模拟工作流完成模拟任务，其总体运行流程如下：</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="stringliteral">+ 模型初始化</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="stringliteral">  + 首先读取配置文件中参与模拟的模块列表、模拟时段及步长等信息；</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="stringliteral">  + 根据配置信息动态加载所需模块并调用 `MetadataInformation`函数获取XML格式的元数据；</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="stringliteral">  + 解析元数据信息构建模块之间的输入输出关系，对模块进行动态组合构建水文模拟工作流；</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="stringliteral">  + 从数据库读取模拟所需数据，并调用各模块的相应接口函数为模块的输入变量赋值。</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="stringliteral">+ 水文模拟工作流的运行</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="stringliteral">水文模拟工作流的运行包括一个时间循环，在每个时间步长按照初始化阶段构建的水文模拟工作流一次运行各模块即可。运行时需要在每个时间步长开始时更新降水、气温等驱动因子的输入。如果参与计算的模块时间步长不一致，需要在运行时调整各模块的运行次数。对于存在数据依赖关系且时间步长不一致的模块，需要对其输入输出进行调整。</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="stringliteral">+ 输出模拟结果,输出配置文件中指定的模拟结果。</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="stringliteral"># SEIMS模块编写流程</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="stringliteral">模块编写的一般步骤：</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="stringliteral">+ 阅读相关文献和模型文档，编写模型文档的理论部分；</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="stringliteral">+ 设计模块名，基本命名规则为`模块功能_算法`，缩写规范自行查找，比如`YLD`可以是作物产量`Yield`的缩写，没有指定具体算法的，命名只有`模块功能`即可</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="stringliteral">+ 根据模型的相关理论，参考已有成熟模型的代码，列出模型的输入（包括以其他模块的输出作为输入）、输出，编写元数据函数(`MetadataInformation`)代码</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="stringliteral">+ 在头文件中定义所需变量，并做初始化、赋值和有效性检查的工作</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="stringliteral">+ 初始化：构造函数末尾, `initalOutputs`(为本模块的输出变量开辟内存空间，并注意在析构函数中删除所开辟的空间)</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="stringliteral">+ 赋值：`SetValue`, `Set1DData`, `Set2DData`</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="stringliteral">+ 有效性检查：`CheckInputData`</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="stringliteral">+ 根据公式，编写`Execute`函数的代码，实现模拟功能</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="stringliteral">+ 编写输出代码，`Get1DData`，`Get2DData`等</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="stringliteral"># 编码规范</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="stringliteral">为了使模型代码具有更好的可读性、传承性，我们使用[doxygen](http://www.doxygen.nl/)规则对代码进行注释。</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="stringliteral">下面介绍如何在VS2010中借助VAssistX进行快速添加注释。</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="stringliteral">## doxygen注释规则</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="stringliteral">装VAssistX之后，便可以在菜单栏里看到VAssistX选项了。</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="stringliteral">依次打开VAssistX -&gt; Visual Assist X Options -&gt; Edit VA Snippets，如图：</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fvassistx.png)</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="stringliteral">现在我们需要添加一些符合doxygen规则的C++注释模板，为了方便起见，快捷键Shortcut统一设置为`/*!`，这样，当需要输入注释模板时，输入`/*!`后便会出现只能提示，如下图，选择合适的便可快速插入。</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="stringliteral">![](http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fdoxygentemplate.png)</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="stringliteral">+ 最基本的注释，对任何对象（`file`，`function`，`class`…）均适用，使用格式如下</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="stringliteral">```</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="stringliteral">```</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="stringliteral">在VA中设置如下（`Title`，`Description`可以按照自己想法设置，下面均不再重复）：</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="stringliteral">```</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="stringliteral">Title: generalCommentBlock</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="stringliteral">Shortcut: /*!</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="stringliteral">Descrition: General Doxygen Commen Block</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="stringliteral">Code:</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="stringliteral">```</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="stringliteral">+ doxygen有三种机制用于将文档分组。`module`,`member groups`, `subpaging`. 我们将采用`module`方式，首先需要用`defgroup`标签定义一个`module`，注意**只能定义一次**，然后在添加其他对象（类、函数、变量、枚举、宏定义、`typedef`等）注释的时候用`ingroup`标签将其纳入`module`：</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="stringliteral">在VA中设置</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="stringliteral">+ 对于一些变量或函数的定义，希望在一行内对其注释，使用格式如下：</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="stringliteral">void function1();    //!&lt; Correct</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="stringliteral">void function2(int i);    //!&lt; WRONG! Comment on parameter i, but function not documented!</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="stringliteral"> </span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="stringliteral">void function3(int i);    //!&lt; Some int. Correct - both function and parameter documented</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="stringliteral">上面的例子说明，对于含有参数的函数定义，不能用`in-line comment`的方式。VA中的设置如下：</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="stringliteral">+ 在*.h, *.cpp文件头部的注释,使用格式：</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="stringliteral">在VA中设置：</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="stringliteral">+ 类定义的注释</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="stringliteral">VA中的设置：</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="stringliteral">+ 函数注释块</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="stringliteral">VA中设置：</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="stringliteral">+ 数学公式的输入, 采用[MATHJAX](http://www.mathjax.org/)规则</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="stringliteral">\f$, \f$ … though the same, have to come in pair; inserts an in-text (LaTeX) formula; e.g. \f$\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\f$</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="stringliteral">\f[, \f] … inserts a long (LaTeX) formula that is displayed centered on a separate line</span></div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="stringliteral">+ 其他一些有用的标签</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="stringliteral">\code</span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;<span class="stringliteral">\attention … paragraph where a message that needs attention may be entered</span></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="stringliteral">\author … paragraph where one or more author names may be entered</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="stringliteral">\brief … paragraph that serves as a brief description</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;<span class="stringliteral">\bug … paragraph where one or more bugs may be reported</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="stringliteral">\date … paragraph where one or more dates may be entered</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="stringliteral">\deprecated … paragraph indicating that this documentation block belongs to a deprecated entity</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="stringliteral">\exception &lt;exception-object&gt; or \throw &lt;exception-object&gt; … exception description for an exception object with name &lt;exception-object&gt;, followed by a description of the exception</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="stringliteral">\invariant … paragraph where the invariant of an entity can be described</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="stringliteral">\note … paragraph where a note can be entered</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="stringliteral">\par [(paragraph title)] … if a paragraph title is given this command starts a paragraph with a user defined heading</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="stringliteral">\param &lt;parameter-name&gt; … parameter description for a function parameter with name &lt;parameter-name&gt;; multiple adjacent \param commands will be joined into a single paragraph; direction of the attribute may be specified:</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="stringliteral">e.g.</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="stringliteral">  \param[in] param1 Description</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;<span class="stringliteral">  \param[out] param1 Description</span></div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;<span class="stringliteral">  \param[in,out] param1 Description</span></div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="stringliteral">\remarks … paragraph where one or more remarks may be entered</span></div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="stringliteral">\return … return value description for a function</span></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="stringliteral">\retval &lt;return value&gt; … return value description for a function with name &lt;return value&gt;</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="stringliteral">\sa or \see … paragraph where one or more cross-references to classes, functions, methods, variables, files or URL may be specified; two names joined by either :: or # are understood as referring to a class and one of its members; one of several overloaded methods or constructors may be selected by including a parenthesized list of argument types after the method name</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="stringliteral">\since … used to specify since when (version or time) an entity is available</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="stringliteral">\test … paragraph where a test case can be described</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="stringliteral">\todo … paragraph where a TODO item is described</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="stringliteral">\version … paragraph where one or more version strings may be entered</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="stringliteral">\warning … paragraph where one or more warning messages may be entered</span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="stringliteral">~~~</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="stringliteral">\endcode</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="stringliteral">[返回目录](#目录)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>chwidth.py</b></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:43 for SEIMS-2016 by
+    <li class="navelem"><b>Developers.md</b></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:00 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

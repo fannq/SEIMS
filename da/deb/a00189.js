@@ -1,9 +1,10 @@
 var a00189 =
 [
-    [ "ComputeSubDomainGraph", "da/deb/a00189.html#a78c50bcdffefbd90914a77c4add573cc", null ],
-    [ "EliminateSubDomainEdges", "da/deb/a00189.html#a6dab60a85abb88ada807831e84cb84fc", null ],
-    [ "MoveGroupMinConnForCut", "da/deb/a00189.html#a39d997df18cf07ea8609a66db133a8b6", null ],
-    [ "MoveGroupMinConnForVol", "da/deb/a00189.html#acab0293e31c438218cd4b37b608466c6", null ],
-    [ "PrintSubDomainGraph", "da/deb/a00189.html#a9723ce68d6093abc3aca1086e672cde9", null ],
-    [ "UpdateEdgeSubDomainGraph", "da/deb/a00189.html#a004451dc6b5a9ebe36a063f7bcd6495a", null ]
+    [ "AllocateKWayPartitionMemory", "da/deb/a00189.html#a22a23a687ef7ed0d4f66ab58e3a81d12", null ],
+    [ "ComputeKWayBoundary", "da/deb/a00189.html#aa23b4d433fc175282f237653d3edb8a5", null ],
+    [ "ComputeKWayPartitionParams", "da/deb/a00189.html#afd723ab2f44ffaa25d1d9f1909e06dfd", null ],
+    [ "ComputeKWayVolGains", "da/deb/a00189.html#acd248e19a1ba82c235d52479e231e2f7", null ],
+    [ "IsBalanced", "da/deb/a00189.html#ae2f5446999d83461cf5763dc4946182a", null ],
+    [ "ProjectKWayPartition", "da/deb/a00189.html#a974cb62c010e195c90f8fb900359957c", null ],
+    [ "RefineKWay", "da/deb/a00189.html#adeb3fad496482fea745a00c7b39ca7cf", null ]
 ];

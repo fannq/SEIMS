@@ -1,6 +1,9 @@
 var a00054 =
 [
-    [ "gv", "d1/dea/a00054.html#a29f3fc7f5d884e78e1dfff0f9cc438d0", null ],
-    [ "ned", "d1/dea/a00054.html#ae32050bde46f5545e1c306853afd8d97", null ],
-    [ "pid", "d1/dea/a00054.html#a93adf79b4e57cd0477e9afc9b25da653", null ]
+    [ "slTable", "d1/dea/a00054.html#ac847356c51cf0f2de2ad033525bbf23e", null ],
+    [ "~slTable", "d1/dea/a00054.html#a6e89beb6ee7638c477ee8dc96f85dd66", null ],
+    [ "FieldValue", "d1/dea/a00054.html#abb56a581d1fd10567ad208347ec578a7", null ],
+    [ "nCols", "d1/dea/a00054.html#a4e2965e5fd32bef8dd66b8e46cd00a9f", null ],
+    [ "nRows", "d1/dea/a00054.html#adea6ff1f79a5048f86d45a1a77ec9ae2", null ],
+    [ "pData", "d1/dea/a00054.html#adfbf7d70ba482dcc689ef8eb248e27b0", null ]
 ];

@@ -1,3 +1,9 @@
-<map id="GWATER_RESERVOIR" name="GWATER_RESERVOIR">
-<area shape="rect" id="node2" href="$dc/de4/a00677.html" title="Storm hydrology related modules. " alt="" coords="6,4,149,33"/>
+<map id="Hydrology_longterm" name="Hydrology_longterm">
+<area shape="rect" id="node1" href="$d5/d5b/a00695.html" title="Calculate potential evapotranspiration using Hargreaves method. " alt="" coords="392,5,467,35"/>
+<area shape="rect" id="node2" href="$d8/dba/a00681.html" title="All functional modules in SEIMS. " alt="" coords="5,139,88,168"/>
+<area shape="rect" id="node3" href="$d3/dd2/a00693.html" title="DEP_LINSLEY" alt="" coords="363,59,495,88"/>
+<area shape="rect" id="node5" href="$da/d3a/a00694.html" title="MUSKINGUM_CH" alt="" coords="352,112,507,141"/>
+<area shape="rect" id="node6" href="$df/dbb/a00698.html" title="SNO_DD" alt="" coords="384,165,475,195"/>
+<area shape="rect" id="node7" href="$df/d7d/a00696.html" title="Calculate potential evapotranspiration using Penman&#45;Monteith method. " alt="" coords="386,219,473,248"/>
+<area shape="rect" id="node8" href="$d2/d74/a00697.html" title="Calculate potential evapotranspiration using PriestleyTaylor method. " alt="" coords="387,272,471,301"/>
 </map>

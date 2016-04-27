@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/nutrient/AtmDep/AtmosphericDeposition.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/SUR_GA/SUR_GA.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,40 +111,57 @@ $(document).ready(function(){initNavTree('d5/d0a/a00602.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AtmosphericDeposition.h File Reference</div>  </div>
+<div class="title">SUR_GA.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia.  
+<p>Green-Ampt Method to calculate infiltration and excess precipitation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;ctime&gt;</code><br/>
-<code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/da0/a00403_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;api.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d3d/a00409_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AtmosphericDeposition.h:</div>
+Include dependency graph for SUR_GA.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d90/a00826.png" border="0" usemap="#src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8h" alt=""/></div>
-<map name="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8h" id="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8h">
-<area shape="rect" id="node6" href="../../d0/da0/a00403.html" title="Parent class for all modules in SEIMS. " alt="" coords="274,101,438,131"/><area shape="rect" id="node7" href="../../d7/d00/a00401.html" title="Define ModelException class. " alt="" coords="214,179,364,208"/></map>
+<div class="center"><img src="../../dc/d6e/a00833.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_s_u_r___g_a_2_s_u_r___g_a_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_s_u_r___g_a_2_s_u_r___g_a_8h" id="src_2modules_2hydrology__longterm_2_s_u_r___g_a_2_s_u_r___g_a_8h">
+<area shape="rect" id="node4" href="../../d2/d56/a00384_source.html" title="api.h" alt="" coords="141,101,197,131"/><area shape="rect" id="node5" href="../../de/d3d/a00409.html" title="Parent class for all modules in SEIMS. " alt="" coords="101,179,264,208"/><area shape="rect" id="node6" href="../../d1/d98/a00407.html" title="Define ModelException class. " alt="" coords="107,256,257,285"/></map>
 </div>
 </div>
 <p><a href="../../d5/d0a/a00602_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia. </p>
-<dl class="section author"><dt>Author</dt><dd>Lin Wang  by Liangjun Zhu </dd></dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<dl class="section date"><dt>Date</dt><dd>July 2015 </dd></dl>
+<div class="textblock"><p>Green-Ampt Method to calculate infiltration and excess precipitation. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Wu Hui </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>30-December-2010</dd></dl>
+<p>Revision: Wu Hui Date: 2011-2-16</p>
+<ol type="1">
+<li>Because w1 and w2 in equation 2:1.1.6 is fixed, add two variable to store these two coeffiences to avoid repeating calculation.</li>
+<li>When w1 and w2 is calculated using equation 2:1.1.7 and 2:1.1.8, FC and SAT should be FC*rootdepth and SAT*rootdepth rather than (FC-WP)*rootdepth and (SAT-WP)*rootdepth. And the unit conversion of rootdepth would be from m to mm.</li>
+<li>Overload the funtion Calculate_CN to calculate the CN of one cell.</li>
+<li>Delete some parameters and input variables. They are Depre_in,Moist_in and Depression. D_SOMO from soil water balance module and D_DPST from depression module is enough. The initalization of soil moisture and depression storage is the task of soil water balance module and depression module.</li>
+<li>Modify the name of input and output variables to make it consistent with other modules.</li>
+</ol>
+<p>Revision: Zhiqiang Yu Date: 2011-2-16 Description</p>
+<ol type="1">
+<li>The wetting front matric potential is a constant for a specific cell. It just needs to be calculated once at the beginning. So, Add a local variable m_wfmp to store its value and a function initialWFMP to calculate its value. Wu Hui, please note that when calculating WFMP using equation 2:1.2.5 in SWAT, the unit of clay and sand is percent. You do not need to divid it by 100. See soil_phys.f in SWAT source code for detail reference.</li>
+<li>The unit of time step passed from main grogram is hour rather than minute. So, it need to be converted to minutes in function SetValue.</li>
+<li>Rename some names of keys in function Set1DData.</li>
+<li>Delete parameter INFRate_In and set the initial value of infiltration rate to 0.</li>
+<li>Add API function GetValue.</li>
+<li>Delete three local variables: m_julianDay, m_Depre_in, m_Depression.</li>
+<li>Correct the logic of function Get1DData. </li>
+</ol>
 
-<p>Definition in file <a class="el" href="../../d5/d0a/a00602_source.html">AtmosphericDeposition.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d5/d0a/a00602_source.html">SUR_GA.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_c288e5e1fdc5ccdb46df84d6df312594.html">AtmDep</a></li><li class="navelem"><a class="el" href="../../d5/d0a/a00602.html">AtmosphericDeposition.h</a></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:47 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_d33bca2dbd02eda3883016e73bb03929.html">SUR_GA</a></li><li class="navelem"><a class="el" href="../../d5/d0a/a00602.html">SUR_GA.h</a></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:02 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

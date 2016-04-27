@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/bucketsort.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/tokenizer.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,62 +111,82 @@ $(document).ready(function(){initNavTree('d9/d38/a00166_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">bucketsort.c</div>  </div>
+<div class="title">tokenizer.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * bucketsort.c</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains code that implement a variety of counting sorting</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * algorithms</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * Started 7/25/97</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * George</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<a href="../../d9/d38/a00166.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* This function uses simple counting sort to return a permutation array</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* corresponding to the sorted order. The keys are arsumed to start from</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* 0 and they are positive.  This sorting is used during matching.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> BucketSortKeysInc(<a class="code" href="../../dd/da2/a00019.html">ctrl_t</a> *ctrl, idx_t n, idx_t max, idx_t *keys, </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;         idx_t *tperm, idx_t *perm)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  idx_t i, ii;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  idx_t *counts;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  WCOREPUSH;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/************************************************************************</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* This function tokenizes a string based on the user-supplied delimiters</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* list. The resulting tokens are returned into an array of strings.</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">*************************************************************************/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> gk_strtokenize(<span class="keywordtype">char</span> *str, <span class="keywordtype">char</span> *delim, gk_Tokens_t *tokens)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">int</span> i, ntoks, slen;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  tokens-&gt;strbuf = <a class="code" href="../../d5/d5b/a00135.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(str);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  slen  = strlen(str);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  str   = tokens-&gt;strbuf;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  counts = iset(max+2, 0, <a class="code" href="../../d3/de5/a00209.html#a24ba749ade92aef079e88d233317c068">iwspacemalloc</a>(ctrl, max+2));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">for</span> (i=0; i&lt;n; i++)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    counts[keys[i]]++;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  MAKECSR(i, max+1, counts);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">/* Scan once to determine the number of tokens */</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordflow">for</span> (ntoks=0, i=0; i&lt;slen;) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">/* Consume all the consecutive characters from the delimiters list */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">while</span> (i&lt;slen &amp;&amp; strchr(delim, str[i])) </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      i++;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordflow">for</span> (ii=0; ii&lt;n; ii++) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    i = tperm[ii];</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    perm[counts[keys[i]]++] = i;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (i == slen)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ntoks++;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  WCOREPOP;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="ttc" id="a00209_html_a24ba749ade92aef079e88d233317c068"><div class="ttname"><a href="../../d3/de5/a00209.html#a24ba749ade92aef079e88d233317c068">iwspacemalloc</a></div><div class="ttdeci">idx_t * iwspacemalloc(ctrl_t *ctrl, idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/de5/a00209_source.html#l00136">wspace.c:136</a></div></div>
-<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">ctrl_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00139">struct.h:139</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">/* Consume all the consecutive characters from the token */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">while</span> (i&lt;slen &amp;&amp; !strchr(delim, str[i])) </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      i++;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  tokens-&gt;ntoks = ntoks;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  tokens-&gt;list  = (<span class="keywordtype">char</span> **)<a class="code" href="../../d5/d5b/a00135.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(ntoks*<span class="keyword">sizeof</span>(<span class="keywordtype">char</span> *), <span class="stringliteral">&quot;strtokenize: tokens-&gt;list&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">/* Scan a second time to mark and link the tokens */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">for</span> (ntoks=0, i=0; i&lt;slen;) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">/* Consume all the consecutive characters from the delimiters list */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">while</span> (i&lt;slen &amp;&amp; strchr(delim, str[i])) </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      str[i++] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (i == slen)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    tokens-&gt;list[ntoks++] = str+i;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">/* Consume all the consecutive characters from the token */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">while</span> (i&lt;slen &amp;&amp; !strchr(delim, str[i])) </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      i++;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/************************************************************************</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">* This function frees the memory associated with a gk_Tokens_t</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">*************************************************************************/</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> gk_freetokenslist(gk_Tokens_t *tokens)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  gk_free((<span class="keywordtype">void</span> *)&amp;tokens-&gt;list, &amp;tokens-&gt;strbuf, LTERM);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="ttc" id="a00135_html_aba6f76f5c67b9b7e9c2e45988d3d3e9d"><div class="ttname"><a href="../../d5/d5b/a00135.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a></div><div class="ttdeci">void * gk_malloc(size_t nbytes, char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00140">memory.c:140</a></div></div>
+<div class="ttc" id="a00135_html_af62038e97ca55f14ec2557a01bd85ca2"><div class="ttname"><a href="../../d5/d5b/a00135.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a></div><div class="ttdeci">char * gk_strdup(char *orgstr)</div><div class="ttdoc">Duplicates a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00372">string.c:372</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><b>bucketsort.c</b></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:44 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d9/d38/a00166.html">tokenizer.c</a></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:00 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,14 +1,8 @@
 var a00050 =
 [
-    [ "StringList", "d5/de0/a00050.html#ab92785f26e12fce6ecc9797c6f4e2090", null ],
-    [ "~StringList", "d5/de0/a00050.html#a1c7bf7a04fa791e1b5504fb96355efa9", null ],
-    [ "Add", "d5/de0/a00050.html#a39d7276a511637ca2bbf01b9375f2a5e", null ],
-    [ "Append", "d5/de0/a00050.html#a335f0ecc2c08af9a96a5b412eeb14090", null ],
-    [ "At", "d5/de0/a00050.html#a82d4957073abf405e92934c69a4adf6c", null ],
-    [ "Clear", "d5/de0/a00050.html#a0129bfe44ed9c9a5839c5c8688a4bdc6", null ],
-    [ "Contains", "d5/de0/a00050.html#a69e219abaa4afe8023ae9e0d00b8abc3", null ],
-    [ "Count", "d5/de0/a00050.html#a897d79a72fab72faec233a10667c7c5d", null ],
-    [ "Insert", "d5/de0/a00050.html#aea2bfd74ecef6c8698d5094cdb183a64", null ],
-    [ "operator=", "d5/de0/a00050.html#a1d1858fa95ef9d5b991e59b36bbd5426", null ],
-    [ "Resize", "d5/de0/a00050.html#a91e4c52c28c9bf1126e9932f3ceb42e7", null ]
+    [ "RegularMeasurement", "d5/de0/a00050.html#ac39dc03e509bcf3ba91876a1dc2a56a0", null ],
+    [ "~RegularMeasurement", "d5/de0/a00050.html#a1f44d19ffde71e64385f25b24732ff83", null ],
+    [ "GetSiteDataByTime", "d5/de0/a00050.html#a6528f99c36c06961b7eeafbccc2a5f52", null ],
+    [ "m_interval", "d5/de0/a00050.html#a6fffb32a797276d7cc6b2bd8b2f369c8", null ],
+    [ "m_siteData", "d5/de0/a00050.html#a9e9eee588a575d7a89a66b9728b9f81c", null ]
 ];

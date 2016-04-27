@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/ModelException.cpp File Reference</title>
+<title>SEIMS-2016: src/base/module_setting/SettingsInput.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,37 +110,47 @@ $(document).ready(function(){initNavTree('d9/d95/a00400.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">ModelException.cpp File Reference</div>  </div>
+<div class="title">SettingsInput.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implement of <a class="el" href="../../db/df3/a00034.html" title="Print the exception message. ">ModelException</a> class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d00/a00401_source.html">ModelException.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd1/a00398_source.html">Settings.h</a>&quot;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/dcb/a00375_source.html">InputStation.h</a>&quot;</code><br/>
+<code>#include &quot;Scenario.h&quot;</code><br/>
+<code>#include &quot;mongo.h&quot;</code><br/>
+<code>#include &lt;set&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ModelException.cpp:</div>
+Include dependency graph for SettingsInput.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d7d/a00789.png" border="0" usemap="#src_2base_2util_2_model_exception_8cpp" alt=""/></div>
-<map name="src_2base_2util_2_model_exception_8cpp" id="src_2base_2util_2_model_exception_8cpp">
-<area shape="rect" id="node2" href="../../d7/d00/a00401.html" title="Define ModelException class. " alt="" coords="58,83,208,112"/></map>
+<div class="center"><img src="../../d4/d45/a00791.png" border="0" usemap="#src_2base_2module__setting_2_settings_input_8h" alt=""/></div>
+<map name="src_2base_2module__setting_2_settings_input_8h" id="src_2base_2module__setting_2_settings_input_8h">
+<area shape="rect" id="node2" href="../../d9/dd1/a00398.html" title="Settings class. " alt="" coords="492,488,585,517"/><area shape="rect" id="node13" href="../../dd/dcb/a00375.html" title="InputStation.h" alt="" coords="241,488,361,517"/><area shape="rect" id="node17" href="../../d0/d48/a00351_source.html" title="Scenario.h" alt="" coords="1304,101,1403,131"/><area shape="rect" id="node9" href="../../d4/dbc/a00414.html" title="definition of utils class " alt="" coords="880,565,944,595"/><area shape="rect" id="node16" href="../../d4/d13/a00377.html" title="Measurement.h" alt="" coords="94,565,225,595"/><area shape="rect" id="node18" href="../../dc/de3/a00373.html" title="Database manager for Sqlite. " alt="" coords="1495,333,1616,363"/><area shape="rect" id="node20" href="../../df/d91/a00335_source.html" title="BMPText.h" alt="" coords="1069,565,1171,595"/><area shape="rect" id="node21" href="../../de/de9/a00322_source.html" title="BMPBase.h" alt="" coords="1157,488,1264,517"/><area shape="rect" id="node27" href="../../d4/d8f/a00324_source.html" title="BMPFactory.h" alt="" coords="1231,256,1353,285"/><area shape="rect" id="node28" href="../../dd/dbb/a00330_source.html" title="BMPReachFlowDiversion.h" alt="" coords="869,333,1088,363"/><area shape="rect" id="node30" href="../../dc/d50/a00332_source.html" title="BMPReachPointSource.h" alt="" coords="1164,333,1369,363"/><area shape="rect" id="node31" href="../../da/d75/a00334_source.html" title="BMPReachReservoir.h" alt="" coords="1641,333,1828,363"/><area shape="rect" id="node35" href="../../d4/db5/a00328_source.html" title="BMPReachFactory.h" alt="" coords="1479,179,1649,208"/><area shape="rect" id="node37" href="../../d3/d93/a00341_source.html" title="ManagementOperation.h" alt="" coords="2347,256,2545,285"/><area shape="rect" id="node39" href="../../d1/dc6/a00347_source.html" title="ManagementOperationPlant.h" alt="" coords="2007,179,2240,208"/><area shape="rect" id="node41" href="../../d9/d48/a00345_source.html" title="ManagementOperationHarvest.h" alt="" coords="2536,179,2789,208"/><area shape="rect" id="node42" href="../../d0/dc5/a00343_source.html" title="ManagementOperationFertilizer.h" alt="" coords="1723,179,1983,208"/><area shape="rect" id="node44" href="../../d7/dfc/a00349_source.html" title="ManagementOperationTillage.h" alt="" coords="2265,179,2511,208"/><area shape="rect" id="node23" href="../../d1/d98/a00407.html" title="Define ModelException class. " alt="" coords="1479,565,1629,595"/><area shape="rect" id="node29" href="../../d8/d23/a00326_source.html" title="BMPReach.h" alt="" coords="1208,411,1324,440"/><area shape="rect" id="node32" href="../../d4/def/a00359.html" title="clsInterpolationWeighData.h" alt="" coords="1705,488,1927,517"/><area shape="rect" id="node34" href="../../dd/db5/a00365.html" title="clsSimpleTxtData.h" alt="" coords="2002,488,2163,517"/><area shape="rect" id="node38" href="../../d3/db8/a00316_source.html" title="ArealParameter.h" alt="" coords="2107,411,2253,440"/><area shape="rect" id="node40" href="../../d4/dce/a00337_source.html" title="CropParameter.h" alt="" coords="1996,256,2140,285"/><area shape="rect" id="node43" href="../../d0/d01/a00339_source.html" title="FertilizerParameter.h" alt="" coords="1801,256,1972,285"/><area shape="rect" id="node45" href="../../db/ddc/a00353_source.html" title="TillageParameter.h" alt="" coords="2165,256,2323,285"/></map>
 </div>
 </div>
 <p><a href="../../d9/d95/a00400_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html">SettingsInput</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">inherited from Settings class  <a href="../../d1/d84/a00052.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implement of <a class="el" href="../../db/df3/a00034.html" title="Print the exception message. ">ModelException</a> class. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>June 2010 </dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>[your name] </dd></dl>
+<dl class="section version"><dt>Version</dt><dd></dd></dl>
+<dl class="section date"><dt>Date</dt><dd>June 2015 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d9/d95/a00400_source.html">ModelException.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/d95/a00400_source.html">SettingsInput.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">ModelException.cpp</a></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:47 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">SettingsInput.h</a></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:02 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,3 +1,5 @@
-<map id="CH_DW" name="CH_DW">
-<area shape="rect" id="node2" href="$dc/de4/a00677.html" title="Storm hydrology related modules. " alt="" coords="6,4,149,33"/>
+<map id="Hydrology" name="Hydrology">
+<area shape="rect" id="node1" href="$d0/db6/a00692.html" title="Calculate groundwater using reservoir method. " alt="" coords="281,5,479,35"/>
+<area shape="rect" id="node2" href="$d8/dba/a00681.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node3" href="$db/dde/a00691.html" title="Channel routing using diffusive wave equation. " alt="" coords="339,59,421,88"/>
 </map>

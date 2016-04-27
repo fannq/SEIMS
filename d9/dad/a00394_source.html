@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SettingsInput.h Source File</title>
+<title>SEIMS-2016: src/base/module_setting/SEIMS_ModuleForModule.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,83 +111,82 @@ $(document).ready(function(){initNavTree('d9/dad/a00394_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SettingsInput.h</div>  </div>
+<div class="title">SEIMS_ModuleForModule.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/dad/a00394.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d27/a00392.html">Settings.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/dee/a00369.html">InputStation.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;Scenario.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;mongo.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>MainBMP;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d2d/a00047.html">SettingsInput</a> :</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span> Settings</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d6/d2d/a00047.html">SettingsInput</a>(<span class="keywordtype">string</span> fileName, mongo* conn, <span class="keywordtype">string</span> dbName, <span class="keywordtype">int</span> nSubbasin = 1, <span class="keywordtype">int</span> scenarioID = -1);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ~<a class="code" href="../../d6/d2d/a00047.html">SettingsInput</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> Dump(<span class="keywordtype">string</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    time_t getStartTime(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    time_t getEndTime(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    time_t getDtHillslope(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    time_t getDtChannel(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    time_t getDtDaily() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//InputReach* ReachData();//This part is replaced by new scenario class. Zhiqiang,2011-5-31</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    Scenario* BMPScenario();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    InputStation* StationData();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//basic information</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a90cd7c4a484ed1294a80ec6e515c5458">   51</a></span>&#160;    time_t          <a class="code" href="../../d6/d2d/a00047.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a0b2dd70eee0ff83818e5e15717b914c3">   52</a></span>&#160;    time_t          <a class="code" href="../../d6/d2d/a00047.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>;      </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a4b26228ba3e9f0109951fcbbf8d3b74a">   53</a></span>&#160;    time_t          <a class="code" href="../../d6/d2d/a00047.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a>;     </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a68396d28a25a25af0a70054ab2d3019c">   54</a></span>&#160;    time_t          <a class="code" href="../../d6/d2d/a00047.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a>;     </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/de6/a00404.html">MetadataInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;Scenario.h&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da1/a00396.html">SEIMS_ModuleSetting.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using namespace </span>MainBMP;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//typedef void __cdecl (*pICStatusMessage)(const char* );</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">typedef</span> void (*pICStatusMessage)(<span class="keyword">const</span> <span class="keywordtype">char</span>* );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span>Module</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html">   50</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d2/d79/a00051.html">SEIMSModule</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d2/d79/a00051.html">SEIMSModule</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ~<a class="code" href="../../d2/d79/a00051.html">SEIMSModule</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//data of stations and reaches</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//InputReach*       m_inputReach; //This part is replaced by new scenario class. Zhiqiang,2011-5-31</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    InputStation*   m_inputStation;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    Scenario*       m_scenario;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">//the path of database</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">string</span> m_dbName;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">string</span> m_dbHydro;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    mongo* m_conn;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    map&lt;string, vector&lt;int&gt; &gt; m_siteListMap;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> m_subbasinID;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a7f93c75b7d1750b7f5e84e2bb89f3192">   68</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d6/d2d/a00047.html#a7f93c75b7d1750b7f5e84e2bb89f3192">m_mode</a>; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> LoadSettingsFromFile(<span class="keywordtype">string</span>,<span class="keywordtype">string</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> readDate(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> readTimeSeriesData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> buildQuery(<span class="keyword">const</span> set&lt;int&gt;&amp; idSet, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; type, bson* query);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> buildTimeQuery(time_t startTime, time_t endTime, bson* query);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> ReadSiteList();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">SettingsInput</a></div><div class="ttdoc">inherited from Settings class </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00031">SettingsInput.h:31</a></div></div>
-<div class="ttc" id="a00047_html_a7f93c75b7d1750b7f5e84e2bb89f3192"><div class="ttname"><a href="../../d6/d2d/a00047.html#a7f93c75b7d1750b7f5e84e2bb89f3192">SettingsInput::m_mode</a></div><div class="ttdeci">string m_mode</div><div class="ttdoc">simulation mode, can be DAILY or HOURLY </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00068">SettingsInput.h:68</a></div></div>
-<div class="ttc" id="a00047_html_a90cd7c4a484ed1294a80ec6e515c5458"><div class="ttname"><a href="../../d6/d2d/a00047.html#a90cd7c4a484ed1294a80ec6e515c5458">SettingsInput::m_startDate</a></div><div class="ttdeci">time_t m_startDate</div><div class="ttdoc">start date </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00051">SettingsInput.h:51</a></div></div>
-<div class="ttc" id="a00047_html_a0b2dd70eee0ff83818e5e15717b914c3"><div class="ttname"><a href="../../d6/d2d/a00047.html#a0b2dd70eee0ff83818e5e15717b914c3">SettingsInput::m_endDate</a></div><div class="ttdeci">time_t m_endDate</div><div class="ttdoc">end date </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00052">SettingsInput.h:52</a></div></div>
-<div class="ttc" id="a00047_html_a68396d28a25a25af0a70054ab2d3019c"><div class="ttname"><a href="../../d6/d2d/a00047.html#a68396d28a25a25af0a70054ab2d3019c">SettingsInput::m_dtCh</a></div><div class="ttdeci">time_t m_dtCh</div><div class="ttdoc">time interval for channel </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00054">SettingsInput.h:54</a></div></div>
-<div class="ttc" id="a00369_html"><div class="ttname"><a href="../../df/dee/a00369.html">InputStation.h</a></div></div>
-<div class="ttc" id="a00392_html"><div class="ttname"><a href="../../d4/d27/a00392.html">Settings.h</a></div><div class="ttdoc">Settings class. </div></div>
-<div class="ttc" id="a00047_html_a4b26228ba3e9f0109951fcbbf8d3b74a"><div class="ttname"><a href="../../d6/d2d/a00047.html#a4b26228ba3e9f0109951fcbbf8d3b74a">SettingsInput::m_dtHs</a></div><div class="ttdeci">time_t m_dtHs</div><div class="ttdoc">time interval for hillslope </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00053">SettingsInput.h:53</a></div></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html#a2f5460b94d05ab6f0e09d90806ac0fa5">   57</a></span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> <a class="code" href="../../d2/d79/a00051.html#a2f5460b94d05ab6f0e09d90806ac0fa5">SetValue</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">float</span>* data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Set2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Set3DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows1d, <span class="keywordtype">int</span>* nRows2d,<span class="keywordtype">int</span>* nRows3d,<span class="keywordtype">float</span>***data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> SetScenario(Scenario* scen){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* nRows, <span class="keywordtype">float</span>** data) {<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Execute(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//bool virtual InitModule(SEIMSModuleSetting* setting) = 0;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">//bool virtual EndModule() = 0;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleName(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleAuthor(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleDescription(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleVersion(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleClassName(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">//common functions</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> SetDate(time_t date);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> SetStatusCallback(pICStatusMessage cb);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="../../db/dde/a00691.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> CreateBasicMetadataInfo(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        time_t              m_date;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        pICStatusMessage    m_StatusMsg;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="../../de/d8c/a00036.html">MetadataInfo</a>*       m_metadataInfo; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> CheckInputData(<span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>*key ,<span class="keywordtype">int</span> sizeFromMain, <span class="keywordtype">int</span>* sizeInModule);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">void</span> StatusMsg(<span class="keywordtype">string</span> msg);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="ttc" id="a00051_html_a2f5460b94d05ab6f0e09d90806ac0fa5"><div class="ttname"><a href="../../d2/d79/a00051.html#a2f5460b94d05ab6f0e09d90806ac0fa5">Module::SEIMSModule::SetValue</a></div><div class="ttdeci">virtual bool SetValue(const char *key, float data)</div><div class="ttdoc">virtual functions </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00057">SEIMS_ModuleForModule.h:57</a></div></div>
+<div class="ttc" id="a00396_html"><div class="ttname"><a href="../../d9/da1/a00396.html">SEIMS_ModuleSetting.h</a></div></div>
+<div class="ttc" id="a00691_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../db/dde/a00691.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation(void)</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d5d/a00463_source.html#l00033">api.cpp:33</a></div></div>
+<div class="ttc" id="a00051_html"><div class="ttname"><a href="../../d2/d79/a00051.html">Module::SEIMSModule</a></div><div class="ttdoc">This is the basic class for all the modules. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00050">SEIMS_ModuleForModule.h:50</a></div></div>
+<div class="ttc" id="a00404_html"><div class="ttname"><a href="../../d9/de6/a00404.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
+<div class="ttc" id="a00036_html"><div class="ttname"><a href="../../de/d8c/a00036.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/de6/a00404_source.html#l00121">MetadataInfo.h:121</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/dad/a00394.html">SettingsInput.h</a></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/dad/a00394.html">SEIMS_ModuleForModule.h</a></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:01 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

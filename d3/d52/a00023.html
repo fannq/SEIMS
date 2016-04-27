@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: gk_mop_t Struct Reference</title>
+<title>SEIMS-2016: DBManager Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,27 +113,77 @@ $(document).ready(function(){initNavTree('d3/d52/a00023.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="../../d6/d2f/a00854.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../dc/d41/a00862.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gk_mop_t Struct Reference</div>  </div>
+<div class="title">DBManager Class Reference<div class="ingroups"><a class="el" href="../../d5/d39/a00676.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d6/db3/a00130_source.html">gk_struct.h</a>&gt;</code></p>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The following data structure stores information about a memory allocation operation that can either be served from <a class="el" href="../../d7/de0/a00022.html">gk_mcore_t</a> or by a gk_malloc if not sufficient workspace memory is available. </p>
+<p>sqlite database management class  
+ <a href="../../d3/d52/a00023.html#details">More...</a></p>
 
-<p>Definition at line <a class="el" href="../../d6/db3/a00130_source.html#l00232">232</a> of file <a class="el" href="../../d6/db3/a00130_source.html">gk_struct.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/GKlib/<a class="el" href="../../d6/db3/a00130_source.html">gk_struct.h</a></li>
+<p><code>#include &lt;<a class="el" href="../../dc/de3/a00373_source.html">DBManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0b70068a52d94cb2a0b8eba773b4e121"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b70068a52d94cb2a0b8eba773b4e121"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a0b70068a52d94cb2a0b8eba773b4e121">DBManager</a> (void)</td></tr>
+<tr class="memdesc:a0b70068a52d94cb2a0b8eba773b4e121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a0b70068a52d94cb2a0b8eba773b4e121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf19331a14657f1c2e4453999218c416"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf19331a14657f1c2e4453999218c416"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#abf19331a14657f1c2e4453999218c416">~DBManager</a> (void)</td></tr>
+<tr class="memdesc:abf19331a14657f1c2e4453999218c416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:abf19331a14657f1c2e4453999218c416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451113a0e298f84c030ea7b9892d8f8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a451113a0e298f84c030ea7b9892d8f8b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a451113a0e298f84c030ea7b9892d8f8b">Open</a> (string filename)</td></tr>
+<tr class="memdesc:a451113a0e298f84c030ea7b9892d8f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the given sqlite database. <br/></td></tr>
+<tr class="separator:a451113a0e298f84c030ea7b9892d8f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bcd1fc4e7c5b0ae658f3e779a176268"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a1bcd1fc4e7c5b0ae658f3e779a176268">Close</a> (void)</td></tr>
+<tr class="memdesc:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the currently open database. <br/></td></tr>
+<tr class="separator:a1bcd1fc4e7c5b0ae658f3e779a176268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd9e5246ae9f047eedbb199699005ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd9e5246ae9f047eedbb199699005ae"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#aebd9e5246ae9f047eedbb199699005ae">IsError</a> ()</td></tr>
+<tr class="memdesc:aebd9e5246ae9f047eedbb199699005ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a flag indicating if an error occured. <br/></td></tr>
+<tr class="separator:aebd9e5246ae9f047eedbb199699005ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8713d2e4335e298ffb825ec07cad11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f8713d2e4335e298ffb825ec07cad11"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a6f8713d2e4335e298ffb825ec07cad11">GetErrorMessage</a> ()</td></tr>
+<tr class="memdesc:a6f8713d2e4335e298ffb825ec07cad11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error message for the last error if any. <br/></td></tr>
+<tr class="separator:a6f8713d2e4335e298ffb825ec07cad11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dba35872dea3b8a49782ab7b880306e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dba35872dea3b8a49782ab7b880306e"></a>
+<a class="el" href="../../d1/dea/a00054.html">slTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a8dba35872dea3b8a49782ab7b880306e">Load</a> (string strSQL)</td></tr>
+<tr class="memdesc:a8dba35872dea3b8a49782ab7b880306e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given SQL query and return an instance of a <a class="el" href="../../d1/dea/a00054.html" title="Table class for sqlite database tables. ">slTable</a> class containing the results. <br/></td></tr>
+<tr class="separator:a8dba35872dea3b8a49782ab7b880306e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e73a7e86d1217f6bc32bbd0983e271"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5e73a7e86d1217f6bc32bbd0983e271"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#af5e73a7e86d1217f6bc32bbd0983e271">Execute</a> (string strSQL)</td></tr>
+<tr class="memdesc:af5e73a7e86d1217f6bc32bbd0983e271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a non-query SQL string. <br/></td></tr>
+<tr class="separator:af5e73a7e86d1217f6bc32bbd0983e271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0739d27b1ca7443329e5e4d24409b8ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0739d27b1ca7443329e5e4d24409b8ac"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a0739d27b1ca7443329e5e4d24409b8ac">IsTableExist</a> (string databasePath, string tableName)</td></tr>
+<tr class="memdesc:a0739d27b1ca7443329e5e4d24409b8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the given table exists <br/></td></tr>
+<tr class="separator:a0739d27b1ca7443329e5e4d24409b8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>sqlite database management class </p>
+<dl class="deprecated"><dt><b><a class="el" href="../../dd/d57/a00701.html#_deprecated000007">Deprecated:</a></b></dt><dd>Currently, this is no longer used.</dd></dl>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00052">52</a> of file <a class="el" href="../../dc/de3/a00373_source.html">DBManager.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/data/<a class="el" href="../../dc/de3/a00373_source.html">DBManager.h</a></li>
+<li>src/base/data/<a class="el" href="../../db/d7e/a00372_source.html">DBManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d52/a00023.html">gk_mop_t</a></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:47 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d3/d52/a00023.html">DBManager</a></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:02 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/PET_H/PETHargreaves.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/MUSK_CH/MUSK_CH.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,40 +113,48 @@ $(document).ready(function(){initNavTree('dc/d40/a00568.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">PETHargreaves.h File Reference</div>  </div>
+<div class="title">MUSK_CH.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>channel flow routing using Muskingum method  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/da0/a00403_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d3d/a00409_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PETHargreaves.h:</div>
+Include dependency graph for MUSK_CH.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d60/a00818.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_p_e_t___h_2_p_e_t_hargreaves_8h" alt=""/></div>
-<map name="src_2modules_2hydrology__longterm_2_p_e_t___h_2_p_e_t_hargreaves_8h" id="src_2modules_2hydrology__longterm_2_p_e_t___h_2_p_e_t_hargreaves_8h">
-<area shape="rect" id="node3" href="../../d7/d08/a00378_source.html" title="api.h" alt="" coords="118,101,175,131"/><area shape="rect" id="node4" href="../../d0/da0/a00403.html" title="Parent class for all modules in SEIMS. " alt="" coords="131,179,295,208"/><area shape="rect" id="node5" href="../../d7/d00/a00401.html" title="Define ModelException class. " alt="" coords="154,256,304,285"/></map>
+<div class="center"><img src="../../da/d90/a00826.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_m_u_s_k___c_h_2_m_u_s_k___c_h_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_m_u_s_k___c_h_2_m_u_s_k___c_h_8h" id="src_2modules_2hydrology__longterm_2_m_u_s_k___c_h_2_m_u_s_k___c_h_8h">
+<area shape="rect" id="node7" href="../../de/d3d/a00409.html" title="Parent class for all modules in SEIMS. " alt="" coords="366,101,529,131"/><area shape="rect" id="node8" href="../../d1/d98/a00407.html" title="Define ModelException class. " alt="" coords="306,179,456,208"/></map>
 </div>
 </div>
 <p><a href="../../dc/d40/a00568_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html">PETHargreaves</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hargreaves method to Compute PET.  <a href="../../d5/db6/a00042.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html">MUSK_CH</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel flow routing using Muskingum method  <a href="../../d3/de7/a00039.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Nov. 2010 </dd></dl>
+<div class="textblock"><p>channel flow routing using Muskingum method </p>
+<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>26-Jule-2012 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../dc/d40/a00568_source.html">PETHargreaves.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d40/a00568_source.html">MUSK_CH.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_6d26aae79096b6ff7593b14f645c7768.html">PET_H</a></li><li class="navelem"><a class="el" href="../../dc/d40/a00568.html">PETHargreaves.h</a></li>
-    <li class="footer">Generated on Tue Apr 26 2016 06:12:47 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_e0ca60487d078d857644626256151310.html">MUSK_CH</a></li><li class="navelem"><a class="el" href="../../dc/d40/a00568.html">MUSK_CH.h</a></li>
+    <li class="footer">Generated on Wed Apr 27 2016 01:49:02 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

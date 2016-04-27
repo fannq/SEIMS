@@ -1,9 +1,5 @@
-<map id="Hydrology_longterm" name="Hydrology_longterm">
-<area shape="rect" id="node1" href="$df/d1b/a00687.html" title="Calculate potential evapotranspiration using Hargreaves method. " alt="" coords="392,5,467,35"/>
-<area shape="rect" id="node2" href="$d6/da1/a00675.html" title="All functional modules in SEIMS. " alt="" coords="5,139,88,168"/>
-<area shape="rect" id="node3" href="$d0/df1/a00685.html" title="DEP_LINSLEY" alt="" coords="363,59,495,88"/>
-<area shape="rect" id="node5" href="$df/d9e/a00686.html" title="MUSKINGUM_CH" alt="" coords="352,112,507,141"/>
-<area shape="rect" id="node6" href="$da/dd4/a00690.html" title="SNO_DD" alt="" coords="384,165,475,195"/>
-<area shape="rect" id="node7" href="$d6/dd3/a00688.html" title="Calculate potential evapotranspiration using Penman&#45;Monteith method. " alt="" coords="386,219,473,248"/>
-<area shape="rect" id="node8" href="$d1/d87/a00689.html" title="Calculate potential evapotranspiration using PriestleyTaylor method. " alt="" coords="387,272,471,301"/>
+<map id="Base" name="Base">
+<area shape="rect" id="node1" href="$dc/de4/a00677.html" title="module_setting group " alt="" coords="112,5,243,35"/>
+<area shape="rect" id="node2" href="$d2/d85/a00679.html" title="include classes of MetadataInfo, ModelException and SimulationModule et al. " alt="" coords="154,59,201,88"/>
+<area shape="rect" id="node4" href="$d5/d39/a00676.html" title="include classes related to data, eg. Measurement, HydroClimateData etc.. " alt="" coords="149,112,205,141"/>
 </map>
