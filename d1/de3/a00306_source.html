@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/soil_chem.py Source File</title>
+<title>SEIMS-2016: preprocess/soil_param.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,343 +111,188 @@ $(document).ready(function(){initNavTree('d1/de3/a00306_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">soil_chem.py</div>  </div>
+<div class="title">soil_param.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">## /usr/bin/env python</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">### This program initializes soil chemical properties</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">### for nutrient related modules.</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">### Reference: soil_chem.f in SWAT 2009</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">### Author: Liangjun Zhu, Huiran Gao</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">### Date: 2016-3-28</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> os</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> math</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> numpy</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> config <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">## INPUTS ##</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">#nactfr: nitrogen active pool fraction. The fraction of organic nitrogen in the active pool</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">#psp: Phosphorus availability index. The fraction of fertilizer P remaining in labile pool after initial rapid phase of P sorption.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">#skoc(:)(mg/kg)/(mg/L): soil adsorption coefficient normalized for soil organic carbon content</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">#sol_bd(:,:)Mg/m**3: bulk density of the soil</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">#sol_cbn(:,:) %: percent organic carbon in soil layer</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">#sol_nly(:): number of soil layers</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">#sol_no3(:,:) mg N/kg soil : nitrate concentration in soil layer</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">#sol_orgn(:,:) |mg/kg : organic N concentration in soil layer</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">#sol_orgp(:,:) |mg/kg : organic P concentration in soil layer</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">#sol_rsd(:,:)  |kg/ha : amount of organic matter in the soil layer classified as residue</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">#sol_solp(:,:) |mg/kg : solution P concentration in soil layer</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">#sol_z(:,:)    |mm    : depth to bottom of soil layer</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">## OUTPUTS ##</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">#basminpi      |kg P/ha: average amount of phosphorus initially in the mineral P pool in watershed soil</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">#basno3i       |kg N/ha: average amount of nitrogen initially in the nitrate pool in watershed soil</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">#basorgni      |kg N/ha: average amount of nitrogen initially in the organic N pool in watershed soil</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">#basorgpi      |kg P/ha: average amount of phosphorus initially in the organic P pool in watershed soil</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">#conv_wt(:,:)  |none   : factor which converts kg/kg soil to kg/ha</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">#sol_actp(:,:) |kg P/ha: amount of phosphorus stored in the active mineral phosphorus pool</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">#sol_aorgn(:,:)|kg N/ha: amount of nitrogen stored in the active organic (humic) nitrogen pool</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">#sol_cov(:)    |kg/ha  : amount of residue on soil surface</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">#sol_fon(:,:)  |kg N/ha: amount of nitrogen stored in the fresh organic (residue) pool</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">#sol_fop(:,:)  |kg P/ha: amount of phosphorus stored in the fresh organic (residue) pool</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">#sol_hum(:,:)  |kg humus/ha : amount of organic matter in the soil layer classified as humic substances</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">#sol_no3(:,:)  |kg N/ha: amount of nitrogen stored in the nitrate pool. This variable is read in as</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">###                                 |a concentration and converted to kg/ha.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">###                                 |(this value is read from the .sol file in</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">###                                 |units of mg/kg)</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">#sol_orgn(:,:) |kg N/ha: amount of nitrogen stored in the stable organic N pool NOTE UNIT CHANGE#</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">#sol_orgp(:,:) |kg P/ha: amount of phosphorus stored in the organic P pool NOTE UNIT CHANGE#</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">#sol_solp(:,:) |kg P/ha: amount of phosohorus stored in solution NOTE UNIT CHANGE#</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">#sol_stap(:,:) |kg P/ha: amount of phosphorus in the soil layer stored in the stable mineral phosphorus pool</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="stringliteral">Created on Thu Jan 10 15:36:19 2013</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="stringliteral">@author: junzhi</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> math <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> pyproj <span class="keyword">import</span> Proj, transform</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> os</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;NODATA = -9999</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">## Calculate soil properties from sand, clay and organic matter.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">## TODO, add reference.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">def </span>GetProperties(s, c, om):</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">#wilting point</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    wpt = -0.024*s + 0.487*c + 0.006*om + 0.005*s*om - 0.013*c*om + 0.068*s*c + 0.031</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    wp = 1.14*wpt - 0.02</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">#field capacity</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    fct = -0.251*s + 0.195*c + 0.011*om + 0.006*s*om - 0.027*c*om + 0.452*s*c + 0.299</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    fc = fct + 1.283*fct*fct - 0.374*fct - 0.015</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    s33t = 0.278*s + 0.034*c + 0.022*om - 0.018*s*om - 0.027*c*om - 0.584*s*c + 0.078</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    s33 = 1.636*s33t - 0.107</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    sat = fc + s33 - 0.097*s + 0.043</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    pn = 2.65*(1.0 - sat)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment"># df means density effects</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    p_df = pn</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    sat_df = 1 - p_df/2.65</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    fc_df = fc - 0.2*(sat - sat_df)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment"># pore disconnectedness index</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    b = (log(1500.) - log(33.)) / (log(fc) - log(wp))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    lamda = 1.0/b</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment"># saturated conductivity</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">#print s, c, sat, fc, 3-lamda</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ks = 1930*pow(sat-fc, 3-lamda)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">#print wpt, fct, s33, fc, sat</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> wp, fc_df, sat_df, p_df, ks, lamda</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">## LOCAL VARIABLES ##</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">###    name        |units         |definition</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">###    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">###    dg          |mm            |depth of layer</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">###    j           |none          |counter</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">###    jj          |none          |dummy variable to hold value</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">###    n           |none          |counter</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">###    nly         |none          |number of soil layers</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">###    soldepth    |mm            |depth from bottom of 1st soil layer to</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">###                               |the bottom of the layer of interest</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">###    solpst      |mg/kg         |concentration of pesticide in soil</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">###    summinp     |kg P/ha       |amount of phosphorus stored in the mineral P</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">###                               |pool in the profile</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">###    sumno3      |kg N/ha       |amount of nitrogen stored in the nitrate pool</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">###                               |in the soil profile</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">###    sumorgn     |kg N/ha       |amount of nitrogen stored in the organic N</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">###                               |pools in the profile</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">###    sumorgp     |kg P/ha       |amount of phosphorus stored in the organic P</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">###                               |pools in the profile</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">###    wt1         |none          |converts mg/kg (ppm) to kg/ha</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">###    xx          |none          |variable to hold value</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">###    zdst        |none          |variable to hold value</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">###    labfrac     |none          |fraction of total soil mineral P which is labile</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">###    soil_TP     |kg/ha         |Total Soil Mineral P</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">###    sol_mass, FBM, FHP, RTNO, FHS, X1, RTO, sol_min_n</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">###    </span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">def </span>Soil_Chemical(workingDir, outputPath):</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    bd1File = workingDir + os.sep + <span class="stringliteral">&quot;Density.tif&quot;</span>   <span class="comment">##sol_bd layer1 and layer2</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    bd2File = workingDir + os.sep + <span class="stringliteral">&quot;Density2.tif&quot;</span>  <span class="comment">##sol_bd layer3</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    om1File = workingDir + os.sep + <span class="stringliteral">&quot;org.tif&quot;</span>       <span class="comment">##for sol_cbn layer1 and layers2</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    om2File = workingDir + os.sep + <span class="stringliteral">&quot;org2.tif&quot;</span>      <span class="comment">##for sol_cbn layer3</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    rdFile = workingDir + os.sep + <span class="stringliteral">&quot;RootDepth.tif&quot;</span>  <span class="comment">##for sol_z</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    clay1File = workingDir + os.sep + <span class="stringliteral">&quot;clay.tif&quot;</span>    <span class="comment">##clay in layer1 and layer2</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    clay2File = workingDir + os.sep + <span class="stringliteral">&quot;clay2.tif&quot;</span>   <span class="comment">##clay in layer1 and layer2</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    bd1Raster = ReadRaster(bd1File)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    bd2Raster = ReadRaster(bd2File)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    om1Raster = ReadRaster(om1File)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    om2Raster = ReadRaster(om2File)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    rdRaster = ReadRaster(rdFile)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    clay1Raster = ReadRaster(clay1File)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    clay2Raster = ReadRaster(clay2File)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    nCols = bd1Raster.nCols</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    nRows = bd1Raster.nRows</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    noDataValue = bd1Raster.noDataValue</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    sol_bd1 = bd1Raster.data</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    sol_bd2 = bd2Raster.data</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    sol_org1 = om1Raster.data</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    sol_org2 = om2Raster.data</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    root_depth = rdRaster.data</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    sol_z = root_depth</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">#numpy.savetxt(&quot;d:/file.txt&quot;, sol_z)</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    clay1 = clay1Raster.data</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    clay2 = clay2Raster.data</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    sol_cbn1 = sol_org1 * 0.58 <span class="comment">## van bemmelen coefficient</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    sol_cbn2 = sol_org2 * 0.58</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">## Calculate Cell by Cell</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    sol_mass = 0.</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    DG = 0.</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    FBM = 0.</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    FHP = 0.</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    RTNO = 0.</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    FHS = 0.</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    X1 = 0.</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    RTO = 0.</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    nactfr = .02</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    nly = 3   <span class="comment">## By default, soil layers equal to 3 for nutrient modules, 0~10mm, 10~100mm, and 100~rootDepth</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    solpst = 0.</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    sumno3 = 0.</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    sumorgn = 0.</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    summinp = 0.</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    sumorgp = 0.</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">def </span>GetValue(geoMask, geoMap, data, i, j):</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">#pGeo = Proj(&quot;+proj=longlat +ellps=krass +no_defs&quot;)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">#pAlbers = Proj(&quot;+proj=aea +ellps=krass +lon_0=105 +lat_0=0 +lat_1=25 +lat_2=47&quot;)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">#xMask = geoMask[0] + (j+0.5)*geoMask[1]</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">#yMask = geoMask[3] + (i+0.5)*geoMask[5]</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">#xMap, yMap = transform(pAlbers, pGeo, xMask, yMask)</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    xMap = geoMask[0] + (j+0.5)*geoMask[1]</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    yMap = geoMask[3] + (i+0.5)*geoMask[5]</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    jMap = (xMap - geoMap[0])/geoMap[1]</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    iMap = (yMap - geoMap[3])/geoMap[5]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> data[iMap][jMap]</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">def </span>GenerateSoilAttributes(outputFolder, layerNum, sandFile=None, clayFile=None, somFile=None):</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    maskFile = outputFolder + os.sep + mask_to_ext</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">#    if sandFile is None:</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">#        sandFile = &#39;%s/sand%d_albers.img&#39; % (SPATIAL_DATA_DIR, layerNum)</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">#    if clayFile is None:</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">#        clayFile = &#39;%s/clay%d_albers.img&#39; % (SPATIAL_DATA_DIR, layerNum)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    dataSom = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> somFile <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> os.path.exists(somFile):</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        dsSom = gdal.Open(somFile)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        bandSom = dsSom.GetRasterBand(1)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        dataSom = bandSom.ReadAsArray()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">print</span> sandFile</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">print</span> clayFile</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    dsSand = gdal.Open(sandFile)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> dsSand <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;Open file:&quot;</span>, sandFile, <span class="stringliteral">&quot; failed.\n&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    bandSand = dsSand.GetRasterBand(1)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    dataSand = bandSand.ReadAsArray()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    geoSand = dsSand.GetGeoTransform()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    dsClay = gdal.Open(clayFile)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> dsClay <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;Open file:&quot;</span>, clayFile, <span class="stringliteral">&quot; failed.\n&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    bandClay = dsClay.GetRasterBand(1)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    dataClay = bandClay.ReadAsArray()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    dsMask = gdal.Open(maskFile)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    bandMask = dsMask.GetRasterBand(1)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    dataMask = bandMask.ReadAsArray()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    xSizeMask = bandMask.XSize</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    ySizeMask = bandMask.YSize</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    geoMask = dsMask.GetGeoTransform()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    noDataValue = bandMask.GetNoDataValue()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">print</span> noDataValue</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    srs = osr.SpatialReference()</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    srs.ImportFromWkt(dsMask.GetProjection())</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    attrMapList = []</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    n = 6 </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        attrMapList.append(zeros((ySizeMask, xSizeMask)))</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    attrPool = {}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    lastKey = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(ySizeMask):</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="comment">#print &quot;soil&quot;, i</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(xSizeMask):</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span> abs(dataMask[i][j] - noDataValue) &lt; DELTA:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">for</span> iAttr <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    attrMapList[iAttr][i][j] = NODATA</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            s = GetValue(geoMask, geoSand, dataSand, i, j) </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            c = GetValue(geoMask, geoSand, dataClay, i, j) </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            k = <span class="stringliteral">&quot;%d_%d_%d&quot;</span> % (int(s*1000), int(c*1000), layerNum)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">#print s, c</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    lyr1 = 10   <span class="comment">## unit is mm</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    lyr2 = 100</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    lyr3 = root_depth</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    sol_thick1 = lyr1</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    sol_thick2 = lyr2 - lyr1</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    sol_thick3 = lyr3 - lyr2</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    sol_bd = [sol_bd1, sol_bd1, sol_bd2]</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    sol_cbn = [sol_cbn1, sol_cbn1, sol_cbn2]</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    sol_thick = [sol_thick1, sol_thick2, sol_thick3]</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    sol_clay = [clay1, clay1, clay2]</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    sol_rock = [0., 0., 0.]  <span class="comment">## fraction of rock in every soil layer, by default , sol_rock is 0</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    cmtot_kgh = numpy.zeros((3, nRows, nCols)) <span class="comment">## ##kg/ha  current soil carbon integrated - aggregating all soil layers</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    sol_mass = numpy.zeros((3, nRows, nCols))</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    sol_cmass = numpy.zeros((3, nRows, nCols))</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">for</span> lyr <span class="keywordflow">in</span> range(len(sol_thick)):</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="comment">#print lyr</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        sol_mass[lyr] = (sol_thick[lyr] / 1000.) * 10000. * 1000. * (1 - sol_rock[lyr] / 100.) * sol_bd[lyr]  <span class="comment">##单层土壤质量(kg)</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        sol_cmass[lyr] = sol_mass[lyr] * (sol_cbn[lyr] / 100.)  <span class="comment">##单层土壤的C含量(kg)</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> lyr == 0:</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            cmtot_kgh[lyr] = sol_cmass[lyr]  <span class="comment">## ##kg/ha    current soil carbon for first soil layer</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        cmtot_kgh[lyr] = cmtot_kgh[lyr] + sol_cmass[lyr]</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">##    calculate initial nutrient contents of layers, profile and</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">##    average in soil for the entire watershed</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">##    convert mg/kg (ppm) to kg/ha</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    xx = 0.</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    sol_fop = numpy.ones((3, nRows, nCols)) <span class="comment"># phosphorus stored in the fresh organic (residue) pool</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    sol_fon = numpy.ones((3, nRows, nCols)) <span class="comment"># nitrogen stored in the fresh organic (residue) pool</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    sol_cov = numpy.ones((nRows, nCols)) <span class="comment"># residue on soil surface</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    sol_orgn = numpy.ones((3, nRows, nCols))</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    sol_no3 = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    sol_aorgn = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    sol_orgp = numpy.ones((3, nRows,  nCols))</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    sol_solp = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    sol_actp = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    sol_stap = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    sol_P_model = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    sol_hum = numpy.zeros((3, nRows,  nCols))</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">#sol_rsd is organic matter in the soil layer classified as residue</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    sol_rsd = numpy.random.random_sample((3, nRows, nCols)) * .3  <span class="comment">##先随机生成sol_rsd，0~0.3的随机数</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    solp = numpy.zeros((nRows, nCols))</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    actp = numpy.zeros((nRows, nCols))</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    sumno3 = sumorgn = summinp = sumorgp = numpy.zeros((nRows, nCols))</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(nly):</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        dg = 0.</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        wt1 = 0.</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        dg = (sol_z - xx)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        wt1 = sol_bd[j] * dg / 100.              <span class="comment">## mg/kg =&gt; kg/ha</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        conv_wt = 1.e6 * wt1                    <span class="comment">## kg/kg =&gt; kg/ha</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="comment">##输出conv_wt</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        conv_wt_file = outputPath + os.sep + <span class="stringliteral">&quot;conv_wt%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="comment">#writeTIFF(conv_wt, conv_wt_file)</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        sol_fop[j] = sol_rsd[j] * .0010</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        sol_fon[j] = sol_rsd[j] * .0055</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        sol_cov = sol_rsd[1]</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="comment">##输出sol_fop,sol_fon</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        sol_fop_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_fop%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        sol_fon_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_fon%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="comment">#writeTIFF(sol_fop[j], sol_fop_file)</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="comment">#writeTIFF(sol_fon[j], sol_fon_file)</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="comment">#if (sol_no3[j] &lt;= 0.) :</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        zdst = numpy.zeros((nRows,  nCols))</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                zdst[m][n] = math.exp(-sol_z[m][n] / 1000.)</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        sol_no3[j] = 10. * zdst * .7</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        sol_no3[j] = sol_no3[j] * wt1          <span class="comment">## mg/kg =&gt; kg/ha</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        sumno3 = sumno3 + sol_no3[j]</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="comment">##输出sol_no3</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        sol_no3_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_no3%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="comment">#writeTIFF(sol_no3[j], sol_no3_file)</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        sol_orgn[j] = sol_orgn[j] * wt1</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                <span class="keywordflow">if</span> (sol_orgn[j][m][n] &gt; 0.0001):</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                    sol_orgn[j][m][n] = sol_orgn[j][m][n] * wt1[m][n]      <span class="comment">## mg/kg =&gt; kg/ha</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="comment">## assume C:N ratio of 10:1</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                    sol_orgn[j][m][n] = 10000. * (sol_cbn[j][m][n] / 14.) * wt1[m][n]  <span class="comment">## CN ratio changed back to 14 cibin 03022012</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        sol_aorgn[j] = sol_orgn[j] * nactfr</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        sol_orgn[j] = sol_orgn[j] * (1. - nactfr)</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="comment">##输出sol_orgn,sol_aorgn</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        sol_orgn_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_orgn%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        sol_aorgn_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_aorgn%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="comment">#writeTIFF(sol_orgn[j], sol_orgn_file)</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="comment">#writeTIFF(sol_aorgn[j], sol_aorgn_file)</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        sumorgn = sumorgn + sol_aorgn[j] + sol_orgn[j] + sol_fon[j]</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        sol_orgp[j] = sol_orgp[j] * wt1</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        sol_solp[j] = sol_solp[j] * wt1</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <span class="keywordflow">if</span> (sol_orgp[j][m][n] &gt; 0.0001):</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    sol_orgp[j][m][n] = sol_orgp[j][m][n] * wt1[m][n]      <span class="comment">## mg/kg =&gt; kg/ha</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="comment">## assume N:P ratio of 8:1</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    sol_orgp[j][m][n] = .125 * sol_orgn[j][m][n]</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                <span class="keywordflow">if</span> (sol_solp[j][m][n] &gt; 0.0001) :</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    sol_solp[j][m][n] = sol_solp[j][m][n] * wt1[m][n]     <span class="comment">## mg/kg =&gt; kg/ha</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="comment">## assume initial concentration of 5 mg/kg</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    sol_solp[j][m][n] = 5. * wt1[m][n]</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="comment">##输出sol_orgp,sol_solp</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        sol_orgp_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_orgp%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        sol_solp_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_solp%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="comment">#writeTIFF(sol_orgp[j], sol_orgp_file)</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="comment">#writeTIFF(sol_solp[j], sol_solp_file)</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="comment">## Set active pool based on dynamic PSP MJW</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                <span class="keywordflow">if</span> (conv_wt[m][n] != 0):</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    solp[m][n] = (sol_solp[j][m][n] / conv_wt[m][n]) * 1000000.</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                    <span class="keywordflow">if</span> (sol_clay[j][m][n] &gt; 0.):</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                        psp = -0.045 * math.log(sol_clay[j][m][n])+ (0.001 * solp[m][n])</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                        psp = psp - (0.035  * sol_cbn[j][m][n]) + 0.43</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                        psp = 0.4</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                    <span class="comment">## Limit PSP range</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                    <span class="keywordflow">if</span> (psp &lt;.05) :</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                        psp = 0.05</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                    <span class="keywordflow">elif</span> (psp &gt; 0.9):</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                        psp = 0.9</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                sol_actp[j][m][n] = sol_solp[j][m][n] * (1. - psp) / psp</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                <span class="comment">## Set Stable pool based on dynamic coefficant</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                <span class="keywordflow">if</span> (conv_wt[m][n] != 0) :  <span class="comment">## From White et al 2009</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                    <span class="comment">## convert to concentration for ssp calculation</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                    actp[m][n] = sol_actp[j][m][n] / conv_wt[m][n] * 1000000.</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                    solp[m][n] = sol_solp[j][m][n] / conv_wt[m][n] * 1000000.</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    <span class="comment">## estimate Total Mineral P in this soil based on data from sharpley 2004</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                    ssp = 25.044 * ((actp[m][n] + solp[m][n]) ** -0.3833)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                    <span class="comment">##limit SSP Range</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                    <span class="keywordflow">if</span> (ssp &gt; 7.):</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                        ssp = 7.</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                    <span class="keywordflow">if</span> (ssp &lt; 1.):</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                        ssp = 1.</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                    sol_stap[j][m][n] = ssp * (sol_actp[j][m][n] + sol_solp[j][m][n])  <span class="comment">#define stableP</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="comment">## The original code</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                    sol_stap[j] = 4. * sol_actp[j]</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        sol_hum[j] = sol_cbn[j] * wt1 * 17200.</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        xx = sol_z[j]</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        summinp = summinp + sol_solp[j] + sol_actp[j] + sol_stap[j]</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        sumorgp = sumorgp + sol_orgp[j] + sol_fop[j]</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="comment">##输出sol_actp, sol_stap, sol_hum</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        sol_actp_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_actp%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        sol_stap_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_stap%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        sol_hum_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_hum%d.tif&quot;</span> % j</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="comment">#writeTIFF(sol_actp[j], sol_actp_file)</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="comment">#writeTIFF(sol_stap[j], sol_stap_file)</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="comment">#writeTIFF(sol_hum[j], sol_hum_file)</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">##输出sol_cov</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    sol_cov_file = outputPath + os.sep + <span class="stringliteral">&quot;sol_cov.tif&quot;</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="comment">#writeTIFF(sol_cov, sol_cov_file)</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="comment">#basno3i = basno3i + sumno3 * hru_km / da_km</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">#basorgni = basorgni + sumorgn * hru_km / da_km</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">#basminpi = basminpi + summinp * hru_km / da_km</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">#basorgpi = basorgpi + sumorgp * hru_km / da_km</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    basno3i_file = outputPath + os.sep + <span class="stringliteral">&quot;sumno3.tif&quot;</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    basorgni_file = outputPath + os.sep + <span class="stringliteral">&quot;sumorgn.tif&quot;</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    basminpi_file = outputPath + os.sep + <span class="stringliteral">&quot;summinp.tif&quot;</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    basorgpi_file = outputPath + os.sep + <span class="stringliteral">&quot;sumorgp.tif&quot;</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="comment">#writeTIFF(sumno3, basno3i_file)</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">#writeTIFF(sumorgn, basorgni_file)</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">#writeTIFF(summinp, basminpi_file)</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">#writeTIFF(sumorgp, basorgpi_file)</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">def </span>writeTIFF(file, fpath):</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    tiffile = <span class="stringliteral">&quot;D:\SEIMS_model\Python\Preprocess\Model_data\model_dianbu_30m_test\data_prepare\output\Density.tif&quot;</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    nRows = ReadRaster(tiffile).nRows</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    nCols = ReadRaster(tiffile).nCols</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    geotrans = ReadRaster(tiffile).geotrans</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    srs = ReadRaster(tiffile).srs</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <span class="keywordflow">if</span> abs(ReadRaster(tiffile).data[i][j] - (-9999)) &lt; DELTA:</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                file[i][j] = -9999</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    WriteGTiffFile(fpath, nRows, nCols, file, geotrans, srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;%s输出完成~&quot;</span> % fpath</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">#if __name__ == &quot;__main__&quot;:</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;nactfr = 0.5;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;outputPath = <span class="stringliteral">&quot;D:\SEIMS_model\Python\Preprocess\Model_data\model_dianbu_30m_test\data_prepare\output\soil_chem&quot;</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;WORKING_DIR = <span class="stringliteral">&quot;D:\SEIMS_model\Python\Preprocess\Model_data\model_dianbu_30m_test\data_prepare\output&quot;</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;Soil_Chemical(WORKING_DIR, outputPath);</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keywordflow">print</span> <span class="stringliteral">&quot;Soil chemical properties initialized done!&quot;</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">if</span> dataSom <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                om = dataSom[i][j]</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                om = defaultOrg  <span class="comment"># om=2.5</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keywordflow">if</span> layerNum &gt;= 1:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    om = 1.0</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordflow">if</span> s &lt; 0 <span class="keywordflow">or</span> c &lt; 0:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                attrs = attrPool[lastKey]</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                k = lastKey</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">elif</span> k <span class="keywordflow">in</span> attrPool.keys():</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                attrs = attrPool[k]</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                attrs = GetProperties(s * 0.01, c * 0.01, om)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="keywordflow">print</span> dataMask[i][j], s, c</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="comment">#attrs = GetProperties(s, c, om)</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                attrPool[k] = attrs</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            lastKey = k</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">for</span> iAttr <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                attrMapList[iAttr][i][j] = attrs[iAttr]</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    attrList = []</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    layerStr = str(layerNum) <span class="keywordflow">if</span> layerNum &gt; 1 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(n):</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        filename = outputFolder + os.sep + <span class="stringliteral">r&quot;%s%s.tif&quot;</span> % (SOIL_ATTR_LIST[i+2], layerStr)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        WriteGTiffFile(filename, ySizeMask, xSizeMask, attrMapList[i], \</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                   geoMask, srs, NODATA, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        attrList.append(filename)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">return</span> attrList</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">#if __name__ == &quot;__main__&quot;:</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">#testList = [[0.84627,0.04302,0.0208], [0.85,0.05,0.025], [0.65,0.1,0.025]]</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">#for s in testList:</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">#    print s[0], s[1], s[2]</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">#    print GetProperties(s[0], s[1], s[2]*100)</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">#    layerNum = 1</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">#    inputFolder = r&#39;F:\data\soilmap_china&#39;</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">#    #outputFolder = r&#39;F:\data\fenkeng_30m\data&#39;</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">#    outputFolder = r&#39;F:\data\poyanghu\fenkeng\data&#39;</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">#    GenerateAttrMap(inputFolder, outputFolder, layerNum)</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">#    print &#39;done!&#39;</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_chem.py</b></li>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:39 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_param.py</b></li>
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:07 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: DEP_LINSLEY</title>
+<title>SEIMS-2016: ITP</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -105,73 +105,45 @@ $(document).ready(function(){initNavTree('d5/d5b/a00695.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#files">Files</a> &#124;
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">DEP_LINSLEY<div class="ingroups"><a class="el" href="../../df/d9e/a00686.html">Hydrology_longterm</a></div></div>  </div>
+<div class="title">ITP<div class="ingroups"><a class="el" href="../../d6/dd3/a00688.html">Climate</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interpolation Module.  
+<a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for DEP_LINSLEY:</div>
+Collaboration diagram for ITP:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="../../d5/d5b/a00695.png" border="0" alt="" usemap="#d5_2d5b_2a00695"/>
 <map name="d5_2d5b_2a00695" id="d5_2d5b_2a00695">
-<area shape="rect" id="node2" href="../../df/d9e/a00686.html" title="Longterm hydrology related modules. " alt="" coords="6,4,173,33"/></map>
+<area shape="rect" id="node1" href="../../d6/dd3/a00688.html" title="Climate related modules. " alt="" coords="5,4,83,33"/></map>
 </td></tr></table></center>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga0087c853569e2c94d58c3499365662e9"><td class="memItemLeft" align="right" valign="top">SEIMS_MODULE_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00695.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a> ()</td></tr>
-<tr class="memdesc:ga0087c853569e2c94d58c3499365662e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to return the XML Metadata document string  <a href="#ga0087c853569e2c94d58c3499365662e9">More...</a><br/></td></tr>
-<tr class="separator:ga0087c853569e2c94d58c3499365662e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:d4/d1e/a00497"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d1e/a00497.html">Interpolate.cpp</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d8/d57/a00498"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d57/a00498.html">Interpolate.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html">Interpolate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolation.  <a href="../../df/d61/a00031.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga0087c853569e2c94d58c3499365662e9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SEIMS_MODULE_API const char* MetadataInformation </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>function to return the XML Metadata document string </p>
-<p>Current: use TMin and TMax to calculate TMean TODO: Use mean temperature if exists</p>
-<p>Current: use TMin and TMax to calculate TMean TODO: Use mean temperature if exists</p>
-<p>from stations table</p>
-<p>Must be "D". This is used to match with output id in file.out with data type.</p>
-<p>set the input variables (time series), and T means time series. D means distribution.</p>
-<p>set the output variables</p>
-<p>write out the XML file.</p>
-<p>from interpolation module</p>
-<p>from interpolation module</p>
-<p>from interpolation module</p>
-<p>from interpolation module</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">DT_HS</td><td>"Time step of the simulation from file.in, DT_Single"</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">CellWidth</td><td>"Cell width from file.in, DT_Single"</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">QCH</td><td>"Flux in the downslope boundary of cells" </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../dd/d63/a00455_source.html#l00043">43</a> of file <a class="el" href="../../dd/d63/a00455_source.html">api.cpp</a>.</p>
-
-</div>
-</div>
+<p>Interpolation Module. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:40 for SEIMS-2016 by
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:08 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

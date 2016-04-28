@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/ModuleFactory.cpp File Reference</title>
+<title>SEIMS-2016: src/base/data/SiteInfo.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,45 +111,36 @@ $(document).ready(function(){initNavTree('dd/df5/a00386.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ModuleFactory.cpp File Reference</div>  </div>
+<div class="title">SiteInfo.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;windows.h&gt;</code><br/>
-<code>#include &lt;time.h&gt;</code><br/>
-<code>#include &lt;string.h&gt;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &quot;bson.h&quot;</code><br/>
-<code>#include &quot;util.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/dd6/a00415_source.html">utils.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/d9c/a00413_source.html">text.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/db9/a00387_source.html">ModuleFactory.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/dea/a00408_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/d8b/a00406_source.html">MetadataInfoConst.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/de8/a00405_source.html">MetadataInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/dc9/a00389_source.html">MongoUtil.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d5/db5/a00374_source.html">DBManager.h</a>&quot;</code><br/>
+
+<p>Class to store the site information from the Hydroclimate database stations table.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ModuleFactory.cpp:</div>
+Include dependency graph for SiteInfo.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d96/a00782.png" border="0" usemap="#src_2base_2module__setting_2_module_factory_8cpp" alt=""/></div>
-<map name="src_2base_2module__setting_2_module_factory_8cpp" id="src_2base_2module__setting_2_module_factory_8cpp">
-<area shape="rect" id="node8" href="../../d0/dd6/a00415.html" title="definition of utils class " alt="" coords="280,445,344,475"/><area shape="rect" id="node15" href="../../da/d9c/a00413.html" title="Predefined string constants used in the code. " alt="" coords="1514,119,1573,148"/><area shape="rect" id="node16" href="../../db/db9/a00387.html" title="ModuleFactory.h" alt="" coords="2140,119,2280,148"/><area shape="rect" id="node19" href="../../d1/d8b/a00406.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="3178,445,3347,475"/><area shape="rect" id="node21" href="../../dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="1134,445,1284,475"/><area shape="rect" id="node37" href="../../d5/db5/a00374.html" title="Database manager for Sqlite. " alt="" coords="1587,445,1708,475"/><area shape="rect" id="node49" href="../../de/de8/a00405.html" title="Define MetadataInfo class used by modules. " alt="" coords="3087,368,3213,397"/><area shape="rect" id="node50" href="../../dc/dc9/a00389.html" title="Read data from MongoDB. " alt="" coords="2793,291,2900,320"/><area shape="rect" id="node18" href="../../db/d95/a00391.html" title="Class to store parameter information. " alt="" coords="3290,368,3397,397"/><area shape="rect" id="node20" href="../../d8/d91/a00410.html" title="Parent class for all modules in SEIMS. " alt="" coords="879,368,1043,397"/><area shape="rect" id="node25" href="../../d7/d93/a00397.html" title="SEIMS_ModuleSetting.h" alt="" coords="720,445,917,475"/><area shape="rect" id="node26" href="../../dc/d59/a00364.html" title="Define clsRasterData class. " alt="" coords="2623,368,2757,397"/><area shape="rect" id="node29" href="../../d0/d65/a00360.html" title="clsInterpolationWeighData.h" alt="" coords="2377,368,2599,397"/><area shape="rect" id="node31" href="../../d7/d00/a00401.html" title="SettingsInput.h" alt="" coords="1809,213,1937,243"/><area shape="rect" id="node32" href="../../d1/d53/a00399.html" title="Settings class. " alt="" coords="427,368,520,397"/><area shape="rect" id="node33" href="../../d6/db8/a00376.html" title="InputStation.h" alt="" coords="1705,291,1825,320"/><area shape="rect" id="node36" href="../../d6/d9c/a00352_source.html" title="Scenario.h" alt="" coords="1411,291,1509,320"/><area shape="rect" id="node35" href="../../d7/d08/a00378.html" title="Measurement.h" alt="" coords="1951,368,2083,397"/><area shape="rect" id="node39" href="../../dd/d1d/a00336_source.html" title="BMPText.h" alt="" coords="1309,445,1411,475"/><area shape="rect" id="node40" href="../../de/d55/a00323_source.html" title="BMPBase.h" alt="" coords="1316,368,1423,397"/><area shape="rect" id="node41" href="../../de/dc8/a00325_source.html" title="BMPFactory.h" alt="" coords="1169,368,1292,397"/></map>
+<div class="center"><img src="../../d3/d00/a00785.png" border="0" usemap="#src_2base_2data_2_site_info_8h" alt=""/></div>
+<map name="src_2base_2data_2_site_info_8h" id="src_2base_2data_2_site_info_8h">
+</map>
 </div>
 </div>
 <p><a href="../../dd/df5/a00386_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>[your name] </dd></dl>
+<div class="textblock"><p>Class to store the site information from the Hydroclimate database stations table. </p>
+<dl class="section author"><dt>Author</dt><dd>[your name] </dd></dl>
 <dl class="section version"><dt>Version</dt><dd></dd></dl>
 <dl class="section date"><dt>Date</dt><dd>June 2015 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../dd/df5/a00386_source.html">ModuleFactory.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/df5/a00386_source.html">SiteInfo.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">ModuleFactory.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">SiteInfo.h</a></li>
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:08 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

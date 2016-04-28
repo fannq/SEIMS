@@ -1,3 +1,9 @@
-<map id="ICLIM" name="ICLIM">
-<area shape="rect" id="node1" href="$d3/db4/a00684.html" title="Climate related modules. " alt="" coords="5,4,83,33"/>
+<map id="Hydrology_longterm" name="Hydrology_longterm">
+<area shape="rect" id="node1" href="$dd/d57/a00701.html" title="Calculate potential evapotranspiration using Hargreaves method. " alt="" coords="392,5,467,35"/>
+<area shape="rect" id="node2" href="$df/d1b/a00687.html" title="All functional modules in SEIMS. " alt="" coords="5,139,88,168"/>
+<area shape="rect" id="node3" href="$d8/d33/a00699.html" title="DEP_LINSLEY" alt="" coords="363,59,495,88"/>
+<area shape="rect" id="node5" href="$d0/d15/a00700.html" title="MUSKINGUM_CH" alt="" coords="352,112,507,141"/>
+<area shape="rect" id="node6" href="$d4/d6a/a00704.html" title="SNO_DD" alt="" coords="384,165,475,195"/>
+<area shape="rect" id="node7" href="$dd/d85/a00702.html" title="Calculate potential evapotranspiration using Penman&#45;Monteith method. " alt="" coords="386,219,473,248"/>
+<area shape="rect" id="node8" href="$d8/d86/a00703.html" title="Calculate potential evapotranspiration using PriestleyTaylor method. " alt="" coords="387,272,471,301"/>
 </map>

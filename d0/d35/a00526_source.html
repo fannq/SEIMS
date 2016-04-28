@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology/CH_DW/DiffusiveWave.h Source File</title>
+<title>SEIMS-2016: src/modules/growth/Yield/Yield.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,144 +111,102 @@ $(document).ready(function(){initNavTree('d0/d35/a00526_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DiffusiveWave.h</div>  </div>
+<div class="title">Yield.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/d35/a00526.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d91/a00410.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/de2/a00024.html">DiffusiveWave</a> : <span class="keyword">public</span> <a class="code" href="../../dc/dee/a00053.html">SimulationModule</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../dc/de2/a00024.html">DiffusiveWave</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ~<a class="code" href="../../dc/de2/a00024.html">DiffusiveWave</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span>* value);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nrows, <span class="keywordtype">int</span> ncols, <span class="keywordtype">float</span>** data);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> CheckInputSizeChannel(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a034d4e2661a81815927529fbd2c5d0bc">   59</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../dc/de2/a00024.html#a034d4e2661a81815927529fbd2c5d0bc">Power</a>(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> n)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (a &gt;= 0)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> pow(a, n);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> -pow(-a, n);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> ChannelFlow(<span class="keywordtype">int</span> iReach, <span class="keywordtype">int</span> iCell, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> initalOutputs();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a9ea3a4bfb928bb5afbb80032346779fe">   69</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dc/de2/a00024.html#a9ea3a4bfb928bb5afbb80032346779fe">m_size</a>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#adb517b4936f5c4277a3cce8131e74d5e">   72</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../dc/de2/a00024.html#adb517b4936f5c4277a3cce8131e74d5e">m_dx</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#af4b310d929a670f52e33cc100b69ef02">   74</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../dc/de2/a00024.html#af4b310d929a670f52e33cc100b69ef02">m_dt</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a358fbd275bcb6b64eb0f271d43f0cb63">   77</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a358fbd275bcb6b64eb0f271d43f0cb63">m_s0</a>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">float</span> *m_chWidth;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">float</span> *m_elevation;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Common.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//#include &quot;Climate.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d72/a00412.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>Yield:<span class="keyword">public</span> <a class="code" href="../../dc/dee/a00053.html">SimulationModule</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Yield(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ~Yield(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, time_t* data);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> m_nCells;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    time_t m_harvestDate;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> m_harvested;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//land cover/plant classification:1-7</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">float</span>* m_classification;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span>* m_HiMin;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">float</span>* m_HiOpt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">float</span>* m_frNyld;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">float</span>* m_frPyld;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">float</span>* m_frDeclineLAI;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//global variation</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//potential harvest index for a given day</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">float</span>* m_HI;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//actual ET simulated during life of plant</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">float</span>* m_totalPlantET;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//potential ET simulated during life of plant</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">float</span>* m_totalPlantPET;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">float</span>* m_wur;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">float</span>* m_Hiact;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">float</span>* m_harvestEfficiency;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">float</span>* m_clip;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">float</span>* m_clipN;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">float</span>* m_clipP;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">float</span>* m_removeFraction;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">float</span>* m_rootFraction;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">float</span>* m_rootLeft;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">float</span>* m_rootRemove;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">float</span>* m_rootRemoveFraction;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">float</span>* m_rootRemoveN;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">float</span>* m_rootRemoveP;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//input</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">float</span>* m_PET;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">float</span>* m_soilET;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">float</span>* m_biomass;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">float</span>* m_biomassN;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">float</span>* m_biomassP;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">float</span>* m_biomassAG;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">float</span>* m_biomassRoot;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">float</span>* m_frPHU;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">float</span>* m_LAI;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">float</span>* m_totalWaterUptake;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">//result</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">float</span>* m_yield;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">float</span>* m_yieldN;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">float</span>* m_yieldP;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Common* m_common;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//Climate* m_climate;*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//accumulate heat unit to determine the growth stage</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//it&#39;s the base of plant growth</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a9ba1816aa23b610ffb46bea52883e598">   83</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a9ba1816aa23b610ffb46bea52883e598">m_streamLink</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a1e50b6e5e6fb1644ac6d0dd092049932">   85</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../dc/de2/a00024.html#a1e50b6e5e6fb1644ac6d0dd092049932">m_manningScalingFactor</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#aa44948612c7efc15087f019262ca02e6">   95</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#aa44948612c7efc15087f019262ca02e6">m_direction</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a8710f01ad7bcc2ccac66493607faf4e7">   98</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a8710f01ad7bcc2ccac66493607faf4e7">m_prec</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a2570b85c699bb256b1d1b503f41aa92b">  100</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a2570b85c699bb256b1d1b503f41aa92b">m_qs</a>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a4f36262d07a91479dcaf19a2cc69312e">  102</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a4f36262d07a91479dcaf19a2cc69312e">m_qi</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#ac64aee5b5a652c34978c023cf894a17d">  109</a></span>&#160;    <span class="keywordtype">float</span> **<a class="code" href="../../dc/de2/a00024.html#ac64aee5b5a652c34978c023cf894a17d">m_flowInIndex</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a2df2e84709db84da5cc15c038cfa1ff5">  111</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a2df2e84709db84da5cc15c038cfa1ff5">m_flowOutIndex</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a273284d92c16f3f4036a24b8fc84914a">  114</a></span>&#160;    <span class="keywordtype">float</span> **<a class="code" href="../../dc/de2/a00024.html#a273284d92c16f3f4036a24b8fc84914a">m_hCh</a>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a5205a8b4e17ebeb8ce6846596a4d436a">  116</a></span>&#160;    <span class="keywordtype">float</span> **<a class="code" href="../../dc/de2/a00024.html#a5205a8b4e17ebeb8ce6846596a4d436a">m_qCh</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a38b68fc0ef15a76ec947478c1e07f968">  119</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#a38b68fc0ef15a76ec947478c1e07f968">m_qSubbasin</a>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">// id of the outlet</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">int</span> m_idOutlet;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#ab63c9a8c2fb4664c9078aa621987c2fc">  125</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dc/de2/a00024.html#ab63c9a8c2fb4664c9078aa621987c2fc">m_idUpReach</a>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a4c6815a2857b29107f25a6d1c93c467e">  127</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../dc/de2/a00024.html#a4c6815a2857b29107f25a6d1c93c467e">m_qUpReach</a>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">// the following are intermediate variables </span></div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a5ba48b48484118bf4c02661a03f32b1c">  139</a></span>&#160;<span class="comment"></span>    std::map&lt;int, int&gt; <a class="code" href="../../dc/de2/a00024.html#a5ba48b48484118bf4c02661a03f32b1c">m_diagonal</a>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a871f4c44937d05e3a667cfa4860c472c">  142</a></span>&#160;    <span class="keywordtype">float</span> **<a class="code" href="../../dc/de2/a00024.html#a871f4c44937d05e3a667cfa4860c472c">m_flowLen</a>;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#ab3b6147571cd2d1291d9c3f561878833">  146</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dc/de2/a00024.html#ab3b6147571cd2d1291d9c3f561878833">m_chNumber</a>;</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#ab72f1a378689cb5221cfddee5af8ab82">  148</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../dc/de2/a00024.html#ab72f1a378689cb5221cfddee5af8ab82">m_reachDownStream</a>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a7e064d61458d5e50f4d790f6ba112a2c">  150</a></span>&#160;    vector&lt; vector&lt;int&gt; &gt; <a class="code" href="../../dc/de2/a00024.html#a7e064d61458d5e50f4d790f6ba112a2c">m_reachUpStream</a>;</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a217523adff205da7424bb395c6c6f760">  152</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../dc/de2/a00024.html#a217523adff205da7424bb395c6c6f760">m_reachN</a>;</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a27acb24133eb534d81bce5c37b5bac42">  154</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../dc/de2/a00024.html#a27acb24133eb534d81bce5c37b5bac42">m_streamOrder</a>;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">// id the reaches</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">float</span>* m_reachId;</div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#af70292137dfa05222f9d3849322c983f">  159</a></span>&#160;    map&lt;int, int&gt; <a class="code" href="../../dc/de2/a00024.html#af70292137dfa05222f9d3849322c983f">m_idToIndex</a>;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    map&lt;int, vector&lt;int&gt; &gt; m_reachLayers;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a1a771e1ba0e78c7d664cf3f74642bd11">  169</a></span>&#160;    map&lt;int, vector&lt;int&gt; &gt; <a class="code" href="../../dc/de2/a00024.html#a1a771e1ba0e78c7d664cf3f74642bd11">m_reachs</a>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a42fb6e842f17ec055c849fd4a0a5d951">  172</a></span>&#160;    <span class="keywordtype">int</span>* <a class="code" href="../../dc/de2/a00024.html#a42fb6e842f17ec055c849fd4a0a5d951">m_sourceCellIds</a>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="ttc" id="a00024_html_a38b68fc0ef15a76ec947478c1e07f968"><div class="ttname"><a href="../../dc/de2/a00024.html#a38b68fc0ef15a76ec947478c1e07f968">DiffusiveWave::m_qSubbasin</a></div><div class="ttdeci">float * m_qSubbasin</div><div class="ttdoc">discharge at subasin outlet </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00119">DiffusiveWave.h:119</a></div></div>
-<div class="ttc" id="a00024_html"><div class="ttname"><a href="../../dc/de2/a00024.html">DiffusiveWave</a></div><div class="ttdoc">Routing in the channel. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00038">DiffusiveWave.h:38</a></div></div>
-<div class="ttc" id="a00024_html_a27acb24133eb534d81bce5c37b5bac42"><div class="ttname"><a href="../../dc/de2/a00024.html#a27acb24133eb534d81bce5c37b5bac42">DiffusiveWave::m_streamOrder</a></div><div class="ttdeci">float * m_streamOrder</div><div class="ttdoc">stream order </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00154">DiffusiveWave.h:154</a></div></div>
-<div class="ttc" id="a00024_html_a034d4e2661a81815927529fbd2c5d0bc"><div class="ttname"><a href="../../dc/de2/a00024.html#a034d4e2661a81815927529fbd2c5d0bc">DiffusiveWave::Power</a></div><div class="ttdeci">float Power(float a, float n)</div><div class="ttdoc">deal with positive and negative float numbers </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00059">DiffusiveWave.h:59</a></div></div>
-<div class="ttc" id="a00410_html"><div class="ttname"><a href="../../d8/d91/a00410.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00024_html_a273284d92c16f3f4036a24b8fc84914a"><div class="ttname"><a href="../../dc/de2/a00024.html#a273284d92c16f3f4036a24b8fc84914a">DiffusiveWave::m_hCh</a></div><div class="ttdeci">float ** m_hCh</div><div class="ttdoc">Water depth in the downslope boundary of channel cells(output) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00114">DiffusiveWave.h:114</a></div></div>
-<div class="ttc" id="a00024_html_a5205a8b4e17ebeb8ce6846596a4d436a"><div class="ttname"><a href="../../dc/de2/a00024.html#a5205a8b4e17ebeb8ce6846596a4d436a">DiffusiveWave::m_qCh</a></div><div class="ttdeci">float ** m_qCh</div><div class="ttdoc">Flux in the downslope boundary of channel cells(output) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00116">DiffusiveWave.h:116</a></div></div>
-<div class="ttc" id="a00024_html_a9ba1816aa23b610ffb46bea52883e598"><div class="ttname"><a href="../../dc/de2/a00024.html#a9ba1816aa23b610ffb46bea52883e598">DiffusiveWave::m_streamLink</a></div><div class="ttdeci">float * m_streamLink</div><div class="ttdoc">stream link </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00083">DiffusiveWave.h:83</a></div></div>
-<div class="ttc" id="a00024_html_adb517b4936f5c4277a3cce8131e74d5e"><div class="ttname"><a href="../../dc/de2/a00024.html#adb517b4936f5c4277a3cce8131e74d5e">DiffusiveWave::m_dx</a></div><div class="ttdeci">float m_dx</div><div class="ttdoc">cell width of the grid (m) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00072">DiffusiveWave.h:72</a></div></div>
-<div class="ttc" id="a00024_html_a2df2e84709db84da5cc15c038cfa1ff5"><div class="ttname"><a href="../../dc/de2/a00024.html#a2df2e84709db84da5cc15c038cfa1ff5">DiffusiveWave::m_flowOutIndex</a></div><div class="ttdeci">float * m_flowOutIndex</div><div class="ttdoc">flow out index </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00111">DiffusiveWave.h:111</a></div></div>
-<div class="ttc" id="a00024_html_ac64aee5b5a652c34978c023cf894a17d"><div class="ttname"><a href="../../dc/de2/a00024.html#ac64aee5b5a652c34978c023cf894a17d">DiffusiveWave::m_flowInIndex</a></div><div class="ttdeci">float ** m_flowInIndex</div><div class="ttdoc">2d array of flow in cells </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00109">DiffusiveWave.h:109</a></div></div>
-<div class="ttc" id="a00024_html_a1e50b6e5e6fb1644ac6d0dd092049932"><div class="ttname"><a href="../../dc/de2/a00024.html#a1e50b6e5e6fb1644ac6d0dd092049932">DiffusiveWave::m_manningScalingFactor</a></div><div class="ttdeci">float m_manningScalingFactor</div><div class="ttdoc">manning scaling factor </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00085">DiffusiveWave.h:85</a></div></div>
-<div class="ttc" id="a00024_html_a9ea3a4bfb928bb5afbb80032346779fe"><div class="ttname"><a href="../../dc/de2/a00024.html#a9ea3a4bfb928bb5afbb80032346779fe">DiffusiveWave::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdoc">size </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00069">DiffusiveWave.h:69</a></div></div>
-<div class="ttc" id="a00024_html_aa44948612c7efc15087f019262ca02e6"><div class="ttname"><a href="../../dc/de2/a00024.html#aa44948612c7efc15087f019262ca02e6">DiffusiveWave::m_direction</a></div><div class="ttdeci">float * m_direction</div><div class="ttdoc">flow direction by the rule of ArcGIS </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00095">DiffusiveWave.h:95</a></div></div>
-<div class="ttc" id="a00024_html_ab72f1a378689cb5221cfddee5af8ab82"><div class="ttname"><a href="../../dc/de2/a00024.html#ab72f1a378689cb5221cfddee5af8ab82">DiffusiveWave::m_reachDownStream</a></div><div class="ttdeci">float * m_reachDownStream</div><div class="ttdoc">downstream id (The value is 0 if there if no downstream reach) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00148">DiffusiveWave.h:148</a></div></div>
-<div class="ttc" id="a00024_html_a1a771e1ba0e78c7d664cf3f74642bd11"><div class="ttname"><a href="../../dc/de2/a00024.html#a1a771e1ba0e78c7d664cf3f74642bd11">DiffusiveWave::m_reachs</a></div><div class="ttdeci">map&lt; int, vector&lt; int &gt; &gt; m_reachs</div><div class="ttdoc">reach links </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00169">DiffusiveWave.h:169</a></div></div>
-<div class="ttc" id="a00024_html_a217523adff205da7424bb395c6c6f760"><div class="ttname"><a href="../../dc/de2/a00024.html#a217523adff205da7424bb395c6c6f760">DiffusiveWave::m_reachN</a></div><div class="ttdeci">float * m_reachN</div><div class="ttdoc">reach manning&#39;s n </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00152">DiffusiveWave.h:152</a></div></div>
-<div class="ttc" id="a00024_html_af70292137dfa05222f9d3849322c983f"><div class="ttname"><a href="../../dc/de2/a00024.html#af70292137dfa05222f9d3849322c983f">DiffusiveWave::m_idToIndex</a></div><div class="ttdeci">map&lt; int, int &gt; m_idToIndex</div><div class="ttdoc">map from subbasin id to index of the array </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00159">DiffusiveWave.h:159</a></div></div>
-<div class="ttc" id="a00024_html_af4b310d929a670f52e33cc100b69ef02"><div class="ttname"><a href="../../dc/de2/a00024.html#af4b310d929a670f52e33cc100b69ef02">DiffusiveWave::m_dt</a></div><div class="ttdeci">float m_dt</div><div class="ttdoc">time step (second) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00074">DiffusiveWave.h:74</a></div></div>
-<div class="ttc" id="a00024_html_ab63c9a8c2fb4664c9078aa621987c2fc"><div class="ttname"><a href="../../dc/de2/a00024.html#ab63c9a8c2fb4664c9078aa621987c2fc">DiffusiveWave::m_idUpReach</a></div><div class="ttdeci">int m_idUpReach</div><div class="ttdoc">id of the cell which the water of the upstream subbasin flows into </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00125">DiffusiveWave.h:125</a></div></div>
-<div class="ttc" id="a00024_html_a5ba48b48484118bf4c02661a03f32b1c"><div class="ttname"><a href="../../dc/de2/a00024.html#a5ba48b48484118bf4c02661a03f32b1c">DiffusiveWave::m_diagonal</a></div><div class="ttdeci">std::map&lt; int, int &gt; m_diagonal</div><div class="ttdoc">convert direction code to whether diagonal </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00139">DiffusiveWave.h:139</a></div></div>
-<div class="ttc" id="a00024_html_a8710f01ad7bcc2ccac66493607faf4e7"><div class="ttname"><a href="../../dc/de2/a00024.html#a8710f01ad7bcc2ccac66493607faf4e7">DiffusiveWave::m_prec</a></div><div class="ttdeci">float * m_prec</div><div class="ttdoc">precipitation </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00098">DiffusiveWave.h:98</a></div></div>
-<div class="ttc" id="a00024_html_a4c6815a2857b29107f25a6d1c93c467e"><div class="ttname"><a href="../../dc/de2/a00024.html#a4c6815a2857b29107f25a6d1c93c467e">DiffusiveWave::m_qUpReach</a></div><div class="ttdeci">float m_qUpReach</div><div class="ttdoc">channel flow from upstream subbasin(assuming there is only channel flow between subbasins) ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00127">DiffusiveWave.h:127</a></div></div>
-<div class="ttc" id="a00024_html_a2570b85c699bb256b1d1b503f41aa92b"><div class="ttname"><a href="../../dc/de2/a00024.html#a2570b85c699bb256b1d1b503f41aa92b">DiffusiveWave::m_qs</a></div><div class="ttdeci">float * m_qs</div><div class="ttdoc">overland flow to channel (m3/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00100">DiffusiveWave.h:100</a></div></div>
-<div class="ttc" id="a00024_html_a42fb6e842f17ec055c849fd4a0a5d951"><div class="ttname"><a href="../../dc/de2/a00024.html#a42fb6e842f17ec055c849fd4a0a5d951">DiffusiveWave::m_sourceCellIds</a></div><div class="ttdeci">int * m_sourceCellIds</div><div class="ttdoc">id of source cells of reaches </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00172">DiffusiveWave.h:172</a></div></div>
-<div class="ttc" id="a00024_html_a358fbd275bcb6b64eb0f271d43f0cb63"><div class="ttname"><a href="../../dc/de2/a00024.html#a358fbd275bcb6b64eb0f271d43f0cb63">DiffusiveWave::m_s0</a></div><div class="ttdeci">float * m_s0</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00077">DiffusiveWave.h:77</a></div></div>
-<div class="ttc" id="a00024_html_a871f4c44937d05e3a667cfa4860c472c"><div class="ttname"><a href="../../dc/de2/a00024.html#a871f4c44937d05e3a667cfa4860c472c">DiffusiveWave::m_flowLen</a></div><div class="ttdeci">float ** m_flowLen</div><div class="ttdoc">flow length </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00142">DiffusiveWave.h:142</a></div></div>
-<div class="ttc" id="a00024_html_ab3b6147571cd2d1291d9c3f561878833"><div class="ttname"><a href="../../dc/de2/a00024.html#ab3b6147571cd2d1291d9c3f561878833">DiffusiveWave::m_chNumber</a></div><div class="ttdeci">int m_chNumber</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00146">DiffusiveWave.h:146</a></div></div>
-<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d91/a00410_source.html#l00040">SimulationModule.h:40</a></div></div>
-<div class="ttc" id="a00024_html_a7e064d61458d5e50f4d790f6ba112a2c"><div class="ttname"><a href="../../dc/de2/a00024.html#a7e064d61458d5e50f4d790f6ba112a2c">DiffusiveWave::m_reachUpStream</a></div><div class="ttdeci">vector&lt; vector&lt; int &gt; &gt; m_reachUpStream</div><div class="ttdoc">upstream id (The value is -1 if there if no upstream reach) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00150">DiffusiveWave.h:150</a></div></div>
-<div class="ttc" id="a00024_html_a4f36262d07a91479dcaf19a2cc69312e"><div class="ttname"><a href="../../dc/de2/a00024.html#a4f36262d07a91479dcaf19a2cc69312e">DiffusiveWave::m_qi</a></div><div class="ttdeci">float * m_qi</div><div class="ttdoc">interflow to channel (m3/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d35/a00526_source.html#l00102">DiffusiveWave.h:102</a></div></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> initalOutputs();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="ttc" id="a00412_html"><div class="ttname"><a href="../../d9/d72/a00412.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d72/a00412_source.html#l00040">SimulationModule.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_90eba37f54a0cdac52e254435b0f22c4.html">CH_DW</a></li><li class="navelem"><a class="el" href="../../d0/d35/a00526.html">DiffusiveWave.h</a></li>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_563986b20c1d36e8f952f4a095dc927f.html">growth</a></li><li class="navelem"><a class="el" href="../../dir_823900350fdb6de2ff67517ef7ef17f9.html">Yield</a></li><li class="navelem"><b>Yield.h</b></li>
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:07 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

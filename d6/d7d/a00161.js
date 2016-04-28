@@ -1,14 +1,10 @@
 var a00161 =
 [
-    [ "gk_str2time", "d6/d7d/a00161.html#a5973a9945423f69a60d3b209082fd718", null ],
-    [ "gk_strcasecmp", "d6/d7d/a00161.html#a47570da67818e57e97fdd464bc60fbd1", null ],
-    [ "gk_strchr_replace", "d6/d7d/a00161.html#a29b909254dcbcae417f8c09ce21d5423", null ],
-    [ "gk_strdup", "d6/d7d/a00161.html#af62038e97ca55f14ec2557a01bd85ca2", null ],
-    [ "gk_strhprune", "d6/d7d/a00161.html#adf6c1dfa83b68cea7f048086e0a585c0", null ],
-    [ "gk_strrcmp", "d6/d7d/a00161.html#a50149c8c9f8dd36fcad46773f35eedc4", null ],
-    [ "gk_strstr_replace", "d6/d7d/a00161.html#a46e5cf8f76a1ece74adf1b8b9dfcb275", null ],
-    [ "gk_strtolower", "d6/d7d/a00161.html#aa2d603de6c132e340d85e8e125d847a0", null ],
-    [ "gk_strtoupper", "d6/d7d/a00161.html#ae2e962be7af156e5200766fa8543cff1", null ],
-    [ "gk_strtprune", "d6/d7d/a00161.html#a05261ee12d082a78cabc018d2f5e2266", null ],
-    [ "gk_time2str", "d6/d7d/a00161.html#a79ca4ee9f715e6ce364af43f7f7a6cfc", null ]
+    [ "params_t", "d6/d97/a00045.html", null ],
+    [ "CMD_MINLEN", "d6/d7d/a00161.html#aacf04ecfd59a1c65ac2d0837c6797418", null ],
+    [ "main", "d6/d7d/a00161.html#a0ddf1224851353fc92bfbff6f499fa97", null ],
+    [ "parse_cmdline", "d6/d7d/a00161.html#aea2aa8c9b5bb7c64a3f316d7760f0341", null ],
+    [ "print_an_itemset", "d6/d7d/a00161.html#a3b3cc293672156bbc5026fd567f52462", null ],
+    [ "print_final_info", "d6/d7d/a00161.html#a702976a4c55992ddbfc1918ec1b70943", null ],
+    [ "print_init_info", "d6/d7d/a00161.html#a2270624f104a1d261314dd112e4a1d1d", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/main/main_omp/invoke.h Source File</title>
+<title>SEIMS-2016: src/main/main_mpi/ReadData.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,62 +111,55 @@ $(document).ready(function(){initNavTree('dc/d2f/a00425_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">invoke.h</div>  </div>
+<div class="title">ReadData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;tinyxml.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//#include &lt;io.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d95/a00391.html">ParamInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;PrintInfo.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/db5/a00374.html">DBManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d56/a00384.html">SiteInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d53/a00399.html">Settings.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d00/a00401.html">SettingsInput.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">SettingsOutput.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d72/a00412.html">StringList.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d9c/a00413.html">text.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;ModelMain.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dea/a00408.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//#include &quot;vld.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;mongo.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">struct </span>Subbasin</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">float</span> qOutlet; <span class="comment">// flow out the subbasin outlet</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> calculated; <span class="comment">// whether this subbasin is already calculated</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">int</span> rank;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Subbasin *downStream;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> disToOutlet;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> group;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    vector&lt;Subbasin*&gt; upStreams;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">string</span> _GetApplicationPath();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> testSettingInput();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> testSettingOutput();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> testMain(<span class="keywordtype">string</span>,<span class="keywordtype">char</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,LayeringMethod);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> testMainSQLite(<span class="keywordtype">string</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,LayeringMethod);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> testRaster();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> testModule();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> testBMP();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> checkTable(set&lt;string&gt;&amp; tableNameSet, <span class="keywordtype">string</span> dbName, <span class="keyword">const</span> <span class="keywordtype">char</span>* tableName);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> checkProject(<span class="keywordtype">string</span> projectPath);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> checkDatabase(mongo* conn, <span class="keywordtype">string</span> dbName);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">bool</span> isIPAddress(<span class="keyword">const</span> <span class="keywordtype">char</span> *ip);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">bool</span> isPathExists(<span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
-<div class="ttc" id="a00391_html"><div class="ttname"><a href="../../db/d95/a00391.html">ParamInfo.h</a></div><div class="ttdoc">Class to store parameter information. </div></div>
-<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">SettingsOutput.h</a></div></div>
-<div class="ttc" id="a00401_html"><div class="ttname"><a href="../../d7/d00/a00401.html">SettingsInput.h</a></div></div>
-<div class="ttc" id="a00384_html"><div class="ttname"><a href="../../d2/d56/a00384.html">SiteInfo.h</a></div><div class="ttdoc">Class to store the site information from the Hydroclimate database stations table. </div></div>
-<div class="ttc" id="a00399_html"><div class="ttname"><a href="../../d1/d53/a00399.html">Settings.h</a></div><div class="ttdoc">Settings class. </div></div>
-<div class="ttc" id="a00412_html"><div class="ttname"><a href="../../d9/d72/a00412.html">StringList.h</a></div><div class="ttdoc">Utility class to store a list of strings. </div></div>
-<div class="ttc" id="a00413_html"><div class="ttname"><a href="../../da/d9c/a00413.html">text.h</a></div><div class="ttdoc">Predefined string constants used in the code. </div></div>
-<div class="ttc" id="a00374_html"><div class="ttname"><a href="../../d5/db5/a00374.html">DBManager.h</a></div><div class="ttdoc">Database manager for Sqlite. </div></div>
-<div class="ttc" id="a00408_html"><div class="ttname"><a href="../../dd/dea/a00408.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Subbasin(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> group):qOutlet(0.f), calculated(false), rank(-1), downStream(NULL), disToOutlet(-1)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        this-&gt;<span class="keywordtype">id</span> = id;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        this-&gt;group = group;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> ReadInputData(<span class="keywordtype">int</span> index, <span class="keywordtype">string</span>&amp; layerFilePrefix, <span class="keywordtype">string</span>&amp; dirFilePrefix,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                 <span class="keywordtype">string</span>&amp; slopeFilePrefix, <span class="keywordtype">string</span>&amp; streamFilePre,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                 <span class="keywordtype">float</span>**&amp; rtLayers, <span class="keywordtype">float</span>**&amp; flowIn, <span class="keywordtype">float</span>*&amp; flowOut, <span class="keywordtype">float</span>*&amp; dir, <span class="keywordtype">float</span>*&amp; slope, <span class="keywordtype">float</span>*&amp; stream,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                 <span class="keywordtype">int</span>&amp; layersCount, <span class="keywordtype">int</span>&amp; cellsCount);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">int</span> ReadSubbasinOutlets(<span class="keyword">const</span> <span class="keywordtype">char</span>* outletFile, <span class="keywordtype">int</span> nSubbasins, <span class="keywordtype">float</span>**&amp; outlets);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">int</span> ReadRiverTopology(<span class="keyword">const</span> <span class="keywordtype">char</span>* reachFile, map&lt;int, Subbasin*&gt;&amp; subbasins, set&lt;int&gt;&amp; groupSet);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">int</span> GetGroupCount(mongo* conn, <span class="keyword">const</span> <span class="keywordtype">char</span>* dbName, <span class="keywordtype">int</span> decompostionPlan);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">int</span> ReadTopologyFromMongoDB(mongo* conn, <span class="keyword">const</span> <span class="keywordtype">char</span>* dbName, map&lt;int, Subbasin*&gt;&amp; subbasins, set&lt;int&gt;&amp; groupSet, <span class="keywordtype">int</span> decompostionPlan, <span class="keyword">const</span> <span class="keywordtype">char</span>* groupField);</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_4594e9aa377feebada7b877d79ee74dc.html">main</a></li><li class="navelem"><a class="el" href="../../dir_ec129a0ae27569175b993da0ebe57df5.html">main_omp</a></li><li class="navelem"><b>invoke.h</b></li>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:39 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_4594e9aa377feebada7b877d79ee74dc.html">main</a></li><li class="navelem"><a class="el" href="../../dir_bafd484dc62ea1577e5115a72364dd33.html">main_mpi</a></li><li class="navelem"><b>ReadData.h</b></li>
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:07 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

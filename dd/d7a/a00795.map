@@ -1,9 +1,3 @@
-<map id="src/base/module_setting/SettingsOutput.h" name="src/base/module_setting/SettingsOutput.h">
-<area shape="rect" id="node2" href="$d1/d53/a00399.html" title="Settings class. " alt="" coords="355,101,448,131"/>
-<area shape="rect" id="node12" href="$da/dbf/a00393_source.html" title="PrintInfo.h" alt="" coords="1035,101,1129,131"/>
-<area shape="rect" id="node17" href="$dc/d59/a00364.html" title="Define clsRasterData class. " alt="" coords="1171,256,1305,285"/>
-<area shape="rect" id="node9" href="$d0/dd6/a00415.html" title="definition of utils class " alt="" coords="263,179,327,208"/>
-<area shape="rect" id="node13" href="$db/d95/a00391.html" title="Class to store parameter information. " alt="" coords="937,179,1044,208"/>
-<area shape="rect" id="node16" href="$d3/d30/a00370.html" title="clsSpecificOutput.h" alt="" coords="754,179,912,208"/>
-<area shape="rect" id="node14" href="$d1/d8b/a00406.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="875,256,1044,285"/>
+<map id="src/base/module_setting/Settings.h" name="src/base/module_setting/Settings.h">
+<area shape="rect" id="node8" href="$d8/de7/a00417.html" title="definition of utils class " alt="" coords="277,101,341,131"/>
 </map>

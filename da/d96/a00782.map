@@ -1,23 +1,7 @@
-<map id="src/base/module_setting/ModuleFactory.cpp" name="src/base/module_setting/ModuleFactory.cpp">
-<area shape="rect" id="node8" href="$d0/dd6/a00415.html" title="definition of utils class " alt="" coords="280,445,344,475"/>
-<area shape="rect" id="node15" href="$da/d9c/a00413.html" title="Predefined string constants used in the code. " alt="" coords="1514,119,1573,148"/>
-<area shape="rect" id="node16" href="$db/db9/a00387.html" title="ModuleFactory.h" alt="" coords="2140,119,2280,148"/>
-<area shape="rect" id="node19" href="$d1/d8b/a00406.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="3178,445,3347,475"/>
-<area shape="rect" id="node21" href="$dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="1134,445,1284,475"/>
-<area shape="rect" id="node37" href="$d5/db5/a00374.html" title="Database manager for Sqlite. " alt="" coords="1587,445,1708,475"/>
-<area shape="rect" id="node49" href="$de/de8/a00405.html" title="Define MetadataInfo class used by modules. " alt="" coords="3087,368,3213,397"/>
-<area shape="rect" id="node50" href="$dc/dc9/a00389.html" title="Read data from MongoDB. " alt="" coords="2793,291,2900,320"/>
-<area shape="rect" id="node18" href="$db/d95/a00391.html" title="Class to store parameter information. " alt="" coords="3290,368,3397,397"/>
-<area shape="rect" id="node20" href="$d8/d91/a00410.html" title="Parent class for all modules in SEIMS. " alt="" coords="879,368,1043,397"/>
-<area shape="rect" id="node25" href="$d7/d93/a00397.html" title="SEIMS_ModuleSetting.h" alt="" coords="720,445,917,475"/>
-<area shape="rect" id="node26" href="$dc/d59/a00364.html" title="Define clsRasterData class. " alt="" coords="2623,368,2757,397"/>
-<area shape="rect" id="node29" href="$d0/d65/a00360.html" title="clsInterpolationWeighData.h" alt="" coords="2377,368,2599,397"/>
-<area shape="rect" id="node31" href="$d7/d00/a00401.html" title="SettingsInput.h" alt="" coords="1809,213,1937,243"/>
-<area shape="rect" id="node32" href="$d1/d53/a00399.html" title="Settings class. " alt="" coords="427,368,520,397"/>
-<area shape="rect" id="node33" href="$d6/db8/a00376.html" title="InputStation.h" alt="" coords="1705,291,1825,320"/>
-<area shape="rect" id="node36" href="$d6/d9c/a00352_source.html" title="Scenario.h" alt="" coords="1411,291,1509,320"/>
-<area shape="rect" id="node35" href="$d7/d08/a00378.html" title="Measurement.h" alt="" coords="1951,368,2083,397"/>
-<area shape="rect" id="node39" href="$dd/d1d/a00336_source.html" title="BMPText.h" alt="" coords="1309,445,1411,475"/>
-<area shape="rect" id="node40" href="$de/d55/a00323_source.html" title="BMPBase.h" alt="" coords="1316,368,1423,397"/>
-<area shape="rect" id="node41" href="$de/dc8/a00325_source.html" title="BMPFactory.h" alt="" coords="1169,368,1292,397"/>
+<map id="src/base/data/RegularMeasurement.cpp" name="src/base/data/RegularMeasurement.cpp">
+<area shape="rect" id="node3" href="$d2/d56/a00384.html" title="RegularMeasurement.h" alt="" coords="104,83,293,112"/>
+<area shape="rect" id="node8" href="$d8/de7/a00417.html" title="definition of utils class " alt="" coords="475,160,539,189"/>
+<area shape="rect" id="node15" href="$d0/dd6/a00415.html" title="Predefined string constants used in the code. " alt="" coords="639,83,699,112"/>
+<area shape="rect" id="node16" href="$d8/d91/a00410.html" title="Define ModelException class. " alt="" coords="318,83,468,112"/>
+<area shape="rect" id="node4" href="$d8/ddd/a00380.html" title="Measurement.h" alt="" coords="134,160,265,189"/>
 </map>

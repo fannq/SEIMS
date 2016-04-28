@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/MUSK_CH/MUSK_CH.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/IUH_OL/IUH_OL.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,51 +110,50 @@ $(document).ready(function(){initNavTree('d4/d9e/a00569.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">MUSK_CH.h File Reference</div>  </div>
+<div class="title">IUH_OL.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>channel flow routing using Muskingum method  
+<p>IUH overland method to calculate overland flow routing.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;ctime&gt;</code><br/>
-<code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d8/d91/a00410_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;api.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d72/a00412_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for MUSK_CH.h:</div>
+Include dependency graph for IUH_OL.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d64/a00828.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_m_u_s_k___c_h_2_m_u_s_k___c_h_8h" alt=""/></div>
-<map name="src_2modules_2hydrology__longterm_2_m_u_s_k___c_h_2_m_u_s_k___c_h_8h" id="src_2modules_2hydrology__longterm_2_m_u_s_k___c_h_2_m_u_s_k___c_h_8h">
-<area shape="rect" id="node7" href="../../d8/d91/a00410.html" title="Parent class for all modules in SEIMS. " alt="" coords="366,101,529,131"/><area shape="rect" id="node8" href="../../dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="306,179,456,208"/></map>
+<div class="center"><img src="../../d9/daf/a00830.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_i_u_h___o_l_2_i_u_h___o_l_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_i_u_h___o_l_2_i_u_h___o_l_8h" id="src_2modules_2hydrology__longterm_2_i_u_h___o_l_2_i_u_h___o_l_8h">
+<area shape="rect" id="node4" href="../../db/db9/a00387_source.html" title="api.h" alt="" coords="133,101,189,131"/><area shape="rect" id="node5" href="../../d9/d72/a00412.html" title="Parent class for all modules in SEIMS. " alt="" coords="93,179,256,208"/><area shape="rect" id="node6" href="../../d8/d91/a00410.html" title="Define ModelException class. " alt="" coords="99,256,249,285"/></map>
 </div>
 </div>
 <p><a href="../../d4/d9e/a00569_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html">MUSK_CH</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel flow routing using Muskingum method  <a href="../../d3/de7/a00039.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>channel flow routing using Muskingum method </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<div class="textblock"><p>IUH overland method to calculate overland flow routing. </p>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>26-Jule-2012 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Wu Hui </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>24-January-2011</dd></dl>
+<p>Revision: Zhiqiang YU Date: 2011-2-22 Description:</p>
+<ol type="1">
+<li>Add parameter CellWidth.</li>
+<li>Delete parameter uhminCell and uhmaxCell because the parameter Ol_iuh contains these information. The first and second column of Ol_iuh is min time and max time.</li>
+<li>The number of subbasins (m_nsub) should get from m_subbasin rather than from main program. So does variable m_nCells.</li>
+<li>Add varaible m_iuhCols to store the number of columns of Ol_iuh. In the meantime, add one parameter nCols to function SetIUHCell.</li>
+<li>Add variable m_cellFlow to store the flow of each cell in each day between min time and max time. Its number of columns equals to the maximum of second column of Ol_iuh add 1.</li>
+<li>Add function initial to initailize some variables.</li>
+<li>Modify function Execute. </li>
+</ol>
 
-<p>Definition in file <a class="el" href="../../d4/d9e/a00569_source.html">MUSK_CH.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d4/d9e/a00569_source.html">IUH_OL.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_e0ca60487d078d857644626256151310.html">MUSK_CH</a></li><li class="navelem"><a class="el" href="../../d4/d9e/a00569.html">MUSK_CH.h</a></li>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_9067e6dd421cbbd36fb5bdc90dc601f3.html">IUH_OL</a></li><li class="navelem"><a class="el" href="../../d4/d9e/a00569.html">IUH_OL.h</a></li>
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:08 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

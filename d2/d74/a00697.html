@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: PET_H</title>
+<title>SEIMS-2016: CH_DW</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -105,34 +105,28 @@ $(document).ready(function(){initNavTree('d2/d74/a00697.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PET_H<div class="ingroups"><a class="el" href="../../df/d9e/a00686.html">Hydrology_longterm</a></div></div>  </div>
+<div class="title">CH_DW<div class="ingroups"><a class="el" href="../../d1/d87/a00689.html">Hydrology</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Calculate potential evapotranspiration using Hargreaves method.  
+<p>Channel routing using diffusive wave equation.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for PET_H:</div>
+Collaboration diagram for CH_DW:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="../../d2/d74/a00697.png" border="0" alt="" usemap="#d2_2d74_2a00697"/>
 <map name="d2_2d74_2a00697" id="d2_2d74_2a00697">
-<area shape="rect" id="node2" href="../../df/d9e/a00686.html" title="Longterm hydrology related modules. " alt="" coords="6,4,173,33"/></map>
+<area shape="rect" id="node2" href="../../d1/d87/a00689.html" title="Hydrology related modules, include storm processes. " alt="" coords="6,4,101,33"/></map>
 </td></tr></table></center>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:d4/dbe/a00574"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dbe/a00574.html">PETHargreaves.cpp</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html">PETHargreaves</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hargreaves method to Compute PET.  <a href="../../d3/dea/a00046.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html">DiffusiveWave</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routing in the channel.  <a href="../../dc/de2/a00024.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -142,7 +136,7 @@ Functions</h2></td></tr>
 <tr class="separator:ga0087c853569e2c94d58c3499365662e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Calculate potential evapotranspiration using Hargreaves method. </p>
+<p>Channel routing using diffusive wave equation. </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ga0087c853569e2c94d58c3499365662e9"></a>
 <div class="memitem">
@@ -161,14 +155,14 @@ Functions</h2></td></tr>
 <p>function to return the XML Metadata document string </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">\param[out]</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">DT_HS</td><td>"Time step of the simulation from file.in, DT_Single"</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">CellWidth</td><td>"Cell width from file.in, DT_Single"</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">QCH</td><td>"Flux in the downslope boundary of cells" </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<p>Current: use TMin and TMax to calculate TMean TODO: Use mean temperature if exists </p>
 
-<p>Definition at line <a class="el" href="../../d3/d5d/a00463_source.html#l00034">34</a> of file <a class="el" href="../../d3/d5d/a00463_source.html">api.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d47/a00445_source.html#l00036">36</a> of file <a class="el" href="../../dd/d47/a00445_source.html">api.cpp</a>.</p>
 
 </div>
 </div>
@@ -177,7 +171,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:40 for SEIMS-2016 by
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:08 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

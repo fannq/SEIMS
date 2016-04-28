@@ -1,7 +1,6 @@
-<map id="src/base/data/RegularMeasurement.cpp" name="src/base/data/RegularMeasurement.cpp">
-<area shape="rect" id="node3" href="$d3/d45/a00382.html" title="RegularMeasurement.h" alt="" coords="104,83,293,112"/>
-<area shape="rect" id="node8" href="$d0/dd6/a00415.html" title="definition of utils class " alt="" coords="475,160,539,189"/>
-<area shape="rect" id="node15" href="$da/d9c/a00413.html" title="Predefined string constants used in the code. " alt="" coords="639,83,699,112"/>
-<area shape="rect" id="node16" href="$dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="318,83,468,112"/>
-<area shape="rect" id="node4" href="$d7/d08/a00378.html" title="Measurement.h" alt="" coords="134,160,265,189"/>
+<map id="src/base/data/Measurement.cpp" name="src/base/data/Measurement.cpp">
+<area shape="rect" id="node2" href="$d8/ddd/a00380.html" title="Measurement.h" alt="" coords="161,83,292,112"/>
+<area shape="rect" id="node6" href="$d8/de7/a00417.html" title="definition of utils class " alt="" coords="399,83,463,112"/>
+<area shape="rect" id="node13" href="$d0/dd6/a00415.html" title="Predefined string constants used in the code. " alt="" coords="807,83,867,112"/>
+<area shape="rect" id="node14" href="$d8/d91/a00410.html" title="Define ModelException class. " alt="" coords="538,83,688,112"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/bmps/ManagementOperationTillage.h Source File</title>
+<title>SEIMS-2016: src/base/bmps/ManagementOperationPlant.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,31 +111,31 @@ $(document).ready(function(){initNavTree('db/d10/a00350_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ManagementOperationTillage.h</div>  </div>
+<div class="title">ManagementOperationPlant.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;ManagementOperation.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;TillageParameter.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;CropParameter.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>MainBMP</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">namespace </span>NonStructural</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keyword">class </span>ManagementOperationTillage :</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keyword">class </span>ManagementOperationPlant :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;            <span class="keyword">public</span> ManagementOperation</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            ManagementOperationTillage(<span class="keywordtype">int</span> location,<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            ManagementOperationPlant(<span class="keywordtype">int</span> location,<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day,</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                BMPParameter::ArealParameter* parameter,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                <span class="keywordtype">int</span> code);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            ~ManagementOperationTillage(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                <span class="keywordtype">int</span> crop);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            ~ManagementOperationPlant(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            BMPParameter::TillageParameter* OperationParamter()<span class="keyword"> const </span>{<span class="keywordflow">return</span> (BMPParameter::TillageParameter*)(m_parameter);}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            BMPParameter::CropParameter* OperationParamter()<span class="keyword"> const </span>{<span class="keywordflow">return</span> (BMPParameter::CropParameter*)(m_parameter);}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordtype">void</span> Dump(ostream* fs);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordtype">int</span> m_tillCode;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordtype">int</span> m_cropType;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        };</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
@@ -146,8 +146,8 @@ $(document).ready(function(){initNavTree('db/d10/a00350_source.html','../../');}
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>ManagementOperationTillage.h</b></li>
-    <li class="footer">Generated on Wed Apr 27 2016 02:07:39 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>ManagementOperationPlant.h</b></li>
+    <li class="footer">Generated on Thu Apr 28 2016 05:45:07 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
