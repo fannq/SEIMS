@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SettingsInput.cpp Source File</title>
+<title>SEIMS-2016: src/base/module_setting/SettingsOutput.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,308 +111,388 @@ $(document).ready(function(){initNavTree('d4/d6d/a00402_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SettingsInput.cpp</div>  </div>
+<div class="title">SettingsOutput.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d4/d6d/a00402.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">SettingsInput.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dd6/a00415.html">text.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/de7/a00417.html">utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/db8/a00376.html">DBManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dd6/a00415.html">text.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d91/a00410.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d95/a00391.html">MongoUtil.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html#ab9ec0c5f845c2cbefc63c47ad15f34b4">   27</a></span>&#160;<a class="code" href="../../d1/d84/a00052.html#ab9ec0c5f845c2cbefc63c47ad15f34b4">SettingsInput::SettingsInput</a>(<span class="keywordtype">string</span> fileName, mongo* conn, <span class="keywordtype">string</span> dbName, <span class="keywordtype">int</span> nSubbasin, <span class="keywordtype">int</span> scenarioID):m_subbasinID(nSubbasin)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">size_t</span> index = fileName.find_last_of(SEP);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">string</span> projectPath = fileName.substr(0,index+1);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//m_inputReach = new InputReach(databasePath,projectPath);</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    m_conn = conn;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_scenario = NULL;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//if(scenarioID != -1) m_scenario = new Scenario(projectPath,scenarioID); //-1 means this model doesn&#39;t need scenario information</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    LoadSettingsFromFile(fileName,dbName);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html#ac02fb28dab1753e8ca2bdfeae9308c3f">   40</a></span>&#160;<a class="code" href="../../d1/d84/a00052.html#ac02fb28dab1753e8ca2bdfeae9308c3f">SettingsInput::~SettingsInput</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    StatusMessage(<span class="stringliteral">&quot;Start to release SettingsInput ...&quot;</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//map&lt;int,clsSiteData*&gt;::iterator it;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//for(it = m_siteData.begin();it!=m_siteData.end();it++)</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//{</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//  if(it-&gt;second != NULL) delete it-&gt;second;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//}</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//if(m_inputReach != NULL) delete m_inputReach;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span>(m_scenario != NULL) <span class="keyword">delete</span> m_scenario;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span>(m_inputStation!=NULL) <span class="keyword">delete</span> m_inputStation;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//map&lt;int,clsReachData*&gt;::iterator it2;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//for(it2 = m_reachData.begin();it2!=m_reachData.end();it2++)</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//{</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//  if(it2-&gt;second != NULL) delete it2-&gt;second;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//}</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    StatusMessage(<span class="stringliteral">&quot;End to release SettingsInput ...&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html#a27e69c51229535700b5fa683cab78a14">   61</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d84/a00052.html#a27e69c51229535700b5fa683cab78a14">SettingsInput::readDate</a>()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">//read start and end time</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d9/d2e/a00056.html">utils</a> utl;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a> = utl.<a class="code" href="../../d9/d2e/a00056.html#a298646e3858741fa6ee018a6dea10007">ConvertToTime2</a>(Value(Tag_StartTime), <span class="stringliteral">&quot;%d-%d-%d %d:%d:%d&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a> = utl.<a class="code" href="../../d9/d2e/a00056.html#a298646e3858741fa6ee018a6dea10007">ConvertToTime2</a>(Value(Tag_EndTime), <span class="stringliteral">&quot;%d-%d-%d %d:%d:%d&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a> == -1 || <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a> == -1) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// make sure the start and end times are in the proper order</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a> &lt; <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        time_t tmp = <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a> = <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a> = tmp;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="../../d1/d84/a00052.html#a7f93c75b7d1750b7f5e84e2bb89f3192">m_mode</a> = <a class="code" href="../../d0/df1/a00685.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a>(Value(Tag_Mode));</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//read interval</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    vector&lt;string&gt; dtList = utl.<a class="code" href="../../d9/d2e/a00056.html#acc97bce7b8fc83ae5fbf851233dbf29a">SplitString</a>(Value(Tag_Interval), <span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a> = atoi(dtList[0].c_str());</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a> = <a class="code" href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (dtList.size() &gt; 1)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a> = atoi(dtList[1].c_str());</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">SettingsOutput.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dd6/a00415.html">utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dea/a00408.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;SettingsOutput::SettingsOutput(<span class="keywordtype">int</span> subBasinID, <span class="keywordtype">string</span> fileName, mongoc_client_t* conn, mongoc_gridfs_t* gfs):m_conn(conn), m_outputGfs(gfs)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    LoadSettingsFromFile(subBasinID, fileName);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;SettingsOutput::~SettingsOutput(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    StatusMessage(<span class="stringliteral">&quot;Start to release SettingsOutput ...&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    vector&lt;PrintInfo*&gt;::iterator it;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">for</span>(it=m_printInfos.begin();it&lt;m_printInfos.end();it++)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">if</span>((*it)!=NULL) <span class="keyword">delete</span> (*it);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    StatusMessage(<span class="stringliteral">&quot;End to release SettingsOutput ...&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d22/a00057.html#ac9dd22ed739c4c396bf9cc2f8edf7787">SettingsOutput::LoadSettingsFromFile</a>(<span class="keywordtype">int</span> subBasinID, <span class="keywordtype">string</span> fileName)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="../../d1/d22/a00057.html#ac9dd22ed739c4c396bf9cc2f8edf7787">Settings::LoadSettingsFromFile</a>(fileName)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(!ParseOutputSettings(subBasinID)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">bool</span> SettingsOutput::ParseOutputSettings(<span class="keywordtype">int</span> subBasinID)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    PrintInfo* pi = NULL;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ostringstream oss;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    oss &lt;&lt; subBasinID &lt;&lt; <span class="stringliteral">&quot;_&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">string</span> strSubbasinID = oss.str();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;m_Settings.size(); i++)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Sample output entries from the FILE.OUT file</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// placed here for reference</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//OUTPUTID  | PET_TS</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//INTERVAL  | 24 | HOURS</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">//SITECOUNT | 2</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">//SITENAME  | 720_pet</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">//STARTTIME | 2000/01/01/00</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//ENDTIME   | 2000/12/31/00</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//FILENAME  | PET_720.txt</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//SITENAME  | 736_pet</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//STARTTIME | 2001/01/01/00</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//ENDTIME   | 2001/12/31/00</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">//FILENAME  | 736_PET.txt</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//OUTPUTID  | D_PREC</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">//TYPE      | SUM</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">//COUNT     | 2</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">//STARTTIME | 2000/01/01/00</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//ENDTIME   | 2000/01/31/00</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">//FILENAME  | D_PREC_1.asc</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">//STARTTIME | 2000/02/01/00</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//ENDTIME   | 2000/02/28/00</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">//FILENAME  | D_PREC_2.asc</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// OUTPUTID starts a new PrintInfo </span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_OutputID))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">// is this the first PrintInfo or not</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">if</span> (pi != NULL)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="comment">// not the first PrintInfo so add this one to the list before starting a new one</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                m_printInfos.push_back(pi);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">// reset the pointer</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            pi = NULL;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment">// start a new PrintInfo</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            pi = <span class="keyword">new</span> PrintInfo();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="comment">// set the OUTPUTID for the new PrintInfo</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            pi-&gt;setOutputID(m_Settings[i][1]);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/df1/a00685.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(<a class="code" href="../../d1/d84/a00052.html#a7f93c75b7d1750b7f5e84e2bb89f3192">m_mode</a>, Tag_Mode_Daily))</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a> = 86400; <span class="comment">// 86400 secs is 1 day</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a> = 86400;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// convert the time interval to seconds to conform to time_t struct</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="comment">// for QOUTLET or QTotal or SEDOUTLET or DissovePOutlet or AmmoniumOutlet or NitrateOutlet</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">if</span> (StringMatch(m_Settings[i][1], TAG_OUT_QOUTLET) || StringMatch(m_Settings[i][1], TAG_OUT_QTOTAL) || StringMatch(m_Settings[i][1], TAG_OUT_SEDOUTLET) </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                || StringMatch(m_Settings[i][1], Tag_DisPOutlet) || StringMatch(m_Settings[i][1], Tag_AmmoOutlet) </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                || StringMatch(m_Settings[i][1], Tag_NitrOutlet))</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordtype">string</span> starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordtype">string</span> endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordtype">string</span> fname = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">bool</span> SettingsInput::readTimeSeriesData()</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;m_Settings.size(); i++)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {       </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">//if (StringMatch(m_Settings[i][0], Tag_SiteName) &amp;&amp; m_Settings[i].size() == 3 )</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//{</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">//  m_inputStation-&gt;readOneStationData(atoi(m_Settings[i][1].c_str()), trim(m_Settings[i][2]));</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">//} </span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">//if (StringMatch(m_Settings[i][0], Tag_ReachName) &amp;&amp; m_Settings[i].size() == 4)</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">//{ </span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">//  m_inputReach-&gt;readOneReachData(m_Settings[i][1],m_Settings[i][2],m_Settings[i][3]);</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">//} </span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">void</span> SettingsInput::buildTimeQuery(time_t startTime, time_t endTime, bson* query)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">//bson_append_start_object(query, &quot;MEASURE_TIME&quot;);</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//bson_append_date(query, &quot;$gte&quot;, startTime*1000);</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">//bson_append_date(query, &quot;$lte&quot;, endTime*1000);</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">//bson_append_finish_object(query);</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html#a0a443214e95941450bd7c5644e5eedfe">  122</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d84/a00052.html#a0a443214e95941450bd7c5644e5eedfe">SettingsInput::buildQuery</a>(<span class="keyword">const</span> set&lt;int&gt;&amp; idSet, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; type, bson* query)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    set&lt;int&gt;::iterator it;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// id</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span> (!idSet.empty())</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        bson con_id[1];</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        bson_init(con_id);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        bson_append_start_array(con_id, <span class="stringliteral">&quot;$in&quot;</span>);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        ostringstream oss;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">for</span> (it = idSet.begin(); it != idSet.end(); ++it)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            oss.str(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            oss &lt;&lt; i;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            bson_append_int(con_id, oss.str().c_str(), *it);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            i++;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        bson_append_finish_array(con_id);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        bson_finish(con_id);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        bson_append_bson(query, <span class="stringliteral">&quot;ID&quot;</span>, con_id);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">// type</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    bson_append_string(query, <span class="stringliteral">&quot;TYPE&quot;</span>, type.c_str());</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordtype">void</span> SettingsInput::ReadSiteList()</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    bson query[1];</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    bson_init(query);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">// subbasin id</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    bson_append_int(query, Tag_SubbasinId, m_subbasinID);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// mode</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    bson_append_string(query, Tag_Mode, <a class="code" href="../../d1/d84/a00052.html#a7f93c75b7d1750b7f5e84e2bb89f3192">m_mode</a>.c_str());</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    bson_finish(query);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">//bson_print(query);</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">string</span> siteListTable = SITELIST_TABLE;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">bool</span> stormMode = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d0/df1/a00685.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a>(<a class="code" href="../../d1/d84/a00052.html#a7f93c75b7d1750b7f5e84e2bb89f3192">m_mode</a>, Tag_Mode_Storm))</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        stormMode = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    mongo_cursor cursor[1];</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    ostringstream oss;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    oss &lt;&lt; m_dbName &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; siteListTable;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    mongo_cursor_init(cursor, m_conn, oss.str().c_str());</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    mongo_cursor_set_query(cursor, query);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">// loop stations of one class of climate data, such as &quot;P&quot;</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">while</span>( mongo_cursor_next(cursor) == MONGO_OK ) </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">const</span> bson* stationInfo = mongo_cursor_bson(cursor);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        bson_iterator it[1];</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">if</span> (bson_find(it, stationInfo, <span class="stringliteral">&quot;DB&quot;</span>)) </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            m_dbHydro = bson_iterator_string(it);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d8/d41/a00038.html">ModelException</a>(<span class="stringliteral">&quot;SettingsInput&quot;</span>, <span class="stringliteral">&quot;ReadSiteList&quot;</span>, <span class="stringliteral">&quot;The DB field does not exist in SiteList table.&quot;</span>);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">if</span> (bson_find(it, stationInfo, SITELIST_TABLE_M)) </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        {</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordtype">string</span> siteList = bson_iterator_string(it);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, siteList, DataType_MeanTemperature, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, siteList, DataType_MaximumTemperature, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, siteList, DataType_MinimumTemperature, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, siteList, DataType_WindSpeed, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, siteList, DataType_SolarRadiation, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>);</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, siteList, DataType_RelativeAirMoisture, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        }</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">if</span> (bson_find(it, stationInfo, SITELIST_TABLE_P)) </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, bson_iterator_string(it), <a class="code" href="../../d0/dd6/a00415.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>, stormMode);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">if</span> (bson_find(it, stationInfo, SITELIST_TABLE_PET)) </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            m_inputStation-&gt;ReadSitesData(m_dbHydro, bson_iterator_string(it), DataType_PotentialEvapotranspiration, <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>, <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>, stormMode);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    bson_destroy(query);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    mongo_cursor_destroy(cursor);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keywordtype">bool</span> SettingsInput::LoadSettingsFromFile(<span class="keywordtype">string</span> filename,<span class="keywordtype">string</span> dbName)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;{</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    m_dbName = dbName;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="comment">// check to see if we have all 4 values we need</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> flag=0; flag&lt;4; flag++)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    i++;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_Interval))</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="comment">// set the interval length</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        pi-&gt;setInterval(atoi(m_Settings[i][1].c_str()));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        <span class="comment">// set the interval units</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        pi-&gt;setIntervalUnits(m_Settings[i][2].c_str());</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_StartTime))</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                        <span class="comment">// get the start time</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                        starttm = m_Settings[i][1];</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_EndTime))</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        <span class="comment">// get the end time</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                        endtm = m_Settings[i][1];</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_FileName))</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        <span class="comment">// get the filename, but not include the suffix.</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        <span class="comment">// modified by ZhuLJ, 2015/6/16</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                        fname = strSubbasinID + GetCoreFileName(m_Settings[i][1]);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                pi-&gt;AddPrintItem(starttm, endtm, fname);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">// INTERVAL is used only for the PET_TS output</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_Interval))</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="comment">// check that an object exists</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">if</span> (pi != NULL)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="comment">// set the interval length</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                pi-&gt;setInterval(atoi(m_Settings[i][1].c_str()));</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="comment">// set the interval units</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                pi-&gt;setIntervalUnits(m_Settings[i][2].c_str());</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="comment">// SITECOUNT is used only for the time series output for sites</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_SiteCount))</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordtype">string</span> sitename = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordtype">string</span> starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordtype">string</span> endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keywordtype">string</span> fname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="comment">// get the number of sites in the list</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordtype">int</span> cnt = atoi(m_Settings[i][1].c_str());</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="comment">// for each site int he list</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idx=0; idx&lt;cnt; idx++)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                <span class="comment">// reset values</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                sitename = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                fname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="comment">// check to see if we have all 4 values we need</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> flag=0; flag&lt;4; flag++)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    i++;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_SiteID))</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                        <span class="comment">// get the sitename</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                        sitename = m_Settings[i][1];</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_StartTime))</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                    {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                        <span class="comment">// get the start time</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                        starttm = m_Settings[i][1];</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                    }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_EndTime))</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                        <span class="comment">// get the end time</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                        endtm = m_Settings[i][1];</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_FileName))</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                    {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                        <span class="comment">// get the filename</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                        fname = strSubbasinID + GetCoreFileName(m_Settings[i][1]);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <span class="comment">// check to see if there is a site to save</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <span class="keywordflow">if</span> (sitename.size() &gt; 0)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    <span class="comment">// add the print item</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    pi-&gt;AddPrintItem(starttm, endtm, fname, sitename,<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="comment">// SUBBASINCOUNT is used only for the time series output for subbasins</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_SubbasinCount) ||</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            StringMatch(m_Settings[i][0], Tag_ReservoirCount))</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordtype">string</span> subbasinname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordtype">string</span> starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordtype">string</span> endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordtype">string</span> fname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="comment">// get the number of sites in the list</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordtype">int</span> cnt = atoi(m_Settings[i][1].c_str());</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="comment">// for each site int he list</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idx=0; idx&lt;cnt; idx++)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <span class="comment">// reset values</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                subbasinname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                fname = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">//first get the SettingStrings from base class LoadSettingsFromFile function</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span>(!Settings::LoadSettingsFromFile(filename)) </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d8/d41/a00038.html">ModelException</a>(<span class="stringliteral">&quot;SettingsInput&quot;</span>,<span class="stringliteral">&quot;LoadSettingsFromFile&quot;</span>,</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="stringliteral">&quot;The file.in is invalid. Please check it.&quot;</span>);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="../../d1/d84/a00052.html#a27e69c51229535700b5fa683cab78a14">readDate</a>()) </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d8/d41/a00038.html">ModelException</a>(<span class="stringliteral">&quot;SettingsInput&quot;</span>,<span class="stringliteral">&quot;LoadSettingsFromFile&quot;</span>,</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="stringliteral">&quot;The start time and end time in file.in is invalid. The format would be YYYY/MM/DD/HH. Please check it.&quot;</span>);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    m_inputStation = <span class="keyword">new</span> InputStation(m_conn, <a class="code" href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a>, <a class="code" href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a>);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    ReadSiteList();</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keywordtype">void</span> SettingsInput::Dump(<span class="keywordtype">string</span> fileName)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;{</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    ofstream fs;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <a class="code" href="../../d9/d2e/a00056.html">utils</a> util;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    fs.open(fileName.c_str(), ios::out);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">if</span> (fs.is_open())</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        fs &lt;&lt; <span class="stringliteral">&quot;Start Date :&quot;</span> &lt;&lt; util.<a class="code" href="../../d9/d2e/a00056.html#a053b28c53a117d59e0f5050b0d9af225">ConvertToString2</a>(&amp;<a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>) &lt;&lt;  endl;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        fs &lt;&lt; <span class="stringliteral">&quot;End Date :&quot;</span> &lt;&lt; util.<a class="code" href="../../d9/d2e/a00056.html#a053b28c53a117d59e0f5050b0d9af225">ConvertToString2</a>(&amp;<a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>) &lt;&lt;  endl;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        fs &lt;&lt; <span class="stringliteral">&quot;Interval :&quot;</span> &lt;&lt; <a class="code" href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a> &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a> &lt;&lt;  endl;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="comment">//m_inputStation-&gt;dump(&amp;fs);</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="comment">//m_inputReach-&gt;dump(&amp;fs);</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">if</span>(m_scenario!=NULL) m_scenario-&gt;Dump(&amp;fs);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        fs.close();</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">//InputReach* SettingsInput::ReachData()</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">//{</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">//  return m_inputReach;</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">//}</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;Scenario* SettingsInput::BMPScenario()</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;{</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">return</span> m_scenario;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;}</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;InputStation* SettingsInput::StationData()</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;{</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">return</span> m_inputStation;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;}</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;time_t SettingsInput::getStartTime()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">m_startDate</a>;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;time_t SettingsInput::getEndTime()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">m_endDate</a>;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;time_t SettingsInput::getDtHillslope()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">m_dtHs</a>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;time_t SettingsInput::getDtChannel()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">m_dtCh</a>;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;}</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;time_t SettingsInput::getDtDaily()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">return</span> 86400;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}</div>
-<div class="ttc" id="a00052_html_ac02fb28dab1753e8ca2bdfeae9308c3f"><div class="ttname"><a href="../../d1/d84/a00052.html#ac02fb28dab1753e8ca2bdfeae9308c3f">SettingsInput::~SettingsInput</a></div><div class="ttdeci">~SettingsInput(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00040">SettingsInput.cpp:40</a></div></div>
-<div class="ttc" id="a00410_html"><div class="ttname"><a href="../../d8/d91/a00410.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
-<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">utils</a></div><div class="ttdoc">utils class to handle string, date time and file </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00041">utils.h:41</a></div></div>
-<div class="ttc" id="a00391_html"><div class="ttname"><a href="../../db/d95/a00391.html">MongoUtil.h</a></div><div class="ttdoc">Read data from MongoDB. </div></div>
-<div class="ttc" id="a00415_html"><div class="ttname"><a href="../../d0/dd6/a00415.html">text.h</a></div><div class="ttdoc">Predefined string constants used in the code. </div></div>
-<div class="ttc" id="a00685_html_gae875280d1d04d9c64f41a2bc46403f88"><div class="ttname"><a href="../../d0/df1/a00685.html#gae875280d1d04d9c64f41a2bc46403f88">StringMatch</a></div><div class="ttdeci">bool StringMatch(string text1, string text2)</div><div class="ttdoc">Match String. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00127">util.cpp:127</a></div></div>
-<div class="ttc" id="a00052_html_a0b2dd70eee0ff83818e5e15717b914c3"><div class="ttname"><a href="../../d1/d84/a00052.html#a0b2dd70eee0ff83818e5e15717b914c3">SettingsInput::m_endDate</a></div><div class="ttdeci">time_t m_endDate</div><div class="ttdoc">end date </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00052">SettingsInput.h:52</a></div></div>
-<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">SettingsInput.h</a></div></div>
-<div class="ttc" id="a00376_html"><div class="ttname"><a href="../../d6/db8/a00376.html">DBManager.h</a></div><div class="ttdoc">Database manager for Sqlite. </div></div>
-<div class="ttc" id="a00685_html_ga201344a7ea57c0c4eee3d5f686330b8b"><div class="ttname"><a href="../../d0/df1/a00685.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a></div><div class="ttdeci">string GetUpper(string)</div><div class="ttdoc">GetUpper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00120">util.cpp:120</a></div></div>
-<div class="ttc" id="a00056_html_a298646e3858741fa6ee018a6dea10007"><div class="ttname"><a href="../../d9/d2e/a00056.html#a298646e3858741fa6ee018a6dea10007">utils::ConvertToTime2</a></div><div class="ttdeci">static time_t ConvertToTime2(const string &amp;strDate, const char *format, bool includeHour)</div><div class="ttdoc">Convert string to date time, string format could be %4d%2d%2d or d-d-d. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d15/a00416_source.html#l00266">utils.cpp:266</a></div></div>
-<div class="ttc" id="a00052_html_a7f93c75b7d1750b7f5e84e2bb89f3192"><div class="ttname"><a href="../../d1/d84/a00052.html#a7f93c75b7d1750b7f5e84e2bb89f3192">SettingsInput::m_mode</a></div><div class="ttdeci">string m_mode</div><div class="ttdoc">simulation mode, can be DAILY or HOURLY </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00068">SettingsInput.h:68</a></div></div>
-<div class="ttc" id="a00052_html_a4b26228ba3e9f0109951fcbbf8d3b74a"><div class="ttname"><a href="../../d1/d84/a00052.html#a4b26228ba3e9f0109951fcbbf8d3b74a">SettingsInput::m_dtHs</a></div><div class="ttdeci">time_t m_dtHs</div><div class="ttdoc">time interval for hillslope </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00053">SettingsInput.h:53</a></div></div>
-<div class="ttc" id="a00038_html"><div class="ttname"><a href="../../d8/d41/a00038.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d91/a00410_source.html#l00024">ModelException.h:24</a></div></div>
-<div class="ttc" id="a00417_html"><div class="ttname"><a href="../../d8/de7/a00417.html">utils.h</a></div><div class="ttdoc">definition of utils class </div></div>
-<div class="ttc" id="a00052_html_a68396d28a25a25af0a70054ab2d3019c"><div class="ttname"><a href="../../d1/d84/a00052.html#a68396d28a25a25af0a70054ab2d3019c">SettingsInput::m_dtCh</a></div><div class="ttdeci">time_t m_dtCh</div><div class="ttdoc">time interval for channel </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00054">SettingsInput.h:54</a></div></div>
-<div class="ttc" id="a00056_html_a053b28c53a117d59e0f5050b0d9af225"><div class="ttname"><a href="../../d9/d2e/a00056.html#a053b28c53a117d59e0f5050b0d9af225">utils::ConvertToString2</a></div><div class="ttdeci">static string ConvertToString2(const time_t *date)</div><div class="ttdoc">Convert date time to string as the format of &quot;YYYY-mm-dd hh&quot;. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d15/a00416_source.html#l00178">utils.cpp:178</a></div></div>
-<div class="ttc" id="a00052_html_a27e69c51229535700b5fa683cab78a14"><div class="ttname"><a href="../../d1/d84/a00052.html#a27e69c51229535700b5fa683cab78a14">SettingsInput::readDate</a></div><div class="ttdeci">bool readDate(void)</div><div class="ttdoc">Read start and end date, simulation mode and time interval. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00061">SettingsInput.cpp:61</a></div></div>
-<div class="ttc" id="a00056_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../d9/d2e/a00056.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d15/a00416_source.html#l00127">utils.cpp:127</a></div></div>
-<div class="ttc" id="a00052_html_a90cd7c4a484ed1294a80ec6e515c5458"><div class="ttname"><a href="../../d1/d84/a00052.html#a90cd7c4a484ed1294a80ec6e515c5458">SettingsInput::m_startDate</a></div><div class="ttdeci">time_t m_startDate</div><div class="ttdoc">start date </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00051">SettingsInput.h:51</a></div></div>
-<div class="ttc" id="a00052_html_ab9ec0c5f845c2cbefc63c47ad15f34b4"><div class="ttname"><a href="../../d1/d84/a00052.html#ab9ec0c5f845c2cbefc63c47ad15f34b4">SettingsInput::SettingsInput</a></div><div class="ttdeci">SettingsInput(string fileName, mongo *conn, string dbName, int nSubbasin=1, int scenarioID=-1)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00027">SettingsInput.cpp:27</a></div></div>
-<div class="ttc" id="a00415_html_a90664723be86eee7dbc8bcbcaceff261"><div class="ttname"><a href="../../d0/dd6/a00415.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a></div><div class="ttdeci">#define DataType_Precipitation</div><div class="ttdoc">Climate data type, used in SEIMS_ModuleSetting class, ITP, etc. // LJ, Apr.,2016. ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd6/a00415_source.html#l00028">text.h:28</a></div></div>
-<div class="ttc" id="a00052_html_a0a443214e95941450bd7c5644e5eedfe"><div class="ttname"><a href="../../d1/d84/a00052.html#a0a443214e95941450bd7c5644e5eedfe">SettingsInput::buildQuery</a></div><div class="ttdeci">void buildQuery(const set&lt; int &gt; &amp;idSet, const string &amp;type, bson *query)</div><div class="ttdoc">build query for mongodb </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00122">SettingsInput.cpp:122</a></div></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                <span class="comment">// check to see if we have all 4 values we need</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> flag=0; flag&lt;4; flag++)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                    i++;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_SubbasinId) ||</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                        StringMatch(m_Settings[i][0], Tag_ReservoirId))</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                        <span class="comment">// get the sitename</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                        subbasinname = m_Settings[i][1];</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    }</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_StartTime))</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                    {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                        <span class="comment">// get the start time</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                        starttm = m_Settings[i][1];</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_EndTime))</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        <span class="comment">// get the end time</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                        endtm = m_Settings[i][1];</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_FileName))</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                        <span class="comment">// get the filename</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                        fname = strSubbasinID + GetCoreFileName(m_Settings[i][1]);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="comment">// check to see if there is a site to save</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordflow">if</span> (subbasinname.size() &gt; 0)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                    <span class="comment">// add the print item</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                    pi-&gt;AddPrintItem(starttm, endtm, fname, subbasinname,<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_Count))</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        {</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keywordtype">string</span> type = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <span class="keywordtype">string</span> starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <span class="keywordtype">string</span> endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="keywordtype">string</span> fname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="comment">// get the number of sites in the list</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordtype">int</span> cnt = atoi(m_Settings[i][1].c_str());</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="comment">// for each site int he list</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idx=0; idx&lt;cnt; idx++)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                endtm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                starttm = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                fname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="comment">// check to see if we have all 3 values we need</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> flag=0; flag&lt;4; flag++)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    i++;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_Type))</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                    {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                        <span class="comment">// get the type</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                        type = m_Settings[i][1];</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                    }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_StartTime))</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                    {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                        <span class="comment">// get the start time</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                        starttm = m_Settings[i][1];</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                    }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_EndTime))</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                    {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                        <span class="comment">// get the end time</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                        endtm = m_Settings[i][1];</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                    <span class="keywordflow">if</span> (StringMatch(m_Settings[i][0], Tag_FileName))</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                    {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                        <span class="comment">// get the filename</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                        fname = strSubbasinID + GetCoreFileName(m_Settings[i][1]);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                }</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                <span class="comment">// check to see if there is a site to save</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <span class="keywordflow">if</span> (starttm.size() &gt; 0)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                    <span class="comment">// add the print item                   </span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                    pi-&gt;AddPrintItem(type,starttm, endtm, fname, m_conn, m_outputGfs);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        }</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span> (pi != NULL)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="comment">// add the last one.</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        m_printInfos.push_back(pi);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        pi = NULL;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;}</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keywordtype">void</span> SettingsOutput::checkDate(time_t startTime, time_t endTime)</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <a class="code" href="../../df/d03/a00062.html">utils</a> util;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    vector&lt;PrintInfo*&gt;::iterator it;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">for</span>(it=m_printInfos.begin();it&lt;m_printInfos.end();it++)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        vector&lt;PrintInfoItem*&gt;::iterator itemIt;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keywordflow">for</span>(itemIt=(*it)-&gt;m_PrintItems.begin();itemIt&lt;(*it)-&gt;m_PrintItems.end();itemIt++)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <span class="keywordflow">if</span>((*itemIt)-&gt;getStartTime() &lt; startTime)  </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;SettingsOutput&quot;</span>,<span class="stringliteral">&quot;checkDate&quot;</span>,<span class="stringliteral">&quot;The start time of output &quot;</span> + (*it)-&gt;getOutputID() + <span class="stringliteral">&quot; to &quot;</span> + (*itemIt)-&gt;Filename + <span class="stringliteral">&quot; is &quot;</span>+ (*itemIt)-&gt;StartTime +<span class="stringliteral">&quot;. It&#39;s earlier than start time of time series data &quot;</span>+util.<a class="code" href="../../df/d03/a00062.html#a9d33b2ef019fc239d7b6a798d7d79ae3">ConvertToString</a>(&amp;startTime)+<span class="stringliteral">&quot;. Please check time setting of file.in and file.out.&quot;</span>);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            <span class="keywordflow">if</span>((*itemIt)-&gt;getEndTime() &gt; endTime)  </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;SettingsOutput&quot;</span>,<span class="stringliteral">&quot;checkDate&quot;</span>,<span class="stringliteral">&quot;The end time of output &quot;</span> + (*it)-&gt;getOutputID() + <span class="stringliteral">&quot; to &quot;</span> + (*itemIt)-&gt;Filename + <span class="stringliteral">&quot; is &quot;</span>+ (*itemIt)-&gt;EndTime +<span class="stringliteral">&quot;. It&#39;s later than end time of time series data &quot;</span>+util.<a class="code" href="../../df/d03/a00062.html#a9d33b2ef019fc239d7b6a798d7d79ae3">ConvertToString</a>(&amp;endTime)+<span class="stringliteral">&quot;. Please check time setting of file.in and file.out.&quot;</span>);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;}</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keywordtype">bool</span> SettingsOutput::isOutputASCFile()</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    vector&lt;PrintInfo*&gt;::iterator it;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">for</span>(it=m_printInfos.begin();it&lt;m_printInfos.end();it++)</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">if</span>((*it)-&gt;m_OutputID.find_first_of(<span class="stringliteral">&quot;D&quot;</span>) != string::npos) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;}</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">//void SettingsOutput::setSpecificCellRasterOutput(string projectPath,string databasePath,clsRasterData* templateRasterData)</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">//  vector&lt;PrintInfo*&gt;::iterator itInfo;</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">//  for(itInfo=m_printInfos.begin();itInfo&lt;m_printInfos.end();itInfo++)</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment">//  {</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">//      (*itInfo)-&gt;setSpecificCellRasterOutput(projectPath,databasePath,templateRasterData);</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">//  }</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">//}</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="keywordtype">void</span> SettingsOutput::Dump(<span class="keywordtype">string</span> fileName)</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;{</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    ofstream fs;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <a class="code" href="../../df/d03/a00062.html">utils</a> util;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    fs.open(fileName.c_str(), ios::out);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordflow">if</span> (fs.is_open())</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    {   </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> idx=0;idx&lt;m_printInfos.size();idx++)</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        {</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            PrintInfo* info = m_printInfos.at(idx);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            fs &lt;&lt; <span class="stringliteral">&quot;Output ID: &quot;</span> &lt;&lt; info-&gt;m_OutputID &lt;&lt; endl;                        </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            fs &lt;&lt; <span class="stringliteral">&quot;---------- All the print info item----------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> idx2=0;idx2&lt;info-&gt;m_PrintItems.size();idx2++)</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            {</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                PrintInfoItem* item = info -&gt;m_PrintItems.at(idx2);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                fs &lt;&lt; <span class="stringliteral">&quot;Type: &quot;</span> &lt;&lt; item-&gt;getAggregationType() &lt;&lt; endl;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                fs &lt;&lt; <span class="stringliteral">&quot;Start Time:&quot;</span> &lt;&lt;item-&gt;StartTime &lt;&lt; endl;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                fs &lt;&lt; <span class="stringliteral">&quot;End Time:&quot;</span> &lt;&lt;item-&gt;EndTime &lt;&lt; endl;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                fs &lt;&lt; <span class="stringliteral">&quot;File Name:&quot;</span> &lt;&lt;item-&gt;Filename &lt;&lt; endl;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            }   </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            fs &lt;&lt; <span class="stringliteral">&quot;-------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        fs.close();</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;}</div>
+<div class="ttc" id="a00415_html"><div class="ttname"><a href="../../d0/dd6/a00415.html">utils.h</a></div><div class="ttdoc">Utilities class to handle string, date time and file. </div></div>
+<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dea/a00408_source.html#l00024">ModelException.h:24</a></div></div>
+<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">SettingsOutput.h</a></div><div class="ttdoc">Setting Outputs for SEIMS. </div></div>
+<div class="ttc" id="a00062_html"><div class="ttname"><a href="../../df/d03/a00062.html">utils</a></div><div class="ttdoc">utils class to handle string, date time and file </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd6/a00415_source.html#l00034">utils.h:34</a></div></div>
+<div class="ttc" id="a00062_html_a9d33b2ef019fc239d7b6a798d7d79ae3"><div class="ttname"><a href="../../df/d03/a00062.html#a9d33b2ef019fc239d7b6a798d7d79ae3">utils::ConvertToString</a></div><div class="ttdeci">static string ConvertToString(const time_t *date)</div><div class="ttdoc">Convert date time to string as the format of &quot;YYYY-MM-DD&quot;. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dbc/a00414_source.html#l00042">utils.cpp:42</a></div></div>
+<div class="ttc" id="a00057_html_ac9dd22ed739c4c396bf9cc2f8edf7787"><div class="ttname"><a href="../../d1/d22/a00057.html#ac9dd22ed739c4c396bf9cc2f8edf7787">Settings::LoadSettingsFromFile</a></div><div class="ttdeci">virtual bool LoadSettingsFromFile(string filename)</div><div class="ttdoc">Load the settings value from the given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd1/a00398_source.html#l00045">Settings.cpp:45</a></div></div>
+<div class="ttc" id="a00408_html"><div class="ttname"><a href="../../dd/dea/a00408.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00402.html">SettingsInput.cpp</a></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00402.html">SettingsOutput.cpp</a></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:18 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

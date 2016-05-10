@@ -1,10 +1,12 @@
 var a00161 =
 [
-    [ "params_t", "d6/d97/a00045.html", null ],
-    [ "CMD_MINLEN", "d6/d7d/a00161.html#aacf04ecfd59a1c65ac2d0837c6797418", null ],
-    [ "main", "d6/d7d/a00161.html#a0ddf1224851353fc92bfbff6f499fa97", null ],
-    [ "parse_cmdline", "d6/d7d/a00161.html#aea2aa8c9b5bb7c64a3f316d7760f0341", null ],
-    [ "print_an_itemset", "d6/d7d/a00161.html#a3b3cc293672156bbc5026fd567f52462", null ],
-    [ "print_final_info", "d6/d7d/a00161.html#a702976a4c55992ddbfc1918ec1b70943", null ],
-    [ "print_init_info", "d6/d7d/a00161.html#a2270624f104a1d261314dd112e4a1d1d", null ]
+    [ "gk_freepdbf", "d6/d7d/a00161.html#ab49542f55191276b91d65ad61a198ab2", null ],
+    [ "gk_readpdbfile", "d6/d7d/a00161.html#a297ec0561d579a1772f424fce8886d96", null ],
+    [ "gk_showcorruption", "d6/d7d/a00161.html#ac07e046d84d58f44124e9b28e90d619c", null ],
+    [ "gk_threetoone", "d6/d7d/a00161.html#a6eb7d344c153ba6c0bbe608c18a4a2a1", null ],
+    [ "gk_writealphacarbons", "d6/d7d/a00161.html#ad0eef52d1d7e2da669accced22e821a4", null ],
+    [ "gk_writebackbone", "d6/d7d/a00161.html#a04817c574e29493f0363ef81b41f82df", null ],
+    [ "gk_writecentersofmass", "d6/d7d/a00161.html#a6be4d6cf94a1dace5677865e8958b7b3", null ],
+    [ "gk_writefastafrompdb", "d6/d7d/a00161.html#a39b1b4f30c03454894d5218edd8296e0", null ],
+    [ "gk_writefullatom", "d6/d7d/a00161.html#a786192984ea62e6824ae9a2d1b902574", null ]
 ];

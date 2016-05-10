@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/import_raster/main.cpp Source File</title>
+<title>SEIMS-2016: preprocess/config.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,296 +111,113 @@ $(document).ready(function(){initNavTree('d1/d09/a00077_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">main.cpp</div>  </div>
+<div class="title">config.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//gdal</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;gdal.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;gdal_priv.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;cpl_string.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//mongodb</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;mongo.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;gridfs.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//this project</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;SubBasin.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;Raster.cpp&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @Configuration of Preprocessing for SEIMS</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">#  TODO, give more detailed description here.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> os,platform,sys</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">## Directionaries </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    BASE_DATA_DIR = <span class="stringliteral">r&#39;E:\data\model_data\model_dianbu_30m_longterm\data_prepare&#39;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    TXT_DB_DIR = <span class="stringliteral">r&#39;E:\code\Hydro\SEIMS\database&#39;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    PREPROC_SCRIPT_DIR = <span class="stringliteral">r&#39;E:\code\Hydro\SEIMS\preprocess&#39;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    CPP_PROGRAM_DIR = <span class="stringliteral">r&#39;D:\Compile\SEIMS_Preprocess\Release&#39;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    METIS_DIR = <span class="stringliteral">r&#39;D:\Compile\SEIMS_Preprocess\metis\programs\Release&#39;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    MPIEXEC_DIR = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordflow">elif</span> platform.system() == <span class="stringliteral">&quot;Linux&quot;</span>: <span class="comment">### Hasn&#39;t tested yet, Apr.,2016, LJ.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    BASE_DATA_DIR = <span class="stringliteral">r&#39;/data/liujz/data&#39;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    TXT_DB_DIR = <span class="stringliteral">r&#39;/data/liujz/data/database&#39;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    PREPROC_SCRIPT_DIR = <span class="stringliteral">r&#39;/data/hydro_preprocessing&#39;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    CPP_PROGRAM_DIR = <span class="stringliteral">r&#39;/data/hydro_preprocessing/cpp_programs&#39;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    METIS_DIR = <span class="stringliteral">r&#39;/soft/programming/metis-5.1.0/build/programs&#39;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    MPIEXEC_DIR = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;CLIMATE_DATA_DIR = BASE_DATA_DIR + os.sep + <span class="stringliteral">&#39;climate&#39;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;SPATIAL_DATA_DIR = BASE_DATA_DIR + os.sep + <span class="stringliteral">&#39;spatial&#39;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;WORKING_DIR      = BASE_DATA_DIR + os.sep + <span class="stringliteral">&#39;output&#39;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> FindBoundingBox(Raster&lt;int&gt;&amp; rsSubbasin, map&lt;int, SubBasin&gt;&amp; bboxMap)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> nXSize = rsSubbasin.GetNumberofColumns();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> nYSize = rsSubbasin.GetNumberOfRows();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span>** pData = rsSubbasin.GetData();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> noDataValue = rsSubbasin.GetNoDataValue();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// find bounding box for each subbasin</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nYSize; i++)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; nXSize; j++)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordtype">int</span> <span class="keywordtype">id</span> = pData[i][j];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">if</span> (noDataValue != <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">if</span> (bboxMap.find(<span class="keywordtype">id</span>) == bboxMap.end())</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    bboxMap[id] = SubBasin(j, i, j, i);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="keywordflow">if</span> (j &lt; bboxMap[<span class="keywordtype">id</span>].xMin)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        bboxMap[id].xMin = j;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (j &gt; bboxMap[<span class="keywordtype">id</span>].xMax)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        bboxMap[id].xMax = j;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">## MongoDB related</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">#HOSTNAME = &#39;192.168.6.55&#39;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;HOSTNAME = <span class="stringliteral">&#39;127.0.0.1&#39;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;PORT = 27017</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;ClimateDBName = <span class="stringliteral">&#39;climate_dianbu&#39;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;SpatialDBName = <span class="stringliteral">&#39;model_dianbu_30m_longterm&#39;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;forCluster = <span class="keyword">False</span> </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;stormMode = <span class="keyword">False</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordflow">if</span> forCluster <span class="keywordflow">and</span> <span class="stringliteral">&#39;cluster_&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> SpatialDBName.lower():</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    SpatialDBName = <span class="stringliteral">&#39;cluster_&#39;</span> + SpatialDBName</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">## Climate Input</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;PrecSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordflow">if</span> stormMode:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    PrecStormSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor_storm.shp&#39;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;MeteorSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Metero_hefei_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;PrecExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;precipitation_by_day_&#39;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;PrecDataYear = [2014]</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;MeteoVarFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Variables.txt&#39;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;MeteoDailyFile = CLIMATE_DATA_DIR + os.sep+ <span class="stringliteral">&#39;meteorology_dianbu_daily.txt&#39;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;MetroSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;sites_hefei.txt&#39;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;DischargeExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;discharge_by_day_&#39;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;DischargeYear = [2014]</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">## Spatial Input</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;dem = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;dem_30m.tif&#39;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;outlet_file = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;outlet_30m.shp&#39;</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    <span class="keywordflow">if</span> (i &gt; bboxMap[<span class="keywordtype">id</span>].yMax)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        bboxMap[id].yMax = i;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                bboxMap[id].cellCount += 1;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">int</span> DecompositeRasterToMongoDB(map&lt;int, SubBasin&gt;&amp; bboxMap, Raster&lt;int&gt;&amp; rsSubbasin, <span class="keyword">const</span> <span class="keywordtype">char</span>* dstFile, mongo* conn, gridfs* gfs)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Raster&lt;float&gt; rs;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    rs.ReadFromGDAL(dstFile);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> nXSize = rs.GetNumberofColumns();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> nYSize = rs.GetNumberOfRows();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">float</span> noDataValue = rs.GetNoDataValue();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;threshold = 0  <span class="comment"># threshold for stream extraction from D8-flow accumulation weighted Peuker-Douglas stream sources</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;               <span class="comment"># if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;np = 4  <span class="comment"># number of parallel processors</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;sandList = []</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;clayList = []</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;orgList = []</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> [1,2]:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    sandFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;sand&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span> </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    clayFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;clay&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    orgFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;org&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    sandList.append(sandFile)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    clayList.append(clayFile)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    orgList.append(orgFile)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;defaultSand = 40</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;defaultClay = 30</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;defaultOrg = 2.5</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">## Predefined variables</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//cout &lt;&lt; nXSize &lt;&lt; &quot;\t&quot; &lt;&lt; nYSize &lt;&lt; endl;</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">float</span> **rsData = rs.GetData();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> **subbasinData = rsSubbasin.GetData();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    map&lt;int, SubBasin&gt;::iterator it;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">string</span> coreName = <a class="code" href="../../d0/df1/a00685.html#gaa19efd2980a7e4dc34a452286fb0e7fc">GetCoreFileName</a>(dstFile);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">for</span> (it = bboxMap.begin(); it != bboxMap.end(); it++)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">int</span> <span class="keywordtype">id</span> = it-&gt;first;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        SubBasin&amp; subbasin = it-&gt;second;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">int</span> subXSize = subbasin.xMax - subbasin.xMin + 1;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">int</span> subYSize = subbasin.yMax - subbasin.yMin + 1;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">float</span> *subData = <span class="keyword">new</span> <span class="keywordtype">float</span>[subXSize*subYSize];</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;CROP_ATTR_LIST  = [<span class="stringliteral">&quot;IDC&quot;</span>, <span class="stringliteral">&quot;EXT_COEF&quot;</span>,  <span class="stringliteral">&quot;BMX_TREES&quot;</span>, <span class="stringliteral">&quot;BLAI&quot;</span>, <span class="stringliteral">&quot;HVSTI&quot;</span>,\</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    <span class="stringliteral">&quot;MAT_YRS&quot;</span>, <span class="stringliteral">&quot;T_BASE&quot;</span>, <span class="stringliteral">&quot;FRGRW1&quot;</span>, <span class="stringliteral">&quot;FRGRW2&quot;</span>, <span class="stringliteral">&quot;LAIMX1&quot;</span>,\</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    <span class="stringliteral">&quot;LAIMX2&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;BN1&quot;</span>, <span class="stringliteral">&quot;BN2&quot;</span>, <span class="stringliteral">&quot;BN3&quot;</span>, <span class="stringliteral">&quot;BP1&quot;</span>, <span class="stringliteral">&quot;BP2&quot;</span>,\</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="stringliteral">&quot;BP3&quot;</span>, <span class="stringliteral">&quot;BIO_E&quot;</span>, <span class="stringliteral">&quot;BIOEHI&quot;</span>, <span class="stringliteral">&quot;CO2HI&quot;</span>, <span class="stringliteral">&quot;WAVP&quot;</span>, <span class="stringliteral">&quot;BIO_LEAF&quot;</span>,\</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="stringliteral">&quot;RDMX&quot;</span>,<span class="stringliteral">&quot;CNYLD&quot;</span>, <span class="stringliteral">&quot;CPYLD&quot;</span>, <span class="stringliteral">&quot;WSYF&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;T_OPT&quot;</span>]</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"># LANDUSE_ATTR_LIST and SOIL_ATTR_LIST is selected from sqliteFile database</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;LANDUSE_ATTR_LIST = [<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;Interc_max&quot;</span>, <span class="stringliteral">&quot;Interc_min&quot;</span>, <span class="stringliteral">&quot;RootDepth&quot;</span>, \</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <span class="stringliteral">&quot;USLE_C&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>,<span class="stringliteral">&quot;USLE_P&quot;</span>]</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;LANDUSE_ATTR_DB = [<span class="stringliteral">&quot;manning&quot;</span>,<span class="stringliteral">&quot;i_max&quot;</span>,<span class="stringliteral">&quot;i_min&quot;</span>, <span class="stringliteral">&quot;root_depth&quot;</span>, <span class="stringliteral">&quot;usle_c&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>]</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">## Be caution, the sequence from &quot;Sand&quot; to &quot;Poreindex&quot; if fixed because of soil_param.py.</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;SOIL_ATTR_LIST = [<span class="stringliteral">&quot;Sand&quot;</span>, <span class="stringliteral">&quot;Clay&quot;</span>, <span class="stringliteral">&quot;WiltingPoint&quot;</span>, <span class="stringliteral">&quot;FieldCap&quot;</span>, <span class="stringliteral">&quot;Porosity&quot;</span>,<span class="stringliteral">&quot;Density&quot;</span>,\</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="stringliteral">&quot;Conductivity&quot;</span>, <span class="stringliteral">&quot;Poreindex&quot;</span>, <span class="stringliteral">&quot;USLE_K&quot;</span>, <span class="stringliteral">&quot;Residual&quot;</span>, ]</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;SOIL_ATTR_DB  = [<span class="stringliteral">&quot;sand&quot;</span>, <span class="stringliteral">&quot;clay&quot;</span>,<span class="stringliteral">&quot;wp&quot;</span>, <span class="stringliteral">&quot;fc&quot;</span>, <span class="stringliteral">&quot;porosity&quot;</span>,<span class="stringliteral">&quot;B_DENSITY&quot;</span>,<span class="stringliteral">&quot;ks&quot;</span>, <span class="stringliteral">&quot;P_INDEX&quot;</span>,\</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="stringliteral">&quot;usle_k&quot;</span>, <span class="stringliteral">&quot;rm&quot;</span>]</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = subbasin.yMin; i &lt;= subbasin.yMax; i++)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = subbasin.xMin; j &lt;= subbasin.xMax; j++)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordtype">int</span> index = i*nXSize + j;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordtype">int</span> subIndex = (i - subbasin.yMin) * subXSize + (j - subbasin.xMin);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">if</span> (subbasinData[i][j] == <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    subData[subIndex] = rsData[i][j];</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    subData[subIndex] = noDataValue;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        ostringstream remoteFilename;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        remoteFilename &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; <a class="code" href="../../d0/df1/a00685.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a>(coreName);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">float</span> cellSize = rs.GetXCellSize();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        bson *p = (bson*)malloc(<span class="keyword">sizeof</span>(bson));</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        bson_init(p);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        bson_append_int(p, <span class="stringliteral">&quot;SUBBASIN&quot;</span>, <span class="keywordtype">id</span> );</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        bson_append_string(p, <span class="stringliteral">&quot;TYPE&quot;</span>, coreName.c_str());</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        bson_append_string(p, <span class="stringliteral">&quot;ID&quot;</span>, remoteFilename.str().c_str());</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        bson_append_string(p, <span class="stringliteral">&quot;DESCRIPTION&quot;</span>, coreName.c_str());</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        bson_append_double(p, <span class="stringliteral">&quot;CELLSIZE&quot;</span>, cellSize);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        bson_append_double(p, <span class="stringliteral">&quot;NODATA_VALUE&quot;</span>, rs.GetNoDataValue());</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        bson_append_double(p, <span class="stringliteral">&quot;NCOLS&quot;</span>, subXSize);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        bson_append_double(p, <span class="stringliteral">&quot;NROWS&quot;</span>, subYSize);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        bson_append_double(p, <span class="stringliteral">&quot;XLLCENTER&quot;</span>, rs.GetXllCenter() + subbasin.xMin * cellSize);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        bson_append_double(p, <span class="stringliteral">&quot;YLLCENTER&quot;</span>, rs.GetYllCenter() + (rs.GetNumberOfRows() - subbasin.yMax - 1) * cellSize);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        bson_finish(p);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        gridfile gfile[1];</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        gridfile_writer_init(gfile, gfs, remoteFilename.str().c_str(), <span class="stringliteral">&quot;float&quot;</span>);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; subYSize; k++)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            gridfile_write_buffer(gfile, (<span class="keyword">const</span> <span class="keywordtype">char</span>*)(subData+subXSize*k), <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>)*subXSize);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        gridfile_set_metadata(gfile, p);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        gridfile_writer_done(gfile);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        gridfile_destroy(gfile);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment">//bson_destroy(con);</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="comment">//free(con);</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        bson_destroy(p);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        free(p);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">delete</span> subData;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keywordtype">int</span> DecompositeRaster(map&lt;int, SubBasin&gt;&amp; bboxMap, Raster&lt;int&gt;&amp; rsSubbasin, <span class="keyword">const</span> <span class="keywordtype">char</span>* dstFile, <span class="keyword">const</span> <span class="keywordtype">char</span>* tmpFolder)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    Raster&lt;float&gt; rs;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    rs.ReadFromGDAL(dstFile);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">int</span> nXSize = rs.GetNumberofColumns();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">int</span> nYSize = rs.GetNumberOfRows();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">float</span> noDataValue = rs.GetNoDataValue();</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">float</span> **rsData = rs.GetData();</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">int</span> **subbasinData = rsSubbasin.GetData();</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *pszFormat = <span class="stringliteral">&quot;GTiff&quot;</span>;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    GDALDriver *poDriver = GetGDALDriverManager()-&gt;GetDriverByName(pszFormat);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    map&lt;int, SubBasin&gt;::iterator it;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">string</span> coreName = <a class="code" href="../../d0/df1/a00685.html#gaa19efd2980a7e4dc34a452286fb0e7fc">GetCoreFileName</a>(dstFile);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">for</span> (it = bboxMap.begin(); it != bboxMap.end(); it++)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordtype">int</span> <span class="keywordtype">id</span> = it-&gt;first;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        SubBasin&amp; subbasin = it-&gt;second;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordtype">int</span> subXSize = subbasin.xMax - subbasin.xMin + 1;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordtype">int</span> subYSize = subbasin.yMax - subbasin.yMin + 1;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        ostringstream oss;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        oss &lt;&lt; tmpFolder &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; <a class="code" href="../../d0/df1/a00685.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a>(coreName) &lt;&lt; <span class="stringliteral">&quot;.tif&quot;</span>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordtype">string</span> subbasinFile = oss.str();</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="comment">//cout &lt;&lt; subbasinFile &lt;&lt; endl;</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">// create a new raster for the subbasin</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordtype">char</span> **papszOptions = NULL;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        GDALDataset *poDstDS = poDriver-&gt;Create(subbasinFile.c_str(), subXSize, subYSize, 1, GDT_Float32, papszOptions );</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordtype">float</span> *subData = (<span class="keywordtype">float</span> *) CPLMalloc(<span class="keyword">sizeof</span>(<span class="keywordtype">float</span>)*subXSize*subYSize);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = subbasin.yMin; i &lt;= subbasin.yMax; i++)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = subbasin.xMin; j &lt;= subbasin.xMax; j++)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                <span class="keywordtype">int</span> index = i*nXSize + j;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <span class="keywordtype">int</span> subIndex = (i - subbasin.yMin) * subXSize + (j - subbasin.xMin);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <span class="keywordflow">if</span> (subbasinData[i][j] == <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                    subData[subIndex] = rsData[i][j];</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    subData[subIndex] = noDataValue;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            }</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="comment">//write the data to new file</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        GDALRasterBand  *poDstBand= poDstDS-&gt;GetRasterBand(1);</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        poDstBand-&gt;RasterIO(GF_Write, 0, 0, subXSize, subYSize, </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            subData, subXSize, subYSize, GDT_Float32, 0, 0);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        poDstBand-&gt;SetNoDataValue(noDataValue);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">double</span> geoTrans[6];</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">float</span> cellSize = rs.GetXCellSize();</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        geoTrans[0] = rs.GetXllCenter() + (subbasin.xMin - 0.5f) * cellSize;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        geoTrans[1] = cellSize;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        geoTrans[2] = 0;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        geoTrans[3] = rs.GetYllCenter() + (rs.GetNumberOfRows() - subbasin.yMin - 0.5f) * cellSize;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        geoTrans[4] = 0;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        geoTrans[5] = -cellSize;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        poDstDS-&gt;SetGeoTransform(geoTrans);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        CPLFree(subData);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        GDALClose(poDstDS);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="comment">// import the subbasin file to BeyondDB</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordtype">string</span> desc = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="comment">//ImportToBeyondDB(subbasinFile, id, coreName, subbasin.cellCount, subXSize, subYSize);</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d7d/a00161.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span> (argc &lt; 6)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;Usage: &quot;</span> &lt;&lt; <span class="stringliteral">&quot;ImportRaster SubbasinFile DataFolder modelName hostname port [outputFolder]\n&quot;</span>;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        exit(-1);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    GDALAllRegister();</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">//const char* subbasinFile = &quot;F:\\modeldev\\integrated\\storm_model\\Debug\\model_lyg_10m\\mask.asc&quot;;</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">//const char* folder = &quot;F:\\modeldev\\integrated\\storm_model\\Debug\\model_lyg_10m&quot;;</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment">//const char* modelName = &quot;model_lyg_10m&quot;;</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">//const char* hostname = &quot;192.168.5.195&quot;;</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* subbasinFile = argv[1];</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* folder = argv[2];</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* modelName = argv[3];</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* hostname = argv[4];</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">int</span> port = atoi(argv[5]);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* outTifFolder = NULL;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">if</span>(argc &gt;= 7)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        outTifFolder = argv[6];</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    vector&lt;string&gt; dstFiles;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <a class="code" href="../../d0/df1/a00685.html#ga09f99f8f12c6e312ec9efabb775cbb2b">FindFiles</a>(folder, <span class="stringliteral">&quot;*.tif&quot;</span>, dstFiles);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// read the subbasin file, and find the bounding box of each subbasin</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    Raster&lt;int&gt; rsSubbasin;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    rsSubbasin.ReadFromGDAL(subbasinFile);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    map&lt;int, SubBasin&gt; bboxMap;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    FindBoundingBox(rsSubbasin, bboxMap);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    </div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="comment">// loop to precess the destination files</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">// connect to mongodb</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    mongo conn[1];</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    gridfs gfs[1];</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">int</span> status = mongo_connect(conn, hostname, port); </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">if</span>( MONGO_OK != status ) </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    { </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;can not connect to mongodb.\n&quot;</span>;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        exit(-1);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    gridfs_init(conn, modelName, <span class="stringliteral">&quot;spatial&quot;</span>, gfs); </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Importing spatial data to MongoDB...\n&quot;</span>;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; dstFiles.size(); ++i)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; dstFiles[i] &lt;&lt; endl;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">if</span>(outTifFolder != NULL)</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            DecompositeRaster(bboxMap, rsSubbasin, dstFiles[i].c_str(), outTifFolder);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        DecompositeRasterToMongoDB(bboxMap, rsSubbasin, dstFiles[i].c_str(), conn, gfs);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    gridfs_destroy(gfs);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    mongo_destroy(conn);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="ttc" id="a00161_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d6/d7d/a00161.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7d/a00161_source.html#l00110">fis.c:110</a></div></div>
-<div class="ttc" id="a00685_html_ga201344a7ea57c0c4eee3d5f686330b8b"><div class="ttname"><a href="../../d0/df1/a00685.html#ga201344a7ea57c0c4eee3d5f686330b8b">GetUpper</a></div><div class="ttdeci">string GetUpper(string)</div><div class="ttdoc">GetUpper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00120">util.cpp:120</a></div></div>
-<div class="ttc" id="a00685_html_gaa19efd2980a7e4dc34a452286fb0e7fc"><div class="ttname"><a href="../../d0/df1/a00685.html#gaa19efd2980a7e4dc34a452286fb0e7fc">GetCoreFileName</a></div><div class="ttdeci">string GetCoreFileName(const string &amp;fullFileName)</div><div class="ttdoc">GetCoreFileName. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00092">util.cpp:92</a></div></div>
-<div class="ttc" id="a00685_html_ga09f99f8f12c6e312ec9efabb775cbb2b"><div class="ttname"><a href="../../d0/df1/a00685.html#ga09f99f8f12c6e312ec9efabb775cbb2b">FindFiles</a></div><div class="ttdeci">int FindFiles(const char *lpPath, const char *expression, vector&lt; string &gt; &amp;vecFiles)</div><div class="ttdoc">Find files in given paths. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00040">util.cpp:40</a></div></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">### There are 15 attributes in SoilLookup table now. </span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">### They are [SOILCODE], [SNAM], [KS](Conductivity), [POROSITY], [FC](field capacity), [P_INDEX](Poreindex), [RM],</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">### [WP](wiltingpoint), [B_DENSITY], [SAND], [CLAY], [SILT], [USLE_K], [TEXTURE], [HG]</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">## Hydrological parameters</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;coeTable = {<span class="stringliteral">&quot;T2&quot;</span>:[0.05, 0.48],<span class="stringliteral">&quot;T10&quot;</span>:[0.12, 0.52], <span class="stringliteral">&quot;T100&quot;</span>:[0.18,0.55]} <span class="comment">## used in radius.py</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_b607f9b4e3e34282ee5a018d400801cb.html">import_raster</a></li><li class="navelem"><b>main.cpp</b></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:52 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>config.py</b></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:16 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

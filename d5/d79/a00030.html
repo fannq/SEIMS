@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: InputVariable Class Reference</title>
+<title>SEIMS-2016: gk_option Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,38 +114,106 @@ $(document).ready(function(){initNavTree('d5/d79/a00030.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d2/dac/a00876.html">List of all members</a>  </div>
+<a href="../../de/dc8/a00889.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">InputVariable Class Reference<div class="ingroups"><a class="el" href="../../d0/df1/a00685.html">Util</a></div></div>  </div>
+<div class="title">gk_option Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Input variable information class.  
+<p>The structure that stores the information about the command-line options.  
  <a href="../../d5/d79/a00030.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d98/a00407_source.html">MetadataInfo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5791bfd6dcb1157dd9b424b5b96ed9fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5791bfd6dcb1157dd9b424b5b96ed9fa"></a>
-<a class="el" href="../../dd/dea/a00408.html#ac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a5791bfd6dcb1157dd9b424b5b96ed9fa">Dimension</a></td></tr>
-<tr class="memdesc:a5791bfd6dcb1157dd9b424b5b96ed9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>dimensionTypes</em> <br/></td></tr>
-<tr class="separator:a5791bfd6dcb1157dd9b424b5b96ed9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa47d0e4e90d3cd1793fc5344b1e99afc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#aa47d0e4e90d3cd1793fc5344b1e99afc">name</a></td></tr>
+<tr class="separator:aa47d0e4e90d3cd1793fc5344b1e99afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d2ab88446836cef777d756098151f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a66d2ab88446836cef777d756098151f5">has_arg</a></td></tr>
+<tr class="separator:a66d2ab88446836cef777d756098151f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e56a3e65a631de45dd019a07c621b4"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#ae9e56a3e65a631de45dd019a07c621b4">flag</a></td></tr>
+<tr class="separator:ae9e56a3e65a631de45dd019a07c621b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf964c7489d269515ec8e5e62b2164ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#abf964c7489d269515ec8e5e62b2164ba">val</a></td></tr>
+<tr class="separator:abf964c7489d269515ec8e5e62b2164ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Input variable information class. </p>
+<div class="textblock"><p>The structure that stores the information about the command-line options. </p>
+<p>This structure describes a single long option name for the sake of <a class="el" href="../../d6/db3/a00130.html#a1c3b8d80bd9620dc66f24d4854c0f6d3" title="Parse command-line arguments with long options. ">gk_getopt_long()</a>. The argument <code>long_options</code> must be an array of these structures, one for each long option. Terminate the array with an element containing all zeros. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d98/a00407_source.html#l00086">86</a> of file <a class="el" href="../../d1/d98/a00407_source.html">MetadataInfo.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/base/util/<a class="el" href="../../d1/d98/a00407_source.html">MetadataInfo.h</a></li>
+<p>Definition at line <a class="el" href="../../de/d76/a00134_source.html#l00028">28</a> of file <a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ae9e56a3e65a631de45dd019a07c621b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* gk_option::flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>See the discussion on <a class="el" href="../../d5/d79/a00030.html#abf964c7489d269515ec8e5e62b2164ba">gk_option::val</a> </p>
+
+<p>Definition at line <a class="el" href="../../de/d76/a00134_source.html#l00034">34</a> of file <a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66d2ab88446836cef777d756098151f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gk_option::has_arg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This field says whether the option takes an argument. It is an integer, and there are three legitimate values: no_argument, required_argument and optional_argument. </p>
+
+<p>Definition at line <a class="el" href="../../de/d76/a00134_source.html#l00030">30</a> of file <a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa47d0e4e90d3cd1793fc5344b1e99afc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* gk_option::name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This field is the name of the option. </p>
+
+<p>Definition at line <a class="el" href="../../de/d76/a00134_source.html#l00029">29</a> of file <a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf964c7489d269515ec8e5e62b2164ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gk_option::val</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>These fields control how to report or act on the option when it occurs.</p>
+<p>If flag is a null pointer, then the val is a value which identifies this option. Often these values are chosen to uniquely identify particular long options.</p>
+<p>If flag is not a null pointer, it should be the address of an int variable which is the flag for this option. The value in val is the value to store in the flag to indicate that the option was seen. </p>
+
+<p>Definition at line <a class="el" href="../../de/d76/a00134_source.html#l00035">35</a> of file <a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>preprocess/cpp_src/metis-5.1.0-pk/GKlib/<a class="el" href="../../de/d76/a00134_source.html">gk_getopt.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d5/d79/a00030.html">InputVariable</a></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:55 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d5/d79/a00030.html">gk_option</a></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:19 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

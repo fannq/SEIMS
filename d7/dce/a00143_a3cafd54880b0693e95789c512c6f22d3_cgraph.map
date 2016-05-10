@@ -1,0 +1,9 @@
+<map id="gk_seq_ReadGKMODPSSM" name="gk_seq_ReadGKMODPSSM">
+<area shape="rect" id="node2" href="$d7/dce/a00143.html#a8b9f1e33d58df397a7f0f923a25ec256" title="This function creates the localizations for the various sequences. " alt="" coords="283,5,496,35"/>
+<area shape="rect" id="node3" href="$d7/dce/a00143.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="545,32,639,61"/>
+<area shape="rect" id="node6" href="$d9/d47/a00129.html#a739112cb142f2e96d6952140c66cd31c" title="gk_getfilestats" alt="" coords="327,109,451,139"/>
+<area shape="rect" id="node7" href="$d7/d12/a00126.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="356,163,423,192"/>
+<area shape="rect" id="node8" href="$d7/dce/a00143.html#adc708027212f8668786472b408628f64" title="Converts a string to upper case. " alt="" coords="330,216,449,245"/>
+<area shape="rect" id="node4" href="$d7/d12/a00126.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="875,32,967,61"/>
+<area shape="rect" id="node5" href="$d7/dce/a00143.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="688,57,827,87"/>
+</map>

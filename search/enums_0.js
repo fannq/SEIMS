@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dimensiontypes',['dimensionTypes',['../dd/dea/a00408.html#ac6cf78ef837450cfb19495fe34976b8c',1,'MetadataInfoConst.h']]]
+  ['aggregationtype',['AggregationType',['../df/d7d/a00696.html#ga0271fcfc94579b48ed1dd87309d8e118',1,'PrintInfo.h']]]
 ];

@@ -1,3 +1,8 @@
-<map id="MUSKINGUM_CH" name="MUSKINGUM_CH">
-<area shape="rect" id="node1" href="$da/dd4/a00690.html" title="Longterm hydrology related modules. " alt="" coords="6,4,173,33"/>
+<map id="Modules" name="Modules">
+<area shape="rect" id="node1" href="$d4/d6a/a00704.html" title="Erosion related modules. " alt="" coords="181,5,259,35"/>
+<area shape="rect" id="node3" href="$d8/d86/a00703.html" title="Longterm hydrology related modules. " alt="" coords="137,59,303,88"/>
+<area shape="rect" id="node4" href="$d7/df1/a00705.html" title="Nutrient related modules. " alt="" coords="181,112,259,141"/>
+<area shape="rect" id="node5" href="$dd/d57/a00701.html" title="Climate related modules. " alt="" coords="181,165,259,195"/>
+<area shape="rect" id="node6" href="$d8/dcb/a00706.html" title="Ecology related modules. " alt="" coords="180,219,260,248"/>
+<area shape="rect" id="node7" href="$dd/d85/a00702.html" title="Hydrology related modules, include storm processes. " alt="" coords="173,272,267,301"/>
 </map>

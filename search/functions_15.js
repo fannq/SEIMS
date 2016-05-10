@@ -1,19 +1,8 @@
 var searchData=
 [
-  ['_7ebase_5fvariabledata',['~base_VariableData',['../da/d45/a00011.html#a1b5f636b8d7171f4b378f5798f2f3276',1,'base_VariableData']]],
-  ['_7eclsrasterdata',['~clsRasterData',['../d7/d7a/a00016.html#addaaf49b2b333437c21470ee9856672c',1,'clsRasterData']]],
-  ['_7eclswgndata',['~clsWgnData',['../db/db2/a00020.html#ab3d63f329531bd498e272057a26c5b79',1,'clsWgnData']]],
-  ['_7edbmanager',['~DBManager',['../d3/d52/a00023.html#abf19331a14657f1c2e4453999218c416',1,'DBManager']]],
-  ['_7ediffusivewave',['~DiffusiveWave',['../dc/de2/a00024.html#a85532cec475b39f5f02cc9756df8dcd8',1,'DiffusiveWave']]],
-  ['_7emeasurement',['~Measurement',['../db/df3/a00034.html#a6743c23fdd99a63831f93979bef779c8',1,'Measurement']]],
-  ['_7emusk_5fch',['~MUSK_CH',['../d3/de7/a00039.html#a1adb32eb5d5b4866a1a2527c9f13a88b',1,'MUSK_CH']]],
-  ['_7enotregularmeasurement',['~NotRegularMeasurement',['../db/d3a/a00040.html#a156ee633e6dfc626a362bb826525ea6e',1,'NotRegularMeasurement']]],
-  ['_7eparaminfo',['~ParamInfo',['../d5/df9/a00044.html#a5acc8010c5db8b46f36c34bfd4be0209',1,'ParamInfo']]],
-  ['_7eregularmeasurement',['~RegularMeasurement',['../d5/de0/a00050.html#a1f44d19ffde71e64385f25b24732ff83',1,'RegularMeasurement']]],
-  ['_7eseimsmodule',['~SEIMSModule',['../d2/d79/a00051.html#aff75b2e2dc0f0654e914caee401270e5',1,'Module::SEIMSModule']]],
-  ['_7esettingsinput',['~SettingsInput',['../d1/d84/a00052.html#ac02fb28dab1753e8ca2bdfeae9308c3f',1,'SettingsInput']]],
-  ['_7esimulationmodule',['~SimulationModule',['../dc/dee/a00053.html#a75fc67bcf8bc5a1dc0eb467af5a9861c',1,'SimulationModule']]],
-  ['_7esltable',['~slTable',['../d1/dea/a00054.html#a6e89beb6ee7638c477ee8dc96f85dd66',1,'slTable']]],
-  ['_7estringlist',['~StringList',['../d4/d6d/a00055.html#a1c7bf7a04fa791e1b5504fb96355efa9',1,'StringList']]],
-  ['_7eutils',['~utils',['../d9/d2e/a00056.html#a259cc9e8f541c05a20df28dfeb3b11be',1,'utils']]]
+  ['what',['what',['../d5/db6/a00042.html#ad628c8e55ba32a0a106b66174ebdc725',1,'ModelException']]],
+  ['writetext',['writeText',['../de/df8/a00440.html#a283429d92a1913ebc63dc43737a745d6',1,'writeText(string &amp;filename, vector&lt; vector&lt; string &gt; &gt; &amp;data):&#160;ModulesIOList.cpp'],['../d6/d66/a00441.html#a283429d92a1913ebc63dc43737a745d6',1,'writeText(string &amp;filename, vector&lt; vector&lt; string &gt; &gt; &amp;data):&#160;ModulesIOList.cpp']]],
+  ['wspacemalloc',['wspacemalloc',['../dc/d28/a00223.html#a555f2ae3f4e5561c9b1ef592bf0f8476',1,'wspace.c']]],
+  ['wspacepop',['wspacepop',['../dc/d28/a00223.html#ad26c08175b8b18d7dfb86f2f8d91b09e',1,'wspace.c']]],
+  ['wspacepush',['wspacepush',['../dc/d28/a00223.html#a90d838f5af71d196b117d443432e4646',1,'wspace.c']]]
 ];

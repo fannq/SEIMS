@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/checkgraph.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/timers.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,255 +111,59 @@ $(document).ready(function(){initNavTree('d7/d3f/a00173_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">checkgraph.c</div>  </div>
+<div class="title">timers.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * checkgraph.c</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains routines related to I/O</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Started 8/28/94</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * George</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> */</span></div>
+<a href="../../d7/d3f/a00173.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">int</span> CheckGraph(<a class="code" href="../../dc/d3c/a00028.html">graph_t</a> *graph, <span class="keywordtype">int</span> numflag, <span class="keywordtype">int</span> verbose)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  idx_t i, j, k, l;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  idx_t nvtxs, err=0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  idx_t minedge, maxedge, minewgt, maxewgt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  idx_t *xadj, *adjncy, *adjwgt, *htable;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  numflag = (numflag == 0 ? 0 : 1);  <span class="comment">/* make sure that numflag is 0 or 1 */</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  nvtxs  = graph-&gt;nvtxs;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  xadj   = graph-&gt;xadj;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  adjncy = graph-&gt;adjncy;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  adjwgt = graph-&gt;adjwgt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  ASSERT(adjwgt != NULL);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  htable = ismalloc(nvtxs, 0, <span class="stringliteral">&quot;htable&quot;</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  minedge = maxedge = adjncy[0];</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  minewgt = maxewgt = adjwgt[0];</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*************************************************************************</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* This function returns the CPU seconds</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">**************************************************************************/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">double</span> gk_WClockSeconds(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifdef __GNUC__</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span>  <span class="keyword">struct </span>timeval ctime;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  gettimeofday(&amp;ctime, NULL);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">return</span> (<span class="keywordtype">double</span>)ctime.tv_sec + (double).000001*ctime.tv_usec;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;#<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  return (<span class="keywordtype">double</span>)time(NULL);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*************************************************************************</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">* This function returns the CPU seconds</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">**************************************************************************/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">double</span> gk_CPUSeconds(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//#ifdef __OPENMP__</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#ifdef __OPENMPXXXX__</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span>  <span class="keywordflow">return</span> omp_get_wtime();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #if defined(WIN32) || defined(__MINGW32__)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span>((<span class="keywordtype">double</span>) clock()/CLOCKS_PER_SEC);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  #else</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span>    <span class="keyword">struct </span>rusage r;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    getrusage(RUSAGE_SELF, &amp;r);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> ((r.ru_utime.tv_sec + r.ru_stime.tv_sec) + 1.0e-6*(r.ru_utime.tv_usec + r.ru_stime.tv_usec));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">for</span> (i=0; i&lt;nvtxs; i++) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span> (j=xadj[i]; j&lt;xadj[i+1]; j++) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      k = adjncy[j];</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      minedge = (k &lt; minedge) ? k : minedge;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      maxedge = (k &gt; maxedge) ? k : maxedge;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      minewgt = (adjwgt[j] &lt; minewgt) ? adjwgt[j] : minewgt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      maxewgt = (adjwgt[j] &gt; maxewgt) ? adjwgt[j] : maxewgt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordflow">if</span> (i == k) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span> (verbose)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          printf(<span class="stringliteral">&quot;Vertex %&quot;</span>PRIDX<span class="stringliteral">&quot; contains a self-loop &quot;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                 <span class="stringliteral">&quot;(i.e., diagonal entry in the matrix)!\n&quot;</span>, i+numflag);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        err++;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span> (l=xadj[k]; l&lt;xadj[k+1]; l++) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          <span class="keywordflow">if</span> (adjncy[l] == i) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (adjwgt[l] != adjwgt[j]) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;              <span class="keywordflow">if</span> (verbose) </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                printf(<span class="stringliteral">&quot;Edges (u:%&quot;</span>PRIDX<span class="stringliteral">&quot; v:%&quot;</span>PRIDX<span class="stringliteral">&quot; wgt:%&quot;</span>PRIDX<span class="stringliteral">&quot;) and &quot;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                       <span class="stringliteral">&quot;(v:%&quot;</span>PRIDX<span class="stringliteral">&quot; u:%&quot;</span>PRIDX<span class="stringliteral">&quot; wgt:%&quot;</span>PRIDX<span class="stringliteral">&quot;) &quot;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                       <span class="stringliteral">&quot;do not have the same weight!\n&quot;</span>, </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                       i+numflag, k+numflag, adjwgt[j],</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                       k+numflag, i+numflag, adjwgt[l]);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;              err++;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> (l == xadj[k+1]) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          <span class="keywordflow">if</span> (verbose)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            printf(<span class="stringliteral">&quot;Missing edge: (%&quot;</span>PRIDX<span class="stringliteral">&quot; %&quot;</span>PRIDX<span class="stringliteral">&quot;)!\n&quot;</span>, k+numflag, i+numflag);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          err++;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">if</span> (htable[k] == 0) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        htable[k]++;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">if</span> (verbose)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;          printf(<span class="stringliteral">&quot;Edge %&quot;</span>PRIDX<span class="stringliteral">&quot; from vertex %&quot;</span>PRIDX<span class="stringliteral">&quot; is repeated %&quot;</span>PRIDX<span class="stringliteral">&quot; times\n&quot;</span>, </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;              k+numflag, i+numflag, htable[k]++);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        err++;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">for</span> (j=xadj[i]; j&lt;xadj[i+1]; j++) </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      htable[adjncy[j]] = 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">if</span> (err &gt; 0 &amp;&amp; verbose) { </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    printf(<span class="stringliteral">&quot;A total of %&quot;</span>PRIDX<span class="stringliteral">&quot; errors exist in the input file. &quot;</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;           <span class="stringliteral">&quot;Correct them, and run again!\n&quot;</span>, err);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  gk_free((<span class="keywordtype">void</span> **)&amp;htable, LTERM);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordflow">return</span> (err == 0 ? 1 : 0);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keywordtype">int</span> CheckInputGraphWeights(idx_t nvtxs, idx_t ncon, idx_t *xadj, idx_t *adjncy, </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        idx_t *vwgt, idx_t *vsize, idx_t *adjwgt) </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  idx_t i;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordflow">if</span> (ncon &lt;= 0) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    printf(<span class="stringliteral">&quot;Input Error: ncon must be &gt;= 1.\n&quot;</span>);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">if</span> (vwgt) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">for</span> (i=ncon*nvtxs; i&gt;=0; i--) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="keywordflow">if</span> (vwgt[i] &lt; 0) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        printf(<span class="stringliteral">&quot;Input Error: negative vertex weight(s).\n&quot;</span>);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keywordflow">if</span> (vsize) {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">for</span> (i=nvtxs; i&gt;=0; i--) {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">if</span> (vsize[i] &lt; 0) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        printf(<span class="stringliteral">&quot;Input Error: negative vertex sizes(s).\n&quot;</span>);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  }</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keywordflow">if</span> (adjwgt) {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">for</span> (i=xadj[nvtxs]-1; i&gt;=0; i--) {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keywordflow">if</span> (adjwgt[i] &lt; 0) {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        printf(<span class="stringliteral">&quot;Input Error: non-positive edge weight(s).\n&quot;</span>);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<a class="code" href="../../dc/d3c/a00028.html">graph_t</a> *FixGraph(<a class="code" href="../../dc/d3c/a00028.html">graph_t</a> *graph)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  idx_t i, j, k, l, nvtxs, nedges;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  idx_t *xadj, *adjncy, *adjwgt;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  idx_t *nxadj, *nadjncy, *nadjwgt;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <a class="code" href="../../dc/d3c/a00028.html">graph_t</a> *ngraph;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <a class="code" href="../../d1/d22/a00057.html">uvw_t</a> *edges;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  nvtxs  = graph-&gt;nvtxs;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  xadj   = graph-&gt;xadj;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  adjncy = graph-&gt;adjncy;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  adjwgt = graph-&gt;adjwgt;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  ASSERT(adjwgt != NULL);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  ngraph = <a class="code" href="../../d2/d82/a00142.html#a01903fa912de9fc7f01dace993a3fc85">CreateGraph</a>();</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  ngraph-&gt;nvtxs = nvtxs;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">/* deal with vertex weights/sizes */</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  ngraph-&gt;ncon  = graph-&gt;ncon;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  ngraph-&gt;vwgt  = icopy(nvtxs*graph-&gt;ncon, graph-&gt;vwgt, </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                        imalloc(nvtxs*graph-&gt;ncon, <span class="stringliteral">&quot;FixGraph: vwgt&quot;</span>));</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  ngraph-&gt;vsize = ismalloc(nvtxs, 1, <span class="stringliteral">&quot;FixGraph: vsize&quot;</span>);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordflow">if</span> (graph-&gt;vsize)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    icopy(nvtxs, graph-&gt;vsize, ngraph-&gt;vsize);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="comment">/* fix graph by sorting the &quot;superset&quot; of edges */</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  edges = (<a class="code" href="../../d1/d22/a00057.html">uvw_t</a> *)<a class="code" href="../../d5/d5b/a00135.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d1/d22/a00057.html">uvw_t</a>)*2*xadj[nvtxs], <span class="stringliteral">&quot;FixGraph: edges&quot;</span>);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="keywordflow">for</span> (nedges=0, i=0; i&lt;nvtxs; i++) {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">for</span> (j=xadj[i]; j&lt;xadj[i+1]; j++) {</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      <span class="comment">/* keep only the upper-trianglular part of the adjacency matrix */</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">if</span> (i &lt; adjncy[j]) {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        edges[nedges].u = i;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        edges[nedges].v = adjncy[j];</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        edges[nedges].<a class="code" href="../../d1/d22/a00057.html#ad8b9f1185850e05876ee066a461c0d9d">w</a> = adjwgt[j];</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        nedges++;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      }</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (i &gt; adjncy[j]) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        edges[nedges].u = adjncy[j];</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        edges[nedges].v = i;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        edges[nedges].<a class="code" href="../../d1/d22/a00057.html#ad8b9f1185850e05876ee066a461c0d9d">w</a> = adjwgt[j];</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        nedges++;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  }</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  uvwsorti(nedges, edges);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="comment">/* keep the unique subset */</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordflow">for</span> (k=0, i=1; i&lt;nedges; i++) {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">if</span> (edges[k].v != edges[i].v || edges[k].u != edges[i].u) {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      edges[++k] = edges[i];</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  }</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  nedges = k+1;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="comment">/* allocate memory for the fixed graph */</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  nxadj   = ngraph-&gt;xadj   = ismalloc(nvtxs+1, 0, <span class="stringliteral">&quot;FixGraph: nxadj&quot;</span>);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  nadjncy = ngraph-&gt;adjncy = imalloc(2*nedges, <span class="stringliteral">&quot;FixGraph: nadjncy&quot;</span>);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  nadjwgt = ngraph-&gt;adjwgt = imalloc(2*nedges, <span class="stringliteral">&quot;FixGraph: nadjwgt&quot;</span>);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="comment">/* create the adjacency list of the fixed graph from the upper-triangular</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">     part of the adjacency matrix */</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">for</span> (k=0; k&lt;nedges; k++) {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    nxadj[edges[k].u]++;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    nxadj[edges[k].v]++;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  MAKECSR(i, nvtxs, nxadj);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="keywordflow">for</span> (k=0; k&lt;nedges; k++) {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    nadjncy[nxadj[edges[k].u]] = edges[k].v;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    nadjncy[nxadj[edges[k].v]] = edges[k].u;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    nadjwgt[nxadj[edges[k].u]] = edges[k].w;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    nadjwgt[nxadj[edges[k].v]] = edges[k].w;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    nxadj[edges[k].u]++;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    nxadj[edges[k].v]++;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  SHIFTCSR(i, nvtxs, nxadj);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  gk_free((<span class="keywordtype">void</span> **)&amp;edges, LTERM);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keywordflow">return</span> ngraph;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="ttc" id="a00057_html_ad8b9f1185850e05876ee066a461c0d9d"><div class="ttname"><a href="../../d1/d22/a00057.html#ad8b9f1185850e05876ee066a461c0d9d">uvw_t::w</a></div><div class="ttdeci">idx_t w</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d94/a00184_source.html#l00019">gklib_defs.h:19</a></div></div>
-<div class="ttc" id="a00142_html_a01903fa912de9fc7f01dace993a3fc85"><div class="ttname"><a href="../../d2/d82/a00142.html#a01903fa912de9fc7f01dace993a3fc85">CreateGraph</a></div><div class="ttdeci">graph_t * CreateGraph(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00162">graph.c:162</a></div></div>
-<div class="ttc" id="a00135_html_aba6f76f5c67b9b7e9c2e45988d3d3e9d"><div class="ttname"><a href="../../d5/d5b/a00135.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a></div><div class="ttdeci">void * gk_malloc(size_t nbytes, char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00140">memory.c:140</a></div></div>
-<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">uvw_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d94/a00184_source.html#l00018">gklib_defs.h:18</a></div></div>
-<div class="ttc" id="a00028_html"><div class="ttname"><a href="../../dc/d3c/a00028.html">graph_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc1/a00212_source.html#l00082">struct.h:82</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><b>checkgraph.c</b></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:53 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d3f/a00173.html">timers.c</a></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:17 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

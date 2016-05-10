@@ -1,17 +1,13 @@
 var searchData=
 [
-  ['metis_5fdbg_5fcoarsen',['METIS_DBG_COARSEN',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877ac9797cd41298d036deab380e088b1b05',1,'metis.h']]],
-  ['metis_5fdbg_5fconninfo',['METIS_DBG_CONNINFO',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877a9cca1bd8cfe9cdc953d022f9bd248cc7',1,'metis.h']]],
-  ['metis_5fdbg_5fcontiginfo',['METIS_DBG_CONTIGINFO',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877ac0e11c887ddb971960bf285b93bb622e',1,'metis.h']]],
-  ['metis_5fdbg_5finfo',['METIS_DBG_INFO',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877acbf86ea5bcf5d8fa8447dbf6b70a5015',1,'metis.h']]],
-  ['metis_5fdbg_5fipart',['METIS_DBG_IPART',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877a3733b06af5bdad96874ab4bcbed3b21a',1,'metis.h']]],
-  ['metis_5fdbg_5fmemory',['METIS_DBG_MEMORY',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877aefec4afc67dc93146c641a7ca8cc07cd',1,'metis.h']]],
-  ['metis_5fdbg_5fmoveinfo',['METIS_DBG_MOVEINFO',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877aacd71a29bbd934035db7af67dabcca52',1,'metis.h']]],
-  ['metis_5fdbg_5frefine',['METIS_DBG_REFINE',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877a8170cbc2a37d4b4be25de1817dc2140a',1,'metis.h']]],
-  ['metis_5fdbg_5fsepinfo',['METIS_DBG_SEPINFO',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877af722c2e095672f4e307b998fa15cb10d',1,'metis.h']]],
-  ['metis_5fdbg_5ftime',['METIS_DBG_TIME',['../de/d53/a00169.html#ac50415aa8003f9b7bf0aabb2b0d50877a0b252448586ad17d990c36ffa8ac3439',1,'metis.h']]],
-  ['metis_5ferror',['METIS_ERROR',['../de/d53/a00169.html#ac2f4a66b49d7100c9eea6d8df6c57781af5309232b494899a30742ad088bd0f04',1,'metis.h']]],
-  ['metis_5ferror_5finput',['METIS_ERROR_INPUT',['../de/d53/a00169.html#ac2f4a66b49d7100c9eea6d8df6c57781a350b935558564d10b7e91be762848e0f',1,'metis.h']]],
-  ['metis_5ferror_5fmemory',['METIS_ERROR_MEMORY',['../de/d53/a00169.html#ac2f4a66b49d7100c9eea6d8df6c57781a336b58efd5905e65c80d90274b1b587a',1,'metis.h']]],
-  ['metis_5fok',['METIS_OK',['../de/d53/a00169.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656',1,'metis.h']]]
+  ['dt_5farray1d',['DT_Array1D',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71',1,'MetadataInfoConst.h']]],
+  ['dt_5farray1ddatevalue',['DT_Array1DDateValue',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8caa990e5f10dac296e797fc025272c6c7c',1,'MetadataInfoConst.h']]],
+  ['dt_5farray2d',['DT_Array2D',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9',1,'MetadataInfoConst.h']]],
+  ['dt_5farray3d',['DT_Array3D',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8cad5cc7ba7a2388bee386d5c989e4accbf',1,'MetadataInfoConst.h']]],
+  ['dt_5flapseratearray',['DT_LapseRateArray',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8caedd5f1194df98c6aee8948f2254232f1',1,'MetadataInfoConst.h']]],
+  ['dt_5fraster',['DT_Raster',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2',1,'MetadataInfoConst.h']]],
+  ['dt_5fscenario',['DT_Scenario',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca59df0ecf1353da897fc3583006e3bdda',1,'MetadataInfoConst.h']]],
+  ['dt_5fsingle',['DT_Single',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088',1,'MetadataInfoConst.h']]],
+  ['dt_5fsiteinformation',['DT_SiteInformation',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca91776bf0704a49b5f9a76f2148aa264c',1,'MetadataInfoConst.h']]],
+  ['dt_5funknown',['DT_Unknown',['../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca805fbcbe894d2d1acacc96a6ffd82c2a',1,'MetadataInfoConst.h']]]
 ];

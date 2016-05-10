@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kwayvolupdate',['KWayVolUpdate',['../da/d15/a00188.html#ac4e797b3ea2db37f88f436fc6481b989',1,'kwayfm.c']]]
+  ['julianday',['JulianDay',['../dd/d1b/a00015.html#a93837d3f22e43e0406c139a2f7a0cedd',1,'ClimateParameters::JulianDay()'],['../d1/d84/a00052.html#a58f46c94e0cad6db49149b5a1e0e5238',1,'PETPenmanMonteith::JulianDay()'],['../dc/dee/a00053.html#ad6327a96c7c9f07ec171ea37df6752f0',1,'PETPriestleyTaylor::JulianDay()']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/bmps/BMPReach.h Source File</title>
+<title>SEIMS-2016: src/base/bmps/BMPArealNonStructural.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,144 +111,101 @@ $(document).ready(function(){initNavTree('dd/d4e/a00329_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">BMPReach.h</div>  </div>
+<div class="title">BMPArealNonStructural.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;BMPBase.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>MainBMP</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">class </span>BMPReach :</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keyword">public</span> BMPBase</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        BMPReach(   <span class="keywordtype">string</span> bmpDatabasePath,     <span class="comment">/*The path of BMP database*/</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                    <span class="keywordtype">string</span> parameterTableName,  <span class="comment">/*The parameter table name*/</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                    <span class="keywordtype">int</span> bmpId,                  <span class="comment">/*The BMP id in BMP_index table*/</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                    <span class="keywordtype">string</span> bmpName,             <span class="comment">/*The reach id in Reach_BMP table*/</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                    <span class="keywordtype">int</span> reachId,                <span class="comment">/*Reach ID, i.e. distribution*/</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                    <span class="keywordtype">int</span> reachStructurId);       <span class="comment">/*Reach structure ID*/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        ~BMPReach(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Dump(ostream* fs);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//conversion between time series data name and type</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span>      TimeSeriesDataName2Type(<span class="keywordtype">string</span> name);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">string</span>   TimeSeriesDataType2Name(<span class="keywordtype">int</span> type);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//public information</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        time_t  OperationDate() {<span class="keywordflow">return</span> m_operationDate;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span>     ID()            {<span class="keywordflow">return</span> m_reachStructureId;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        ** Check if the parameter table of reach constructure is valid.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">//virtual bool isReachConstrutureTableValid();</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//distribution</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        ** The reach id</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">int</span> m_reachId;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">        ** The reach structure id</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">int</span> m_reachStructureId;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">        ** operation date</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        time_t m_operationDate;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;ManagementOperation.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d30/a00370.html">clsRasterData.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;ArealParameter.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define DISLLOW_COPY_AND_ASSIGN(TypeName)   \</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">    TypeName(const TypeName &amp;);             \</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">    void operator = (const TypeName &amp;)</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>MainBMP</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">class </span>BMPArealNonStructural :</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">public</span> BMPBase</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        DISLLOW_COPY_AND_ASSIGN(BMPArealNonStructural);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        BMPArealNonStructural(</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    <span class="keywordtype">string</span> bmpDatabasePath,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                    <span class="keywordtype">string</span> parameterTableName,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    <span class="keywordtype">int</span> bmpId,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    <span class="keywordtype">string</span> bmpName,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <span class="keywordtype">string</span> distribution,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    <span class="keywordtype">int</span> scenario);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        ~BMPArealNonStructural(<span class="keywordtype">void</span>);   </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">//get operation for given location and time</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">//the startYear is used to decide the time cycling</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        NonStructural::ManagementOperation* getOperation(<span class="keywordtype">int</span> validCellIndex,<span class="keywordtype">int</span> startYear,time_t currentTime);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//get operation for given location and time</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//the startYear is used to decide the time cycling</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        NonStructural::ManagementOperation* getSecondOperation(<span class="keywordtype">int</span> validCellIndex,<span class="keywordtype">int</span> startYear,time_t currentTime);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span> Dump(ostream* fs);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">int</span>    m_scenarioId;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">string</span> m_distributionMapName;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">string</span> m_distributionTableName;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//load all the operation from distribution table in bmp database</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">void</span> loadOperations();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//load all the parameters from parameter table in bmp database</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> loadParameters();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">        ** Coordinate</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">float</span>  m_x;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">float</span>  m_y;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//parameter, loaded by loadParameters()</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">        ** The length of the properties</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">int</span> m_numericParameterNum;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">        ** The data row in one BMP table</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">float</span>* m_numericParameters;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">        ** All the text properties</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        map&lt;string,string&gt; m_textParameters;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">//time seriese data</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">        ** All the time series data connected with reach structure</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">        ** For MDO_RES,MMO_RES,PointSource and flowDiversion</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        map&lt;int,map&lt;time_t,float&gt; &gt; m_timeSerieseData;  </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">        ** The column name in Reach_BMP table</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">string</span> ColumnName() = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//Three data loading functions</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">        ** Load parameters from parameter table for given reach structure</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">void</span> loadParameters(<span class="keywordtype">string</span> parameterTableName,<span class="keywordtype">int</span> reachStructurId);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">        ** Load specific parameters for different reach structure</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">        ** Just for reservoir</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> loadStructureSpecificParameter();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">        ** Load time seriese data for some reach structure</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> loadTimeSeriesData(<span class="keywordtype">string</span> databasePath, time_t startTime, time_t endTime,<span class="keywordtype">int</span> interval);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">float</span> getTimeSeriesData(<span class="keywordtype">int</span> dataType,time_t t);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">        ** The table name in hydroclimate database to for reach structure</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">string</span> TimeSeriesDataTableName();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">        ** Whether the reach structure has time series data</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">        ** Just for MDO_RES,MMO_RES,PointSource and flowDiversion</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> HasTimeSeriesData();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">        ** The FILE or TABLENAME column of reach structure</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">string</span> DataSource();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    };</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">//all the columns to be queried</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">string</span> getAllQueryColumns();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//get parameter for given id</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        BMPParameter::ArealParameter* getParameter(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">protected</span>:  </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//All the paramters corresponding to the parameter column in scenario table</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//Key is the parameter id</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        map&lt;int, BMPParameter::ArealParameter*&gt; m_operationParameters;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//All the operations involved in this BMP</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">//Key is string combined by location,year,month and day.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">//This makes the map structure simple.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        map&lt;string,NonStructural::ManagementOperation*&gt; m_operations;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">//All the operations involved in this BMP</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">//Key is string combined by location,year,month and day.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">//This makes the map structure simple.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        map&lt;string,NonStructural::ManagementOperation*&gt; m_secondOperations;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">//max year which has operation</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">//used to do time cycling</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> m_maxYear;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//distribution, used to convert cell to location</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">//distribution map of current scenario</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="../../d1/d2b/a00018.html">clsRasterData</a>* m_currentScearioDistribution;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">clsRasterData</a></div><div class="ttdoc">Raster data class to get access to raster data in MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00029">clsRasterData.h:29</a></div></div>
+<div class="ttc" id="a00370_html"><div class="ttname"><a href="../../d3/d30/a00370.html">clsRasterData.h</a></div><div class="ttdoc">Define Raster class to handle raster data. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>BMPReach.h</b></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>BMPArealNonStructural.h</b></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:18 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,3 +1,5 @@
-<map id="Ecology" name="Ecology">
-<area shape="rect" id="node1" href="$df/d1b/a00687.html" title="All functional modules in SEIMS. " alt="" coords="5,4,88,33"/>
+<map id="Base" name="Base">
+<area shape="rect" id="node1" href="$df/d7d/a00696.html" title="Setting for SEIMS. " alt="" coords="112,5,243,35"/>
+<area shape="rect" id="node2" href="$d5/d5b/a00695.html" title="Include classes of MetadataInfo, ModelException and SimulationModule et al. " alt="" coords="154,59,201,88"/>
+<area shape="rect" id="node4" href="$da/d3a/a00694.html" title="Include data related classes, e.g. Measurement, HydroClimateData etc. " alt="" coords="149,112,205,141"/>
 </map>

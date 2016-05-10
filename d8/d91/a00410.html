@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/ModelException.h File Reference</title>
+<title>SEIMS-2016: src/base/util/SimulationModule.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,43 +111,82 @@ $(document).ready(function(){initNavTree('d8/d91/a00410.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">ModelException.h File Reference</div>  </div>
+<div class="title">SimulationModule.h File Reference<div class="ingroups"><a class="el" href="../../d5/d5b/a00695.html">Util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Define <a class="el" href="../../d8/d41/a00038.html" title="Print the exception message. ">ModelException</a> class.  
+<p>Parent class for all modules in SEIMS.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;exception&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/dea/a00408_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ModelException.h:</div>
+Include dependency graph for SimulationModule.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dd1/a00804.png" border="0" usemap="#src_2base_2util_2_model_exception_8h" alt=""/></div>
-<map name="src_2base_2util_2_model_exception_8h" id="src_2base_2util_2_model_exception_8h">
-</map>
+<div class="center"><img src="../../d4/dfd/a00810.png" border="0" usemap="#src_2base_2util_2_simulation_module_8h" alt=""/></div>
+<map name="src_2base_2util_2_simulation_module_8h" id="src_2base_2util_2_simulation_module_8h">
+<area shape="rect" id="node3" href="../../dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="67,101,217,131"/></map>
 </div>
 </div>
 <p><a href="../../d8/d91/a00410_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html">ModelException</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the exception message.  <a href="../../d8/d41/a00038.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html">SimulationModule</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base module for all simulation modules in SEIMS.  <a href="../../d3/d8b/a00059.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ad2dde160974c283ccf8f0ce280f791ba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d91/a00410.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a> { <a class="el" href="../../d8/d91/a00410.html#ad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff">TIMESTEP_HILLSLOPE</a>, 
+<a class="el" href="../../d8/d91/a00410.html#ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a>, 
+<a class="el" href="../../d8/d91/a00410.html#ad2dde160974c283ccf8f0ce280f791baa1c1736570b6e4cbb0118b07b67b2c3ce">TIMESTEP_ECOLOGY</a>
+ }</td></tr>
+<tr class="separator:ad2dde160974c283ccf8f0ce280f791ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Define <a class="el" href="../../d8/d41/a00038.html" title="Print the exception message. ">ModelException</a> class. </p>
+<div class="textblock"><p>Parent class for all modules in SEIMS. </p>
+<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jul. 2010 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d8/d91/a00410_source.html">ModelException.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d8/d91/a00410_source.html">SimulationModule.h</a>.</p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="ad2dde160974c283ccf8f0ce280f791ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d8/d91/a00410.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff"></a>TIMESTEP_HILLSLOPE</em>&#160;</td><td class="fielddoc">
+<p>Hillslope scale </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c"></a>TIMESTEP_CHANNEL</em>&#160;</td><td class="fielddoc">
+<p>Channel scale </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ad2dde160974c283ccf8f0ce280f791baa1c1736570b6e4cbb0118b07b67b2c3ce"></a>TIMESTEP_ECOLOGY</em>&#160;</td><td class="fielddoc">
+<p>Ecology scale </p>
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="../../d8/d91/a00410_source.html#l00021">21</a> of file <a class="el" href="../../d8/d91/a00410_source.html">SimulationModule.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d8/d91/a00410.html">ModelException.h</a></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:55 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d8/d91/a00410.html">SimulationModule.h</a></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:19 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

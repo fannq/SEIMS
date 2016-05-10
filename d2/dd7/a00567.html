@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/IUH_IF/IUH_IF.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/GWA_RE/ReservoirMethod.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,49 +111,51 @@ $(document).ready(function(){initNavTree('d2/dd7/a00567.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">IUH_IF.h File Reference</div>  </div>
+<div class="title">ReservoirMethod.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>IUH overland method to calculate interflow routing.  
+<p>Reservoir Method to calculate groundwater balance and baseflow.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
 <code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/d72/a00412_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;subbasin.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d91/a00410_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for IUH_IF.h:</div>
+Include dependency graph for ReservoirMethod.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dea/a00829.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_i_u_h___i_f_2_i_u_h___i_f_8h" alt=""/></div>
-<map name="src_2modules_2hydrology__longterm_2_i_u_h___i_f_2_i_u_h___i_f_8h" id="src_2modules_2hydrology__longterm_2_i_u_h___i_f_2_i_u_h___i_f_8h">
-<area shape="rect" id="node4" href="../../db/db9/a00387_source.html" title="api.h" alt="" coords="126,101,183,131"/><area shape="rect" id="node5" href="../../d9/d72/a00412.html" title="Parent class for all modules in SEIMS. " alt="" coords="86,179,249,208"/><area shape="rect" id="node6" href="../../d8/d91/a00410.html" title="Define ModelException class. " alt="" coords="93,256,243,285"/></map>
+<div class="center"><img src="../../d4/d60/a00847.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_g_w_a___r_e_2_reservoir_method_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_g_w_a___r_e_2_reservoir_method_8h" id="src_2modules_2hydrology__longterm_2_g_w_a___r_e_2_reservoir_method_8h">
+<area shape="rect" id="node5" href="../../db/db9/a00387_source.html" title="api.h" alt="" coords="187,101,244,131"/><area shape="rect" id="node6" href="../../d8/d91/a00410.html" title="Parent class for all modules in SEIMS. " alt="" coords="133,179,296,208"/><area shape="rect" id="node10" href="../../df/d3a/a00571_source.html" title="subbasin.h" alt="" coords="426,101,525,131"/><area shape="rect" id="node7" href="../../dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="5,256,155,285"/></map>
 </div>
 </div>
 <p><a href="../../d2/dd7/a00567_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>IUH overland method to calculate interflow routing. </p>
+<div class="textblock"><p>Reservoir Method to calculate groundwater balance and baseflow. </p>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Wu Hui </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>24-January-2011</dd></dl>
-<p>Revision: Wu Hui Date: 2011-2-23 Description:</p>
+<p>Revision: Zhiqiang Yu Date: 2011-2-11</p>
+<p>Revision: Zhiqiang Yu Date: 2011-2-18 Description:</p>
 <ol type="1">
-<li>Add parameter CellWidth.</li>
-<li>Delete parameter uhminCell and uhmaxCell because the parameter Ol_iuh contains these information. The first and second column of Ol_iuh is min time and max time.</li>
-<li>The number of subbasins (m_nsub) should get from m_subbasin rather than from main program. So does variable m_nCells.</li>
-<li>Add varaible m_iuhCols to store the number of columns of Ol_iuh. In the meantime, add one parameter nCols to function SetIUHCell.</li>
-<li>Add variable m_cellFlow to store the flow of each cell in each day between min time and max time. Its number of columns equals to the maximum of second column of Ol_iuh add 1.</li>
-<li>Add function initial to initialize some variables.</li>
-<li>Modify function Execute. </li>
+<li>Add judgement to calculation of EG (Revap). The average percolation of one subbasin is first calculated. If the percolation is less than 0.01, EG is set to 0 directly. (in function setInputs of class subbasin)</li>
+<li>Add member variable m_isRevapChanged to class subbasin. This variable is the flag whether the Revap is changed by current time step. This flag can avoid repeating setting values when converting subbasin average Revap to cell Revap.(in function Execute of class ReservoirMethod)</li>
+</ol>
+<p>Revision: Zhiqiang Yu Date: 2011-3-14 Description:</p>
+<ol type="1">
+<li>Add codes to process the groundwater which comes from bank storage in channel routing module. The water volumn of this part of groundwater is added to the groudwater storage. The input variable "T_GWNEW" is used for this purpose. One additional parameter is added to function setInputs of class subbasin. See equation 8 in memo "Channel water balance" for detailed reference. </li>
 </ol>
 
-<p>Definition in file <a class="el" href="../../d2/dd7/a00567_source.html">IUH_IF.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/dd7/a00567_source.html">ReservoirMethod.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_a9f29f133984f129c0a9f93310237a77.html">IUH_IF</a></li><li class="navelem"><a class="el" href="../../d2/dd7/a00567.html">IUH_IF.h</a></li>
-    <li class="footer">Generated on Tue May 10 2016 08:51:55 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_104d4f9f8189d845513cf670212a58b2.html">GWA_RE</a></li><li class="navelem"><a class="el" href="../../d2/dd7/a00567.html">ReservoirMethod.h</a></li>
+    <li class="footer">Generated on Tue May 10 2016 09:17:19 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

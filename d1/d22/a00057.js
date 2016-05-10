@@ -1,4 +1,9 @@
 var a00057 =
 [
-    [ "w", "d1/d22/a00057.html#ad8b9f1185850e05876ee066a461c0d9d", null ]
+    [ "Settings", "d1/d22/a00057.html#a3714d5ef1ba032f74183aacb77fd711a", null ],
+    [ "~Settings", "d1/d22/a00057.html#ae79d9331e3fa87d009ef089b8dade21c", null ],
+    [ "LoadSettingsFromFile", "d1/d22/a00057.html#ac9dd22ed739c4c396bf9cc2f8edf7787", null ],
+    [ "Value", "d1/d22/a00057.html#a7f5d6a01b9ae2afb3b11c9a2a1c64705", null ],
+    [ "m_settingFileName", "d1/d22/a00057.html#a3500ad45ec6280654665da4acefef9ab", null ],
+    [ "m_Settings", "d1/d22/a00057.html#aad392017fd9b84f3d07dbab78d2911d3", null ]
 ];

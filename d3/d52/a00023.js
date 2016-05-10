@@ -1,11 +1,11 @@
 var a00023 =
 [
-    [ "DBManager", "d3/d52/a00023.html#a0b70068a52d94cb2a0b8eba773b4e121", null ],
-    [ "~DBManager", "d3/d52/a00023.html#abf19331a14657f1c2e4453999218c416", null ],
-    [ "Close", "d3/d52/a00023.html#a1bcd1fc4e7c5b0ae658f3e779a176268", null ],
-    [ "Execute", "d3/d52/a00023.html#af5e73a7e86d1217f6bc32bbd0983e271", null ],
-    [ "GetErrorMessage", "d3/d52/a00023.html#a6f8713d2e4335e298ffb825ec07cad11", null ],
-    [ "IsError", "d3/d52/a00023.html#aebd9e5246ae9f047eedbb199699005ae", null ],
-    [ "Load", "d3/d52/a00023.html#a8dba35872dea3b8a49782ab7b880306e", null ],
-    [ "Open", "d3/d52/a00023.html#a451113a0e298f84c030ea7b9892d8f8b", null ]
+    [ "clsWgnData", "d3/d52/a00023.html#a3f04ec5883590ee2e953bbef4af580e5", null ],
+    [ "~clsWgnData", "d3/d52/a00023.html#ab3d63f329531bd498e272057a26c5b79", null ],
+    [ "getWgnData", "d3/d52/a00023.html#aebc00d5baf9e09d2e1d44f0c433a88ac", null ],
+    [ "readWgnData", "d3/d52/a00023.html#a35213b076acce178f6953469016e3c84", null ],
+    [ "show", "d3/d52/a00023.html#a8cc140a53f7099c46215a3f39f6fbb4b", null ],
+    [ "m_columns", "d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96", null ],
+    [ "m_wgnData", "d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22", null ],
+    [ "m_wtgTableName", "d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373", null ]
 ];

@@ -1,8 +1,0 @@
-<map id="ClimateParameters::Execute" name="ClimateParameters::Execute">
-<area shape="rect" id="node2" href="$d7/dd4/a00013.html#a6e0c6c9bf2026b2cb2dfe949f3496066" title="check the input data. Make sure all the input data is available. " alt="" coords="239,5,406,51"/>
-<area shape="rect" id="node3" href="$d7/dd4/a00013.html#a93837d3f22e43e0406c139a2f7a0cedd" title="Get the Julian day of one day. " alt="" coords="239,75,406,122"/>
-<area shape="rect" id="node5" href="$d7/dd4/a00013.html#adaeb4f30b8b15413e165a18cb8778204" title="Calculate the max solar radiation for a station of one day. " alt="" coords="239,146,406,193"/>
-<area shape="rect" id="node6" href="$d7/dd4/a00013.html#aeb65e97f54efd79175d0ca3a2505a6a3" title="calculates saturation vapor pressure at a given air temperature. " alt="" coords="221,217,424,263"/>
-<area shape="rect" id="node4" href="$d0/df1/a00685.html#ga96686b43fea284176a5de2f143e52698" title="Get local time. " alt="" coords="474,84,571,113"/>
-<area shape="rect" id="node7" href="$d0/df1/a00685.html#ga9514a21bb5926342aa2b07e7cac8f31a" title="FloatEqual. " alt="" coords="473,225,573,255"/>
-</map>
