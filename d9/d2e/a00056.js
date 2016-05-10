@@ -1,11 +1,8 @@
 var a00056 =
 [
-    [ "SEIMSModule", "d9/d2e/a00056.html#ab8fe2454147cec15aff0443c70ba1b80", null ],
-    [ "~SEIMSModule", "d9/d2e/a00056.html#aff75b2e2dc0f0654e914caee401270e5", null ],
-    [ "CheckInputData", "d9/d2e/a00056.html#a5d9914736640a75c80981c31f32a4746", null ],
-    [ "CheckInputSize", "d9/d2e/a00056.html#a13869abaa288d21f2eb3588e1edd9241", null ],
-    [ "CreateBasicMetadataInfo", "d9/d2e/a00056.html#acf2fb28583bb5849af4fe0d05cbfc258", null ],
-    [ "MetadataInformation", "d9/d2e/a00056.html#a5eb27c0499ed1c6b9f2590e7845729e6", null ],
-    [ "SetDate", "d9/d2e/a00056.html#a994d63884d44b202c96fb0c0ee86253d", null ],
-    [ "SetValue", "d9/d2e/a00056.html#a2f5460b94d05ab6f0e09d90806ac0fa5", null ]
+    [ "RegularMeasurement", "d9/d2e/a00056.html#aa99c037597c244227ecfd437a8644432", null ],
+    [ "~RegularMeasurement", "d9/d2e/a00056.html#a1f44d19ffde71e64385f25b24732ff83", null ],
+    [ "GetSiteDataByTime", "d9/d2e/a00056.html#a6528f99c36c06961b7eeafbccc2a5f52", null ],
+    [ "m_interval", "d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8", null ],
+    [ "m_siteData", "d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c", null ]
 ];

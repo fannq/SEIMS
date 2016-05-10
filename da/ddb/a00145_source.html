@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/gk_types.h Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/gk_struct.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,46 +111,287 @@ $(document).ready(function(){initNavTree('da/ddb/a00145_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">gk_types.h</div>  </div>
+<div class="title">gk_struct.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../da/ddb/a00145.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _GK_TYPES_H_</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _GK_TYPES_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _GK_STRUCT_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _GK_STRUCT_H_</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* Basic data type definitions. These definitions allow GKlib to separate</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* the following elemental types:</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* - loop iterator variables, which are set to size_t</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* - signed and unsigned int variables that can be set to any # of bits</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* - signed and unsigned long variables that can be set to any # of bits</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* - real variables, which can be set to single or double precision.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*typedef ptrdiff_t       gk_idx_t;       */</span>  <span class="comment">/* index variable */</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">typedef</span> ssize_t         gk_idx_t;         <span class="comment">/* index variable */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">typedef</span> int32_t         gk_int_t;         <span class="comment">/* integer values */</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">typedef</span> uint32_t        gk_uint_t;        <span class="comment">/* unsigned integer values */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">typedef</span> int64_t         gk_long_t;        <span class="comment">/* long integer values */</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">typedef</span> uint64_t        gk_ulong_t;       <span class="comment">/* unsigned long integer values */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">float</span>           gk_real_t;        <span class="comment">/* real type */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">double</span>          gk_dreal_t;       <span class="comment">/* double precission real type */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">double</span>          gk_wclock_t;      <span class="comment">/* wall-clock time */</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*#define GK_IDX_MAX PTRDIFF_MAX*/</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define GK_IDX_MAX ((SIZE_MAX&gt;&gt;1)-2)</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define PRIGKIDX &quot;zd&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SCNGKIDX &quot;zd&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/********************************************************************/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/********************************************************************/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">   17</a></span>&#160;<span class="preprocessor">#define GK_MKKEYVALUE_T(NAME, KEYTYPE, VALTYPE) \</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">typedef struct {\</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">  KEYTYPE key;\</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">  VALTYPE val;\</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">} NAME;\</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="comment">/* The actual KeyVal data structures */</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_ckv_t,   <span class="keywordtype">char</span>,     ssize_t)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_ikv_t,   <span class="keywordtype">int</span>,      ssize_t)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_i32kv_t, int32_t,  ssize_t)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_i64kv_t, int64_t,  ssize_t)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_zkv_t,   ssize_t,  ssize_t)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_fkv_t,   <span class="keywordtype">float</span>,    ssize_t)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_dkv_t,   <span class="keywordtype">double</span>,   ssize_t)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_skv_t,   <span class="keywordtype">char</span> *,   ssize_t)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(gk_idxkv_t, gk_idx_t, gk_idx_t)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/********************************************************************/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/********************************************************************/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">   39</a></span>&#160;<span class="preprocessor">#define GK_MKPQUEUE_T(NAME, KVTYPE)\</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">typedef struct {\</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">  gk_idx_t nnodes;\</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">  gk_idx_t maxnodes;\</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">\</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  </span><span class="comment">/* Heap version of the data structure */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">  KVTYPE   *heap;\</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">  gk_idx_t *locator;\</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">} NAME;\</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><a class="code" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(gk_ipq_t,    gk_ikv_t)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(gk_i32pq_t,  gk_i32kv_t)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(gk_i64pq_t,  gk_i64kv_t)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(gk_fpq_t,    gk_fkv_t)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(gk_dpq_t,    gk_dkv_t)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<a class="code" href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(gk_idxpq_t,  gk_idxkv_t)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#define GK_MKPQUEUE2_T(NAME, KTYPE, VTYPE)\</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">typedef struct {\</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">  ssize_t nnodes;\</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">  ssize_t maxnodes;\</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">\</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">  </span><span class="comment">/* Heap version of the data structure */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">  KTYPE *keys;\</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">  VTYPE *vals;\</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">} NAME;\</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/*-------------------------------------------------------------</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> * The following data structure stores a sparse CSR format</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> *-------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_csr_t {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  int32_t nrows, ncols;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  ssize_t *rowptr, *colptr;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  int32_t *rowind, *colind;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  int32_t *rowids, *colids;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">float</span> *rowval, *colval;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">float</span> *rnorms, *cnorms;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">float</span> *rsums, *csums;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">float</span> *rsizes, *csizes;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">float</span> *rvols, *cvols;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">float</span> *rwgts, *cwgts;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} gk_csr_t;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/*-------------------------------------------------------------</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * The following data structure stores a sparse graph </span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> *-------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_graph_t {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  int32_t nvtxs;                </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  ssize_t *xadj;                </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  int32_t *adjncy;              </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  int32_t *iadjwgt;             </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">float</span> *fadjwgt;               </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  int32_t *ivwgts;              </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">float</span> *fvwgts;                </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  int32_t *ivsizes;             </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">float</span> *fvsizes;               </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  int32_t *vlabels;             </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} gk_graph_t;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/*-------------------------------------------------------------</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> * The following data structure stores stores a string as a </span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> * pair of its allocated buffer and the buffer itself.</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"> *-------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_str_t {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">size_t</span> len;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">char</span> *buf;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;} gk_str_t;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/*-------------------------------------------------------------</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">* The following data structure implements a string-2-int mapping</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">* table used for parsing command-line options</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">*-------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_StringMap_t {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keywordtype">char</span> *name;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;} gk_StringMap_t;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">/*------------------------------------------------------------</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment"> * This structure implements a simple hash table</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"> *------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_HTable_t {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordtype">int</span> nelements;          <span class="comment">/* The overall size of the hash-table */</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordtype">int</span> htsize;             <span class="comment">/* The current size of the hash-table */</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  gk_ikv_t *harray;       <span class="comment">/* The actual hash-table */</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} gk_HTable_t;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">/*------------------------------------------------------------</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"> * This structure implements a gk_Tokens_t list returned by the</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment"> * string tokenizer</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"> *------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_Tokens_t {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">int</span> ntoks;        <span class="comment">/* The number of tokens in the input string */</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">char</span> *strbuf;     <span class="comment">/* The memory that stores all the entries */</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordtype">char</span> **list;      <span class="comment">/* Pointers to the strbuf for each element */</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;} gk_Tokens_t;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">/*------------------------------------------------------------</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"> * This structure implements storage for an atom in a pdb file</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"> *------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>atom {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordtype">int</span>       serial;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keywordtype">char</span>      *name;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordtype">char</span>      altLoc;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordtype">char</span>      *resname;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="keywordtype">char</span>      chainid;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <span class="keywordtype">int</span>       rserial;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keywordtype">char</span>      icode;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordtype">char</span>      element;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordtype">double</span>    x;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordtype">double</span>    y;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keywordtype">double</span>    z;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keywordtype">double</span>    opcy;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keywordtype">double</span>    tmpt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;} atom;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/*------------------------------------------------------------</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment"> * This structure implements storage for a center of mass for</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"> * a single residue.</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment"> *------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>center_of_mass {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keywordtype">char</span> name;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordtype">double</span> x;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordtype">double</span> y;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordtype">double</span> z;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;} center_of_mass;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">/*------------------------------------------------------------</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"> * This structure implements storage for a pdb protein </span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment"> *------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>pdbf {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">int</span> natoms;         <span class="comment">/* Number of atoms */</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">int</span> nresidues;  <span class="comment">/* Number of residues based on coordinates */</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">int</span> ncas;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">int</span> nbbs;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">int</span> corruption;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">char</span> *resSeq;         <span class="comment">/* Residue sequence based on coordinates    */</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordtype">char</span> **threeresSeq; <span class="comment">/* three-letter residue sequence */</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    atom *atoms;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    atom **bbs;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    atom **cas;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  center_of_mass *cm;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;} pdbf;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">/*************************************************************</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">* Localization Structures for converting characters to integers</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">**************************************************************/</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_i2cc2i_t {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">char</span> *i2c;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">int</span> *c2i;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;} gk_i2cc2i_t;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">/*******************************************************************</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"> *This structure implements storage of a protein sequence</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"> * *****************************************************************/</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>gk_seq_t {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">int</span> len; <span class="comment">/*Number of Residues */</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">int</span> *sequence; <span class="comment">/* Stores the sequence*/</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">int</span> **pssm; <span class="comment">/* Stores the pssm matrix */</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">int</span> **psfm; <span class="comment">/* Stores the psfm matrix */</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">char</span> *name; <span class="comment">/* Stores the name of the sequence */</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">int</span> nsymbols;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;} gk_seq_t;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="../../d5/d16/a00029.html">  232</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d5/d16/a00029.html">gk_mop_t</a> {</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keywordtype">int</span> type;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  ssize_t nbytes;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="keywordtype">void</span> *ptr;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;} <a class="code" href="../../da/ddb/a00145.html#a5139aff4a7772eefb88d15a3fe266e51">gk_mop_t</a>;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html">  242</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../dc/d3c/a00028.html">gk_mcore_t</a> {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="comment">/* Workspace information */</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a834677bb8263a1b0475104889883c86c">  244</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a834677bb8263a1b0475104889883c86c">coresize</a>;     </div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a5cc856b4f3049f9d49c9f3ec10b73739">  245</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a5cc856b4f3049f9d49c9f3ec10b73739">corecpos</a>;     </div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a2d0056e8cc124fad35b901e89668b8b1">  246</a></span>&#160;  <span class="keywordtype">void</span> *<a class="code" href="../../dc/d3c/a00028.html#a2d0056e8cc124fad35b901e89668b8b1">core</a>;          </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="comment">/* These are for implementing a stack-based allocation scheme using both</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">     core and also dynamically allocated memory */</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a30d17f8009db5d7cf61094259ff9e26f">  250</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a30d17f8009db5d7cf61094259ff9e26f">nmops</a>;         </div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a3631e211c793af96e0abf21cb95de4ae">  251</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a3631e211c793af96e0abf21cb95de4ae">cmop</a>;          </div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a74e825c8a07e7c040dbf947bedac3339">  252</a></span>&#160;  <a class="code" href="../../d5/d16/a00029.html">gk_mop_t</a> *<a class="code" href="../../dc/d3c/a00028.html#a74e825c8a07e7c040dbf947bedac3339">mops</a>;       </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="comment">/* These are for keeping various statistics for wspacemalloc */</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#afd16bb0581bc9e98172b2ab35cbc310c">  255</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#afd16bb0581bc9e98172b2ab35cbc310c">num_callocs</a>;   </div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a2ad475b19470a6a7b0c65e53cfd1096b">  256</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a2ad475b19470a6a7b0c65e53cfd1096b">num_hallocs</a>;   </div>
+<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#aa407f9b9ca318fa8afa36ab1c936ec07">  257</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#aa407f9b9ca318fa8afa36ab1c936ec07">size_callocs</a>;  </div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a4c180c60538546b4ab67bb91264e1c6e">  258</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a4c180c60538546b4ab67bb91264e1c6e">size_hallocs</a>;  </div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a488b0e7fbec1333c47a736af554a640c">  259</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a488b0e7fbec1333c47a736af554a640c">cur_callocs</a>;   </div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a69514abe8ce1822030428ca391a903e7">  260</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a69514abe8ce1822030428ca391a903e7">cur_hallocs</a>;   </div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a536a8ab027c1f70bfe5b56a26059589b">  261</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a536a8ab027c1f70bfe5b56a26059589b">max_callocs</a>;   </div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a74723a880e8829c81bd3a38ed474f09a">  262</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="../../dc/d3c/a00028.html#a74723a880e8829c81bd3a38ed474f09a">max_hallocs</a>;   </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;} <a class="code" href="../../da/ddb/a00145.html#a344c3bd385c76cdaf70d77316c82b48c">gk_mcore_t</a>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00028_html_a834677bb8263a1b0475104889883c86c"><div class="ttname"><a href="../../dc/d3c/a00028.html#a834677bb8263a1b0475104889883c86c">gk_mcore_t::coresize</a></div><div class="ttdeci">size_t coresize</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00244">gk_struct.h:244</a></div></div>
+<div class="ttc" id="a00145_html_a5139aff4a7772eefb88d15a3fe266e51"><div class="ttname"><a href="../../da/ddb/a00145.html#a5139aff4a7772eefb88d15a3fe266e51">gk_mop_t</a></div><div class="ttdeci">struct gk_mop_t gk_mop_t</div></div>
+<div class="ttc" id="a00145_html_a344c3bd385c76cdaf70d77316c82b48c"><div class="ttname"><a href="../../da/ddb/a00145.html#a344c3bd385c76cdaf70d77316c82b48c">gk_mcore_t</a></div><div class="ttdeci">struct gk_mcore_t gk_mcore_t</div></div>
+<div class="ttc" id="a00028_html_a3631e211c793af96e0abf21cb95de4ae"><div class="ttname"><a href="../../dc/d3c/a00028.html#a3631e211c793af96e0abf21cb95de4ae">gk_mcore_t::cmop</a></div><div class="ttdeci">size_t cmop</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00251">gk_struct.h:251</a></div></div>
+<div class="ttc" id="a00028_html_aa407f9b9ca318fa8afa36ab1c936ec07"><div class="ttname"><a href="../../dc/d3c/a00028.html#aa407f9b9ca318fa8afa36ab1c936ec07">gk_mcore_t::size_callocs</a></div><div class="ttdeci">size_t size_callocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00257">gk_struct.h:257</a></div></div>
+<div class="ttc" id="a00028_html_a69514abe8ce1822030428ca391a903e7"><div class="ttname"><a href="../../dc/d3c/a00028.html#a69514abe8ce1822030428ca391a903e7">gk_mcore_t::cur_hallocs</a></div><div class="ttdeci">size_t cur_hallocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00260">gk_struct.h:260</a></div></div>
+<div class="ttc" id="a00028_html_a536a8ab027c1f70bfe5b56a26059589b"><div class="ttname"><a href="../../dc/d3c/a00028.html#a536a8ab027c1f70bfe5b56a26059589b">gk_mcore_t::max_callocs</a></div><div class="ttdeci">size_t max_callocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00261">gk_struct.h:261</a></div></div>
+<div class="ttc" id="a00028_html_a5cc856b4f3049f9d49c9f3ec10b73739"><div class="ttname"><a href="../../dc/d3c/a00028.html#a5cc856b4f3049f9d49c9f3ec10b73739">gk_mcore_t::corecpos</a></div><div class="ttdeci">size_t corecpos</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00245">gk_struct.h:245</a></div></div>
+<div class="ttc" id="a00028_html_afd16bb0581bc9e98172b2ab35cbc310c"><div class="ttname"><a href="../../dc/d3c/a00028.html#afd16bb0581bc9e98172b2ab35cbc310c">gk_mcore_t::num_callocs</a></div><div class="ttdeci">size_t num_callocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00255">gk_struct.h:255</a></div></div>
+<div class="ttc" id="a00028_html_a4c180c60538546b4ab67bb91264e1c6e"><div class="ttname"><a href="../../dc/d3c/a00028.html#a4c180c60538546b4ab67bb91264e1c6e">gk_mcore_t::size_hallocs</a></div><div class="ttdeci">size_t size_hallocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00258">gk_struct.h:258</a></div></div>
+<div class="ttc" id="a00029_html"><div class="ttname"><a href="../../d5/d16/a00029.html">gk_mop_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00232">gk_struct.h:232</a></div></div>
+<div class="ttc" id="a00028_html_a488b0e7fbec1333c47a736af554a640c"><div class="ttname"><a href="../../dc/d3c/a00028.html#a488b0e7fbec1333c47a736af554a640c">gk_mcore_t::cur_callocs</a></div><div class="ttdeci">size_t cur_callocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00259">gk_struct.h:259</a></div></div>
+<div class="ttc" id="a00028_html_a2d0056e8cc124fad35b901e89668b8b1"><div class="ttname"><a href="../../dc/d3c/a00028.html#a2d0056e8cc124fad35b901e89668b8b1">gk_mcore_t::core</a></div><div class="ttdeci">void * core</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00246">gk_struct.h:246</a></div></div>
+<div class="ttc" id="a00028_html_a30d17f8009db5d7cf61094259ff9e26f"><div class="ttname"><a href="../../dc/d3c/a00028.html#a30d17f8009db5d7cf61094259ff9e26f">gk_mcore_t::nmops</a></div><div class="ttdeci">size_t nmops</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00250">gk_struct.h:250</a></div></div>
+<div class="ttc" id="a00028_html_a74723a880e8829c81bd3a38ed474f09a"><div class="ttname"><a href="../../dc/d3c/a00028.html#a74723a880e8829c81bd3a38ed474f09a">gk_mcore_t::max_hallocs</a></div><div class="ttdeci">size_t max_hallocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00262">gk_struct.h:262</a></div></div>
+<div class="ttc" id="a00145_html_a57b321ad0a72d8cbe45cfe882aee7b2f"><div class="ttname"><a href="../../da/ddb/a00145.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a></div><div class="ttdeci">#define GK_MKPQUEUE_T(NAME, KVTYPE)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00039">gk_struct.h:39</a></div></div>
+<div class="ttc" id="a00028_html"><div class="ttname"><a href="../../dc/d3c/a00028.html">gk_mcore_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00242">gk_struct.h:242</a></div></div>
+<div class="ttc" id="a00028_html_a2ad475b19470a6a7b0c65e53cfd1096b"><div class="ttname"><a href="../../dc/d3c/a00028.html#a2ad475b19470a6a7b0c65e53cfd1096b">gk_mcore_t::num_hallocs</a></div><div class="ttdeci">size_t num_hallocs</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00256">gk_struct.h:256</a></div></div>
+<div class="ttc" id="a00028_html_a74e825c8a07e7c040dbf947bedac3339"><div class="ttname"><a href="../../dc/d3c/a00028.html#a74e825c8a07e7c040dbf947bedac3339">gk_mcore_t::mops</a></div><div class="ttdeci">gk_mop_t * mops</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00252">gk_struct.h:252</a></div></div>
+<div class="ttc" id="a00145_html_ad11341707bef5a28f3747df28e8e5a8a"><div class="ttname"><a href="../../da/ddb/a00145.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a></div><div class="ttdeci">#define GK_MKKEYVALUE_T(NAME, KEYTYPE, VALTYPE)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00017">gk_struct.h:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../da/ddb/a00145.html">gk_types.h</a></li>
-    <li class="footer">Generated on Tue May 10 2016 09:17:17 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../da/ddb/a00145.html">gk_struct.h</a></li>
+    <li class="footer">Generated on Tue May 10 2016 13:10:56 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

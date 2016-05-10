@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: nrinfo_t Struct Reference</title>
+<title>SEIMS-2016: NotRegularMeasurement Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,27 +113,236 @@ $(document).ready(function(){initNavTree('d3/dea/a00046.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="../../de/dc3/a00909.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d4/ddc/a00917.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">nrinfo_t Struct Reference</div>  </div>
+<div class="title">NotRegularMeasurement Class Reference<div class="ingroups"><a class="el" href="../../dd/d57/a00701.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d5/d0b/a00220_source.html">struct.h</a>&gt;</code></p>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The following data structure holds information on degrees for k-way partition </p>
+<p>Not Regular hydroclimate data.  
+ <a href="../../d3/dea/a00046.html#details">More...</a></p>
 
-<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00074">74</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">struct.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d5/d0b/a00220_source.html">struct.h</a></li>
+<p><code>#include &lt;<a class="el" href="../../d5/d05/a00385_source.html">NotRegularMeasurement.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for NotRegularMeasurement:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/ddf/a00918.png" border="0" usemap="#_not_regular_measurement_inherit__map" alt="Inheritance graph"/></div>
+<map name="_not_regular_measurement_inherit__map" id="_not_regular_measurement_inherit__map">
+<area shape="rect" id="node2" href="../../d8/d41/a00038.html" title="Get HydroClimate measurement data from MongoDB. " alt="" coords="28,5,215,299"/></map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3c9de25b026a3918f3655e4381a867e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a3c9de25b026a3918f3655e4381a867e7">NotRegularMeasurement</a> (mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startTime, time_t endTime)</td></tr>
+<tr class="memdesc:a3c9de25b026a3918f3655e4381a867e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a3c9de25b026a3918f3655e4381a867e7">More...</a><br/></td></tr>
+<tr class="separator:a3c9de25b026a3918f3655e4381a867e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156ee633e6dfc626a362bb826525ea6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a156ee633e6dfc626a362bb826525ea6e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a156ee633e6dfc626a362bb826525ea6e">~NotRegularMeasurement</a> (void)</td></tr>
+<tr class="memdesc:a156ee633e6dfc626a362bb826525ea6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a156ee633e6dfc626a362bb826525ea6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77a1b276a9f174603a977b2a6e4c5cc"><td class="memItemLeft" align="right" valign="top">virtual float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#af77a1b276a9f174603a977b2a6e4c5cc">GetSiteDataByTime</a> (time_t t)</td></tr>
+<tr class="memdesc:af77a1b276a9f174603a977b2a6e4c5cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get site date by time <em>pData</em>.  <a href="#af77a1b276a9f174603a977b2a6e4c5cc">More...</a><br/></td></tr>
+<tr class="separator:af77a1b276a9f174603a977b2a6e4c5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00038"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00038')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d8/d41/a00038.html">Measurement</a></td></tr>
+<tr class="memitem:a4ceebf09b2dbb7edfefe10c7f64b0683 inherit pub_methods_a00038"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a4ceebf09b2dbb7edfefe10c7f64b0683">Measurement</a> (mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startDate, time_t endDate)</td></tr>
+<tr class="memdesc:a4ceebf09b2dbb7edfefe10c7f64b0683 inherit pub_methods_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a4ceebf09b2dbb7edfefe10c7f64b0683">More...</a><br/></td></tr>
+<tr class="separator:a4ceebf09b2dbb7edfefe10c7f64b0683 inherit pub_methods_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6743c23fdd99a63831f93979bef779c8 inherit pub_methods_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6743c23fdd99a63831f93979bef779c8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a6743c23fdd99a63831f93979bef779c8">~Measurement</a> (void)</td></tr>
+<tr class="memdesc:a6743c23fdd99a63831f93979bef779c8 inherit pub_methods_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a6743c23fdd99a63831f93979bef779c8 inherit pub_methods_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797e90045c3f01415abc68ebe02683d8 inherit pub_methods_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a797e90045c3f01415abc68ebe02683d8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a797e90045c3f01415abc68ebe02683d8">NumberOfSites</a> ()</td></tr>
+<tr class="memdesc:a797e90045c3f01415abc68ebe02683d8 inherit pub_methods_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Number of site. <br/></td></tr>
+<tr class="separator:a797e90045c3f01415abc68ebe02683d8 inherit pub_methods_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce1040e808838a0a8c4fba864e1ffcb inherit pub_methods_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abce1040e808838a0a8c4fba864e1ffcb"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#abce1040e808838a0a8c4fba864e1ffcb">Type</a> ()</td></tr>
+<tr class="memdesc:abce1040e808838a0a8c4fba864e1ffcb inherit pub_methods_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get HydroClimate site type, "M" or "P". <br/></td></tr>
+<tr class="separator:abce1040e808838a0a8c4fba864e1ffcb inherit pub_methods_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad839a0019995f509b5802b8948513a6b inherit pub_methods_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad839a0019995f509b5802b8948513a6b"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#ad839a0019995f509b5802b8948513a6b">StartTime</a> ()</td></tr>
+<tr class="memdesc:ad839a0019995f509b5802b8948513a6b inherit pub_methods_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">start time <br/></td></tr>
+<tr class="separator:ad839a0019995f509b5802b8948513a6b inherit pub_methods_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bdfbe35c64f4efa24989c10474d078c inherit pub_methods_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6bdfbe35c64f4efa24989c10474d078c"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a6bdfbe35c64f4efa24989c10474d078c">EndTime</a> ()</td></tr>
+<tr class="memdesc:a6bdfbe35c64f4efa24989c10474d078c inherit pub_methods_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">end time <br/></td></tr>
+<tr class="separator:a6bdfbe35c64f4efa24989c10474d078c inherit pub_methods_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac49bfde12525e6ad88d058122eba3aba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac49bfde12525e6ad88d058122eba3aba"></a>
+vector&lt; vector&lt; time_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#ac49bfde12525e6ad88d058122eba3aba">m_timeList</a></td></tr>
+<tr class="memdesc:ac49bfde12525e6ad88d058122eba3aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">time list of site data <br/></td></tr>
+<tr class="separator:ac49bfde12525e6ad88d058122eba3aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac13ca9e77b8b7d54845def6bbd0e7e5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac13ca9e77b8b7d54845def6bbd0e7e5b"></a>
+vector&lt; vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">m_valueList</a></td></tr>
+<tr class="memdesc:ac13ca9e77b8b7d54845def6bbd0e7e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">site data corresponding to m_timeList <br/></td></tr>
+<tr class="separator:ac13ca9e77b8b7d54845def6bbd0e7e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb545ecf27b9011ea628ad92bc0ac697"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb545ecf27b9011ea628ad92bc0ac697"></a>
+vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#abb545ecf27b9011ea628ad92bc0ac697">m_curIndexList</a></td></tr>
+<tr class="memdesc:abb545ecf27b9011ea628ad92bc0ac697"><td class="mdescLeft">&#160;</td><td class="mdescRight">index <br/></td></tr>
+<tr class="separator:abb545ecf27b9011ea628ad92bc0ac697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00038"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00038')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d8/d41/a00038.html">Measurement</a></td></tr>
+<tr class="memitem:aab660b24d053833228d17eaa5b965a86 inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab660b24d053833228d17eaa5b965a86"></a>
+mongoc_client_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#aab660b24d053833228d17eaa5b965a86">m_conn</a></td></tr>
+<tr class="memdesc:aab660b24d053833228d17eaa5b965a86 inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">MongoDB client object. <br/></td></tr>
+<tr class="separator:aab660b24d053833228d17eaa5b965a86 inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a801eb1c569a843a5326b36e7bb76119e inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a801eb1c569a843a5326b36e7bb76119e"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a801eb1c569a843a5326b36e7bb76119e">m_hydroDBName</a></td></tr>
+<tr class="memdesc:a801eb1c569a843a5326b36e7bb76119e inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">HydroClimate database name. <br/></td></tr>
+<tr class="separator:a801eb1c569a843a5326b36e7bb76119e inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acffdb39ed0357326cec16264231ae695 inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acffdb39ed0357326cec16264231ae695"></a>
+vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a></td></tr>
+<tr class="memdesc:acffdb39ed0357326cec16264231ae695 inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Site IDs list. <br/></td></tr>
+<tr class="separator:acffdb39ed0357326cec16264231ae695 inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17b0ffa8e6e6b5ac42092b485c4f204 inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae17b0ffa8e6e6b5ac42092b485c4f204"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#ae17b0ffa8e6e6b5ac42092b485c4f204">m_type</a></td></tr>
+<tr class="memdesc:ae17b0ffa8e6e6b5ac42092b485c4f204 inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Site type, M means meteorology, and P means precipitation. <br/></td></tr>
+<tr class="separator:ae17b0ffa8e6e6b5ac42092b485c4f204 inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d95627d0865cc35b930939076aa7da6 inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d95627d0865cc35b930939076aa7da6"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a1d95627d0865cc35b930939076aa7da6">m_startTime</a></td></tr>
+<tr class="memdesc:a1d95627d0865cc35b930939076aa7da6 inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start time. <br/></td></tr>
+<tr class="separator:a1d95627d0865cc35b930939076aa7da6 inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c62f2abba7a613bc6edeca6152751f9 inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c62f2abba7a613bc6edeca6152751f9"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a1c62f2abba7a613bc6edeca6152751f9">m_endTime</a></td></tr>
+<tr class="memdesc:a1c62f2abba7a613bc6edeca6152751f9 inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight">End time. <br/></td></tr>
+<tr class="separator:a1c62f2abba7a613bc6edeca6152751f9 inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2114a606e03739f92b2ba8825fc1334c inherit pro_attribs_a00038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2114a606e03739f92b2ba8825fc1334c"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html#a2114a606e03739f92b2ba8825fc1334c">pData</a></td></tr>
+<tr class="memdesc:a2114a606e03739f92b2ba8825fc1334c inherit pro_attribs_a00038"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d8/d41/a00038.html" title="Get HydroClimate measurement data from MongoDB. ">Measurement</a> data of all sites in given date. <br/></td></tr>
+<tr class="separator:a2114a606e03739f92b2ba8825fc1334c inherit pro_attribs_a00038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Not Regular hydroclimate data. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00024">24</a> of file <a class="el" href="../../d5/d05/a00385_source.html">NotRegularMeasurement.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3c9de25b026a3918f3655e4381a867e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NotRegularMeasurement::NotRegularMeasurement </td>
+          <td>(</td>
+          <td class="paramtype">mongoc_client_t *&#160;</td>
+          <td class="paramname"><em>conn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>hydroDBName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>sitesList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>siteType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">time_t&#160;</td>
+          <td class="paramname"><em>startTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">time_t&#160;</td>
+          <td class="paramname"><em>endTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Initialize NotRegular <a class="el" href="../../d8/d41/a00038.html" title="Get HydroClimate measurement data from MongoDB. ">Measurement</a> instance from MongoDB</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn</td><td><em>mongoc_client_t</em>, MongoDB client </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hydroDBName</td><td><em>string</em>, HydroClimate database name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sitesList</td><td><em>string</em>, site list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">siteType</td><td><em>string</em>, site type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">startDate</td><td><em>time_t</em>, start date time </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">endDate</td><td><em>time_t</em>, end date time </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>build query statement</p>
+<p>startTime &lt;= t &lt;= endTime,</p>
+<p>sort by stationID and time </p>
+
+<p>Definition at line <a class="el" href="../../d2/d56/a00384_source.html#l00017">17</a> of file <a class="el" href="../../d2/d56/a00384_source.html">NotRegularMeasurement.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/dea/a00046_a3c9de25b026a3918f3655e4381a867e7_cgraph.png" border="0" usemap="#d3/dea/a00046_a3c9de25b026a3918f3655e4381a867e7_cgraph" alt=""/></div>
+<map name="d3/dea/a00046_a3c9de25b026a3918f3655e4381a867e7_cgraph" id="d3/dea/a00046_a3c9de25b026a3918f3655e4381a867e7_cgraph">
+<area shape="rect" id="node2" href="../../d1/d6f/a00063.html#a053b28c53a117d59e0f5050b0d9af225" title="Convert date time to string as the format of &quot;YYYY&#45;MM&#45;DD HH&quot;. " alt="" coords="265,13,450,43"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af77a1b276a9f174603a977b2a6e4c5cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float * NotRegularMeasurement::GetSiteDataByTime </td>
+          <td>(</td>
+          <td class="paramtype">time_t&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get site date by time <em>pData</em>. </p>
+<p>Get site data by time. </p>
+
+<p>Implements <a class="el" href="../../d8/d41/a00038.html#a2195da07e9d304304905d020d32e9760">Measurement</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d2/d56/a00384_source.html#l00107">107</a> of file <a class="el" href="../../d2/d56/a00384_source.html">NotRegularMeasurement.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/data/<a class="el" href="../../d5/d05/a00385_source.html">NotRegularMeasurement.h</a></li>
+<li>src/base/data/<a class="el" href="../../d2/d56/a00384_source.html">NotRegularMeasurement.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/dea/a00046.html">nrinfo_t</a></li>
-    <li class="footer">Generated on Tue May 10 2016 09:17:19 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d3/dea/a00046.html">NotRegularMeasurement</a></li>
+    <li class="footer">Generated on Tue May 10 2016 13:10:59 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

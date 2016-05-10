@@ -1,23 +1,28 @@
 var a00714 =
 [
-    [ "PETHargreaves.cpp", "d6/d92/a00586.html", null ],
-    [ "PETHargreaves", "d2/d79/a00051.html", [
-      [ "CheckInputData", "d2/d79/a00051.html#a7e04f825331f418ccf131194dd4eb48c", null ],
-      [ "CheckInputSize", "d2/d79/a00051.html#a00bd74f194c86eae40b0d95cd4bba6a7", null ],
-      [ "Execute", "d2/d79/a00051.html#aaf05ab866192717802d14fa26189224b", null ],
-      [ "Get1DData", "d2/d79/a00051.html#af5e4b87dc5fcf0804b8adabcc085e70b", null ],
-      [ "Set1DData", "d2/d79/a00051.html#ab588ffc7c5abc04603910f951801f79b", null ],
-      [ "SetValue", "d2/d79/a00051.html#a6d353a208f981a5b9b048c506e7d227c", null ],
-      [ "m_HCoef_pet", "d2/d79/a00051.html#acaf6d54c4471fe0a6d6e4b5af8918e36", null ],
-      [ "m_jday", "d2/d79/a00051.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6", null ],
-      [ "m_latitude", "d2/d79/a00051.html#afbb2148f57db1a0ce4e343e8f56ccbeb", null ],
-      [ "m_pet", "d2/d79/a00051.html#a7bb48f6000aaef40a221a51a5e267816", null ],
-      [ "m_petFactor", "d2/d79/a00051.html#a8727d0b39c3f9db1c3c4db8f9809616d", null ],
-      [ "m_size", "d2/d79/a00051.html#a884c87f974059a72aba03d6ddc4efab9", null ],
-      [ "m_srMax", "d2/d79/a00051.html#a408f2239d3446b7047177f2602ef031c", null ],
-      [ "m_tMax", "d2/d79/a00051.html#adf77f62f87e78a9f1a76091fdeb21705", null ],
-      [ "m_tMean", "d2/d79/a00051.html#ac314113751262beca529b1180a166763", null ],
-      [ "m_tMin", "d2/d79/a00051.html#a5df9ae68bd6846c98a389fa4126f9227", null ]
-    ] ],
-    [ "MetadataInformation", "df/d96/a00714.html#ga0087c853569e2c94d58c3499365662e9", null ]
+    [ "ClimateParams.cpp", "dc/d30/a00508.html", null ],
+    [ "ClimateParams.h", "df/db6/a00509.html", null ],
+    [ "ClimateParameters", "dd/d1b/a00015.html", [
+      [ "CheckInputData", "dd/d1b/a00015.html#a6e0c6c9bf2026b2cb2dfe949f3496066", null ],
+      [ "CheckInputSize", "dd/d1b/a00015.html#af748eb64dbe1cbcdb1fc8efa8843ec90", null ],
+      [ "Execute", "dd/d1b/a00015.html#afcdc1ab59eb33588d5c41c2ad7b3f5b8", null ],
+      [ "Get1DData", "dd/d1b/a00015.html#a8b85e82c9cc57c001ef218ce017e71ea", null ],
+      [ "GetValue", "dd/d1b/a00015.html#aedfdae94ffe3017bfd18a49df63b360a", null ],
+      [ "JulianDay", "dd/d1b/a00015.html#a93837d3f22e43e0406c139a2f7a0cedd", null ],
+      [ "MaxSolarRadiation", "dd/d1b/a00015.html#adaeb4f30b8b15413e165a18cb8778204", null ],
+      [ "SaturationVaporPressure", "dd/d1b/a00015.html#aeb65e97f54efd79175d0ca3a2505a6a3", null ],
+      [ "Set1DData", "dd/d1b/a00015.html#a7883e60208931d7b051dd388f6261962", null ],
+      [ "SetValue", "dd/d1b/a00015.html#a1033bb3616d3aa5adbf28aaca2c9e33b", null ],
+      [ "m_avp", "dd/d1b/a00015.html#a006178a6e9fd7b4c354a8d24be988f9f", null ],
+      [ "m_jday", "dd/d1b/a00015.html#aa62181172b8dcc6e50b0faccdfbc3c2f", null ],
+      [ "m_latitude", "dd/d1b/a00015.html#a898bd31dcce07b583c5a163f534cc9a0", null ],
+      [ "m_rhd", "dd/d1b/a00015.html#ac548bc940945316bd59f183eed396a53", null ],
+      [ "m_sr", "dd/d1b/a00015.html#a5dde5fc4c0936c713f9563c502c17889", null ],
+      [ "m_srMax", "dd/d1b/a00015.html#a4045b7c6db51ab8894fd0e50f9adad39", null ],
+      [ "m_svp", "dd/d1b/a00015.html#a50c7563baf5ba25efd50250a7d92b6f7", null ],
+      [ "m_tMax", "dd/d1b/a00015.html#aea64e015df15583056aff3fc35879eef", null ],
+      [ "m_tMean", "dd/d1b/a00015.html#a3e9e7b0593d8760d66908d5628e87791", null ],
+      [ "m_tMin", "dd/d1b/a00015.html#a28c06db8bddad4383d3e75a1de1f83f3", null ],
+      [ "m_ws", "dd/d1b/a00015.html#a4cbf1319adbbe713a68acd8bc792d73a", null ]
+    ] ]
 ];

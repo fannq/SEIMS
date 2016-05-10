@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/api.h Source File</title>
+<title>SEIMS-2016: src/base/data/RegularMeasurement.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,35 +111,42 @@ $(document).ready(function(){initNavTree('db/db9/a00387_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">api.h</div>  </div>
+<div class="title">RegularMeasurement.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #ifdef MODULE_EXPORTS</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEIMS_MODULE_API __declspec(dllexport)</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #else</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEIMS_MODULE_API __declspec(dllimport)</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEIMS_MODULE_API</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d91/a00410.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../d4/deb/a00710.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <a class="code" href="../../d3/d8b/a00059.html">SimulationModule</a>* GetInstance();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="ttc" id="a00410_html"><div class="ttname"><a href="../../d8/d91/a00410.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00059_html"><div class="ttname"><a href="../../d3/d8b/a00059.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d91/a00410_source.html#l00032">SimulationModule.h:32</a></div></div>
-<div class="ttc" id="a00710_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../d4/deb/a00710.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation(void)</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d34/a00476_source.html#l00033">api.cpp:33</a></div></div>
+<a href="../../db/db9/a00387.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d95/a00379.html">Measurement.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/dbc/a00414.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;MongoUtil.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d2e/a00056.html">RegularMeasurement</a> : <span class="keyword">public</span> <a class="code" href="../../d8/d41/a00038.html">Measurement</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="../../d9/d2e/a00056.html#aa99c037597c244227ecfd437a8644432">RegularMeasurement</a>(mongoc_client_t* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime, time_t interval);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d9/d2e/a00056.html#a1f44d19ffde71e64385f25b24732ff83">~RegularMeasurement</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span>* <a class="code" href="../../d9/d2e/a00056.html#a6528f99c36c06961b7eeafbccc2a5f52">GetSiteDataByTime</a>(time_t t);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c">   48</a></span>&#160;    vector&lt;float*&gt; <a class="code" href="../../d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c">m_siteData</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8">   50</a></span>&#160;    time_t <a class="code" href="../../d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8">m_interval</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">RegularMeasurement</a></div><div class="ttdoc">Regular hydroclimate data, e.g., daily data. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00024">RegularMeasurement.h:24</a></div></div>
+<div class="ttc" id="a00379_html"><div class="ttname"><a href="../../d8/d95/a00379.html">Measurement.h</a></div><div class="ttdoc">Measurement class to store HydroClimate site data. </div></div>
+<div class="ttc" id="a00038_html"><div class="ttname"><a href="../../d8/d41/a00038.html">Measurement</a></div><div class="ttdoc">Get HydroClimate measurement data from MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d95/a00379_source.html#l00024">Measurement.h:24</a></div></div>
+<div class="ttc" id="a00414_html"><div class="ttname"><a href="../../d4/dbc/a00414.html">text.h</a></div><div class="ttdoc">Predefined string constants used in the code. </div></div>
+<div class="ttc" id="a00056_html_a6fffb32a797276d7cc6b2bd8b2f369c8"><div class="ttname"><a href="../../d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8">RegularMeasurement::m_interval</a></div><div class="ttdeci">time_t m_interval</div><div class="ttdoc">data record interval </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00050">RegularMeasurement.h:50</a></div></div>
+<div class="ttc" id="a00056_html_a1f44d19ffde71e64385f25b24732ff83"><div class="ttname"><a href="../../d9/d2e/a00056.html#a1f44d19ffde71e64385f25b24732ff83">RegularMeasurement::~RegularMeasurement</a></div><div class="ttdeci">~RegularMeasurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df5/a00386_source.html#l00127">RegularMeasurement.cpp:127</a></div></div>
+<div class="ttc" id="a00056_html_a6528f99c36c06961b7eeafbccc2a5f52"><div class="ttname"><a href="../../d9/d2e/a00056.html#a6528f99c36c06961b7eeafbccc2a5f52">RegularMeasurement::GetSiteDataByTime</a></div><div class="ttdeci">virtual float * GetSiteDataByTime(time_t t)</div><div class="ttdoc">Get site date by time pData. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df5/a00386_source.html#l00133">RegularMeasurement.cpp:133</a></div></div>
+<div class="ttc" id="a00056_html_a9e9eee588a575d7a89a66b9728b9f81c"><div class="ttname"><a href="../../d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c">RegularMeasurement::m_siteData</a></div><div class="ttdeci">vector&lt; float * &gt; m_siteData</div><div class="ttdoc">site data : the first dimension is time, and the second dimension is data by sites ...</div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00048">RegularMeasurement.h:48</a></div></div>
+<div class="ttc" id="a00056_html_aa99c037597c244227ecfd437a8644432"><div class="ttname"><a href="../../d9/d2e/a00056.html#aa99c037597c244227ecfd437a8644432">RegularMeasurement::RegularMeasurement</a></div><div class="ttdeci">RegularMeasurement(mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startTime, time_t endTime, time_t interval)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df5/a00386_source.html#l00019">RegularMeasurement.cpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><b>api.h</b></li>
-    <li class="footer">Generated on Tue May 10 2016 09:17:18 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../db/db9/a00387.html">RegularMeasurement.h</a></li>
+    <li class="footer">Generated on Tue May 10 2016 13:10:57 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

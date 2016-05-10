@@ -1,0 +1,11 @@
+<map id="itemsets_find_frequent_itemsets" name="itemsets_find_frequent_itemsets">
+<area shape="rect" id="node2" href="$d3/df8/a00155.html#ab348ad8f89d70692400d7602e3a824bf" title="itemsets_project_matrix" alt="" coords="238,85,429,115"/>
+<area shape="rect" id="node9" href="$d7/d12/a00126.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="278,139,389,168"/>
+<area shape="rect" id="node3" href="$d7/d12/a00126.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="502,32,629,61"/>
+<area shape="rect" id="node8" href="$d5/da7/a00144.html#a87b4cd1adb002c1987c1537130e8ee31" title="gk_ikvsorti" alt="" coords="516,85,615,115"/>
+<area shape="rect" id="node4" href="$d5/da7/a00144.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="703,5,798,35"/>
+<area shape="rect" id="node7" href="$d7/d12/a00126.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="701,59,800,88"/>
+<area shape="rect" id="node5" href="$df/dcd/a00127.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1035,7,1127,36"/>
+<area shape="rect" id="node6" href="$d5/da7/a00144.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="848,32,987,61"/>
+<area shape="rect" id="node10" href="$d7/d12/a00126.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="478,139,653,168"/>
+</map>

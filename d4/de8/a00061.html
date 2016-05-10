@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: StringList Class Reference</title>
+<title>SEIMS-2016: slTable Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,79 +114,64 @@ $(document).ready(function(){initNavTree('d4/de8/a00061.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../dc/d92/a00929.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d5/d54/a00938.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">StringList Class Reference</div>  </div>
+<div class="title">slTable Class Reference<div class="ingroups"><a class="el" href="../../dd/d57/a00701.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Common operation of string vector.  
+<p>Table class for sqlite database tables.  
  <a href="../../d4/de8/a00061.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d72/a00412_source.html">StringList.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/dcb/a00375_source.html">DBManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab92785f26e12fce6ecc9797c6f4e2090"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab92785f26e12fce6ecc9797c6f4e2090"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#ab92785f26e12fce6ecc9797c6f4e2090">StringList</a> (void)</td></tr>
-<tr class="memdesc:ab92785f26e12fce6ecc9797c6f4e2090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor (void) <br/></td></tr>
-<tr class="separator:ab92785f26e12fce6ecc9797c6f4e2090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c7bf7a04fa791e1b5504fb96355efa9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c7bf7a04fa791e1b5504fb96355efa9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a1c7bf7a04fa791e1b5504fb96355efa9">~StringList</a> (void)</td></tr>
-<tr class="memdesc:a1c7bf7a04fa791e1b5504fb96355efa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, clear the string <em>vector</em>. <br/></td></tr>
-<tr class="separator:a1c7bf7a04fa791e1b5504fb96355efa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d1858fa95ef9d5b991e59b36bbd5426"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d1858fa95ef9d5b991e59b36bbd5426"></a>
-<a class="el" href="../../d4/de8/a00061.html">StringList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a1d1858fa95ef9d5b991e59b36bbd5426">operator=</a> (const <a class="el" href="../../d4/de8/a00061.html">StringList</a> &amp;obj)</td></tr>
-<tr class="memdesc:a1d1858fa95ef9d5b991e59b36bbd5426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator overload. <br/></td></tr>
-<tr class="separator:a1d1858fa95ef9d5b991e59b36bbd5426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d7276a511637ca2bbf01b9375f2a5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39d7276a511637ca2bbf01b9375f2a5e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a39d7276a511637ca2bbf01b9375f2a5e">Add</a> (string item)</td></tr>
-<tr class="memdesc:a39d7276a511637ca2bbf01b9375f2a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an item to the list. <br/></td></tr>
-<tr class="separator:a39d7276a511637ca2bbf01b9375f2a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82d4957073abf405e92934c69a4adf6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82d4957073abf405e92934c69a4adf6c"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a82d4957073abf405e92934c69a4adf6c">At</a> (int postion)</td></tr>
-<tr class="memdesc:a82d4957073abf405e92934c69a4adf6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item in the list at the given position. <br/></td></tr>
-<tr class="separator:a82d4957073abf405e92934c69a4adf6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a335f0ecc2c08af9a96a5b412eeb14090"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a335f0ecc2c08af9a96a5b412eeb14090"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a335f0ecc2c08af9a96a5b412eeb14090">Append</a> (string item)</td></tr>
-<tr class="memdesc:a335f0ecc2c08af9a96a5b412eeb14090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append an item to the end of the list. <br/></td></tr>
-<tr class="separator:a335f0ecc2c08af9a96a5b412eeb14090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0129bfe44ed9c9a5839c5c8688a4bdc6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0129bfe44ed9c9a5839c5c8688a4bdc6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">Clear</a> (void)</td></tr>
-<tr class="memdesc:a0129bfe44ed9c9a5839c5c8688a4bdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the list. <br/></td></tr>
-<tr class="separator:a0129bfe44ed9c9a5839c5c8688a4bdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69e219abaa4afe8023ae9e0d00b8abc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69e219abaa4afe8023ae9e0d00b8abc3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a69e219abaa4afe8023ae9e0d00b8abc3">Contains</a> (string item)</td></tr>
-<tr class="memdesc:a69e219abaa4afe8023ae9e0d00b8abc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a flag indicating if the given string is in the list. <br/></td></tr>
-<tr class="separator:a69e219abaa4afe8023ae9e0d00b8abc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a897d79a72fab72faec233a10667c7c5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a897d79a72fab72faec233a10667c7c5d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a897d79a72fab72faec233a10667c7c5d">Count</a> (void)</td></tr>
-<tr class="memdesc:a897d79a72fab72faec233a10667c7c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of items in the list. <br/></td></tr>
-<tr class="separator:a897d79a72fab72faec233a10667c7c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2bfd74ecef6c8698d5094cdb183a64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea2bfd74ecef6c8698d5094cdb183a64"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#aea2bfd74ecef6c8698d5094cdb183a64">Insert</a> (int index, string item)</td></tr>
-<tr class="memdesc:aea2bfd74ecef6c8698d5094cdb183a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an item into the list at the given position. <br/></td></tr>
-<tr class="separator:aea2bfd74ecef6c8698d5094cdb183a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e4c52c28c9bf1126e9932f3ceb42e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91e4c52c28c9bf1126e9932f3ceb42e7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a91e4c52c28c9bf1126e9932f3ceb42e7">Resize</a> (int newsize, string value)</td></tr>
-<tr class="memdesc:a91e4c52c28c9bf1126e9932f3ceb42e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the list to the given size with the given default values. <br/></td></tr>
-<tr class="separator:a91e4c52c28c9bf1126e9932f3ceb42e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac847356c51cf0f2de2ad033525bbf23e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac847356c51cf0f2de2ad033525bbf23e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#ac847356c51cf0f2de2ad033525bbf23e">slTable</a> ()</td></tr>
+<tr class="memdesc:ac847356c51cf0f2de2ad033525bbf23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:ac847356c51cf0f2de2ad033525bbf23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e89beb6ee7638c477ee8dc96f85dd66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e89beb6ee7638c477ee8dc96f85dd66"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a6e89beb6ee7638c477ee8dc96f85dd66">~slTable</a> ()</td></tr>
+<tr class="memdesc:a6e89beb6ee7638c477ee8dc96f85dd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a6e89beb6ee7638c477ee8dc96f85dd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb56a581d1fd10567ad208347ec578a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb56a581d1fd10567ad208347ec578a7"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#abb56a581d1fd10567ad208347ec578a7">FieldValue</a> (int row, int col)</td></tr>
+<tr class="memdesc:abb56a581d1fd10567ad208347ec578a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value in the field defined by the given row and column. <br/></td></tr>
+<tr class="separator:abb56a581d1fd10567ad208347ec578a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:adea6ff1f79a5048f86d45a1a77ec9ae2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adea6ff1f79a5048f86d45a1a77ec9ae2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#adea6ff1f79a5048f86d45a1a77ec9ae2">nRows</a></td></tr>
+<tr class="memdesc:adea6ff1f79a5048f86d45a1a77ec9ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">rows <br/></td></tr>
+<tr class="separator:adea6ff1f79a5048f86d45a1a77ec9ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2965e5fd32bef8dd66b8e46cd00a9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e2965e5fd32bef8dd66b8e46cd00a9f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a4e2965e5fd32bef8dd66b8e46cd00a9f">nCols</a></td></tr>
+<tr class="memdesc:a4e2965e5fd32bef8dd66b8e46cd00a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">cols <br/></td></tr>
+<tr class="separator:a4e2965e5fd32bef8dd66b8e46cd00a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfbf7d70ba482dcc689ef8eb248e27b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfbf7d70ba482dcc689ef8eb248e27b0"></a>
+char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#adfbf7d70ba482dcc689ef8eb248e27b0">pData</a></td></tr>
+<tr class="memdesc:adfbf7d70ba482dcc689ef8eb248e27b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">data <br/></td></tr>
+<tr class="separator:adfbf7d70ba482dcc689ef8eb248e27b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Common operation of string vector. </p>
+<div class="textblock"><p>Table class for sqlite database tables. </p>
+<dl class="deprecated"><dt><b><a class="el" href="../../df/d3b/a00728.html#_deprecated000001">Deprecated:</a></b></dt><dd>Currently, this is no longer used.</dd></dl>
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00027">27</a> of file <a class="el" href="../../d9/d72/a00412_source.html">StringList.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dcb/a00375_source.html#l00030">30</a> of file <a class="el" href="../../dd/dcb/a00375_source.html">DBManager.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/util/<a class="el" href="../../d9/d72/a00412_source.html">StringList.h</a></li>
-<li>src/base/util/<a class="el" href="../../d2/db6/a00411_source.html">StringList.cpp</a></li>
+<li>src/base/data/<a class="el" href="../../dd/dcb/a00375_source.html">DBManager.h</a></li>
+<li>src/base/data/<a class="el" href="../../d5/db5/a00374_source.html">DBManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/de8/a00061.html">StringList</a></li>
-    <li class="footer">Generated on Tue May 10 2016 09:17:20 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d4/de8/a00061.html">slTable</a></li>
+    <li class="footer">Generated on Tue May 10 2016 13:10:59 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,4 +1,4 @@
 var a00164 =
 [
-    [ "gk_rw_PageRank", "db/ddf/a00164.html#a5f79542ae883d026565a71bab5bca8d4", null ]
+    [ "gk_randinit", "db/ddf/a00164.html#ae9493cf6b5b4bf33f152f2f37c87a3ac", null ]
 ];

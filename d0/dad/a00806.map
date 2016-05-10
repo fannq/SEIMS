@@ -1,2 +1,5 @@
-<map id="src/base/util/MetadataInfoConst.h" name="src/base/util/MetadataInfoConst.h">
+<map id="src/base/module_setting/Settings.cpp" name="src/base/module_setting/Settings.cpp">
+<area shape="rect" id="node2" href="$d9/d95/a00400.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="449,101,543,131"/>
+<area shape="rect" id="node9" href="$df/d15/a00416.html" title="Utilities class to handle string, date time and file. " alt="" coords="395,179,459,208"/>
+<area shape="rect" id="node13" href="$de/d3d/a00409.html" title="Define ModelException class. " alt="" coords="75,179,225,208"/>
 </map>

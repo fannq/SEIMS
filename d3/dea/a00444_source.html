@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/climate/TSD_RD/api.cpp Source File</title>
+<title>SEIMS-2016: src/modules/climate/ITP/api.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -115,65 +115,78 @@ $(document).ready(function(){initNavTree('d3/dea/a00444_source.html','../../');}
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d52/a00510.html">clsTSD_RD.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d91/a00410.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">MetadataInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d8b/a00406.html">MetadataInfoConst.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <a class="code" href="../../d3/d8b/a00059.html">SimulationModule</a>* GetInstance()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d7/de0/a00022.html">clsTSD_RD</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../d4/deb/a00710.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../db/d3a/a00040.html">MetadataInfo</a> mdi;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">string</span> res;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d10/a00511.html">Interpolate.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/db6/a00411.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d8b/a00406.html">MetadataInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d98/a00407.html">MetadataInfoConst.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <a class="code" href="../../d9/d73/a00060.html">SimulationModule</a>* GetInstance()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d4/d8c/a00035.html">Interpolate</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// function to return the XML Metadata document string</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../d3/d82/a00717.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>()</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="../../db/d3a/a00040.html">MetadataInfo</a> mdi;   </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    mdi.SetAuthor(<span class="stringliteral">&quot;Zhiqiang Yu&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mdi.SetClass(MCLS_TSD,MDESC_TSD_RD);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    mdi.SetDescription(MDESC_TSD_RD);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mdi.SetID(MID_TSD_RD);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mdi.SetName(MID_TSD_RD);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    mdi.SetVersion(<span class="stringliteral">&quot;1.0&quot;</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    mdi.SetEmail(SEIMS_EMAIL);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    mdi.SetWebsite(SEIMS_SITE);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    mdi.SetHelpfile(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mdi.AddParameter(VAR_TSD_DT,UNIT_NON_DIM,DESC_TSD_DT,File_Config,<a class="code" href="../../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    mdi.AddInput(DataType_Prefix_TS,UNIT_NON_DIM, DESC_TSD_CLIMATE, Source_HydroClimateDB, <a class="code" href="../../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    mdi.AddOutput(DataType_Prefix_TS,UNIT_NON_DIM, DESC_TSD_CLIMATE, <a class="code" href="../../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    res = mdi.GetXMLDocument();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// set the information properties</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mdi.SetAuthor(<span class="stringliteral">&quot;Junzhi Liu, Liangjun Zhu&quot;</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    mdi.SetClass(MCLS_ITP, MDESC_ITP);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mdi.SetDescription(MDESC_ITP);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mdi.SetEmail(SEIMS_EMAIL);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    mdi.SetID(MID_ITP);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    mdi.SetName(MID_ITP);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    mdi.SetVersion(<span class="stringliteral">&quot;0.5&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    mdi.SetWebsite(SEIMS_SITE);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    mdi.SetHelpfile(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//from parameter database, e.g., Weight_P, Weight_PET, Weight_T.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    mdi.AddParameter(Tag_Weight, UNIT_NON_DIM, DESC_WEIGHT_ITP, Source_ParameterDB, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// from config.fig, e.g. Interpolation_P_1</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    mdi.AddParameter(Tag_VerticalInterpolation, UNIT_NON_DIM, DESC_VER_ITP, File_Config, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// these three parameters are just read when it will do vertical interpolation</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    mdi.AddParameter(VAR_DEM, UNIT_LEN_M, DESC_DEM, Source_ParameterDB, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>);<span class="comment">//from spatial database</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    mdi.AddParameter(Tag_StationElevation, UNIT_LEN_M, Tag_StationElevation,Source_HydroClimateDB, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//Lapse_rate is the combined lapse rate table name in HydroClimate database.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    mdi.AddParameter(VAR_LAP_RATE, UNIT_LAP_RATE, DESC_LAP_RATE, Source_HydroClimateDB, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>); </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">char</span>* tmp = <span class="keyword">new</span> <span class="keywordtype">char</span>[res.size()+1];</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    strprintf(tmp, res.size()+1, <span class="stringliteral">&quot;%s&quot;</span>, res.c_str());</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="ttc" id="a00022_html"><div class="ttname"><a href="../../d7/de0/a00022.html">clsTSD_RD</a></div><div class="ttdoc">Read Time Series Data, e.g., Maximum temperature. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d52/a00510_source.html#l00028">clsTSD_RD.h:28</a></div></div>
-<div class="ttc" id="a00410_html"><div class="ttname"><a href="../../d8/d91/a00410.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00510_html"><div class="ttname"><a href="../../d6/d52/a00510.html">clsTSD_RD.h</a></div></div>
-<div class="ttc" id="a00059_html"><div class="ttname"><a href="../../d3/d8b/a00059.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d91/a00410_source.html#l00032">SimulationModule.h:32</a></div></div>
-<div class="ttc" id="a00406_html"><div class="ttname"><a href="../../d1/d8b/a00406.html">MetadataInfoConst.h</a></div><div class="ttdoc">Define some const variables used by MetadataInfo class. </div></div>
-<div class="ttc" id="a00710_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../d4/deb/a00710.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation()</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d63/a00455_source.html#l00036">api.cpp:36</a></div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
-<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/de8/a00405_source.html#l00108">MetadataInfo.h:108</a></div></div>
-<div class="ttc" id="a00406_html_gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088"><div class="ttname"><a href="../../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a></div><div class="ttdoc">Single numeric. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d8b/a00406_source.html#l00077">MetadataInfoConst.h:77</a></div></div>
-<div class="ttc" id="a00406_html_gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71"><div class="ttname"><a href="../../d1/d8b/a00406.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a></div><div class="ttdoc">1D array </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d8b/a00406_source.html#l00079">MetadataInfoConst.h:79</a></div></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// This is the climate data of all sites. </span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// T means time series and it is same with first part of output id, e.g T_P. It may be P,PET,TMean, TMin or TMax data.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    mdi.AddInput(DataType_Prefix_TS, UNIT_NON_DIM, DESC_NONE, Source_Module, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    mdi.AddOutput(DataType_Prefix_DIS, UNIT_NON_DIM, DESC_NONE, <a class="code" href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a>); </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">string</span> res = mdi.GetXMLDocument();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">char</span>* tmp = <span class="keyword">new</span> <span class="keywordtype">char</span>[res.size()+1];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    strprintf(tmp, res.size()+1, <span class="stringliteral">&quot;%s&quot;</span>, res.c_str());</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="ttc" id="a00407_html_gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9"><div class="ttname"><a href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a></div><div class="ttdoc">2D array </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00081">MetadataInfoConst.h:81</a></div></div>
+<div class="ttc" id="a00035_html"><div class="ttname"><a href="../../d4/d8c/a00035.html">Interpolate</a></div><div class="ttdoc">Interpolation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d10/a00511_source.html#l00030">Interpolate.h:30</a></div></div>
+<div class="ttc" id="a00406_html"><div class="ttname"><a href="../../d1/d8b/a00406.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
+<div class="ttc" id="a00407_html_gac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2"><div class="ttname"><a href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a></div><div class="ttdoc">Raster data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00087">MetadataInfoConst.h:87</a></div></div>
+<div class="ttc" id="a00717_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../d3/d82/a00717.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation()</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d87/a00456_source.html#l00036">api.cpp:36</a></div></div>
+<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d8b/a00406_source.html#l00108">MetadataInfo.h:108</a></div></div>
+<div class="ttc" id="a00411_html"><div class="ttname"><a href="../../d2/db6/a00411.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00511_html"><div class="ttname"><a href="../../d6/d10/a00511.html">Interpolate.h</a></div></div>
+<div class="ttc" id="a00407_html_gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088"><div class="ttname"><a href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a></div><div class="ttdoc">Single numeric. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00077">MetadataInfoConst.h:77</a></div></div>
+<div class="ttc" id="a00060_html"><div class="ttname"><a href="../../d9/d73/a00060.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db6/a00411_source.html#l00032">SimulationModule.h:32</a></div></div>
+<div class="ttc" id="a00407_html_gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71"><div class="ttname"><a href="../../d1/d98/a00407.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a></div><div class="ttdoc">1D array </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00079">MetadataInfoConst.h:79</a></div></div>
+<div class="ttc" id="a00407_html"><div class="ttname"><a href="../../d1/d98/a00407.html">MetadataInfoConst.h</a></div><div class="ttdoc">Define some const variables used by MetadataInfo class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_41299af647d903f07e40c3d12b871304.html">climate</a></li><li class="navelem"><a class="el" href="../../dir_3ee38d76a21250207f34a6dfd7e5da66.html">TSD_RD</a></li><li class="navelem"><b>api.cpp</b></li>
-    <li class="footer">Generated on Tue May 10 2016 09:17:18 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_41299af647d903f07e40c3d12b871304.html">climate</a></li><li class="navelem"><a class="el" href="../../dir_d584ef4881ccbebc453e507383d133a3.html">ITP</a></li><li class="navelem"><b>api.cpp</b></li>
+    <li class="footer">Generated on Tue May 10 2016 13:10:57 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

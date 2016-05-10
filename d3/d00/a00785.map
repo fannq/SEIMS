@@ -1,6 +1,2 @@
-<map id="src/base/data/NotRegularMeasurement.h" name="src/base/data/NotRegularMeasurement.h">
-<area shape="rect" id="node2" href="$d7/d08/a00378.html" title="Measurement class to store HydroClimate site data. " alt="" coords="119,101,250,131"/>
-<area shape="rect" id="node6" href="$de/d08/a00381_source.html" title="MongoUtil.h" alt="" coords="351,101,458,131"/>
-<area shape="rect" id="node8" href="$d3/d30/a00370.html" title="Define Raster class to handle raster data. " alt="" coords="390,179,525,208"/>
-<area shape="rect" id="node11" href="$dd/dea/a00408.html" title="Define ModelException class. " alt="" coords="113,179,263,208"/>
+<map id="src/base/data/clsSimpleTxtData.h" name="src/base/data/clsSimpleTxtData.h">
 </map>

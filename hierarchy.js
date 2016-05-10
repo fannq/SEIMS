@@ -22,38 +22,39 @@ var hierarchy =
     [ "isparams_t", "de/d8c/a00036.html", null ],
     [ "IUHCalculator", "d1/dc6/a00037.html", null ],
     [ "Measurement", "d8/d41/a00038.html", [
-      [ "NotRegularMeasurement", "d6/d97/a00045.html", null ],
-      [ "RegularMeasurement", "d4/d6d/a00055.html", null ]
+      [ "NotRegularMeasurement", "d3/dea/a00046.html", null ],
+      [ "RegularMeasurement", "d9/d2e/a00056.html", null ]
     ] ],
     [ "mesh_t", "d3/de7/a00039.html", null ],
     [ "MetadataInfo", "db/d3a/a00040.html", null ],
     [ "ModelClass", "dd/d32/a00041.html", null ],
     [ "ModelException", "d5/db6/a00042.html", null ],
     [ "ModelMain", "d6/d42/a00043.html", null ],
-    [ "nrinfo_t", "d3/dea/a00046.html", null ],
-    [ "OutputVariable", "d6/d2d/a00047.html", null ],
-    [ "Parameter", "d4/dca/a00048.html", null ],
-    [ "ParamInfo", "d2/dee/a00049.html", null ],
-    [ "params_t", "d5/de0/a00050.html", null ],
-    [ "PringInfoItem", "d1/dea/a00054.html", null ],
-    [ "Module::SEIMSModule", "d9/d2e/a00056.html", null ],
-    [ "Settings", "d1/d22/a00057.html", [
-      [ "SettingsInput", "d7/df7/a00058.html", null ]
+    [ "NandPmi", "d6/d97/a00045.html", null ],
+    [ "nrinfo_t", "d6/d2d/a00047.html", null ],
+    [ "OutputVariable", "d4/dca/a00048.html", null ],
+    [ "Parameter", "d2/dee/a00049.html", null ],
+    [ "ParamInfo", "d5/de0/a00050.html", null ],
+    [ "params_t", "d2/d79/a00051.html", null ],
+    [ "PringInfoItem", "d4/d6d/a00055.html", null ],
+    [ "Module::SEIMSModule", "d1/d22/a00057.html", null ],
+    [ "Settings", "d7/df7/a00058.html", [
+      [ "SettingsInput", "d3/d8b/a00059.html", null ]
     ] ],
-    [ "SimulationModule", "d3/d8b/a00059.html", [
+    [ "SimulationModule", "d9/d73/a00060.html", [
       [ "ClimateParameters", "dd/d1b/a00015.html", null ],
       [ "clsTSD_RD", "d7/de0/a00022.html", null ],
       [ "DiffusiveWave", "d0/d33/a00027.html", null ],
       [ "Interpolate", "d4/d8c/a00035.html", null ],
       [ "MUSK_CH", "d5/df9/a00044.html", null ],
-      [ "PETHargreaves", "d2/d79/a00051.html", null ],
-      [ "PETPenmanMonteith", "d1/d84/a00052.html", null ],
-      [ "PETPriestleyTaylor", "dc/dee/a00053.html", null ]
+      [ "PETHargreaves", "d1/d84/a00052.html", null ],
+      [ "PETPenmanMonteith", "dc/dee/a00053.html", null ],
+      [ "PETPriestleyTaylor", "d1/dea/a00054.html", null ]
     ] ],
-    [ "slTable", "d9/d73/a00060.html", null ],
-    [ "StringList", "d4/de8/a00061.html", null ],
-    [ "utils", "df/d03/a00062.html", null ],
-    [ "uvw_t", "d1/d6f/a00063.html", null ],
-    [ "vkrinfo_t", "df/d5f/a00064.html", null ],
-    [ "vnbr_t", "de/de1/a00065.html", null ]
+    [ "slTable", "d4/de8/a00061.html", null ],
+    [ "StringList", "df/d03/a00062.html", null ],
+    [ "utils", "d1/d6f/a00063.html", null ],
+    [ "uvw_t", "df/d5f/a00064.html", null ],
+    [ "vkrinfo_t", "de/de1/a00065.html", null ],
+    [ "vnbr_t", "d9/db3/a00066.html", null ]
 ];

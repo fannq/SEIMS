@@ -1,10 +1,9 @@
 var a00197 =
 [
-    [ "AllocateKWayPartitionMemory", "de/db1/a00197.html#a22a23a687ef7ed0d4f66ab58e3a81d12", null ],
-    [ "ComputeKWayBoundary", "de/db1/a00197.html#aa23b4d433fc175282f237653d3edb8a5", null ],
-    [ "ComputeKWayPartitionParams", "de/db1/a00197.html#afd723ab2f44ffaa25d1d9f1909e06dfd", null ],
-    [ "ComputeKWayVolGains", "de/db1/a00197.html#acd248e19a1ba82c235d52479e231e2f7", null ],
-    [ "IsBalanced", "de/db1/a00197.html#ae2f5446999d83461cf5763dc4946182a", null ],
-    [ "ProjectKWayPartition", "de/db1/a00197.html#a974cb62c010e195c90f8fb900359957c", null ],
-    [ "RefineKWay", "de/db1/a00197.html#adeb3fad496482fea745a00c7b39ca7cf", null ]
+    [ "Greedy_KWayCutOptimize", "de/db1/a00197.html#aaa70dea85e3a1149132362c93099d543", null ],
+    [ "Greedy_KWayVolOptimize", "de/db1/a00197.html#af249da13cad4e148e2a6efcacad5d5da", null ],
+    [ "Greedy_McKWayCutOptimize", "de/db1/a00197.html#a68223b074be60fa4ac030e3c52071410", null ],
+    [ "Greedy_McKWayVolOptimize", "de/db1/a00197.html#a4177983ff9528ecb665a71f0ab1785e9", null ],
+    [ "IsArticulationNode", "de/db1/a00197.html#af791bf8cc50b3b218224e0560decc422", null ],
+    [ "KWayVolUpdate", "de/db1/a00197.html#ac4e797b3ea2db37f88f436fc6481b989", null ]
 ];
