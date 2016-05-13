@@ -51,10 +51,11 @@ var hierarchy =
       [ "PETPenmanMonteith", "dc/dee/a00053.html", null ],
       [ "PETPriestleyTaylor", "d1/dea/a00054.html", null ]
     ] ],
-    [ "slTable", "d4/de8/a00061.html", null ],
-    [ "StringList", "df/d03/a00062.html", null ],
-    [ "utils", "d1/d6f/a00063.html", null ],
-    [ "uvw_t", "df/d5f/a00064.html", null ],
-    [ "vkrinfo_t", "de/de1/a00065.html", null ],
-    [ "vnbr_t", "d9/db3/a00066.html", null ]
+    [ "hydroclimate_sites.SiteInfo", "d4/de8/a00061.html", null ],
+    [ "slTable", "df/d03/a00062.html", null ],
+    [ "StringList", "d1/d6f/a00063.html", null ],
+    [ "utils", "df/d5f/a00064.html", null ],
+    [ "uvw_t", "de/de1/a00065.html", null ],
+    [ "vkrinfo_t", "d9/db3/a00066.html", null ],
+    [ "vnbr_t", "dc/ddf/a00067.html", null ]
 ];

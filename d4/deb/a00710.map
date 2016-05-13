@@ -1,9 +1,8 @@
-<map id="Hydrology_longterm" name="Hydrology_longterm">
-<area shape="rect" id="node1" href="$dd/dc1/a00721.html" title="Calculate potential evapotranspiration using Hargreaves method. " alt="" coords="392,5,467,35"/>
-<area shape="rect" id="node2" href="$d1/d56/a00707.html" title="All functional modules in SEIMS. " alt="" coords="5,139,88,168"/>
-<area shape="rect" id="node3" href="$dd/dd8/a00719.html" title="DEP_LINSLEY" alt="" coords="363,59,495,88"/>
-<area shape="rect" id="node5" href="$dc/d14/a00720.html" title="MUSKINGUM_CH" alt="" coords="352,112,507,141"/>
-<area shape="rect" id="node6" href="$d0/d72/a00724.html" title="SNO_DD" alt="" coords="384,165,475,195"/>
-<area shape="rect" id="node7" href="$db/d7c/a00722.html" title="Calculate potential evapotranspiration using Penman&#45;Monteith method. " alt="" coords="386,219,473,248"/>
-<area shape="rect" id="node8" href="$de/de6/a00723.html" title="Calculate potential evapotranspiration using PriestleyTaylor method. " alt="" coords="387,272,471,301"/>
+<map id="Modules" name="Modules">
+<area shape="rect" id="node1" href="$df/d96/a00714.html" title="Erosion related modules. " alt="" coords="181,5,259,35"/>
+<area shape="rect" id="node3" href="$d1/d04/a00713.html" title="Longterm hydrology related modules. " alt="" coords="137,59,303,88"/>
+<area shape="rect" id="node4" href="$d3/d3b/a00715.html" title="Nutrient related modules. " alt="" coords="181,112,259,141"/>
+<area shape="rect" id="node5" href="$de/d4c/a00711.html" title="Climate related modules. " alt="" coords="181,165,259,195"/>
+<area shape="rect" id="node6" href="$d2/d94/a00716.html" title="Ecology related modules. " alt="" coords="180,219,260,248"/>
+<area shape="rect" id="node7" href="$d3/dda/a00712.html" title="Hydrology related modules, include storm processes. " alt="" coords="173,272,267,301"/>
 </map>

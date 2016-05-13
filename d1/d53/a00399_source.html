@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/Settings.cpp Source File</title>
+<title>SEIMS-2016: src/base/module_setting/SEIMS_ModuleSetting.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,125 +111,138 @@ $(document).ready(function(){initNavTree('d1/d53/a00399_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Settings.cpp</div>  </div>
+<div class="title">SEIMS_ModuleSetting.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d53/a00399.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d95/a00400.html">Settings.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a3714d5ef1ba032f74183aacb77fd711a">   12</a></span>&#160;<a class="code" href="../../d7/df7/a00058.html#a3714d5ef1ba032f74183aacb77fd711a">Settings::Settings</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#ae79d9331e3fa87d009ef089b8dade21c">   15</a></span>&#160;<a class="code" href="../../d7/df7/a00058.html#ae79d9331e3fa87d009ef089b8dade21c">Settings::~Settings</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>.size() &gt; 0)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>.clear();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="../../d9/d95/a00400.html#a805e3681a549ff730cd1fcdf3d31c445">string2DArray</a>(<a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>).swap(<a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>); </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a7f5d6a01b9ae2afb3b11c9a2a1c64705">   25</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d7/df7/a00058.html#a7f5d6a01b9ae2afb3b11c9a2a1c64705">Settings::Value</a>(<span class="keywordtype">string</span> tag)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">string</span> res = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>.size() &gt; 0)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> idx = 0; idx &lt; <a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>.size(); idx++)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span> (StringMatch(<a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>[idx][0], tag))</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                res = <a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>[idx][1];</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#ac9dd22ed739c4c396bf9cc2f8edf7787">   45</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/df7/a00058.html#ac9dd22ed739c4c396bf9cc2f8edf7787">Settings::LoadSettingsFromFile</a>(<span class="keywordtype">string</span> filename)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d7/df7/a00058.html#a3500ad45ec6280654665da4acefef9ab">m_settingFileName</a> = filename;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> bStatus = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ifstream myfile;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">string</span> line;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../d1/d6f/a00063.html">utils</a> utl;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// open the file</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        myfile.open(filename.c_str(), ios::in);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> (myfile.is_open())</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">while</span> (!myfile.eof())</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">if</span> (myfile.good())</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    getline(myfile, line);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    line = trim(line);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    <span class="keywordflow">if</span> ((line.size() &gt; 0) &amp;&amp; (line[0] != <span class="charliteral">&#39;#&#39;</span>)) <span class="comment">// ignore comments and empty lines</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="comment">// parse the line into separate items</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        vector&lt;string&gt; tokens = utl.<a class="code" href="../../d1/d6f/a00063.html#acc97bce7b8fc83ae5fbf851233dbf29a">SplitString</a>(line, <span class="charliteral">&#39;|&#39;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <span class="comment">// is there anything in the token list?</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="keywordflow">if</span> (tokens.size() &gt; 0)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;tokens.size(); i++)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                            {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                tokens[i] = trim(tokens[i]);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                            }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            <span class="comment">// is there anything in the first item?</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            <span class="keywordflow">if</span> (tokens[0].size() &gt; 0)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                <span class="comment">// there is something to add so resize the header list to append it</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                <span class="keywordtype">int</span> sz = <a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>.size(); <span class="comment">// get the current number of rows</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                <a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>.resize(sz+1);        <span class="comment">// resize with one more row</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                <a class="code" href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">m_Settings</a>[sz] = tokens;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                bStatus = <span class="keyword">true</span>; <span class="comment">// consider this a success</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                            } <span class="comment">// if there is nothing in the first item of the token list there is nothing to add to the header list</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            bStatus = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            myfile.close();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        myfile.close();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;Settings&quot;</span>,<span class="stringliteral">&quot;LoadSettingsFromFile&quot;</span>,<span class="stringliteral">&quot;Load setting file: &quot;</span> + <span class="keywordtype">string</span>(filename) + <span class="stringliteral">&quot;failed!\n&quot;</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> bStatus;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> Settings::Dump(<span class="keywordtype">string</span> fileName)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3d/a00409_source.html#l00024">ModelException.h:24</a></div></div>
-<div class="ttc" id="a00058_html_a7f5d6a01b9ae2afb3b11c9a2a1c64705"><div class="ttname"><a href="../../d7/df7/a00058.html#a7f5d6a01b9ae2afb3b11c9a2a1c64705">Settings::Value</a></div><div class="ttdeci">string Value(string tag)</div><div class="ttdoc">Return the value for the entry with the given tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00025">Settings.cpp:25</a></div></div>
-<div class="ttc" id="a00063_html"><div class="ttname"><a href="../../d1/d6f/a00063.html">utils</a></div><div class="ttdoc">utils class to handle string, date time and file </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d15/a00416_source.html#l00034">utils.h:34</a></div></div>
-<div class="ttc" id="a00400_html"><div class="ttname"><a href="../../d9/d95/a00400.html">Settings.h</a></div><div class="ttdoc">Settings class to store the settings information from Configuration files. </div></div>
-<div class="ttc" id="a00058_html_aad392017fd9b84f3d07dbab78d2911d3"><div class="ttname"><a href="../../d7/df7/a00058.html#aad392017fd9b84f3d07dbab78d2911d3">Settings::m_Settings</a></div><div class="ttdeci">string2DArray m_Settings</div><div class="ttdoc">Store setting key and values. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00036">Settings.h:36</a></div></div>
-<div class="ttc" id="a00058_html_a3500ad45ec6280654665da4acefef9ab"><div class="ttname"><a href="../../d7/df7/a00058.html#a3500ad45ec6280654665da4acefef9ab">Settings::m_settingFileName</a></div><div class="ttdeci">string m_settingFileName</div><div class="ttdoc">input setting file path </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00052">Settings.h:52</a></div></div>
-<div class="ttc" id="a00058_html_ae79d9331e3fa87d009ef089b8dade21c"><div class="ttname"><a href="../../d7/df7/a00058.html#ae79d9331e3fa87d009ef089b8dade21c">Settings::~Settings</a></div><div class="ttdeci">~Settings(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00015">Settings.cpp:15</a></div></div>
-<div class="ttc" id="a00058_html_a3714d5ef1ba032f74183aacb77fd711a"><div class="ttname"><a href="../../d7/df7/a00058.html#a3714d5ef1ba032f74183aacb77fd711a">Settings::Settings</a></div><div class="ttdeci">Settings(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00012">Settings.cpp:12</a></div></div>
-<div class="ttc" id="a00063_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../d1/d6f/a00063.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd6/a00415_source.html#l00243">utils.cpp:243</a></div></div>
-<div class="ttc" id="a00400_html_a805e3681a549ff730cd1fcdf3d31c445"><div class="ttname"><a href="../../d9/d95/a00400.html#a805e3681a549ff730cd1fcdf3d31c445">string2DArray</a></div><div class="ttdeci">vector&lt; vector&lt; string &gt; &gt; string2DArray</div><div class="ttdoc">2D stringarray (vector) </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00025">Settings.h:25</a></div></div>
-<div class="ttc" id="a00058_html_ac9dd22ed739c4c396bf9cc2f8edf7787"><div class="ttname"><a href="../../d7/df7/a00058.html#ac9dd22ed739c4c396bf9cc2f8edf7787">Settings::LoadSettingsFromFile</a></div><div class="ttdeci">virtual bool LoadSettingsFromFile(string filename)</div><div class="ttdoc">Load the settings value from the given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00045">Settings.cpp:45</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d95/a00400.html">SEIMS_ModuleSetting.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/df7/a00418.html">utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/db6/a00411.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;SEIMSModuleSetting::SEIMSModuleSetting(<span class="keywordtype">string</span> moduleId,<span class="keywordtype">string</span> setting)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_moduleId = moduleId;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_settingString = setting;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    getSettings();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;SEIMSModuleSetting::~SEIMSModuleSetting(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> SEIMSModuleSetting::getSettings()</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../df/d5f/a00064.html">utils</a> util;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_settings = util.<a class="code" href="../../df/d5f/a00064.html#acc97bce7b8fc83ae5fbf851233dbf29a">SplitString</a>(m_settingString,<span class="charliteral">&#39;_&#39;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">string</span> SEIMSModuleSetting::dataTypeString(){<span class="keywordflow">return</span> dataType2String(dataType());}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">float</span> SEIMSModuleSetting::dataType()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span>(m_moduleId.find(MID_ITP) == string::npos &amp;&amp; m_moduleId.find(MID_TSD_RD) == string::npos) </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> -1.0f;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span>(m_settings.size() &lt; 2) <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModuleSetting&quot;</span>,<span class="stringliteral">&quot;dataType&quot;</span>,<span class="stringliteral">&quot;Module &quot;</span>+ m_moduleId + <span class="stringliteral">&quot; does not appoint data type in the second column.&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">float</span> dataType = dataTypeString2Float(m_settings.at(1));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span>(dataType == -1.0f) <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModuleSetting&quot;</span>,<span class="stringliteral">&quot;dataType&quot;</span>,<span class="stringliteral">&quot;The data type of module &quot;</span>+ m_moduleId + <span class="stringliteral">&quot; is not correct. It must be P, TMEAN, TMIN, TMAX or PET.&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> dataType;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">bool</span> SEIMSModuleSetting::needDoVerticalInterpolation()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(m_moduleId.find(<span class="stringliteral">&quot;ITP&quot;</span>) == string::npos ) </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span>(m_settings.size() &lt; 3) <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModuleSetting&quot;</span>,<span class="stringliteral">&quot;needDoVerticalInterpolation&quot;</span>,<span class="stringliteral">&quot;Module &quot;</span>+ m_moduleId + <span class="stringliteral">&quot; does not appoint vertical interpolation in the third column.&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">int</span> iIsDoVerticalInterpolation = atoi(m_settings.at(2).c_str());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> iIsDoVerticalInterpolation == 0 ? <span class="keyword">false</span> : <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">string</span>  SEIMSModuleSetting::channelRoutingMethod(<span class="keywordtype">int</span> methodIndex)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span>(!StringMatch(m_moduleId,<span class="stringliteral">&quot;ChannelRouting&quot;</span>)) <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">if</span>(<span class="keywordtype">int</span>(m_settings.size()) &lt; methodIndex + 1)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d5/db6/a00042.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModuleSetting&quot;</span>,<span class="stringliteral">&quot;needDoVerticalInterpolation&quot;</span>,<span class="stringliteral">&quot;Module &quot;</span>+ m_moduleId + <span class="stringliteral">&quot; does not appoint vertical interpolation in the third column.&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> m_settings.at(methodIndex);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">string</span> SEIMSModuleSetting::channelFlowRoutingMethod()</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> channelRoutingMethod(1);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">string</span> SEIMSModuleSetting::channelSedimentRoutingMethod()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> channelRoutingMethod(2);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">string</span> SEIMSModuleSetting::channelNutrientRoutingMethod()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> channelRoutingMethod(3);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">float</span> SEIMSModuleSetting::dataTypeString2Float(<span class="keywordtype">string</span> dataType)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,<a class="code" href="../../df/d15/a00416.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>)) <span class="keywordflow">return</span> 1.0f;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_MeanTemperature)) <span class="keywordflow">return</span> 2.0f;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_MinimumTemperature)) <span class="keywordflow">return</span> 3.0f;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_MaximumTemperature)) <span class="keywordflow">return</span> 4.0f;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_PotentialEvapotranspiration)) <span class="keywordflow">return</span> 5.0f;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_SolarRadiation)) <span class="keywordflow">return</span> 6.0f;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_WindSpeed)) <span class="keywordflow">return</span> 7.0f;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span>(StringMatch(dataType,DataType_RelativeAirMoisture)) <span class="keywordflow">return</span> 8.0f;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> -1.0f;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">string</span> SEIMSModuleSetting::dataType2String(<span class="keywordtype">float</span> dataType)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">switch</span>((<span class="keywordtype">int</span>)dataType)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../df/d15/a00416.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> DataType_MeanTemperature;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">return</span> DataType_MinimumTemperature;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">return</span> DataType_MaximumTemperature;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">case</span> 5:</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">return</span> DataType_PotentialEvapotranspiration;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">case</span> 6:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">return</span> DataType_SolarRadiation;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">case</span> 7:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> DataType_WindSpeed;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">case</span> 8:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> DataType_RelativeAirMoisture;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db6/a00411_source.html#l00024">ModelException.h:24</a></div></div>
+<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">utils</a></div><div class="ttdoc">utils class to handle string, date time and file </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00034">utils.h:34</a></div></div>
+<div class="ttc" id="a00064_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../df/d5f/a00064.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00243">utils.cpp:243</a></div></div>
+<div class="ttc" id="a00418_html"><div class="ttname"><a href="../../de/df7/a00418.html">utils.h</a></div><div class="ttdoc">Utilities class to handle string, date time and file. </div></div>
+<div class="ttc" id="a00400_html"><div class="ttname"><a href="../../d9/d95/a00400.html">SEIMS_ModuleSetting.h</a></div></div>
+<div class="ttc" id="a00416_html_a90664723be86eee7dbc8bcbcaceff261"><div class="ttname"><a href="../../df/d15/a00416.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a></div><div class="ttdeci">#define DataType_Precipitation</div><div class="ttdoc">Climate data type, used in SEIMS_ModuleSetting class, ITP, etc. // LJ, Apr.,2016. ...</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d15/a00416_source.html#l00028">text.h:28</a></div></div>
+<div class="ttc" id="a00411_html"><div class="ttname"><a href="../../d2/db6/a00411.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d1/d53/a00399.html">Settings.cpp</a></li>
-    <li class="footer">Generated on Tue May 10 2016 13:10:57 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d1/d53/a00399.html">SEIMS_ModuleSetting.cpp</a></li>
+    <li class="footer">Generated on Fri May 13 2016 03:33:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

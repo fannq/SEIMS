@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: CH_DW</title>
+<title>SEIMS-2016: ICLIM</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -105,73 +105,45 @@ $(document).ready(function(){initNavTree('d3/d82/a00717.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#files">Files</a> &#124;
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">CH_DW<div class="ingroups"><a class="el" href="../../d7/d7e/a00709.html">Hydrology</a></div></div>  </div>
+<div class="title">ICLIM<div class="ingroups"><a class="el" href="../../de/d4c/a00711.html">Climate</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Channel routing using diffusive wave equation.  
+<p>Calculate climate related intermediate parameters.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for CH_DW:</div>
+Collaboration diagram for ICLIM:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="../../d3/d82/a00717.png" border="0" alt="" usemap="#d3_2d82_2a00717"/>
 <map name="d3_2d82_2a00717" id="d3_2d82_2a00717">
-<area shape="rect" id="node2" href="../../d7/d7e/a00709.html" title="Hydrology related modules, include storm processes. " alt="" coords="6,4,101,33"/></map>
+<area shape="rect" id="node1" href="../../de/d4c/a00711.html" title="Climate related modules. " alt="" coords="5,4,83,33"/></map>
 </td></tr></table></center>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html">DiffusiveWave</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routing in the channel.  <a href="../../d0/d33/a00027.html#details">More...</a><br/></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:d6/d52/a00510"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/a00510.html">ClimateParams.cpp</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d10/a00511"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d10/a00511.html">ClimateParams.h</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga0087c853569e2c94d58c3499365662e9"><td class="memItemLeft" align="right" valign="top">SEIMS_MODULE_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d82/a00717.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a> ()</td></tr>
-<tr class="memdesc:ga0087c853569e2c94d58c3499365662e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to return the XML Metadata document string  <a href="#ga0087c853569e2c94d58c3499365662e9">More...</a><br/></td></tr>
-<tr class="separator:ga0087c853569e2c94d58c3499365662e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html">ClimateParameters</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Climate related intermediate parameters, e.g., saturation vapor pressure, max solar radiation.  <a href="../../dd/d1b/a00015.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Channel routing using diffusive wave equation. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga0087c853569e2c94d58c3499365662e9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SEIMS_MODULE_API const char* MetadataInformation </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>function to return the XML Metadata document string </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">DT_HS</td><td>"Time step of the simulation from file.in, DT_Single"</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">CellWidth</td><td>"Cell width from file.in, DT_Single"</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">QCH</td><td>"Flux in the downslope boundary of cells" </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../de/d87/a00456_source.html#l00036">36</a> of file <a class="el" href="../../de/d87/a00456_source.html">api.cpp</a>.</p>
-
-</div>
-</div>
+<p>Calculate climate related intermediate parameters. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 10 2016 13:10:59 for SEIMS-2016 by
+    <li class="footer">Generated on Fri May 13 2016 03:33:49 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

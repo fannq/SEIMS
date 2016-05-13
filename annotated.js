@@ -1,5 +1,8 @@
 var annotated =
 [
+    [ "hydroclimate_sites", null, [
+      [ "SiteInfo", "d4/de8/a00061.html", "d4/de8/a00061" ]
+    ] ],
     [ "Module", null, [
       [ "SEIMSModule", "d1/d22/a00057.html", "d1/d22/a00057" ]
     ] ],
@@ -50,10 +53,10 @@ var annotated =
     [ "Settings", "d7/df7/a00058.html", "d7/df7/a00058" ],
     [ "SettingsInput", "d3/d8b/a00059.html", "d3/d8b/a00059" ],
     [ "SimulationModule", "d9/d73/a00060.html", "d9/d73/a00060" ],
-    [ "slTable", "d4/de8/a00061.html", "d4/de8/a00061" ],
-    [ "StringList", "df/d03/a00062.html", "df/d03/a00062" ],
-    [ "utils", "d1/d6f/a00063.html", "d1/d6f/a00063" ],
-    [ "uvw_t", "df/d5f/a00064.html", "df/d5f/a00064" ],
-    [ "vkrinfo_t", "de/de1/a00065.html", "de/de1/a00065" ],
-    [ "vnbr_t", "d9/db3/a00066.html", "d9/db3/a00066" ]
+    [ "slTable", "df/d03/a00062.html", "df/d03/a00062" ],
+    [ "StringList", "d1/d6f/a00063.html", "d1/d6f/a00063" ],
+    [ "utils", "df/d5f/a00064.html", "df/d5f/a00064" ],
+    [ "uvw_t", "de/de1/a00065.html", "de/de1/a00065" ],
+    [ "vkrinfo_t", "d9/db3/a00066.html", "d9/db3/a00066" ],
+    [ "vnbr_t", "dc/ddf/a00067.html", "dc/ddf/a00067" ]
 ];

@@ -20,7 +20,6 @@ var a00027 =
     [ "m_diagonal", "d0/d33/a00027.html#a5ba48b48484118bf4c02661a03f32b1c", null ],
     [ "m_direction", "d0/d33/a00027.html#aa44948612c7efc15087f019262ca02e6", null ],
     [ "m_dt", "d0/d33/a00027.html#af4b310d929a670f52e33cc100b69ef02", null ],
-    [ "m_dx", "d0/d33/a00027.html#adb517b4936f5c4277a3cce8131e74d5e", null ],
     [ "m_flowInIndex", "d0/d33/a00027.html#ac64aee5b5a652c34978c023cf894a17d", null ],
     [ "m_flowLen", "d0/d33/a00027.html#a871f4c44937d05e3a667cfa4860c472c", null ],
     [ "m_flowOutIndex", "d0/d33/a00027.html#a2df2e84709db84da5cc15c038cfa1ff5", null ],
@@ -28,6 +27,7 @@ var a00027 =
     [ "m_idToIndex", "d0/d33/a00027.html#af70292137dfa05222f9d3849322c983f", null ],
     [ "m_idUpReach", "d0/d33/a00027.html#ab63c9a8c2fb4664c9078aa621987c2fc", null ],
     [ "m_manningScalingFactor", "d0/d33/a00027.html#a1e50b6e5e6fb1644ac6d0dd092049932", null ],
+    [ "m_nCells", "d0/d33/a00027.html#a7b50ffc8793f72552fb30b9db66c818a", null ],
     [ "m_prec", "d0/d33/a00027.html#a8710f01ad7bcc2ccac66493607faf4e7", null ],
     [ "m_qCh", "d0/d33/a00027.html#a5205a8b4e17ebeb8ce6846596a4d436a", null ],
     [ "m_qi", "d0/d33/a00027.html#a4f36262d07a91479dcaf19a2cc69312e", null ],
@@ -39,7 +39,6 @@ var a00027 =
     [ "m_reachs", "d0/d33/a00027.html#a1a771e1ba0e78c7d664cf3f74642bd11", null ],
     [ "m_reachUpStream", "d0/d33/a00027.html#a7e064d61458d5e50f4d790f6ba112a2c", null ],
     [ "m_s0", "d0/d33/a00027.html#a358fbd275bcb6b64eb0f271d43f0cb63", null ],
-    [ "m_size", "d0/d33/a00027.html#a9ea3a4bfb928bb5afbb80032346779fe", null ],
     [ "m_sourceCellIds", "d0/d33/a00027.html#a42fb6e842f17ec055c849fd4a0a5d951", null ],
     [ "m_streamLink", "d0/d33/a00027.html#a9ba1816aa23b610ffb46bea52883e598", null ],
     [ "m_streamOrder", "d0/d33/a00027.html#a27acb24133eb534d81bce5c37b5bac42", null ]

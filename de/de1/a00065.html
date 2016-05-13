@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: vkrinfo_t Struct Reference</title>
+<title>SEIMS-2016: uvw_t Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,117 +114,49 @@ $(document).ready(function(){initNavTree('de/de1/a00065.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../df/d12/a00942.html">List of all members</a>  </div>
+<a href="../../d9/dce/a00944.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vkrinfo_t Struct Reference</div>  </div>
+<div class="title">uvw_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d57/a00194_source.html">gklib_defs.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9befff2ea2c811563ad38aaf921a8f21"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#a9befff2ea2c811563ad38aaf921a8f21">nid</a></td></tr>
-<tr class="separator:a9befff2ea2c811563ad38aaf921a8f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0af0fec11cab7aa7a343c268832cc709"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#a0af0fec11cab7aa7a343c268832cc709">ned</a></td></tr>
-<tr class="separator:a0af0fec11cab7aa7a343c268832cc709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d9e4e351610f7b03203940a134bcd74"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#a8d9e4e351610f7b03203940a134bcd74">gv</a></td></tr>
-<tr class="separator:a8d9e4e351610f7b03203940a134bcd74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa337d338d253918348c5ba9e4a5082ca"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#aa337d338d253918348c5ba9e4a5082ca">nnbrs</a></td></tr>
-<tr class="separator:aa337d338d253918348c5ba9e4a5082ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a0150ff0f0fe87b0fc3bf445b60bca"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#a85a0150ff0f0fe87b0fc3bf445b60bca">inbr</a></td></tr>
-<tr class="separator:a85a0150ff0f0fe87b0fc3bf445b60bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8b9f1185850e05876ee066a461c0d9d"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#ad8b9f1185850e05876ee066a461c0d9d">w</a></td></tr>
+<tr class="separator:ad8b9f1185850e05876ee066a461c0d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The following data structure holds information on degrees for k-way vol-based partition </p>
+<div class="textblock"><p>Stores a weighted edge </p>
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00060">60</a> of file <a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00018">18</a> of file <a class="el" href="../../dc/d57/a00194_source.html">gklib_defs.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8d9e4e351610f7b03203940a134bcd74"></a>
+<a class="anchor" id="ad8b9f1185850e05876ee066a461c0d9d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">idx_t vkrinfo_t::gv</td>
+          <td class="memname">idx_t uvw_t::w</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The volume gain of moving that vertex </p>
+<p>Edge (u,v) with weight w </p>
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00063">63</a> of file <a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a85a0150ff0f0fe87b0fc3bf445b60bca"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::inbr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The index in the <a class="el" href="../../d9/db3/a00066.html">vnbr_t</a> array where the nnbrs list of neighbors is stored </p>
-
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00065">65</a> of file <a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0af0fec11cab7aa7a343c268832cc709"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::ned</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The total external degree of a vertex (count of edges) </p>
-
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00062">62</a> of file <a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9befff2ea2c811563ad38aaf921a8f21"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::nid</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The internal degree of a vertex (count of edges) </p>
-
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00061">61</a> of file <a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa337d338d253918348c5ba9e4a5082ca"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::nnbrs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of neighboring subdomains </p>
-
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00064">64</a> of file <a class="el" href="../../dd/d52/a00221_source.html">struct.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00019">19</a> of file <a class="el" href="../../dc/d57/a00194_source.html">gklib_defs.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../dd/d52/a00221_source.html">struct.h</a></li>
+<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../dc/d57/a00194_source.html">gklib_defs.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/de1/a00065.html">vkrinfo_t</a></li>
-    <li class="footer">Generated on Tue May 10 2016 13:10:59 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../de/de1/a00065.html">uvw_t</a></li>
+    <li class="footer">Generated on Fri May 13 2016 03:33:49 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

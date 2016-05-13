@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/PrintInfo.h Source File</title>
+<title>SEIMS-2016: src/base/module_setting/ParamInfo.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,138 +111,72 @@ $(document).ready(function(){initNavTree('d9/dad/a00394_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PrintInfo.h</div>  </div>
+<div class="title">ParamInfo.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/dad/a00394.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d27/a00392.html">ParamInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#include &quot;clsSpecificOutput.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;mongoc.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d80/a00371.html">clsRasterData.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">   29</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">   32</a></span>&#160;    <a class="code" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">AT_Unknown</a>          = 0,</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">   34</a></span>&#160;    <a class="code" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a>              = 1,</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">   36</a></span>&#160;    <a class="code" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a>          = 2,</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">   38</a></span>&#160;    <a class="code" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a>          = 3,</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">   40</a></span>&#160;    <a class="code" href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a>          = 4,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    AT_SpecificCells    = 5</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">class </span>PrintInfoItem</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span>                 m_Counter;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//  //! values of specific cells, e.g., landuse, curvature, and slope</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//  clsSpecificOutput*  m_specificOutput;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//public:</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">//  void setSpecificCellRasterOutput(string projectPath,string databasePath,</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//      clsRasterData* templateRasterData,string outputID);</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    mongoc_client_t*    conn;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    mongoc_gridfs_t*    gfs;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    PrintInfoItem(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    ~PrintInfoItem(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">float</span>**             Data;   </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> Numrows;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">float</span>*              RasterData;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">float</span> **            m_2dData;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">int</span>                 ValidCellCount;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> m_nCols;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    map&lt;time_t,float&gt;   TimeSeriesData;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    map&lt;time_t,float*&gt;  TimeSeriesDataForSubbasin;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">int</span>                 TimeSeriesDataForSubbasinCount;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> add1DTimeSeriesResult(time_t, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">int</span> SiteID;     </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">int</span> SiteIndex;  </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">int</span> SubbasinID; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">int</span> SubbasinIndex;  </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">string</span> StartTime;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    time_t m_startTime;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    time_t getStartTime();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">string</span> EndTime;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    time_t m_endTime;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    time_t getEndTime();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">string</span> Filename;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> Flush(<span class="keywordtype">string</span>,<a class="code" href="../../d1/d2b/a00018.html">clsRasterData</a>*,<span class="keywordtype">string</span>);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> IsDateInRange(time_t dt);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> AggregateData(<span class="keywordtype">int</span> numrows, <span class="keywordtype">float</span>** data, <a class="code" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> type, <span class="keywordtype">float</span> NoDataValue);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> AggregateData(time_t time,<span class="keywordtype">int</span> numrows, <span class="keywordtype">float</span>* data);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> AggregateData2D(time_t time, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> setAggregationType(<a class="code" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> type);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> getAggregationType(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> MatchAggregationType(<span class="keywordtype">string</span> type);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> m_AggregationType;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keyword">class </span>PrintInfo</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">int</span> m_Interval;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">string</span> m_IntervalUnits;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">int</span> m_moduleIndex;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">string</span> m_OutputID;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="../../d5/de0/a00050.html">ParamInfo</a>* m_param; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    vector&lt;PrintInfoItem*&gt; m_PrintItems;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">//void setSpecificCellRasterOutput(string projectPath, string databasePath,clsRasterData* templateRasterData);</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    vector&lt;int&gt; m_subbasinSeleted;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">float</span>* m_subbasinSelectedArray;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    PrintInfo(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    ~PrintInfo(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> getSubbasinSelected(<span class="keywordtype">int</span>* count, <span class="keywordtype">float</span>** subbasins);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> setOutputID(<span class="keywordtype">string</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">string</span> getOutputID(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">string</span> getOutputTimeSeriesHeader(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> setInterval(<span class="keywordtype">int</span> interval);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> setIntervalUnits(<span class="keywordtype">string</span> units);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">int</span> getInterval(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">string</span> getIntervalUnits(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">void</span> AddPrintItem(<span class="keywordtype">string</span> start, <span class="keywordtype">string</span> end, <span class="keywordtype">string</span> file); <span class="comment">// used for all non-PET_TS</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> AddPrintItem(<span class="keywordtype">string</span> type,<span class="keywordtype">string</span> start, <span class="keywordtype">string</span> end, <span class="keywordtype">string</span> file, mongoc_client_t* conn, mongoc_gridfs_t* gfs); <span class="comment">// used for all non-PET_TS</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> AddPrintItem(<span class="keywordtype">string</span> start, <span class="keywordtype">string</span> end, <span class="keywordtype">string</span> file, <span class="keywordtype">string</span> sitename,<span class="keywordtype">bool</span> isSubbasin);  <span class="comment">// used for PET_TS</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"></span>    PrintInfoItem* getPrintInfoItem(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">int</span> ItemCount(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;};</div>
-<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">ParamInfo</a></div><div class="ttdoc">Class to store and manage parameter information from the parameter database. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d27/a00392_source.html#l00026">ParamInfo.h:26</a></div></div>
-<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">clsRasterData</a></div><div class="ttdoc">Raster data class to get access to raster data in MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00029">clsRasterData.h:29</a></div></div>
-<div class="ttc" id="a00394_html_ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea"><div class="ttname"><a href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a></div><div class="ttdoc">average </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00034">PrintInfo.h:34</a></div></div>
-<div class="ttc" id="a00394_html_ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7"><div class="ttname"><a href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a></div><div class="ttdoc">maximum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00038">PrintInfo.h:38</a></div></div>
-<div class="ttc" id="a00394_html_ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445"><div class="ttname"><a href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a></div><div class="ttdoc">output values of specific cells </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00040">PrintInfo.h:40</a></div></div>
-<div class="ttc" id="a00394_html_ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a"><div class="ttname"><a href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a></div><div class="ttdoc">minimum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00036">PrintInfo.h:36</a></div></div>
-<div class="ttc" id="a00703_html_ga0271fcfc94579b48ed1dd87309d8e118"><div class="ttname"><a href="../../d8/d86/a00703.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a></div><div class="ttdeci">AggregationType</div><div class="ttdoc">Aggregation type for OUTPUT. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00029">PrintInfo.h:29</a></div></div>
-<div class="ttc" id="a00392_html"><div class="ttname"><a href="../../d4/d27/a00392.html">ParamInfo.h</a></div><div class="ttdoc">Class to store parameter item information. </div></div>
-<div class="ttc" id="a00394_html_ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959"><div class="ttname"><a href="../../d9/dad/a00394.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">AT_Unknown</a></div><div class="ttdoc">unknown </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00032">PrintInfo.h:32</a></div></div>
-<div class="ttc" id="a00371_html"><div class="ttname"><a href="../../d6/d80/a00371.html">clsRasterData.h</a></div><div class="ttdoc">Define Raster class to handle raster data. </div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d3d/a00409.html">MetadataInfoConst.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/de0/a00050.html">ParamInfo</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d5/de0/a00050.html">ParamInfo</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="../../d5/de0/a00050.html">ParamInfo</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> Reset(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">float</span> GetAdjustedValue();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> Adjust1DArray(<span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a4aa99ac42f641ff345421f4a09c43d96">   40</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#a4aa99ac42f641ff345421f4a09c43d96">Name</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ad24cdb755575319abde9c186a34920de">   42</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#ad24cdb755575319abde9c186a34920de">Units</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ac3a3033becc4c70b37e273e76c37bcee">   44</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#ac3a3033becc4c70b37e273e76c37bcee">Description</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a7fff4547600ebc1df4054a5337aaeab3">   46</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#a7fff4547600ebc1df4054a5337aaeab3">ModuleID</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ae67c0395380ce7ec6424c8ac379560c4">   48</a></span>&#160;    <a class="code" href="../../d7/df1/a00705.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a> <a class="code" href="../../d5/de0/a00050.html#ae67c0395380ce7ec6424c8ac379560c4">Dimension</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a75b10030638c69b20262b5a1a39ec67e">   50</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#a75b10030638c69b20262b5a1a39ec67e">Source</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a698d9a7a6b8fad7c2aabdc7c64428f26">   52</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d5/de0/a00050.html#a698d9a7a6b8fad7c2aabdc7c64428f26">Value</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a425eb6b82f198365698c84f5f830b73b">   54</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d5/de0/a00050.html#a425eb6b82f198365698c84f5f830b73b">Impact</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#aade23df743899af61f36a76dd257b0df">   56</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#aade23df743899af61f36a76dd257b0df">Change</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a840d363a56c508ade5dcd879a5c720b6">   58</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d5/de0/a00050.html#a840d363a56c508ade5dcd879a5c720b6">Max</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a12587bea2af63728794d2c4de6c2f97c">   60</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d5/de0/a00050.html#a12587bea2af63728794d2c4de6c2f97c">Min</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a6c33cf7320e6b458dd5ea423b3a5d2af">   62</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#a6c33cf7320e6b458dd5ea423b3a5d2af">Use</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ae356227ba8d20639ed0ca4171bd8641a">   64</a></span>&#160;    <a class="code" href="../../d5/de0/a00050.html">ParamInfo</a>* <a class="code" href="../../d5/de0/a00050.html#ae356227ba8d20639ed0ca4171bd8641a">DependPara</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a3c615ed4e44899b451debfc09a332d48">   66</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#a3c615ed4e44899b451debfc09a332d48">ClimateType</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ae7bced3619362c2e409dedec1e92e190">   68</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d5/de0/a00050.html#ae7bced3619362c2e409dedec1e92e190">IsConstant</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a42595f7deafb51cf7d6853afb23d46f7">   70</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d5/de0/a00050.html#a42595f7deafb51cf7d6853afb23d46f7">IsOutput</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a5ddbf5d8c944f7753d085f9608074bb0">   72</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d5/de0/a00050.html#a5ddbf5d8c944f7753d085f9608074bb0">OutputToOthers</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a5d2574f1f2a900afdb13187151711459">   74</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../d5/de0/a00050.html#a5d2574f1f2a900afdb13187151711459">BasicName</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="ttc" id="a00050_html_ad24cdb755575319abde9c186a34920de"><div class="ttname"><a href="../../d5/de0/a00050.html#ad24cdb755575319abde9c186a34920de">ParamInfo::Units</a></div><div class="ttdeci">string Units</div><div class="ttdoc">Units. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00042">ParamInfo.h:42</a></div></div>
+<div class="ttc" id="a00050_html_aade23df743899af61f36a76dd257b0df"><div class="ttname"><a href="../../d5/de0/a00050.html#aade23df743899af61f36a76dd257b0df">ParamInfo::Change</a></div><div class="ttdeci">string Change</div><div class="ttdoc">Change type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00056">ParamInfo.h:56</a></div></div>
+<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">ParamInfo</a></div><div class="ttdoc">Class to store and manage parameter information from the parameter database. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00026">ParamInfo.h:26</a></div></div>
+<div class="ttc" id="a00050_html_a12587bea2af63728794d2c4de6c2f97c"><div class="ttname"><a href="../../d5/de0/a00050.html#a12587bea2af63728794d2c4de6c2f97c">ParamInfo::Min</a></div><div class="ttdeci">float Min</div><div class="ttdoc">Absolute minimum value. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00060">ParamInfo.h:60</a></div></div>
+<div class="ttc" id="a00050_html_a7fff4547600ebc1df4054a5337aaeab3"><div class="ttname"><a href="../../d5/de0/a00050.html#a7fff4547600ebc1df4054a5337aaeab3">ParamInfo::ModuleID</a></div><div class="ttdeci">string ModuleID</div><div class="ttdoc">Used by Module Ids. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00046">ParamInfo.h:46</a></div></div>
+<div class="ttc" id="a00050_html_ae7bced3619362c2e409dedec1e92e190"><div class="ttname"><a href="../../d5/de0/a00050.html#ae7bced3619362c2e409dedec1e92e190">ParamInfo::IsConstant</a></div><div class="ttdeci">bool IsConstant</div><div class="ttdoc">Is constant or not. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00068">ParamInfo.h:68</a></div></div>
+<div class="ttc" id="a00050_html_a6c33cf7320e6b458dd5ea423b3a5d2af"><div class="ttname"><a href="../../d5/de0/a00050.html#a6c33cf7320e6b458dd5ea423b3a5d2af">ParamInfo::Use</a></div><div class="ttdeci">string Use</div><div class="ttdoc">Use or not. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00062">ParamInfo.h:62</a></div></div>
+<div class="ttc" id="a00050_html_ae67c0395380ce7ec6424c8ac379560c4"><div class="ttname"><a href="../../d5/de0/a00050.html#ae67c0395380ce7ec6424c8ac379560c4">ParamInfo::Dimension</a></div><div class="ttdeci">dimensionTypes Dimension</div><div class="ttdoc">Data dimension type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00048">ParamInfo.h:48</a></div></div>
+<div class="ttc" id="a00050_html_ac3a3033becc4c70b37e273e76c37bcee"><div class="ttname"><a href="../../d5/de0/a00050.html#ac3a3033becc4c70b37e273e76c37bcee">ParamInfo::Description</a></div><div class="ttdeci">string Description</div><div class="ttdoc">Description. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00044">ParamInfo.h:44</a></div></div>
+<div class="ttc" id="a00050_html_a5d2574f1f2a900afdb13187151711459"><div class="ttname"><a href="../../d5/de0/a00050.html#a5d2574f1f2a900afdb13187151711459">ParamInfo::BasicName</a></div><div class="ttdeci">string BasicName</div><div class="ttdoc">Basic name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00074">ParamInfo.h:74</a></div></div>
+<div class="ttc" id="a00409_html"><div class="ttname"><a href="../../de/d3d/a00409.html">MetadataInfoConst.h</a></div><div class="ttdoc">Define some const variables used by MetadataInfo class. </div></div>
+<div class="ttc" id="a00050_html_a42595f7deafb51cf7d6853afb23d46f7"><div class="ttname"><a href="../../d5/de0/a00050.html#a42595f7deafb51cf7d6853afb23d46f7">ParamInfo::IsOutput</a></div><div class="ttdeci">bool IsOutput</div><div class="ttdoc">Is output or not. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00070">ParamInfo.h:70</a></div></div>
+<div class="ttc" id="a00050_html_a698d9a7a6b8fad7c2aabdc7c64428f26"><div class="ttname"><a href="../../d5/de0/a00050.html#a698d9a7a6b8fad7c2aabdc7c64428f26">ParamInfo::Value</a></div><div class="ttdeci">float Value</div><div class="ttdoc">Value. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00052">ParamInfo.h:52</a></div></div>
+<div class="ttc" id="a00705_html_gac6cf78ef837450cfb19495fe34976b8c"><div class="ttname"><a href="../../d7/df1/a00705.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a></div><div class="ttdeci">dimensionTypes</div><div class="ttdoc">enum of dimension data types </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3d/a00409_source.html#l00072">MetadataInfoConst.h:72</a></div></div>
+<div class="ttc" id="a00050_html_a5ddbf5d8c944f7753d085f9608074bb0"><div class="ttname"><a href="../../d5/de0/a00050.html#a5ddbf5d8c944f7753d085f9608074bb0">ParamInfo::OutputToOthers</a></div><div class="ttdeci">bool OutputToOthers</div><div class="ttdoc">Is output to other modules or not. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00072">ParamInfo.h:72</a></div></div>
+<div class="ttc" id="a00050_html_a425eb6b82f198365698c84f5f830b73b"><div class="ttname"><a href="../../d5/de0/a00050.html#a425eb6b82f198365698c84f5f830b73b">ParamInfo::Impact</a></div><div class="ttdeci">float Impact</div><div class="ttdoc">Impact value. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00054">ParamInfo.h:54</a></div></div>
+<div class="ttc" id="a00050_html_a3c615ed4e44899b451debfc09a332d48"><div class="ttname"><a href="../../d5/de0/a00050.html#a3c615ed4e44899b451debfc09a332d48">ParamInfo::ClimateType</a></div><div class="ttdeci">string ClimateType</div><div class="ttdoc">Climate type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00066">ParamInfo.h:66</a></div></div>
+<div class="ttc" id="a00050_html_a840d363a56c508ade5dcd879a5c720b6"><div class="ttname"><a href="../../d5/de0/a00050.html#a840d363a56c508ade5dcd879a5c720b6">ParamInfo::Max</a></div><div class="ttdeci">float Max</div><div class="ttdoc">Absolute maximum value. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00058">ParamInfo.h:58</a></div></div>
+<div class="ttc" id="a00050_html_ae356227ba8d20639ed0ca4171bd8641a"><div class="ttname"><a href="../../d5/de0/a00050.html#ae356227ba8d20639ed0ca4171bd8641a">ParamInfo::DependPara</a></div><div class="ttdeci">ParamInfo * DependPara</div><div class="ttdoc">Dependence parameters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00064">ParamInfo.h:64</a></div></div>
+<div class="ttc" id="a00050_html_a4aa99ac42f641ff345421f4a09c43d96"><div class="ttname"><a href="../../d5/de0/a00050.html#a4aa99ac42f641ff345421f4a09c43d96">ParamInfo::Name</a></div><div class="ttdeci">string Name</div><div class="ttdoc">Name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00040">ParamInfo.h:40</a></div></div>
+<div class="ttc" id="a00050_html_a75b10030638c69b20262b5a1a39ec67e"><div class="ttname"><a href="../../d5/de0/a00050.html#a75b10030638c69b20262b5a1a39ec67e">ParamInfo::Source</a></div><div class="ttdeci">string Source</div><div class="ttdoc">Source. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00050">ParamInfo.h:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/dad/a00394.html">PrintInfo.h</a></li>
-    <li class="footer">Generated on Tue May 10 2016 13:10:57 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/dad/a00394.html">ParamInfo.h</a></li>
+    <li class="footer">Generated on Fri May 13 2016 03:33:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

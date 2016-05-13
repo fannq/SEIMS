@@ -14,6 +14,7 @@ var a00015 =
     [ "m_jday", "dd/d1b/a00015.html#aa62181172b8dcc6e50b0faccdfbc3c2f", null ],
     [ "m_latitude", "dd/d1b/a00015.html#a898bd31dcce07b583c5a163f534cc9a0", null ],
     [ "m_rhd", "dd/d1b/a00015.html#ac548bc940945316bd59f183eed396a53", null ],
+    [ "m_size", "dd/d1b/a00015.html#a19b359b77b5f87068c062c0f6b96ea08", null ],
     [ "m_sr", "dd/d1b/a00015.html#a5dde5fc4c0936c713f9563c502c17889", null ],
     [ "m_srMax", "dd/d1b/a00015.html#a4045b7c6db51ab8894fd0e50f9adad39", null ],
     [ "m_svp", "dd/d1b/a00015.html#a50c7563baf5ba25efd50250a7d92b6f7", null ],
