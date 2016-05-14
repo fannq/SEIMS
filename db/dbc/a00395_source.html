@@ -246,7 +246,7 @@ $(document).ready(function(){initNavTree('db/dbc/a00395_source.html','../../');}
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span>    </div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    StatusMessage((<span class="stringliteral">&quot;Creating output file &quot;</span> + Filename + <span class="stringliteral">&quot;...&quot;</span>).c_str());</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">// Don&#39;t forget add appropriate suffix to Filename... ZhuLJ, 2015/6/16 </span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">if</span>(m_AggregationType == AT_SpecificCells)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">if</span>(m_AggregationType == <a class="code" href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a>)</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="comment">/*if(m_specificOutput != NULL)</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">        {</span></div>
@@ -361,7 +361,7 @@ $(document).ready(function(){initNavTree('db/dbc/a00395_source.html','../../');}
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keywordtype">void</span> PrintInfoItem::AggregateData2D(time_t time, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data)</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;{</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span>(m_AggregationType == AT_SpecificCells)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span>(m_AggregationType == <a class="code" href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a>)</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    {</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment">/*      if(m_specificOutput != NULL)</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">        {</span></div>
@@ -424,7 +424,7 @@ $(document).ready(function(){initNavTree('db/dbc/a00395_source.html','../../');}
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keywordtype">void</span> PrintInfoItem::AggregateData(time_t time,<span class="keywordtype">int</span> numrows, <span class="keywordtype">float</span>* data)</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">if</span>(m_AggregationType == AT_SpecificCells)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">if</span>(m_AggregationType == <a class="code" href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a>)</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    {</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="comment">/*if(m_specificOutput != NULL)</span></div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">        {</span></div>
@@ -604,7 +604,7 @@ $(document).ready(function(){initNavTree('db/dbc/a00395_source.html','../../');}
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    }</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordflow">if</span> (StringMatch(type,Tag_SpecificCells))</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    {</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        res = AT_SpecificCells;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        res = <a class="code" href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a>;</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    }</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">return</span> res;</div>
@@ -917,23 +917,24 @@ $(document).ready(function(){initNavTree('db/dbc/a00395_source.html','../../');}
 <div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">utils</a></div><div class="ttdoc">utils class to handle string, date time and file </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00034">utils.h:34</a></div></div>
 <div class="ttc" id="a00396_html"><div class="ttname"><a href="../../d9/da1/a00396.html">PrintInfo.h</a></div><div class="ttdoc">Class to store and manage the PRINT information from the file.out file. </div></div>
 <div class="ttc" id="a00706_html_ga0271fcfc94579b48ed1dd87309d8e118"><div class="ttname"><a href="../../d8/dcb/a00706.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a></div><div class="ttdeci">AggregationType</div><div class="ttdoc">Aggregation type for OUTPUT. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00029">PrintInfo.h:29</a></div></div>
-<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a></div><div class="ttdoc">average </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00034">PrintInfo.h:34</a></div></div>
+<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a></div><div class="ttdoc">sum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00034">PrintInfo.h:34</a></div></div>
 <div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">clsRasterData</a></div><div class="ttdoc">Raster data class to get access to raster data in MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de3/a00373_source.html#l00029">clsRasterData.h:29</a></div></div>
 <div class="ttc" id="a00418_html"><div class="ttname"><a href="../../de/df7/a00418.html">utils.h</a></div><div class="ttdoc">Utilities class to handle string, date time and file. </div></div>
-<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a></div><div class="ttdoc">maximum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00038">PrintInfo.h:38</a></div></div>
+<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a></div><div class="ttdoc">minimum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00038">PrintInfo.h:38</a></div></div>
 <div class="ttc" id="a00018_html_a4036f9c0c1414acf59bfb25b70cf4492"><div class="ttname"><a href="../../d1/d2b/a00018.html#a4036f9c0c1414acf59bfb25b70cf4492">clsRasterData::outputGTiff</a></div><div class="ttdeci">static void outputGTiff(clsRasterData *templateRasterData, float *value, string &amp;rasterName)</div><div class="ttdoc">Write raster data into GTIFF file. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7e/a00372_source.html#l00291">clsRasterData.cpp:291</a></div></div>
 <div class="ttc" id="a00064_html_a053b28c53a117d59e0f5050b0d9af225"><div class="ttname"><a href="../../df/d5f/a00064.html#a053b28c53a117d59e0f5050b0d9af225">utils::ConvertToString2</a></div><div class="ttdeci">static string ConvertToString2(const time_t *date)</div><div class="ttdoc">Convert date time to string as the format of &quot;YYYY-MM-DD HH&quot;. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00059">utils.cpp:59</a></div></div>
-<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a></div><div class="ttdoc">output values of specific cells </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00040">PrintInfo.h:40</a></div></div>
+<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a></div><div class="ttdoc">maximum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00040">PrintInfo.h:40</a></div></div>
 <div class="ttc" id="a00411_html"><div class="ttname"><a href="../../d2/db6/a00411.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
 <div class="ttc" id="a00018_html_aa43c0f15709e3d4d5eca43dc39b8ec7f"><div class="ttname"><a href="../../d1/d2b/a00018.html#aa43c0f15709e3d4d5eca43dc39b8ec7f">clsRasterData::outputASCFile</a></div><div class="ttdeci">void outputASCFile(string &amp;filename)</div><div class="ttdoc">Write raster to ASC Grid file. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7e/a00372_source.html#l00171">clsRasterData.cpp:171</a></div></div>
-<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a></div><div class="ttdoc">minimum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00036">PrintInfo.h:36</a></div></div>
+<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a></div><div class="ttdoc">average </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00036">PrintInfo.h:36</a></div></div>
+<div class="ttc" id="a00396_html_ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523"><div class="ttname"><a href="../../d9/da1/a00396.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a></div><div class="ttdoc">output values of specific cells </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00042">PrintInfo.h:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../db/dbc/a00395.html">PrintInfo.cpp</a></li>
-    <li class="footer">Generated on Fri May 13 2016 03:33:47 for SEIMS-2016 by
+    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
