@@ -1,5 +1,0 @@
-<map id="clsRasterData::outputToMongoDB" name="clsRasterData::outputToMongoDB">
-<area shape="rect" id="node2" href="$d1/d2b/a00018.html#ae6d573951cf55cd9ae106bd98a2ffb02" title="Get non&#45;NODATA position index data, include cell number and (row, col) " alt="" coords="353,29,553,75"/>
-<area shape="rect" id="node3" href="$d1/d2b/a00018.html#af9c34a8b9734fd5af64935e34d5b7d48" title="Write raster data into GTIFF file. " alt="" coords="320,100,587,129"/>
-<area shape="rect" id="node4" href="$d1/d2b/a00018.html#af9129b542dc471fe7dcc045cb607e39d" title="Get raster header information. " alt="" coords="353,178,553,225"/>
-</map>

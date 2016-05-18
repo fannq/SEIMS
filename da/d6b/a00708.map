@@ -1,3 +1,4 @@
-<map id="Seims_omp" name="Seims_omp">
-<area shape="rect" id="node2" href="$d1/d56/a00707.html" title="Entrance for SEIMS. " alt="" coords="6,4,63,33"/>
+<map id="Main" name="Main">
+<area shape="rect" id="node1" href="$d7/d7e/a00709.html" title="SEIMS OpenMP version. " alt="" coords="112,5,219,35"/>
+<area shape="rect" id="node2" href="$d4/deb/a00710.html" title="SEIMS MPI version. " alt="" coords="114,59,217,88"/>
 </map>

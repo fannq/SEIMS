@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/utils.h Source File</title>
+<title>SEIMS-2016: src/base/util/StringList.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,49 +111,107 @@ $(document).ready(function(){initNavTree('de/df7/a00418_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">utils.h</div>  </div>
+<div class="title">StringList.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/df7/a00418.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef SEIMS_UTILS_INCLUDE</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEIMS_UTILS_INCLUDE</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span> </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span> </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span> </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">utils</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../df/d5f/a00064.html">utils</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ~<a class="code" href="../../df/d5f/a00064.html">utils</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> ConvertToString(<span class="keyword">const</span> time_t *date);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> ConvertToString2(<span class="keyword">const</span> time_t *date);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">static</span> time_t ConvertToTime(<span class="keywordtype">string</span> strDate, <span class="keywordtype">string</span> format, <span class="keywordtype">bool</span> includeHour);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">static</span> time_t ConvertToTime2(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; strDate, <span class="keyword">const</span> <span class="keywordtype">char</span>* format, <span class="keywordtype">bool</span> includeHour);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> FileExists( <span class="keywordtype">string</span> FileName );</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> GetDateInfoFromTimet(time_t* seconds, <span class="keywordtype">int</span>* year, <span class="keywordtype">int</span>* month, <span class="keywordtype">int</span>* day);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Log(<span class="keywordtype">string</span> msg);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">static</span> vector&lt;string&gt; SplitString(<span class="keywordtype">string</span> item, <span class="keywordtype">char</span> delimiter);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">static</span> vector&lt;string&gt; SplitString(<span class="keywordtype">string</span> item);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> TrimSpaces( <span class="keywordtype">string</span>&amp; str);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;};</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">utils</a></div><div class="ttdoc">utils class to handle string, date time and file </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00034">utils.h:34</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d29/a00419.html">StringList.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#ab92785f26e12fce6ecc9797c6f4e2090">   14</a></span>&#160;<a class="code" href="../../d1/d6f/a00063.html#ab92785f26e12fce6ecc9797c6f4e2090">StringList::StringList</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a1c7bf7a04fa791e1b5504fb96355efa9">   18</a></span>&#160;<a class="code" href="../../d1/d6f/a00063.html#a1c7bf7a04fa791e1b5504fb96355efa9">StringList::~StringList</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_List.clear();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a1d1858fa95ef9d5b991e59b36bbd5426">   23</a></span>&#160;<a class="code" href="../../d1/d6f/a00063.html">StringList</a>&amp; <a class="code" href="../../d1/d6f/a00063.html#a1d1858fa95ef9d5b991e59b36bbd5426">StringList::operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d6f/a00063.html">StringList</a> &amp;obj)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    m_List.resize(obj.m_List.size());</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> itm=0; itm&lt;obj.m_List.size(); itm++)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        m_List[itm] = obj.m_List[itm];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a39d7276a511637ca2bbf01b9375f2a5e">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#a39d7276a511637ca2bbf01b9375f2a5e">StringList::Add</a>(<span class="keywordtype">string</span> item)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_List.push_back(item);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a335f0ecc2c08af9a96a5b412eeb14090">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#a335f0ecc2c08af9a96a5b412eeb14090">StringList::Append</a>(<span class="keywordtype">string</span> item)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    m_List.insert(m_List.end(), item);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a82d4957073abf405e92934c69a4adf6c">   40</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d1/d6f/a00063.html#a82d4957073abf405e92934c69a4adf6c">StringList::At</a>(<span class="keywordtype">int</span> position)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">string</span> res = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (position &gt;= 0 &amp;&amp; position &lt; (<span class="keywordtype">int</span>)m_List.size())</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        res = m_List[position];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">StringList::Clear</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    m_List.clear();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a897d79a72fab72faec233a10667c7c5d">   57</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d1/d6f/a00063.html#a897d79a72fab72faec233a10667c7c5d">StringList::Count</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> m_List.size();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a69e219abaa4afe8023ae9e0d00b8abc3">   61</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d6f/a00063.html#a69e219abaa4afe8023ae9e0d00b8abc3">StringList::Contains</a>(<span class="keywordtype">string</span> item)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> bStatus = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span> (m_List.size() &gt; 0)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;m_List.size(); i++)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> (StringMatch(m_List[i], item))</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                bStatus = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> bStatus;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#aea2bfd74ecef6c8698d5094cdb183a64">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#aea2bfd74ecef6c8698d5094cdb183a64">StringList::Insert</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">string</span> item)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    m_List[index] = item;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a91e4c52c28c9bf1126e9932f3ceb42e7">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#a91e4c52c28c9bf1126e9932f3ceb42e7">StringList::Resize</a>(<span class="keywordtype">int</span> newsize, <span class="keywordtype">string</span> value)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    m_List.resize(newsize, value);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="ttc" id="a00063_html_a39d7276a511637ca2bbf01b9375f2a5e"><div class="ttname"><a href="../../d1/d6f/a00063.html#a39d7276a511637ca2bbf01b9375f2a5e">StringList::Add</a></div><div class="ttdeci">void Add(string item)</div><div class="ttdoc">Add an item to the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00032">StringList.cpp:32</a></div></div>
+<div class="ttc" id="a00063_html_a1d1858fa95ef9d5b991e59b36bbd5426"><div class="ttname"><a href="../../d1/d6f/a00063.html#a1d1858fa95ef9d5b991e59b36bbd5426">StringList::operator=</a></div><div class="ttdeci">StringList &amp; operator=(const StringList &amp;obj)</div><div class="ttdoc">Assignment operator overload. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00023">StringList.cpp:23</a></div></div>
+<div class="ttc" id="a00063_html_a69e219abaa4afe8023ae9e0d00b8abc3"><div class="ttname"><a href="../../d1/d6f/a00063.html#a69e219abaa4afe8023ae9e0d00b8abc3">StringList::Contains</a></div><div class="ttdeci">bool Contains(string item)</div><div class="ttdoc">Return a flag indicating if the given string is in the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00061">StringList.cpp:61</a></div></div>
+<div class="ttc" id="a00063_html"><div class="ttname"><a href="../../d1/d6f/a00063.html">StringList</a></div><div class="ttdoc">Common operation of string vector. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d29/a00419_source.html#l00027">StringList.h:27</a></div></div>
+<div class="ttc" id="a00063_html_a91e4c52c28c9bf1126e9932f3ceb42e7"><div class="ttname"><a href="../../d1/d6f/a00063.html#a91e4c52c28c9bf1126e9932f3ceb42e7">StringList::Resize</a></div><div class="ttdeci">void Resize(int newsize, string value)</div><div class="ttdoc">Resize the list to the given size with the given default values. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00084">StringList.cpp:84</a></div></div>
+<div class="ttc" id="a00063_html_ab92785f26e12fce6ecc9797c6f4e2090"><div class="ttname"><a href="../../d1/d6f/a00063.html#ab92785f26e12fce6ecc9797c6f4e2090">StringList::StringList</a></div><div class="ttdeci">StringList(void)</div><div class="ttdoc">Constructor (void) </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00014">StringList.cpp:14</a></div></div>
+<div class="ttc" id="a00063_html_a335f0ecc2c08af9a96a5b412eeb14090"><div class="ttname"><a href="../../d1/d6f/a00063.html#a335f0ecc2c08af9a96a5b412eeb14090">StringList::Append</a></div><div class="ttdeci">void Append(string item)</div><div class="ttdoc">Append an item to the end of the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00036">StringList.cpp:36</a></div></div>
+<div class="ttc" id="a00063_html_aea2bfd74ecef6c8698d5094cdb183a64"><div class="ttname"><a href="../../d1/d6f/a00063.html#aea2bfd74ecef6c8698d5094cdb183a64">StringList::Insert</a></div><div class="ttdeci">void Insert(int index, string item)</div><div class="ttdoc">Insert an item into the list at the given position. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00079">StringList.cpp:79</a></div></div>
+<div class="ttc" id="a00063_html_a897d79a72fab72faec233a10667c7c5d"><div class="ttname"><a href="../../d1/d6f/a00063.html#a897d79a72fab72faec233a10667c7c5d">StringList::Count</a></div><div class="ttdeci">int Count(void)</div><div class="ttdoc">Return the number of items in the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00057">StringList.cpp:57</a></div></div>
+<div class="ttc" id="a00063_html_a1c7bf7a04fa791e1b5504fb96355efa9"><div class="ttname"><a href="../../d1/d6f/a00063.html#a1c7bf7a04fa791e1b5504fb96355efa9">StringList::~StringList</a></div><div class="ttdeci">~StringList(void)</div><div class="ttdoc">Destructor, clear the string vector. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00018">StringList.cpp:18</a></div></div>
+<div class="ttc" id="a00063_html_a82d4957073abf405e92934c69a4adf6c"><div class="ttname"><a href="../../d1/d6f/a00063.html#a82d4957073abf405e92934c69a4adf6c">StringList::At</a></div><div class="ttdeci">string At(int postion)</div><div class="ttdoc">Get the item in the list at the given position. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00040">StringList.cpp:40</a></div></div>
+<div class="ttc" id="a00063_html_a0129bfe44ed9c9a5839c5c8688a4bdc6"><div class="ttname"><a href="../../d1/d6f/a00063.html#a0129bfe44ed9c9a5839c5c8688a4bdc6">StringList::Clear</a></div><div class="ttdeci">void Clear(void)</div><div class="ttdoc">Clear the list. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00053">StringList.cpp:53</a></div></div>
+<div class="ttc" id="a00419_html"><div class="ttname"><a href="../../d3/d29/a00419.html">StringList.h</a></div><div class="ttdoc">String list related class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../de/df7/a00418.html">utils.h</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../de/df7/a00418.html">StringList.cpp</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

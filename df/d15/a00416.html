@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/text.h File Reference</title>
+<title>SEIMS-2016: src/base/util/SimulationModule.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,193 +110,37 @@ $(document).ready(function(){initNavTree('df/d15/a00416.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">text.h File Reference</div>  </div>
+<div class="title">SimulationModule.cpp File Reference<div class="ingroups"><a class="el" href="../../d8/dcb/a00706.html">Util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Predefined string constants used in the code.  
+<p>Initialization of <a class="el" href="../../d9/d73/a00060.html" title="Base module for all simulation modules in SEIMS. ">SimulationModule</a> class.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/de7/a00417_source.html">SimulationModule.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for SimulationModule.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d8/d1c/a00824.png" border="0" usemap="#src_2base_2util_2_simulation_module_8cpp" alt=""/></div>
+<map name="src_2base_2util_2_simulation_module_8cpp" id="src_2base_2util_2_simulation_module_8cpp">
+<area shape="rect" id="node2" href="../../d8/de7/a00417.html" title="Parent class for all modules in SEIMS. " alt="" coords="61,101,224,131"/><area shape="rect" id="node4" href="../../d0/dd6/a00415.html" title="Define ModelException class. " alt="" coords="67,179,217,208"/></map>
+</div>
+</div>
 <p><a href="../../df/d15/a00416_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aea3e29d6e3fb9c54bc3c41b9281575ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea3e29d6e3fb9c54bc3c41b9281575ff"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#aea3e29d6e3fb9c54bc3c41b9281575ff">CONS_IN_ELEV</a>&#160;&#160;&#160;&quot;Elevation&quot;</td></tr>
-<tr class="memdesc:aea3e29d6e3fb9c54bc3c41b9281575ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant input variables. <br/></td></tr>
-<tr class="separator:aea3e29d6e3fb9c54bc3c41b9281575ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90664723be86eee7dbc8bcbcaceff261"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90664723be86eee7dbc8bcbcaceff261"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a90664723be86eee7dbc8bcbcaceff261">DataType_Precipitation</a>&#160;&#160;&#160;&quot;P&quot;</td></tr>
-<tr class="memdesc:a90664723be86eee7dbc8bcbcaceff261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Climate data type, used in SEIMS_ModuleSetting class, ITP, etc. // LJ, Apr.,2016. <br/></td></tr>
-<tr class="separator:a90664723be86eee7dbc8bcbcaceff261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e76c0b2b9771bdc15ff3d0a1ba4c18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74e76c0b2b9771bdc15ff3d0a1ba4c18"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a74e76c0b2b9771bdc15ff3d0a1ba4c18">Tag_Configuration</a>&#160;&#160;&#160;&quot;Configuration&quot;</td></tr>
-<tr class="memdesc:a74e76c0b2b9771bdc15ff3d0a1ba4c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tags. <br/></td></tr>
-<tr class="separator:a74e76c0b2b9771bdc15ff3d0a1ba4c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac375b66b6fbbb6422be77a86e633b2a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac375b66b6fbbb6422be77a86e633b2a1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#ac375b66b6fbbb6422be77a86e633b2a1">Tag_FLOWIN_INDEX_DINF</a>&#160;&#160;&#160;&quot;FLOWIN_INDEX_DINF&quot;</td></tr>
-<tr class="memdesc:ac375b66b6fbbb6422be77a86e633b2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">D-infinity Flow model after Tarboton et al.(1991) <br/></td></tr>
-<tr class="separator:ac375b66b6fbbb6422be77a86e633b2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b198dc9f54912c0003af6a40332b9e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b198dc9f54912c0003af6a40332b9e1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a2b198dc9f54912c0003af6a40332b9e1">Tag_FLOWIN_INDEX_MFD</a>&#160;&#160;&#160;&quot;FLOWIN_INDEX_MFD&quot;</td></tr>
-<tr class="memdesc:a2b198dc9f54912c0003af6a40332b9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multi-Flow model after Quinn et al.(1991) <br/></td></tr>
-<tr class="separator:a2b198dc9f54912c0003af6a40332b9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac860cd6d290e7d389f963af3afef446a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac860cd6d290e7d389f963af3afef446a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#ac860cd6d290e7d389f963af3afef446a">Tag_FLOWIN_INDEX_MFD_MD</a>&#160;&#160;&#160;&quot;FLOWIN_INDEX_MFD_MD&quot;</td></tr>
-<tr class="memdesc:ac860cd6d290e7d389f963af3afef446a"><td class="mdescLeft">&#160;</td><td class="mdescRight">MFD-md flow model after Qin et al.(2007) (md means maximum downslope) <br/></td></tr>
-<tr class="separator:ac860cd6d290e7d389f963af3afef446a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56ce08a6824937e6f9be6c907b4bd333"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56ce08a6824937e6f9be6c907b4bd333"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a56ce08a6824937e6f9be6c907b4bd333">DIVERSION</a>&#160;&#160;&#160;&quot;flowdiversion&quot;</td></tr>
-<tr class="memdesc:a56ce08a6824937e6f9be6c907b4bd333"><td class="mdescLeft">&#160;</td><td class="mdescRight">for reach hydro climate data <br/></td></tr>
-<tr class="separator:a56ce08a6824937e6f9be6c907b4bd333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68708abef7564622952446ec7829c219"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a68708abef7564622952446ec7829c219"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a68708abef7564622952446ec7829c219">MapWindowRasterExtension</a>&#160;&#160;&#160;&quot;.asc&quot;</td></tr>
-<tr class="memdesc:a68708abef7564622952446ec7829c219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Files or database constant strings. <br/></td></tr>
-<tr class="separator:a68708abef7564622952446ec7829c219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd78fdb764182ed107203bd184fe848e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd78fdb764182ed107203bd184fe848e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#acd78fdb764182ed107203bd184fe848e">REACH_SUBBASIN</a>&#160;&#160;&#160;&quot;SUBBASIN&quot;</td></tr>
-<tr class="memdesc:acd78fdb764182ed107203bd184fe848e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fields in DB_TAB_REACH ///. <br/></td></tr>
-<tr class="separator:acd78fdb764182ed107203bd184fe848e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe723459700f7d918e503a4b7dd9b2bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe723459700f7d918e503a4b7dd9b2bc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#abe723459700f7d918e503a4b7dd9b2bc">SITELIST_TABLE_M</a>&#160;&#160;&#160;&quot;SiteListM&quot;</td></tr>
-<tr class="memdesc:abe723459700f7d918e503a4b7dd9b2bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">these four are defined in DB_TAB_SITELIST in Source_ParameterDB <br/></td></tr>
-<tr class="separator:abe723459700f7d918e503a4b7dd9b2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0936b056e3b42408d61014aad01785e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0936b056e3b42408d61014aad01785e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#aa0936b056e3b42408d61014aad01785e">Tag_NoDataValue</a>&#160;&#160;&#160;&quot;NoDataValue&quot;</td></tr>
-<tr class="memdesc:aa0936b056e3b42408d61014aad01785e"><td class="mdescLeft">&#160;</td><td class="mdescRight">define string constants used in the code, also used in the mongoDB.SiteList table's header <br/></td></tr>
-<tr class="separator:aa0936b056e3b42408d61014aad01785e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02eea2c31e4dc29fccb40cde3f51c40a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02eea2c31e4dc29fccb40cde3f51c40a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a02eea2c31e4dc29fccb40cde3f51c40a">Print_2D_CONDUCTIVITY</a>&#160;&#160;&#160;&quot;Conductivity_2D&quot;</td></tr>
-<tr class="memdesc:a02eea2c31e4dc29fccb40cde3f51c40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D Soil Attribute Data /// <br/></td></tr>
-<tr class="separator:a02eea2c31e4dc29fccb40cde3f51c40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2acb6c7f74080e0b98228d543bb20d6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a2acb6c7f74080e0b98228d543bb20d6a">MCLS_CLIMATE</a>&#160;&#160;&#160;&quot;Climate Variables&quot;</td></tr>
-<tr class="memdesc:a2acb6c7f74080e0b98228d543bb20d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Climate related Modules.  <a href="#a2acb6c7f74080e0b98228d543bb20d6a">More...</a><br/></td></tr>
-<tr class="separator:a2acb6c7f74080e0b98228d543bb20d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adae353957f15194030ce043320cda2f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adae353957f15194030ce043320cda2f9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#adae353957f15194030ce043320cda2f9">MCLS_PET</a>&#160;&#160;&#160;&quot;Potential Evapotranspiration&quot;</td></tr>
-<tr class="memdesc:adae353957f15194030ce043320cda2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Potential Evapotranspiration Modules. <br/></td></tr>
-<tr class="separator:adae353957f15194030ce043320cda2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e88eac61303778772806361f71caa0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a5e88eac61303778772806361f71caa0f">VAR_CDN</a>&#160;&#160;&#160;&quot;cdn&quot;</td></tr>
-<tr class="separator:a5e88eac61303778772806361f71caa0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7725836907ba1e21cba7c855d67051f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#a7725836907ba1e21cba7c855d67051f1">UNIT_AREA_KM2</a>&#160;&#160;&#160;&quot;km2&quot;</td></tr>
-<tr class="separator:a7725836907ba1e21cba7c855d67051f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab022fb9e7f030510b47213f07df7414d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#ab022fb9e7f030510b47213f07df7414d">DESC_CO2</a>&#160;&#160;&#160;&quot;CO2 Concentration&quot;</td></tr>
-<tr class="separator:ab022fb9e7f030510b47213f07df7414d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa046a32ddd913d2494b71c80ad0c3c84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#aa046a32ddd913d2494b71c80ad0c3c84">MONG_GRIDFS_FN</a>&#160;&#160;&#160;&quot;filename&quot;</td></tr>
-<tr class="separator:aa046a32ddd913d2494b71c80ad0c3c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9588182c908a9c01335ab21fe1db408"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d15/a00416.html#ac9588182c908a9c01335ab21fe1db408">HEADER_RS_TAB</a>&#160;&#160;&#160;&quot;Header&quot;</td></tr>
-<tr class="separator:ac9588182c908a9c01335ab21fe1db408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Predefined string constants used in the code. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu, Huiran Gao </dd></dl>
+<div class="textblock"><p>Initialization of <a class="el" href="../../d9/d73/a00060.html" title="Base module for all simulation modules in SEIMS. ">SimulationModule</a> class. </p>
+<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Jun. 2010, Apr.2016 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jul. 2010 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ab022fb9e7f030510b47213f07df7414d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DESC_CO2&#160;&#160;&#160;&quot;CO2 Concentration&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Define description of units common used in SEIMS ////////// By LiangJun Zhu, Apr. 25, 2016 ////////////////////////////////////// </p>
-
-<p>Definition at line <a class="el" href="../../df/d15/a00416_source.html#l00381">381</a> of file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac9588182c908a9c01335ab21fe1db408"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define HEADER_RS_TAB&#160;&#160;&#160;&quot;Header&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Define Raster/ related constant strings used in SEIMS and preprocess// By LiangJun Zhu, May. 5, 2016 /////////////////////////////////////// </p>
-
-<p>Definition at line <a class="el" href="../../df/d15/a00416_source.html#l00475">475</a> of file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2acb6c7f74080e0b98228d543bb20d6a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MCLS_CLIMATE&#160;&#160;&#160;&quot;Climate Variables&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Climate related Modules. </p>
-<p>Define models' ID and description in SEIMS ////////////////////////// By LiangJun Zhu, Apr. 26, 2016 ////////////////////////////////////// </p>
-
-<p>Definition at line <a class="el" href="../../df/d15/a00416_source.html#l00265">265</a> of file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa046a32ddd913d2494b71c80ad0c3c84"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MONG_GRIDFS_FN&#160;&#160;&#160;&quot;filename&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Define MongoDB related constant strings used in SEIMS and preprocess// By LiangJun Zhu, May. 4, 2016 /////////////////////////////////////// </p>
-
-<p>Definition at line <a class="el" href="../../df/d15/a00416_source.html#l00454">454</a> of file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7725836907ba1e21cba7c855d67051f1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UNIT_AREA_KM2&#160;&#160;&#160;&quot;km2&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Define units common used in SEIMS, in case of inconsistency ////////// By LiangJun Zhu, Apr. 25, 2016 ////////////////////////////////////// </p>
-
-<p>Definition at line <a class="el" href="../../df/d15/a00416_source.html#l00359">359</a> of file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5e88eac61303778772806361f71caa0f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VAR_CDN&#160;&#160;&#160;&quot;cdn&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Define unit names common used in SEIMS, in case of inconsistency ///// By LiangJun Zhu, Apr. 25, 2016 ////////////////////////////////////// </p>
-
-<p>Definition at line <a class="el" href="../../df/d15/a00416_source.html#l00295">295</a> of file <a class="el" href="../../df/d15/a00416_source.html">text.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../df/d15/a00416_source.html">SimulationModule.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../df/d15/a00416.html">text.h</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:07 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../df/d15/a00416.html">SimulationModule.cpp</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

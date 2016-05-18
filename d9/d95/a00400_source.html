@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SEIMS_ModuleSetting.h Source File</title>
+<title>SEIMS-2016: src/base/module_setting/PrintInfo.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,45 +111,140 @@ $(document).ready(function(){initNavTree('d9/d95/a00400_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SEIMS_ModuleSetting.h</div>  </div>
+<div class="title">PrintInfo.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d95/a00400.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>SEIMSModuleSetting</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SEIMSModuleSetting(<span class="keywordtype">string</span> moduleId,<span class="keywordtype">string</span> setting);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~SEIMSModuleSetting(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span> dataType();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">string</span> dataTypeString();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> needDoVerticalInterpolation();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> channelFlowRoutingMethod();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">string</span> channelSedimentRoutingMethod();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">string</span> channelNutrientRoutingMethod();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">string</span>  m_moduleId; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">string</span>  m_settingString; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    vector&lt;string&gt; m_settings; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span>    getSettings();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">string</span>  channelRoutingMethod(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> dataTypeString2Float(<span class="keywordtype">string</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> dataType2String(<span class="keywordtype">float</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd1/a00398.html">ParamInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#include &quot;clsSpecificOutput.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;mongoc.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dcb/a00375.html">clsRasterData.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">   29</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">   32</a></span>&#160;    <a class="code" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">AT_Unknown</a>          = 0,</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">   34</a></span>&#160;    <a class="code" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a>              = 1,</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">   36</a></span>&#160;    <a class="code" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a>          = 2,</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">   38</a></span>&#160;    <a class="code" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a>          = 3,</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">   40</a></span>&#160;    <a class="code" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a>          = 4,</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">   42</a></span>&#160;    <a class="code" href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a>    = 5</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">class </span>PrintInfoItem</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span>                 m_Counter;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//  //! values of specific cells, e.g., landuse, curvature, and slope</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//  clsSpecificOutput*  m_specificOutput;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//public:</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">//  void setSpecificCellRasterOutput(string projectPath,string databasePath,</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//      clsRasterData* templateRasterData,string outputID);</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    mongoc_client_t*    conn;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">string</span>                      dbName;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    mongoc_gridfs_t*    gfs;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    PrintInfoItem(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ~PrintInfoItem(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">float</span>**             Data;   </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> Numrows;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">float</span>*              RasterData;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">float</span> **            m_2dData;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span>                 ValidCellCount;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">int</span> m_nCols;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    map&lt;time_t,float&gt;   TimeSeriesData;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    map&lt;time_t,float*&gt;  TimeSeriesDataForSubbasin;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">int</span>                 TimeSeriesDataForSubbasinCount;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> add1DTimeSeriesResult(time_t, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span> SiteID;     </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">int</span> SiteIndex;  </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">int</span> SubbasinID; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">int</span> SubbasinIndex;  </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">string</span> StartTime;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    time_t m_startTime;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    time_t getStartTime();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">string</span> EndTime;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    time_t m_endTime;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    time_t getEndTime();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">string</span> Filename;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> Flush(<span class="keywordtype">string</span>,<a class="code" href="../../d4/d51/a00017.html">clsRasterData</a>*,<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">bool</span> IsDateInRange(time_t dt);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> AggregateData(<span class="keywordtype">int</span> numrows, <span class="keywordtype">float</span>** data, <a class="code" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> type, <span class="keywordtype">float</span> NoDataValue);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> AggregateData(time_t time,<span class="keywordtype">int</span> numrows, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> AggregateData2D(time_t time, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> setAggregationType(<a class="code" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> type);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> getAggregationType(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> MatchAggregationType(<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> m_AggregationType;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;};</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">class </span>PrintInfo</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;{</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">int</span> m_Interval;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">string</span> m_IntervalUnits;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">int</span> m_moduleIndex;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">string</span> m_OutputID;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="../../d5/de0/a00050.html">ParamInfo</a>* m_param; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    vector&lt;PrintInfoItem*&gt; m_PrintItems;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">//void setSpecificCellRasterOutput(string projectPath, string databasePath,clsRasterData* templateRasterData);</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    vector&lt;int&gt; m_subbasinSeleted;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">float</span>* m_subbasinSelectedArray;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    PrintInfo(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    ~PrintInfo(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> getSubbasinSelected(<span class="keywordtype">int</span>* count, <span class="keywordtype">float</span>** subbasins);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">void</span> setOutputID(<span class="keywordtype">string</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">string</span> getOutputID(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">string</span> getOutputTimeSeriesHeader(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> setInterval(<span class="keywordtype">int</span> interval);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">void</span> setIntervalUnits(<span class="keywordtype">string</span> units);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">int</span> getInterval(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">string</span> getIntervalUnits(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">void</span> AddPrintItem(<span class="keywordtype">string</span> start, <span class="keywordtype">string</span> end, <span class="keywordtype">string</span> file); <span class="comment">// used for all non-PET_TS</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> AddPrintItem(<span class="keywordtype">string</span> type,<span class="keywordtype">string</span> start, <span class="keywordtype">string</span> end, <span class="keywordtype">string</span> file, mongoc_client_t* conn, mongoc_gridfs_t* gfs); <span class="comment">// used for all non-PET_TS</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> AddPrintItem(<span class="keywordtype">string</span> start, <span class="keywordtype">string</span> end, <span class="keywordtype">string</span> file, <span class="keywordtype">string</span> sitename,<span class="keywordtype">bool</span> isSubbasin);  <span class="comment">// used for PET_TS</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment"></span>    PrintInfoItem* getPrintInfoItem(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">int</span> ItemCount(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;};</div>
+<div class="ttc" id="a00707_html_ga0271fcfc94579b48ed1dd87309d8e118"><div class="ttname"><a href="../../d1/d56/a00707.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a></div><div class="ttdeci">AggregationType</div><div class="ttdoc">Aggregation type for OUTPUT. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00029">PrintInfo.h:29</a></div></div>
+<div class="ttc" id="a00400_html_ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523"><div class="ttname"><a href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a></div><div class="ttdoc">output values of specific cells </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00042">PrintInfo.h:42</a></div></div>
+<div class="ttc" id="a00400_html_ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445"><div class="ttname"><a href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a></div><div class="ttdoc">maximum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00040">PrintInfo.h:40</a></div></div>
+<div class="ttc" id="a00400_html_ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea"><div class="ttname"><a href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a></div><div class="ttdoc">sum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00034">PrintInfo.h:34</a></div></div>
+<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">ParamInfo</a></div><div class="ttdoc">Class to store and manage parameter information from the parameter database. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd1/a00398_source.html#l00025">ParamInfo.h:25</a></div></div>
+<div class="ttc" id="a00375_html"><div class="ttname"><a href="../../dd/dcb/a00375.html">clsRasterData.h</a></div><div class="ttdoc">Define Raster class to handle raster data. </div></div>
+<div class="ttc" id="a00400_html_ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7"><div class="ttname"><a href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a></div><div class="ttdoc">minimum </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00038">PrintInfo.h:38</a></div></div>
+<div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">clsRasterData</a></div><div class="ttdoc">Raster data (1D and 2D) class to get access to raster data in MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dcb/a00375_source.html#l00029">clsRasterData.h:29</a></div></div>
+<div class="ttc" id="a00398_html"><div class="ttname"><a href="../../d9/dd1/a00398.html">ParamInfo.h</a></div><div class="ttdoc">Class to store parameter item information. </div></div>
+<div class="ttc" id="a00400_html_ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959"><div class="ttname"><a href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">AT_Unknown</a></div><div class="ttdoc">unknown </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00032">PrintInfo.h:32</a></div></div>
+<div class="ttc" id="a00400_html_ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a"><div class="ttname"><a href="../../d9/d95/a00400.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a></div><div class="ttdoc">average </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00036">PrintInfo.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">SEIMS_ModuleSetting.h</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">PrintInfo.h</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

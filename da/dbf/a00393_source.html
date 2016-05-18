@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/ParamInfo.cpp Source File</title>
+<title>SEIMS-2016: src/base/data/RegularMeasurement.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,107 +111,42 @@ $(document).ready(function(){initNavTree('da/dbf/a00393_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ParamInfo.cpp</div>  </div>
+<div class="title">RegularMeasurement.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../da/dbf/a00393.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/a00394.html">ParamInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a15ad9d14f6328ecf026b5e4e04dbba88">   19</a></span>&#160;<a class="code" href="../../d5/de0/a00050.html#a15ad9d14f6328ecf026b5e4e04dbba88">ParamInfo::ParamInfo</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Reset();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a5acc8010c5db8b46f36c34bfd4be0209">   24</a></span>&#160;<a class="code" href="../../d5/de0/a00050.html#a5acc8010c5db8b46f36c34bfd4be0209">ParamInfo::~ParamInfo</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d5/d05/a00385.html">Measurement.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d4f/a00420.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;MongoUtil.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d2e/a00056.html">RegularMeasurement</a> : <span class="keyword">public</span> <a class="code" href="../../d8/d41/a00038.html">Measurement</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a3c37b3486a6f80eb3d05e29d11f24502">   28</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="../../d5/de0/a00050.html#a3c37b3486a6f80eb3d05e29d11f24502">ParamInfo::GetAdjustedValue</a>()</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">float</span> res = Value;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> (StringMatch(Use, PARAM_USE_Y))</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">//if (Change == PARAM_CHANGE_NC)</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//{</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//  don&#39;t change</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//}</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (StringMatch(Change, PARAM_CHANGE_RC))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            res = Value * Impact;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(Change, PARAM_CHANGE_AC))</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            res = Value + Impact;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#aaee91ca6510c999cd689171a704575e8">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de0/a00050.html#aaee91ca6510c999cd689171a704575e8">ParamInfo::Adjust1DArray</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">float</span> res = Value;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (StringMatch(Use, PARAM_USE_Y))</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (StringMatch(Change, PARAM_CHANGE_RC) &amp;&amp; !FloatEqual(Impact, 1.0))</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                data[i] *= Impact;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(Change, PARAM_CHANGE_AC) &amp;&amp; !FloatEqual(Impact, 0))</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                data[i] += Impact;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a86b59d5285b7826b2b98b8afac9732e3">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de0/a00050.html#a86b59d5285b7826b2b98b8afac9732e3">ParamInfo::Reset</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Change = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Description = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    Dimension = <a class="code" href="../../de/d3d/a00409.html#gac6cf78ef837450cfb19495fe34976b8ca805fbcbe894d2d1acacc96a6ffd82c2a">DT_Unknown</a>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Impact = 0.0;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Max = 0.0;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    Min = 0.0;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    ModuleID = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Name = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Source = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    Units = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Use = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Value = 0.0;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    DependPara = NULL;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    IsConstant = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    ClimateType = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    IsOutput = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    OutputToOthers = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="ttc" id="a00409_html_gac6cf78ef837450cfb19495fe34976b8ca805fbcbe894d2d1acacc96a6ffd82c2a"><div class="ttname"><a href="../../de/d3d/a00409.html#gac6cf78ef837450cfb19495fe34976b8ca805fbcbe894d2d1acacc96a6ffd82c2a">DT_Unknown</a></div><div class="ttdoc">Unknown type. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3d/a00409_source.html#l00075">MetadataInfoConst.h:75</a></div></div>
-<div class="ttc" id="a00050_html_aaee91ca6510c999cd689171a704575e8"><div class="ttname"><a href="../../d5/de0/a00050.html#aaee91ca6510c999cd689171a704575e8">ParamInfo::Adjust1DArray</a></div><div class="ttdeci">void Adjust1DArray(int n, float *data)</div><div class="ttdoc">Adjust 1D array. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00051">ParamInfo.cpp:51</a></div></div>
-<div class="ttc" id="a00050_html_a5acc8010c5db8b46f36c34bfd4be0209"><div class="ttname"><a href="../../d5/de0/a00050.html#a5acc8010c5db8b46f36c34bfd4be0209">ParamInfo::~ParamInfo</a></div><div class="ttdeci">~ParamInfo(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00024">ParamInfo.cpp:24</a></div></div>
-<div class="ttc" id="a00394_html"><div class="ttname"><a href="../../d9/dad/a00394.html">ParamInfo.h</a></div><div class="ttdoc">Class to store parameter item information. </div></div>
-<div class="ttc" id="a00050_html_a15ad9d14f6328ecf026b5e4e04dbba88"><div class="ttname"><a href="../../d5/de0/a00050.html#a15ad9d14f6328ecf026b5e4e04dbba88">ParamInfo::ParamInfo</a></div><div class="ttdeci">ParamInfo(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00019">ParamInfo.cpp:19</a></div></div>
-<div class="ttc" id="a00050_html_a3c37b3486a6f80eb3d05e29d11f24502"><div class="ttname"><a href="../../d5/de0/a00050.html#a3c37b3486a6f80eb3d05e29d11f24502">ParamInfo::GetAdjustedValue</a></div><div class="ttdeci">float GetAdjustedValue()</div><div class="ttdoc">Return the adjusted value for this parameter. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00028">ParamInfo.cpp:28</a></div></div>
-<div class="ttc" id="a00050_html_a86b59d5285b7826b2b98b8afac9732e3"><div class="ttname"><a href="../../d5/de0/a00050.html#a86b59d5285b7826b2b98b8afac9732e3">ParamInfo::Reset</a></div><div class="ttdeci">void Reset(void)</div><div class="ttdoc">Reset the contents of the object to default values. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00074">ParamInfo.cpp:74</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="../../d9/d2e/a00056.html#aa99c037597c244227ecfd437a8644432">RegularMeasurement</a>(mongoc_client_t* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime, time_t interval);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d9/d2e/a00056.html#a1f44d19ffde71e64385f25b24732ff83">~RegularMeasurement</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span>* <a class="code" href="../../d9/d2e/a00056.html#a6528f99c36c06961b7eeafbccc2a5f52">GetSiteDataByTime</a>(time_t t);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c">   48</a></span>&#160;    vector&lt;float*&gt; <a class="code" href="../../d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c">m_siteData</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8">   50</a></span>&#160;    time_t <a class="code" href="../../d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8">m_interval</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">RegularMeasurement</a></div><div class="ttdoc">Regular hydroclimate data, e.g., daily data. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00024">RegularMeasurement.h:24</a></div></div>
+<div class="ttc" id="a00038_html"><div class="ttname"><a href="../../d8/d41/a00038.html">Measurement</a></div><div class="ttdoc">Get HydroClimate measurement data from MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00024">Measurement.h:24</a></div></div>
+<div class="ttc" id="a00420_html"><div class="ttname"><a href="../../db/d4f/a00420.html">text.h</a></div><div class="ttdoc">Predefined string constants used in the code. </div></div>
+<div class="ttc" id="a00056_html_a6fffb32a797276d7cc6b2bd8b2f369c8"><div class="ttname"><a href="../../d9/d2e/a00056.html#a6fffb32a797276d7cc6b2bd8b2f369c8">RegularMeasurement::m_interval</a></div><div class="ttdeci">time_t m_interval</div><div class="ttdoc">data record interval </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00050">RegularMeasurement.h:50</a></div></div>
+<div class="ttc" id="a00056_html_a1f44d19ffde71e64385f25b24732ff83"><div class="ttname"><a href="../../d9/d2e/a00056.html#a1f44d19ffde71e64385f25b24732ff83">RegularMeasurement::~RegularMeasurement</a></div><div class="ttdeci">~RegularMeasurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d27/a00392_source.html#l00126">RegularMeasurement.cpp:126</a></div></div>
+<div class="ttc" id="a00056_html_a6528f99c36c06961b7eeafbccc2a5f52"><div class="ttname"><a href="../../d9/d2e/a00056.html#a6528f99c36c06961b7eeafbccc2a5f52">RegularMeasurement::GetSiteDataByTime</a></div><div class="ttdeci">virtual float * GetSiteDataByTime(time_t t)</div><div class="ttdoc">Get site date by time pData. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d27/a00392_source.html#l00132">RegularMeasurement.cpp:132</a></div></div>
+<div class="ttc" id="a00056_html_a9e9eee588a575d7a89a66b9728b9f81c"><div class="ttname"><a href="../../d9/d2e/a00056.html#a9e9eee588a575d7a89a66b9728b9f81c">RegularMeasurement::m_siteData</a></div><div class="ttdeci">vector&lt; float * &gt; m_siteData</div><div class="ttdoc">site data : the first dimension is time, and the second dimension is data by sites ...</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00048">RegularMeasurement.h:48</a></div></div>
+<div class="ttc" id="a00056_html_aa99c037597c244227ecfd437a8644432"><div class="ttname"><a href="../../d9/d2e/a00056.html#aa99c037597c244227ecfd437a8644432">RegularMeasurement::RegularMeasurement</a></div><div class="ttdeci">RegularMeasurement(mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startTime, time_t endTime, time_t interval)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d27/a00392_source.html#l00018">RegularMeasurement.cpp:18</a></div></div>
+<div class="ttc" id="a00385_html"><div class="ttname"><a href="../../d5/d05/a00385.html">Measurement.h</a></div><div class="ttdoc">Measurement class to store HydroClimate site data. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../da/dbf/a00393.html">ParamInfo.cpp</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../da/dbf/a00393.html">RegularMeasurement.h</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:32 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

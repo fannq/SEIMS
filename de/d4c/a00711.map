@@ -1,6 +1,8 @@
-<map id="Climate" name="Climate">
-<area shape="rect" id="node1" href="$dd/dd8/a00719.html" title="Read Time Series Data. " alt="" coords="261,5,349,35"/>
-<area shape="rect" id="node2" href="$d4/deb/a00710.html" title="All functional modules in SEIMS. " alt="" coords="5,59,88,88"/>
-<area shape="rect" id="node4" href="$dc/d8f/a00718.html" title="Interpolation Module. " alt="" coords="282,59,329,88"/>
-<area shape="rect" id="node5" href="$d3/d82/a00717.html" title="Calculate climate related intermediate parameters. " alt="" coords="273,112,337,141"/>
+<map id="Modules" name="Modules">
+<area shape="rect" id="node1" href="$d3/d3b/a00715.html" title="Erosion related modules. " alt="" coords="181,5,259,35"/>
+<area shape="rect" id="node3" href="$df/d96/a00714.html" title="Longterm hydrology related modules. " alt="" coords="137,59,303,88"/>
+<area shape="rect" id="node4" href="$d2/d94/a00716.html" title="Nutrient related modules. " alt="" coords="181,112,259,141"/>
+<area shape="rect" id="node5" href="$d3/dda/a00712.html" title="Climate related modules. " alt="" coords="181,165,259,195"/>
+<area shape="rect" id="node6" href="$d3/d82/a00717.html" title="Ecology related modules. " alt="" coords="180,219,260,248"/>
+<area shape="rect" id="node7" href="$d1/d04/a00713.html" title="Hydrology related modules, include storm processes. " alt="" coords="173,272,267,301"/>
 </map>

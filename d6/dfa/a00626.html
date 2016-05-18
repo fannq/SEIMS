@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/nutrient/AtmDep/AtmosphericDeposition.h File Reference</title>
+<title>SEIMS-2016: src/modules/nutrient/AtmDep/AtmosphericDeposition.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,40 +111,42 @@ $(document).ready(function(){initNavTree('d6/dfa/a00626.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AtmosphericDeposition.h File Reference</div>  </div>
+<div class="title">AtmosphericDeposition.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia.  
+<p>Inplementation of Atmospheric Deposition.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;ctime&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/da3/a00627_source.html">AtmosphericDeposition.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d72/a00412_source.html">MetadataInfo.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/dd6/a00415_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
 <code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/d9c/a00413_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AtmosphericDeposition.h:</div>
+Include dependency graph for AtmosphericDeposition.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d17/a00872.png" border="0" usemap="#src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8h" alt=""/></div>
-<map name="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8h" id="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8h">
-<area shape="rect" id="node6" href="../../da/d9c/a00413.html" title="Parent class for all modules in SEIMS. " alt="" coords="274,101,438,131"/><area shape="rect" id="node7" href="../../d2/db6/a00411.html" title="Define ModelException class. " alt="" coords="214,179,364,208"/></map>
+<div class="center"><img src="../../d9/d22/a00873.png" border="0" usemap="#src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8cpp" alt=""/></div>
+<map name="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8cpp" id="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8cpp">
+<area shape="rect" id="node2" href="../../d3/da3/a00627.html" title="Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia. " alt="" coords="158,101,358,131"/><area shape="rect" id="node8" href="../../d0/dd6/a00415.html" title="Define ModelException class. " alt="" coords="10,256,160,285"/><area shape="rect" id="node11" href="../../d9/d72/a00412.html" title="Define MetadataInfo class used by modules. " alt="" coords="566,179,692,208"/><area shape="rect" id="node7" href="../../d8/de7/a00417.html" title="Parent class for all modules in SEIMS. " alt="" coords="236,179,400,208"/><area shape="rect" id="node14" href="../../da/d9c/a00413.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="378,256,546,285"/></map>
 </div>
 </div>
 <p><a href="../../d6/dfa/a00626_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia. </p>
+<div class="textblock"><p>Inplementation of Atmospheric Deposition. </p>
 <dl class="section author"><dt>Author</dt><dd>Lin Wang  by Liangjun Zhu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd></dd></dl>
 <dl class="section date"><dt>Date</dt><dd>July 2015 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d6/dfa/a00626_source.html">AtmosphericDeposition.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d6/dfa/a00626_source.html">AtmosphericDeposition.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_c288e5e1fdc5ccdb46df84d6df312594.html">AtmDep</a></li><li class="navelem"><a class="el" href="../../d6/dfa/a00626.html">AtmosphericDeposition.h</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:07 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_c288e5e1fdc5ccdb46df84d6df312594.html">AtmDep</a></li><li class="navelem"><a class="el" href="../../d6/dfa/a00626.html">AtmosphericDeposition.cpp</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

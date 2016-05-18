@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/SimulationModule.h File Reference</title>
+<title>SEIMS-2016: src/base/util/MetadataInfoConst.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,82 +111,76 @@ $(document).ready(function(){initNavTree('da/d9c/a00413.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">SimulationModule.h File Reference<div class="ingroups"><a class="el" href="../../d7/df1/a00705.html">Util</a></div></div>  </div>
+<div class="title">MetadataInfoConst.h File Reference<div class="ingroups"><a class="el" href="../../d8/dcb/a00706.html">Util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Parent class for all modules in SEIMS.  
+<p>Define some const variables used by <a class="el" href="../../db/d3a/a00040.html" title="Metadata information of module. ">MetadataInfo</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/db6/a00411_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &lt;omp.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SimulationModule.h:</div>
+Include dependency graph for MetadataInfoConst.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d8b/a00821.png" border="0" usemap="#src_2base_2util_2_simulation_module_8h" alt=""/></div>
-<map name="src_2base_2util_2_simulation_module_8h" id="src_2base_2util_2_simulation_module_8h">
-<area shape="rect" id="node3" href="../../d2/db6/a00411.html" title="Define ModelException class. " alt="" coords="67,101,217,131"/></map>
+<div class="center"><img src="../../d6/d8b/a00821.png" border="0" usemap="#src_2base_2util_2_metadata_info_const_8h" alt=""/></div>
+<map name="src_2base_2util_2_metadata_info_const_8h" id="src_2base_2util_2_metadata_info_const_8h">
+</map>
 </div>
 </div>
 <p><a href="../../da/d9c/a00413_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html">SimulationModule</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base module for all simulation modules in SEIMS.  <a href="../../d9/d73/a00060.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ad2dde160974c283ccf8f0ce280f791ba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9c/a00413.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a> { <a class="el" href="../../da/d9c/a00413.html#ad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff">TIMESTEP_HILLSLOPE</a>, 
-<a class="el" href="../../da/d9c/a00413.html#ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a>, 
-<a class="el" href="../../da/d9c/a00413.html#ad2dde160974c283ccf8f0ce280f791baa1c1736570b6e4cbb0118b07b67b2c3ce">TIMESTEP_ECOLOGY</a>
+<tr class="memitem:gac6cf78ef837450cfb19495fe34976b8c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a> { <br/>
+&#160;&#160;<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8ca805fbcbe894d2d1acacc96a6ffd82c2a">DT_Unknown</a> = -1, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a> = 0, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8ca8f7fceea4f3d9858ee2b730adec47a71">DT_Array1D</a> = 1, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8cad5cc7ba7a2388bee386d5c989e4accbf">DT_Array3D</a> = 3, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8caa990e5f10dac296e797fc025272c6c7c">DT_Array1DDateValue</a> = 4, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8ca3e8d58da5efbb3088cae2159fb56fca2">DT_Raster</a> = 5, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8ca91776bf0704a49b5f9a76f2148aa264c">DT_SiteInformation</a> = 6, 
+<br/>
+&#160;&#160;<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8caedd5f1194df98c6aee8948f2254232f1">DT_LapseRateArray</a> = 7, 
+<a class="el" href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8ca59df0ecf1353da897fc3583006e3bdda">DT_Scenario</a> = 8
+<br/>
  }</td></tr>
-<tr class="separator:ad2dde160974c283ccf8f0ce280f791ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gac6cf78ef837450cfb19495fe34976b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum of dimension data types  <a href="../../d8/dcb/a00706.html#gac6cf78ef837450cfb19495fe34976b8c">More...</a><br/></td></tr>
+<tr class="separator:gac6cf78ef837450cfb19495fe34976b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a2044de4a4b5cde2614b4e6830ff8e761"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2044de4a4b5cde2614b4e6830ff8e761"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9c/a00413.html#a2044de4a4b5cde2614b4e6830ff8e761">XMLHeader</a> = &quot;&lt;?xml version='1.0' encoding='utf-8'?&gt;\n&lt;?xml-schema href='InfoXMLSchema.xsd'?&gt;&quot;</td></tr>
+<tr class="memdesc:a2044de4a4b5cde2614b4e6830ff8e761"><td class="mdescLeft">&#160;</td><td class="mdescRight">XML Info file header. <br/></td></tr>
+<tr class="separator:a2044de4a4b5cde2614b4e6830ff8e761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a033f466613f46bdca058f2caa1d9da0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a033f466613f46bdca058f2caa1d9da0c"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9c/a00413.html#a033f466613f46bdca058f2caa1d9da0c">XMLComment</a> = &quot;&lt;!-- This file was auto-generated by the MetaDataInfo class. --&gt;&quot;</td></tr>
+<tr class="memdesc:a033f466613f46bdca058f2caa1d9da0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">comment for XML file <br/></td></tr>
+<tr class="separator:a033f466613f46bdca058f2caa1d9da0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc4541bbc2a38566b68e4df399041605"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc4541bbc2a38566b68e4df399041605"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d9c/a00413.html#adc4541bbc2a38566b68e4df399041605">TagMetadata</a> = &quot;metadata&quot;</td></tr>
+<tr class="memdesc:adc4541bbc2a38566b68e4df399041605"><td class="mdescLeft">&#160;</td><td class="mdescRight">XML element tags. <br/></td></tr>
+<tr class="separator:adc4541bbc2a38566b68e4df399041605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Parent class for all modules in SEIMS. </p>
+<div class="textblock"><p>Define some const variables used by <a class="el" href="../../db/d3a/a00040.html" title="Metadata information of module. ">MetadataInfo</a> class. </p>
+<p>This file contains string constants for the <a class="el" href="../../db/d3a/a00040.html" title="Metadata information of module. ">MetadataInfo</a> XML Schema.</p>
 <dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Jul. 2010 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jun. 2010 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../da/d9c/a00413_source.html">SimulationModule.h</a>.</p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ad2dde160974c283ccf8f0ce280f791ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="../../da/d9c/a00413.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ad2dde160974c283ccf8f0ce280f791baadc40c96edcf1d8300170f1bef61f49ff"></a>TIMESTEP_HILLSLOPE</em>&#160;</td><td class="fielddoc">
-<p>Hillslope scale </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c"></a>TIMESTEP_CHANNEL</em>&#160;</td><td class="fielddoc">
-<p>Channel scale </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad2dde160974c283ccf8f0ce280f791baa1c1736570b6e4cbb0118b07b67b2c3ce"></a>TIMESTEP_ECOLOGY</em>&#160;</td><td class="fielddoc">
-<p>Ecology scale </p>
-</td></tr>
-</table>
-
-<p>Definition at line <a class="el" href="../../da/d9c/a00413_source.html#l00021">21</a> of file <a class="el" href="../../da/d9c/a00413_source.html">SimulationModule.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../da/d9c/a00413_source.html">MetadataInfoConst.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../da/d9c/a00413.html">SimulationModule.h</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:07 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../da/d9c/a00413.html">MetadataInfoConst.h</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -151,34 +151,34 @@ $(document).ready(function(){initNavTree('d1/d51/a00079_source.html','../../');}
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordflow">if</span> forCluster <span class="keywordflow">and</span> <span class="stringliteral">&#39;cluster_&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> SpatialDBName.lower():</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    SpatialDBName = <span class="stringliteral">&#39;cluster_&#39;</span> + SpatialDBName</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">## Climate Input</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># Thiessen Polygon of HydroClimate sites data are Deprecated, and replaced by Sites_M.txt and Sites_P.txt.</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">#PrecSitesVorShp = CLIMATE_DATA_DIR + os.sep + &#39;shp&#39; + os.sep + &#39;Preci_dianbu_Vor.shp&#39;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">#if stormMode:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">#    PrecStormSitesVorShp = CLIMATE_DATA_DIR + os.sep + &#39;shp&#39; + os.sep + &#39;Preci_dianbu_Vor_storm.shp&#39;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">#MeteorSitesVorShp = CLIMATE_DATA_DIR + os.sep + &#39;shp&#39; + os.sep + &#39;Metero_hefei_Vor.shp&#39;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;HydroClimateVarFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Variables.txt&#39;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;MetroSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Sites_M.txt&#39;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;PrecSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Sites_P.txt&#39;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;MeteoDailyFile = CLIMATE_DATA_DIR + os.sep+ <span class="stringliteral">&#39;meteorology_dianbu_daily.txt&#39;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;PrecExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;precipitation_by_day_&#39;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;PrecDataYear = [2014]</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;DischargeExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;discharge_by_day_&#39;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;DischargeYear = [2014]</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;PrecSitesThiessen = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordflow">if</span> stormMode:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    PrecStormSitesThiessen = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor_storm.shp&#39;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;MeteorSitesThiessen = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Metero_hefei_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;HydroClimateVarFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Variables.txt&#39;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;MetroSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Sites_M.txt&#39;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;PrecSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Sites_P.txt&#39;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;MeteoDailyFile = CLIMATE_DATA_DIR + os.sep+ <span class="stringliteral">&#39;meteorology_dianbu_daily.txt&#39;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;PrecExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;precipitation_by_day_&#39;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;PrecDataYear = [2014]</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;DischargeExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;discharge_by_day_&#39;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;DischargeYear = [2014]</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">## Spatial Input</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;dem = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;dem_30m.tif&#39;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;outlet_file = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;outlet_30m.shp&#39;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;threshold = 0  <span class="comment"># threshold for stream extraction from D8-flow accumulation weighted Peuker-Douglas stream sources</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;               <span class="comment"># if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;np = 4  <span class="comment"># number of parallel processors</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;sandList = []</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;clayList = []</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;orgList = []</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> [1,2]:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">## Spatial Input</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;dem = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;dem_30m.tif&#39;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;outlet_file = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;outlet_30m.shp&#39;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;threshold = 0  <span class="comment"># threshold for stream extraction from D8-flow accumulation weighted Peuker-Douglas stream sources</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;               <span class="comment"># if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;np = 4  <span class="comment"># number of parallel processors</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;sandList = []</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;clayList = []</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;orgList = []</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;nlyrs = 2   <span class="comment"># soil layers</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1,nlyrs+1):</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    sandFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;sand&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span> </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    clayFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;clay&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    orgFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;org&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('d1/d51/a00079_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>config.py</b></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:04 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 06:53:31 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

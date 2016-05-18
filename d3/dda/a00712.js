@@ -1,5 +1,5 @@
 var a00712 =
 [
-    [ "CH_DW", "dc/d14/a00720.html", "dc/d14/a00720" ],
-    [ "GWATER_RESERVOIR", "dd/dc1/a00721.html", null ]
+    [ "ITP", "dc/d8f/a00718.html", "dc/d8f/a00718" ],
+    [ "TSD_RD", "dd/dd8/a00719.html", "dd/dd8/a00719" ]
 ];

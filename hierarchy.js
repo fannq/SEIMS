@@ -2,9 +2,10 @@ var hierarchy =
 [
     [ "base_VariableData", "d7/dd4/a00013.html", null ],
     [ "ckrinfo_t", "d2/de7/a00014.html", null ],
-    [ "clsHydroClimateData", "d7/d7a/a00016.html", null ],
-    [ "clsLapseData", "d4/d51/a00017.html", null ],
-    [ "clsRasterData", "d1/d2b/a00018.html", null ],
+    [ "clsHydroClimateData", "dd/d1b/a00015.html", null ],
+    [ "clsLapseData", "d7/d7a/a00016.html", null ],
+    [ "clsRasterData", "d4/d51/a00017.html", null ],
+    [ "clsReach", "d1/d2b/a00018.html", null ],
     [ "clsSimpleTxtData", "dd/da2/a00019.html", null ],
     [ "clsSiteData", "db/db2/a00020.html", null ],
     [ "clsSpecificOutput", "de/d11/a00021.html", null ],
@@ -42,7 +43,6 @@ var hierarchy =
       [ "SettingsInput", "d3/d8b/a00059.html", null ]
     ] ],
     [ "SimulationModule", "d9/d73/a00060.html", [
-      [ "ClimateParameters", "dd/d1b/a00015.html", null ],
       [ "clsTSD_RD", "d7/de0/a00022.html", null ],
       [ "DiffusiveWave", "d0/d33/a00027.html", null ],
       [ "Interpolate", "d4/d8c/a00035.html", null ],

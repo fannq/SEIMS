@@ -1,7 +1,8 @@
 var searchData=
 [
   ['_7ebase_5fvariabledata',['~base_VariableData',['../d7/dd4/a00013.html#a1b5f636b8d7171f4b378f5798f2f3276',1,'base_VariableData']]],
-  ['_7eclsrasterdata',['~clsRasterData',['../d1/d2b/a00018.html#addaaf49b2b333437c21470ee9856672c',1,'clsRasterData']]],
+  ['_7eclsrasterdata',['~clsRasterData',['../d4/d51/a00017.html#addaaf49b2b333437c21470ee9856672c',1,'clsRasterData']]],
+  ['_7eclsreach',['~clsReach',['../d1/d2b/a00018.html#a904e2ce879893010167c1bc6b6587d87',1,'clsReach']]],
   ['_7eclssimpletxtdata',['~clsSimpleTxtData',['../dd/da2/a00019.html#a0cb6a4ddde29491222b60ce5d94c0e45',1,'clsSimpleTxtData']]],
   ['_7eclssitedata',['~clsSiteData',['../db/db2/a00020.html#ac4ab57c4491e44ec60351551a40965ed',1,'clsSiteData']]],
   ['_7eclsspecificoutput',['~clsSpecificOutput',['../de/d11/a00021.html#ae972efcb5a6a9311733d10327b47a3a0',1,'clsSpecificOutput']]],

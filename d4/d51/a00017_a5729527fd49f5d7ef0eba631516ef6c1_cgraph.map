@@ -1,0 +1,11 @@
+<map id="clsRasterData::ReadFromMongoDB" name="clsRasterData::ReadFromMongoDB">
+<area shape="rect" id="node2" href="$d4/d51/a00017.html#afe251c97874205fe89d30afcd773c908" title="Read raster data from MongoDB. " alt="" coords="334,5,613,35"/>
+<area shape="rect" id="node3" href="$d4/d51/a00017.html#ae6d573951cf55cd9ae106bd98a2ffb02" title="Get non&#45;NODATA position index data, include cell number and (row, col) " alt="" coords="373,83,573,130"/>
+<area shape="rect" id="node4" href="$d4/d51/a00017.html#acb210f7c2ebb66ea63c5963698f91de6" title="Get column number of raster data. " alt="" coords="380,155,567,184"/>
+<area shape="rect" id="node5" href="$d4/d51/a00017.html#a627ed4a52765633fa262deeb24ee7e2a" title="Get row number of raster data. " alt="" coords="376,208,571,237"/>
+<area shape="rect" id="node6" href="$d4/d51/a00017.html#a9971a8c15ca08f590f7f7c0e919355f0" title="Get NoDATA value of raster data. " alt="" coords="369,262,577,309"/>
+<area shape="rect" id="node7" href="$d4/d51/a00017.html#abe80cb9ae92ee4824f9a3e146151b572" title="Get cell size of raster data. " alt="" coords="362,333,585,363"/>
+<area shape="rect" id="node8" href="$d4/d51/a00017.html#ae3e989c232159c84a51662dae9101861" title="Get X coordinate of left lower corner of raster data. " alt="" coords="363,387,583,416"/>
+<area shape="rect" id="node9" href="$d4/d51/a00017.html#a630fc3ea03178aa217147ae8344f480e" title="Get Y coordinate of left lower corner of raster data. " alt="" coords="363,440,583,469"/>
+<area shape="rect" id="node10" href="$d4/d51/a00017.html#aa88d47b1fad870a6357edb2030d4ba90" title="Get the spatial reference. " alt="" coords="380,493,567,523"/>
+</map>

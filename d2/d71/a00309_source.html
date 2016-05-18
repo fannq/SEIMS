@@ -153,10 +153,10 @@ $(document).ready(function(){initNavTree('d2/d71/a00309_source.html','../../');}
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">#    defaultClay = 30</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">#    defaultOrg = 2.5</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(n):</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        strLayer = str(i+1) <span class="keywordflow">if</span> i &gt; 0 <span class="keywordflow">else</span> <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        sandFile = <span class="stringliteral">&quot;%s/sand%s.tif&quot;</span> % (dstdir, strLayer)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        clayFile = <span class="stringliteral">&quot;%s/clay%s.tif&quot;</span> % (dstdir, strLayer)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        orgFile = <span class="stringliteral">&quot;%s/org%s.tif&quot;</span> % (dstdir, strLayer)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">#strLayer = str(i+1) if i &gt; 0 else &#39;&#39;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        sandFile = <span class="stringliteral">&quot;%s/sand_%s.tif&quot;</span> % (dstdir, str(i+1))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        clayFile = <span class="stringliteral">&quot;%s/clay_%s.tif&quot;</span> % (dstdir, str(i+1))</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        orgFile = <span class="stringliteral">&quot;%s/org_%s.tif&quot;</span> % (dstdir, str(i+1))</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        fMask.write(<span class="stringliteral">&quot;%s\t%d\t%s\n&quot;</span> % (sandList[i], defaultSand, sandFile))</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        fMask.write(<span class="stringliteral">&quot;%s\t%d\t%s\n&quot;</span> % (clayList[i], defaultClay, clayFile))    </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> orgList <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
@@ -297,7 +297,7 @@ $(document).ready(function(){initNavTree('d2/d71/a00309_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>parameters_extraction.py</b></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 06:53:32 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,9 +1,5 @@
-<map id="src/base/data/RegularMeasurement.cpp" name="src/base/data/RegularMeasurement.cpp">
-<area shape="rect" id="node3" href="$dc/dc9/a00389.html" title="Regular hydroclimate data, e.g., daily data. " alt="" coords="473,83,663,112"/>
-<area shape="rect" id="node14" href="$d2/db6/a00411.html" title="Define ModelException class. " alt="" coords="5,237,155,267"/>
-<area shape="rect" id="node16" href="$de/df7/a00418.html" title="Utilities class to handle string, date time and file. " alt="" coords="759,160,823,189"/>
-<area shape="rect" id="node4" href="$de/d08/a00381.html" title="Measurement class to store HydroClimate site data. " alt="" coords="455,160,587,189"/>
-<area shape="rect" id="node8" href="$df/d15/a00416.html" title="Predefined string constants used in the code. " alt="" coords="611,160,671,189"/>
-<area shape="rect" id="node9" href="$d2/d56/a00384_source.html" title="MongoUtil.h" alt="" coords="318,160,425,189"/>
-<area shape="rect" id="node11" href="$dc/de3/a00373.html" title="Define Raster class to handle raster data. " alt="" coords="297,237,432,267"/>
+<map id="src/base/data/Measurement.cpp" name="src/base/data/Measurement.cpp">
+<area shape="rect" id="node2" href="$d5/d05/a00385.html" title="Measurement class to store HydroClimate site data. " alt="" coords="169,83,300,112"/>
+<area shape="rect" id="node6" href="$db/d43/a00422.html" title="Utilities class to handle string, date time and file. " alt="" coords="407,83,471,112"/>
+<area shape="rect" id="node14" href="$d0/dd6/a00415.html" title="Define ModelException class. " alt="" coords="546,83,696,112"/>
 </map>

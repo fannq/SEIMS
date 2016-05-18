@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/clsInterpolationWeightData.h Source File</title>
+<title>SEIMS-2016: src/base/data/ClimateParams.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,44 +111,47 @@ $(document).ready(function(){initNavTree('d6/d80/a00371_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">clsInterpolationWeightData.h</div>  </div>
+<div class="title">ClimateParams.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d6/d80/a00371.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;mongoc.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//#include &quot;gridfs.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>clsInterpolationWeightData</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    clsInterpolationWeightData(<span class="keywordtype">string</span> weightFileName);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    clsInterpolationWeightData(mongoc_gridfs_t *gfs, <span class="keyword">const</span> <span class="keywordtype">char</span>* remoteFilename);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~clsInterpolationWeightData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> getWeightData(<span class="keywordtype">int</span>*,<span class="keywordtype">float</span>**);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> dump(ostream *fs);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> dump(<span class="keywordtype">string</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">string</span> m_fileName;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">float</span>* m_weightData;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> m_nRows;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> m_nCols;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> ReadFromMongoDB(mongoc_gridfs_t *gfs, <span class="keyword">const</span> <span class="keywordtype">char</span>* remoteFilename);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">//float *m_tMean;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_tMax;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_tMin;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_sr;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_rhd;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_ws;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_latitude;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span>    <span class="comment">//int m_size;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_srMax;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_svp;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span>    <span class="comment">//float *m_avp;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span>    <span class="comment">//int m_jday;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">int</span>     <a class="code" href="../../d6/d80/a00371.html#a880bbb9f22edb16adcd5728ea8387ff1">JulianDay</a>(time_t&amp;);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">float</span>   <a class="code" href="../../d6/d80/a00371.html#a33305367fc0ec93bdab8ad6c10810596">LatentHeatVapor</a>(<span class="keywordtype">float</span> &amp;tmean);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">float</span>   <a class="code" href="../../d6/d80/a00371.html#a077e86b3b4ebe93feac1ad25470700f9">MaxSolarRadiation</a>(<span class="keywordtype">int</span>&amp;,<span class="keywordtype">float</span>&amp;);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">float</span>   <a class="code" href="../../d6/d80/a00371.html#a4128ee4d67f3fb9b832ac0920d82ffc8">MeanBarometricPressure</a>(<span class="keywordtype">float</span> &amp;elev);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">float</span> <a class="code" href="../../d6/d80/a00371.html#a0c91f402818fea528d0aa0fcb24a3d47">PsychrometricConst</a>(<span class="keywordtype">float</span> &amp;tmean, <span class="keywordtype">float</span> &amp;elev);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">float</span>   <a class="code" href="../../d6/d80/a00371.html#a699b5ae6b4166d7295090f27b3671c89">SaturationVaporPressure</a>(<span class="keywordtype">float</span> &amp;t);</div>
+<div class="ttc" id="a00371_html_a4128ee4d67f3fb9b832ac0920d82ffc8"><div class="ttname"><a href="../../d6/d80/a00371.html#a4128ee4d67f3fb9b832ac0920d82ffc8">MeanBarometricPressure</a></div><div class="ttdeci">float MeanBarometricPressure(float &amp;elev)</div><div class="ttdoc">Calculate mean barometric pressure. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00019">ClimateParams.cpp:19</a></div></div>
+<div class="ttc" id="a00371_html_a33305367fc0ec93bdab8ad6c10810596"><div class="ttname"><a href="../../d6/d80/a00371.html#a33305367fc0ec93bdab8ad6c10810596">LatentHeatVapor</a></div><div class="ttdeci">float LatentHeatVapor(float &amp;tmean)</div><div class="ttdoc">Calculate latent heat of vaporization(MJ/kg) </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00024">ClimateParams.cpp:24</a></div></div>
+<div class="ttc" id="a00371_html_a699b5ae6b4166d7295090f27b3671c89"><div class="ttname"><a href="../../d6/d80/a00371.html#a699b5ae6b4166d7295090f27b3671c89">SaturationVaporPressure</a></div><div class="ttdeci">float SaturationVaporPressure(float &amp;t)</div><div class="ttdoc">Calculates saturation vapor pressure at a given air temperature. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00080">ClimateParams.cpp:80</a></div></div>
+<div class="ttc" id="a00371_html_a0c91f402818fea528d0aa0fcb24a3d47"><div class="ttname"><a href="../../d6/d80/a00371.html#a0c91f402818fea528d0aa0fcb24a3d47">PsychrometricConst</a></div><div class="ttdeci">float PsychrometricConst(float &amp;tmean, float &amp;elev)</div><div class="ttdoc">Calculate psychrometric constant. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00073">ClimateParams.cpp:73</a></div></div>
+<div class="ttc" id="a00371_html_a880bbb9f22edb16adcd5728ea8387ff1"><div class="ttname"><a href="../../d6/d80/a00371.html#a880bbb9f22edb16adcd5728ea8387ff1">JulianDay</a></div><div class="ttdeci">int JulianDay(time_t &amp;)</div><div class="ttdoc">Get the Julian day of one day. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00029">ClimateParams.cpp:29</a></div></div>
+<div class="ttc" id="a00371_html_a077e86b3b4ebe93feac1ad25470700f9"><div class="ttname"><a href="../../d6/d80/a00371.html#a077e86b3b4ebe93feac1ad25470700f9">MaxSolarRadiation</a></div><div class="ttdeci">float MaxSolarRadiation(int &amp;, float &amp;)</div><div class="ttdoc">Calculate the max solar radiation for a station of one day. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00036">ClimateParams.cpp:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d6/d80/a00371.html">clsInterpolationWeightData.h</a></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d6/d80/a00371.html">ClimateParams.h</a></li>
+    <li class="footer">Generated on Wed May 18 2016 06:53:32 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

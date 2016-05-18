@@ -180,39 +180,38 @@ $(document).ready(function(){initNavTree('d9/d0d/a00298_source.html','../../');}
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            siteField = <span class="stringliteral">&#39;SiteList%s&#39;</span> % (siteType,)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            dic[siteField] = siteListStr</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        dbModel.SiteList.insert(dic)      </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    dbModel.SiteList.create_index([(<span class="stringliteral">&#39;SubbasinID&#39;</span>, pymongo.ASCENDING), (<span class="stringliteral">&#39;Mode&#39;</span>, pymongo.ASCENDING)])        </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        dbModel[hydroDBName].SiteList.insert_one(dic)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    dbModel[hydroDBName].SiteList.create_index([(<span class="stringliteral">&#39;SubbasinID&#39;</span>, pymongo.ASCENDING), (<span class="stringliteral">&#39;Mode&#39;</span>, pymongo.ASCENDING)])</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;meteorology sites table was generated.&#39;</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> nSubbasins</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    subbasinFile = <span class="stringliteral">r&#39;F:\data\guanting\model_zjk_90m\basin.shp&#39;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    thiessenFileMeteo = <span class="stringliteral">r&#39;F:\data\guanting\meteorology_sites_thiessen.shp&#39;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    thiessenFilePreci = <span class="stringliteral">r&#39;F:\data\guanting\stations_need_thiessen.shp&#39;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    subbasinFile = <span class="stringliteral">r&#39;E:\data\model_data\model_dianbu_30m_longterm\data_prepare\output\basin.shp&#39;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    thiessenFileMeteo = <span class="stringliteral">r&#39;E:\data\model_data\model_dianbu_30m_longterm\data_prepare\climate\shp\Metero_hefei_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    thiessenFilePreci = <span class="stringliteral">r&#39;E:\data\model_data\model_dianbu_30m_longterm\data_prepare\climate\shp\Preci_dianbu_Vor.shp&#39;</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    hostname = <span class="stringliteral">&#39;192.168.6.55&#39;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    hostname = <span class="stringliteral">&#39;127.0.0.1&#39;</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    port = 27017</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">try</span>:</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        conn = MongoClient(host=hostname, port=27017)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">#conn = Connection(host=hostname, port=27017)</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;Connected successfully&quot;</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">except</span> ConnectionFailure, e:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        sys.stderr.write(<span class="stringliteral">&quot;Could not connect to MongoDB: %s&quot;</span> % e)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        sys.exit(1)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    thiessenFileList = [thiessenFileMeteo, thiessenFilePreci]</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    typeList = [<span class="stringliteral">&#39;M&#39;</span>, <span class="stringliteral">&#39;P&#39;</span>]</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    model_name = <span class="stringliteral">&#39;model_zjk_90m&#39;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    FindSites(conn, model_name, <span class="stringliteral">&#39;qingshuihe&#39;</span>, subbasinFile, thiessenFileList, typeList, <span class="stringliteral">&#39;DAILY&#39;</span>)    </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;done!&#39;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;Connected successfully&quot;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">except</span> ConnectionFailure, e:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        sys.stderr.write(<span class="stringliteral">&quot;Could not connect to MongoDB: %s&quot;</span> % e)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        sys.exit(1)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    thiessenFileList = [thiessenFileMeteo, thiessenFilePreci]</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    typeList = [<span class="stringliteral">&#39;M&#39;</span>, <span class="stringliteral">&#39;P&#39;</span>]</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    model_name = <span class="stringliteral">&#39;model_dianbu_30m_longterm&#39;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    FindSites(conn, model_name, subbasinFile, thiessenFileList, typeList, <span class="stringliteral">&#39;DAILY&#39;</span>)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;done!&#39;</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>find_sites.py</b></li>
-    <li class="footer">Generated on Sat May 14 2016 12:50:06 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 06:53:32 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

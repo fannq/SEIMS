@@ -1,5 +1,5 @@
-<map id="Hydrology" name="Hydrology">
-<area shape="rect" id="node1" href="$dd/dc1/a00721.html" title="Calculate groundwater using reservoir method. " alt="" coords="281,5,479,35"/>
-<area shape="rect" id="node2" href="$d4/deb/a00710.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
-<area shape="rect" id="node3" href="$dc/d14/a00720.html" title="Channel routing using diffusive wave equation. " alt="" coords="339,59,421,88"/>
+<map id="Climate" name="Climate">
+<area shape="rect" id="node1" href="$dd/dd8/a00719.html" title="Read Time Series Data. " alt="" coords="261,5,349,35"/>
+<area shape="rect" id="node2" href="$de/d4c/a00711.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node4" href="$dc/d8f/a00718.html" title="Interpolation Module. " alt="" coords="282,59,329,88"/>
 </map>
