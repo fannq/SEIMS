@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('d8/d53/a00081_source.html','../../');}
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">## Directionaries </span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    BASE_DATA_DIR = <span class="stringliteral">r&#39;E:\data\model_data\model_dianbu_30m_longterm\data_prepare&#39;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    BASE_DATA_DIR = <span class="stringliteral">r&#39;D:\SEIMS_model\Model_data\model_dianbu_30m_longterm\data_prepare&#39;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    TXT_DB_DIR = <span class="stringliteral">r&#39;E:\code\Hydro\SEIMS\database&#39;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    PREPROC_SCRIPT_DIR = <span class="stringliteral">r&#39;E:\code\Hydro\SEIMS\preprocess&#39;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    CPP_PROGRAM_DIR = <span class="stringliteral">r&#39;D:\Compile\SEIMS_Preprocess\Release&#39;</span></div>
@@ -174,55 +174,61 @@ $(document).ready(function(){initNavTree('d8/d53/a00081_source.html','../../');}
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;               <span class="comment"># if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;np = 4  <span class="comment"># number of parallel processors</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;sandList = []</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;clayList = []</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;orgList = []</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;nlyrs = 2   <span class="comment"># soil layers</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1,nlyrs+1):</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    sandFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;sand&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span> </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    clayFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;clay&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    orgFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;org&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    sandList.append(sandFile)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    clayList.append(clayFile)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    orgList.append(orgFile)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;defaultSand = 40</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;defaultClay = 30</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;defaultOrg = 2.5</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">## Predefined variables</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;CROP_ATTR_LIST  = [<span class="stringliteral">&quot;IDC&quot;</span>, <span class="stringliteral">&quot;EXT_COEF&quot;</span>,  <span class="stringliteral">&quot;BMX_TREES&quot;</span>, <span class="stringliteral">&quot;BLAI&quot;</span>, <span class="stringliteral">&quot;HVSTI&quot;</span>,\</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="stringliteral">&quot;MAT_YRS&quot;</span>, <span class="stringliteral">&quot;T_BASE&quot;</span>, <span class="stringliteral">&quot;FRGRW1&quot;</span>, <span class="stringliteral">&quot;FRGRW2&quot;</span>, <span class="stringliteral">&quot;LAIMX1&quot;</span>,\</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="stringliteral">&quot;LAIMX2&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;BN1&quot;</span>, <span class="stringliteral">&quot;BN2&quot;</span>, <span class="stringliteral">&quot;BN3&quot;</span>, <span class="stringliteral">&quot;BP1&quot;</span>, <span class="stringliteral">&quot;BP2&quot;</span>,\</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="stringliteral">&quot;BP3&quot;</span>, <span class="stringliteral">&quot;BIO_E&quot;</span>, <span class="stringliteral">&quot;BIOEHI&quot;</span>, <span class="stringliteral">&quot;CO2HI&quot;</span>, <span class="stringliteral">&quot;WAVP&quot;</span>, <span class="stringliteral">&quot;BIO_LEAF&quot;</span>,\</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="stringliteral">&quot;RDMX&quot;</span>,<span class="stringliteral">&quot;CNYLD&quot;</span>, <span class="stringliteral">&quot;CPYLD&quot;</span>, <span class="stringliteral">&quot;WSYF&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;T_OPT&quot;</span>]</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"># LANDUSE_ATTR_LIST and SOIL_ATTR_LIST is selected from sqliteFile database</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;LANDUSE_ATTR_LIST = [<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;Interc_max&quot;</span>, <span class="stringliteral">&quot;Interc_min&quot;</span>, <span class="stringliteral">&quot;RootDepth&quot;</span>, \</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <span class="stringliteral">&quot;USLE_C&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>,<span class="stringliteral">&quot;USLE_P&quot;</span>]</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;LANDUSE_ATTR_DB = [<span class="stringliteral">&quot;manning&quot;</span>,<span class="stringliteral">&quot;i_max&quot;</span>,<span class="stringliteral">&quot;i_min&quot;</span>, <span class="stringliteral">&quot;root_depth&quot;</span>, <span class="stringliteral">&quot;usle_c&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>]</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">## Be caution, the sequence from &quot;Sand&quot; to &quot;Poreindex&quot; if fixed because of soil_param.py.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;SOIL_ATTR_LIST = [<span class="stringliteral">&quot;Sand&quot;</span>, <span class="stringliteral">&quot;Clay&quot;</span>, <span class="stringliteral">&quot;WiltingPoint&quot;</span>, <span class="stringliteral">&quot;FieldCap&quot;</span>, <span class="stringliteral">&quot;Porosity&quot;</span>,<span class="stringliteral">&quot;Density&quot;</span>,\</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="stringliteral">&quot;Conductivity&quot;</span>, <span class="stringliteral">&quot;Poreindex&quot;</span>, <span class="stringliteral">&quot;USLE_K&quot;</span>, <span class="stringliteral">&quot;Residual&quot;</span>, ]</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;SOIL_ATTR_DB  = [<span class="stringliteral">&quot;sand&quot;</span>, <span class="stringliteral">&quot;clay&quot;</span>,<span class="stringliteral">&quot;wp&quot;</span>, <span class="stringliteral">&quot;fc&quot;</span>, <span class="stringliteral">&quot;porosity&quot;</span>,<span class="stringliteral">&quot;B_DENSITY&quot;</span>,<span class="stringliteral">&quot;ks&quot;</span>, <span class="stringliteral">&quot;P_INDEX&quot;</span>,\</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="stringliteral">&quot;usle_k&quot;</span>, <span class="stringliteral">&quot;rm&quot;</span>]</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">### There are 15 attributes in SoilLookup table now. </span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">### They are [SOILCODE], [SNAM], [KS](Conductivity), [POROSITY], [FC](field capacity), [P_INDEX](Poreindex), [RM],</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">### [WP](wiltingpoint), [B_DENSITY], [SAND], [CLAY], [SILT], [USLE_K], [TEXTURE], [HG]</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">## Parameters for soil chemical properties initialization</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;rootDepthFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;RootDepth.tif&#39;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;densityList = []</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;sandList = []</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;clayList = []</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;orgList = []</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;nlyrs = 2   <span class="comment"># soil layers</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;RD = 0   <span class="comment"># initial rootDepth</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;nlyrs_thick = [100, RD]   <span class="comment">#soil layer thick, unit is mm</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1, nlyrs + 1):</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    densityFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;Density&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    sandFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;sand&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span> </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    clayFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;clay&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    orgFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;org&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    densityList.append(densityFile)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    sandList.append(sandFile)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    clayList.append(clayFile)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    orgList.append(orgFile)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;defaultSand = 40</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;defaultClay = 30</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;defaultOrg = 2.5</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">## Predefined variables</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;CROP_ATTR_LIST  = [<span class="stringliteral">&quot;IDC&quot;</span>, <span class="stringliteral">&quot;EXT_COEF&quot;</span>,  <span class="stringliteral">&quot;BMX_TREES&quot;</span>, <span class="stringliteral">&quot;BLAI&quot;</span>, <span class="stringliteral">&quot;HVSTI&quot;</span>,\</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="stringliteral">&quot;MAT_YRS&quot;</span>, <span class="stringliteral">&quot;T_BASE&quot;</span>, <span class="stringliteral">&quot;FRGRW1&quot;</span>, <span class="stringliteral">&quot;FRGRW2&quot;</span>, <span class="stringliteral">&quot;LAIMX1&quot;</span>,\</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <span class="stringliteral">&quot;LAIMX2&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;BN1&quot;</span>, <span class="stringliteral">&quot;BN2&quot;</span>, <span class="stringliteral">&quot;BN3&quot;</span>, <span class="stringliteral">&quot;BP1&quot;</span>, <span class="stringliteral">&quot;BP2&quot;</span>,\</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="stringliteral">&quot;BP3&quot;</span>, <span class="stringliteral">&quot;BIO_E&quot;</span>, <span class="stringliteral">&quot;BIOEHI&quot;</span>, <span class="stringliteral">&quot;CO2HI&quot;</span>, <span class="stringliteral">&quot;WAVP&quot;</span>, <span class="stringliteral">&quot;BIO_LEAF&quot;</span>,\</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    <span class="stringliteral">&quot;RDMX&quot;</span>,<span class="stringliteral">&quot;CNYLD&quot;</span>, <span class="stringliteral">&quot;CPYLD&quot;</span>, <span class="stringliteral">&quot;WSYF&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;T_OPT&quot;</span>]</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"># LANDUSE_ATTR_LIST and SOIL_ATTR_LIST is selected from sqliteFile database</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;LANDUSE_ATTR_LIST = [<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;Interc_max&quot;</span>, <span class="stringliteral">&quot;Interc_min&quot;</span>, <span class="stringliteral">&quot;RootDepth&quot;</span>, \</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="stringliteral">&quot;USLE_C&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>,<span class="stringliteral">&quot;USLE_P&quot;</span>]</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;LANDUSE_ATTR_DB = [<span class="stringliteral">&quot;manning&quot;</span>,<span class="stringliteral">&quot;i_max&quot;</span>,<span class="stringliteral">&quot;i_min&quot;</span>, <span class="stringliteral">&quot;root_depth&quot;</span>, <span class="stringliteral">&quot;usle_c&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>]</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">## Be caution, the sequence from &quot;Sand&quot; to &quot;Poreindex&quot; if fixed because of soil_param.py.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;SOIL_ATTR_LIST = [<span class="stringliteral">&quot;Sand&quot;</span>, <span class="stringliteral">&quot;Clay&quot;</span>, <span class="stringliteral">&quot;WiltingPoint&quot;</span>, <span class="stringliteral">&quot;FieldCap&quot;</span>, <span class="stringliteral">&quot;Porosity&quot;</span>,<span class="stringliteral">&quot;Density&quot;</span>,\</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="stringliteral">&quot;Conductivity&quot;</span>, <span class="stringliteral">&quot;Poreindex&quot;</span>, <span class="stringliteral">&quot;USLE_K&quot;</span>, <span class="stringliteral">&quot;Residual&quot;</span>, ]</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;SOIL_ATTR_DB  = [<span class="stringliteral">&quot;sand&quot;</span>, <span class="stringliteral">&quot;clay&quot;</span>,<span class="stringliteral">&quot;wp&quot;</span>, <span class="stringliteral">&quot;fc&quot;</span>, <span class="stringliteral">&quot;porosity&quot;</span>,<span class="stringliteral">&quot;B_DENSITY&quot;</span>,<span class="stringliteral">&quot;ks&quot;</span>, <span class="stringliteral">&quot;P_INDEX&quot;</span>,\</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="stringliteral">&quot;usle_k&quot;</span>, <span class="stringliteral">&quot;rm&quot;</span>]</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">## Hydrological parameters</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;coeTable = {<span class="stringliteral">&quot;T2&quot;</span>:[0.05, 0.48],<span class="stringliteral">&quot;T10&quot;</span>:[0.12, 0.52], <span class="stringliteral">&quot;T100&quot;</span>:[0.18,0.55]} <span class="comment">## used in radius.py, TODO: what&#39;s meaning</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">### There are 15 attributes in SoilLookup table now. </span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">### They are [SOILCODE], [SNAM], [KS](Conductivity), [POROSITY], [FC](field capacity), [P_INDEX](Poreindex), [RM],</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">### [WP](wiltingpoint), [B_DENSITY], [SAND], [CLAY], [SILT], [USLE_K], [TEXTURE], [HG]</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">## Parameters for soil chemical properties initialization</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">## Hydrological parameters</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;coeTable = {<span class="stringliteral">&quot;T2&quot;</span>:[0.05, 0.48],<span class="stringliteral">&quot;T10&quot;</span>:[0.12, 0.52], <span class="stringliteral">&quot;T100&quot;</span>:[0.18,0.55]} <span class="comment">## used in radius.py, TODO: what&#39;s meaning</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>config.py</b></li>
-    <li class="footer">Generated on Wed May 18 2016 09:06:55 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 13:54:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
