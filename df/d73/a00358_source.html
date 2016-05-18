@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/bmps/ManagementOperationHarvest.cpp Source File</title>
+<title>SEIMS-2016: src/base/bmps/ManagementOperationFertilizer.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,30 +111,50 @@ $(document).ready(function(){initNavTree('df/d73/a00358_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ManagementOperationHarvest.cpp</div>  </div>
+<div class="title">ManagementOperationFertilizer.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;ManagementOperationHarvest.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;ManagementOperationFertilizer.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>MainBMP;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>NonStructural;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;ManagementOperationHarvest::ManagementOperationHarvest(</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">int</span> location,<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day,BMPParameter::ArealParameter* parameter):ManagementOperation(location,year,month,day,parameter)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;ManagementOperationHarvest::~ManagementOperationHarvest(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;ManagementOperationFertilizer::ManagementOperationFertilizer(</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">int</span> location,<span class="keywordtype">int</span> year, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> day,</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    BMPParameter::ArealParameter* parameter,</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">int</span> type,</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> rate):ManagementOperation(location,year,month,day,parameter)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    this-&gt;m_ferType = type;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    this-&gt;m_ferRate = rate;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;ManagementOperationFertilizer::~ManagementOperationFertilizer(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> ManagementOperationFertilizer::Dump(ostream* fs)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(fs == NULL) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ManagementOperation::Dump(fs);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    *fs &lt;&lt; <span class="stringliteral">&quot;Fertilizer Type : &quot;</span> &lt;&lt; this-&gt;m_ferType &lt;&lt; endl;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    *fs &lt;&lt; <span class="stringliteral">&quot;Fertilizer Rate : &quot;</span> &lt;&lt; this-&gt;m_ferRate &lt;&lt; endl;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(this-&gt;m_parameter != NULL)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        *fs &lt;&lt; <span class="stringliteral">&quot;*** parameters ***&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;m_parameter-&gt;Dump(fs);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>ManagementOperationHarvest.cpp</b></li>
-    <li class="footer">Generated on Wed May 18 2016 06:53:32 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>ManagementOperationFertilizer.cpp</b></li>
+    <li class="footer">Generated on Wed May 18 2016 08:44:55 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

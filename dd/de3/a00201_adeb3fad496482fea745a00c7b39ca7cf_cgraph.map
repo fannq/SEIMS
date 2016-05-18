@@ -1,0 +1,32 @@
+<map id="RefineKWay" name="RefineKWay">
+<area shape="rect" id="node2" href="$dd/de3/a00201.html#afd723ab2f44ffaa25d1d9f1909e06dfd" title="ComputeKWayPartitionParams" alt="" coords="166,746,410,775"/>
+<area shape="rect" id="node15" href="$de/dd2/a00207.html#a6dab60a85abb88ada807831e84cb84fc" title="EliminateSubDomainEdges" alt="" coords="178,148,398,178"/>
+<area shape="rect" id="node22" href="$da/d15/a00188.html#a9fe01ab71e17df2db81db0ce0376cc96" title="FindPartitionInducedComponents" alt="" coords="459,306,720,335"/>
+<area shape="rect" id="node23" href="$da/d15/a00188.html#a002ad59e8624946cc9450cb9b3c10741" title="EliminateComponents" alt="" coords="198,460,378,490"/>
+<area shape="rect" id="node26" href="$dd/de3/a00201.html#aa23b4d433fc175282f237653d3edb8a5" title="ComputeKWayBoundary" alt="" coords="1539,1236,1738,1266"/>
+<area shape="rect" id="node27" href="$dd/de3/a00201.html#ae2f5446999d83461cf5763dc4946182a" title="IsBalanced" alt="" coords="237,982,339,1011"/>
+<area shape="rect" id="node28" href="$dd/de3/a00201.html#a974cb62c010e195c90f8fb900359957c" title="ProjectKWayPartition" alt="" coords="201,928,375,958"/>
+<area shape="rect" id="node3" href="$d9/d01/a00227.html#ab24df9968589b0cfabb8f1a8b4661d0d" title="cnbrpoolReset" alt="" coords="526,876,653,906"/>
+<area shape="rect" id="node4" href="$d9/d01/a00227.html#a5c7982f300512c943ce53a0531529ae8" title="cnbrpoolGetNext" alt="" coords="818,643,961,672"/>
+<area shape="rect" id="node5" href="$d9/d01/a00227.html#a0eac0ea6853b8ee210cbd739e17782aa" title="vnbrpoolReset" alt="" coords="526,823,653,852"/>
+<area shape="rect" id="node6" href="$d9/d01/a00227.html#a371b41152c6e40d6866b357a4ffee5f1" title="vnbrpoolGetNext" alt="" coords="1059,514,1202,543"/>
+<area shape="rect" id="node7" href="$dd/de3/a00201.html#acd248e19a1ba82c235d52479e231e2f7" title="ComputeKWayVolGains" alt="" coords="491,618,687,647"/>
+<area shape="rect" id="node12" href="$d6/db3/a00130.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1974,690,2066,719"/>
+<area shape="rect" id="node8" href="$d9/d01/a00227.html#a24ba749ade92aef079e88d233317c068" title="iwspacemalloc" alt="" coords="825,463,953,492"/>
+<area shape="rect" id="node9" href="$d9/d01/a00227.html#a555f2ae3f4e5561c9b1ef592bf0f8476" title="wspacemalloc" alt="" coords="1069,408,1193,438"/>
+<area shape="rect" id="node10" href="$d0/d4a/a00147.html#ab7a380f0696a0d5421653fad336bcae0" title="gk_mcoreMalloc" alt="" coords="1301,514,1440,543"/>
+<area shape="rect" id="node11" href="$de/db9/a00159.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="1795,514,1917,543"/>
+<area shape="rect" id="node13" href="$d0/d4a/a00147.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="1591,688,1686,718"/>
+<area shape="rect" id="node14" href="$d0/d4a/a00147.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="1787,663,1925,692"/>
+<area shape="rect" id="node16" href="$d9/d01/a00227.html#a84ec1bdf52bc3f92ae3f2e43c42545ca" title="ikvwspacemalloc" alt="" coords="817,148,961,178"/>
+<area shape="rect" id="node17" href="$de/dd2/a00207.html#a78c50bcdffefbd90914a77c4add573cc" title="ComputeSubDomainGraph" alt="" coords="481,148,697,178"/>
+<area shape="rect" id="node18" href="$de/dd2/a00207.html#a39d997df18cf07ea8609a66db133a8b6" title="MoveGroupMinConnForCut" alt="" coords="480,202,699,231"/>
+<area shape="rect" id="node20" href="$de/dd2/a00207.html#acab0293e31c438218cd4b37b608466c6" title="MoveGroupMinConnForVol" alt="" coords="480,95,699,124"/>
+<area shape="rect" id="node19" href="$de/dd2/a00207.html#a004451dc6b5a9ebe36a063f7bcd6495a" title="UpdateEdgeSubDomainGraph" alt="" coords="769,252,1010,282"/>
+<area shape="rect" id="node21" href="$d3/db1/a00200.html#ac4e797b3ea2db37f88f436fc6481b989" title="KWayVolUpdate" alt="" coords="819,410,960,439"/>
+<area shape="rect" id="node24" href="$da/d15/a00188.html#a59be93c110982dd4b4e918957804e3b7" title="MoveGroupContigForCut" alt="" coords="489,564,690,594"/>
+<area shape="rect" id="node25" href="$da/d15/a00188.html#ac9671fbb0e67a5e8bee0d578ebcd0382" title="MoveGroupContigForVol" alt="" coords="489,460,689,490"/>
+<area shape="rect" id="node29" href="$dd/de3/a00201.html#a22a23a687ef7ed0d4f66ab58e3a81d12" title="AllocateKWayPartitionMemory" alt="" coords="1251,862,1490,891"/>
+<area shape="rect" id="node30" href="$d3/d65/a00154.html#a6af2646733e761482dafebbb5e351240" title="FreeGraph" alt="" coords="540,1082,639,1111"/>
+<area shape="rect" id="node31" href="$d3/d65/a00154.html#a12a6bda050dc470113f4d1cd5aa5777d" title="FreeRData" alt="" coords="839,1082,940,1111"/>
+</map>

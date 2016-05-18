@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['random_2ec',['random.c',['../d0/d48/a00165.html',1,'']]],
-  ['regularmeasurement_2ecpp',['RegularMeasurement.cpp',['../d4/d27/a00392.html',1,'']]],
-  ['regularmeasurement_2eh',['RegularMeasurement.h',['../da/dbf/a00393.html',1,'']]],
-  ['reservoirmethod_2eh',['ReservoirMethod.h',['../d6/d21/a00573.html',1,'']]],
-  ['rw_2ec',['rw.c',['../d9/d38/a00166.html',1,'']]],
-  ['rw_2ec',['rw.c',['../dc/de6/a00167.html',1,'']]]
+  ['random_2ec',['random.c',['../dc/de6/a00167.html',1,'']]],
+  ['regularmeasurement_2ecpp',['RegularMeasurement.cpp',['../d9/dad/a00394.html',1,'']]],
+  ['regularmeasurement_2eh',['RegularMeasurement.h',['../db/dbc/a00395.html',1,'']]],
+  ['reservoirmethod_2eh',['ReservoirMethod.h',['../de/d7c/a00576.html',1,'']]],
+  ['rw_2ec',['rw.c',['../dd/da7/a00168.html',1,'']]],
+  ['rw_2ec',['rw.c',['../de/d53/a00169.html',1,'']]]
 ];

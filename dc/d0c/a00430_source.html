@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/Deprecated/base_data/clsSpecificOutput.h Source File</title>
+<title>SEIMS-2016: src/Deprecated/base_data/clsSiteData.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,57 +111,61 @@ $(document).ready(function(){initNavTree('dc/d0c/a00430_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">clsSpecificOutput.h</div>  </div>
+<div class="title">clsSiteData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dc/d0c/a00430.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dcb/a00375.html">clsRasterData.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d11/a00021.html">clsSpecificOutput</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../de/d11/a00021.html">clsSpecificOutput</a>(<span class="keywordtype">string</span> projectPath,<span class="keywordtype">string</span> databasePath,<a class="code" href="../../d4/d51/a00017.html">clsRasterData</a>* templateRasterData,<span class="keywordtype">string</span> outputID);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    ~<a class="code" href="../../de/d11/a00021.html">clsSpecificOutput</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setData(time_t time,<span class="keywordtype">float</span>* data);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> dump();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> dump(<span class="keywordtype">string</span> fileName);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> TableNameFromOutputID(<span class="keywordtype">string</span> outputID);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    vector&lt;time_t&gt; m_times;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    vector&lt;string&gt; m_ids;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    vector&lt;int&gt;    m_positions;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    vector&lt;float&gt;  m_values;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    vector&lt;float&gt;  m_measurement;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    vector&lt;float&gt;  m_slope;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    vector&lt;float&gt;  m_curvature;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    vector&lt;float&gt;  m_landuse;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">string</span> m_outputID;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a>* m_templateRasterData;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setSlope(<span class="keywordtype">string</span> projectPath);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> setCurvature(<span class="keywordtype">string</span> projectPath);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setLanduse(<span class="keywordtype">string</span> projectPath);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="ttc" id="a00021_html"><div class="ttname"><a href="../../de/d11/a00021.html">clsSpecificOutput</a></div><div class="ttdoc">Special output class. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00026">clsSpecificOutput.h:26</a></div></div>
-<div class="ttc" id="a00375_html"><div class="ttname"><a href="../../dd/dcb/a00375.html">clsRasterData.h</a></div><div class="ttdoc">Define Raster class to handle raster data. </div></div>
-<div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">clsRasterData</a></div><div class="ttdoc">Raster data (1D and 2D) class to get access to raster data in MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dcb/a00375_source.html#l00029">clsRasterData.h:29</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d82/a00436.html">SiteInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/db9/a00426.html">clsHydroClimateData.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/db2/a00020.html">clsSiteData</a> : <span class="keyword">public</span> SiteInfo</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//clsSiteData(string databasePath,string tableName);</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//clsSiteData(string databasePath,int id,string type);</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span>    <a class="code" href="../../db/db2/a00020.html#a042557ea95dc146aa0a03bac2c88821b">clsSiteData</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> bson_t* info);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../db/db2/a00020.html#ac4ab57c4491e44ec60351551a40965ed">~clsSiteData</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span>                    addDataType(<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span>                    <a class="code" href="../../db/db2/a00020.html#adfb501124ee05dca18201a6e6f242aa5">addDataTypeMongo</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; type);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span>                    loadTimeSeriesData(time_t startTime,time_t endTime,<span class="keywordtype">int</span> interval);</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a68427407df83e49e9b20fcca0a9b97a3">   43</a></span>&#160;    <a class="code" href="../../dd/d1b/a00015.html">clsHydroClimateData</a>*    <a class="code" href="../../db/db2/a00020.html#a68427407df83e49e9b20fcca0a9b97a3">getHydroClimateData</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; type){<span class="keywordflow">return</span> <a class="code" href="../../db/db2/a00020.html#a748df1d01df2a500dd830de51fe092d1">m_timeSerieseData</a>[type];}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">float</span>                   getTimeSeriesData(time_t time,<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span>                    isHasDataOfType(<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span>                    dump(ostream* fs);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#ad964d12db5efdac326428c2fc1430997">   50</a></span>&#160;    <span class="keywordtype">string</span>                  <a class="code" href="../../db/db2/a00020.html#ad964d12db5efdac326428c2fc1430997">m_databasePath</a>; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a748df1d01df2a500dd830de51fe092d1">   52</a></span>&#160;    map&lt;string,clsHydroClimateData*&gt; <a class="code" href="../../db/db2/a00020.html#a748df1d01df2a500dd830de51fe092d1">m_timeSerieseData</a>; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span>                    <a class="code" href="../../db/db2/a00020.html#a61b2e9e67cf6c9922058894a85ebf032">checkData</a>(<span class="keywordtype">string</span>,time_t,<span class="keywordtype">float</span>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span>                    <a class="code" href="../../db/db2/a00020.html#ab4991c290ec91a6f4ca77514b2f7f0b1">readSiteBasicInfo</a>(<span class="keywordtype">string</span> tableName); </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span>           <a class="code" href="../../db/db2/a00020.html#a8c026b63a165f3336822355d5ea15993">toString</a>(time_t time, <span class="keywordtype">float</span> value); </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="ttc" id="a00015_html"><div class="ttname"><a href="../../dd/d1b/a00015.html">clsHydroClimateData</a></div><div class="ttdoc">Hydrological climate data class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00030">clsHydroClimateData.h:30</a></div></div>
+<div class="ttc" id="a00020_html_adfb501124ee05dca18201a6e6f242aa5"><div class="ttname"><a href="../../db/db2/a00020.html#adfb501124ee05dca18201a6e6f242aa5">clsSiteData::addDataTypeMongo</a></div><div class="ttdeci">void addDataTypeMongo(const string &amp;type)</div><div class="ttdoc">Add hydro data type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d53/a00429_source.html#l00087">clsSiteData.cpp:87</a></div></div>
+<div class="ttc" id="a00020_html_a68427407df83e49e9b20fcca0a9b97a3"><div class="ttname"><a href="../../db/db2/a00020.html#a68427407df83e49e9b20fcca0a9b97a3">clsSiteData::getHydroClimateData</a></div><div class="ttdeci">clsHydroClimateData * getHydroClimateData(const string &amp;type)</div><div class="ttdoc">Get hydro climate data. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00043">clsSiteData.h:43</a></div></div>
+<div class="ttc" id="a00020_html_a8c026b63a165f3336822355d5ea15993"><div class="ttname"><a href="../../db/db2/a00020.html#a8c026b63a165f3336822355d5ea15993">clsSiteData::toString</a></div><div class="ttdeci">static string toString(time_t time, float value)</div><div class="ttdoc">convert date time to string </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d53/a00429_source.html#l00252">clsSiteData.cpp:252</a></div></div>
+<div class="ttc" id="a00426_html"><div class="ttname"><a href="../../d7/db9/a00426.html">clsHydroClimateData.h</a></div><div class="ttdoc">Hydrological climate data class. </div></div>
+<div class="ttc" id="a00020_html_a748df1d01df2a500dd830de51fe092d1"><div class="ttname"><a href="../../db/db2/a00020.html#a748df1d01df2a500dd830de51fe092d1">clsSiteData::m_timeSerieseData</a></div><div class="ttdeci">map&lt; string, clsHydroClimateData * &gt; m_timeSerieseData</div><div class="ttdoc">time series data, key is data type and value is the pointer of clsHydroClimateData ...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00052">clsSiteData.h:52</a></div></div>
+<div class="ttc" id="a00020_html_ad964d12db5efdac326428c2fc1430997"><div class="ttname"><a href="../../db/db2/a00020.html#ad964d12db5efdac326428c2fc1430997">clsSiteData::m_databasePath</a></div><div class="ttdeci">string m_databasePath</div><div class="ttdoc">database path </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00050">clsSiteData.h:50</a></div></div>
+<div class="ttc" id="a00020_html_a61b2e9e67cf6c9922058894a85ebf032"><div class="ttname"><a href="../../db/db2/a00020.html#a61b2e9e67cf6c9922058894a85ebf032">clsSiteData::checkData</a></div><div class="ttdeci">void checkData(string, time_t, float)</div><div class="ttdoc">check data </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d53/a00429_source.html#l00260">clsSiteData.cpp:260</a></div></div>
+<div class="ttc" id="a00020_html"><div class="ttname"><a href="../../db/db2/a00020.html">clsSiteData</a></div><div class="ttdoc">Read hydrological or meteorological site data. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00028">clsSiteData.h:28</a></div></div>
+<div class="ttc" id="a00020_html_a042557ea95dc146aa0a03bac2c88821b"><div class="ttname"><a href="../../db/db2/a00020.html#a042557ea95dc146aa0a03bac2c88821b">clsSiteData::clsSiteData</a></div><div class="ttdeci">clsSiteData(int id, const bson_t *info)</div><div class="ttdoc">Constructor for MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d53/a00429_source.html#l00024">clsSiteData.cpp:24</a></div></div>
+<div class="ttc" id="a00020_html_ac4ab57c4491e44ec60351551a40965ed"><div class="ttname"><a href="../../db/db2/a00020.html#ac4ab57c4491e44ec60351551a40965ed">clsSiteData::~clsSiteData</a></div><div class="ttdeci">~clsSiteData(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d53/a00429_source.html#l00241">clsSiteData.cpp:241</a></div></div>
+<div class="ttc" id="a00020_html_ab4991c290ec91a6f4ca77514b2f7f0b1"><div class="ttname"><a href="../../db/db2/a00020.html#ab4991c290ec91a6f4ca77514b2f7f0b1">clsSiteData::readSiteBasicInfo</a></div><div class="ttdeci">void readSiteBasicInfo(string tableName)</div><div class="ttdoc">read site basic information </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d53/a00429_source.html#l00166">clsSiteData.cpp:166</a></div></div>
+<div class="ttc" id="a00436_html"><div class="ttname"><a href="../../d4/d82/a00436.html">SiteInfo.h</a></div><div class="ttdoc">Class to store the site information from the Hydroclimate database stations table. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><a class="el" href="../../dc/d0c/a00430.html">clsSpecificOutput.h</a></li>
-    <li class="footer">Generated on Wed May 18 2016 06:53:33 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><a class="el" href="../../dc/d0c/a00430.html">clsSiteData.h</a></li>
+    <li class="footer">Generated on Wed May 18 2016 08:44:55 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
