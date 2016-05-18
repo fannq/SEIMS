@@ -117,14 +117,14 @@ $(document).ready(function(){initNavTree('d9/da4/a00078_source.html','../../');}
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> sys, os, thread</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">## from pymongo import Connection # Connection is deprecated by Pymongo! LJ</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> pymongo.errors <span class="keyword">import</span> ConnectionFailure</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> import_parameters <span class="keyword">import</span> ImportParameters</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> generate_stream_input <span class="keyword">import</span> GenerateReachTable</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> find_sites <span class="keyword">import</span> FindSites</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> weights_mongo <span class="keyword">import</span> GenerateWeightInfo</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> pymongo.errors <span class="keyword">import</span> ConnectionFailure</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> import_parameters <span class="keyword">import</span> ImportParameters</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> generate_stream_input <span class="keyword">import</span> GenerateReachTable</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> find_sites <span class="keyword">import</span> FindSites</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> weights_mongo <span class="keyword">import</span> GenerateWeightInfo</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> config <span class="keyword">import</span> *</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">def </span>BuildMongoDB(workingDir, modelName, stormMode, forCluster, \</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                   hydroDBName=<span class="keywordtype">None</span>, thiessenFilePreci=<span class="keywordtype">None</span>, thiessenFileMeteo=<span class="keywordtype">None</span>):</div>
@@ -164,9 +164,9 @@ $(document).ready(function(){initNavTree('d9/da4/a00078_source.html','../../');}
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">## prepare meteo data</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    subbasinFile = workingDir + os.sep + basinVec</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    subbasinRaster = workingDir + os.sep + mask_to_ext</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    subbasinRaster = workingDir + os.sep + mask_to_ext  <span class="comment">## mask file</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span> forCluster:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        subbasinFile = workingDir + os.sep + DIR_Subbasin + os.sep + subbasinVec</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        subbasinFile = workingDir + os.sep + DIR_SUBBASIN + os.sep + subbasinVec</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        subbasinRaster = workingDir + os.sep + subbasinOut</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> hydroDBName <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('d9/da4/a00078_source.html','../../');}
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    f.write(<span class="stringliteral">&quot;90, Generating Grid layering...\n&quot;</span>)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    f.flush()</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    layeringDir = workingDir + os.sep + DIR_Layering_Info</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    layeringDir = workingDir + os.sep + DIR_LAYERING</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(layeringDir):</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        os.mkdir(layeringDir)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;Generating Grid layering...&#39;</span></div>
@@ -266,7 +266,7 @@ $(document).ready(function(){initNavTree('d9/da4/a00078_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>build_db.py</b></li>
-    <li class="footer">Generated on Wed May 18 2016 08:44:53 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 09:06:55 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

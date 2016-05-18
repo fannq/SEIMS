@@ -152,69 +152,70 @@ $(document).ready(function(){initNavTree('dd/de2/a00320_source.html','../../');}
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">def </span>SoilTexture(workingDir):</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    sandFile = workingDir + os.sep + <span class="stringliteral">&quot;sand.tif&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    clayFile = workingDir + os.sep + <span class="stringliteral">&quot;clay.tif&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    sandRaster = ReadRaster(sandFile)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    clayRaster = ReadRaster(clayFile)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    nCols = sandRaster.nCols</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    nRows = sandRaster.nRows</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    noDataValue = sandRaster.noDataValue</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    dataSand = sandRaster.data</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    dataClay = clayRaster.data</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    st = zeros((nRows, nCols)) <span class="comment"># soil texture code</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    hg = zeros((nRows, nCols)) <span class="comment"># hydrological group</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    usleK_array = zeros((nRows, nCols)) <span class="comment"># USLE K factor</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nRows):</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(nCols):</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> abs(dataSand[i][j] - noDataValue) &lt; DELTA:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                st[i][j] = -9999</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                hg[i][j] = -9999</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                usleK_array[i][j] = -9999</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                values = GetTexture(dataClay[i][j], dataSand[i][j])</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="comment">#values = GetTexture(dataClay[i][j]*100, dataSand[i][j]*100)</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                st[i][j] = values[0]</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                hg[i][j] = values[1]</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                usleK_array[i][j] = values[2]</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    textureFile = workingDir + os.sep + soilTexture</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    WriteGTiffFile(textureFile, nRows, nCols, st, sandRaster.geotrans,\</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    hgFile = workingDir + os.sep + hydroGroup</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    WriteGTiffFile(hgFile, nRows, nCols, hg, sandRaster.geotrans,\</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    kFile = workingDir + os.sep + usleK</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    WriteGTiffFile(kFile, nRows, nCols, usleK_array, sandRaster.geotrans,\</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;Soil texture is generated.&quot;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> [textureFile, hgFile, kFile]</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">print</span> GetTexture(60, 30)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">print</span> GetTexture(50, 5)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 55)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 30)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 10)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">print</span> GetTexture(25, 60)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">print</span> GetTexture(15, 45)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">print</span> GetTexture(10, 20)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 5)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">print</span> GetTexture(10, 60)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 85)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 92)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">## TODO: these should be defined elsewhere</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    sandFile = workingDir + os.sep + <span class="stringliteral">&quot;sand_1.tif&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    clayFile = workingDir + os.sep + <span class="stringliteral">&quot;clay_1.tif&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    sandRaster = ReadRaster(sandFile)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    clayRaster = ReadRaster(clayFile)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    nCols = sandRaster.nCols</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    nRows = sandRaster.nRows</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    noDataValue = sandRaster.noDataValue</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    dataSand = sandRaster.data</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    dataClay = clayRaster.data</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    st = zeros((nRows, nCols)) <span class="comment"># soil texture code</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    hg = zeros((nRows, nCols)) <span class="comment"># hydrological group</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    usleK_array = zeros((nRows, nCols)) <span class="comment"># USLE K factor</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nRows):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(nCols):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">if</span> abs(dataSand[i][j] - noDataValue) &lt; DELTA:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                st[i][j] = -9999</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                hg[i][j] = -9999</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                usleK_array[i][j] = -9999</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                values = GetTexture(dataClay[i][j], dataSand[i][j])</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">#values = GetTexture(dataClay[i][j]*100, dataSand[i][j]*100)</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                st[i][j] = values[0]</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                hg[i][j] = values[1]</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                usleK_array[i][j] = values[2]</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    textureFile = workingDir + os.sep + soilTexture</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    WriteGTiffFile(textureFile, nRows, nCols, st, sandRaster.geotrans,\</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    hgFile = workingDir + os.sep + hydroGroup</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    WriteGTiffFile(hgFile, nRows, nCols, hg, sandRaster.geotrans,\</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    kFile = workingDir + os.sep + usleK</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    WriteGTiffFile(kFile, nRows, nCols, usleK_array, sandRaster.geotrans,\</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;Soil texture is generated.&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> [textureFile, hgFile, kFile]</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">print</span> GetTexture(60, 30)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">print</span> GetTexture(50, 5)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 55)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 30)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">print</span> GetTexture(36, 10)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">print</span> GetTexture(25, 60)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">print</span> GetTexture(15, 45)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">print</span> GetTexture(10, 20)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 5)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">print</span> GetTexture(10, 60)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 85)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">print</span> GetTexture(5, 92)</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_texture.py</b></li>
-    <li class="footer">Generated on Wed May 18 2016 08:44:55 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 09:06:56 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

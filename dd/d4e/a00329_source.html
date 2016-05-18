@@ -209,7 +209,7 @@ $(document).ready(function(){initNavTree('dd/d4e/a00329_source.html','../../');}
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="stringliteral">&#39;SUBBASIN&#39;</span>: subbasinID, </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="stringliteral">&#39;NUM_CELLS&#39;</span>: num}    </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    siteLists = dbModel.SiteList.find({<span class="stringliteral">&#39;SubbasinID&#39;</span>:subbasinID})</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    siteLists = dbModel[DB_TAB_SITELIST].find({<span class="stringliteral">&#39;SubbasinID&#39;</span>:subbasinID})</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    siteList = siteLists.next()</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    dbName = siteList[<span class="stringliteral">&#39;DB&#39;</span>]</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    pList = siteList.get(<span class="stringliteral">&#39;SiteListP&#39;</span>)</div>
@@ -311,7 +311,7 @@ $(document).ready(function(){initNavTree('dd/d4e/a00329_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>weights_mongo.py</b></li>
-    <li class="footer">Generated on Wed May 18 2016 08:44:55 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 09:06:56 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

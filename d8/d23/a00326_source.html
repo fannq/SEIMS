@@ -419,8 +419,8 @@ $(document).ready(function(){initNavTree('d8/d23/a00326_source.html','../../');}
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">for</span> df <span class="keywordflow">in</span> lookup_tabs:</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        dataFiles.append([Tag_Lookup, df])</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    txt2Sqlite(dataFiles, sqliteFile)</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment"># Read Raster Header from MASK, and import to database</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    header2Sqlite(WORKING_DIR + os.sep + mask_to_ext, sqliteFile)</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment"># Read Raster Header from MASK, and import to database, useless and deprecated! LJ</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">#header2Sqlite(WORKING_DIR + os.sep + mask_to_ext, sqliteFile)</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    reConstructSQLiteDB()</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
@@ -442,7 +442,7 @@ $(document).ready(function(){initNavTree('d8/d23/a00326_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>txt2db3.py</b></li>
-    <li class="footer">Generated on Wed May 18 2016 08:44:55 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 09:06:56 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

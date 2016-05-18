@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('db/d53/a00321_source.html','../../');}
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">print</span> StreamRaster(np, tauDir, acc, streamRaster, threshold, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        accD8 = tauDir+os.sep+acc</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        maxAccum, minAccum, meanAccum, STDAccum = <a class="code" href="../../d8/dcb/a00706.html#afff99fb362f4fbe7e9874a0061aac7ce">util.GetRasterStat</a>(accD8)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        maxAccum, minAccum, meanAccum, STDAccum = GetRasterStat(accD8)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">print</span> StreamRaster(np, tauDir, acc, streamRaster, meanAccum, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        </div>
@@ -273,14 +273,13 @@ $(document).ready(function(){initNavTree('db/d53/a00321_source.html','../../');}
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">## Convert to WGS84 (EPSG:4326)</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    GenerateCellLatRaster()</div>
-<div class="ttc" id="a00706_html_afff99fb362f4fbe7e9874a0061aac7ce"><div class="ttname"><a href="../../d8/dcb/a00706.html#afff99fb362f4fbe7e9874a0061aac7ce">util.GetRasterStat</a></div><div class="ttdeci">def GetRasterStat</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dfc/a00327_source.html#l00220">util.py:220</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>subbasin_delineation.py</b></li>
-    <li class="footer">Generated on Wed May 18 2016 08:44:55 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 18 2016 09:06:56 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
