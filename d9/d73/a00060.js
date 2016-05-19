@@ -1,27 +1,8 @@
 var a00060 =
 [
-    [ "SettingsInput", "d9/d73/a00060.html#a87f894cb5f89fcd9ff81de3116f0d037", null ],
-    [ "~SettingsInput", "d9/d73/a00060.html#ac02fb28dab1753e8ca2bdfeae9308c3f", null ],
-    [ "BMPScenario", "d9/d73/a00060.html#aa5ca51a9430a9a015fbc87fdf225b98d", null ],
-    [ "Dump", "d9/d73/a00060.html#a62b8f43a5213f3c9c261e179ae84edc5", null ],
-    [ "getDtChannel", "d9/d73/a00060.html#a2aadc540afcd4379cdfa1af8d24ed99c", null ],
-    [ "getDtDaily", "d9/d73/a00060.html#a69c16babc6f91db1fb907c7045ae3e09", null ],
-    [ "getDtHillslope", "d9/d73/a00060.html#afcb41ae2cda97acf9cde4ea93ac42f2c", null ],
-    [ "getEndTime", "d9/d73/a00060.html#a7c23aa31719d03a2ac39dbab46dbc184", null ],
-    [ "getStartTime", "d9/d73/a00060.html#a7a9ce2224d4680bccfd069f0fadf9a1d", null ],
-    [ "readDate", "d9/d73/a00060.html#a27e69c51229535700b5fa683cab78a14", null ],
-    [ "ReadSiteList", "d9/d73/a00060.html#a9396f00f4a13fc6b9d1a88a4025704ff", null ],
-    [ "StationData", "d9/d73/a00060.html#acddba54c1f95247503908bf5425d9732", null ],
-    [ "m_conn", "d9/d73/a00060.html#abea62f122f48c6b7ca780a356cd35403", null ],
-    [ "m_dbHydro", "d9/d73/a00060.html#ab72e375a2c6eaaf19a0f614e6352f5b1", null ],
-    [ "m_dbName", "d9/d73/a00060.html#ab73877f60eff8750a1cf0668cbeb0735", null ],
-    [ "m_dtCh", "d9/d73/a00060.html#a68396d28a25a25af0a70054ab2d3019c", null ],
-    [ "m_dtHs", "d9/d73/a00060.html#a4b26228ba3e9f0109951fcbbf8d3b74a", null ],
-    [ "m_endDate", "d9/d73/a00060.html#a0b2dd70eee0ff83818e5e15717b914c3", null ],
-    [ "m_inputStation", "d9/d73/a00060.html#a8e744cdf445dcceecea45dfcf25d2055", null ],
-    [ "m_mode", "d9/d73/a00060.html#a7f93c75b7d1750b7f5e84e2bb89f3192", null ],
-    [ "m_scenario", "d9/d73/a00060.html#ab81ea3bb93efe4f38db83edd1c3234eb", null ],
-    [ "m_siteListMap", "d9/d73/a00060.html#aabe71984caa7331c4ea6ecb68e2cb1d9", null ],
-    [ "m_startDate", "d9/d73/a00060.html#a90cd7c4a484ed1294a80ec6e515c5458", null ],
-    [ "m_subbasinID", "d9/d73/a00060.html#aa5688baf26bb253aa8453790310f27ea", null ]
+    [ "RegularMeasurement", "d9/d73/a00060.html#aa99c037597c244227ecfd437a8644432", null ],
+    [ "~RegularMeasurement", "d9/d73/a00060.html#a1f44d19ffde71e64385f25b24732ff83", null ],
+    [ "GetSiteDataByTime", "d9/d73/a00060.html#a6528f99c36c06961b7eeafbccc2a5f52", null ],
+    [ "m_interval", "d9/d73/a00060.html#a6fffb32a797276d7cc6b2bd8b2f369c8", null ],
+    [ "m_siteData", "d9/d73/a00060.html#a9e9eee588a575d7a89a66b9728b9f81c", null ]
 ];

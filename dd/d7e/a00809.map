@@ -1,9 +1,11 @@
-<map id="src/base/data/RegularMeasurement.cpp" name="src/base/data/RegularMeasurement.cpp">
-<area shape="rect" id="node3" href="$db/dbc/a00395.html" title="Regular hydroclimate data, e.g., daily data. " alt="" coords="473,83,663,112"/>
-<area shape="rect" id="node14" href="$d8/de7/a00417.html" title="Define ModelException class. " alt="" coords="5,237,155,267"/>
-<area shape="rect" id="node16" href="$dc/df3/a00424.html" title="Utilities class to handle string, date time and file. " alt="" coords="759,160,823,189"/>
-<area shape="rect" id="node4" href="$db/db9/a00387.html" title="Measurement class to store HydroClimate site data. " alt="" coords="455,160,587,189"/>
-<area shape="rect" id="node8" href="$db/d43/a00422.html" title="Predefined string constants used in the code. " alt="" coords="611,160,671,189"/>
-<area shape="rect" id="node9" href="$d9/d0a/a00390_source.html" title="MongoUtil.h" alt="" coords="318,160,425,189"/>
-<area shape="rect" id="node11" href="$d4/d13/a00377.html" title="Define Raster class to handle raster data. " alt="" coords="297,237,432,267"/>
+<map id="src/base/data/InputStation.cpp" name="src/base/data/InputStation.cpp">
+<area shape="rect" id="node5" href="$d9/dc1/a00388.html" title="InputStation.h" alt="" coords="895,83,1015,112"/>
+<area shape="rect" id="node15" href="$da/db6/a00427.html" title="Utilities class to handle string, date time and file. " alt="" coords="483,83,547,112"/>
+<area shape="rect" id="node19" href="$db/d4f/a00420.html" title="Define ModelException class. " alt="" coords="361,237,511,267"/>
+<area shape="rect" id="node21" href="$d9/dd1/a00398.html" title="Regular hydroclimate data, e.g., daily data. " alt="" coords="1051,83,1240,112"/>
+<area shape="rect" id="node26" href="$d9/da1/a00396.html" title="Not Regular hydroclimate data. " alt="" coords="1265,83,1479,112"/>
+<area shape="rect" id="node12" href="$d9/d0a/a00390.html" title="Measurement class to store HydroClimate site data. " alt="" coords="1090,160,1221,189"/>
+<area shape="rect" id="node22" href="$dc/d2f/a00425.html" title="Predefined string constants used in the code. " alt="" coords="1481,160,1540,189"/>
+<area shape="rect" id="node23" href="$da/dbf/a00393_source.html" title="MongoUtil.h" alt="" coords="1246,160,1353,189"/>
+<area shape="rect" id="node25" href="$d8/ddd/a00380.html" title="Define Raster class to handle raster data. " alt="" coords="1101,237,1236,267"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: NutRemv</title>
+<title>SEIMS-2016: PET_H</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -105,45 +105,75 @@ $(document).ready(function(){initNavTree('d0/dab/a00735.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">NutRemv<div class="ingroups"><a class="el" href="../../dd/dc1/a00721.html">Nutrient</a></div></div>  </div>
+<div class="title">PET_H<div class="ingroups"><a class="el" href="../../db/d7c/a00722.html">Hydrology_longterm</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Simulates the loss of nitrate and phosphorus via surface runoff, lateral flow, tile flow, and percolation out of the profile.  
+<p>Calculate potential evapotranspiration using Hargreaves method.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for NutRemv:</div>
+Collaboration diagram for PET_H:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="../../d0/dab/a00735.png" border="0" alt="" usemap="#d0_2dab_2a00735"/>
 <map name="d0_2dab_2a00735" id="d0_2dab_2a00735">
-<area shape="rect" id="node1" href="../../dd/dc1/a00721.html" title="Nutrient related modules. " alt="" coords="6,4,85,33"/></map>
+<area shape="rect" id="node2" href="../../db/d7c/a00722.html" title="Longterm hydrology related modules. " alt="" coords="6,4,173,33"/></map>
 </td></tr></table></center>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:d6/dcf/a00645"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dcf/a00645.html">NutrientRemviaSr.cpp</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d08/a00646"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/a00646.html">NutrientRemviaSr.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html">NutrientRemviaSr</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the profile.  <a href="../../d4/dca/a00048.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html">PETHargreaves</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hargreaves method to Compute PET.  <a href="../../d9/d2e/a00056.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0087c853569e2c94d58c3499365662e9"><td class="memItemLeft" align="right" valign="top">SEIMS_MODULE_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dab/a00735.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a> ()</td></tr>
+<tr class="memdesc:ga0087c853569e2c94d58c3499365662e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to return the XML Metadata document string  <a href="#ga0087c853569e2c94d58c3499365662e9">More...</a><br/></td></tr>
+<tr class="separator:ga0087c853569e2c94d58c3499365662e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Simulates the loss of nitrate and phosphorus via surface runoff, lateral flow, tile flow, and percolation out of the profile. </p>
+<p>Calculate potential evapotranspiration using Hargreaves method. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga0087c853569e2c94d58c3499365662e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SEIMS_MODULE_API const char* MetadataInformation </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function to return the XML Metadata document string </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">\param[out]</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>ICLIM</p>
+<p>ICLIM</p>
+<p>Current: use TMin and TMax to calculate TMean TODO: Use mean temperature if exists </p>
+
+<p>Definition at line <a class="el" href="../../db/df1/a00486_source.html#l00028">28</a> of file <a class="el" href="../../db/df1/a00486_source.html">api.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 19 2016 14:27:00 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

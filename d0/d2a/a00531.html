@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/erosion/KinWavSed_OL/KinWavSed_OL.h File Reference</title>
+<title>SEIMS-2016: src/modules/erosion/KinWavSed_CH/KinWavSed_CH.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,39 +111,44 @@ $(document).ready(function(){initNavTree('d0/d2a/a00531.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">KinWavSed_OL.h File Reference</div>  </div>
+<div class="title">KinWavSed_CH.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Kinematic wave routing method for overland erosion and deposition.  
+<p>Kinematic wave method for channel flow erosion and deposition.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;ctime&gt;</code><br/>
-<code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d3/d29/a00419_source.html">SimulationModule.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d41/a00532_source.html">KinWavSed_CH.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/de7/a00417_source.html">MetadataInfo.h</a>&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d4f/a00420_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;cstdio&gt;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for KinWavSed_OL.h:</div>
+Include dependency graph for KinWavSed_CH.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d5e/a00860.png" border="0" usemap="#src_2modules_2erosion_2_kin_wav_sed___o_l_2_kin_wav_sed___o_l_8h" alt=""/></div>
-<map name="src_2modules_2erosion_2_kin_wav_sed___o_l_2_kin_wav_sed___o_l_8h" id="src_2modules_2erosion_2_kin_wav_sed___o_l_2_kin_wav_sed___o_l_8h">
-<area shape="rect" id="node4" href="../../d9/da1/a00396_source.html" title="api.h" alt="" coords="154,101,211,131"/><area shape="rect" id="node5" href="../../d3/d29/a00419.html" title="Parent class for all modules in SEIMS. " alt="" coords="114,179,277,208"/><area shape="rect" id="node6" href="../../d8/de7/a00417.html" title="Define ModelException class. " alt="" coords="121,256,271,285"/></map>
+<div class="center"><img src="../../dd/d7b/a00865.png" border="0" usemap="#src_2modules_2erosion_2_kin_wav_sed___c_h_2_kin_wav_sed___c_h_8cpp" alt=""/></div>
+<map name="src_2modules_2erosion_2_kin_wav_sed___c_h_2_kin_wav_sed___c_h_8cpp" id="src_2modules_2erosion_2_kin_wav_sed___c_h_2_kin_wav_sed___c_h_8cpp">
+<area shape="rect" id="node2" href="../../d7/d41/a00532.html" title="Kinematic wave method for channel flow erosion and deposition. " alt="" coords="243,117,395,147"/><area shape="rect" id="node6" href="../../db/d4f/a00420.html" title="Define ModelException class. " alt="" coords="187,349,337,379"/><area shape="rect" id="node13" href="../../d8/de7/a00417.html" title="Define MetadataInfo class used by modules. " alt="" coords="605,117,731,147"/><area shape="rect" id="node3" href="../../d1/d53/a00399_source.html" title="api.h" alt="" coords="331,195,387,224"/><area shape="rect" id="node4" href="../../db/d43/a00422.html" title="Parent class for all modules in SEIMS. " alt="" coords="224,272,387,301"/><area shape="rect" id="node15" href="../../de/df7/a00418.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="535,272,703,301"/></map>
 </div>
 </div>
 <p><a href="../../d0/d2a/a00531_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Kinematic wave routing method for overland erosion and deposition. </p>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<div class="textblock"><p>Kinematic wave method for channel flow erosion and deposition. </p>
 <dl class="section author"><dt>Author</dt><dd>Hui Wu </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>22-February-2012 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Feb. 2012  LiangJun Zhu  date May. 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d0/d2a/a00531_source.html">KinWavSed_OL.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d0/d2a/a00531_source.html">KinWavSed_CH.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_31a8f619b28fb9f5a6eebe6c6ff3d93d.html">KinWavSed_OL</a></li><li class="navelem"><a class="el" href="../../d0/d2a/a00531.html">KinWavSed_OL.h</a></li>
-    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_51b2383fefae427ae4b0ad4aff19471a.html">KinWavSed_CH</a></li><li class="navelem"><a class="el" href="../../d0/d2a/a00531.html">KinWavSed_CH.cpp</a></li>
+    <li class="footer">Generated on Thu May 19 2016 14:26:59 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

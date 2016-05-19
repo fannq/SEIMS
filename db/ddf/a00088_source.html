@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/grid_layering/main.cpp Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/grid_layering/GridLayering.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,121 +111,68 @@ $(document).ready(function(){initNavTree('db/ddf/a00088_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">main.cpp</div>  </div>
+<div class="title">GridLayering.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*   Purpose:    Grid layering functions</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*   Purpose:    Raster Data</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*   Created:    Junzhi Liu</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*   Date:       28-March-2013</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*   Date:       29-July-2012</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*   Revision:</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">*   Date:</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*---------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;GridLayering.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;gridfs.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;mongo.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/d3f/a00173.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(argc &lt; 5)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;usage: grid_layering hostname port output_dir modelname nsubbasin\n&quot;</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        exit(-1);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* hostName = argv[1];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> port = atoi(argv[2]);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* outputDir = argv[3];</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* modelName = argv[4];</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> nSubbasins = atoi(argv[5]);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    mongo conn[1];</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    gridfs gfs[1];</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> status = mongo_connect(conn, hostName, port); </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>( MONGO_OK != status ) </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot;can not connect to mongodb.\n&quot;</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        exit(-1);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    gridfs_init(conn, modelName, <span class="stringliteral">&quot;spatial&quot;</span>, gfs); </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef GRID_LAYERING_RASTER_INCLUDE</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GRID_LAYERING_RASTER_INCLUDE</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;gridfs.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">struct </span>RasterHeader</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> noDataValue;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> nRows, nCols;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">double</span> xll, yll;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> dx;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">int</span> CalCompressedIndex(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span>* mask, <span class="keywordtype">int</span> noDataValue, <span class="keywordtype">int</span>* compressedIndex);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> ReadArcAscii(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename, RasterHeader&amp; rs, <span class="keywordtype">int</span>*&amp; data);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> OutputArcAscii(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename, RasterHeader&amp; rs, <span class="keywordtype">int</span> *data, <span class="keywordtype">int</span> noDataValue);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> ReadFromMongoFloat(gridfs *gfs, <span class="keyword">const</span> <span class="keywordtype">char</span>* remoteFilename, RasterHeader&amp; rs, <span class="keywordtype">float</span>*&amp; data);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> ReadFromMongo(gridfs *gfs, <span class="keyword">const</span> <span class="keywordtype">char</span>* remoteFilename, RasterHeader&amp; rs, <span class="keywordtype">int</span>*&amp; data);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">int</span> WriteStringToMongoDB(gridfs *gfs, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">char</span>* type, <span class="keywordtype">int</span> number, <span class="keyword">const</span> <span class="keywordtype">char</span>* s);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> OutputFlowOutD8(gridfs *gfs, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> validCount, <span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keywordtype">int</span> noDataValue, <span class="keyword">const</span> <span class="keywordtype">int</span>* compressedIndex);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">int</span> OutputMultiFlowOut(<span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> validCount,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">int</span>* degreeMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keywordtype">int</span> noDataValue, <span class="keyword">const</span> <span class="keywordtype">int</span>* compressedIndex, <span class="keywordtype">float</span>*&amp; output);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> OutputFlowOutPercentageDinf(<span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> validCount, <span class="keyword">const</span> <span class="keywordtype">float</span>* angle,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                       <span class="keyword">const</span> <span class="keywordtype">int</span>* degreeMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span>* reverseDirMatrix, <span class="keywordtype">int</span> dirNoDataValue, <span class="keyword">const</span> <span class="keywordtype">int</span>* compressedIndex, <span class="keywordtype">float</span>*&amp; pOutput);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span>* GetReverseDirMatrix(<span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> dirNoDataValue);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">int</span>* GetInDegreeMatrix(<span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> dirNoDataValue);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">string</span> GridLayeringFromSource(<span class="keywordtype">int</span> nValidGrids, <span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span>* compressedIndex, <span class="keywordtype">int</span>* degreeMatrix, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> dirNoDataValue, <span class="keywordtype">int</span> outputNoDataValue, <span class="keywordtype">int</span>*&amp; layeringNum);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">string</span> LayeringFromSourceD8(<span class="keyword">const</span> <span class="keywordtype">char</span>*, gridfs *gfs, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> nValidGrids, <span class="keyword">const</span> <span class="keywordtype">int</span> *dirMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span> *compressedIndex, RasterHeader&amp; header, <span class="keywordtype">int</span> outputNoDataValue);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">string</span> LayeringFromSourceDinf(<span class="keyword">const</span> <span class="keywordtype">char</span>*, gridfs *gfs, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> nValidGrids, <span class="keyword">const</span> <span class="keywordtype">float</span>* angle, <span class="keyword">const</span> <span class="keywordtype">int</span> *dirMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span> *compressedIndex, RasterHeader&amp; header, <span class="keywordtype">int</span> outputNoDataValue);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> outputNoDataValue = -9999;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    clock_t t1 = clock();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= nSubbasins; i++)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        ostringstream oss;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        oss &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;_FLOW_DIR&quot;</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        RasterHeader header;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">int</span> *dirMatrix;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        ReadFromMongo(gfs, oss.str().c_str(), header, dirMatrix); </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> nRows = header.nRows;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">int</span> nCols = header.nCols;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">int</span> dirNoDataValue = header.noDataValue;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">int</span> n = nRows*nCols;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">int</span> *compressedIndex = <span class="keyword">new</span> <span class="keywordtype">int</span>[n];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">int</span> nValidGrids = CalCompressedIndex(n, dirMatrix, header.noDataValue, compressedIndex);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        OutputFlowOutD8(gfs, i, nRows, nCols, nValidGrids, dirMatrix, header.noDataValue, compressedIndex);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">string</span> layeringFile = LayeringFromSourceD8(outputDir, gfs, i, nValidGrids, dirMatrix, compressedIndex, header, outputNoDataValue);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        cout &lt;&lt; layeringFile &lt;&lt; endl;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        OutputLayersToMongoDB(layeringFile.c_str(), <span class="stringliteral">&quot;ROUTING_LAYERS_UP_DOWN&quot;</span>, i, gfs);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// The following code is for d-infinite algorithm</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ostringstream ossDinf;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        ossDinf &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;_FLOW_DIR_DINF&quot;</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">int</span> *dirMatrixDinf;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        ReadFromMongo(gfs, ossDinf.str().c_str(), header, dirMatrixDinf); </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        ostringstream ossAngle;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        ossAngle&lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;_FLOW_DIR_ANGLE_DINF&quot;</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">float</span> *angle;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        ReadFromMongoFloat(gfs, ossAngle.str().c_str(), header, angle); </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">float</span> *flowOutDinf;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">int</span>* outDegreeMatrixDinf = GetOutDegreeMatrix(dirMatrixDinf, nRows, nCols, dirNoDataValue);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">int</span> nOutputFlowOut = OutputMultiFlowOut(nRows, nCols, nValidGrids, outDegreeMatrixDinf, dirMatrixDinf, dirNoDataValue, compressedIndex, flowOutDinf);;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        WriteStringToMongoDB(gfs, i, <span class="stringliteral">&quot;FLOWOUT_INDEX_DINF&quot;</span>, nOutputFlowOut, (<span class="keyword">const</span> <span class="keywordtype">char</span>*)flowOutDinf);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">string</span> layeringFileDinf = LayeringFromSourceDinf(outputDir, gfs, i, nValidGrids, angle, dirMatrixDinf, compressedIndex, header, outputNoDataValue);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        cout &lt;&lt; layeringFileDinf &lt;&lt; endl;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        OutputLayersToMongoDB(layeringFileDinf.c_str(), <span class="stringliteral">&quot;ROUTING_LAYERS_DINF&quot;</span>, i, gfs);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">delete</span> dirMatrix;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">delete</span> compressedIndex;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">delete</span> dirMatrixDinf;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">delete</span> outDegreeMatrixDinf;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    clock_t t2 = clock();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">//cout &lt;&lt; t2 - t1 &lt;&lt; endl;</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="ttc" id="a00173_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d7/d3f/a00173.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00110">fis.c:110</a></div></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">int</span>* GetOutDegreeMatrix(<span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> dirNoDataValue);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">string</span> GridLayeringFromOutlet(<span class="keywordtype">int</span> nValidGrids, <span class="keyword">const</span> <span class="keywordtype">int</span>* dirMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span>* compressedIndex, <span class="keywordtype">int</span>* degreeMatrix, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">int</span> dirNoDataValue, <span class="keywordtype">int</span> outputNoDataValue, <span class="keywordtype">int</span>*&amp; layeringNum);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> LayeringFromOutlet(<span class="keywordtype">int</span> nValidGrids, <span class="keyword">const</span> <span class="keywordtype">int</span> *dirMatrix, <span class="keyword">const</span> <span class="keywordtype">int</span>* compressedIndex, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, RasterHeader&amp; header, <span class="keywordtype">int</span> outputNoDataValue, <span class="keyword">const</span> <span class="keywordtype">char</span>* outputTxtFile, <span class="keyword">const</span> <span class="keywordtype">char</span>* outputAscFile);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> OutputLayersToMongoDB(<span class="keyword">const</span> <span class="keywordtype">char</span>* layeringTxtFile, <span class="keyword">const</span> <span class="keywordtype">char</span>* dataType, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, gridfs* gfs);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_4e59daba8acc2ca3fae80817fdd779e6.html">grid_layering</a></li><li class="navelem"><b>main.cpp</b></li>
-    <li class="footer">Generated on Thu May 19 2016 13:57:39 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_4e59daba8acc2ca3fae80817fdd779e6.html">grid_layering</a></li><li class="navelem"><b>GridLayering.h</b></li>
+    <li class="footer">Generated on Thu May 19 2016 14:26:57 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,9 +1,9 @@
 var a00719 =
 [
-    [ "DEP_LINSLEY", "dc/ddc/a00727.html", "dc/ddc/a00727" ],
-    [ "MUSKINGUM_CH", "df/d3b/a00728.html", "df/d3b/a00728" ],
-    [ "PET_H", "d8/d52/a00729.html", "d8/d52/a00729" ],
-    [ "PET_PM", "d2/db1/a00730.html", "d2/db1/a00730" ],
-    [ "PET_PT", "df/df7/a00731.html", "df/df7/a00731" ],
-    [ "SNO_DD", "d4/db8/a00732.html", null ]
+    [ "Climate", "dc/d14/a00720.html", "dc/d14/a00720" ],
+    [ "Hydrology", "dd/dc1/a00721.html", "dd/dc1/a00721" ],
+    [ "Hydrology_longterm", "db/d7c/a00722.html", "db/d7c/a00722" ],
+    [ "Erosion", "de/de6/a00723.html", "de/de6/a00723" ],
+    [ "Nutrient", "d0/d72/a00724.html", "d0/d72/a00724" ],
+    [ "Ecology", "d8/db9/a00725.html", null ]
 ];

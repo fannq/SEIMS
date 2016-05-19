@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: vnbr_t Struct Reference</title>
+<title>SEIMS-2016: utils Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,84 +113,499 @@ $(document).ready(function(){initNavTree('d4/d31/a00069.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../de/dad/a00963.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d0/d85/a00976.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vnbr_t Struct Reference</div>  </div>
+<div class="title">utils Class Reference<div class="ingroups"><a class="el" href="../../df/d96/a00714.html">Util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">struct.h</a>&gt;</code></p>
+<p>utils class to handle string, date time and file  
+ <a href="../../d4/d31/a00069.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../da/db6/a00427_source.html">utils.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a93adf79b4e57cd0477e9afc9b25da653"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a93adf79b4e57cd0477e9afc9b25da653">pid</a></td></tr>
-<tr class="separator:a93adf79b4e57cd0477e9afc9b25da653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae32050bde46f5545e1c306853afd8d97"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ae32050bde46f5545e1c306853afd8d97">ned</a></td></tr>
-<tr class="separator:ae32050bde46f5545e1c306853afd8d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f3fc7f5d884e78e1dfff0f9cc438d0"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a29f3fc7f5d884e78e1dfff0f9cc438d0">gv</a></td></tr>
-<tr class="separator:a29f3fc7f5d884e78e1dfff0f9cc438d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a09446a0138a31288b84d2c12585236f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09446a0138a31288b84d2c12585236f8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a09446a0138a31288b84d2c12585236f8">utils</a> (void)</td></tr>
+<tr class="memdesc:a09446a0138a31288b84d2c12585236f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor (void) <br/></td></tr>
+<tr class="separator:a09446a0138a31288b84d2c12585236f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a259cc9e8f541c05a20df28dfeb3b11be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a259cc9e8f541c05a20df28dfeb3b11be"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a259cc9e8f541c05a20df28dfeb3b11be">~utils</a> (void)</td></tr>
+<tr class="memdesc:a259cc9e8f541c05a20df28dfeb3b11be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor (void) <br/></td></tr>
+<tr class="separator:a259cc9e8f541c05a20df28dfeb3b11be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9d33b2ef019fc239d7b6a798d7d79ae3">ConvertToString</a> (const time_t *date)</td></tr>
+<tr class="memdesc:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert date time to string as the format of "YYYY-MM-DD".  <a href="#a9d33b2ef019fc239d7b6a798d7d79ae3">More...</a><br/></td></tr>
+<tr class="separator:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a053b28c53a117d59e0f5050b0d9af225"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a053b28c53a117d59e0f5050b0d9af225">ConvertToString2</a> (const time_t *date)</td></tr>
+<tr class="memdesc:a053b28c53a117d59e0f5050b0d9af225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert date time to string as the format of "YYYY-MM-DD HH".  <a href="#a053b28c53a117d59e0f5050b0d9af225">More...</a><br/></td></tr>
+<tr class="separator:a053b28c53a117d59e0f5050b0d9af225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb448f13021cc56b7ae4795aac36737f"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#acb448f13021cc56b7ae4795aac36737f">ConvertToTime</a> (string strDate, string format, bool includeHour)</td></tr>
+<tr class="memdesc:acb448f13021cc56b7ae4795aac36737f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to date time, string format could be %4d%2d%2d or d-d-d.  <a href="#acb448f13021cc56b7ae4795aac36737f">More...</a><br/></td></tr>
+<tr class="separator:acb448f13021cc56b7ae4795aac36737f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298646e3858741fa6ee018a6dea10007"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a298646e3858741fa6ee018a6dea10007">ConvertToTime2</a> (const string &amp;strDate, const char *format, bool includeHour)</td></tr>
+<tr class="memdesc:a298646e3858741fa6ee018a6dea10007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to date time, string format could be "%4d-%2d-%2d %2d:%2d:%2d" or d-d-d.  <a href="#a298646e3858741fa6ee018a6dea10007">More...</a><br/></td></tr>
+<tr class="separator:a298646e3858741fa6ee018a6dea10007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab71f707faaacf41928fc45b326b3232"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aab71f707faaacf41928fc45b326b3232">FileExists</a> (string FileName)</td></tr>
+<tr class="memdesc:aab71f707faaacf41928fc45b326b3232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a flag indicating if the given file exists.  <a href="#aab71f707faaacf41928fc45b326b3232">More...</a><br/></td></tr>
+<tr class="separator:aab71f707faaacf41928fc45b326b3232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1da89fd43624746f813a4a591d646e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aee1da89fd43624746f813a4a591d646e">GetDateInfoFromTimet</a> (time_t *seconds, int *year, int *month, int *day)</td></tr>
+<tr class="memdesc:aee1da89fd43624746f813a4a591d646e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get date information from <em>time_t</em> variable.  <a href="#aee1da89fd43624746f813a4a591d646e">More...</a><br/></td></tr>
+<tr class="separator:aee1da89fd43624746f813a4a591d646e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa3bdbf567f88fe18cca53f8c62691ccc">Log</a> (string msg)</td></tr>
+<tr class="memdesc:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an entry to the log file. Normally only used for debug.  <a href="#aa3bdbf567f88fe18cca53f8c62691ccc">More...</a><br/></td></tr>
+<tr class="separator:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#acc97bce7b8fc83ae5fbf851233dbf29a">SplitString</a> (string item, char delimiter)</td></tr>
+<tr class="memdesc:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the given string based on the given delimiter.  <a href="#acc97bce7b8fc83ae5fbf851233dbf29a">More...</a><br/></td></tr>
+<tr class="separator:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a403616dd03748ea418d49a1e9f26cf58"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a403616dd03748ea418d49a1e9f26cf58">SplitString</a> (string item)</td></tr>
+<tr class="memdesc:a403616dd03748ea418d49a1e9f26cf58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the given string by spaces.  <a href="#a403616dd03748ea418d49a1e9f26cf58">More...</a><br/></td></tr>
+<tr class="separator:a403616dd03748ea418d49a1e9f26cf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa973417e1c1bbe5bcaae454d5e0470b3">TrimSpaces</a> (string &amp;str)</td></tr>
+<tr class="memdesc:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim Both leading and trailing spaces.  <a href="#aa973417e1c1bbe5bcaae454d5e0470b3">More...</a><br/></td></tr>
+<tr class="separator:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure stores volume-based k-way refinement info about an adjacent subdomain for a given vertex. </p>
+<div class="textblock"><p>utils class to handle string, date time and file </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00047">47</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">struct.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a29f3fc7f5d884e78e1dfff0f9cc438d0"></a>
+<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00034">34</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9d33b2ef019fc239d7b6a798d7d79ae3"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">idx_t vnbr_t::gv</td>
+          <td class="memname">string utils::ConvertToString </td>
+          <td>(</td>
+          <td class="paramtype">const time_t *&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The gain in volume achieved by moving the vertex to pid </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00051">51</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">struct.h</a>.</p>
+<p>Convert date time to string as the format of "YYYY-MM-DD". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td><em>time_t</em> data type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Date time <em>string</em> </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00042">42</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae32050bde46f5545e1c306853afd8d97"></a>
+<a class="anchor" id="a053b28c53a117d59e0f5050b0d9af225"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">idx_t vnbr_t::ned</td>
+          <td class="memname">string utils::ConvertToString2 </td>
+          <td>(</td>
+          <td class="paramtype">const time_t *&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The number of the adjacent edges that are incident on pid </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00049">49</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">struct.h</a>.</p>
+<p>Convert date time to string as the format of "YYYY-MM-DD HH". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td><em>time_t</em> data type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Date time <em>string</em> </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00059">59</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a93adf79b4e57cd0477e9afc9b25da653"></a>
+<a class="anchor" id="acb448f13021cc56b7ae4795aac36737f"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">idx_t vnbr_t::pid</td>
+          <td class="memname">time_t utils::ConvertToTime </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>strDate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>includeHour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The partition ID </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00048">48</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">struct.h</a>.</p>
+<p>Convert string to date time, string format could be %4d%2d%2d or d-d-d. </p>
+<p>e.g.: strDate =&gt; 20000323, format=&gt; %4d%2d%2d strDate =&gt; 2000-03-23, format =&gt; d-d-d</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">strDate</td><td><em>string</em> date </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td><em>string</em> format </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">includeHour</td><td><em>bool</em> Include Hour? </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Date time <em>time_t</em> </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00103">103</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d5/ddf/a00224_source.html">struct.h</a></li>
+<a class="anchor" id="a298646e3858741fa6ee018a6dea10007"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t utils::ConvertToTime2 </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>strDate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>includeHour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert string to date time, string format could be "%4d-%2d-%2d %2d:%2d:%2d" or d-d-d. </p>
+<p>e.g.: strDate =&gt; 20000323, format=&gt; %4d%2d%2d strDate =&gt; 2000-03-23, format =&gt; d-d-d</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">strDate</td><td><em>string</em> date </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td><em>string</em> format </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">includeHour</td><td><em>bool</em> Include Hour? </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Date time <em>time_t</em> </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00141">141</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aab71f707faaacf41928fc45b326b3232"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool utils::FileExists </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>FileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a flag indicating if the given file exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">FileName</td><td>String path of file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if Exists, and false if not. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00182">182</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee1da89fd43624746f813a4a591d646e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int utils::GetDateInfoFromTimet </td>
+          <td>(</td>
+          <td class="paramtype">time_t *&#160;</td>
+          <td class="paramname"><em>seconds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>day</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get date information from <em>time_t</em> variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td><em>time_t</em> date </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">year,month,day</td><td><em>int</em> data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00198">198</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3bdbf567f88fe18cca53f8c62691ccc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void utils::Log </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes an entry to the log file. Normally only used for debug. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td><em>string</em> log message </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00217">217</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc97bce7b8fc83ae5fbf851233dbf29a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; string &gt; utils::SplitString </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>delimiter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Splits the given string based on the given delimiter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td><em>string</em> information </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">delimiter</td><td><em>char</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The split strings vector </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00243">243</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a403616dd03748ea418d49a1e9f26cf58"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; string &gt; utils::SplitString </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Splits the given string by spaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td><em>string</em> information </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The split strings vector </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00257">257</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa973417e1c1bbe5bcaae454d5e0470b3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void utils::TrimSpaces </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trim Both leading and trailing spaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td><em>string</em> information (reference) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The trimmed string </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00274">274</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/util/<a class="el" href="../../da/db6/a00427_source.html">utils.h</a></li>
+<li>src/base/util/<a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d31/a00069.html">vnbr_t</a></li>
-    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d4/d31/a00069.html">utils</a></li>
+    <li class="footer">Generated on Thu May 19 2016 14:27:00 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

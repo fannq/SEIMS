@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/test/fis.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/seq.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,303 +111,181 @@ $(document).ready(function(){initNavTree('d7/d3f/a00173_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">fis.c</div>  </div>
+<div class="title">seq.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/d3f/a00173.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  ssize_t minlen, maxlen;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  ssize_t minfreq, maxfreq;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">char</span> *filename;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">int</span> silent;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  ssize_t nitemsets;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">char</span> *clabelfile;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">char</span> **clabels;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <a class="code" href="../../d1/d84/a00052.html">params_t</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d7/d3f/a00173.html#aacf04ecfd59a1c65ac2d0837c6797418">   28</a></span>&#160;<span class="preprocessor">#define CMD_MINLEN      1</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CMD_MAXLEN      2</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CMD_MINFREQ     3</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CMD_MAXFREQ     4</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CMD_SILENT      5</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CMD_CLABELFILE  6</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CMD_HELP        10</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> <span class="keyword">struct </span><a class="code" href="../../d5/d79/a00030.html">gk_option</a> long_options[] = {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  {<span class="stringliteral">&quot;minlen&quot;</span>,        1,      0,      <a class="code" href="../../d7/d3f/a00173.html#aacf04ecfd59a1c65ac2d0837c6797418">CMD_MINLEN</a>},</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  {<span class="stringliteral">&quot;maxlen&quot;</span>,        1,      0,      CMD_MAXLEN},</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {<span class="stringliteral">&quot;minfreq&quot;</span>,       1,      0,      CMD_MINFREQ},</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  {<span class="stringliteral">&quot;maxfreq&quot;</span>,       1,      0,      CMD_MAXFREQ},</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {<span class="stringliteral">&quot;silent&quot;</span>,        0,      0,      CMD_SILENT},</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  {<span class="stringliteral">&quot;clabels&quot;</span>,       1,      0,      CMD_CLABELFILE},</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {<span class="stringliteral">&quot;help&quot;</span>,          0,      0,      CMD_HELP},</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {0,               0,      0,      0}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*-------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/* Mini help  */</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*-------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> helpstr[][100] = {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="stringliteral">&quot;Usage: fis [options] &lt;mat-file&gt;&quot;</span>,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="stringliteral">&quot; Required parameters&quot;</span>,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="stringliteral">&quot;  mat-file&quot;</span>,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="stringliteral">&quot;     The name of the file storing the transactions. The file is in &quot;</span>,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">&quot;     Cluto&#39;s .mat format.&quot;</span>,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">&quot; Optional parameters&quot;</span>,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">&quot;  -minlen=int&quot;</span>,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">&quot;     Specifies the minimum length of the patterns. [default: 1]&quot;</span>,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="stringliteral">&quot;  -maxlen=int&quot;</span>,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="stringliteral">&quot;     Specifies the maximum length of the patterns. [default: none]&quot;</span>,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">&quot;  -minfreq=int&quot;</span>,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">&quot;     Specifies the minimum frequency of the patterns. [default: 10]&quot;</span>,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">&quot;  -maxfreq=int&quot;</span>,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">&quot;     Specifies the maximum frequency of the patterns. [default: none]&quot;</span>,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">&quot;  -silent&quot;</span>,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">&quot;     Does not print the discovered itemsets.&quot;</span>,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">&quot;  -clabels=filename&quot;</span>,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">&quot;     Specifies the name of the file that stores the column labels.&quot;</span>,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">&quot;  -help&quot;</span>,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">&quot;     Prints this message.&quot;</span>,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> shorthelpstr[][100] = {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">&quot;   Usage: fis [options] &lt;mat-file&gt;&quot;</span>,</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">&quot;          use &#39;fis -help&#39; for a summary of the options.&quot;</span>,</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Sequence handler library by Huzefa Rangwala</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Date : 03.01.2007</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*********************************************************/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* ! \brief Initializes the &lt;tt&gt;gk_seq_t&lt;/tt&gt; variable</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">\param A pointer to gk_seq_t itself</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">\returns null</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/***********************************************************************/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> gk_seq_init(gk_seq_t *seq)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    seq-&gt;len = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    seq-&gt;sequence = NULL;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    seq-&gt;pssm = NULL;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    seq-&gt;psfm = NULL;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    seq-&gt;name = NULL;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/***********************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/*********************************************************************/</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a8b9f1e33d58df397a7f0f923a25ec256">   48</a></span>&#160;gk_i2cc2i_t *<a class="code" href="../../d9/d7d/a00150.html#a8b9f1e33d58df397a7f0f923a25ec256">gk_i2cc2i_create_common</a>(<span class="keywordtype">char</span> *alphabet)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> nsymbols;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    gk_idx_t i;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    gk_i2cc2i_t *t;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    nsymbols = strlen(alphabet);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    t        = <a class="code" href="../../d9/d7d/a00150.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(<span class="keyword">sizeof</span>(gk_i2cc2i_t),<span class="stringliteral">&quot;gk_i2c_create_common&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    t-&gt;n     = nsymbols;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    t-&gt;i2c   = gk_cmalloc(256, <span class="stringliteral">&quot;gk_i2c_create_common&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    t-&gt;c2i   = gk_imalloc(256, <span class="stringliteral">&quot;gk_i2c_create_common&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    gk_cset(256, -1, t-&gt;i2c);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    gk_iset(256, -1, t-&gt;c2i);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;nsymbols;i++){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    t-&gt;i2c[i] = alphabet[i];</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    t-&gt;c2i[(int)alphabet[i]] = i;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/*********************************************************************/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/********************************************************************/</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a3cafd54880b0693e95789c512c6f22d3">   83</a></span>&#160;gk_seq_t *<a class="code" href="../../d9/d7d/a00150.html#a3cafd54880b0693e95789c512c6f22d3">gk_seq_ReadGKMODPSSM</a>(<span class="keywordtype">char</span> *filename)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    gk_seq_t *seq;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    gk_idx_t i, j, ii;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">size_t</span> ntokens, nbytes, len;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    FILE *fpin;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    gk_Tokens_t tokens;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">char</span> *AAORDER = <span class="stringliteral">&quot;ARNDCQEGHILKMFPSTWYVBZX*&quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> PSSMWIDTH = 20;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">char</span> *header, line[MAXLINELEN];</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    gk_i2cc2i_t *converter;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d3f/a00173.html#a2270624f104a1d261314dd112e4a1d1d">print_init_info</a>(<a class="code" href="../../d1/d84/a00052.html">params_t</a> *params, gk_csr_t *mat);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d3f/a00173.html#a702976a4c55992ddbfc1918ec1b70943">print_final_info</a>(<a class="code" href="../../d1/d84/a00052.html">params_t</a> *params);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<a class="code" href="../../d1/d84/a00052.html">params_t</a> *<a class="code" href="../../d7/d3f/a00173.html#aea2aa8c9b5bb7c64a3f316d7760f0341">parse_cmdline</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d3f/a00173.html#a3b3cc293672156bbc5026fd567f52462">print_an_itemset</a>(<span class="keywordtype">void</span> *stateptr, <span class="keywordtype">int</span> nitems, <span class="keywordtype">int</span> *itemind, </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                      <span class="keywordtype">int</span> ntrans, <span class="keywordtype">int</span> *tranind);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d7/d3f/a00173.html#a0ddf1224851353fc92bfbff6f499fa97">  110</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/d3f/a00173.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  ssize_t i;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordtype">char</span> line[8192];</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  FILE *fpin;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="../../d1/d84/a00052.html">params_t</a> *params;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  gk_csr_t *mat;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  params = <a class="code" href="../../d7/d3f/a00173.html#aea2aa8c9b5bb7c64a3f316d7760f0341">parse_cmdline</a>(argc, argv);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  params-&gt;nitemsets = 0;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="comment">/* read the data */</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  mat = <a class="code" href="../../d9/d47/a00129.html#a8ebc19fe9a291bdf67677ebdaae56592">gk_csr_Read</a>(params-&gt;filename, GK_CSR_FMT_CLUTO, 1, 1);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <a class="code" href="../../d9/d47/a00129.html#a8bdd383ab80fe76507463f59c3d2863a">gk_csr_CreateIndex</a>(mat, GK_CSR_COL);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">/* read the column labels */</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  params-&gt;clabels = (<span class="keywordtype">char</span> **)<a class="code" href="../../d0/d4a/a00147.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(mat-&gt;ncols*<span class="keyword">sizeof</span>(<span class="keywordtype">char</span> *), <span class="stringliteral">&quot;main: clabels&quot;</span>);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordflow">if</span> (params-&gt;clabelfile == NULL) {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;mat-&gt;ncols; i++) {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      sprintf(line, <span class="stringliteral">&quot;%zd&quot;</span>, i);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      params-&gt;clabels[i] = <a class="code" href="../../d0/d4a/a00147.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(line);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    fpin = gk_fopen(params-&gt;clabelfile, <span class="stringliteral">&quot;r&quot;</span>, <span class="stringliteral">&quot;main: fpin&quot;</span>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;mat-&gt;ncols; i++) {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keywordflow">if</span> (fgets(line, 8192, fpin) == NULL)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="../../d6/db3/a00130.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Failed on fgets.\n&quot;</span>);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      params-&gt;clabels[i] = <a class="code" href="../../d0/d4a/a00147.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(<a class="code" href="../../d0/d4a/a00147.html#a3090611e4e08f52edd87b455dcb420c8">gk_strtprune</a>(line, <span class="stringliteral">&quot; \n\t&quot;</span>));</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    gk_fclose(fpin);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <a class="code" href="../../d7/d3f/a00173.html#a2270624f104a1d261314dd112e4a1d1d">print_init_info</a>(params, mat);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <a class="code" href="../../d6/db8/a00158.html#abc9e8f6a3efe2f0f3ec79b5d8883b246">gk_find_frequent_itemsets</a>(mat-&gt;nrows, mat-&gt;rowptr, mat-&gt;rowind,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      params-&gt;minfreq, params-&gt;maxfreq, params-&gt;minlen, params-&gt;maxlen,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      &amp;<a class="code" href="../../d7/d3f/a00173.html#a3b3cc293672156bbc5026fd567f52462">print_an_itemset</a>, (<span class="keywordtype">void</span> *)params);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  printf(<span class="stringliteral">&quot;Total itemsets found: %zd\n&quot;</span>, params-&gt;nitemsets);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <a class="code" href="../../d7/d3f/a00173.html#a702976a4c55992ddbfc1918ec1b70943">print_final_info</a>(params);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}  </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    header = gk_cmalloc(PSSMWIDTH, <span class="stringliteral">&quot;gk_seq_ReadGKMODPSSM: header&quot;</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    converter = <a class="code" href="../../d9/d7d/a00150.html#a8b9f1e33d58df397a7f0f923a25ec256">gk_i2cc2i_create_common</a>(AAORDER);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="../../d0/d5e/a00136.html#a739112cb142f2e96d6952140c66cd31c">gk_getfilestats</a>(filename, &amp;len, &amp;ntokens, NULL, &amp;nbytes);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    len --;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    seq = <a class="code" href="../../d9/d7d/a00150.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(<span class="keyword">sizeof</span>(gk_seq_t),<span class="stringliteral">&quot;gk_seq_ReadGKMODPSSM&quot;</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    gk_seq_init(seq);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    seq-&gt;len = len;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    seq-&gt;sequence = gk_imalloc(len, <span class="stringliteral">&quot;gk_seq_ReadGKMODPSSM&quot;</span>);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    seq-&gt;pssm     = gk_iAllocMatrix(len, PSSMWIDTH, 0, <span class="stringliteral">&quot;gk_seq_ReadGKMODPSSM&quot;</span>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    seq-&gt;psfm     = gk_iAllocMatrix(len, PSSMWIDTH, 0, <span class="stringliteral">&quot;gk_seq_ReadGKMODPSSM&quot;</span>);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    seq-&gt;nsymbols = PSSMWIDTH;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    seq-&gt;name     = gk_getbasename(filename);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    fpin = gk_fopen(filename,<span class="stringliteral">&quot;r&quot;</span>,<span class="stringliteral">&quot;gk_seq_ReadGKMODPSSM&quot;</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">/* Read the header line */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (fgets(line, MAXLINELEN-1, fpin) == NULL)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <a class="code" href="../../d0/de8/a00133.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Unexpected end of file: %s\n&quot;</span>, filename);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="../../d9/d7d/a00150.html#adc708027212f8668786472b408628f64">gk_strtoupper</a>(line);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    gk_strtokenize(line, <span class="stringliteral">&quot; \t\n&quot;</span>, &amp;tokens);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;PSSMWIDTH; i++)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    header[i] = tokens.list[i][0];</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    gk_freetokenslist(&amp;tokens);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">/* Read the rest of the lines */</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">for</span> (i=0, ii=0; ii&lt;len; ii++) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">if</span> (fgets(line, MAXLINELEN-1, fpin) == NULL)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;          <a class="code" href="../../d0/de8/a00133.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Unexpected end of file: %s\n&quot;</span>, filename);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="../../d9/d7d/a00150.html#adc708027212f8668786472b408628f64">gk_strtoupper</a>(line);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    gk_strtokenize(line, <span class="stringliteral">&quot; \t\n&quot;</span>, &amp;tokens);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    seq-&gt;sequence[i] = converter-&gt;c2i[(int)tokens.list[1][0]];</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    for (j=0; j&lt;PSSMWIDTH; j++) {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        seq-&gt;pssm[i][converter-&gt;c2i[(int)header[j]]] = atoi(tokens.list[2+j]);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        seq-&gt;psfm[i][converter-&gt;c2i[(int)header[j]]] = atoi(tokens.list[2+PSSMWIDTH+j]);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    gk_freetokenslist(&amp;tokens);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    i++;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    seq-&gt;len = i; <span class="comment">/* Reset the length if certain characters were skipped */</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    gk_free((<span class="keywordtype">void</span> **)&amp;header, LTERM);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    gk_fclose(fpin);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d7/d3f/a00173.html#a2270624f104a1d261314dd112e4a1d1d">  160</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d3f/a00173.html#a2270624f104a1d261314dd112e4a1d1d">print_init_info</a>(<a class="code" href="../../d1/d84/a00052.html">params_t</a> *params, gk_csr_t *mat)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  printf(<span class="stringliteral">&quot;*******************************************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  printf(<span class="stringliteral">&quot; fis\n\n&quot;</span>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  printf(<span class="stringliteral">&quot;Matrix Information ---------------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  printf(<span class="stringliteral">&quot; input file=%s, [%d, %d, %zd]\n&quot;</span>, </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      params-&gt;filename, mat-&gt;nrows, mat-&gt;ncols, mat-&gt;rowptr[mat-&gt;nrows]);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  printf(<span class="stringliteral">&quot;Options --------------------------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  printf(<span class="stringliteral">&quot; minlen=%zd, maxlen=%zd, minfeq=%zd, maxfreq=%zd\n&quot;</span>,</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      params-&gt;minlen, params-&gt;maxlen, params-&gt;minfreq, params-&gt;maxfreq);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  printf(<span class="stringliteral">&quot;Finding patterns... -----------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d7/d3f/a00173.html#a702976a4c55992ddbfc1918ec1b70943">  181</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d3f/a00173.html#a702976a4c55992ddbfc1918ec1b70943">print_final_info</a>(<a class="code" href="../../d1/d84/a00052.html">params_t</a> *params)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  printf(<span class="stringliteral">&quot;Memory Usage Information -----------------------------------------------------\n&quot;</span>);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  printf(<span class="stringliteral">&quot;   Maximum memory used:              %10zd bytes\n&quot;</span>, (ssize_t) gk_GetMaxMemoryUsed());</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  printf(<span class="stringliteral">&quot;   Current memory used:              %10zd bytes\n&quot;</span>, (ssize_t) gk_GetCurMemoryUsed());</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  printf(<span class="stringliteral">&quot;********************************************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;}</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="../../d7/d3f/a00173.html#aea2aa8c9b5bb7c64a3f316d7760f0341">  194</a></span>&#160;<a class="code" href="../../d1/d84/a00052.html">params_t</a> *<a class="code" href="../../d7/d3f/a00173.html#aea2aa8c9b5bb7c64a3f316d7760f0341">parse_cmdline</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keywordtype">int</span> c, option_index;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <a class="code" href="../../d1/d84/a00052.html">params_t</a> *params;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  params = (<a class="code" href="../../d1/d84/a00052.html">params_t</a> *)<a class="code" href="../../d0/d4a/a00147.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d1/d84/a00052.html">params_t</a>), <span class="stringliteral">&quot;parse_cmdline: params&quot;</span>);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">/* initialize the params data structure */</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  params-&gt;minlen     = 1;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  params-&gt;maxlen     = -1;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  params-&gt;minfreq    = 10;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  params-&gt;maxfreq    = -1;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  params-&gt;silent     = 0;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  params-&gt;filename   = NULL;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  params-&gt;clabelfile = NULL;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="comment">/* Parse the command line arguments  */</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keywordflow">while</span> ((c = <a class="code" href="../../de/d76/a00134.html#abb224612ca0aae2d39bd87f6146bd67d">gk_getopt_long_only</a>(argc, argv, <span class="stringliteral">&quot;&quot;</span>, long_options, &amp;option_index)) != -1) {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">switch</span> (c) {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="../../d7/d3f/a00173.html#aacf04ecfd59a1c65ac2d0837c6797418">CMD_MINLEN</a>:</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;minlen = atoi(<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordflow">case</span> CMD_MAXLEN:</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;maxlen = atoi(<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      <span class="keywordflow">case</span> CMD_MINFREQ:</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;minfreq = atoi(<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">case</span> CMD_MAXFREQ:</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;maxfreq = atoi(<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="keywordflow">case</span> CMD_SILENT:</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        params-&gt;silent = 1;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keywordflow">case</span> CMD_CLABELFILE:</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;clabelfile = <a class="code" href="../../d0/d4a/a00147.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(<a class="code" href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="keywordflow">case</span> CMD_HELP:</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">for</span> (i=0; strlen(helpstr[i]) &gt; 0; i++)</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;          printf(<span class="stringliteral">&quot;%s\n&quot;</span>, helpstr[i]);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        exit(0);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        printf(<span class="stringliteral">&quot;Illegal command-line option(s)\nUse %s -help for a summary of the options.\n&quot;</span>, argv[0]);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        exit(0);</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keywordflow">if</span> (argc-<a class="code" href="../../de/d76/a00134.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a> != 1) {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    printf(<span class="stringliteral">&quot;Unrecognized parameters.&quot;</span>);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">for</span> (i=0; strlen(shorthelpstr[i]) &gt; 0; i++)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      printf(<span class="stringliteral">&quot;%s\n&quot;</span>, shorthelpstr[i]);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    exit(0);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  }</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  params-&gt;filename = <a class="code" href="../../d0/d4a/a00147.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(argv[<a class="code" href="../../de/d76/a00134.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a>++]);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keywordflow">if</span> (!gk_fexists(params-&gt;filename))</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <a class="code" href="../../d6/db3/a00130.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;input file %s does not exist.\n&quot;</span>, params-&gt;filename);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keywordflow">return</span> params;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="../../d7/d3f/a00173.html#a3b3cc293672156bbc5026fd567f52462">  268</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d3f/a00173.html#a3b3cc293672156bbc5026fd567f52462">print_an_itemset</a>(<span class="keywordtype">void</span> *stateptr, <span class="keywordtype">int</span> nitems, <span class="keywordtype">int</span> *itemids, <span class="keywordtype">int</span> ntrans, </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;         <span class="keywordtype">int</span> *transids)</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;{</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  ssize_t i;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <a class="code" href="../../d1/d84/a00052.html">params_t</a> *params;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  params = (<a class="code" href="../../d1/d84/a00052.html">params_t</a> *)stateptr;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  params-&gt;nitemsets++;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordflow">if</span> (!params-&gt;silent) {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    printf(<span class="stringliteral">&quot;%4zd %4d %4d =&gt; &quot;</span>, params-&gt;nitemsets, nitems, ntrans);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;nitems; i++)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      printf(<span class="stringliteral">&quot; %s&quot;</span>, params-&gt;clabels[itemids[i]]);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;ntrans; i++)</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      printf(<span class="stringliteral">&quot; %d\n&quot;</span>, transids[i]);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  }</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;}</div>
-<div class="ttc" id="a00147_html_a3090611e4e08f52edd87b455dcb420c8"><div class="ttname"><a href="../../d0/d4a/a00147.html#a3090611e4e08f52edd87b455dcb420c8">gk_strtprune</a></div><div class="ttdeci">char * gk_strtprune(char *, char *)</div><div class="ttdoc">Prunes characters from the end of the string. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfb/a00172_source.html#l00254">string.c:254</a></div></div>
-<div class="ttc" id="a00147_html_af62038e97ca55f14ec2557a01bd85ca2"><div class="ttname"><a href="../../d0/d4a/a00147.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a></div><div class="ttdeci">char * gk_strdup(char *orgstr)</div><div class="ttdoc">Duplicates a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfb/a00172_source.html#l00372">string.c:372</a></div></div>
-<div class="ttc" id="a00134_html_ab70fc0e7e22192b687bd0d377bf61e32"><div class="ttname"><a href="../../de/d76/a00134.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a></div><div class="ttdeci">int gk_optind</div><div class="ttdoc">Index in ARGV of the next element to be scanned. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00068">getopt.c:68</a></div></div>
-<div class="ttc" id="a00173_html_a2270624f104a1d261314dd112e4a1d1d"><div class="ttname"><a href="../../d7/d3f/a00173.html#a2270624f104a1d261314dd112e4a1d1d">print_init_info</a></div><div class="ttdeci">void print_init_info(params_t *params, gk_csr_t *mat)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00160">fis.c:160</a></div></div>
-<div class="ttc" id="a00173_html_a3b3cc293672156bbc5026fd567f52462"><div class="ttname"><a href="../../d7/d3f/a00173.html#a3b3cc293672156bbc5026fd567f52462">print_an_itemset</a></div><div class="ttdeci">void print_an_itemset(void *stateptr, int nitems, int *itemind, int ntrans, int *tranind)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00268">fis.c:268</a></div></div>
-<div class="ttc" id="a00129_html_a8ebc19fe9a291bdf67677ebdaae56592"><div class="ttname"><a href="../../d9/d47/a00129.html#a8ebc19fe9a291bdf67677ebdaae56592">gk_csr_Read</a></div><div class="ttdeci">gk_csr_t * gk_csr_Read(char *filename, int format, int readvals, int numbering)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l00349">csr.c:349</a></div></div>
-<div class="ttc" id="a00030_html"><div class="ttname"><a href="../../d5/d79/a00030.html">gk_option</a></div><div class="ttdoc">The structure that stores the information about the command-line options. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00028">gk_getopt.h:28</a></div></div>
-<div class="ttc" id="a00134_html_abb224612ca0aae2d39bd87f6146bd67d"><div class="ttname"><a href="../../de/d76/a00134.html#abb224612ca0aae2d39bd87f6146bd67d">gk_getopt_long_only</a></div><div class="ttdeci">int gk_getopt_long_only(int argc, char **argv, char *options, struct gk_option *long_options, int *opt_index)</div><div class="ttdoc">Parse command-line arguments with only long options. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00849">getopt.c:849</a></div></div>
-<div class="ttc" id="a00173_html_aea2aa8c9b5bb7c64a3f316d7760f0341"><div class="ttname"><a href="../../d7/d3f/a00173.html#aea2aa8c9b5bb7c64a3f316d7760f0341">parse_cmdline</a></div><div class="ttdeci">params_t * parse_cmdline(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00194">fis.c:194</a></div></div>
-<div class="ttc" id="a00158_html_abc9e8f6a3efe2f0f3ec79b5d8883b246"><div class="ttname"><a href="../../d6/db8/a00158.html#abc9e8f6a3efe2f0f3ec79b5d8883b246">gk_find_frequent_itemsets</a></div><div class="ttdeci">void gk_find_frequent_itemsets(int ntrans, ssize_t *tranptr, int *tranind, int minfreq, int maxfreq, int minlen, int maxlen, void(*process_itemset)(void *stateptr, int nitems, int *itemids, int ntrans, int *transids), void *stateptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00047">itemsets.c:47</a></div></div>
-<div class="ttc" id="a00173_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d7/d3f/a00173.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00110">fis.c:110</a></div></div>
-<div class="ttc" id="a00173_html_aacf04ecfd59a1c65ac2d0837c6797418"><div class="ttname"><a href="../../d7/d3f/a00173.html#aacf04ecfd59a1c65ac2d0837c6797418">CMD_MINLEN</a></div><div class="ttdeci">#define CMD_MINLEN</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00028">fis.c:28</a></div></div>
-<div class="ttc" id="a00147_html_aba6f76f5c67b9b7e9c2e45988d3d3e9d"><div class="ttname"><a href="../../d0/d4a/a00147.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a></div><div class="ttdeci">void * gk_malloc(size_t nbytes, char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00140">memory.c:140</a></div></div>
-<div class="ttc" id="a00134_html_a7e251e946564d7de41aa8f602b94e74e"><div class="ttname"><a href="../../de/d76/a00134.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a></div><div class="ttdeci">char * gk_optarg</div><div class="ttdoc">For communication arguments to the caller. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00056">getopt.c:56</a></div></div>
-<div class="ttc" id="a00129_html_a8bdd383ab80fe76507463f59c3d2863a"><div class="ttname"><a href="../../d9/d47/a00129.html#a8bdd383ab80fe76507463f59c3d2863a">gk_csr_CreateIndex</a></div><div class="ttdeci">void gk_csr_CreateIndex(gk_csr_t *mat, int what)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l01223">csr.c:1223</a></div></div>
-<div class="ttc" id="a00052_html"><div class="ttname"><a href="../../d1/d84/a00052.html">params_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00015">fis.c:15</a></div></div>
-<div class="ttc" id="a00130_html_a56d0f2cc40cd8633a784582d6200d8b5"><div class="ttname"><a href="../../d6/db3/a00130.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a></div><div class="ttdeci">void errexit(char *f_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db3/a00130_source.html#l00054">error.c:54</a></div></div>
-<div class="ttc" id="a00173_html_a702976a4c55992ddbfc1918ec1b70943"><div class="ttname"><a href="../../d7/d3f/a00173.html#a702976a4c55992ddbfc1918ec1b70943">print_final_info</a></div><div class="ttdeci">void print_final_info(params_t *params)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00181">fis.c:181</a></div></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> seq;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keywordtype">void</span> gk_seq_free(gk_seq_t *seq)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    gk_iFreeMatrix(&amp;seq-&gt;pssm, seq-&gt;len, seq-&gt;nsymbols);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    gk_iFreeMatrix(&amp;seq-&gt;psfm, seq-&gt;len, seq-&gt;nsymbols);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    gk_free((<span class="keywordtype">void</span> **)&amp;seq-&gt;name, &amp;seq-&gt;sequence, LTERM);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">//gk_free((void **)&amp;seq, LTERM);</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    gk_free((<span class="keywordtype">void</span> **) &amp;seq, LTERM);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="ttc" id="a00133_html_a56d0f2cc40cd8633a784582d6200d8b5"><div class="ttname"><a href="../../d0/de8/a00133.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a></div><div class="ttdeci">void errexit(char *f_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00054">error.c:54</a></div></div>
+<div class="ttc" id="a00150_html_aba6f76f5c67b9b7e9c2e45988d3d3e9d"><div class="ttname"><a href="../../d9/d7d/a00150.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a></div><div class="ttdeci">void * gk_malloc(size_t nbytes, char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00140">memory.c:140</a></div></div>
+<div class="ttc" id="a00150_html_adc708027212f8668786472b408628f64"><div class="ttname"><a href="../../d9/d7d/a00150.html#adc708027212f8668786472b408628f64">gk_strtoupper</a></div><div class="ttdeci">char * gk_strtoupper(char *)</div><div class="ttdoc">Converts a string to upper case. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d45/a00175_source.html#l00328">string.c:328</a></div></div>
+<div class="ttc" id="a00150_html_a8b9f1e33d58df397a7f0f923a25ec256"><div class="ttname"><a href="../../d9/d7d/a00150.html#a8b9f1e33d58df397a7f0f923a25ec256">gk_i2cc2i_create_common</a></div><div class="ttdeci">gk_i2cc2i_t * gk_i2cc2i_create_common(char *alphabet)</div><div class="ttdoc">This function creates the localizations for the various sequences. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00048">seq.c:48</a></div></div>
+<div class="ttc" id="a00136_html_a739112cb142f2e96d6952140c66cd31c"><div class="ttname"><a href="../../d0/d5e/a00136.html#a739112cb142f2e96d6952140c66cd31c">gk_getfilestats</a></div><div class="ttdeci">void gk_getfilestats(char *fname, size_t *r_nlines, size_t *r_ntokens, size_t *r_max_nlntokens, size_t *r_nbytes)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d5e/a00136_source.html#l00079">fs.c:79</a></div></div>
+<div class="ttc" id="a00150_html_a3cafd54880b0693e95789c512c6f22d3"><div class="ttname"><a href="../../d9/d7d/a00150.html#a3cafd54880b0693e95789c512c6f22d3">gk_seq_ReadGKMODPSSM</a></div><div class="ttdeci">gk_seq_t * gk_seq_ReadGKMODPSSM(char *file_name)</div><div class="ttdoc">This function reads a pssm in the format of gkmod pssm. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00083">seq.c:83</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../dir_727261e497349a1838e9b65de4041ecc.html">test</a></li><li class="navelem"><a class="el" href="../../d7/d3f/a00173.html">fis.c</a></li>
-    <li class="footer">Generated on Thu May 19 2016 13:57:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><b>seq.c</b></li>
+    <li class="footer">Generated on Thu May 19 2016 14:26:57 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

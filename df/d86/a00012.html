@@ -129,14 +129,30 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <h1>3.功能补充</h1>
 <h2>3.1模型结构</h2>
 <ul>
-<li>1. 土壤层数问题</li>
+<li>1. 土壤数据问题</li>
 </ul>
-<p>目前是2层，程序中有些地方明确写死为2层，比如<code>MongoUtil.cpp</code>里的<code>Read2DSoilAttr</code>函数，这样不够合理，应改为可支持多层土壤层数。</p>
+<p>目前土壤数据的的输入为机械组成和有机质含量的TIFF，这样做可扩展性太差。而且，土层默认为2层，程序中有些地方明确写死为2层，比如<code>MongoUtil.cpp</code>里的<code>Read2DSoilAttr</code>函数，这样不够合理。应改为可支持多层土壤层数。</p>
 <ul>
 <li>2.</li>
 </ul>
-<hr/>
- <h1>TODO by Gao</h1>
+<blockquote class="doxtable">
+<p>2016-5-18 已完成 <code>DT_Rater2D</code>的读写，详见<code>clsRaterData</code>类</p>
+<p></p>
+</blockquote>
+<ul>
+<li>2. 河道数据结构</li>
+</ul>
+<p>目前有两个河道相关的AddParameter，即Tag_ReachParameter和Tag_RchParam，但是读取的均是reaches表。因此，有必要进行合并，用一个clsReach类替代。</p>
+<h2>TODO by Zhu</h2>
+<h3>KINWAVSED_CH模块</h3>
+<ul>
+<li>1. Tag_ReachParameter问题</li>
+</ul>
+<h3>MUSLE_AS模块</h3>
+<ul>
+<li>1. SEDTOCH和SEDTOCH_T单位到底是吨还是千克？</li>
+</ul>
+<h2>TODO by Gao</h2>
 <h2>1.代码整理</h2>
 <ul>
 <li>1 nReach等变量赋值问题<ul>
@@ -161,7 +177,7 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <ul>
 <li>3 变量定义不明确问题<ul>
 <li>Hydrology_longterm - IKW_REACH: VAR_QOUTLET &amp; VAR_QSOUTLET</li>
-<li>Hydrology_longterm - IKW_REACH: VAR_MSF &amp; <a class="el" href="../../d5/df9/a00044.html" title="channel flow routing using Muskingum method ">MUSK_CH</a>: VAR_VSF</li>
+<li>Hydrology_longterm - IKW_REACH: VAR_MSF &amp; <a class="el" href="../../d3/dea/a00046.html" title="channel flow routing using Muskingum method ">MUSK_CH</a>: VAR_VSF</li>
 </ul>
 </li>
 <li>4 add*()与set*()、get*()中变量不一致的问题<ul>
@@ -174,7 +190,7 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 19 2016 14:26:59 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

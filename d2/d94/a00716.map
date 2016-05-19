@@ -1,8 +1,4 @@
-<map id="Modules" name="Modules">
-<area shape="rect" id="node1" href="$dc/d14/a00720.html" title="Erosion related modules. " alt="" coords="181,5,259,35"/>
-<area shape="rect" id="node3" href="$dd/dd8/a00719.html" title="Longterm hydrology related modules. " alt="" coords="137,59,303,88"/>
-<area shape="rect" id="node4" href="$dd/dc1/a00721.html" title="Nutrient related modules. " alt="" coords="181,112,259,141"/>
-<area shape="rect" id="node5" href="$d3/d82/a00717.html" title="Climate related modules. " alt="" coords="181,165,259,195"/>
-<area shape="rect" id="node6" href="$db/d7c/a00722.html" title="Ecology related modules. " alt="" coords="180,219,260,248"/>
-<area shape="rect" id="node7" href="$dc/d8f/a00718.html" title="Hydrology related modules, include storm processes. " alt="" coords="173,272,267,301"/>
+<map id="Main" name="Main">
+<area shape="rect" id="node1" href="$d3/d82/a00717.html" title="SEIMS OpenMP version. " alt="" coords="112,5,219,35"/>
+<area shape="rect" id="node2" href="$dc/d8f/a00718.html" title="SEIMS MPI version. " alt="" coords="114,59,217,88"/>
 </map>

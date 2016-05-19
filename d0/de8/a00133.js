@@ -1,5 +1,10 @@
 var a00133 =
 [
-    [ "gk_getfilestats", "d0/de8/a00133.html#a739112cb142f2e96d6952140c66cd31c", null ],
-    [ "gk_getfsize", "d0/de8/a00133.html#ab8e9c3fc4ed1161501b51e445afde0e5", null ]
+    [ "errexit", "d0/de8/a00133.html#a56d0f2cc40cd8633a784582d6200d8b5", null ],
+    [ "gk_errexit", "d0/de8/a00133.html#a4c320c13bcdc9967613253ef4c73f59f", null ],
+    [ "gk_set_exit_on_error", "d0/de8/a00133.html#ac8478262a791bb8b09708996ad1a548e", null ],
+    [ "gk_sigthrow", "d0/de8/a00133.html#ad17d21ff26300b9b5bdb291e8ad2bcef", null ],
+    [ "gk_sigtrap", "d0/de8/a00133.html#a05869524d1c30cfaab2a8690e7da6fd4", null ],
+    [ "gk_siguntrap", "d0/de8/a00133.html#a08f287b6dbdc0779c916ecbd49540a1e", null ],
+    [ "gk_strerror", "d0/de8/a00133.html#a4e5e21eb7f29fcdabd4ef027223bbdf0", null ]
 ];

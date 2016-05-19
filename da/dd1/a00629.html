@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/nutrient/AtmDep/AtmosphericDeposition.cpp File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/SUR_MR/SUR_MR.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,37 +111,57 @@ $(document).ready(function(){initNavTree('da/dd1/a00629.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AtmosphericDeposition.cpp File Reference<div class="ingroups"><a class="el" href="../../d4/d91/a00733.html">ATMDEP</a></div></div>  </div>
+<div class="title">SUR_MR.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d66/a00630_source.html">AtmosphericDeposition.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d4/dbc/a00414_source.html">MetadataInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d8/de7/a00417_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &quot;util.h&quot;</code><br/>
-<code>#include &lt;omp.h&gt;</code><br/>
-<code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
+
+<p>Modified Rational Method to calculate infiltration and excess precipitation.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &quot;api.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d43/a00422_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AtmosphericDeposition.cpp:</div>
+Include dependency graph for SUR_MR.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d41/a00881.png" border="0" usemap="#src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8cpp" alt=""/></div>
-<map name="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8cpp" id="src_2modules_2nutrient_2_atm_dep_2_atmospheric_deposition_8cpp">
-<area shape="rect" id="node2" href="../../dc/d66/a00630.html" title="AtmosphericDeposition.h" alt="" coords="158,101,358,131"/><area shape="rect" id="node8" href="../../d8/de7/a00417.html" title="Define ModelException class. " alt="" coords="10,256,160,285"/><area shape="rect" id="node11" href="../../d4/dbc/a00414.html" title="Define MetadataInfo class used by modules. " alt="" coords="566,179,692,208"/><area shape="rect" id="node7" href="../../d3/d29/a00419.html" title="Parent class for all modules in SEIMS. " alt="" coords="236,179,400,208"/><area shape="rect" id="node14" href="../../d0/dd6/a00415.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="378,256,546,285"/></map>
+<div class="center"><img src="../../d7/d46/a00890.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_s_u_r___m_r_2_s_u_r___m_r_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_s_u_r___m_r_2_s_u_r___m_r_8h" id="src_2modules_2hydrology__longterm_2_s_u_r___m_r_2_s_u_r___m_r_8h">
+<area shape="rect" id="node4" href="../../d1/d53/a00399_source.html" title="api.h" alt="" coords="143,101,200,131"/><area shape="rect" id="node5" href="../../db/d43/a00422.html" title="Parent class for all modules in SEIMS. " alt="" coords="103,179,267,208"/><area shape="rect" id="node6" href="../../db/d4f/a00420.html" title="Define ModelException class. " alt="" coords="110,256,260,285"/></map>
 </div>
 </div>
 <p><a href="../../da/dd1/a00629_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Huiran Gao </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>April 2016 </dd></dl>
+<div class="textblock"><p>Modified Rational Method to calculate infiltration and excess precipitation. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>19-January-2011</dd></dl>
+<p>Revision: Zhiqiang Yu Date: 2011-2-15 Description:</p>
+<ol type="1">
+<li><a class="el" href="../../dc/dee/a00053.html" title="Model parameter information class. ">Parameter</a> S_M_frozen would be s_frozen and DT_Single.</li>
+<li><a class="el" href="../../dc/dee/a00053.html" title="Model parameter information class. ">Parameter</a> sfrozen would be t_soil and in WaterBalance table.</li>
+<li>Delete parameter Moist_in.</li>
+<li>Rename the input and output variables. See metadata rules for names.</li>
+<li>In function execute, do not change m_pNet[i] directly. This will have influence on another modules who will use net precipitation. Use local variable to replace it.</li>
+<li>Add API function GetValue.</li>
+</ol>
+<p>Revision: Junzhi Liu Date: 2011-2-19</p>
+<ol type="1">
+<li>Rename m_excess to m_pe</li>
+<li>Take snowmelt into consideration when calculating PE, PE=P_NET+Snowmelt-F</li>
+</ol>
+<p>Revision: Junzhi Liu Date: 2013-10-28</p>
+<ol type="1">
+<li>Add multi-layers support for soil parameters </li>
+</ol>
 
-<p>Definition in file <a class="el" href="../../da/dd1/a00629_source.html">AtmosphericDeposition.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../da/dd1/a00629_source.html">SUR_MR.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_c288e5e1fdc5ccdb46df84d6df312594.html">AtmDep</a></li><li class="navelem"><a class="el" href="../../da/dd1/a00629.html">AtmosphericDeposition.cpp</a></li>
-    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_42606d2ac78807ac30a059cbfa3fa421.html">SUR_MR</a></li><li class="navelem"><a class="el" href="../../da/dd1/a00629.html">SUR_MR.h</a></li>
+    <li class="footer">Generated on Thu May 19 2016 14:26:59 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

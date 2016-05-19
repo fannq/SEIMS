@@ -1,3 +1,5 @@
-<map id="Erosion" name="Erosion">
-<area shape="rect" id="node2" href="$d2/d94/a00716.html" title="All functional modules in SEIMS. " alt="" coords="5,4,88,33"/>
+<map id="Climate" name="Climate">
+<area shape="rect" id="node1" href="$dc/ddc/a00727.html" title="Read Time Series Data. " alt="" coords="261,5,349,35"/>
+<area shape="rect" id="node2" href="$dd/dd8/a00719.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node4" href="$d6/d59/a00726.html" title="Interpolation Module. " alt="" coords="282,59,329,88"/>
 </map>
