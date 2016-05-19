@@ -330,7 +330,7 @@ $(document).ready(function(){initNavTree('dc/dac/a00585_source.html','../../');}
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;{</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;TimeStep&quot;</span>))</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, Tag_TimeStep))</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    {</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        m_TimeStep =(int) value;</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
@@ -358,11 +358,11 @@ $(document).ready(function(){initNavTree('dc/dac/a00585_source.html','../../');}
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="comment">//set the value</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;subbasin&quot;</span>))</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_SUBBSN))</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        m_subbasin = data;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;D_SSRU&quot;</span>))</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SSRU))</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        m_ssru = data;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    }</div>
@@ -375,9 +375,9 @@ $(document).ready(function(){initNavTree('dc/dac/a00585_source.html','../../');}
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;{</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;Ol_iuh&quot;</span>))</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk,VAR_OL_IUH))</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        this-&gt;CheckInputSize(<span class="stringliteral">&quot;Ol_iuh&quot;</span>,nRows);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        this-&gt;CheckInputSize(VAR_OL_IUH, nRows);</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        m_iuhCell = data;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        m_iuhCols = nCols;</div>
@@ -389,7 +389,7 @@ $(document).ready(function(){initNavTree('dc/dac/a00585_source.html','../../');}
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keywordtype">void</span> IUH_IF::Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data)</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;{</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;SBIF&quot;</span>))  </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_SBIF))  </div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    {</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        *data = this-&gt;m_Q_SBIF;</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
@@ -409,7 +409,7 @@ $(document).ready(function(){initNavTree('dc/dac/a00585_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_a9f29f133984f129c0a9f93310237a77.html">IUH_IF</a></li><li class="navelem"><b>IUH_IF.cpp</b></li>
-    <li class="footer">Generated on Wed May 18 2016 13:54:26 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 19 2016 13:57:41 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('d6/dcf/a00645_source.html','../../');}
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;NutrientRemviaSr::NutrientRemviaSr(<span class="keywordtype">void</span>):</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//input </span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;m_nCells(-1), m_cellWidth(-1), m_nLayers(3), m_sedimentYield(NULL), m_surfr(NULL), m_sol_bd(NULL), m_sol_z(NULL),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;m_nCells(-1), m_cellWidth(-1), m_nSolLyrs(3), m_sedimentYield(NULL), m_surfr(NULL), m_sol_bd(NULL), m_sol_z(NULL),</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_sol_actp(NULL), m_sol_orgn(NULL), m_sol_orgp(NULL), m_sol_stap(NULL), m_sol_aorgn(NULL), m_sol_fon(NULL), m_sol_fop(NULL),</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//output </span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_sedorgn(NULL), m_sedorgp(NULL), m_sedminpa(NULL), m_sedminps(NULL)</div>
@@ -289,7 +289,7 @@ $(document).ready(function(){initNavTree('d6/dcf/a00645_source.html','../../');}
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">//enrichment ratio (enratio)</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">float</span>* enratio = <a class="code" href="../../d4/dca/a00048.html#a872f9555ec4827b4628f9aef2b5b0bf2">CalculateEnrRatio</a>();</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d4/dca/a00048.html#a1141cf225e338eecc74764ed60b456c0">m_nCells</a>; i++) {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nLayers; k++) {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nSolLyrs; k++) {</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="comment">//amount of organic N in first soil layer (orgninfl)</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordtype">float</span> orgninfl = 0;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="comment">//conversion factor (wt)</span></div>
@@ -326,7 +326,7 @@ $(document).ready(function(){initNavTree('d6/dcf/a00645_source.html','../../');}
 <div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="../../d4/dca/a00048.html#ac2094a1be6083d50f447455d11b5fde5">  218</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/dca/a00048.html#ac2094a1be6083d50f447455d11b5fde5">NutrientRemviaSr::OrgpAttachedtoSed</a>(){</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">float</span>* enratio = <a class="code" href="../../d4/dca/a00048.html#a872f9555ec4827b4628f9aef2b5b0bf2">CalculateEnrRatio</a>();</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d4/dca/a00048.html#a1141cf225e338eecc74764ed60b456c0">m_nCells</a>; i++) {</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nLayers; k++) {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nSolLyrs; k++) {</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="comment">//amount of phosphorus attached to sediment in soil (sol_attp)</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="keywordtype">float</span> sol_attp = 0;</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="comment">//fraction of active mineral/organic/stable mineral phosphorus in soil (sol_attp_o, sol_attp_a, sol_attp_s)</span></div>
@@ -409,7 +409,7 @@ $(document).ready(function(){initNavTree('d6/dcf/a00645_source.html','../../');}
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
 <div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="../../d4/dca/a00048.html#a32081fb99b953c5d8ca7b801ceff253b">  302</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/dca/a00048.html#a32081fb99b953c5d8ca7b801ceff253b">NutrientRemviaSr::Get2DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data) {</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    *nRows = m_nLayers;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    *nRows = m_nSolLyrs;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    *nCols = <a class="code" href="../../d4/dca/a00048.html#a1141cf225e338eecc74764ed60b456c0">m_nCells</a>;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_SOL_AORGN)) {</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        *data = <span class="keyword">this</span> -&gt; <a class="code" href="../../d4/dca/a00048.html#aca530e292006a6d117a9050522e81281">m_sol_aorgn</a>; </div>
@@ -439,7 +439,7 @@ $(document).ready(function(){initNavTree('d6/dcf/a00645_source.html','../../');}
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">// int main() {</span></div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="comment">//  system(&quot;pause&quot;);</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">//}</span></div>
-<div class="ttc" id="a00422_html_a5e88eac61303778772806361f71caa0f"><div class="ttname"><a href="../../db/d43/a00422.html#a5e88eac61303778772806361f71caa0f">VAR_CDN</a></div><div class="ttdeci">#define VAR_CDN</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00314">text.h:314</a></div></div>
+<div class="ttc" id="a00422_html_a5e88eac61303778772806361f71caa0f"><div class="ttname"><a href="../../db/d43/a00422.html#a5e88eac61303778772806361f71caa0f">VAR_CDN</a></div><div class="ttdeci">#define VAR_CDN</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00474">text.h:474</a></div></div>
 <div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00024">ModelException.h:24</a></div></div>
 <div class="ttc" id="a00048_html_a32081fb99b953c5d8ca7b801ceff253b"><div class="ttname"><a href="../../d4/dca/a00048.html#a32081fb99b953c5d8ca7b801ceff253b">NutrientRemviaSr::Get2DData</a></div><div class="ttdeci">virtual void Get2DData(const char *key, int *nRows, int *nCols, float ***data)</div><div class="ttdoc">Get 2D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dcf/a00645_source.html#l00302">NutrientRemviaSr.cpp:302</a></div></div>
 <div class="ttc" id="a00048_html_a3ae7b89c7d20b2ca0ba9aa2eac954256"><div class="ttname"><a href="../../d4/dca/a00048.html#a3ae7b89c7d20b2ca0ba9aa2eac954256">NutrientRemviaSr::CheckInputSize</a></div><div class="ttdeci">bool CheckInputSize(const char *, int)</div><div class="ttdoc">check the input size. Make sure all the input data have same dimension. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dcf/a00645_source.html#l00032">NutrientRemviaSr.cpp:32</a></div></div>
@@ -467,7 +467,7 @@ $(document).ready(function(){initNavTree('d6/dcf/a00645_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_bf434d2530be99d6e203f4efd55f7958.html">NutRemv</a></li><li class="navelem"><a class="el" href="../../d6/dcf/a00645.html">NutrientRemviaSr.cpp</a></li>
-    <li class="footer">Generated on Wed May 18 2016 13:54:27 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

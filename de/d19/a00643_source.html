@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;NandPim::NandPim(<span class="keywordtype">void</span>):</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//input </span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_nCells(-1), m_cellWidth(-1), m_nLayers(3), m_cmn(NULL), m_cdn(NULL), m_idplt(NULL), m_nactfr(NULL), m_psp(NULL), m_sol_z(NULL),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_nCells(-1), m_cellWidth(-1), m_nSolLyrs(3), m_cmn(NULL), m_cdn(NULL), m_idplt(NULL), m_nactfr(NULL), m_psp(NULL), m_sol_z(NULL),</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_rsdco_pl(NULL), m_sol_cbn(NULL), m_sol_st(NULL), m_sol_tmp(NULL), m_sol_ul(NULL), m_sol_nh3(NULL), m_sol_fc(NULL), m_sol_wpmm(NULL),</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_sol_actp(NULL), m_sol_stap(NULL), m_sol_aorgn(NULL), m_sol_fon(NULL), m_sol_fop(NULL), m_sol_no3(NULL),m_sol_orgn(NULL), m_sol_orgp(NULL),</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_sol_rsd(NULL), m_sol_solp(NULL), m_wshd_dnit(NULL), m_wshd_hmn(0), m_wshd_hmp(NULL), m_wshd_rmn(NULL), m_wshd_rmp(NULL), m_wshd_rwn(NULL),</div>
@@ -342,7 +342,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keywordtype">void</span> NandPim::CalculateMinerandImmobi() {</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">//soil layer (k)</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++) {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nLayers; k++) {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nSolLyrs; k++) {</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <span class="comment">//soil layer used to compute soil water and soil temperature factors</span></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordtype">int</span> kk = 0;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            <span class="keywordflow">if</span>(k == 0) {</div>
@@ -517,7 +517,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="comment">//soil layer (k)</span></div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordtype">int</span> kk = 0;</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++) {</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nLayers; k++) {</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nSolLyrs; k++) {</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            <span class="comment">//nitrification/volatilization temperature factor (nvtf)</span></div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <span class="keywordtype">float</span> nvtf = 0;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            <span class="comment">//Calculate nvtf, equation 3:1.3.1 in SWAT Theory 2009, p192</span></div>
@@ -605,7 +605,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordtype">float</span> bk = 0.0006;</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++) {</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        <span class="keywordtype">float</span> rto = m_psp[i] / (1 - m_psp[i]);</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nLayers; k++) {</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nSolLyrs; k++) {</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;            <span class="keywordtype">float</span> rmn1 = 0;</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;            rmn1 = (m_sol_solp[i][1] - m_sol_actp[i][1] * rto);</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                <span class="keywordflow">if</span> (rmn1 &gt; 0.) rmn1 = rmn1 * 0.1;</div>
@@ -702,7 +702,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;}   </div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="keywordtype">void</span> NandPim::Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data) {</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    *nRows = m_nLayers;</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    *nRows = m_nSolLyrs;</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    *nCols = m_nCells;</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_SOL_AORGN)) {</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        *data = <span class="keyword">this</span> -&gt; m_sol_aorgn; </div>
@@ -744,7 +744,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">// int main() {</span></div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="comment">//  system(&quot;pause&quot;);</span></div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">//}</span></div>
-<div class="ttc" id="a00422_html_a5e88eac61303778772806361f71caa0f"><div class="ttname"><a href="../../db/d43/a00422.html#a5e88eac61303778772806361f71caa0f">VAR_CDN</a></div><div class="ttdeci">#define VAR_CDN</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00314">text.h:314</a></div></div>
+<div class="ttc" id="a00422_html_a5e88eac61303778772806361f71caa0f"><div class="ttname"><a href="../../db/d43/a00422.html#a5e88eac61303778772806361f71caa0f">VAR_CDN</a></div><div class="ttdeci">#define VAR_CDN</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00474">text.h:474</a></div></div>
 <div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00024">ModelException.h:24</a></div></div>
 <div class="ttc" id="a00414_html"><div class="ttname"><a href="../../d4/dbc/a00414.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
 <div class="ttc" id="a00417_html"><div class="ttname"><a href="../../d8/de7/a00417.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
@@ -754,7 +754,7 @@ $(document).ready(function(){initNavTree('de/d19/a00643_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_ee396169fe6cf23038b2a773ae0c5ae6.html">NMINRL</a></li><li class="navelem"><a class="el" href="../../de/d19/a00643.html">NandPmi.cpp</a></li>
-    <li class="footer">Generated on Wed May 18 2016 13:54:27 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

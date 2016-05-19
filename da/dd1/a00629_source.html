@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('da/dd1/a00629_source.html','../../');}
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;AtmosphericDeposition::AtmosphericDeposition(<span class="keywordtype">void</span>):</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//input</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_nLayers(3), m_nCells(-1), m_cellWidth(-1), m_rcn(-1.0f), m_rca(-1.0f), m_sol_z(NULL), m_preci(NULL), m_drydep_no3(NULL), m_drydep_nh4(NULL),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_nSolLyrs(3), m_nCells(-1), m_cellWidth(-1), m_rcn(-1.0f), m_rca(-1.0f), m_sol_z(NULL), m_preci(NULL), m_drydep_no3(NULL), m_drydep_nh4(NULL),</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//output</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_sol_no3(NULL), m_sol_nh3(NULL), m_addrno3(NULL), m_addrnh3(NULL), m_wshd_rno3(NULL)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
@@ -232,7 +232,7 @@ $(document).ready(function(){initNavTree('da/dd1/a00629_source.html','../../');}
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">//check the data</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    CheckInputData();</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nLayers; k++) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; m_nSolLyrs; k++) {</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">// Calculate the amount of nitrite and ammonia added to the soil in rainfall, </span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            m_addrno3 = 0.01 * m_rcn * m_preci[i];</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            m_addrnh3 = 0.01 * m_rca * m_preci[i];</div>
@@ -259,7 +259,7 @@ $(document).ready(function(){initNavTree('da/dd1/a00629_source.html','../../');}
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">void</span> AtmosphericDeposition::Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data) {</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    *nRows = m_nLayers;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    *nRows = m_nSolLyrs;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    *nCols = m_nCells;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_SOL_NO3)) {</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        *data = m_sol_no3;</div>
@@ -278,7 +278,7 @@ $(document).ready(function(){initNavTree('da/dd1/a00629_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_c288e5e1fdc5ccdb46df84d6df312594.html">AtmDep</a></li><li class="navelem"><a class="el" href="../../da/dd1/a00629.html">AtmosphericDeposition.cpp</a></li>
-    <li class="footer">Generated on Wed May 18 2016 13:54:27 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 19 2016 13:57:42 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
