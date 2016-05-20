@@ -9,7 +9,7 @@ var searchData=
   ['dependpara',['DependPara',['../d1/dea/a00054.html#ae356227ba8d20639ed0ca4171bd8641a',1,'ParamInfo']]],
   ['deprecated_20list',['Deprecated List',['../d4/dfa/a00746.html',1,'']]],
   ['depth',['Depth',['../d1/d2b/a00018.html#ab0970b4ab61585936dc0ae600f97ed24',1,'clsReach']]],
-  ['desc_5facc',['DESC_ACC',['../dc/d2f/a00425.html#a72f368e56cac02b3616d5dc281f7c322',1,'text.h']]],
+  ['desc_5fa_5fbnk',['DESC_A_BNK',['../dc/d2f/a00425.html#aad7a90c088fefc81ff1793dcc93b1172',1,'text.h']]],
   ['description',['Description',['../d1/dea/a00054.html#ac3a3033becc4c70b37e273e76c37bcee',1,'ParamInfo::Description()'],['../dc/dee/a00053.html#a128967267b3d97fff9752c02ff2b4df5',1,'Parameter::Description()'],['../dc/d87/a00032.html#a9f0b0e91a740ff0e1f3d0b48b069983a',1,'Information::Description()'],['../db/df3/a00034.html#a575ddb3a443f1af8b2bbda99b93f352d',1,'InputVariable::Description()'],['../d1/d84/a00052.html#a840ebd73a2997bdf6f77b1e99c000870',1,'OutputVariable::Description()']]],
   ['diffusivewave',['DiffusiveWave',['../d0/d33/a00027.html',1,'DiffusiveWave'],['../d0/d33/a00027.html#a68509e9ba166447db382c7e7436afcf5',1,'DiffusiveWave::DiffusiveWave()']]],
   ['diffusivewave_2ecpp',['DiffusiveWave.cpp',['../d5/d21/a00549.html',1,'']]],

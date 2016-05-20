@@ -166,9 +166,9 @@ $(document).ready(function(){initNavTree('d1/dbd/a00457_source.html','../../');}
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// input from other module</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    mdi.AddInput(VAR_SED_TO_CH,UNIT_KG, DESC_SED_TO_CH, Source_Module,<a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8ca542b7ab7a696715c30f1afe74d7b85e3">DT_Raster1D</a>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    mdi.AddInput(VAR_HCH,UNIT_DEPTH_MM, DESC_HCH,Source_Module,<a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    mdi.AddInput(VAR_QRECH, UNIT_FLOW_CMS, DESC_QRECH, Source_Module,<a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//mdi.AddInput(VAR_QRECH, UNIT_FLOW_CMS, DESC_QRECH, Source_Module,DT_Array2D);</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    mdi.AddInput(<span class="stringliteral">&quot;QRECH&quot;</span>, <span class="stringliteral">&quot;m3/s&quot;</span>, <span class="stringliteral">&quot;Flux in the downslope boundary of cells&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>,<a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>);<span class="comment">// from which module? By LJ</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>    </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    mdi.AddOutput(VAR_SED_OUTLET, UNIT_KGM3, DESC_SED_OUTLET, <a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8cad140e28204d691853ef944df5866a088">DT_Single</a>);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    mdi.AddOutput(VAR_CH_DEP,UNIT_KG, DESC_CH_DEP, <a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8ca542b7ab7a696715c30f1afe74d7b85e3">DT_Raster1D</a>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    mdi.AddOutput(VAR_CH_DET,UNIT_KG, DESC_CH_DET, <a class="code" href="../../de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8ca542b7ab7a696715c30f1afe74d7b85e3">DT_Raster1D</a>);</div>
@@ -223,7 +223,7 @@ $(document).ready(function(){initNavTree('d1/dbd/a00457_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_51b2383fefae427ae4b0ad4aff19471a.html">KinWavSed_CH</a></li><li class="navelem"><b>api.cpp</b></li>
-    <li class="footer">Generated on Thu May 19 2016 14:26:58 for SEIMS-2016 by
+    <li class="footer">Generated on Fri May 20 2016 00:33:30 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

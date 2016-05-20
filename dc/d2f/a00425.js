@@ -2,7 +2,7 @@ var a00425 =
 [
     [ "CONS_IN_ELEV", "dc/d2f/a00425.html#aea3e29d6e3fb9c54bc3c41b9281575ff", null ],
     [ "DataType_Precipitation", "dc/d2f/a00425.html#a90664723be86eee7dbc8bcbcaceff261", null ],
-    [ "DESC_ACC", "dc/d2f/a00425.html#a72f368e56cac02b3616d5dc281f7c322", null ],
+    [ "DESC_A_BNK", "dc/d2f/a00425.html#aad7a90c088fefc81ff1793dcc93b1172", null ],
     [ "DIVERSION", "dc/d2f/a00425.html#a56ce08a6824937e6f9be6c907b4bd333", null ],
     [ "HEADER_RS_TAB", "dc/d2f/a00425.html#ac9588182c908a9c01335ab21fe1db408", null ],
     [ "MapWindowRasterExtension", "dc/d2f/a00425.html#a68708abef7564622952446ec7829c219", null ],
@@ -22,6 +22,5 @@ var a00425 =
     [ "Tag_NoDataValue", "dc/d2f/a00425.html#aa0936b056e3b42408d61014aad01785e", null ],
     [ "Tag_ReachParameter", "dc/d2f/a00425.html#ade397eca3f957e98ee3c081ac9e88561", null ],
     [ "UNIT_AREA_KM2", "dc/d2f/a00425.html#a7725836907ba1e21cba7c855d67051f1", null ],
-    [ "VAR_ACC", "dc/d2f/a00425.html#aee0034d3c5e2ee8936ecd2eb39df5250", null ],
-    [ "VAR_DEPREIN", "dc/d2f/a00425.html#a67aafd5b8f53db6a895de88f765536ed", null ]
+    [ "VAR_A_BNK", "dc/d2f/a00425.html#a76c725f412ec7c6cf0ae8c30217b5739", null ]
 ];

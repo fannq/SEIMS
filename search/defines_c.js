@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['var_5facc',['VAR_ACC',['../dc/d2f/a00425.html#aee0034d3c5e2ee8936ecd2eb39df5250',1,'text.h']]],
-  ['var_5fdeprein',['VAR_DEPREIN',['../dc/d2f/a00425.html#a67aafd5b8f53db6a895de88f765536ed',1,'text.h']]]
+  ['var_5fa_5fbnk',['VAR_A_BNK',['../dc/d2f/a00425.html#a76c725f412ec7c6cf0ae8c30217b5739',1,'text.h']]]
 ];
