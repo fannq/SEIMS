@@ -171,13 +171,17 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 </ul>
 <table class="doxtable">
 <tr>
-<th>模块</th><th>变量名  </th></tr>
+<th>模块</th><th>子模块</th><th>变量名</th><th>类型  </th></tr>
 <tr>
-<td>GWA_RE</td><td>VAR_PERCO </td></tr>
+<td>Hydrology_longterm</td><td>GWA_RE</td><td>VAR_PERCO</td><td>AddInput </td></tr>
 <tr>
-<td>GWA_RE</td><td>VAR_SOMO </td></tr>
+<td>Hydrology_longterm</td><td>GWA_RE</td><td>VAR_SOMO</td><td>AddInput </td></tr>
 <tr>
-<td>GWA_RE</td><td>VAR_GWWB </td></tr>
+<td>Hydrology_longterm</td><td>PEI_PI</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>PEI_STR</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>SET_LM</td><td>VAR_SOMO</td><td>AddInput </td></tr>
 </table>
 <ul>
 <li>3 变量定义不明确问题<ul>
@@ -186,7 +190,12 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 </ul>
 </li>
 <li>4 add*()与set*()、get*()中变量不一致的问题<ul>
-<li>Hydrology_longterm - IKW_REACH: VAR_QUPREACH </li>
+<li>Hydrology_longterm - IKW_REACH: VAR_QUPREACH</li>
+</ul>
+</li>
+<li>5 变量单位不明确问题<ul>
+<li>Hydrology_longterm - SON_DD: VAR_C_SNOW</li>
+<li>Hydrology_longterm - SON_DD: VAR_C_RAIN </li>
 </ul>
 </li>
 </ul>
@@ -195,7 +204,7 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 20 2016 00:33:31 for SEIMS-2016 by
+    <li class="footer">Generated on Fri May 20 2016 15:59:03 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
