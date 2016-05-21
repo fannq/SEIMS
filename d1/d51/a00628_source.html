@@ -360,19 +360,19 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span> (StringMatch(key, VAR_OMP_THREADNUM))</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        omp_set_num_threads((<span class="keywordtype">int</span>)value);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;DT_HS&quot;</span>))  </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, Tag_HillSlopeTimeStep))    </div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        m_dt = value;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;T_snow&quot;</span>))</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SNOW_TEMP))</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        m_tSnow = value;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;t_soil&quot;</span>))</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_T_SOIL))</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        m_tFrozen = value;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;T0&quot;</span>))</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_T0))</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        m_t0 = value;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;K_run&quot;</span>))</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_K_RUN))</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        m_kRunoff = value;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;P_max&quot;</span>))</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_P_MAX))</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        m_pMax = value;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;s_frozen&quot;</span>))</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_S_FROZEN))</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        m_sFrozen = value;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">else</span>                                    </div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SUR_MR&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk </div>
@@ -387,7 +387,7 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    *nRows = m_nCells;</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    *nCols = m_nSoilLayers;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;SOMO_2D&quot;</span>))   <span class="comment">// excess precipitation</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_SOMO))   <span class="comment">// excess precipitation</span></div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        *data = m_soilMoisture;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SUR_MR&quot;</span>, <span class="stringliteral">&quot;Get2DData&quot;</span>, <span class="stringliteral">&quot;Output &quot;</span> + sk </div>
@@ -400,11 +400,11 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    CheckInputSize(key, nrows);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    m_nSoilLayers = ncols;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;porosity_2D&quot;</span>))</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_POROST))</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    {</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        m_porosity = data;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;fieldCap_2D&quot;</span>))</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_FIELDCAP))</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    {</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        m_fieldCap = data;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
@@ -423,44 +423,44 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="comment">//set the value</span></div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;Runoff_co&quot;</span>))</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_RUNOFF_CO))</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    {</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        m_runoffCo = data;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    }</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;RootDepth&quot;</span>))</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_ROOTDEPTH))</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    {</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        m_rootDepth = data;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    }</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_NEPR&quot;</span>))</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,VAR_NEPR))</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    {</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        m_pNet = data;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_Tmin&quot;</span>))</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,VAR_TMIN))</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    {</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        m_tMin = data;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_Tmax&quot;</span>))</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_TMAX))</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    {</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        m_tMax = data;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;Moist_in&quot;</span>))</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_MOIST_IN))</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    {</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        m_initSoilMoisture = data;</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    }</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_DPST&quot;</span>))</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_DPST))</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    {</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        m_sd = data;</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    }</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_SOTE&quot;</span>))</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SOTE))</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    {</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        m_soilTemp = data;</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_SNAC&quot;</span>))</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SNAC))</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    {</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        m_snowAccu = data;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk,<span class="stringliteral">&quot;D_SNME&quot;</span>))</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SNME))</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    {</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        m_snowMelt = data;</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    }</div>
@@ -473,11 +473,11 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordtype">void</span> SUR_MR::Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data)</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;{</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;Infil&quot;</span>))   <span class="comment">//infiltration</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_INFIL))   <span class="comment">//infiltration</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    {</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        * data = m_infil;   </div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    }</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, <span class="stringliteral">&quot;EXCP&quot;</span>))   <span class="comment">// excess precipitation</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_EXCP))   <span class="comment">// excess precipitation</span></div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    {</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        * data = m_pe;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    }</div>
@@ -498,7 +498,7 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_42606d2ac78807ac30a059cbfa3fa421.html">SUR_MR</a></li><li class="navelem"><b>SUR_MR.cpp</b></li>
-    <li class="footer">Generated on Fri May 20 2016 15:59:03 for SEIMS-2016 by
+    <li class="footer">Generated on Sat May 21 2016 13:02:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

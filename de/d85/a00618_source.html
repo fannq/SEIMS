@@ -263,12 +263,12 @@ $(document).ready(function(){initNavTree('de/d85/a00618_source.html','../../');}
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        omp_set_num_threads((<span class="keywordtype">int</span>)data);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;K_blow&quot;</span>))                this-&gt;m_kblow = data;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;K_subli&quot;</span>))       this-&gt;m_ksubli = data;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;SWE&quot;</span>))           this-&gt;m_swe = data;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;swe0&quot;</span>))          this-&gt;m_swe0 = data;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;T0&quot;</span>))            this-&gt;m_t0 = data;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;T_snow&quot;</span>))        this-&gt;m_tsnow = data;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_K_BLOW))             this-&gt;m_kblow = data;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_K_SUBLI))        this-&gt;m_ksubli = data;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SWE))            this-&gt;m_swe = data;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SWE0))           this-&gt;m_swe0 = data;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_T0))         this-&gt;m_t0 = data;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SNOW_TEMP))      this-&gt;m_tsnow = data;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">else</span>                                    <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SSM_PE&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + s </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        + <span class="stringliteral">&quot; does not exist in SSM_PE method. Please contact the module developer.&quot;</span>);</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    </div>
@@ -281,12 +281,12 @@ $(document).ready(function(){initNavTree('de/d85/a00618_source.html','../../');}
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    this-&gt;CheckInputSize(key,n);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;D_PET&quot;</span>))              this-&gt;m_PET = data;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;D_NEPR&quot;</span>))        this-&gt;m_Pnet = data;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;D_SNAC&quot;</span>))        this-&gt;m_SA = data;  </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;D_SNRD&quot;</span>))        this-&gt;m_SR = data;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;D_TMIN&quot;</span>))        this-&gt;m_tMin = data;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;D_TMAX&quot;</span>))        this-&gt;m_tMax = data;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, VAR_PET))             this-&gt;m_PET = data;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_NEPR))       this-&gt;m_Pnet = data;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SNAC))       this-&gt;m_SA = data;  </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SNRD))       this-&gt;m_SR = data;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_TMIN))       this-&gt;m_tMin = data;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_TMAX))       this-&gt;m_tMax = data;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">else</span>                                    <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SSM_PE&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + s + </div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="stringliteral">&quot; does not exist in SSM_PE method. Please contact the module developer.&quot;</span>);</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
@@ -295,7 +295,7 @@ $(document).ready(function(){initNavTree('de/d85/a00618_source.html','../../');}
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> SSM_PE::Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data)</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;{</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">string</span> s(key);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s,<span class="stringliteral">&quot;SNSB&quot;</span>))               </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, VAR_SNSB))                </div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    {</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        *data = this-&gt;m_SE;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    }</div>
@@ -313,7 +313,7 @@ $(document).ready(function(){initNavTree('de/d85/a00618_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_15b9406e35b8d0c0779304a1915f442e.html">SSM_PE</a></li><li class="navelem"><b>SSM_PE.cpp</b></li>
-    <li class="footer">Generated on Fri May 20 2016 15:59:03 for SEIMS-2016 by
+    <li class="footer">Generated on Sat May 21 2016 13:02:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

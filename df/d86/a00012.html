@@ -182,6 +182,16 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <td>Hydrology_longterm</td><td>PEI_STR</td><td>VAR_SOMO</td><td>AddInput </td></tr>
 <tr>
 <td>Hydrology_longterm</td><td>SET_LM</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>SOL_WB</td><td>VAR_PERCO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>SOL_WB</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>SOL_WB</td><td>VAR_SSRU</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>SSR_DA</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>SUR_CN</td><td>VAR_SOMO</td><td>AddOutput </td></tr>
 </table>
 <ul>
 <li>3 变量定义不明确问题<ul>
@@ -189,13 +199,16 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <li>Hydrology_longterm - IKW_REACH: VAR_MSF &amp; <a class="el" href="../../d3/dea/a00046.html" title="channel flow routing using Muskingum method ">MUSK_CH</a>: VAR_VSF</li>
 </ul>
 </li>
-<li>4 add*()与set*()、get*()中变量不一致的问题<ul>
+<li>4 add-()与set-()、get-()中变量不一致的问题<ul>
 <li>Hydrology_longterm - IKW_REACH: VAR_QUPREACH</li>
+<li>Hydrology_longterm - SSR_DA: Tag_FLOWIN_PERCENTAGE_D8</li>
 </ul>
 </li>
 <li>5 变量单位不明确问题<ul>
 <li>Hydrology_longterm - SON_DD: VAR_C_SNOW</li>
-<li>Hydrology_longterm - SON_DD: VAR_C_RAIN </li>
+<li>Hydrology_longterm - SON_DD: VAR_C_RAIN</li>
+<li>Hydrology_longterm - SON_SP: VAR_C_SNOW6 ("mm/oC/day")</li>
+<li>Hydrology_longterm - SON_SP: VAR_C_SNOW12 ("mm/oC/day") </li>
 </ul>
 </li>
 </ul>
@@ -204,7 +217,7 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 20 2016 15:59:03 for SEIMS-2016 by
+    <li class="footer">Generated on Sat May 21 2016 13:02:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
