@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: utils Class Reference</title>
+<title>SEIMS-2016: SurrunoffTransfer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,68 +114,167 @@ $(document).ready(function(){initNavTree('d4/d31/a00069.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d0/d85/a00976.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../db/dbf/a00975.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">utils Class Reference<div class="ingroups"><a class="el" href="../../df/d96/a00714.html">Util</a></div></div>  </div>
+<div class="title">SurrunoffTransfer Class Reference<div class="ingroups"><a class="el" href="../../d0/d0a/a00743.html">SurTra</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>utils class to handle string, date time and file  
+<p>Nutrient removed and lost in surface runoff.  
  <a href="../../d4/d31/a00069.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/db6/a00427_source.html">utils.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/df1/a00662_source.html">SurrunoffTransfer.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SurrunoffTransfer:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/d85/a00976.png" border="0" usemap="#_surrunoff_transfer_inherit__map" alt="Inheritance graph"/></div>
+<map name="_surrunoff_transfer_inherit__map" id="_surrunoff_transfer_inherit__map">
+<area shape="rect" id="node2" href="../../df/d5f/a00064.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09446a0138a31288b84d2c12585236f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09446a0138a31288b84d2c12585236f8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a09446a0138a31288b84d2c12585236f8">utils</a> (void)</td></tr>
-<tr class="memdesc:a09446a0138a31288b84d2c12585236f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor (void) <br/></td></tr>
-<tr class="separator:a09446a0138a31288b84d2c12585236f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a259cc9e8f541c05a20df28dfeb3b11be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a259cc9e8f541c05a20df28dfeb3b11be"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a259cc9e8f541c05a20df28dfeb3b11be">~utils</a> (void)</td></tr>
-<tr class="memdesc:a259cc9e8f541c05a20df28dfeb3b11be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor (void) <br/></td></tr>
-<tr class="separator:a259cc9e8f541c05a20df28dfeb3b11be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f3376ea9d68581b547b885551495678"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a8f3376ea9d68581b547b885551495678">~SurrunoffTransfer</a> (void)</td></tr>
+<tr class="separator:a8f3376ea9d68581b547b885551495678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba143dfbfb4bab968c7ab6874d99d0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ba143dfbfb4bab968c7ab6874d99d0c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a1ba143dfbfb4bab968c7ab6874d99d0c">Set1DData</a> (const char *key, int n, float *data)</td></tr>
+<tr class="memdesc:a1ba143dfbfb4bab968c7ab6874d99d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
+<tr class="separator:a1ba143dfbfb4bab968c7ab6874d99d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f87e335e11777c550af3280b2d5ab9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3f87e335e11777c550af3280b2d5ab9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab3f87e335e11777c550af3280b2d5ab9">Set2DData</a> (const char *key, int nRows, int nCols, float **data)</td></tr>
+<tr class="memdesc:ab3f87e335e11777c550af3280b2d5ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
+<tr class="separator:ab3f87e335e11777c550af3280b2d5ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a542a96da10f21eeedc19fb609757c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65a542a96da10f21eeedc19fb609757c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a65a542a96da10f21eeedc19fb609757c">SetValue</a> (const char *key, float value)</td></tr>
+<tr class="memdesc:a65a542a96da10f21eeedc19fb609757c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
+<tr class="separator:a65a542a96da10f21eeedc19fb609757c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7cd2d89bfa48f8f3a528161ad7f59a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f7cd2d89bfa48f8f3a528161ad7f59a"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7f7cd2d89bfa48f8f3a528161ad7f59a">Execute</a> ()</td></tr>
+<tr class="memdesc:a7f7cd2d89bfa48f8f3a528161ad7f59a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
+<tr class="separator:a7f7cd2d89bfa48f8f3a528161ad7f59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58083a8b9c137268df2b34a541772a12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58083a8b9c137268df2b34a541772a12"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a58083a8b9c137268df2b34a541772a12">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
+<tr class="memdesc:a58083a8b9c137268df2b34a541772a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
+<tr class="separator:a58083a8b9c137268df2b34a541772a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58866aaea0801e7dc02956eb797b1952"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58866aaea0801e7dc02956eb797b1952"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a58866aaea0801e7dc02956eb797b1952">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
+<tr class="memdesc:a58866aaea0801e7dc02956eb797b1952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
+<tr class="separator:a58866aaea0801e7dc02956eb797b1952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00064"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00064')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../df/d5f/a00064.html">SimulationModule</a></td></tr>
+<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
+<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
+<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
+<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
+<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
+<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
+<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
+<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
+<tr class="separator:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
+virtual <a class="el" href="../../d1/d05/a00423.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
+<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
+<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
+<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
+<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9d33b2ef019fc239d7b6a798d7d79ae3">ConvertToString</a> (const time_t *date)</td></tr>
-<tr class="memdesc:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert date time to string as the format of "YYYY-MM-DD".  <a href="#a9d33b2ef019fc239d7b6a798d7d79ae3">More...</a><br/></td></tr>
-<tr class="separator:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a053b28c53a117d59e0f5050b0d9af225"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a053b28c53a117d59e0f5050b0d9af225">ConvertToString2</a> (const time_t *date)</td></tr>
-<tr class="memdesc:a053b28c53a117d59e0f5050b0d9af225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert date time to string as the format of "YYYY-MM-DD HH".  <a href="#a053b28c53a117d59e0f5050b0d9af225">More...</a><br/></td></tr>
-<tr class="separator:a053b28c53a117d59e0f5050b0d9af225"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb448f13021cc56b7ae4795aac36737f"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#acb448f13021cc56b7ae4795aac36737f">ConvertToTime</a> (string strDate, string format, bool includeHour)</td></tr>
-<tr class="memdesc:acb448f13021cc56b7ae4795aac36737f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to date time, string format could be %4d%2d%2d or d-d-d.  <a href="#acb448f13021cc56b7ae4795aac36737f">More...</a><br/></td></tr>
-<tr class="separator:acb448f13021cc56b7ae4795aac36737f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298646e3858741fa6ee018a6dea10007"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a298646e3858741fa6ee018a6dea10007">ConvertToTime2</a> (const string &amp;strDate, const char *format, bool includeHour)</td></tr>
-<tr class="memdesc:a298646e3858741fa6ee018a6dea10007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to date time, string format could be "%4d-%2d-%2d %2d:%2d:%2d" or d-d-d.  <a href="#a298646e3858741fa6ee018a6dea10007">More...</a><br/></td></tr>
-<tr class="separator:a298646e3858741fa6ee018a6dea10007"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab71f707faaacf41928fc45b326b3232"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aab71f707faaacf41928fc45b326b3232">FileExists</a> (string FileName)</td></tr>
-<tr class="memdesc:aab71f707faaacf41928fc45b326b3232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a flag indicating if the given file exists.  <a href="#aab71f707faaacf41928fc45b326b3232">More...</a><br/></td></tr>
-<tr class="separator:aab71f707faaacf41928fc45b326b3232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee1da89fd43624746f813a4a591d646e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aee1da89fd43624746f813a4a591d646e">GetDateInfoFromTimet</a> (time_t *seconds, int *year, int *month, int *day)</td></tr>
-<tr class="memdesc:aee1da89fd43624746f813a4a591d646e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get date information from <em>time_t</em> variable.  <a href="#aee1da89fd43624746f813a4a591d646e">More...</a><br/></td></tr>
-<tr class="separator:aee1da89fd43624746f813a4a591d646e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa3bdbf567f88fe18cca53f8c62691ccc">Log</a> (string msg)</td></tr>
-<tr class="memdesc:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an entry to the log file. Normally only used for debug.  <a href="#aa3bdbf567f88fe18cca53f8c62691ccc">More...</a><br/></td></tr>
-<tr class="separator:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#acc97bce7b8fc83ae5fbf851233dbf29a">SplitString</a> (string item, char delimiter)</td></tr>
-<tr class="memdesc:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the given string based on the given delimiter.  <a href="#acc97bce7b8fc83ae5fbf851233dbf29a">More...</a><br/></td></tr>
-<tr class="separator:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a403616dd03748ea418d49a1e9f26cf58"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a403616dd03748ea418d49a1e9f26cf58">SplitString</a> (string item)</td></tr>
-<tr class="memdesc:a403616dd03748ea418d49a1e9f26cf58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the given string by spaces.  <a href="#a403616dd03748ea418d49a1e9f26cf58">More...</a><br/></td></tr>
-<tr class="separator:a403616dd03748ea418d49a1e9f26cf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa973417e1c1bbe5bcaae454d5e0470b3">TrimSpaces</a> (string &amp;str)</td></tr>
-<tr class="memdesc:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim Both leading and trailing spaces.  <a href="#aa973417e1c1bbe5bcaae454d5e0470b3">More...</a><br/></td></tr>
-<tr class="separator:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7a94062b476f67555668bd8d59c714a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7a94062b476f67555668bd8d59c714a7">CheckInputData</a> (void)</td></tr>
+<tr class="memdesc:a7a94062b476f67555668bd8d59c714a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input data. Make sure all the input data is available.  <a href="#a7a94062b476f67555668bd8d59c714a7">More...</a><br/></td></tr>
+<tr class="separator:a7a94062b476f67555668bd8d59c714a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b65f9a33c70acfaf96292ad21ffbeda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a6b65f9a33c70acfaf96292ad21ffbeda">CheckInputSize</a> (const char *, int)</td></tr>
+<tr class="memdesc:a6b65f9a33c70acfaf96292ad21ffbeda"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input size. Make sure all the input data have same dimension.  <a href="#a6b65f9a33c70acfaf96292ad21ffbeda">More...</a><br/></td></tr>
+<tr class="separator:a6b65f9a33c70acfaf96292ad21ffbeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e0168fb32cc2a81108837c9b0e6b37"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a79e0168fb32cc2a81108837c9b0e6b37">CalculateEnrRatio</a> ()</td></tr>
+<tr class="memdesc:a79e0168fb32cc2a81108837c9b0e6b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate enrichment ratio.  <a href="#a79e0168fb32cc2a81108837c9b0e6b37">More...</a><br/></td></tr>
+<tr class="separator:a79e0168fb32cc2a81108837c9b0e6b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078d87025bae2477a854845669ce38ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a078d87025bae2477a854845669ce38ec">OrgnRemoveinSr</a> ()</td></tr>
+<tr class="memdesc:a078d87025bae2477a854845669ce38ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the amount of organic nitrogen removed in surface runoff.  <a href="#a078d87025bae2477a854845669ce38ec">More...</a><br/></td></tr>
+<tr class="separator:a078d87025bae2477a854845669ce38ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fdc7ad44c345681f68247da6a7c8f9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2fdc7ad44c345681f68247da6a7c8f9f">OrgpAttachedtoSed</a> ()</td></tr>
+<tr class="memdesc:a2fdc7ad44c345681f68247da6a7c8f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the amount of organic and mineral phosphorus attached to sediment in surface runoff.  <a href="#a2fdc7ad44c345681f68247da6a7c8f9f">More...</a><br/></td></tr>
+<tr class="separator:a2fdc7ad44c345681f68247da6a7c8f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a236959cbba5f50ab8f3949b9c9119070"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a236959cbba5f50ab8f3949b9c9119070"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a236959cbba5f50ab8f3949b9c9119070">m_cellWidth</a></td></tr>
+<tr class="memdesc:a236959cbba5f50ab8f3949b9c9119070"><td class="mdescLeft">&#160;</td><td class="mdescRight">cell width of grid map (m) <br/></td></tr>
+<tr class="separator:a236959cbba5f50ab8f3949b9c9119070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5edef4560ad662b06f439f14a1b99cc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5edef4560ad662b06f439f14a1b99cc5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a5edef4560ad662b06f439f14a1b99cc5">m_nCells</a></td></tr>
+<tr class="memdesc:a5edef4560ad662b06f439f14a1b99cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of cells <br/></td></tr>
+<tr class="separator:a5edef4560ad662b06f439f14a1b99cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebeb23961b704dde190250fe0cb130ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebeb23961b704dde190250fe0cb130ad"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aebeb23961b704dde190250fe0cb130ad">m_sedimentYield</a></td></tr>
+<tr class="memdesc:aebeb23961b704dde190250fe0cb130ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">input data <br/></td></tr>
+<tr class="separator:aebeb23961b704dde190250fe0cb130ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64901614deb95f3f685dad49707f7df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab64901614deb95f3f685dad49707f7df"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab64901614deb95f3f685dad49707f7df">m_sedorgn</a></td></tr>
+<tr class="memdesc:ab64901614deb95f3f685dad49707f7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">output data <br/></td></tr>
+<tr class="separator:ab64901614deb95f3f685dad49707f7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08df519e2ff1b6bc59f5f9a5b283fd89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08df519e2ff1b6bc59f5f9a5b283fd89"></a>
+float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a08df519e2ff1b6bc59f5f9a5b283fd89">m_sol_aorgn</a></td></tr>
+<tr class="memdesc:a08df519e2ff1b6bc59f5f9a5b283fd89"><td class="mdescLeft">&#160;</td><td class="mdescRight">input &amp; output <br/></td></tr>
+<tr class="separator:a08df519e2ff1b6bc59f5f9a5b283fd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00064"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00064')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../df/d5f/a00064.html">SimulationModule</a></td></tr>
+<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
+<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
+<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
+<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00064"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
+<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>utils class to handle string, date time and file </p>
+<div class="textblock"><p>Nutrient removed and lost in surface runoff. </p>
 
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00034">34</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9d33b2ef019fc239d7b6a798d7d79ae3"></a>
+<p>Definition at line <a class="el" href="../../dc/df1/a00662_source.html#l00027">27</a> of file <a class="el" href="../../dc/df1/a00662_source.html">SurrunoffTransfer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8f3376ea9d68581b547b885551495678"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SurrunoffTransfer::~SurrunoffTransfer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>TODO </p>
+
+<p>Definition at line <a class="el" href="../../d0/d50/a00661_source.html#l00029">29</a> of file <a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a79e0168fb32cc2a81108837c9b0e6b37"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -183,34 +282,27 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string utils::ConvertToString </td>
+          <td class="memname">float * SurrunoffTransfer::CalculateEnrRatio </td>
           <td>(</td>
-          <td class="paramtype">const time_t *&#160;</td>
-          <td class="paramname"><em>date</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Convert date time to string as the format of "YYYY-MM-DD". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td><em>time_t</em> data type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>string</em> </dd></dl>
+<p>Calculate enrichment ratio. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00042">42</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d50/a00661_source.html#l00158">158</a> of file <a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a053b28c53a117d59e0f5050b0d9af225"></a>
+<a class="anchor" id="a7a94062b476f67555668bd8d59c714a7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -218,34 +310,29 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string utils::ConvertToString2 </td>
+          <td class="memname">bool SurrunoffTransfer::CheckInputData </td>
           <td>(</td>
-          <td class="paramtype">const time_t *&#160;</td>
-          <td class="paramname"><em>date</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Convert date time to string as the format of "YYYY-MM-DD HH". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td><em>time_t</em> data type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>string</em> </dd></dl>
+<p>check the input data. Make sure all the input data is available. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool The validity of the input data. </dd></dl>
+<p>... </p>
 
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00059">59</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d50/a00661_source.html#l00049">49</a> of file <a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acb448f13021cc56b7ae4795aac36737f"></a>
+<a class="anchor" id="a6b65f9a33c70acfaf96292ad21ffbeda"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -253,76 +340,16 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">time_t utils::ConvertToTime </td>
+          <td class="memname">bool SurrunoffTransfer::CheckInputSize </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>strDate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>includeHour</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert string to date time, string format could be %4d%2d%2d or d-d-d. </p>
-<p>e.g.: strDate =&gt; 20000323, format=&gt; %4d%2d%2d strDate =&gt; 2000-03-23, format =&gt; d-d-d</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">strDate</td><td><em>string</em> date </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td><em>string</em> format </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">includeHour</td><td><em>bool</em> Include Hour? </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>time_t</em> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00103">103</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a298646e3858741fa6ee018a6dea10007"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">time_t utils::ConvertToTime2 </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>strDate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
+          <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>includeHour</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -332,28 +359,26 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Convert string to date time, string format could be "%4d-%2d-%2d %2d:%2d:%2d" or d-d-d. </p>
-<p>e.g.: strDate =&gt; 20000323, format=&gt; %4d%2d%2d strDate =&gt; 2000-03-23, format =&gt; d-d-d</p>
+<p>check the input size. Make sure all the input data have same dimension. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">strDate</td><td><em>string</em> date </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td><em>string</em> format </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">includeHour</td><td><em>bool</em> Include Hour? </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The key of the input data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>The input data dimension </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>time_t</em> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool The validity of the dimension </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00141">141</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d50/a00661_source.html#l00032">32</a> of file <a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aab71f707faaacf41928fc45b326b3232"></a>
+<a class="anchor" id="a078d87025bae2477a854845669ce38ec"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -361,34 +386,36 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool utils::FileExists </td>
+          <td class="memname">void SurrunoffTransfer::OrgnRemoveinSr </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>FileName</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a flag indicating if the given file exists. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">FileName</td><td>String path of file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if Exists, and false if not. </dd></dl>
+<p>calculates the amount of organic nitrogen removed in surface runoff. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00182">182</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d50/a00661_source.html#l00180">180</a> of file <a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d31/a00069_a078d87025bae2477a854845669ce38ec_cgraph.png" border="0" usemap="#d4/d31/a00069_a078d87025bae2477a854845669ce38ec_cgraph" alt=""/></div>
+<map name="d4/d31/a00069_a078d87025bae2477a854845669ce38ec_cgraph" id="d4/d31/a00069_a078d87025bae2477a854845669ce38ec_cgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a79e0168fb32cc2a81108837c9b0e6b37" title="Calculate enrichment ratio. " alt="" coords="208,5,363,51"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aee1da89fd43624746f813a4a591d646e"></a>
+<a class="anchor" id="a2fdc7ad44c345681f68247da6a7c8f9f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -396,216 +423,46 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int utils::GetDateInfoFromTimet </td>
+          <td class="memname">void SurrunoffTransfer::OrgpAttachedtoSed </td>
           <td>(</td>
-          <td class="paramtype">time_t *&#160;</td>
-          <td class="paramname"><em>seconds</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>year</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>month</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>day</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get date information from <em>time_t</em> variable. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td><em>time_t</em> date </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">year,month,day</td><td><em>int</em> data </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00198">198</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa3bdbf567f88fe18cca53f8c62691ccc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void utils::Log </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes an entry to the log file. Normally only used for debug. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td><em>string</em> log message </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Calculates the amount of organic and mineral phosphorus attached to sediment in surface runoff. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00217">217</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d50/a00661_source.html#l00218">218</a> of file <a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a>.</p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d31/a00069_a2fdc7ad44c345681f68247da6a7c8f9f_cgraph.png" border="0" usemap="#d4/d31/a00069_a2fdc7ad44c345681f68247da6a7c8f9f_cgraph" alt=""/></div>
+<map name="d4/d31/a00069_a2fdc7ad44c345681f68247da6a7c8f9f_cgraph" id="d4/d31/a00069_a2fdc7ad44c345681f68247da6a7c8f9f_cgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a79e0168fb32cc2a81108837c9b0e6b37" title="Calculate enrichment ratio. " alt="" coords="216,5,371,51"/></map>
 </div>
-</div>
-<a class="anchor" id="acc97bce7b8fc83ae5fbf851233dbf29a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; string &gt; utils::SplitString </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>item</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>delimiter</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Splits the given string based on the given delimiter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td><em>string</em> information </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">delimiter</td><td><em>char</em> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The split strings vector </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00243">243</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a403616dd03748ea418d49a1e9f26cf58"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; string &gt; utils::SplitString </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>item</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Splits the given string by spaces. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td><em>string</em> information </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The split strings vector </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00257">257</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa973417e1c1bbe5bcaae454d5e0470b3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void utils::TrimSpaces </td>
-          <td>(</td>
-          <td class="paramtype">string &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Trim Both leading and trailing spaces. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td><em>string</em> information (reference) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The trimmed string </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d7/db9/a00426_source.html#l00274">274</a> of file <a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a>.</p>
+</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/util/<a class="el" href="../../da/db6/a00427_source.html">utils.h</a></li>
-<li>src/base/util/<a class="el" href="../../d7/db9/a00426_source.html">utils.cpp</a></li>
+<li>src/modules/nutrient/SurTra/<a class="el" href="../../dc/df1/a00662_source.html">SurrunoffTransfer.h</a></li>
+<li>src/modules/nutrient/SurTra/<a class="el" href="../../d0/d50/a00661_source.html">SurrunoffTransfer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d31/a00069.html">utils</a></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:36 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d4/d31/a00069.html">SurrunoffTransfer</a></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:49 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

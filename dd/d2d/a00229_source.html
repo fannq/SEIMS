@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/timing.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/programs/struct.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,80 +111,85 @@ $(document).ready(function(){initNavTree('dd/d2d/a00229_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">timing.c</div>  </div>
+<div class="title">struct.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * struct.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * timing.c</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file contains data structures for the various programs of METIS.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains routines that deal with timing Metis</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Started 7/24/97</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * George</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * $Id: timing.c 13936 2013-03-30 03:59:09Z karypis $</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* This function clears the timers</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> InitTimers(<a class="code" href="../../d3/dfe/a00025.html">ctrl_t</a> *ctrl)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  gk_clearcputimer(ctrl-&gt;TotalTmr);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  gk_clearcputimer(ctrl-&gt;InitPartTmr);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  gk_clearcputimer(ctrl-&gt;MatchTmr);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  gk_clearcputimer(ctrl-&gt;ContractTmr);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  gk_clearcputimer(ctrl-&gt;CoarsenTmr);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  gk_clearcputimer(ctrl-&gt;UncoarsenTmr);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  gk_clearcputimer(ctrl-&gt;RefTmr);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  gk_clearcputimer(ctrl-&gt;ProjectTmr);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  gk_clearcputimer(ctrl-&gt;SplitTmr);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  gk_clearcputimer(ctrl-&gt;Aux1Tmr);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  gk_clearcputimer(ctrl-&gt;Aux2Tmr);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  gk_clearcputimer(ctrl-&gt;Aux3Tmr);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Started 8/9/02</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * George</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * $Id: struct.h 13900 2013-03-24 15:27:07Z karypis $</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef _STRUCTBIN_H_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _STRUCTBIN_H_</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*************************************************************************/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  idx_t ptype;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  idx_t objtype;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  idx_t ctype;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  idx_t iptype;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  idx_t rtype;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  idx_t no2hop;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  idx_t minconn;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  idx_t contig;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  idx_t nooutput;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  idx_t balance;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  idx_t ncuts;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  idx_t niter;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  idx_t gtype;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  idx_t ncommon;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">* This function prints the various timers</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> PrintTimers(<a class="code" href="../../d3/dfe/a00025.html">ctrl_t</a> *ctrl)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  printf(<span class="stringliteral">&quot;\nTiming Information -------------------------------------------------&quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  printf(<span class="stringliteral">&quot;\n Multilevel: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;TotalTmr));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  printf(<span class="stringliteral">&quot;\n     Coarsening: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;CoarsenTmr));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  printf(<span class="stringliteral">&quot;\n            Matching: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;MatchTmr));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  printf(<span class="stringliteral">&quot;\n            Contract: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;ContractTmr));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  printf(<span class="stringliteral">&quot;\n     Initial Partition: \t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;InitPartTmr));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  printf(<span class="stringliteral">&quot;\n     Uncoarsening: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;UncoarsenTmr));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  printf(<span class="stringliteral">&quot;\n          Refinement: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;RefTmr));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  printf(<span class="stringliteral">&quot;\n          Projection: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;ProjectTmr));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  printf(<span class="stringliteral">&quot;\n     Splitting: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;SplitTmr));</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  printf(&quot;\n       Aux1Tmr: \t\t %7.3&quot;PRREAL&quot;&quot;, gk_getcputimer(ctrl-&gt;Aux1Tmr));</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  printf(&quot;\n       Aux2Tmr: \t\t %7.3&quot;PRREAL&quot;&quot;, gk_getcputimer(ctrl-&gt;Aux2Tmr));</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  printf(&quot;\n       Aux3Tmr: \t\t %7.3&quot;PRREAL&quot;&quot;, gk_getcputimer(ctrl-&gt;Aux3Tmr));</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  printf(<span class="stringliteral">&quot;\n********************************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="ttc" id="a00025_html"><div class="ttname"><a href="../../d3/dfe/a00025.html">ctrl_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00139">struct.h:139</a></div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  idx_t seed;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  idx_t dbglvl;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  idx_t nparts;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  idx_t nseps;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  idx_t ufactor;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  idx_t pfactor;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  idx_t compress;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  idx_t ccorder;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">char</span> *filename;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">char</span> *outfile;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">char</span> *xyzfile;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">char</span> *tpwgtsfile;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">char</span> *ubvecstr;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  idx_t wgtflag;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  idx_t numflag;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  real_t *tpwgts;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  real_t *ubvec;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  real_t iotimer;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  real_t parttimer;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  real_t reporttimer;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">size_t</span> maxmemory;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <a class="code" href="../../d4/d6d/a00055.html">params_t</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">params_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d4c/a00177_source.html#l00015">fis.c:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><b>timing.c</b></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:33 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_191e76d4301b50d959103fb7ff475e31.html">programs</a></li><li class="navelem"><b>struct.h</b></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

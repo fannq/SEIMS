@@ -54,13 +54,14 @@ var hierarchy =
       [ "PETHargreaves", "d9/d2e/a00056.html", null ],
       [ "PETPenmanMonteith", "d1/d22/a00057.html", null ],
       [ "PETPriestleyTaylor", "d7/df7/a00058.html", null ],
-      [ "SurrunoffTransfer", "da/d24/a00068.html", null ]
+      [ "SurrunoffTransfer", "d4/d31/a00069.html", null ]
     ] ],
     [ "hydroclimate_sites.SiteInfo", "de/de1/a00065.html", null ],
     [ "slTable", "d9/db3/a00066.html", null ],
-    [ "StringList", "dc/ddf/a00067.html", null ],
-    [ "utils", "d4/d31/a00069.html", null ],
-    [ "uvw_t", "d2/db1/a00070.html", null ],
-    [ "vkrinfo_t", "d0/d89/a00071.html", null ],
-    [ "vnbr_t", "d6/d2c/a00072.html", null ]
+    [ "soil_param.SoilProperty", "dc/ddf/a00067.html", null ],
+    [ "StringList", "da/d24/a00068.html", null ],
+    [ "utils", "d2/db1/a00070.html", null ],
+    [ "uvw_t", "d0/d89/a00071.html", null ],
+    [ "vkrinfo_t", "d6/d2c/a00072.html", null ],
+    [ "vnbr_t", "d1/d6e/a00073.html", null ]
 ];

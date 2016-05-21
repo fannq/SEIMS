@@ -1,24 +1,24 @@
 var a00742 =
 [
-    [ "SurrunoffTransfer.cpp", "d5/d4e/a00660.html", null ],
-    [ "SurrunoffTransfer.h", "d0/d50/a00661.html", null ],
-    [ "SurrunoffTransfer", "da/d24/a00068.html", [
-      [ "~SurrunoffTransfer", "da/d24/a00068.html#a8f3376ea9d68581b547b885551495678", null ],
-      [ "CalculateEnrRatio", "da/d24/a00068.html#a79e0168fb32cc2a81108837c9b0e6b37", null ],
-      [ "CheckInputData", "da/d24/a00068.html#a7a94062b476f67555668bd8d59c714a7", null ],
-      [ "CheckInputSize", "da/d24/a00068.html#a6b65f9a33c70acfaf96292ad21ffbeda", null ],
-      [ "Execute", "da/d24/a00068.html#a7f7cd2d89bfa48f8f3a528161ad7f59a", null ],
-      [ "Get1DData", "da/d24/a00068.html#a58083a8b9c137268df2b34a541772a12", null ],
-      [ "Get2DData", "da/d24/a00068.html#a58866aaea0801e7dc02956eb797b1952", null ],
-      [ "OrgnRemoveinSr", "da/d24/a00068.html#a078d87025bae2477a854845669ce38ec", null ],
-      [ "OrgpAttachedtoSed", "da/d24/a00068.html#a2fdc7ad44c345681f68247da6a7c8f9f", null ],
-      [ "Set1DData", "da/d24/a00068.html#a1ba143dfbfb4bab968c7ab6874d99d0c", null ],
-      [ "Set2DData", "da/d24/a00068.html#ab3f87e335e11777c550af3280b2d5ab9", null ],
-      [ "SetValue", "da/d24/a00068.html#a65a542a96da10f21eeedc19fb609757c", null ],
-      [ "m_cellWidth", "da/d24/a00068.html#a236959cbba5f50ab8f3949b9c9119070", null ],
-      [ "m_nCells", "da/d24/a00068.html#a5edef4560ad662b06f439f14a1b99cc5", null ],
-      [ "m_sedimentYield", "da/d24/a00068.html#aebeb23961b704dde190250fe0cb130ad", null ],
-      [ "m_sedorgn", "da/d24/a00068.html#ab64901614deb95f3f685dad49707f7df", null ],
-      [ "m_sol_aorgn", "da/d24/a00068.html#a08df519e2ff1b6bc59f5f9a5b283fd89", null ]
+    [ "NutrientRemviaSr.cpp", "dd/d6b/a00649.html", null ],
+    [ "NutrientRemviaSr.h", "da/d36/a00650.html", null ],
+    [ "NutrientRemviaSr", "d2/d79/a00051.html", [
+      [ "~NutrientRemviaSr", "d2/d79/a00051.html#a7256db1166feaed19a1d879e49f68ad6", null ],
+      [ "CalculateEnrRatio", "d2/d79/a00051.html#a872f9555ec4827b4628f9aef2b5b0bf2", null ],
+      [ "CheckInputData", "d2/d79/a00051.html#aed34028890537d87e34cd1e426d8426e", null ],
+      [ "CheckInputSize", "d2/d79/a00051.html#a3ae7b89c7d20b2ca0ba9aa2eac954256", null ],
+      [ "Execute", "d2/d79/a00051.html#ae24c69926cb876f07010defdc622f8a0", null ],
+      [ "Get1DData", "d2/d79/a00051.html#af524e6df80687adefc401e437b8a6faa", null ],
+      [ "Get2DData", "d2/d79/a00051.html#a32081fb99b953c5d8ca7b801ceff253b", null ],
+      [ "OrgnRemoveinSr", "d2/d79/a00051.html#a375dd0f4a6181008271774209113bf06", null ],
+      [ "OrgpAttachedtoSed", "d2/d79/a00051.html#ac2094a1be6083d50f447455d11b5fde5", null ],
+      [ "Set1DData", "d2/d79/a00051.html#a012dbfda44951465303fcbdac94eb055", null ],
+      [ "Set2DData", "d2/d79/a00051.html#a54a3cc15b15f97cd133d71275e5620c0", null ],
+      [ "SetValue", "d2/d79/a00051.html#ab0f829a91e7ea448a3be18f89ec52237", null ],
+      [ "m_cellWidth", "d2/d79/a00051.html#ad7828a0d0c6405ab554413798b5e1156", null ],
+      [ "m_nCells", "d2/d79/a00051.html#a1141cf225e338eecc74764ed60b456c0", null ],
+      [ "m_sedimentYield", "d2/d79/a00051.html#a4a18e5f6cc8f9b80ca3f270ff76632fa", null ],
+      [ "m_sedorgn", "d2/d79/a00051.html#a754a2ea690fc96fb691579d211fb6146", null ],
+      [ "m_sol_aorgn", "d2/d79/a00051.html#aca530e292006a6d117a9050522e81281", null ]
     ] ]
 ];

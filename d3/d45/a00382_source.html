@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/clsReach.h Source File</title>
+<title>SEIMS-2016: src/base/data/clsReach.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,62 +111,55 @@ $(document).ready(function(){initNavTree('d3/d45/a00382_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">clsReach.h</div>  </div>
+<div class="title">clsReach.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/d45/a00382.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/df7/a00418.html">MetadataInfoConst.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dee/a00383.html">clsReach.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d2b/a00018.html">clsReach</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d1/d2b/a00018.html">clsReach</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="../../d1/d2b/a00018.html">clsReach</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> Reset(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a7abf1987198f46d49cce7bef77f0c721">   32</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#a7abf1987198f46d49cce7bef77f0c721">Area</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#ab0970b4ab61585936dc0ae600f97ed24">   34</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#ab0970b4ab61585936dc0ae600f97ed24">Depth</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a229ed9c972093b99a212bdf83d3b2d10">   36</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#a229ed9c972093b99a212bdf83d3b2d10">DownStream</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#aef26bb35b339e8938cf2fb99ef86b850">   38</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#aef26bb35b339e8938cf2fb99ef86b850">DownUpOrder</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#add778a50d9c142b69649ee912b7f9d85">   40</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#add778a50d9c142b69649ee912b7f9d85">Group</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a665f1aff11e05c54e2541a2168f2608c">   42</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#a665f1aff11e05c54e2541a2168f2608c">GroupDivided</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#ab88bbc0a300ab7121a032bd4d7e507f1">   44</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#ab88bbc0a300ab7121a032bd4d7e507f1">Length</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a7eb57dd6f128dd21c91d1d50c73d96f2">   46</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#a7eb57dd6f128dd21c91d1d50c73d96f2">Manning</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#ae496ea651d90be3aa7777de12a7573ef">   48</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#ae496ea651d90be3aa7777de12a7573ef">NumCells</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#acea9463fa94d48d3a29eed96650eb83f">   50</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#acea9463fa94d48d3a29eed96650eb83f">Slope</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a39c41f1839e8ce6ef361cc470910fa76">   52</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#a39c41f1839e8ce6ef361cc470910fa76">Subbasin</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a2364cf22763369565ec587939b19ba61">   54</a></span>&#160;    <span class="keywordtype">int</span>         <a class="code" href="../../d1/d2b/a00018.html#a2364cf22763369565ec587939b19ba61">UpDownOrder</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#ab231214d45bea5cc1a509e0ba64562ef">   56</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#ab231214d45bea5cc1a509e0ba64562ef">V0</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#ab3965e1b49051846ecd1fc3b012dafac">   58</a></span>&#160;    <span class="keywordtype">float</span>       <a class="code" href="../../d1/d2b/a00018.html#ab3965e1b49051846ecd1fc3b012dafac">Width</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="ttc" id="a00018_html_a2364cf22763369565ec587939b19ba61"><div class="ttname"><a href="../../d1/d2b/a00018.html#a2364cf22763369565ec587939b19ba61">clsReach::UpDownOrder</a></div><div class="ttdeci">int UpDownOrder</div><div class="ttdoc">UP_DOWN stream order. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00054">clsReach.h:54</a></div></div>
-<div class="ttc" id="a00018_html_ab3965e1b49051846ecd1fc3b012dafac"><div class="ttname"><a href="../../d1/d2b/a00018.html#ab3965e1b49051846ecd1fc3b012dafac">clsReach::Width</a></div><div class="ttdeci">float Width</div><div class="ttdoc">Width. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00058">clsReach.h:58</a></div></div>
-<div class="ttc" id="a00018_html_a229ed9c972093b99a212bdf83d3b2d10"><div class="ttname"><a href="../../d1/d2b/a00018.html#a229ed9c972093b99a212bdf83d3b2d10">clsReach::DownStream</a></div><div class="ttdeci">int DownStream</div><div class="ttdoc">Downstream reach index. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00036">clsReach.h:36</a></div></div>
-<div class="ttc" id="a00018_html_a7eb57dd6f128dd21c91d1d50c73d96f2"><div class="ttname"><a href="../../d1/d2b/a00018.html#a7eb57dd6f128dd21c91d1d50c73d96f2">clsReach::Manning</a></div><div class="ttdeci">float Manning</div><div class="ttdoc">Manning coefficient. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00046">clsReach.h:46</a></div></div>
-<div class="ttc" id="a00018_html_ab0970b4ab61585936dc0ae600f97ed24"><div class="ttname"><a href="../../d1/d2b/a00018.html#ab0970b4ab61585936dc0ae600f97ed24">clsReach::Depth</a></div><div class="ttdeci">float Depth</div><div class="ttdoc">Depth. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00034">clsReach.h:34</a></div></div>
-<div class="ttc" id="a00018_html_ab231214d45bea5cc1a509e0ba64562ef"><div class="ttname"><a href="../../d1/d2b/a00018.html#ab231214d45bea5cc1a509e0ba64562ef">clsReach::V0</a></div><div class="ttdeci">float V0</div><div class="ttdoc">V0. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00056">clsReach.h:56</a></div></div>
-<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">clsReach</a></div><div class="ttdoc">Class to store reach related parameters from REACHES table. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00021">clsReach.h:21</a></div></div>
-<div class="ttc" id="a00418_html"><div class="ttname"><a href="../../de/df7/a00418.html">MetadataInfoConst.h</a></div><div class="ttdoc">Define some const variables used by MetadataInfo class. </div></div>
-<div class="ttc" id="a00018_html_acea9463fa94d48d3a29eed96650eb83f"><div class="ttname"><a href="../../d1/d2b/a00018.html#acea9463fa94d48d3a29eed96650eb83f">clsReach::Slope</a></div><div class="ttdeci">float Slope</div><div class="ttdoc">Slope gradient. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00050">clsReach.h:50</a></div></div>
-<div class="ttc" id="a00018_html_ab88bbc0a300ab7121a032bd4d7e507f1"><div class="ttname"><a href="../../d1/d2b/a00018.html#ab88bbc0a300ab7121a032bd4d7e507f1">clsReach::Length</a></div><div class="ttdeci">float Length</div><div class="ttdoc">Length. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00044">clsReach.h:44</a></div></div>
-<div class="ttc" id="a00018_html_ae496ea651d90be3aa7777de12a7573ef"><div class="ttname"><a href="../../d1/d2b/a00018.html#ae496ea651d90be3aa7777de12a7573ef">clsReach::NumCells</a></div><div class="ttdeci">int NumCells</div><div class="ttdoc">Cell numbers. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00048">clsReach.h:48</a></div></div>
-<div class="ttc" id="a00018_html_a665f1aff11e05c54e2541a2168f2608c"><div class="ttname"><a href="../../d1/d2b/a00018.html#a665f1aff11e05c54e2541a2168f2608c">clsReach::GroupDivided</a></div><div class="ttdeci">int GroupDivided</div><div class="ttdoc">Group divided. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00042">clsReach.h:42</a></div></div>
-<div class="ttc" id="a00018_html_aef26bb35b339e8938cf2fb99ef86b850"><div class="ttname"><a href="../../d1/d2b/a00018.html#aef26bb35b339e8938cf2fb99ef86b850">clsReach::DownUpOrder</a></div><div class="ttdeci">int DownUpOrder</div><div class="ttdoc">DOWN_UP stream order. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00038">clsReach.h:38</a></div></div>
-<div class="ttc" id="a00018_html_a39c41f1839e8ce6ef361cc470910fa76"><div class="ttname"><a href="../../d1/d2b/a00018.html#a39c41f1839e8ce6ef361cc470910fa76">clsReach::Subbasin</a></div><div class="ttdeci">int Subbasin</div><div class="ttdoc">Subbasin ID. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00052">clsReach.h:52</a></div></div>
-<div class="ttc" id="a00018_html_add778a50d9c142b69649ee912b7f9d85"><div class="ttname"><a href="../../d1/d2b/a00018.html#add778a50d9c142b69649ee912b7f9d85">clsReach::Group</a></div><div class="ttdeci">int Group</div><div class="ttdoc">Group Index. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00040">clsReach.h:40</a></div></div>
-<div class="ttc" id="a00018_html_a7abf1987198f46d49cce7bef77f0c721"><div class="ttname"><a href="../../d1/d2b/a00018.html#a7abf1987198f46d49cce7bef77f0c721">clsReach::Area</a></div><div class="ttdeci">float Area</div><div class="ttdoc">Area. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00032">clsReach.h:32</a></div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a48a21f4bccdebcc652b27b5480ae8d59">   18</a></span>&#160;<a class="code" href="../../d1/d2b/a00018.html#a48a21f4bccdebcc652b27b5480ae8d59">clsReach::clsReach</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Reset();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a904e2ce879893010167c1bc6b6587d87">   23</a></span>&#160;<a class="code" href="../../d1/d2b/a00018.html#a904e2ce879893010167c1bc6b6587d87">clsReach::~clsReach</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#ada1c83a14c9be8fcb2b1c34cad62f2e1">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d2b/a00018.html#ada1c83a14c9be8fcb2b1c34cad62f2e1">clsReach::Reset</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Area                    = NODATA_VALUE;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Depth                   = NODATA_VALUE;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    DownStream      = -1;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    DownUpOrder = -1;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Group                   = -1;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    GroupDivided        = -1;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    Length                  = NODATA_VALUE;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Manning             = NODATA_VALUE;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    NumCells            = -1;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    Slope                   = NODATA_VALUE;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    Subbasin                = -1;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    UpDownOrder = -1;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    V0                      = NODATA_VALUE;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Width                   =NODATA_VALUE;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="ttc" id="a00018_html_ada1c83a14c9be8fcb2b1c34cad62f2e1"><div class="ttname"><a href="../../d1/d2b/a00018.html#ada1c83a14c9be8fcb2b1c34cad62f2e1">clsReach::Reset</a></div><div class="ttdeci">void Reset(void)</div><div class="ttdoc">Reset the contents of the object to default values. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00027">clsReach.cpp:27</a></div></div>
+<div class="ttc" id="a00018_html_a48a21f4bccdebcc652b27b5480ae8d59"><div class="ttname"><a href="../../d1/d2b/a00018.html#a48a21f4bccdebcc652b27b5480ae8d59">clsReach::clsReach</a></div><div class="ttdeci">clsReach(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00018">clsReach.cpp:18</a></div></div>
+<div class="ttc" id="a00383_html"><div class="ttname"><a href="../../da/dee/a00383.html">clsReach.h</a></div><div class="ttdoc">Class to store reach related parameters from REACHES table. </div></div>
+<div class="ttc" id="a00018_html_a904e2ce879893010167c1bc6b6587d87"><div class="ttname"><a href="../../d1/d2b/a00018.html#a904e2ce879893010167c1bc6b6587d87">clsReach::~clsReach</a></div><div class="ttdeci">~clsReach(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d45/a00382_source.html#l00023">clsReach.cpp:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d3/d45/a00382.html">clsReach.h</a></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:34 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d3/d45/a00382.html">clsReach.cpp</a></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

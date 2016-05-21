@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SEIMS_ModuleForModule.h Source File</title>
+<title>SEIMS-2016: src/base/module_setting/SEIMS_ModuleForModule.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,82 +111,102 @@ $(document).ready(function(){initNavTree('d1/d98/a00407_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SEIMS_ModuleForModule.h</div>  </div>
+<div class="title">SEIMS_ModuleForModule.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d98/a00407.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/de7/a00417.html">MetadataInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;Scenario.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d3d/a00409.html">SEIMS_ModuleSetting.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>MainBMP;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//typedef void __cdecl (*pICStatusMessage)(const char* );</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">typedef</span> void (*pICStatusMessage)(<span class="keyword">const</span> <span class="keywordtype">char</span>* );</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>Module</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html">   38</a></span>&#160;    <span class="keyword">class </span><a class="code" href="../../d4/de8/a00061.html">SEIMSModule</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d4/de8/a00061.html">SEIMSModule</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ~<a class="code" href="../../d4/de8/a00061.html">SEIMSModule</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a2f5460b94d05ab6f0e09d90806ac0fa5">   45</a></span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> <a class="code" href="../../d4/de8/a00061.html#a2f5460b94d05ab6f0e09d90806ac0fa5">SetValue</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">float</span>* data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Set2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Set3DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows1d, <span class="keywordtype">int</span>* nRows2d,<span class="keywordtype">int</span>* nRows3d,<span class="keywordtype">float</span>***data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> SetScenario(Scenario* scen){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* nRows, <span class="keywordtype">float</span>** data) {<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> Execute(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">//bool virtual InitModule(SEIMSModuleSetting* setting) = 0;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//bool virtual EndModule() = 0;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleName(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleAuthor(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleDescription(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleVersion(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">string</span> <span class="keyword">virtual</span> ModuleClassName(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">//common functions</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> SetDate(time_t date);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> SetStatusCallback(pICStatusMessage cb);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="../../df/df7/a00731.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> CreateBasicMetadataInfo(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        time_t              m_date;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        pICStatusMessage    m_StatusMsg;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="../../d5/db6/a00042.html">MetadataInfo</a>*       m_metadataInfo; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">virtual</span> CheckInputData(<span class="keywordtype">void</span>) = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>*key ,<span class="keywordtype">int</span> sizeFromMain, <span class="keywordtype">int</span>* sizeInModule);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">void</span> StatusMsg(<span class="keywordtype">string</span> msg);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    };</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00108">MetadataInfo.h:108</a></div></div>
-<div class="ttc" id="a00409_html"><div class="ttname"><a href="../../de/d3d/a00409.html">SEIMS_ModuleSetting.h</a></div></div>
-<div class="ttc" id="a00061_html"><div class="ttname"><a href="../../d4/de8/a00061.html">Module::SEIMSModule</a></div><div class="ttdoc">This is the basic class for all the modules. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00038">SEIMS_ModuleForModule.h:38</a></div></div>
-<div class="ttc" id="a00417_html"><div class="ttname"><a href="../../d8/de7/a00417.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
-<div class="ttc" id="a00731_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../df/df7/a00731.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation(void)</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d9c/a00487_source.html#l00033">api.cpp:33</a></div></div>
-<div class="ttc" id="a00061_html_a2f5460b94d05ab6f0e09d90806ac0fa5"><div class="ttname"><a href="../../d4/de8/a00061.html#a2f5460b94d05ab6f0e09d90806ac0fa5">Module::SEIMSModule::SetValue</a></div><div class="ttdeci">virtual bool SetValue(const char *key, float data)</div><div class="ttdoc">virtual functions </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00045">SEIMS_ModuleForModule.h:45</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dea/a00408.html">SEIMS_ModuleForModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/de1/a00421.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>Module;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#ab8fe2454147cec15aff0443c70ba1b80">   18</a></span>&#160;<a class="code" href="../../d4/de8/a00061.html#ab8fe2454147cec15aff0443c70ba1b80">SEIMSModule::SEIMSModule</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_StatusMsg = NULL;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_date = (time_t)-1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_metadataInfo = NULL;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//CreateMetadataInfo();</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#aff75b2e2dc0f0654e914caee401270e5">   28</a></span>&#160;<a class="code" href="../../d4/de8/a00061.html#aff75b2e2dc0f0654e914caee401270e5">SEIMSModule::~SEIMSModule</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span>(m_metadataInfo != NULL) <span class="keyword">delete</span> m_metadataInfo;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a994d63884d44b202c96fb0c0ee86253d">   33</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/de8/a00061.html#a994d63884d44b202c96fb0c0ee86253d">SEIMSModule::SetDate</a>(time_t date)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_date = date;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> SEIMSModule::SetStatusCallback(pICStatusMessage cb)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    m_StatusMsg = cb;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> SEIMSModule::StatusMsg(<span class="keywordtype">string</span> msg)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (m_StatusMsg != NULL)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        m_StatusMsg(msg.c_str());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#acf2fb28583bb5849af4fe0d05cbfc258">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/de8/a00061.html#acf2fb28583bb5849af4fe0d05cbfc258">SEIMSModule::CreateBasicMetadataInfo</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(m_metadataInfo == NULL)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        m_metadataInfo = <span class="keyword">new</span> <a class="code" href="../../d5/db6/a00042.html">MetadataInfo</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        m_metadataInfo-&gt;SetAuthor(ModuleAuthor());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        m_metadataInfo-&gt;SetClass(ModuleClassName(), <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        m_metadataInfo-&gt;SetDescription(ModuleDescription());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        m_metadataInfo-&gt;SetEmail(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        m_metadataInfo-&gt;SetHelpfile(ModuleName() + <span class="stringliteral">&quot;.CHM&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        m_metadataInfo-&gt;SetID(ModuleName());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_metadataInfo-&gt;SetName(ModuleName());</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        m_metadataInfo-&gt;SetVersion(ModuleVersion());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        m_metadataInfo-&gt;SetWebsite(<span class="stringliteral">&quot;https://github.com/seims/SEIMS&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a5eb27c0499ed1c6b9f2590e7845729e6">   69</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d4/de8/a00061.html#a5eb27c0499ed1c6b9f2590e7845729e6">SEIMSModule::MetadataInformation</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(m_metadataInfo == NULL)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModule&quot;</span>,<span class="stringliteral">&quot;MetadataInformation&quot;</span>,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="stringliteral">&quot;The metadata info is null. Please call CreateMetadataInfo first!&quot;</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> m_metadataInfo-&gt;GetXMLDocument();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a13869abaa288d21f2eb3588e1edd9241">   77</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/de8/a00061.html#a13869abaa288d21f2eb3588e1edd9241">SEIMSModule::CheckInputSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key,<span class="keywordtype">int</span> sizeFromMain, <span class="keywordtype">int</span>* sizeInModule)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span>(sizeFromMain&lt;=0)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModule&quot;</span>,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; in module &quot;</span>+ModuleName()+</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="stringliteral">&quot; is invalid. The size could not be less than zero.&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(*sizeInModule != sizeFromMain)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span>(*sizeInModule &lt;=0) *sizeInModule = sizeFromMain;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;SEIMSModule&quot;</span>,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; in module &quot;</span>+ModuleName()+</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="stringliteral">&quot; is invalid. All the input data should have same size.&quot;</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="ttc" id="a00061_html_a994d63884d44b202c96fb0c0ee86253d"><div class="ttname"><a href="../../d4/de8/a00061.html#a994d63884d44b202c96fb0c0ee86253d">Module::SEIMSModule::SetDate</a></div><div class="ttdeci">bool SetDate(time_t date)</div><div class="ttdoc">Set time. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00033">SEIMS_ModuleForModule.cpp:33</a></div></div>
+<div class="ttc" id="a00044_html"><div class="ttname"><a href="../../d5/df9/a00044.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de1/a00421_source.html#l00024">ModelException.h:24</a></div></div>
+<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">MetadataInfo</a></div><div class="ttdoc">Metadata information of module. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00108">MetadataInfo.h:108</a></div></div>
+<div class="ttc" id="a00421_html"><div class="ttname"><a href="../../d2/de1/a00421.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="ttc" id="a00061_html_ab8fe2454147cec15aff0443c70ba1b80"><div class="ttname"><a href="../../d4/de8/a00061.html#ab8fe2454147cec15aff0443c70ba1b80">Module::SEIMSModule::SEIMSModule</a></div><div class="ttdeci">SEIMSModule(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00018">SEIMS_ModuleForModule.cpp:18</a></div></div>
+<div class="ttc" id="a00061_html_aff75b2e2dc0f0654e914caee401270e5"><div class="ttname"><a href="../../d4/de8/a00061.html#aff75b2e2dc0f0654e914caee401270e5">Module::SEIMSModule::~SEIMSModule</a></div><div class="ttdeci">~SEIMSModule(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00028">SEIMS_ModuleForModule.cpp:28</a></div></div>
+<div class="ttc" id="a00061_html_a13869abaa288d21f2eb3588e1edd9241"><div class="ttname"><a href="../../d4/de8/a00061.html#a13869abaa288d21f2eb3588e1edd9241">Module::SEIMSModule::CheckInputSize</a></div><div class="ttdeci">bool CheckInputSize(const char *key, int sizeFromMain, int *sizeInModule)</div><div class="ttdoc">check the input size. Make sure all the input data have same dimension. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00077">SEIMS_ModuleForModule.cpp:77</a></div></div>
+<div class="ttc" id="a00408_html"><div class="ttname"><a href="../../dd/dea/a00408.html">SEIMS_ModuleForModule.h</a></div></div>
+<div class="ttc" id="a00061_html_a5eb27c0499ed1c6b9f2590e7845729e6"><div class="ttname"><a href="../../d4/de8/a00061.html#a5eb27c0499ed1c6b9f2590e7845729e6">Module::SEIMSModule::MetadataInformation</a></div><div class="ttdeci">string MetadataInformation(void)</div><div class="ttdoc">Get metadata information. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00069">SEIMS_ModuleForModule.cpp:69</a></div></div>
+<div class="ttc" id="a00061_html_acf2fb28583bb5849af4fe0d05cbfc258"><div class="ttname"><a href="../../d4/de8/a00061.html#acf2fb28583bb5849af4fe0d05cbfc258">Module::SEIMSModule::CreateBasicMetadataInfo</a></div><div class="ttdeci">void CreateBasicMetadataInfo(void)</div><div class="ttdoc">Create basic metadata information. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d98/a00407_source.html#l00051">SEIMS_ModuleForModule.cpp:51</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d1/d98/a00407.html">SEIMS_ModuleForModule.h</a></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:34 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d1/d98/a00407.html">SEIMS_ModuleForModule.cpp</a></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,3 +1,4 @@
-<map id="src/base/data/base_VariableData.h" name="src/base/data/base_VariableData.h">
-<area shape="rect" id="node3" href="$de/df7/a00418.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="59,101,228,131"/>
+<map id="src/base/data/base_VariableData.cpp" name="src/base/data/base_VariableData.cpp">
+<area shape="rect" id="node2" href="$dd/dcb/a00375.html" title="Base class used to store input and output variable datasets. " alt="" coords="5,101,179,131"/>
+<area shape="rect" id="node4" href="$d3/d29/a00419.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="69,179,237,208"/>
 </map>

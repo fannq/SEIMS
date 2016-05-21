@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/main.py Source File</title>
+<title>SEIMS-2016: preprocess/init_moisture.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,53 +111,88 @@ $(document).ready(function(){initNavTree('d7/df2/a00312_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">main.py</div>  </div>
+<div class="title">init_moisture.py</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @Main function entrance for preprocessing</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> txt2db3 <span class="keyword">import</span> reConstructSQLiteDB</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">## Climate modules</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> hydroclimate_sites <span class="keyword">import</span> ImportHydroClimateSitesInfo</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> PrecipitationDaily <span class="keyword">import</span> ImportDailyPrecData</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> MeteorologicalDaily <span class="keyword">import</span> ImportDailyMeteoData</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> DischargeDaily <span class="keyword">import</span> ImportDailyDischargeData</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">## Spatial modules</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> subbasin_delineation <span class="keyword">import</span> SubbasinDelineation</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">from</span> gen_subbasins <span class="keyword">import</span> GenerateSubbasins</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">from</span> parameters_extraction <span class="keyword">import</span> ExtractParameters</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">## Import to MongoDB</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">from</span> build_db <span class="keyword">import</span> BuildMongoDB</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">## Update SQLite Parameters.db3 database</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">#reConstructSQLiteDB()</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">## Climate Data</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">#SitesMList, SitesPList = ImportHydroClimateSitesInfo(HOSTNAME,PORT,ClimateDBName,HydroClimateVarFile, MetroSiteFile, PrecSiteFile)</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">#ImportDailyMeteoData(HOSTNAME, PORT, ClimateDBName, MeteoDailyFile, SitesMList)</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">#ImportDailyPrecData(HOSTNAME,PORT,ClimateDBName,PrecExcelPrefix,PrecDataYear, SitesPList)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">## TODO: Measurement Data</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">#ImportDailyDischargeData(HOSTNAME,PORT,ClimateDBName,DischargeExcelPrefix,DischargeYear)</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">## Spatial Data derived from DEM</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">#SubbasinDelineation(np, WORKING_DIR, dem, outlet_file, threshold, mpiexeDir=MPIEXEC_DIR,exeDir=CPP_PROGRAM_DIR)</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">#GenerateSubbasins(WORKING_DIR, exeDir=CPP_PROGRAM_DIR)</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">## Soil chemical properties initialization</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">## Extract parameters from landuse, soil properties etc.</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ExtractParameters(landuseFile, sandList, clayList, orgList, WORKING_DIR, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">## Import to MongoDB database</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    BuildMongoDB(WORKING_DIR, SpatialDBName, stormMode, forCluster, ClimateDBName, PrecSitesThiessen, MeteorSitesThiessen)</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal,osr</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> util</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> WriteGTiffFile</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">def </span>InitMoisture(dstdir):</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    acc_name = dstdir + os.sep + accM</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    slope_name = dstdir + os.sep + slopeM</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    ds = gdal.Open(acc_name)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    dataAcc = band.ReadAsArray()</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    xsize = band.XSize</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ysize = band.YSize</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    noDataValue = band.GetNoDataValue()</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> noDataValue <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        noDataValue = -9999</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    srs = osr.SpatialReference()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    srs.ImportFromWkt(ds.GetProjection())    </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    dsSlope = gdal.Open(slope_name)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    dataSlope = dsSlope.GetRasterBand(1).ReadAsArray()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    geotransform = ds.GetGeoTransform()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    dx = geotransform[1]</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    cellArea = dx*dx</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    wiGrid = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    wiMax = -1</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    wiMin = 1000</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            if(abs(dataAcc[i][j] - noDataValue) &lt; util.DELTA):</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                wiGrid[i][j] = -99</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                if(abs(dataSlope[i][j]) &lt; util.DELTA):</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    dataSlope[i][j] = 0.1/dx*100</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                wiGrid[i][j] =  math.log( (dataAcc[i][j] + 1)*cellArea / (dataSlope[i][j]/100.) )</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                if(wiGrid[i][j] &gt; wiMax):</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    wiMax = wiGrid[i][j]</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                elif(wiGrid[i][j] &lt; wiMin):</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    wiMin = wiGrid[i][j]</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    sMin = 0.6 <span class="comment">#minimum relative saturation</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    sMax = 1.0</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">#wiUplimit = 0.8*wiMax</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    wiUplimit = wiMax</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    a = (sMax-sMin) / (wiUplimit-wiMin)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    b = sMin - a*wiMin</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    moisture = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            if(abs(dataAcc[i][j] - noDataValue) &lt; util.DELTA):</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                moisture[i][j] = -9999</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                moisture[i][j] =  a*wiGrid[i][j] + b</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    filename = dstdir + os.sep + initSoilMoist</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    WriteGTiffFile(filename, ysize, xsize, moisture, \</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                       geotransform, srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;The initial moisture is generated!&#39;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> filename</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    InitMoisture(<span class="stringliteral">r&#39;F:\data\guanting\30m&#39;</span>)</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>main.py</b></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:34 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>init_moisture.py</b></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

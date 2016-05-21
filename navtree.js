@@ -7,8 +7,8 @@ var NAVTREE =
     [ "Modules available and usage in SEIMS", "d4/dee/a00008.html", null ],
     [ "Preprocessing for SEIMS", "d7/dec/a00010.html", null ],
     [ "TODO LISTS", "df/d86/a00012.html", null ],
-    [ "Todo List", "d5/db3/a00744.html", null ],
-    [ "Deprecated List", "d4/dfa/a00746.html", null ],
+    [ "Todo List", "d1/d79/a00745.html", null ],
+    [ "Deprecated List", "d5/d68/a00747.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
@@ -38,15 +38,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d92/a00475_source.html",
-"d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373",
-"d4/d98/a00120.html",
-"d6/d9c/a00352_source.html",
-"d9/d10/a00449.html#aa9081eb4e822aa3e844ba284c7cc93ee",
-"da/d24/a00068.html#a58866aaea0801e7dc02956eb797b1952",
-"dc/d91/a00659_source.html",
-"de/df7/a00418.html#gac6cf78ef837450cfb19495fe34976b8ca27d14586bb2e278c06b457b22d5636db",
-"functions_vars.html"
+"d1/d72/a00204.html#aaa70dea85e3a1149132362c93099d543",
+"d3/dd6/a00624_source.html",
+"d4/dd3/a00428_source.html",
+"d7/d00/a00401_source.html",
+"d9/d10/a00449_source.html",
+"dc/d0c/a00430_source.html",
+"dd/db2/a00151.html#aaa2391cce5eb8291e65f6dc4d8e252fd",
+"de/df3/a00185.html#ac50415aa8003f9b7bf0aabb2b0d50877a8170cbc2a37d4b4be25de1817dc2140a",
+"functions_r.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

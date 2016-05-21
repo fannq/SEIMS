@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/bmps/BMPBase.h Source File</title>
+<title>SEIMS-2016: src/base/bmps/BMPBase.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,72 +111,57 @@ $(document).ready(function(){initNavTree('d3/d93/a00341_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">BMPBase.h</div>  </div>
+<div class="title">BMPBase.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;BMPText.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/db6/a00427.html">utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d4f/a00420.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>MainBMP</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">    ** The the base class of all BMPs in BMP database.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">    ** One scenario may have different types of BMPs. And each type of BMP</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">    ** maybe a single one or a collection of same kind of BMP.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">class </span>BMPBase</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        ~BMPBase(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        ** @brief Static class factory for new bmp database</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">        **</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">        ** @param string bmpDatabasePath    The path of the BMP database</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        ** @param int id                    The BMP id, used to decide how to load distribution and parameter</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">        ** @param string name               The BMP name, just used for exception information</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">        ** @param int type                  The BMP type id, used to decide how to load distribution and parameter</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        ** @param string distribution       The distribution of BMP, asc file or table name</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        ** @param string parameter          The parameter table name of BMP, table name</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        BMPBase(<span class="keywordtype">string</span> bmpDatabasePath,<span class="keywordtype">int</span> <span class="keywordtype">id</span>,<span class="keywordtype">string</span> name, <span class="keywordtype">int</span> type,<span class="keywordtype">string</span> parameter);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Dump(ostream* fs);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">string</span> ReachBMPColumnNameFromBMPID(<span class="keywordtype">int</span> reachbmpId);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">int</span> m_bmpType;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">int</span> m_bmpId;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">string</span> m_bmpName;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">string</span> m_bmpDatabasePath;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">string</span> m_parameterTableName;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="ttc" id="a00427_html"><div class="ttname"><a href="../../da/db6/a00427.html">utils.h</a></div><div class="ttdoc">Utilities class to handle string, date time and file. </div></div>
-<div class="ttc" id="a00420_html"><div class="ttname"><a href="../../db/d4f/a00420.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;BMPBase.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>MainBMP;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;BMPBase::~BMPBase(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;BMPBase::BMPBase(<span class="keywordtype">string</span> bmpDatabasePath,<span class="keywordtype">int</span> <span class="keywordtype">id</span>,<span class="keywordtype">string</span> name, <span class="keywordtype">int</span> type,<span class="keywordtype">string</span> parameter)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_bmpDatabasePath = bmpDatabasePath;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_bmpId = id;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_bmpName = name;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    m_bmpType = type;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_parameterTableName = parameter;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> BMPBase::Dump(ostream* fs)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(fs == NULL) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    *fs &lt;&lt; <span class="stringliteral">&quot;---------- BMP:&quot;</span> &lt;&lt; m_bmpName </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;,ID:&quot;</span> &lt;&lt; m_bmpId</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;,Type:&quot;</span> &lt;&lt; m_bmpType</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;,BMPParameter:&quot;</span> &lt;&lt; m_parameterTableName</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;----------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">string</span> BMPBase::ReachBMPColumnNameFromBMPID(<span class="keywordtype">int</span> reachbmpId)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(reachbmpId &gt; BMP_TYPE_RIPARIANBUFFER || reachbmpId &lt; BMP_TYPE_POINTSOURCE) <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">switch</span>(reachbmpId)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">case</span> BMP_TYPE_POINTSOURCE:              <span class="keywordflow">return</span> BMP_NAME_POINTSOURCE;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">case</span> BMP_TYPE_FLOWDIVERSION_STREAM:     <span class="keywordflow">return</span> BMP_NAME_FLOWDIVERSION_STREAM;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">case</span> BMP_TYPE_RESERVOIR:                <span class="keywordflow">return</span> BMP_NAME_RESERVOIR;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">case</span> BMP_TYPE_RIPARIANWETLAND:          <span class="keywordflow">return</span> BMP_NAME_RIPARIANWETLAND;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">case</span> BMP_TYPE_RIPARIANBUFFER:           <span class="keywordflow">return</span> BMP_NAME_RIPARIANBUFFER;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">default</span>:                                <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>BMPBase.h</b></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:34 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>BMPBase.cpp</b></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:47 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

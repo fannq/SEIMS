@@ -6,6 +6,9 @@ var annotated =
     [ "Module", null, [
       [ "SEIMSModule", "d4/de8/a00061.html", "d4/de8/a00061" ]
     ] ],
+    [ "soil_param", null, [
+      [ "SoilProperty", "dc/ddf/a00067.html", "dc/ddf/a00067" ]
+    ] ],
     [ "base_VariableData", "d7/dd4/a00013.html", "d7/dd4/a00013" ],
     [ "ckrinfo_t", "d2/de7/a00014.html", "d2/de7/a00014" ],
     [ "clsHydroClimateData", "dd/d1b/a00015.html", "dd/d1b/a00015" ],
@@ -58,10 +61,10 @@ var annotated =
     [ "SettingsInput", "d1/d6f/a00063.html", "d1/d6f/a00063" ],
     [ "SimulationModule", "df/d5f/a00064.html", "df/d5f/a00064" ],
     [ "slTable", "d9/db3/a00066.html", "d9/db3/a00066" ],
-    [ "StringList", "dc/ddf/a00067.html", "dc/ddf/a00067" ],
-    [ "SurrunoffTransfer", "da/d24/a00068.html", "da/d24/a00068" ],
-    [ "utils", "d4/d31/a00069.html", "d4/d31/a00069" ],
-    [ "uvw_t", "d2/db1/a00070.html", "d2/db1/a00070" ],
-    [ "vkrinfo_t", "d0/d89/a00071.html", "d0/d89/a00071" ],
-    [ "vnbr_t", "d6/d2c/a00072.html", "d6/d2c/a00072" ]
+    [ "StringList", "da/d24/a00068.html", "da/d24/a00068" ],
+    [ "SurrunoffTransfer", "d4/d31/a00069.html", "d4/d31/a00069" ],
+    [ "utils", "d2/db1/a00070.html", "d2/db1/a00070" ],
+    [ "uvw_t", "d0/d89/a00071.html", "d0/d89/a00071" ],
+    [ "vkrinfo_t", "d6/d2c/a00072.html", "d6/d2c/a00072" ],
+    [ "vnbr_t", "d1/d6e/a00073.html", "d1/d6e/a00073" ]
 ];

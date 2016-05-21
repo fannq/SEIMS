@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/nutrient/NutRemv/NutrientRemviaSr.h File Reference</title>
+<title>SEIMS-2016: src/modules/nutrient/NutRemv/NutrientRemviaSr.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,43 +110,39 @@ $(document).ready(function(){initNavTree('dd/d6b/a00649.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">NutrientRemviaSr.h File Reference<div class="ingroups"><a class="el" href="../../da/da3/a00741.html">NutRemv</a></div></div>  </div>
+<div class="title">NutrientRemviaSr.cpp File Reference<div class="ingroups"><a class="el" href="../../d4/d8f/a00742.html">NutRemv</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/d43/a00422_source.html">SimulationModule.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d36/a00650_source.html">NutrientRemviaSr.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/df7/a00418_source.html">MetadataInfo.h</a>&quot;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d2/de1/a00421_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for NutrientRemviaSr.h:</div>
+Include dependency graph for NutrientRemviaSr.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/dd6/a00896.png" border="0" usemap="#src_2modules_2nutrient_2_nut_remv_2_nutrient_remvia_sr_8h" alt=""/></div>
-<map name="src_2modules_2nutrient_2_nut_remv_2_nutrient_remvia_sr_8h" id="src_2modules_2nutrient_2_nut_remv_2_nutrient_remvia_sr_8h">
-<area shape="rect" id="node3" href="../../d1/d53/a00399_source.html" title="api.h" alt="" coords="94,101,151,131"/><area shape="rect" id="node4" href="../../db/d43/a00422.html" title="Parent class for all modules in SEIMS. " alt="" coords="107,179,271,208"/><area shape="rect" id="node5" href="../../db/d4f/a00420.html" title="Define ModelException class. " alt="" coords="130,256,280,285"/></map>
+<div class="center"><img src="../../da/dd6/a00896.png" border="0" usemap="#src_2modules_2nutrient_2_nut_remv_2_nutrient_remvia_sr_8cpp" alt=""/></div>
+<map name="src_2modules_2nutrient_2_nut_remv_2_nutrient_remvia_sr_8cpp" id="src_2modules_2nutrient_2_nut_remv_2_nutrient_remvia_sr_8cpp">
+<area shape="rect" id="node3" href="../../da/d36/a00650.html" title="NutrientRemviaSr.h" alt="" coords="220,101,383,131"/><area shape="rect" id="node7" href="../../d2/de1/a00421.html" title="Define ModelException class. " alt="" coords="5,333,155,363"/><area shape="rect" id="node10" href="../../de/df7/a00418.html" title="Define MetadataInfo class used by modules. " alt="" coords="517,256,643,285"/><area shape="rect" id="node5" href="../../d9/d95/a00400_source.html" title="api.h" alt="" coords="298,179,355,208"/><area shape="rect" id="node6" href="../../d1/d05/a00423.html" title="Parent class for all modules in SEIMS. " alt="" coords="231,256,395,285"/><area shape="rect" id="node13" href="../../d3/d29/a00419.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="373,333,541,363"/></map>
 </div>
 </div>
 <p><a href="../../dd/d6b/a00649_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html">NutrientRemviaSr</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the profile.  <a href="../../d2/d79/a00051.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Huiran Gao </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>April 2016 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>May 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../dd/d6b/a00649_source.html">NutrientRemviaSr.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/d6b/a00649_source.html">NutrientRemviaSr.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_bf434d2530be99d6e203f4efd55f7958.html">NutRemv</a></li><li class="navelem"><a class="el" href="../../dd/d6b/a00649.html">NutrientRemviaSr.h</a></li>
-    <li class="footer">Generated on Sat May 21 2016 13:02:35 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_bf434d2530be99d6e203f4efd55f7958.html">NutRemv</a></li><li class="navelem"><a class="el" href="../../dd/d6b/a00649.html">NutrientRemviaSr.cpp</a></li>
+    <li class="footer">Generated on Sat May 21 2016 13:42:49 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,3 +1,5 @@
-<map id="Data" name="Data">
-<area shape="rect" id="node1" href="$d3/dda/a00712.html" title="Base modules, e.g., data, util, module_setting. " alt="" coords="5,4,64,33"/>
+<map id="Base" name="Base">
+<area shape="rect" id="node1" href="$d2/d94/a00716.html" title="Setting for SEIMS. " alt="" coords="112,5,243,35"/>
+<area shape="rect" id="node2" href="$d3/d3b/a00715.html" title="Include classes of MetadataInfo, ModelException and SimulationModule et al. " alt="" coords="154,59,201,88"/>
+<area shape="rect" id="node4" href="$df/d96/a00714.html" title="Include data related classes, e.g. Measurement, HydroClimateData etc. " alt="" coords="149,112,205,141"/>
 </map>
