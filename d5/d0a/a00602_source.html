@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/PET_PM/PETPenmanMonteith.h Source File</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/PET_H/PETHargreaves.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,97 +111,246 @@ $(document).ready(function(){initNavTree('d5/d0a/a00602_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PETPenmanMonteith.h</div>  </div>
+<div class="title">PETHargreaves.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d5/d0a/a00602.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef SEIMS_PET_PENMAN_MONTEITH_INCLUDE</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEIMS_PET_PENMAN_MONTEITH_INCLUDE</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d05/a00423.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d94/a00603.html">PETHargreaves.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/de1/a00421.html">MetadataInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/df3/a00424.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d22/a00057.html">PETPenmanMonteith</a> : <span class="keyword">public</span> <a class="code" href="../../df/d5f/a00064.html">SimulationModule</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d1/d22/a00057.html">PETPenmanMonteith</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ~<a class="code" href="../../d1/d22/a00057.html">PETPenmanMonteith</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span> *value);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span> **data);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d6/db8/a00376.html#a699b5ae6b4166d7295090f27b3671c89">SaturationVaporPressure</a>(<span class="keywordtype">float</span> t);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>*,<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d6/db8/a00376.html#aa197f33e632e504c37e04e47185ddcd7">MaxSolarRadiation</a>(<span class="keywordtype">int</span>,<span class="keywordtype">float</span>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d6/db8/a00376.html#a6a04547c5d7d36efb95a9f9cc4a94378">JulianDay</a>(time_t);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> clearInputs(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">//float *m_tMean;</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a87570ae2ece5c93d025bbb563b3772eb">   85</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a87570ae2ece5c93d025bbb563b3772eb">m_tMin</a>;      <span class="comment">//now the mean T is calculated by minT and maxT. They can be obtained from database directly</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">float</span> *m_tMax;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a77d022c445003c1090657b11bc828ee6">   91</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a77d022c445003c1090657b11bc828ee6">m_sr</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a493590ae98f840062a4b47eda036bcbc">   93</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a493590ae98f840062a4b47eda036bcbc">m_rhd</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a8c38bb6a3b729d6363b7cfbe4998f711">   95</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a8c38bb6a3b729d6363b7cfbe4998f711">m_ws</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a9bb652f3fc9ade63b0ad135494f1c66a">   99</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a9bb652f3fc9ade63b0ad135494f1c66a">m_elev</a>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a6571db3cfea30076203587bd623dcb62">  106</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a6571db3cfea30076203587bd623dcb62">m_growCode</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#aaacfb5eab46ff3345ec1bfd00d7b22b1">  108</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#aaacfb5eab46ff3345ec1bfd00d7b22b1">m_co2</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a6021e500a1416a102ddb1c2c98da7bca">  110</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a6021e500a1416a102ddb1c2c98da7bca">m_cht</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a6afe24b48c21c10be36f0b3bb75fc417">  112</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a6afe24b48c21c10be36f0b3bb75fc417">m_vpd2</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a197a9fc8e57ee74b89f13ee711964672">  114</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a197a9fc8e57ee74b89f13ee711964672">m_gsi</a>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a3ed35c439b79b8b8d4b1a71044918657">  116</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a3ed35c439b79b8b8d4b1a71044918657">m_lai</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a9c86415ffd1e90f1a5adbf8c89c26b01">  121</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d1/d22/a00057.html#a9c86415ffd1e90f1a5adbf8c89c26b01">m_size</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;PETHargreaves::PETHargreaves(<span class="keywordtype">void</span>):m_size(-1), m_petFactor(1.f),m_HCoef_pet(0.0023f), m_tMin(NULL), m_tMax(NULL), m_pet(NULL)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;PETHargreaves::~PETHargreaves(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a> != NULL)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span> [] this-&gt;<a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a6d353a208f981a5b9b048c506e7d227c">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d22/a00057.html#a6d353a208f981a5b9b048c506e7d227c">PETHargreaves::SetValue</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> value)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk,VAR_PET_K))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a8727d0b39c3f9db1c3c4db8f9809616d">m_petFactor</a>  = value;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_PET_HCOEF))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#acaf6d54c4471fe0a6d6e4b5af8918e36">m_HCoef_pet</a> = value;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_JULIAN_DAY))</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">m_jday</a> = value;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_OMP_THREADNUM))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        omp_set_num_threads((<span class="keywordtype">int</span>)value);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(<span class="stringliteral">&quot;PET_H&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist in Hargreaves method. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ab588ffc7c5abc04603910f951801f79b">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d22/a00057.html#ab588ffc7c5abc04603910f951801f79b">PETHargreaves::Set1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key,<span class="keywordtype">int</span> n, <span class="keywordtype">float</span> *value)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d1/d22/a00057.html#a00bd74f194c86eae40b0d95cd4bba6a7">CheckInputSize</a>(key,n)) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (StringMatch( sk,DataType_MeanTemperature))</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;<a class="code" href="../../d1/d22/a00057.html#ac314113751262beca529b1180a166763">m_tMean</a> = value;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch( sk,DataType_MaximumTemperature))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        this-&gt;<a class="code" href="../../d1/d22/a00057.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a> = value;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch( sk, DataType_MinimumTemperature))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        this-&gt;<a class="code" href="../../d1/d22/a00057.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a> = value;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch( sk, Tag_Latitude_Meteorology))</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        this-&gt;<a class="code" href="../../d1/d22/a00057.html#afbb2148f57db1a0ce4e343e8f56ccbeb">m_latitude</a> = value;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SR_MAX))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        this-&gt;<a class="code" href="../../d1/d22/a00057.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a> = value;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;Set1DValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist in PETHargreaves method. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">// int PETHargreaves::JulianDay(time_t date)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//  struct tm dateInfo;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//  LocalTime(date, &amp;dateInfo);</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//  return dateInfo.tm_yday + 1;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">// }</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">// float PETHargreaves::MaxSolarRadiation(int day,float lat)</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//    lat = lat*3.1415926/180;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//    //Calculate Daylength</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//       //calculate solar declination: equation 1:1.1.2 in SWAT Theory 2009, p31</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//       float sd = asin(0.4f * sin((day - 82.0f) / 58.09f));  /// 365/2pi = 58.09</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//       //calculate the relative distance of the earth from the sun</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//       //also called the eccentricity correction factor of the orbit, Duffie and Beckman(1980)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//       //equation 1:1.1.1 in SWAT Theory 2009, p30</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//       float dd = 1.0f + 0.033f * cos(day / 58.09f);</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//       //daylength = 2 * Acos(-Tan(sd) * Tan(lat)) / omega</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//       //where the angular velocity of the earth&#39;s rotation, omega, is equal</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">//       //to 15 deg/hr or 0.2618 rad/hr and 2/0.2618 = 7.6374</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//       //equation 2.1.6 in SWAT manual</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">//       float h = 0.0f;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">//    /// equation 1:1.1.4 in SWAT Theory 2009, p32</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">//       float ch = -sin(lat) * tan(sd) / cos(lat);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">//       if (ch &gt; 1.f) //ch will be &gt;= 1. if latitude exceeds +/- 66.5 deg in winter</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">//         h = 0.0f;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">//       else if (ch &gt;= -1.0f)</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//         h = acos(ch);</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">//       else</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">//         h = 3.1416f; //latitude exceeds +/- 66.5 deg in summer</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">//       </span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">//       float dayl = 7.6394f * h; /// useless?</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">//           </span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">//       //Calculate Potential (maximum) Radiation !!</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">//       /// equation 1:1.1.3 in SWAT Theory 2009, p31</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">//       float ys = sin(lat) * sin(sd);</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">//       float yc = cos(lat) * cos(sd);</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//       /// equation 1:1.1.7 in SWAT Theory 2009, p34</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">//    return 30.f * dd * (h * ys + yc * sin(h));</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">// }</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a9ef1898a5193a543e4cef261712b3e1d">  124</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a9ef1898a5193a543e4cef261712b3e1d">m_petFactor</a>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a207e8c20d521b0625bb30321ebc2d193">  127</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a207e8c20d521b0625bb30321ebc2d193">m_pet</a>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a66703e60cd983a74f297b3780a3ae4c8">  130</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a66703e60cd983a74f297b3780a3ae4c8">m_latitude</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a25309b5b58b400c512ca08120ce37490">  133</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a25309b5b58b400c512ca08120ce37490">m_tSnow</a>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#aaf05ab866192717802d14fa26189224b">  123</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d1/d22/a00057.html#aaf05ab866192717802d14fa26189224b">PETHargreaves::Execute</a>()</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d1/d22/a00057.html#a7e04f825331f418ccf131194dd4eb48c">CheckInputData</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(NULL == <a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        this-&gt;<a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>];</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// int d = JulianDay(this-&gt;m_date);</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">//cout&lt;&lt;m_tMean[0]&lt;&lt;&quot;,&quot;&lt;&lt;m_tMax[0]&lt;&lt;&quot;,&quot;&lt;&lt;m_tMin[0]&lt;&lt;endl;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#pragma omp parallel for</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>; ++i)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {   </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="comment">//float tMean = (m_tMax[i] + m_tMin[i])/2;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">//float srMax = this-&gt;MaxSolarRadiation(m_jday, m_latitude[i]);</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a00057_html_a9ef1898a5193a543e4cef261712b3e1d"><div class="ttname"><a href="../../d1/d22/a00057.html#a9ef1898a5193a543e4cef261712b3e1d">PETPenmanMonteith::m_petFactor</a></div><div class="ttdeci">float m_petFactor</div><div class="ttdoc">Correction Factor for PET. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00124">PETPenmanMonteith.h:124</a></div></div>
-<div class="ttc" id="a00057_html_a9bb652f3fc9ade63b0ad135494f1c66a"><div class="ttname"><a href="../../d1/d22/a00057.html#a9bb652f3fc9ade63b0ad135494f1c66a">PETPenmanMonteith::m_elev</a></div><div class="ttdeci">float * m_elev</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00099">PETPenmanMonteith.h:99</a></div></div>
-<div class="ttc" id="a00057_html_a87570ae2ece5c93d025bbb563b3772eb"><div class="ttname"><a href="../../d1/d22/a00057.html#a87570ae2ece5c93d025bbb563b3772eb">PETPenmanMonteith::m_tMin</a></div><div class="ttdeci">float * m_tMin</div><div class="ttdoc">mean air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00085">PETPenmanMonteith.h:85</a></div></div>
-<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d05/a00423_source.html#l00032">SimulationModule.h:32</a></div></div>
-<div class="ttc" id="a00057_html_a3ed35c439b79b8b8d4b1a71044918657"><div class="ttname"><a href="../../d1/d22/a00057.html#a3ed35c439b79b8b8d4b1a71044918657">PETPenmanMonteith::m_lai</a></div><div class="ttdeci">float * m_lai</div><div class="ttdoc">leaf area index(m2/m2) </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00116">PETPenmanMonteith.h:116</a></div></div>
-<div class="ttc" id="a00423_html"><div class="ttname"><a href="../../d1/d05/a00423.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00057_html_a25309b5b58b400c512ca08120ce37490"><div class="ttname"><a href="../../d1/d22/a00057.html#a25309b5b58b400c512ca08120ce37490">PETPenmanMonteith::m_tSnow</a></div><div class="ttdeci">float m_tSnow</div><div class="ttdoc">The temperature of snow melt. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00133">PETPenmanMonteith.h:133</a></div></div>
-<div class="ttc" id="a00057_html_a66703e60cd983a74f297b3780a3ae4c8"><div class="ttname"><a href="../../d1/d22/a00057.html#a66703e60cd983a74f297b3780a3ae4c8">PETPenmanMonteith::m_latitude</a></div><div class="ttdeci">float * m_latitude</div><div class="ttdoc">latitude of the stations </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00130">PETPenmanMonteith.h:130</a></div></div>
-<div class="ttc" id="a00057_html_a207e8c20d521b0625bb30321ebc2d193"><div class="ttname"><a href="../../d1/d22/a00057.html#a207e8c20d521b0625bb30321ebc2d193">PETPenmanMonteith::m_pet</a></div><div class="ttdeci">float * m_pet</div><div class="ttdoc">output pet array </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00127">PETPenmanMonteith.h:127</a></div></div>
-<div class="ttc" id="a00057_html_aaacfb5eab46ff3345ec1bfd00d7b22b1"><div class="ttname"><a href="../../d1/d22/a00057.html#aaacfb5eab46ff3345ec1bfd00d7b22b1">PETPenmanMonteith::m_co2</a></div><div class="ttdeci">float m_co2</div><div class="ttdoc">CO2 concentration(ppmv) </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00108">PETPenmanMonteith.h:108</a></div></div>
-<div class="ttc" id="a00057_html_a77d022c445003c1090657b11bc828ee6"><div class="ttname"><a href="../../d1/d22/a00057.html#a77d022c445003c1090657b11bc828ee6">PETPenmanMonteith::m_sr</a></div><div class="ttdeci">float * m_sr</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00091">PETPenmanMonteith.h:91</a></div></div>
-<div class="ttc" id="a00376_html_a699b5ae6b4166d7295090f27b3671c89"><div class="ttname"><a href="../../d6/db8/a00376.html#a699b5ae6b4166d7295090f27b3671c89">SaturationVaporPressure</a></div><div class="ttdeci">float SaturationVaporPressure(float &amp;t)</div><div class="ttdoc">Calculates saturation vapor pressure at a given air temperature. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00376_source.html#l00080">ClimateParams.cpp:80</a></div></div>
-<div class="ttc" id="a00376_html_a6a04547c5d7d36efb95a9f9cc4a94378"><div class="ttname"><a href="../../d6/db8/a00376.html#a6a04547c5d7d36efb95a9f9cc4a94378">JulianDay</a></div><div class="ttdeci">int JulianDay(time_t &amp;date)</div><div class="ttdoc">Get the Julian day of one day. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00376_source.html#l00029">ClimateParams.cpp:29</a></div></div>
-<div class="ttc" id="a00376_html_aa197f33e632e504c37e04e47185ddcd7"><div class="ttname"><a href="../../d6/db8/a00376.html#aa197f33e632e504c37e04e47185ddcd7">MaxSolarRadiation</a></div><div class="ttdeci">float MaxSolarRadiation(int &amp;day, float &amp;lat)</div><div class="ttdoc">Calculate the max solar radiation for a station of one day. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00376_source.html#l00036">ClimateParams.cpp:36</a></div></div>
-<div class="ttc" id="a00057_html_a493590ae98f840062a4b47eda036bcbc"><div class="ttname"><a href="../../d1/d22/a00057.html#a493590ae98f840062a4b47eda036bcbc">PETPenmanMonteith::m_rhd</a></div><div class="ttdeci">float * m_rhd</div><div class="ttdoc">relative humidity(%) </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00093">PETPenmanMonteith.h:93</a></div></div>
-<div class="ttc" id="a00057_html_a6021e500a1416a102ddb1c2c98da7bca"><div class="ttname"><a href="../../d1/d22/a00057.html#a6021e500a1416a102ddb1c2c98da7bca">PETPenmanMonteith::m_cht</a></div><div class="ttdeci">float * m_cht</div><div class="ttdoc">canopy height for the day(m) </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00110">PETPenmanMonteith.h:110</a></div></div>
-<div class="ttc" id="a00057_html_a6571db3cfea30076203587bd623dcb62"><div class="ttname"><a href="../../d1/d22/a00057.html#a6571db3cfea30076203587bd623dcb62">PETPenmanMonteith::m_growCode</a></div><div class="ttdeci">float * m_growCode</div><div class="ttdoc">land cover status code </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00106">PETPenmanMonteith.h:106</a></div></div>
-<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">PETPenmanMonteith</a></div><div class="ttdoc">Penman Monteith Method to Compute PET. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00030">PETPenmanMonteith.h:30</a></div></div>
-<div class="ttc" id="a00057_html_a6afe24b48c21c10be36f0b3bb75fc417"><div class="ttname"><a href="../../d1/d22/a00057.html#a6afe24b48c21c10be36f0b3bb75fc417">PETPenmanMonteith::m_vpd2</a></div><div class="ttdeci">float m_vpd2</div><div class="ttdoc">rate of decline in stomatal conductance per unit increase in vapor pressure deficit(m/s/kPa) ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00112">PETPenmanMonteith.h:112</a></div></div>
-<div class="ttc" id="a00057_html_a197a9fc8e57ee74b89f13ee711964672"><div class="ttname"><a href="../../d1/d22/a00057.html#a197a9fc8e57ee74b89f13ee711964672">PETPenmanMonteith::m_gsi</a></div><div class="ttdeci">float m_gsi</div><div class="ttdoc">maximum stomatal conductance(m/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00114">PETPenmanMonteith.h:114</a></div></div>
-<div class="ttc" id="a00057_html_a9c86415ffd1e90f1a5adbf8c89c26b01"><div class="ttname"><a href="../../d1/d22/a00057.html#a9c86415ffd1e90f1a5adbf8c89c26b01">PETPenmanMonteith::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdoc">size of the input array </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00121">PETPenmanMonteith.h:121</a></div></div>
-<div class="ttc" id="a00057_html_a8c38bb6a3b729d6363b7cfbe4998f711"><div class="ttname"><a href="../../d1/d22/a00057.html#a8c38bb6a3b729d6363b7cfbe4998f711">PETPenmanMonteith::m_ws</a></div><div class="ttdeci">float * m_ws</div><div class="ttdoc">wind speed </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00095">PETPenmanMonteith.h:95</a></div></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordtype">float</span> latentHeat = 2.501f - 0.002361f * <a class="code" href="../../d1/d22/a00057.html#ac314113751262beca529b1180a166763">m_tMean</a>[i];</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordtype">float</span> h0 = <a class="code" href="../../d1/d22/a00057.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a>[i] * 37.59f / 30.0f;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordtype">float</span> petValue = <a class="code" href="../../d1/d22/a00057.html#acaf6d54c4471fe0a6d6e4b5af8918e36">m_HCoef_pet</a> * h0 * pow(<a class="code" href="../../d1/d22/a00057.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a>[i]-<a class="code" href="../../d1/d22/a00057.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a>[i], 0.5f)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            * (<a class="code" href="../../d1/d22/a00057.html#ac314113751262beca529b1180a166763">m_tMean</a>[i] + 17.8f) / latentHeat;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>[i] = <a class="code" href="../../d1/d22/a00057.html#a8727d0b39c3f9db1c3c4db8f9809616d">m_petFactor</a> * max(0.0f, petValue);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">/*for (int i = 0; i &lt; m_size; ++i)</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">        cout&lt;&lt; &quot;m_srMax: &quot; &lt;&lt; m_srMax[i] &lt;&lt; &quot;, m_pet: &quot; &lt;&lt; m_pet[i] &lt;&lt; &quot;; &quot;;*/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">//cout&lt;&lt;endl;</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#af5e4b87dc5fcf0804b8adabcc085e70b">  155</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d22/a00057.html#af5e4b87dc5fcf0804b8adabcc085e70b">PETHargreaves::Get1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span> **data)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;{</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a> == NULL) </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;GetPET&quot;</span>,<span class="stringliteral">&quot;The result is NULL. Please first execute the module.&quot;</span>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_PET_T) || StringMatch(sk, <span class="stringliteral">&quot;PET&quot;</span>))</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        *data = this-&gt;<a class="code" href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        *n = this-&gt;<a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H, <span class="stringliteral">&quot;Get1DData&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a00bd74f194c86eae40b0d95cd4bba6a7">  169</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d22/a00057.html#a00bd74f194c86eae40b0d95cd4bba6a7">PETHargreaves::CheckInputSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;{</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span>(n&lt;=0)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. The size could not be less than zero.&quot;</span>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> != n)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> &lt;=0) this-&gt;<a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> = n;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. All the input data should have same size.&quot;</span>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a7e04f825331f418ccf131194dd4eb48c">  187</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d22/a00057.html#a7e04f825331f418ccf131194dd4eb48c">PETHargreaves::CheckInputData</a>()</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d9/db3/a00066.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a> == -1)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;You have not set the time.&quot;</span>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> &lt;= 0)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The dimension of the input data can not be less than zero.&quot;</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a> == NULL)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The maximum temperature can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a> == NULL)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The minimum temperature can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a> == NULL)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The maximum solar radiation can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#ac314113751262beca529b1180a166763">m_tMean</a> == NULL)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The mean temperature can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d1/d22/a00057.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">m_jday</a> &lt;= 0)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d5/df9/a00044.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Julian day must be greater than 0.&quot;</span>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="ttc" id="a00424_html"><div class="ttname"><a href="../../dc/df3/a00424.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="ttc" id="a00057_html_a5df9ae68bd6846c98a389fa4126f9227"><div class="ttname"><a href="../../d1/d22/a00057.html#a5df9ae68bd6846c98a389fa4126f9227">PETHargreaves::m_tMin</a></div><div class="ttdeci">float * m_tMin</div><div class="ttdoc">minimum air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00042">PETHargreaves.h:42</a></div></div>
+<div class="ttc" id="a00057_html_acaf6d54c4471fe0a6d6e4b5af8918e36"><div class="ttname"><a href="../../d1/d22/a00057.html#acaf6d54c4471fe0a6d6e4b5af8918e36">PETHargreaves::m_HCoef_pet</a></div><div class="ttdeci">float m_HCoef_pet</div><div class="ttdoc">coefficient related to radiation used in Hargreaves method </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00053">PETHargreaves.h:53</a></div></div>
+<div class="ttc" id="a00057_html_af5e4b87dc5fcf0804b8adabcc085e70b"><div class="ttname"><a href="../../d1/d22/a00057.html#af5e4b87dc5fcf0804b8adabcc085e70b">PETHargreaves::Get1DData</a></div><div class="ttdeci">virtual void Get1DData(const char *key, int *n, float **data)</div><div class="ttdoc">Get 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00155">PETHargreaves.cpp:155</a></div></div>
+<div class="ttc" id="a00044_html"><div class="ttname"><a href="../../d5/df9/a00044.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df3/a00424_source.html#l00024">ModelException.h:24</a></div></div>
+<div class="ttc" id="a00603_html"><div class="ttname"><a href="../../de/d94/a00603.html">PETHargreaves.h</a></div></div>
+<div class="ttc" id="a00057_html_a2d0197e1fb2c7dc9a9b392ea0d0a2de6"><div class="ttname"><a href="../../d1/d22/a00057.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">PETHargreaves::m_jday</a></div><div class="ttdeci">int m_jday</div><div class="ttdoc">Julian day. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00057">PETHargreaves.h:57</a></div></div>
+<div class="ttc" id="a00421_html"><div class="ttname"><a href="../../d2/de1/a00421.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
+<div class="ttc" id="a00057_html_afbb2148f57db1a0ce4e343e8f56ccbeb"><div class="ttname"><a href="../../d1/d22/a00057.html#afbb2148f57db1a0ce4e343e8f56ccbeb">PETHargreaves::m_latitude</a></div><div class="ttdeci">float * m_latitude</div><div class="ttdoc">latitude of the stations </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00044">PETHargreaves.h:44</a></div></div>
+<div class="ttc" id="a00057_html_a408f2239d3446b7047177f2602ef031c"><div class="ttname"><a href="../../d1/d22/a00057.html#a408f2239d3446b7047177f2602ef031c">PETHargreaves::m_srMax</a></div><div class="ttdeci">float * m_srMax</div><div class="ttdoc">maximum solar radiation </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00049">PETHargreaves.h:49</a></div></div>
+<div class="ttc" id="a00057_html_ab588ffc7c5abc04603910f951801f79b"><div class="ttname"><a href="../../d1/d22/a00057.html#ab588ffc7c5abc04603910f951801f79b">PETHargreaves::Set1DData</a></div><div class="ttdeci">virtual void Set1DData(const char *key, int n, float *value)</div><div class="ttdoc">Set 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00060">PETHargreaves.cpp:60</a></div></div>
+<div class="ttc" id="a00057_html_a7e04f825331f418ccf131194dd4eb48c"><div class="ttname"><a href="../../d1/d22/a00057.html#a7e04f825331f418ccf131194dd4eb48c">PETHargreaves::CheckInputData</a></div><div class="ttdeci">bool CheckInputData(void)</div><div class="ttdoc">check the input data. Make sure all the input data is available. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00187">PETHargreaves.cpp:187</a></div></div>
+<div class="ttc" id="a00057_html_aaf05ab866192717802d14fa26189224b"><div class="ttname"><a href="../../d1/d22/a00057.html#aaf05ab866192717802d14fa26189224b">PETHargreaves::Execute</a></div><div class="ttdeci">virtual int Execute()</div><div class="ttdoc">Execute the simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00123">PETHargreaves.cpp:123</a></div></div>
+<div class="ttc" id="a00057_html_a8727d0b39c3f9db1c3c4db8f9809616d"><div class="ttname"><a href="../../d1/d22/a00057.html#a8727d0b39c3f9db1c3c4db8f9809616d">PETHargreaves::m_petFactor</a></div><div class="ttdeci">float m_petFactor</div><div class="ttdoc">Correction Factor for PET. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00055">PETHargreaves.h:55</a></div></div>
+<div class="ttc" id="a00057_html_a884c87f974059a72aba03d6ddc4efab9"><div class="ttname"><a href="../../d1/d22/a00057.html#a884c87f974059a72aba03d6ddc4efab9">PETHargreaves::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdoc">size of the input array, i.e., the HydroClimate sites number </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00051">PETHargreaves.h:51</a></div></div>
+<div class="ttc" id="a00057_html_a6d353a208f981a5b9b048c506e7d227c"><div class="ttname"><a href="../../d1/d22/a00057.html#a6d353a208f981a5b9b048c506e7d227c">PETHargreaves::SetValue</a></div><div class="ttdeci">virtual void SetValue(const char *key, float value)</div><div class="ttdoc">Set data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00034">PETHargreaves.cpp:34</a></div></div>
+<div class="ttc" id="a00057_html_a00bd74f194c86eae40b0d95cd4bba6a7"><div class="ttname"><a href="../../d1/d22/a00057.html#a00bd74f194c86eae40b0d95cd4bba6a7">PETHargreaves::CheckInputSize</a></div><div class="ttdeci">bool CheckInputSize(const char *, int)</div><div class="ttdoc">check the input size. Make sure all the input data have same dimension. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0a/a00602_source.html#l00169">PETHargreaves.cpp:169</a></div></div>
+<div class="ttc" id="a00066_html_aabd631c05d3e74aa9970f7415f2f5de7"><div class="ttname"><a href="../../d9/db3/a00066.html#aabd631c05d3e74aa9970f7415f2f5de7">SimulationModule::m_date</a></div><div class="ttdeci">time_t m_date</div><div class="ttdoc">date time </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00098">SimulationModule.h:98</a></div></div>
+<div class="ttc" id="a00057_html_adf77f62f87e78a9f1a76091fdeb21705"><div class="ttname"><a href="../../d1/d22/a00057.html#adf77f62f87e78a9f1a76091fdeb21705">PETHargreaves::m_tMax</a></div><div class="ttdeci">float * m_tMax</div><div class="ttdoc">maximum air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00040">PETHargreaves.h:40</a></div></div>
+<div class="ttc" id="a00057_html_ac314113751262beca529b1180a166763"><div class="ttname"><a href="../../d1/d22/a00057.html#ac314113751262beca529b1180a166763">PETHargreaves::m_tMean</a></div><div class="ttdeci">float * m_tMean</div><div class="ttdoc">mean air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00047">PETHargreaves.h:47</a></div></div>
+<div class="ttc" id="a00057_html_a7bb48f6000aaef40a221a51a5e267816"><div class="ttname"><a href="../../d1/d22/a00057.html#a7bb48f6000aaef40a221a51a5e267816">PETHargreaves::m_pet</a></div><div class="ttdeci">float * m_pet</div><div class="ttdoc">output PET array </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d94/a00603_source.html#l00059">PETHargreaves.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_46dd043c8214f76f8446c07ad742c550.html">PET_PM</a></li><li class="navelem"><a class="el" href="../../d5/d0a/a00602.html">PETPenmanMonteith.h</a></li>
-    <li class="footer">Generated on Sat May 21 2016 14:09:06 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_6d26aae79096b6ff7593b14f645c7768.html">PET_H</a></li><li class="navelem"><a class="el" href="../../d5/d0a/a00602.html">PETHargreaves.cpp</a></li>
+    <li class="footer">Generated on Sun May 22 2016 09:19:45 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

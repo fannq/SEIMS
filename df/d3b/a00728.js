@@ -1,11 +1,7 @@
 var a00728 =
 [
-    [ "clsTSD_RD.cpp", "d8/d14/a00522.html", null ],
-    [ "clsTSD_RD.h", "d0/de7/a00523.html", null ],
-    [ "clsTSD_RD", "d7/de0/a00022.html", [
-      [ "Get1DData", "d7/de0/a00022.html#a1b2832f37325e31503995626135bdb67", null ],
-      [ "Set1DData", "d7/de0/a00022.html#a06bb50257ea4080511c1d6448684f9f3", null ],
-      [ "m_Data", "d7/de0/a00022.html#ab896e92ea639d8981eb1a16d89264f16", null ],
-      [ "m_Rows", "d7/de0/a00022.html#ac5ce2b186049bee1f70280c20a8fee6f", null ]
-    ] ]
+    [ "ATMDEP", "d4/dfa/a00746.html", "d4/dfa/a00746" ],
+    [ "NMINRL", "d5/d68/a00747.html", "d5/d68/a00747" ],
+    [ "NutRemv", "de/d3d/a00748.html", "de/d3d/a00748" ],
+    [ "SurTra", "d5/de8/a00749.html", "d5/de8/a00749" ]
 ];

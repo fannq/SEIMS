@@ -1,10 +1,2 @@
-<map id="src/base/module_setting/SettingsOutput.h" name="src/base/module_setting/SettingsOutput.h">
-<area shape="rect" id="node2" href="$d9/d72/a00412.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="349,179,443,208"/>
-<area shape="rect" id="node15" href="$d1/d8b/a00406.html" title="Class to store and manage the PRINT information from the file.out file. " alt="" coords="825,101,919,131"/>
-<area shape="rect" id="node20" href="$de/d08/a00381.html" title="Define Raster class to handle raster data. " alt="" coords="993,179,1128,208"/>
-<area shape="rect" id="node9" href="$d4/dd3/a00428.html" title="Utilities class to handle string, date time and file. " alt="" coords="345,256,409,285"/>
-<area shape="rect" id="node13" href="$d2/de1/a00421.html" title="Define ModelException class. " alt="" coords="1053,333,1203,363"/>
-<area shape="rect" id="node16" href="$d9/de6/a00404.html" title="Class to store parameter item information. " alt="" coords="818,256,925,285"/>
-<area shape="rect" id="node17" href="$d3/d29/a00419.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="757,333,925,363"/>
-<area shape="rect" id="node21" href="$d9/dad/a00394_source.html" title="MongoUtil.h" alt="" coords="1053,256,1160,285"/>
+<map id="src/base/module_setting/SEIMS_ModuleSetting.h" name="src/base/module_setting/SEIMS_ModuleSetting.h">
 </map>

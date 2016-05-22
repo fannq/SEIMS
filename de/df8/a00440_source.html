@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/Deprecated/base_data/SiteInfo.h Source File</title>
+<title>SEIMS-2016: src/Deprecated/base_data/clsWgnData.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,47 +111,188 @@ $(document).ready(function(){initNavTree('de/df8/a00440_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SiteInfo.h</div>  </div>
+<div class="title">clsWgnData.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/df8/a00440.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>SiteInfo</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span>     m_ID;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">string</span>  m_Name;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">float</span>   m_XPR;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">float</span>   m_YPR;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">float</span>   m_Latitude;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">float</span>   m_Longitude;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">float</span>   m_Elevation;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">float</span>   m_Area;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    SiteInfo(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ~SiteInfo(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span>     ID(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">string</span>  Name(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">float</span>   XPR(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">float</span>   YPR(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">float</span>   Latitude(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">float</span>   Longitude(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">float</span>   Elevation(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">float</span>   Area(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span>    Reset(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d66/a00441.html">clsWgnData.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//#include &quot;DBManager.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d53/a00429.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d53/a00429.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/df3/a00424.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d3/d52/a00023.html#a3f04ec5883590ee2e953bbef4af580e5">   12</a></span>&#160;<a class="code" href="../../d3/d52/a00023.html#a3f04ec5883590ee2e953bbef4af580e5">clsWgnData::clsWgnData</a>(<span class="keywordtype">string</span> databasePath,<a class="code" href="../../d6/d66/a00441.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a> = NULL;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d3/d52/a00023.html#a35213b076acce178f6953469016e3c84">readWgnData</a>(databasePath,type);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d52/a00023.html#ab3d63f329531bd498e272057a26c5b79">   20</a></span>&#160;<a class="code" href="../../d3/d52/a00023.html#ab3d63f329531bd498e272057a26c5b79">clsWgnData::~clsWgnData</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a> != NULL)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 12; ++i)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[i] != NULL)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keyword">delete</span> [] <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[i];</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span> [] <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d3/d52/a00023.html#aebc00d5baf9e09d2e1d44f0c433a88ac">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d52/a00023.html#aebc00d5baf9e09d2e1d44f0c433a88ac">clsWgnData::getWgnData</a>(<span class="keywordtype">int</span>* nRows,<span class="keywordtype">int</span>* nCols,<span class="keywordtype">float</span>*** wgnData)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    *nRows = 12;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    *nCols = <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.size();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    *wgnData = <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d3/d52/a00023.html#a8cc140a53f7099c46215a3f39f6fbb4b">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d52/a00023.html#a8cc140a53f7099c46215a3f39f6fbb4b">clsWgnData::show</a>()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> size = <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.size();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    StatusMessage(<span class="stringliteral">&quot;wgnData&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;month&quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0;j&lt;size;j++)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        s+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>[j];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    StatusMessage(s.c_str());</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">char</span> temp[20];</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;12;i++)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {   </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        s = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span>        sprintf_s(temp,20,<span class="stringliteral">&quot;%d&quot;</span>,i+1);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span>        snprintf(temp, 20, <span class="stringliteral">&quot;%d&quot;</span>, i+1);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span>        s.append(temp);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0;j&lt;size;j++)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span>            sprintf_s(temp,20,<span class="stringliteral">&quot;\t%f&quot;</span>,<a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[i][j]);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>            snprintf(temp,20,<span class="stringliteral">&quot;\t%f&quot;</span>,<a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[i][j]);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span>            s.append(temp);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }       </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        StatusMessage(s.c_str());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d3/d52/a00023.html#a35213b076acce178f6953469016e3c84">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d52/a00023.html#a35213b076acce178f6953469016e3c84">clsWgnData::readWgnData</a>(<span class="keywordtype">string</span> databasePath,<a class="code" href="../../d6/d66/a00441.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="../../d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373">m_wtgTableName</a> = Table_WGN;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span>(type == <a class="code" href="../../d6/d66/a00441.html#a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961">WGN_PRECIPITATION</a>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.push_back(<span class="stringliteral">&quot;RAINHHMX&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.push_back(<span class="stringliteral">&quot;PCPMM&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.push_back(<span class="stringliteral">&quot;PCPD&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//get fields</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">string</span> fields= <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">int</span> size = <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.size();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0;j&lt;size;j++)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span>(fields.length() &gt; 0) fields += <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        fields += <a class="code" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>.at(j);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">//start to read data</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../d6/d5b/a00026.html">DBManager</a> dbman;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">string</span> strSQL;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="../../da/d24/a00068.html">slTable</a>* tbl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a> == NULL)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {       </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>*[12];</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;12;i++)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[i] = <span class="keyword">new</span> <span class="keywordtype">float</span>[size];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0;j&lt;size;j++) <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[i][j] = 0.0f;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    StatusMessage(<span class="stringliteral">&quot;reading wgn data ...&quot;</span>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment">// open the database</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        dbman.<a class="code" href="../../d6/d5b/a00026.html#a451113a0e298f84c030ea7b9892d8f8b">Open</a>(databasePath + File_HydroClimateDB);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="comment">// if there is no error</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">if</span> (!dbman.<a class="code" href="../../d6/d5b/a00026.html#aebd9e5246ae9f047eedbb199699005ae">IsError</a>())</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="comment">// craete the SQL statement for the query</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            strSQL = <span class="stringliteral">&quot;SELECT &quot;</span> + fields + <span class="stringliteral">&quot; FROM &quot;</span> + string(<a class="code" href="../../d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373">m_wtgTableName</a>) + <span class="stringliteral">&quot; order by MONTH&quot;</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="comment">// run the query</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            tbl = dbman.<a class="code" href="../../d6/d5b/a00026.html#a8dba35872dea3b8a49782ab7b880306e">Load</a>(strSQL);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="comment">// if the query was successful</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">if</span> (tbl != NULL)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="comment">//if(tbl-&gt;nRows != 13)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="comment">//  throw ModelException(&quot;clsWgnData&quot;,&quot;readWgnData&quot;,&quot;The wgn data must have 12 columns.&quot;);</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> idx=1; idx&lt;=tbl-&gt;<a class="code" href="../../da/d24/a00068.html#adea6ff1f79a5048f86d45a1a77ec9ae2">nRows</a>; idx++)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0;j&lt;size;j++)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                        <span class="keywordtype">float</span> value = float(atof(tbl-&gt;<a class="code" href="../../da/d24/a00068.html#abb56a581d1fd10567ad208347ec578a7">FieldValue</a>(idx,j).c_str()));</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        <a class="code" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>[idx-1][j] = value;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keyword">delete</span> tbl;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            tbl = NULL;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="comment">// close the database</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            dbman.<a class="code" href="../../d6/d5b/a00026.html#a1bcd1fc4e7c5b0ae658f3e779a176268">Close</a>();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">if</span> (tbl != NULL)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keyword">delete</span> tbl;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        tbl = NULL;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        dbman.<a class="code" href="../../d6/d5b/a00026.html#a1bcd1fc4e7c5b0ae658f3e779a176268">Close</a>();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">throw</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
+<div class="ttc" id="a00424_html"><div class="ttname"><a href="../../dc/df3/a00424.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="ttc" id="a00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">slTable</a></div><div class="ttdoc">Table class for sqlite database tables. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0a/a00390_source.html#l00030">DBManager.h:30</a></div></div>
+<div class="ttc" id="a00023_html_a8cc140a53f7099c46215a3f39f6fbb4b"><div class="ttname"><a href="../../d3/d52/a00023.html#a8cc140a53f7099c46215a3f39f6fbb4b">clsWgnData::show</a></div><div class="ttdeci">void show(void)</div><div class="ttdoc">show data </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df8/a00440_source.html#l00041">clsWgnData.cpp:41</a></div></div>
+<div class="ttc" id="a00068_html_adea6ff1f79a5048f86d45a1a77ec9ae2"><div class="ttname"><a href="../../da/d24/a00068.html#adea6ff1f79a5048f86d45a1a77ec9ae2">slTable::nRows</a></div><div class="ttdeci">int nRows</div><div class="ttdoc">rows </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0a/a00390_source.html#l00033">DBManager.h:33</a></div></div>
+<div class="ttc" id="a00023_html_a2a0f633156f50038d623f28e55049f96"><div class="ttname"><a href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">clsWgnData::m_columns</a></div><div class="ttdeci">vector&lt; string &gt; m_columns</div><div class="ttdoc">table column name </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d66/a00441_source.html#l00043">clsWgnData.h:43</a></div></div>
+<div class="ttc" id="a00441_html_a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961"><div class="ttname"><a href="../../d6/d66/a00441.html#a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961">WGN_PRECIPITATION</a></div><div class="ttdoc">rainfall </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d66/a00441_source.html#l00022">clsWgnData.h:22</a></div></div>
+<div class="ttc" id="a00441_html"><div class="ttname"><a href="../../d6/d66/a00441.html">clsWgnData.h</a></div></div>
+<div class="ttc" id="a00026_html_a1bcd1fc4e7c5b0ae658f3e779a176268"><div class="ttname"><a href="../../d6/d5b/a00026.html#a1bcd1fc4e7c5b0ae658f3e779a176268">DBManager::Close</a></div><div class="ttdeci">void Close(void)</div><div class="ttdoc">Close the currently open database. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00047">DBManager.cpp:47</a></div></div>
+<div class="ttc" id="a00023_html_a3f04ec5883590ee2e953bbef4af580e5"><div class="ttname"><a href="../../d3/d52/a00023.html#a3f04ec5883590ee2e953bbef4af580e5">clsWgnData::clsWgnData</a></div><div class="ttdeci">clsWgnData(string databasePath, WgnType type)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df8/a00440_source.html#l00012">clsWgnData.cpp:12</a></div></div>
+<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">DBManager</a></div><div class="ttdoc">sqlite database management class </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0a/a00390_source.html#l00052">DBManager.h:52</a></div></div>
+<div class="ttc" id="a00023_html_aebc00d5baf9e09d2e1d44f0c433a88ac"><div class="ttname"><a href="../../d3/d52/a00023.html#aebc00d5baf9e09d2e1d44f0c433a88ac">clsWgnData::getWgnData</a></div><div class="ttdeci">void getWgnData(int *nRows, int *nCols, float ***wgnData)</div><div class="ttdoc">get wgn data, nRows is 12 (months), </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df8/a00440_source.html#l00034">clsWgnData.cpp:34</a></div></div>
+<div class="ttc" id="a00023_html_ab3d63f329531bd498e272057a26c5b79"><div class="ttname"><a href="../../d3/d52/a00023.html#ab3d63f329531bd498e272057a26c5b79">clsWgnData::~clsWgnData</a></div><div class="ttdeci">~clsWgnData(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df8/a00440_source.html#l00020">clsWgnData.cpp:20</a></div></div>
+<div class="ttc" id="a00429_html"><div class="ttname"><a href="../../d4/d53/a00429.html">text.h</a></div><div class="ttdoc">Predefined string constants used in the code. </div></div>
+<div class="ttc" id="a00023_html_ab7a59f7e26b36f0e51734fa89ef41c22"><div class="ttname"><a href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">clsWgnData::m_wgnData</a></div><div class="ttdeci">float ** m_wgnData</div><div class="ttdoc">wgn data </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d66/a00441_source.html#l00044">clsWgnData.h:44</a></div></div>
+<div class="ttc" id="a00026_html_aebd9e5246ae9f047eedbb199699005ae"><div class="ttname"><a href="../../d6/d5b/a00026.html#aebd9e5246ae9f047eedbb199699005ae">DBManager::IsError</a></div><div class="ttdeci">bool IsError()</div><div class="ttdoc">Returns a flag indicating if an error occured. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00057">DBManager.cpp:57</a></div></div>
+<div class="ttc" id="a00023_html_a35213b076acce178f6953469016e3c84"><div class="ttname"><a href="../../d3/d52/a00023.html#a35213b076acce178f6953469016e3c84">clsWgnData::readWgnData</a></div><div class="ttdeci">void readWgnData(string, WgnType type)</div><div class="ttdoc">read wgn data from Sqlite database. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df8/a00440_source.html#l00076">clsWgnData.cpp:76</a></div></div>
+<div class="ttc" id="a00068_html_abb56a581d1fd10567ad208347ec578a7"><div class="ttname"><a href="../../da/d24/a00068.html#abb56a581d1fd10567ad208347ec578a7">slTable::FieldValue</a></div><div class="ttdeci">string FieldValue(int row, int col)</div><div class="ttdoc">Return the value in the field defined by the given row and column. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00137">DBManager.cpp:137</a></div></div>
+<div class="ttc" id="a00026_html_a8dba35872dea3b8a49782ab7b880306e"><div class="ttname"><a href="../../d6/d5b/a00026.html#a8dba35872dea3b8a49782ab7b880306e">DBManager::Load</a></div><div class="ttdeci">slTable * Load(string strSQL)</div><div class="ttdoc">Run the given SQL query and return an instance of a slTable class containing the results. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00079">DBManager.cpp:79</a></div></div>
+<div class="ttc" id="a00023_html_a0b43da215ebd51fe8c0aa418fca08373"><div class="ttname"><a href="../../d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373">clsWgnData::m_wtgTableName</a></div><div class="ttdeci">string m_wtgTableName</div><div class="ttdoc">table name </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d66/a00441_source.html#l00042">clsWgnData.h:42</a></div></div>
+<div class="ttc" id="a00441_html_a687c287c85e281a878aa31fb7b4f78de"><div class="ttname"><a href="../../d6/d66/a00441.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a></div><div class="ttdeci">WgnType</div><div class="ttdoc">&lt; enumerator </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d66/a00441_source.html#l00020">clsWgnData.h:20</a></div></div>
+<div class="ttc" id="a00026_html_a451113a0e298f84c030ea7b9892d8f8b"><div class="ttname"><a href="../../d6/d5b/a00026.html#a451113a0e298f84c030ea7b9892d8f8b">DBManager::Open</a></div><div class="ttdeci">bool Open(string filename)</div><div class="ttdoc">Open the given sqlite database. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00037">DBManager.cpp:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><a class="el" href="../../de/df8/a00440.html">SiteInfo.h</a></li>
-    <li class="footer">Generated on Sat May 21 2016 14:09:06 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><b>clsWgnData.cpp</b></li>
+    <li class="footer">Generated on Sun May 22 2016 09:19:44 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

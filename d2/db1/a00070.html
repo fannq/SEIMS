@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: utils Class Reference</title>
+<title>SEIMS-2016: SplashEro_Park Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,215 +114,199 @@ $(document).ready(function(){initNavTree('d2/db1/a00070.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d5/d6c/a00977.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d6/d48/a00988.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">utils Class Reference<div class="ingroups"><a class="el" href="../../d3/d3b/a00715.html">Util</a></div></div>  </div>
+<div class="title">SplashEro_Park Class Reference<div class="ingroups"><a class="el" href="../../dc/d85/a00736.html">SplashEro_Park</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>utils class to handle string, date time and file  
+<p>Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_C, USLE_K in the calculation of splash erosion.//.  
  <a href="../../d2/db1/a00070.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d4/dd3/a00428_source.html">utils.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d2b/a00546_source.html">SplashEro_Park.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SplashEro_Park:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d95/a00989.png" border="0" usemap="#_splash_ero___park_inherit__map" alt="Inheritance graph"/></div>
+<map name="_splash_ero___park_inherit__map" id="_splash_ero___park_inherit__map">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09446a0138a31288b84d2c12585236f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09446a0138a31288b84d2c12585236f8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a09446a0138a31288b84d2c12585236f8">utils</a> (void)</td></tr>
-<tr class="memdesc:a09446a0138a31288b84d2c12585236f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor (void) <br/></td></tr>
-<tr class="separator:a09446a0138a31288b84d2c12585236f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a259cc9e8f541c05a20df28dfeb3b11be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a259cc9e8f541c05a20df28dfeb3b11be"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a259cc9e8f541c05a20df28dfeb3b11be">~utils</a> (void)</td></tr>
-<tr class="memdesc:a259cc9e8f541c05a20df28dfeb3b11be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor (void) <br/></td></tr>
-<tr class="separator:a259cc9e8f541c05a20df28dfeb3b11be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ae477f0d21454e2af629ce1868e765"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00ae477f0d21454e2af629ce1868e765"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a00ae477f0d21454e2af629ce1868e765">SplashEro_Park</a> (void)</td></tr>
+<tr class="memdesc:a00ae477f0d21454e2af629ce1868e765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a00ae477f0d21454e2af629ce1868e765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312a37eb79a2ee2e9eaa60b57b7f7d81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a312a37eb79a2ee2e9eaa60b57b7f7d81"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a312a37eb79a2ee2e9eaa60b57b7f7d81">~SplashEro_Park</a> (void)</td></tr>
+<tr class="memdesc:a312a37eb79a2ee2e9eaa60b57b7f7d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a312a37eb79a2ee2e9eaa60b57b7f7d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124ea8788886dbde638e235cb90d170b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a124ea8788886dbde638e235cb90d170b"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a124ea8788886dbde638e235cb90d170b">Execute</a> ()</td></tr>
+<tr class="memdesc:a124ea8788886dbde638e235cb90d170b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
+<tr class="separator:a124ea8788886dbde638e235cb90d170b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221d957f52e9eea5586f1c8a02841afc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a221d957f52e9eea5586f1c8a02841afc"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a221d957f52e9eea5586f1c8a02841afc">SetValue</a> (const char *key, float value)</td></tr>
+<tr class="memdesc:a221d957f52e9eea5586f1c8a02841afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
+<tr class="separator:a221d957f52e9eea5586f1c8a02841afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeec7e0f843b21c14531c79bedbd0d43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeec7e0f843b21c14531c79bedbd0d43"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#adeec7e0f843b21c14531c79bedbd0d43">Set1DData</a> (const char *key, int n, float *data)</td></tr>
+<tr class="memdesc:adeec7e0f843b21c14531c79bedbd0d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
+<tr class="separator:adeec7e0f843b21c14531c79bedbd0d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a3045c77277a20a0e5e22ce29d92d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3a3045c77277a20a0e5e22ce29d92d9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aa3a3045c77277a20a0e5e22ce29d92d9">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
+<tr class="memdesc:aa3a3045c77277a20a0e5e22ce29d92d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
+<tr class="separator:aa3a3045c77277a20a0e5e22ce29d92d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab462cb5df0ab76cc9f2c1b5db9c58f71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#ab462cb5df0ab76cc9f2c1b5db9c58f71">CheckInputData</a> (void)</td></tr>
+<tr class="memdesc:ab462cb5df0ab76cc9f2c1b5db9c58f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input data. Make sure all the input data is available.  <a href="#ab462cb5df0ab76cc9f2c1b5db9c58f71">More...</a><br/></td></tr>
+<tr class="separator:ab462cb5df0ab76cc9f2c1b5db9c58f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9705ac1240a63f26afd56d6302da5349"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a9705ac1240a63f26afd56d6302da5349">CheckInputSize</a> (const char *, int)</td></tr>
+<tr class="memdesc:a9705ac1240a63f26afd56d6302da5349"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input size. Make sure all the input data have same dimension.  <a href="#a9705ac1240a63f26afd56d6302da5349">More...</a><br/></td></tr>
+<tr class="separator:a9705ac1240a63f26afd56d6302da5349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00066"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00066')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/db3/a00066.html">SimulationModule</a></td></tr>
+<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
+<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
+<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
+<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
+<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
+<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
+<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a497fa950bc9c4d85cfb1ae13d83f06c9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a497fa950bc9c4d85cfb1ae13d83f06c9">Set2DData</a> (const char *key, int nRows, int nCols, float **data)</td></tr>
+<tr class="memdesc:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
+<tr class="separator:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
+<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
+<tr class="separator:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6dc960ad0a7bd7714e9644b64dc0acb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ab6dc960ad0a7bd7714e9644b64dc0acb">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
+<tr class="memdesc:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
+<tr class="separator:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
+virtual <a class="el" href="../../d7/db9/a00426.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
+<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
+<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
+<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
+<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a9d33b2ef019fc239d7b6a798d7d79ae3">ConvertToString</a> (const time_t *date)</td></tr>
-<tr class="memdesc:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert date time to string as the format of "YYYY-MM-DD".  <a href="#a9d33b2ef019fc239d7b6a798d7d79ae3">More...</a><br/></td></tr>
-<tr class="separator:a9d33b2ef019fc239d7b6a798d7d79ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a053b28c53a117d59e0f5050b0d9af225"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a053b28c53a117d59e0f5050b0d9af225">ConvertToString2</a> (const time_t *date)</td></tr>
-<tr class="memdesc:a053b28c53a117d59e0f5050b0d9af225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert date time to string as the format of "YYYY-MM-DD HH".  <a href="#a053b28c53a117d59e0f5050b0d9af225">More...</a><br/></td></tr>
-<tr class="separator:a053b28c53a117d59e0f5050b0d9af225"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb448f13021cc56b7ae4795aac36737f"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#acb448f13021cc56b7ae4795aac36737f">ConvertToTime</a> (string strDate, string format, bool includeHour)</td></tr>
-<tr class="memdesc:acb448f13021cc56b7ae4795aac36737f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to date time, string format could be %4d%2d%2d or d-d-d.  <a href="#acb448f13021cc56b7ae4795aac36737f">More...</a><br/></td></tr>
-<tr class="separator:acb448f13021cc56b7ae4795aac36737f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298646e3858741fa6ee018a6dea10007"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a298646e3858741fa6ee018a6dea10007">ConvertToTime2</a> (const string &amp;strDate, const char *format, bool includeHour)</td></tr>
-<tr class="memdesc:a298646e3858741fa6ee018a6dea10007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert string to date time, string format could be "%4d-%2d-%2d %2d:%2d:%2d" or d-d-d.  <a href="#a298646e3858741fa6ee018a6dea10007">More...</a><br/></td></tr>
-<tr class="separator:a298646e3858741fa6ee018a6dea10007"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab71f707faaacf41928fc45b326b3232"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aab71f707faaacf41928fc45b326b3232">FileExists</a> (string FileName)</td></tr>
-<tr class="memdesc:aab71f707faaacf41928fc45b326b3232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a flag indicating if the given file exists.  <a href="#aab71f707faaacf41928fc45b326b3232">More...</a><br/></td></tr>
-<tr class="separator:aab71f707faaacf41928fc45b326b3232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee1da89fd43624746f813a4a591d646e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aee1da89fd43624746f813a4a591d646e">GetDateInfoFromTimet</a> (time_t *seconds, int *year, int *month, int *day)</td></tr>
-<tr class="memdesc:aee1da89fd43624746f813a4a591d646e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get date information from <em>time_t</em> variable.  <a href="#aee1da89fd43624746f813a4a591d646e">More...</a><br/></td></tr>
-<tr class="separator:aee1da89fd43624746f813a4a591d646e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aa3bdbf567f88fe18cca53f8c62691ccc">Log</a> (string msg)</td></tr>
-<tr class="memdesc:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an entry to the log file. Normally only used for debug.  <a href="#aa3bdbf567f88fe18cca53f8c62691ccc">More...</a><br/></td></tr>
-<tr class="separator:aa3bdbf567f88fe18cca53f8c62691ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#acc97bce7b8fc83ae5fbf851233dbf29a">SplitString</a> (string item, char delimiter)</td></tr>
-<tr class="memdesc:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the given string based on the given delimiter.  <a href="#acc97bce7b8fc83ae5fbf851233dbf29a">More...</a><br/></td></tr>
-<tr class="separator:acc97bce7b8fc83ae5fbf851233dbf29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a403616dd03748ea418d49a1e9f26cf58"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a403616dd03748ea418d49a1e9f26cf58">SplitString</a> (string item)</td></tr>
-<tr class="memdesc:a403616dd03748ea418d49a1e9f26cf58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the given string by spaces.  <a href="#a403616dd03748ea418d49a1e9f26cf58">More...</a><br/></td></tr>
-<tr class="separator:a403616dd03748ea418d49a1e9f26cf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aa973417e1c1bbe5bcaae454d5e0470b3">TrimSpaces</a> (string &amp;str)</td></tr>
-<tr class="memdesc:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim Both leading and trailing spaces.  <a href="#aa973417e1c1bbe5bcaae454d5e0470b3">More...</a><br/></td></tr>
-<tr class="separator:aa973417e1c1bbe5bcaae454d5e0470b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa70b35f87275d322bebc926ffc863090"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa70b35f87275d322bebc926ffc863090"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aa70b35f87275d322bebc926ffc863090">m_CellWith</a></td></tr>
+<tr class="memdesc:aa70b35f87275d322bebc926ffc863090"><td class="mdescLeft">&#160;</td><td class="mdescRight">cell width of grid map (m) <br/></td></tr>
+<tr class="separator:aa70b35f87275d322bebc926ffc863090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac589f4a8677fbc93ba6e3b6c89591c2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac589f4a8677fbc93ba6e3b6c89591c2e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#ac589f4a8677fbc93ba6e3b6c89591c2e">m_nCells</a></td></tr>
+<tr class="memdesc:ac589f4a8677fbc93ba6e3b6c89591c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of cells <br/></td></tr>
+<tr class="separator:ac589f4a8677fbc93ba6e3b6c89591c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2130dcee3dac02f573e1d1004361757d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2130dcee3dac02f573e1d1004361757d"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a2130dcee3dac02f573e1d1004361757d">m_TimeStep</a></td></tr>
+<tr class="memdesc:a2130dcee3dac02f573e1d1004361757d"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of time step (s) <br/></td></tr>
+<tr class="separator:a2130dcee3dac02f573e1d1004361757d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d273b56ebc6f60256caa041e7ccb4d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d273b56ebc6f60256caa041e7ccb4d3"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a2d273b56ebc6f60256caa041e7ccb4d3">m_Omega</a></td></tr>
+<tr class="memdesc:a2d273b56ebc6f60256caa041e7ccb4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameter calibration coefficient of splash erosion (-) <br/></td></tr>
+<tr class="separator:a2d273b56ebc6f60256caa041e7ccb4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3454289beca39472b995719ea4b1cc97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3454289beca39472b995719ea4b1cc97"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a3454289beca39472b995719ea4b1cc97">m_Ccoe</a></td></tr>
+<tr class="memdesc:a3454289beca39472b995719ea4b1cc97"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameter calibration coefficient of splash erosion (-) /// NOT USED, deleted? LJ <br/></td></tr>
+<tr class="separator:a3454289beca39472b995719ea4b1cc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb5464d81ffd924d481938a87e605f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecb5464d81ffd924d481938a87e605f8"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aecb5464d81ffd924d481938a87e605f8">m_Slope</a></td></tr>
+<tr class="memdesc:aecb5464d81ffd924d481938a87e605f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">slope of map, to calculate slope gradient. <br/></td></tr>
+<tr class="separator:aecb5464d81ffd924d481938a87e605f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3638a2eaca43b24b4aae390dccad466f"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a3638a2eaca43b24b4aae390dccad466f">m_USLE_C</a></td></tr>
+<tr class="memdesc:a3638a2eaca43b24b4aae390dccad466f"><td class="mdescLeft">&#160;</td><td class="mdescRight">fraction of stones on the surface, affects splash [-]  <a href="#a3638a2eaca43b24b4aae390dccad466f">More...</a><br/></td></tr>
+<tr class="separator:a3638a2eaca43b24b4aae390dccad466f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12f65d6d7bf3aa3954e12f29828bc51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab12f65d6d7bf3aa3954e12f29828bc51"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#ab12f65d6d7bf3aa3954e12f29828bc51">m_USLE_K</a></td></tr>
+<tr class="memdesc:ab12f65d6d7bf3aa3954e12f29828bc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">soil erodibility factor <br/></td></tr>
+<tr class="separator:ab12f65d6d7bf3aa3954e12f29828bc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1626f6aa723fcf09d497ff69fa558cb"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#af1626f6aa723fcf09d497ff69fa558cb">m_sr</a></td></tr>
+<tr class="separator:af1626f6aa723fcf09d497ff69fa558cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1a3cf3a1d0f95597236cf18e3ce8a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd1a3cf3a1d0f95597236cf18e3ce8a7"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#abd1a3cf3a1d0f95597236cf18e3ce8a7">m_Q</a></td></tr>
+<tr class="memdesc:abd1a3cf3a1d0f95597236cf18e3ce8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">water flux after kinematic wave model, m3/s <br/></td></tr>
+<tr class="separator:abd1a3cf3a1d0f95597236cf18e3ce8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a455fd2539cdf496aaaccb73b52fafb41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a455fd2539cdf496aaaccb73b52fafb41"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a455fd2539cdf496aaaccb73b52fafb41">m_Rain</a></td></tr>
+<tr class="memdesc:a455fd2539cdf496aaaccb73b52fafb41"><td class="mdescLeft">&#160;</td><td class="mdescRight">the amount of rainfall (mm) (pNet?) <br/></td></tr>
+<tr class="separator:a455fd2539cdf496aaaccb73b52fafb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5aa4d31faba63c30c212f63d631e95b"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#ad5aa4d31faba63c30c212f63d631e95b">m_DETSplash</a></td></tr>
+<tr class="memdesc:ad5aa4d31faba63c30c212f63d631e95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">snowmelt cover map, value 1.0 if there is snowcover, 0 without [-], from distribution of snow accumulation from snow water balance module  <a href="#ad5aa4d31faba63c30c212f63d631e95b">More...</a><br/></td></tr>
+<tr class="separator:ad5aa4d31faba63c30c212f63d631e95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00066"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00066')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d9/db3/a00066.html">SimulationModule</a></td></tr>
+<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
+<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
+<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00066"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
+<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00066"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
+<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>utils class to handle string, date time and file </p>
+<div class="textblock"><p>Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_C, USLE_K in the calculation of splash erosion.//. </p>
 
-<p>Definition at line <a class="el" href="../../d4/dd3/a00428_source.html#l00034">34</a> of file <a class="el" href="../../d4/dd3/a00428_source.html">utils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2b/a00546_source.html#l00029">29</a> of file <a class="el" href="../../dc/d2b/a00546_source.html">SplashEro_Park.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9d33b2ef019fc239d7b6a798d7d79ae3"></a>
+<a class="anchor" id="ab462cb5df0ab76cc9f2c1b5db9c58f71"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string utils::ConvertToString </td>
+          <td class="memname">bool SplashEro_Park::CheckInputData </td>
           <td>(</td>
-          <td class="paramtype">const time_t *&#160;</td>
-          <td class="paramname"><em>date</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Convert date time to string as the format of "YYYY-MM-DD". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td><em>time_t</em> data type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>string</em> </dd></dl>
+<p>check the input data. Make sure all the input data is available. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool The validity of the input data. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00042">42</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/deb/a00545_source.html#l00085">85</a> of file <a class="el" href="../../d8/deb/a00545_source.html">SplashEro_Park.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a053b28c53a117d59e0f5050b0d9af225"></a>
+<a class="anchor" id="a9705ac1240a63f26afd56d6302da5349"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string utils::ConvertToString2 </td>
+          <td class="memname">bool SplashEro_Park::CheckInputSize </td>
           <td>(</td>
-          <td class="paramtype">const time_t *&#160;</td>
-          <td class="paramname"><em>date</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert date time to string as the format of "YYYY-MM-DD HH". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">date</td><td><em>time_t</em> data type </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>string</em> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00059">59</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acb448f13021cc56b7ae4795aac36737f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">time_t utils::ConvertToTime </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>strDate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>includeHour</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert string to date time, string format could be %4d%2d%2d or d-d-d. </p>
-<p>e.g.: strDate =&gt; 20000323, format=&gt; %4d%2d%2d strDate =&gt; 2000-03-23, format =&gt; d-d-d</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">strDate</td><td><em>string</em> date </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td><em>string</em> format </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">includeHour</td><td><em>bool</em> Include Hour? </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>time_t</em> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00103">103</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a298646e3858741fa6ee018a6dea10007"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">time_t utils::ConvertToTime2 </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>strDate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
+          <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>includeHour</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -330,30 +314,24 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Convert string to date time, string format could be "%4d-%2d-%2d %2d:%2d:%2d" or d-d-d. </p>
-<p>e.g.: strDate =&gt; 20000323, format=&gt; %4d%2d%2d strDate =&gt; 2000-03-23, format =&gt; d-d-d</p>
+<p>check the input size. Make sure all the input data have same dimension. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">strDate</td><td><em>string</em> date </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td><em>string</em> format </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">includeHour</td><td><em>bool</em> Include Hour? </td></tr>
+    <tr><td class="paramname">key</td><td>The key of the input data </td></tr>
+    <tr><td class="paramname">n</td><td>The input data dimension </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Date time <em>time_t</em> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool The validity of the dimension </dd></dl>
 
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00141">141</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/deb/a00545_source.html#l00146">146</a> of file <a class="el" href="../../d8/deb/a00545_source.html">SplashEro_Park.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aab71f707faaacf41928fc45b326b3232"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ad5aa4d31faba63c30c212f63d631e95b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -361,34 +339,24 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool utils::FileExists </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>FileName</em></td><td>)</td>
-          <td></td>
+          <td class="memname">float* SplashEro_Park::m_DETSplash</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a flag indicating if the given file exists. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">FileName</td><td>String path of file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if Exists, and false if not. </dd></dl>
+<p>snowmelt cover map, value 1.0 if there is snowcover, 0 without [-], from distribution of snow accumulation from snow water balance module </p>
+<p>the distribution of splash detachment, kg/cell </p>
 
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00182">182</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2b/a00546_source.html#l00105">105</a> of file <a class="el" href="../../dc/d2b/a00546_source.html">SplashEro_Park.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aee1da89fd43624746f813a4a591d646e"></a>
+<a class="anchor" id="af1626f6aa723fcf09d497ff69fa558cb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -396,56 +364,22 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int utils::GetDateInfoFromTimet </td>
-          <td>(</td>
-          <td class="paramtype">time_t *&#160;</td>
-          <td class="paramname"><em>seconds</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>year</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>month</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>day</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">float* SplashEro_Park::m_sr</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>the depth of the surface water layer (mm), after kinematic wave model WaterDepth = Depression + SurfaceRunoffDepth </p>
 
-<p>Get date information from <em>time_t</em> variable. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td><em>time_t</em> date </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">year,month,day</td><td><em>int</em> data </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00198">198</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2b/a00546_source.html#l00093">93</a> of file <a class="el" href="../../dc/d2b/a00546_source.html">SplashEro_Park.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa3bdbf567f88fe18cca53f8c62691ccc"></a>
+<a class="anchor" id="a3638a2eaca43b24b4aae390dccad466f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -453,159 +387,34 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void utils::Log </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
+          <td class="memname">float* SplashEro_Park::m_USLE_C</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes an entry to the log file. Normally only used for debug. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td><em>string</em> log message </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>fraction of stones on the surface, affects splash [-] </p>
+<p>fraction of vegetation canopy cover [-] channel width [m] crop management factor </p>
 
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00217">217</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acc97bce7b8fc83ae5fbf851233dbf29a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; string &gt; utils::SplitString </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>item</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>delimiter</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Splits the given string based on the given delimiter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td><em>string</em> information </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">delimiter</td><td><em>char</em> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The split strings vector </dd></dl>
-
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00243">243</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a403616dd03748ea418d49a1e9f26cf58"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; string &gt; utils::SplitString </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>item</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Splits the given string by spaces. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td><em>string</em> information </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The split strings vector </dd></dl>
-
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00257">257</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa973417e1c1bbe5bcaae454d5e0470b3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void utils::TrimSpaces </td>
-          <td>(</td>
-          <td class="paramtype">string &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Trim Both leading and trailing spaces. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td><em>string</em> information (reference) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The trimmed string </dd></dl>
-
-<p>Definition at line <a class="el" href="../../da/db6/a00427_source.html#l00274">274</a> of file <a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2b/a00546_source.html#l00086">86</a> of file <a class="el" href="../../dc/d2b/a00546_source.html">SplashEro_Park.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/util/<a class="el" href="../../d4/dd3/a00428_source.html">utils.h</a></li>
-<li>src/base/util/<a class="el" href="../../da/db6/a00427_source.html">utils.cpp</a></li>
+<li>src/modules/erosion/SPLASHERO_PARK/<a class="el" href="../../dc/d2b/a00546_source.html">SplashEro_Park.h</a></li>
+<li>src/modules/erosion/SPLASHERO_PARK/<a class="el" href="../../d8/deb/a00545_source.html">SplashEro_Park.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/db1/a00070.html">utils</a></li>
-    <li class="footer">Generated on Sat May 21 2016 14:09:07 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d2/db1/a00070.html">SplashEro_Park</a></li>
+    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

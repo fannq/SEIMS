@@ -1,11 +1,14 @@
 var a00179 =
 [
-    [ "test_dkvsort", "db/dd9/a00179.html#a91e0ce6fc88d5ab6695cda68dc4e79b5", null ],
-    [ "test_fkvsort", "db/dd9/a00179.html#a179814629e9b2ff14387734d6ac52a38", null ],
-    [ "test_fsort", "db/dd9/a00179.html#a92bfe9a7c6bec5eab568c71eda7eb1f1", null ],
-    [ "test_idxkvsort", "db/dd9/a00179.html#ab63d10c508d01adca7672ac341b950ba", null ],
-    [ "test_idxsort", "db/dd9/a00179.html#a3a4da1d3370fc7c176261dfc8eef5691", null ],
-    [ "test_ikvsort", "db/dd9/a00179.html#a03d0ef2537e50ad38d65892cc9c28118", null ],
-    [ "test_isort", "db/dd9/a00179.html#a8de21ffeb988c6322635a778ecdd4066", null ],
-    [ "test_skvsort", "db/dd9/a00179.html#ae2471bde9a7e9419d330392c2e2b35fd", null ]
+    [ "gk_str2time", "db/dd9/a00179.html#a5973a9945423f69a60d3b209082fd718", null ],
+    [ "gk_strcasecmp", "db/dd9/a00179.html#a47570da67818e57e97fdd464bc60fbd1", null ],
+    [ "gk_strchr_replace", "db/dd9/a00179.html#a29b909254dcbcae417f8c09ce21d5423", null ],
+    [ "gk_strdup", "db/dd9/a00179.html#af62038e97ca55f14ec2557a01bd85ca2", null ],
+    [ "gk_strhprune", "db/dd9/a00179.html#adf6c1dfa83b68cea7f048086e0a585c0", null ],
+    [ "gk_strrcmp", "db/dd9/a00179.html#a50149c8c9f8dd36fcad46773f35eedc4", null ],
+    [ "gk_strstr_replace", "db/dd9/a00179.html#a46e5cf8f76a1ece74adf1b8b9dfcb275", null ],
+    [ "gk_strtolower", "db/dd9/a00179.html#aa2d603de6c132e340d85e8e125d847a0", null ],
+    [ "gk_strtoupper", "db/dd9/a00179.html#ae2e962be7af156e5200766fa8543cff1", null ],
+    [ "gk_strtprune", "db/dd9/a00179.html#a05261ee12d082a78cabc018d2f5e2266", null ],
+    [ "gk_time2str", "db/dd9/a00179.html#a79ca4ee9f715e6ce364af43f7f7a6cfc", null ]
 ];

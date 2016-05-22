@@ -1,5 +1,6 @@
-<map id="src/base/data/DBManager.cpp" name="src/base/data/DBManager.cpp">
-<area shape="rect" id="node2" href="$db/db9/a00387.html" title="Database manager for Sqlite. " alt="" coords="5,83,125,112"/>
-<area shape="rect" id="node6" href="$d2/de1/a00421.html" title="Define ModelException class. " alt="" coords="253,83,403,112"/>
-<area shape="rect" id="node8" href="$d4/dd3/a00428.html" title="Utilities class to handle string, date time and file. " alt="" coords="511,83,575,112"/>
+<map id="src/base/data/clsRasterData.cpp" name="src/base/data/clsRasterData.cpp">
+<area shape="rect" id="node2" href="$d2/d56/a00384.html" title="Define Raster class to handle raster data. " alt="" coords="261,83,396,112"/>
+<area shape="rect" id="node10" href="$dc/df3/a00424.html" title="Define ModelException class. " alt="" coords="5,237,155,267"/>
+<area shape="rect" id="node13" href="$df/d70/a00431.html" title="Utilities class to handle string, date time and file. " alt="" coords="627,160,691,189"/>
+<area shape="rect" id="node7" href="$d7/d93/a00397_source.html" title="MongoUtil.h" alt="" coords="170,160,277,189"/>
 </map>

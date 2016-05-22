@@ -155,8 +155,30 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 </ul>
 <h3>MUSLE_AS模块</h3>
 <ul>
-<li>1. SEDTOCH和SEDTOCH_T单位到底是吨还是千克？</li>
+<li>1. SEDTOCH和SEDTOCH_T单位到底是吨还是千克？，是DT_Raster1D还是DT_Array1D</li>
+<li>SEDR_VCD中AddInput原写的是tons</li>
 </ul>
+<h3>SEDR_VCD模块</h3>
+<p>SWAT 最新版中内置了4种泥沙河道汇流模拟方法，后续可以补充</p>
+<ul>
+<li>1. CHSB Get2DData 注释掉了，WHY？</li>
+</ul>
+<h3>SplashEro_Park模块</h3>
+<ul>
+<li>1. float m_Ccoe;并未使用，是否删掉</li>
+</ul>
+<h3>CH_DW模块</h3>
+<ul>
+<li>1. m_manningScalingFactor 模块初始化时赋值为1，但是SetValue中依然有，是否需要在数据库中添加？</li>
+<li><h3>CH_MSK模块</h3>
+</li>
+</ul>
+<ul>
+<li>1. TWO_THIRDS(2.f/3.f), m_msk_x(0.2f), m_vScalingFactor（即"VelocityScalingFactor"）(3.0f), m_chS0(0.f), m_beta(5.0f/3), m_delta(1e-6f)，，模块初始化时赋值，是否需要在数据库中添加？</li>
+<li>2. 与其他几个河道汇流模块类似，m_diagonal到底应该用ArcGIS的流向编码还是TauDEM的呢？</li>
+</ul>
+<h3>单位转换问题</h3>
+<p>有必要在util模块中加入多个单位之间转换的代码。</p>
 <h2>TODO by Gao</h2>
 <h2>1.代码整理</h2>
 <ul>
@@ -217,7 +239,7 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 21 2016 14:09:07 for SEIMS-2016 by
+    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,7 +1,6 @@
-<map id="Nutrient" name="Nutrient">
-<area shape="rect" id="node1" href="$da/da3/a00741.html" title="Daily nitrogen and phosphorus mineralization and immobilization. " alt="" coords="267,5,351,35"/>
-<area shape="rect" id="node2" href="$dc/d14/a00720.html" title="All functional modules in SEIMS. " alt="" coords="5,85,88,115"/>
-<area shape="rect" id="node3" href="$dc/dce/a00740.html" title="Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia. " alt="" coords="264,59,355,88"/>
-<area shape="rect" id="node5" href="$d4/d8f/a00742.html" title="Simulates the loss of nitrate and phosphorus via surface runoff, lateral flow, tile flow..." alt="" coords="265,112,354,141"/>
-<area shape="rect" id="node6" href="$d0/d0a/a00743.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="274,165,345,195"/>
+<map id="Hydrology" name="Hydrology">
+<area shape="rect" id="node1" href="$d1/da6/a00738.html" title="Routing in the channel cells using Muskingum method. " alt="" coords="335,5,425,35"/>
+<area shape="rect" id="node2" href="$da/df7/a00739.html" title="Calculate groundwater using reservoir method. " alt="" coords="281,59,479,88"/>
+<area shape="rect" id="node3" href="$de/de6/a00723.html" title="All functional modules in SEIMS. " alt="" coords="5,59,88,88"/>
+<area shape="rect" id="node4" href="$dd/db2/a00737.html" title="Channel routing using diffusive wave equation. " alt="" coords="339,112,421,141"/>
 </map>

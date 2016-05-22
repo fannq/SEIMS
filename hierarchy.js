@@ -23,45 +23,48 @@ var hierarchy =
     [ "isparams_t", "de/d8c/a00036.html", null ],
     [ "IUHCalculator", "d1/dc6/a00037.html", null ],
     [ "Measurement", "db/d3a/a00040.html", [
-      [ "NotRegularMeasurement", "d2/dee/a00049.html", null ],
-      [ "RegularMeasurement", "d9/d73/a00060.html", null ]
+      [ "NotRegularMeasurement", "d5/de0/a00050.html", null ],
+      [ "RegularMeasurement", "d4/de8/a00061.html", null ]
     ] ],
     [ "mesh_t", "dd/d32/a00041.html", null ],
     [ "MetadataInfo", "d5/db6/a00042.html", null ],
     [ "ModelClass", "d6/d42/a00043.html", null ],
     [ "ModelException", "d5/df9/a00044.html", null ],
     [ "ModelMain", "d6/d97/a00045.html", null ],
-    [ "NandPmi", "d4/dca/a00048.html", null ],
-    [ "nrinfo_t", "d5/de0/a00050.html", null ],
-    [ "OutputVariable", "d1/d84/a00052.html", null ],
-    [ "Parameter", "dc/dee/a00053.html", null ],
-    [ "ParamInfo", "d1/dea/a00054.html", null ],
-    [ "params_t", "d4/d6d/a00055.html", null ],
-    [ "PringInfoItem", "d3/d8b/a00059.html", null ],
-    [ "Module::SEIMSModule", "d4/de8/a00061.html", null ],
-    [ "Settings", "df/d03/a00062.html", [
-      [ "SettingsInput", "d1/d6f/a00063.html", null ]
+    [ "NandPmi", "d2/dee/a00049.html", null ],
+    [ "nrinfo_t", "d2/d79/a00051.html", null ],
+    [ "OutputVariable", "dc/dee/a00053.html", null ],
+    [ "Parameter", "d1/dea/a00054.html", null ],
+    [ "ParamInfo", "d4/d6d/a00055.html", null ],
+    [ "params_t", "d9/d2e/a00056.html", null ],
+    [ "PringInfoItem", "d9/d73/a00060.html", null ],
+    [ "Module::SEIMSModule", "d1/d6f/a00063.html", null ],
+    [ "Settings", "df/d5f/a00064.html", [
+      [ "SettingsInput", "de/de1/a00065.html", null ]
     ] ],
-    [ "SimulationModule", "df/d5f/a00064.html", [
+    [ "SimulationModule", "d9/db3/a00066.html", [
       [ "clsTSD_RD", "d7/de0/a00022.html", null ],
       [ "DiffusiveWave", "d0/d33/a00027.html", null ],
       [ "Interpolate", "d4/d8c/a00035.html", null ],
       [ "KinWavSed_CH", "d8/d41/a00038.html", null ],
       [ "KinWavSed_OL", "d3/de7/a00039.html", null ],
       [ "MUSK_CH", "d3/dea/a00046.html", null ],
-      [ "MUSLE_AS", "d6/d2d/a00047.html", null ],
-      [ "NutrientRemviaSr", "d2/d79/a00051.html", null ],
-      [ "PETHargreaves", "d9/d2e/a00056.html", null ],
-      [ "PETPenmanMonteith", "d1/d22/a00057.html", null ],
-      [ "PETPriestleyTaylor", "d7/df7/a00058.html", null ],
-      [ "SurrunoffTransfer", "d4/d31/a00069.html", null ]
+      [ "Muskingum", "d6/d2d/a00047.html", null ],
+      [ "MUSLE_AS", "d4/dca/a00048.html", null ],
+      [ "NutrientRemviaSr", "d1/d84/a00052.html", null ],
+      [ "PETHargreaves", "d1/d22/a00057.html", null ],
+      [ "PETPenmanMonteith", "d7/df7/a00058.html", null ],
+      [ "PETPriestleyTaylor", "d3/d8b/a00059.html", null ],
+      [ "SEDR_VCD", "df/d03/a00062.html", null ],
+      [ "SplashEro_Park", "d2/db1/a00070.html", null ],
+      [ "SurrunoffTransfer", "d6/d2c/a00072.html", null ]
     ] ],
-    [ "hydroclimate_sites.SiteInfo", "de/de1/a00065.html", null ],
-    [ "slTable", "d9/db3/a00066.html", null ],
-    [ "soil_param.SoilProperty", "dc/ddf/a00067.html", null ],
-    [ "StringList", "da/d24/a00068.html", null ],
-    [ "utils", "d2/db1/a00070.html", null ],
-    [ "uvw_t", "d0/d89/a00071.html", null ],
-    [ "vkrinfo_t", "d6/d2c/a00072.html", null ],
-    [ "vnbr_t", "d1/d6e/a00073.html", null ]
+    [ "hydroclimate_sites.SiteInfo", "dc/ddf/a00067.html", null ],
+    [ "slTable", "da/d24/a00068.html", null ],
+    [ "soil_param.SoilProperty", "d4/d31/a00069.html", null ],
+    [ "StringList", "d0/d89/a00071.html", null ],
+    [ "utils", "d1/d6e/a00073.html", null ],
+    [ "uvw_t", "db/db6/a00074.html", null ],
+    [ "vkrinfo_t", "d9/da5/a00075.html", null ],
+    [ "vnbr_t", "db/df8/a00076.html", null ]
 ];
