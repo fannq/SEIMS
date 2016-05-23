@@ -132,7 +132,7 @@ $(document).ready(function(){initNavTree('d3/d93/a00341_source.html','../../');}
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ysize = band.YSize</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    noDataValue = band.GetNoDataValue()</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> noDataValue <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        noDataValue = -9999</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        noDataValue = DEFAULT_NODATA</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    srs = osr.SpatialReference()</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    srs.ImportFromWkt(ds.GetProjection())    </div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('d3/d93/a00341_source.html','../../');}
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            if(abs(dataAcc[i][j] - noDataValue) &lt; util.DELTA):</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                wiGrid[i][j] = -99</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                wiGrid[i][j] = DEFAULT_NODATA</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                if(abs(dataSlope[i][j]) &lt; util.DELTA):</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    dataSlope[i][j] = 0.1/dx*100</div>
@@ -172,13 +172,13 @@ $(document).ready(function(){initNavTree('d3/d93/a00341_source.html','../../');}
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            if(abs(dataAcc[i][j] - noDataValue) &lt; util.DELTA):</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                moisture[i][j] = -9999</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                moisture[i][j] = DEFAULT_NODATA</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                moisture[i][j] =  a*wiGrid[i][j] + b</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    filename = dstdir + os.sep + initSoilMoist</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    WriteGTiffFile(filename, ysize, xsize, moisture, \</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                       geotransform, srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                       geotransform, srs, DEFAULT_NODATA, gdal.GDT_Float32)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;The initial moisture is generated!&#39;</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
@@ -192,7 +192,7 @@ $(document).ready(function(){initNavTree('d3/d93/a00341_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>init_moisture.py</b></li>
-    <li class="footer">Generated on Mon May 23 2016 13:29:14 for SEIMS-2016 by
+    <li class="footer">Generated on Mon May 23 2016 14:28:00 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
