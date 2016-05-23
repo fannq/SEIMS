@@ -1,8 +1,12 @@
 var a00068 =
 [
-    [ "RegularMeasurement", "da/d24/a00068.html#aa99c037597c244227ecfd437a8644432", null ],
-    [ "~RegularMeasurement", "da/d24/a00068.html#a1f44d19ffde71e64385f25b24732ff83", null ],
-    [ "GetSiteDataByTime", "da/d24/a00068.html#a6528f99c36c06961b7eeafbccc2a5f52", null ],
-    [ "m_interval", "da/d24/a00068.html#a6fffb32a797276d7cc6b2bd8b2f369c8", null ],
-    [ "m_siteData", "da/d24/a00068.html#a9e9eee588a575d7a89a66b9728b9f81c", null ]
+    [ "CheckInputData", "da/d24/a00068.html#a469842c8a1a394970863e10cc60d8b97", null ],
+    [ "CheckInputSize", "da/d24/a00068.html#a0ef140cf5476ff5df72040f69af7662b", null ],
+    [ "Execute", "da/d24/a00068.html#a898a3365ad7fcdb72b15aa09037d0d7b", null ],
+    [ "Get2DData", "da/d24/a00068.html#ad5b936ace0c5a628a4c40fde925081c6", null ],
+    [ "Set1DData", "da/d24/a00068.html#a8fefcadbb8458ced42a0eafdb4d56e83", null ],
+    [ "Set2DData", "da/d24/a00068.html#a35d52d386022b566ca2843c62beca117", null ],
+    [ "SetValue", "da/d24/a00068.html#a971fc9d1186e5b594dbd53e482a7b280", null ],
+    [ "m_nSoilLayers", "da/d24/a00068.html#a4affaba9fac506265ce672c1da08e1f1", null ],
+    [ "m_upSoilDepth", "da/d24/a00068.html#a93e29b77684fdae647ed8fb413abc868", null ]
 ];

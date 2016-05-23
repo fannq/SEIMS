@@ -1,3 +1,7 @@
-<map id="SplashEro_Park" name="SplashEro_Park">
-<area shape="rect" id="node1" href="$d1/d79/a00745.html" title="Erosion related modules. " alt="" coords="5,4,83,33"/>
+<map id="Nutrient" name="Nutrient">
+<area shape="rect" id="node1" href="$de/d79/a00798.html" title="Daily nitrogen and phosphorus mineralization and immobilization. " alt="" coords="267,5,351,35"/>
+<area shape="rect" id="node2" href="$d5/de8/a00749.html" title="All functional modules in SEIMS. " alt="" coords="5,85,88,115"/>
+<area shape="rect" id="node3" href="$da/db8/a00797.html" title="Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia. " alt="" coords="264,59,355,88"/>
+<area shape="rect" id="node5" href="$d0/d7d/a00799.html" title="Simulates the loss of nitrate and phosphorus via surface runoff, lateral flow, tile flow..." alt="" coords="265,112,354,141"/>
+<area shape="rect" id="node6" href="$df/d0e/a00800.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="274,165,345,195"/>
 </map>

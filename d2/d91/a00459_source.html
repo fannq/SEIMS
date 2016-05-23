@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/Deprecated/base_data/clsWgnData.h Source File</title>
+<title>SEIMS-2016: src/Deprecated/base_data/clsHydroClimateData.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,51 +111,61 @@ $(document).ready(function(){initNavTree('d2/d91/a00459_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">clsWgnData.h</div>  </div>
+<div class="title">clsHydroClimateData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d2/d91/a00459.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">   20</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961">   22</a></span>&#160;    <a class="code" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961">WGN_PRECIPITATION</a>, </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78deaa102ed4d9af46512372b366c2f40cf3c">   23</a></span>&#160;    <a class="code" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78deaa102ed4d9af46512372b366c2f40cf3c">WGN_SNOW</a>           </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/de2/a00024.html">clsWgnData</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../dc/de2/a00024.html">clsWgnData</a>(<span class="keywordtype">string</span> databasePath,<a class="code" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ~<a class="code" href="../../dc/de2/a00024.html">clsWgnData</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> getWgnData(<span class="keywordtype">int</span>* nRows, <span class="keywordtype">int</span>* nCols,<span class="keywordtype">float</span>*** wgnData);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> show(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a0b43da215ebd51fe8c0aa418fca08373">   42</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="../../dc/de2/a00024.html#a0b43da215ebd51fe8c0aa418fca08373">m_wtgTableName</a>; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a2a0f633156f50038d623f28e55049f96">   43</a></span>&#160;    vector&lt;string&gt; <a class="code" href="../../dc/de2/a00024.html#a2a0f633156f50038d623f28e55049f96">m_columns</a>; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#ab7a59f7e26b36f0e51734fa89ef41c22">   44</a></span>&#160;    <span class="keywordtype">float</span>** <a class="code" href="../../dc/de2/a00024.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a>; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> readWgnData(<span class="keywordtype">string</span>,<a class="code" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="ttc" id="a00024_html"><div class="ttname"><a href="../../dc/de2/a00024.html">clsWgnData</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00034">clsWgnData.h:34</a></div></div>
-<div class="ttc" id="a00459_html_a687c287c85e281a878aa31fb7b4f78deaa102ed4d9af46512372b366c2f40cf3c"><div class="ttname"><a href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78deaa102ed4d9af46512372b366c2f40cf3c">WGN_SNOW</a></div><div class="ttdoc">snow </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00023">clsWgnData.h:23</a></div></div>
-<div class="ttc" id="a00024_html_a2a0f633156f50038d623f28e55049f96"><div class="ttname"><a href="../../dc/de2/a00024.html#a2a0f633156f50038d623f28e55049f96">clsWgnData::m_columns</a></div><div class="ttdeci">vector&lt; string &gt; m_columns</div><div class="ttdoc">table column name </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00043">clsWgnData.h:43</a></div></div>
-<div class="ttc" id="a00024_html_ab7a59f7e26b36f0e51734fa89ef41c22"><div class="ttname"><a href="../../dc/de2/a00024.html#ab7a59f7e26b36f0e51734fa89ef41c22">clsWgnData::m_wgnData</a></div><div class="ttdeci">float ** m_wgnData</div><div class="ttdoc">wgn data </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00044">clsWgnData.h:44</a></div></div>
-<div class="ttc" id="a00024_html_a0b43da215ebd51fe8c0aa418fca08373"><div class="ttname"><a href="../../dc/de2/a00024.html#a0b43da215ebd51fe8c0aa418fca08373">clsWgnData::m_wtgTableName</a></div><div class="ttdeci">string m_wtgTableName</div><div class="ttdoc">table name </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00042">clsWgnData.h:42</a></div></div>
-<div class="ttc" id="a00459_html_a687c287c85e281a878aa31fb7b4f78de"><div class="ttname"><a href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a></div><div class="ttdeci">WgnType</div><div class="ttdoc">&lt; enumerator </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00020">clsWgnData.h:20</a></div></div>
-<div class="ttc" id="a00459_html_a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961"><div class="ttname"><a href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78dea04845069b06707c37f604992d7fc2961">WGN_PRECIPITATION</a></div><div class="ttdoc">rainfall </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00022">clsWgnData.h:22</a></div></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d1b/a00015.html">clsHydroClimateData</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../dd/d1b/a00015.html">clsHydroClimateData</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../dd/d1b/a00015.html">clsHydroClimateData</a>(<span class="keywordtype">string</span> databasePath,<span class="keywordtype">string</span> tableName);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../dd/d1b/a00015.html">clsHydroClimateData</a>(<span class="keywordtype">string</span> databasePath,<span class="keywordtype">int</span> <span class="keywordtype">id</span>,<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~<a class="code" href="../../dd/d1b/a00015.html">clsHydroClimateData</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> loadTimeSeriesData(time_t startTime,time_t endTime,<span class="keywordtype">int</span> interval);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">float</span> getTimeSeriesData(time_t time);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> IsHydroClimateDataType(<span class="keyword">const</span> <span class="keywordtype">string</span>* type);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> getTableNameFromIDAndType(<span class="keywordtype">string</span> databasePath,<span class="keywordtype">int</span> <span class="keywordtype">id</span>,<span class="keywordtype">string</span> type);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> dump(ostream* fs);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> appendData(time_t t, <span class="keywordtype">float</span> value)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        m_data.insert(map&lt;time_t, float&gt;::value_type(t, value));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> readData();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">string</span>  m_Units;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    time_t  m_StartDate;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    time_t  m_EndDate;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span>     m_Interval;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">string</span>  m_TableName;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">string</span>  m_Type;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    map&lt;time_t,float&gt; m_data;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">string</span>  m_databasePath;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="ttc" id="a00015_html"><div class="ttname"><a href="../../dd/d1b/a00015.html">clsHydroClimateData</a></div><div class="ttdoc">Hydrological climate data class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d91/a00459_source.html#l00030">clsHydroClimateData.h:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><a class="el" href="../../d2/d91/a00459.html">clsWgnData.h</a></li>
-    <li class="footer">Generated on Mon May 23 2016 12:35:33 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><a class="el" href="../../d2/d91/a00459.html">clsHydroClimateData.h</a></li>
+    <li class="footer">Generated on Mon May 23 2016 13:29:14 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

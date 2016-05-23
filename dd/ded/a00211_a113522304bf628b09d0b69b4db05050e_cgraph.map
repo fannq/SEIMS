@@ -1,7 +1,0 @@
-<map id="SetupCoarseGraph" name="SetupCoarseGraph">
-<area shape="rect" id="node2" href="$db/dd9/a00179.html#a01903fa912de9fc7f01dace993a3fc85" title="CreateGraph" alt="" coords="213,32,328,61"/>
-<area shape="rect" id="node3" href="$d6/dfb/a00172.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="377,5,471,35"/>
-<area shape="rect" id="node6" href="$db/dd9/a00179.html#af046766ada304a0cf49db44b544810a8" title="InitGraph" alt="" coords="381,59,467,88"/>
-<area shape="rect" id="node4" href="$d3/df8/a00155.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="707,7,799,36"/>
-<area shape="rect" id="node5" href="$d6/dfb/a00172.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="520,32,659,61"/>
-</map>

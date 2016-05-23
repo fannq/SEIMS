@@ -1,14 +1,10 @@
 var a00087 =
 [
-    [ "StringList", "d1/d1e/a00087.html#ab92785f26e12fce6ecc9797c6f4e2090", null ],
-    [ "~StringList", "d1/d1e/a00087.html#a1c7bf7a04fa791e1b5504fb96355efa9", null ],
-    [ "Add", "d1/d1e/a00087.html#a39d7276a511637ca2bbf01b9375f2a5e", null ],
-    [ "Append", "d1/d1e/a00087.html#a335f0ecc2c08af9a96a5b412eeb14090", null ],
-    [ "At", "d1/d1e/a00087.html#a82d4957073abf405e92934c69a4adf6c", null ],
-    [ "Clear", "d1/d1e/a00087.html#a0129bfe44ed9c9a5839c5c8688a4bdc6", null ],
-    [ "Contains", "d1/d1e/a00087.html#a69e219abaa4afe8023ae9e0d00b8abc3", null ],
-    [ "Count", "d1/d1e/a00087.html#a897d79a72fab72faec233a10667c7c5d", null ],
-    [ "Insert", "d1/d1e/a00087.html#aea2bfd74ecef6c8698d5094cdb183a64", null ],
-    [ "operator=", "d1/d1e/a00087.html#a1d1858fa95ef9d5b991e59b36bbd5426", null ],
-    [ "Resize", "d1/d1e/a00087.html#a91e4c52c28c9bf1126e9932f3ceb42e7", null ]
+    [ "Execute", "d1/d1e/a00087.html#adcd3db4af0fe481140345a0b188871da", null ],
+    [ "Get1DData", "d1/d1e/a00087.html#ae99983c22de777796eff611ab8390a5e", null ],
+    [ "Get2DData", "d1/d1e/a00087.html#a920c80e65158072d30a9de302cdec9f8", null ],
+    [ "GetValue", "d1/d1e/a00087.html#a973d02d674a080fa6030f11c18f8b7c6", null ],
+    [ "Set1DData", "d1/d1e/a00087.html#ac5b765a9566894e0acfac3c19453b6b5", null ],
+    [ "SetValue", "d1/d1e/a00087.html#a396999211170f869ea24ba192f5b26fe", null ],
+    [ "m_nCells", "d1/d1e/a00087.html#a16bf7ef02b2a4d4af6a1c26ccb00bdfb", null ]
 ];

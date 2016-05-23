@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: NutrientRemviaSr Class Reference</title>
+<title>SEIMS-2016: MUSK_CH Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -116,353 +116,258 @@ $(document).ready(function(){initNavTree('d1/d22/a00057.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/d2b/a01010.html">List of all members</a>  </div>
+<a href="../../d0/ddd/a01044.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">NutrientRemviaSr Class Reference<div class="ingroups"><a class="el" href="../../dc/d0c/a00783.html">NutRemv</a></div></div>  </div>
+<div class="title">MUSK_CH Class Reference<div class="ingroups"><a class="el" href="../../de/d42/a00780.html">MUSK_CH</a> &#124; <a class="el" href="../../d3/d95/a00779.html">MUSKINGUM_CH</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the profile.  
+<p>Overland routing using 4-point implicit finite difference method.  
  <a href="../../d1/d22/a00057.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d8/d13/a00671_source.html">NutrientRemviaSr.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../df/d6f/a00623_source.html">MUSK_CH.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for NutrientRemviaSr:</div>
+Inheritance diagram for MUSK_CH:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d36/a01011.png" border="0" usemap="#_nutrient_remvia_sr_inherit__map" alt="Inheritance graph"/></div>
-<map name="_nutrient_remvia_sr_inherit__map" id="_nutrient_remvia_sr_inherit__map">
-<area shape="rect" id="node2" href="../../d9/da5/a00075.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
+<div class="center"><img src="../../d7/d46/a01045.png" border="0" usemap="#_m_u_s_k___c_h_inherit__map" alt="Inheritance graph"/></div>
+<map name="_m_u_s_k___c_h_inherit__map" id="_m_u_s_k___c_h_inherit__map">
+<area shape="rect" id="node2" href="../../d4/d63/a00082.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="22,5,207,333"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7256db1166feaed19a1d879e49f68ad6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a7256db1166feaed19a1d879e49f68ad6">~NutrientRemviaSr</a> (void)</td></tr>
-<tr class="separator:a7256db1166feaed19a1d879e49f68ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012dbfda44951465303fcbdac94eb055"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a012dbfda44951465303fcbdac94eb055"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a012dbfda44951465303fcbdac94eb055">Set1DData</a> (const char *key, int n, float *data)</td></tr>
-<tr class="memdesc:a012dbfda44951465303fcbdac94eb055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
-<tr class="separator:a012dbfda44951465303fcbdac94eb055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54a3cc15b15f97cd133d71275e5620c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54a3cc15b15f97cd133d71275e5620c0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a54a3cc15b15f97cd133d71275e5620c0">Set2DData</a> (const char *key, int nRows, int nCols, float **data)</td></tr>
-<tr class="memdesc:a54a3cc15b15f97cd133d71275e5620c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
-<tr class="separator:a54a3cc15b15f97cd133d71275e5620c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0f829a91e7ea448a3be18f89ec52237"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0f829a91e7ea448a3be18f89ec52237"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ab0f829a91e7ea448a3be18f89ec52237">SetValue</a> (const char *key, float value)</td></tr>
-<tr class="memdesc:ab0f829a91e7ea448a3be18f89ec52237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
-<tr class="separator:ab0f829a91e7ea448a3be18f89ec52237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24c69926cb876f07010defdc622f8a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae24c69926cb876f07010defdc622f8a0"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ae24c69926cb876f07010defdc622f8a0">Execute</a> ()</td></tr>
-<tr class="memdesc:ae24c69926cb876f07010defdc622f8a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
-<tr class="separator:ae24c69926cb876f07010defdc622f8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af524e6df80687adefc401e437b8a6faa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af524e6df80687adefc401e437b8a6faa"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#af524e6df80687adefc401e437b8a6faa">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
-<tr class="memdesc:af524e6df80687adefc401e437b8a6faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
-<tr class="separator:af524e6df80687adefc401e437b8a6faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32081fb99b953c5d8ca7b801ceff253b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32081fb99b953c5d8ca7b801ceff253b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a32081fb99b953c5d8ca7b801ceff253b">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
-<tr class="memdesc:a32081fb99b953c5d8ca7b801ceff253b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
-<tr class="separator:a32081fb99b953c5d8ca7b801ceff253b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00075"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00075')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/da5/a00075.html">SimulationModule</a></td></tr>
-<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
-<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
-<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
-<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
-<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
-<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
-<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
-<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
-<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
-<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
-<tr class="separator:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
-virtual <a class="el" href="../../d3/dea/a00444.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
-<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
-<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
-<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
-<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b4045fa968be37726e59258ce9887d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b4045fa968be37726e59258ce9887d3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a2b4045fa968be37726e59258ce9887d3">MUSK_CH</a> (void)</td></tr>
+<tr class="memdesc:a2b4045fa968be37726e59258ce9887d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a2b4045fa968be37726e59258ce9887d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adb32eb5d5b4866a1a2527c9f13a88b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1adb32eb5d5b4866a1a2527c9f13a88b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a1adb32eb5d5b4866a1a2527c9f13a88b">~MUSK_CH</a> (void)</td></tr>
+<tr class="memdesc:a1adb32eb5d5b4866a1a2527c9f13a88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a1adb32eb5d5b4866a1a2527c9f13a88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa29138f08d2f6f7827f4b686680229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fa29138f08d2f6f7827f4b686680229"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a5fa29138f08d2f6f7827f4b686680229">Execute</a> ()</td></tr>
+<tr class="memdesc:a5fa29138f08d2f6f7827f4b686680229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute function. <br/></td></tr>
+<tr class="separator:a5fa29138f08d2f6f7827f4b686680229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaadfb5c1f906b1b06f09fc6cee23d04c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaadfb5c1f906b1b06f09fc6cee23d04c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aaadfb5c1f906b1b06f09fc6cee23d04c">SetValue</a> (const char *key, float data)</td></tr>
+<tr class="memdesc:aaadfb5c1f906b1b06f09fc6cee23d04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set value of the module. <br/></td></tr>
+<tr class="separator:aaadfb5c1f906b1b06f09fc6cee23d04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87578c3b4e9af3197c392cc6b1094d99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87578c3b4e9af3197c392cc6b1094d99"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a87578c3b4e9af3197c392cc6b1094d99">GetValue</a> (const char *key, float *value)</td></tr>
+<tr class="memdesc:a87578c3b4e9af3197c392cc6b1094d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
+<tr class="separator:a87578c3b4e9af3197c392cc6b1094d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47c3db5364ee70821d56382a8742ab9b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47c3db5364ee70821d56382a8742ab9b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a47c3db5364ee70821d56382a8742ab9b">Set1DData</a> (const char *key, int n, float *data)</td></tr>
+<tr class="memdesc:a47c3db5364ee70821d56382a8742ab9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
+<tr class="separator:a47c3db5364ee70821d56382a8742ab9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe831d74b1b76ccddaec480cfc00bd6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fe831d74b1b76ccddaec480cfc00bd6"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a9fe831d74b1b76ccddaec480cfc00bd6">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
+<tr class="memdesc:a9fe831d74b1b76ccddaec480cfc00bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
+<tr class="separator:a9fe831d74b1b76ccddaec480cfc00bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0e47c8181a094b4202f8e7ffd946c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc0e47c8181a094b4202f8e7ffd946c8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#afc0e47c8181a094b4202f8e7ffd946c8">Set2DData</a> (const char *key, int nrows, int ncols, float **data)</td></tr>
+<tr class="memdesc:afc0e47c8181a094b4202f8e7ffd946c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
+<tr class="separator:afc0e47c8181a094b4202f8e7ffd946c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aec588cf10b2afc9c8997a284af821e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4aec588cf10b2afc9c8997a284af821e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a4aec588cf10b2afc9c8997a284af821e">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
+<tr class="memdesc:a4aec588cf10b2afc9c8997a284af821e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
+<tr class="separator:a4aec588cf10b2afc9c8997a284af821e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3436e6be79f59b7ae8708594cae84c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff3436e6be79f59b7ae8708594cae84c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aff3436e6be79f59b7ae8708594cae84c">CheckInputSize</a> (const char *key, int n)</td></tr>
+<tr class="memdesc:aff3436e6be79f59b7ae8708594cae84c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check input size. <br/></td></tr>
+<tr class="separator:aff3436e6be79f59b7ae8708594cae84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdfae02550dcd7129d5982e77426722a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdfae02550dcd7129d5982e77426722a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#afdfae02550dcd7129d5982e77426722a">CheckInputData</a> (void)</td></tr>
+<tr class="memdesc:afdfae02550dcd7129d5982e77426722a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check input data. <br/></td></tr>
+<tr class="separator:afdfae02550dcd7129d5982e77426722a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1acfda09744be09f61ef9fb739f901"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d1acfda09744be09f61ef9fb739f901"></a>
+virtual <a class="el" href="../../d1/d0b/a00452.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a4d1acfda09744be09f61ef9fb739f901">GetTimeStepType</a> ()</td></tr>
+<tr class="memdesc:a4d1acfda09744be09f61ef9fb739f901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
+<tr class="separator:a4d1acfda09744be09f61ef9fb739f901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00082"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00082')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d63/a00082.html">SimulationModule</a></td></tr>
+<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
+<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
+<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
+<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
+<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
+<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
+<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
+<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
+<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aed34028890537d87e34cd1e426d8426e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aed34028890537d87e34cd1e426d8426e">CheckInputData</a> (void)</td></tr>
-<tr class="memdesc:aed34028890537d87e34cd1e426d8426e"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input data. Make sure all the input data is available.  <a href="#aed34028890537d87e34cd1e426d8426e">More...</a><br/></td></tr>
-<tr class="separator:aed34028890537d87e34cd1e426d8426e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ae7b89c7d20b2ca0ba9aa2eac954256"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a3ae7b89c7d20b2ca0ba9aa2eac954256">CheckInputSize</a> (const char *, int)</td></tr>
-<tr class="memdesc:a3ae7b89c7d20b2ca0ba9aa2eac954256"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input size. Make sure all the input data have same dimension.  <a href="#a3ae7b89c7d20b2ca0ba9aa2eac954256">More...</a><br/></td></tr>
-<tr class="separator:a3ae7b89c7d20b2ca0ba9aa2eac954256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a872f9555ec4827b4628f9aef2b5b0bf2"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a872f9555ec4827b4628f9aef2b5b0bf2">CalculateEnrRatio</a> ()</td></tr>
-<tr class="memdesc:a872f9555ec4827b4628f9aef2b5b0bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate enrichment ratio.  <a href="#a872f9555ec4827b4628f9aef2b5b0bf2">More...</a><br/></td></tr>
-<tr class="separator:a872f9555ec4827b4628f9aef2b5b0bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a375dd0f4a6181008271774209113bf06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a375dd0f4a6181008271774209113bf06">OrgnRemoveinSr</a> ()</td></tr>
-<tr class="memdesc:a375dd0f4a6181008271774209113bf06"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the amount of organic nitrogen removed in surface runoff.  <a href="#a375dd0f4a6181008271774209113bf06">More...</a><br/></td></tr>
-<tr class="separator:a375dd0f4a6181008271774209113bf06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2094a1be6083d50f447455d11b5fde5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ac2094a1be6083d50f447455d11b5fde5">OrgpAttachedtoSed</a> ()</td></tr>
-<tr class="memdesc:ac2094a1be6083d50f447455d11b5fde5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the amount of organic and mineral phosphorus attached to sediment in surface runoff.  <a href="#ac2094a1be6083d50f447455d11b5fde5">More...</a><br/></td></tr>
-<tr class="separator:ac2094a1be6083d50f447455d11b5fde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0063a15974ae017e6546862c20079aab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0063a15974ae017e6546862c20079aab"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a0063a15974ae017e6546862c20079aab">initalOutputs</a> ()</td></tr>
+<tr class="memdesc:a0063a15974ae017e6546862c20079aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial ouputs. <br/></td></tr>
+<tr class="separator:a0063a15974ae017e6546862c20079aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f81ae3bdf3790fa4393925b987f73ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f81ae3bdf3790fa4393925b987f73ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a1f81ae3bdf3790fa4393925b987f73ec">ChannelFlow</a> (int i)</td></tr>
+<tr class="memdesc:a1f81ae3bdf3790fa4393925b987f73ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Channel flow. <br/></td></tr>
+<tr class="separator:a1f81ae3bdf3790fa4393925b987f73ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d13f29e2617d4f444cf78af66bd8020"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d13f29e2617d4f444cf78af66bd8020"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a4d13f29e2617d4f444cf78af66bd8020">GetDt</a> (float timeStep, float fmin, float fmax, float &amp;dt, int &amp;n)</td></tr>
+<tr class="memdesc:a4d13f29e2617d4f444cf78af66bd8020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get date time. <br/></td></tr>
+<tr class="separator:a4d13f29e2617d4f444cf78af66bd8020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82d24ffe28f483589d96cf976595a49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae82d24ffe28f483589d96cf976595a49"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ae82d24ffe28f483589d96cf976595a49">GetCoefficients</a> (float reachLength, float v0, MuskWeights &amp;weights)</td></tr>
+<tr class="memdesc:ae82d24ffe28f483589d96cf976595a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get coefficients. <br/></td></tr>
+<tr class="separator:ae82d24ffe28f483589d96cf976595a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad7828a0d0c6405ab554413798b5e1156"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7828a0d0c6405ab554413798b5e1156"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ad7828a0d0c6405ab554413798b5e1156">m_cellWidth</a></td></tr>
-<tr class="memdesc:ad7828a0d0c6405ab554413798b5e1156"><td class="mdescLeft">&#160;</td><td class="mdescRight">cell width of grid map (m) <br/></td></tr>
-<tr class="separator:ad7828a0d0c6405ab554413798b5e1156"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1141cf225e338eecc74764ed60b456c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1141cf225e338eecc74764ed60b456c0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a1141cf225e338eecc74764ed60b456c0">m_nCells</a></td></tr>
-<tr class="memdesc:a1141cf225e338eecc74764ed60b456c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of cells <br/></td></tr>
-<tr class="separator:a1141cf225e338eecc74764ed60b456c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a18e5f6cc8f9b80ca3f270ff76632fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a18e5f6cc8f9b80ca3f270ff76632fa"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a4a18e5f6cc8f9b80ca3f270ff76632fa">m_sedimentYield</a></td></tr>
-<tr class="memdesc:a4a18e5f6cc8f9b80ca3f270ff76632fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">input data <br/></td></tr>
-<tr class="separator:a4a18e5f6cc8f9b80ca3f270ff76632fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a754a2ea690fc96fb691579d211fb6146"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a754a2ea690fc96fb691579d211fb6146"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a754a2ea690fc96fb691579d211fb6146">m_sedorgn</a></td></tr>
-<tr class="memdesc:a754a2ea690fc96fb691579d211fb6146"><td class="mdescLeft">&#160;</td><td class="mdescRight">output data <br/></td></tr>
-<tr class="separator:a754a2ea690fc96fb691579d211fb6146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca530e292006a6d117a9050522e81281"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca530e292006a6d117a9050522e81281"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aca530e292006a6d117a9050522e81281">m_sol_aorgn</a></td></tr>
-<tr class="memdesc:aca530e292006a6d117a9050522e81281"><td class="mdescLeft">&#160;</td><td class="mdescRight">input &amp; output <br/></td></tr>
-<tr class="separator:aca530e292006a6d117a9050522e81281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0493e054af8975a515f1ce102250eba0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0493e054af8975a515f1ce102250eba0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a0493e054af8975a515f1ce102250eba0">m_dt</a></td></tr>
+<tr class="memdesc:a0493e054af8975a515f1ce102250eba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">time step (hr) <br/></td></tr>
+<tr class="separator:a0493e054af8975a515f1ce102250eba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6d5b2e49d695dfd1f7c6e22c5996c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada6d5b2e49d695dfd1f7c6e22c5996c5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ada6d5b2e49d695dfd1f7c6e22c5996c5">m_nreach</a></td></tr>
+<tr class="memdesc:ada6d5b2e49d695dfd1f7c6e22c5996c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">reach number (= subbasin number) <br/></td></tr>
+<tr class="separator:ada6d5b2e49d695dfd1f7c6e22c5996c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a289b64822dbb8e8fe47bfa060e0deb7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a289b64822dbb8e8fe47bfa060e0deb7a"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a289b64822dbb8e8fe47bfa060e0deb7a">m_Vdiv</a></td></tr>
+<tr class="memdesc:a289b64822dbb8e8fe47bfa060e0deb7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">diversion loss (Vdiv) of the river reach .. m_Vid[id], id is the reach id <br/></td></tr>
+<tr class="separator:a289b64822dbb8e8fe47bfa060e0deb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe0118c37113b00bbb6a41eccaf10fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fe0118c37113b00bbb6a41eccaf10fc"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a9fe0118c37113b00bbb6a41eccaf10fc">m_Vpoint</a></td></tr>
+<tr class="memdesc:a9fe0118c37113b00bbb6a41eccaf10fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The point source discharge .. m_Vpoint[id], id is the reach id. <br/></td></tr>
+<tr class="separator:a9fe0118c37113b00bbb6a41eccaf10fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a927331337eadf050fa362f9e7da9f50c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a927331337eadf050fa362f9e7da9f50c"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a927331337eadf050fa362f9e7da9f50c">m_Kchb</a></td></tr>
+<tr class="memdesc:a927331337eadf050fa362f9e7da9f50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">hydraulic conductivity of the channel bed (mm/h) <br/></td></tr>
+<tr class="separator:a927331337eadf050fa362f9e7da9f50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36331b94a66b826eaa0127dc6157715f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36331b94a66b826eaa0127dc6157715f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a36331b94a66b826eaa0127dc6157715f">m_Kbank</a></td></tr>
+<tr class="memdesc:a36331b94a66b826eaa0127dc6157715f"><td class="mdescLeft">&#160;</td><td class="mdescRight">hydraulic conductivity of the channel bank (mm/h) <br/></td></tr>
+<tr class="separator:a36331b94a66b826eaa0127dc6157715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35350ca356d0d3b663caec85ff50e69a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35350ca356d0d3b663caec85ff50e69a"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a35350ca356d0d3b663caec85ff50e69a">m_Epch</a></td></tr>
+<tr class="memdesc:a35350ca356d0d3b663caec85ff50e69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">reach evaporation adjustment factor; <br/></td></tr>
+<tr class="separator:a35350ca356d0d3b663caec85ff50e69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac26579b9bf3d7778706f9493a3e331e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac26579b9bf3d7778706f9493a3e331e4"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ac26579b9bf3d7778706f9493a3e331e4">m_Bnk0</a></td></tr>
+<tr class="memdesc:ac26579b9bf3d7778706f9493a3e331e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial bank storage per meter of reach length (m3/m) <br/></td></tr>
+<tr class="separator:ac26579b9bf3d7778706f9493a3e331e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b25ffd8a262abe66a970de3bc1958e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93b25ffd8a262abe66a970de3bc1958e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a93b25ffd8a262abe66a970de3bc1958e">m_Chs0</a></td></tr>
+<tr class="memdesc:a93b25ffd8a262abe66a970de3bc1958e"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial channel storage per meter of reach length (m3/m) <br/></td></tr>
+<tr class="separator:a93b25ffd8a262abe66a970de3bc1958e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d13efc0708dc5a2dad091efee97707"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21d13efc0708dc5a2dad091efee97707"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a21d13efc0708dc5a2dad091efee97707">m_Vseep0</a></td></tr>
+<tr class="memdesc:a21d13efc0708dc5a2dad091efee97707"><td class="mdescLeft">&#160;</td><td class="mdescRight">the initial volume of transmission loss to the deep aquifer over the time interval (m3/s) <br/></td></tr>
+<tr class="separator:a21d13efc0708dc5a2dad091efee97707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58e2782333080795df781e33559307e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac58e2782333080795df781e33559307e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ac58e2782333080795df781e33559307e">m_aBank</a></td></tr>
+<tr class="memdesc:ac58e2782333080795df781e33559307e"><td class="mdescLeft">&#160;</td><td class="mdescRight">bank flow recession constant <br/></td></tr>
+<tr class="separator:ac58e2782333080795df781e33559307e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50ffe6abd3869dfc113fc47243667874"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50ffe6abd3869dfc113fc47243667874"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a50ffe6abd3869dfc113fc47243667874">m_bBank</a></td></tr>
+<tr class="memdesc:a50ffe6abd3869dfc113fc47243667874"><td class="mdescLeft">&#160;</td><td class="mdescRight">bank storage loss coefficient <br/></td></tr>
+<tr class="separator:a50ffe6abd3869dfc113fc47243667874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d8df768526b30a91bbf16de94b5927"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15d8df768526b30a91bbf16de94b5927"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a15d8df768526b30a91bbf16de94b5927">m_area</a></td></tr>
+<tr class="memdesc:a15d8df768526b30a91bbf16de94b5927"><td class="mdescLeft">&#160;</td><td class="mdescRight">the subbasin area (m2) //add to the reach parameters file <br/></td></tr>
+<tr class="separator:a15d8df768526b30a91bbf16de94b5927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64732d39a3db1753ea1f23307f297883"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64732d39a3db1753ea1f23307f297883"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a64732d39a3db1753ea1f23307f297883">m_petCh</a></td></tr>
+<tr class="memdesc:a64732d39a3db1753ea1f23307f297883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average PET for each subbasin. <br/></td></tr>
+<tr class="separator:a64732d39a3db1753ea1f23307f297883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3eb766ebf070623cd47c82e875ca51d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3eb766ebf070623cd47c82e875ca51d"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#af3eb766ebf070623cd47c82e875ca51d">m_qsSub</a></td></tr>
+<tr class="memdesc:af3eb766ebf070623cd47c82e875ca51d"><td class="mdescLeft">&#160;</td><td class="mdescRight">overland flow to streams from each subbasin (m3/s) <br/></td></tr>
+<tr class="separator:af3eb766ebf070623cd47c82e875ca51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82feca7df14b7cec230ae11065d3477"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af82feca7df14b7cec230ae11065d3477"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#af82feca7df14b7cec230ae11065d3477">m_qiSub</a></td></tr>
+<tr class="memdesc:af82feca7df14b7cec230ae11065d3477"><td class="mdescLeft">&#160;</td><td class="mdescRight">interflow to streams from each subbasin (m3/s) <br/></td></tr>
+<tr class="separator:af82feca7df14b7cec230ae11065d3477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e22417fe99650452ecd3fc1e99eb1f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8e22417fe99650452ecd3fc1e99eb1f"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ad8e22417fe99650452ecd3fc1e99eb1f">m_qgSub</a></td></tr>
+<tr class="memdesc:ad8e22417fe99650452ecd3fc1e99eb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">groundwater flow out of the subbasin (m3/s) <br/></td></tr>
+<tr class="separator:ad8e22417fe99650452ecd3fc1e99eb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6f6f7a893763d661afa40bb810020e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c6f6f7a893763d661afa40bb810020e"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a5c6f6f7a893763d661afa40bb810020e">m_gwStorage</a></td></tr>
+<tr class="memdesc:a5c6f6f7a893763d661afa40bb810020e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Groundwater storage (mm) of the subbasin. <br/></td></tr>
+<tr class="separator:a5c6f6f7a893763d661afa40bb810020e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad375286f9c0a1921df8ef58b6b5666e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad375286f9c0a1921df8ef58b6b5666e7"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ad375286f9c0a1921df8ef58b6b5666e7">m_qsCh</a></td></tr>
+<tr class="memdesc:ad375286f9c0a1921df8ef58b6b5666e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel outflow <br/></td></tr>
+<tr class="separator:ad375286f9c0a1921df8ef58b6b5666e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4152019a630faffa626fa8c2c0a99030"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4152019a630faffa626fa8c2c0a99030"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a4152019a630faffa626fa8c2c0a99030">m_seepage</a></td></tr>
+<tr class="memdesc:a4152019a630faffa626fa8c2c0a99030"><td class="mdescLeft">&#160;</td><td class="mdescRight">seepage to deep aquifer <br/></td></tr>
+<tr class="separator:a4152019a630faffa626fa8c2c0a99030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b10e45b27b8230fb7268938484f1db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72b10e45b27b8230fb7268938484f1db"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a72b10e45b27b8230fb7268938484f1db">m_reachDownStream</a></td></tr>
+<tr class="memdesc:a72b10e45b27b8230fb7268938484f1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">downstream id (The value is 0 if there if no downstream reach) <br/></td></tr>
+<tr class="separator:a72b10e45b27b8230fb7268938484f1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a490c2dbe8e8570aae550fdbb20ddad2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a490c2dbe8e8570aae550fdbb20ddad2d"></a>
+vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a490c2dbe8e8570aae550fdbb20ddad2d">m_reachUpStream</a></td></tr>
+<tr class="memdesc:a490c2dbe8e8570aae550fdbb20ddad2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">upstream id (The value is -1 if there if no upstream reach) <br/></td></tr>
+<tr class="separator:a490c2dbe8e8570aae550fdbb20ddad2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d94ef5e03e2d794b7d3b516dc4c3893"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d94ef5e03e2d794b7d3b516dc4c3893"></a>
+map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a8d94ef5e03e2d794b7d3b516dc4c3893">m_idToIndex</a></td></tr>
+<tr class="memdesc:a8d94ef5e03e2d794b7d3b516dc4c3893"><td class="mdescLeft">&#160;</td><td class="mdescRight">map from subbasin id to index of the array <br/></td></tr>
+<tr class="separator:a8d94ef5e03e2d794b7d3b516dc4c3893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129873925bf861064dde3d642d28b97d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a129873925bf861064dde3d642d28b97d"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a129873925bf861064dde3d642d28b97d">m_chStorage</a></td></tr>
+<tr class="memdesc:a129873925bf861064dde3d642d28b97d"><td class="mdescLeft">&#160;</td><td class="mdescRight">reach storage (m3) at time t <br/></td></tr>
+<tr class="separator:a129873925bf861064dde3d642d28b97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ce0d2425241fec26f4b01acfc51c56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8ce0d2425241fec26f4b01acfc51c56"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ac8ce0d2425241fec26f4b01acfc51c56">m_qOut</a></td></tr>
+<tr class="memdesc:ac8ce0d2425241fec26f4b01acfc51c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">reach outflow (m3/s) at time t <br/></td></tr>
+<tr class="separator:ac8ce0d2425241fec26f4b01acfc51c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c67563ef54e6e5df541b83978691bac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c67563ef54e6e5df541b83978691bac"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a8c67563ef54e6e5df541b83978691bac">m_qIn</a></td></tr>
+<tr class="memdesc:a8c67563ef54e6e5df541b83978691bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">flowin discharge at the last time step <br/></td></tr>
+<tr class="separator:a8c67563ef54e6e5df541b83978691bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3eb5ec95695d7aaaecce0e69890f58a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3eb5ec95695d7aaaecce0e69890f58a"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ac3eb5ec95695d7aaaecce0e69890f58a">m_chWTdepth</a></td></tr>
+<tr class="memdesc:ac3eb5ec95695d7aaaecce0e69890f58a"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel water depth m <br/></td></tr>
+<tr class="separator:ac3eb5ec95695d7aaaecce0e69890f58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00075"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00075')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d9/da5/a00075.html">SimulationModule</a></td></tr>
-<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
-time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
-<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
-<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
-<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
-<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00082"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00082')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d4/d63/a00082.html">SimulationModule</a></td></tr>
+<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
+<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
+<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
+<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
+<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the profile. </p>
+<div class="textblock"><p>Overland routing using 4-point implicit finite difference method. </p>
+<p>channel flow routing using <a class="el" href="../../d7/df7/a00058.html" title="Channel routing using Muskingum-Cunge method. ">Muskingum</a> method </p>
 
-<p>Definition at line <a class="el" href="../../d8/d13/a00671_source.html#l00027">27</a> of file <a class="el" href="../../d8/d13/a00671_source.html">NutrientRemviaSr.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a7256db1166feaed19a1d879e49f68ad6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">NutrientRemviaSr::~NutrientRemviaSr </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>TODO </p>
-
-<p>Definition at line <a class="el" href="../../d1/d97/a00670_source.html#l00029">29</a> of file <a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a872f9555ec4827b4628f9aef2b5b0bf2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float * NutrientRemviaSr::CalculateEnrRatio </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculate enrichment ratio. </p>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d1/d97/a00670_source.html#l00158">158</a> of file <a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aed34028890537d87e34cd1e426d8426e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool NutrientRemviaSr::CheckInputData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>check the input data. Make sure all the input data is available. </p>
-<dl class="section return"><dt>Returns</dt><dd>bool The validity of the input data. </dd></dl>
-<p>... </p>
-
-<p>Definition at line <a class="el" href="../../d1/d97/a00670_source.html#l00049">49</a> of file <a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3ae7b89c7d20b2ca0ba9aa2eac954256"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool NutrientRemviaSr::CheckInputSize </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>check the input size. Make sure all the input data have same dimension. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The key of the input data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>The input data dimension </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>bool The validity of the dimension </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d1/d97/a00670_source.html#l00032">32</a> of file <a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a375dd0f4a6181008271774209113bf06"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void NutrientRemviaSr::OrgnRemoveinSr </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>calculates the amount of organic nitrogen removed in surface runoff. </p>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d1/d97/a00670_source.html#l00180">180</a> of file <a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d22/a00057_a375dd0f4a6181008271774209113bf06_cgraph.png" border="0" usemap="#d1/d22/a00057_a375dd0f4a6181008271774209113bf06_cgraph" alt=""/></div>
-<map name="d1/d22/a00057_a375dd0f4a6181008271774209113bf06_cgraph" id="d1/d22/a00057_a375dd0f4a6181008271774209113bf06_cgraph">
-<area shape="rect" id="node2" href="../../d1/d22/a00057.html#a872f9555ec4827b4628f9aef2b5b0bf2" title="Calculate enrichment ratio. " alt="" coords="337,5,562,51"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ac2094a1be6083d50f447455d11b5fde5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void NutrientRemviaSr::OrgpAttachedtoSed </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the amount of organic and mineral phosphorus attached to sediment in surface runoff. </p>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d1/d97/a00670_source.html#l00218">218</a> of file <a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d22/a00057_ac2094a1be6083d50f447455d11b5fde5_cgraph.png" border="0" usemap="#d1/d22/a00057_ac2094a1be6083d50f447455d11b5fde5_cgraph" alt=""/></div>
-<map name="d1/d22/a00057_ac2094a1be6083d50f447455d11b5fde5_cgraph" id="d1/d22/a00057_ac2094a1be6083d50f447455d11b5fde5_cgraph">
-<area shape="rect" id="node2" href="../../d1/d22/a00057.html#a872f9555ec4827b4628f9aef2b5b0bf2" title="Calculate enrichment ratio. " alt="" coords="353,5,578,51"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/modules/nutrient/NutRemv/<a class="el" href="../../d8/d13/a00671_source.html">NutrientRemviaSr.h</a></li>
-<li>src/modules/nutrient/NutRemv/<a class="el" href="../../d1/d97/a00670_source.html">NutrientRemviaSr.cpp</a></li>
+<p>Definition at line <a class="el" href="../../df/d6f/a00623_source.html#l00054">54</a> of file <a class="el" href="../../df/d6f/a00623_source.html">MUSK_CH.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/modules/hydrology_longterm/MUSK_CH/<a class="el" href="../../df/d6f/a00623_source.html">MUSK_CH.h</a></li>
+<li>src/modules/hydrology_longterm/MUSK_CH/<a class="el" href="../../d0/db1/a00622_source.html">MUSK_CH.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d1/d22/a00057.html">NutrientRemviaSr</a></li>
-    <li class="footer">Generated on Mon May 23 2016 12:35:35 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d1/d22/a00057.html">MUSK_CH</a></li>
+    <li class="footer">Generated on Mon May 23 2016 13:29:16 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

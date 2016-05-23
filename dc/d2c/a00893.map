@@ -1,5 +1,2 @@
-<map id="src/Deprecated/base_data/clsSpecificOutput.h" name="src/Deprecated/base_data/clsSpecificOutput.h">
-<area shape="rect" id="node3" href="$d4/d6d/a00402.html" title="Define Raster class to handle raster data. " alt="" coords="143,101,277,131"/>
-<area shape="rect" id="node7" href="$d0/dd6/a00415_source.html" title="MongoUtil.h" alt="" coords="282,179,389,208"/>
-<area shape="rect" id="node10" href="$db/d34/a00442.html" title="Define ModelException class. " alt="" coords="261,256,411,285"/>
+<map id="src/base/util/MetadataInfoConst.h" name="src/base/util/MetadataInfoConst.h">
 </map>

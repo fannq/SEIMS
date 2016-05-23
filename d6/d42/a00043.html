@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: KinWavSed_CH Class Reference</title>
+<title>SEIMS-2016: InterFlow_IKW Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,258 +114,176 @@ $(document).ready(function(){initNavTree('d6/d42/a00043.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../dd/d7a/a00990.html">List of all members</a>  </div>
+<a href="../../d6/dcd/a01023.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">KinWavSed_CH Class Reference<div class="ingroups"><a class="el" href="../../d9/db0/a00750.html">KinWavSed_CH</a></div></div>  </div>
+<div class="title">InterFlow_IKW Class Reference<div class="ingroups"><a class="el" href="../../dd/d51/a00769.html">InterFlow_IKW</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Kinematic wave method for channel flow erosion and deposition.  
+<p>Interflow routing using implicit finite difference method.  
  <a href="../../d6/d42/a00043.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/df9/a00554_source.html">KinWavSed_CH.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/dec/a00592_source.html">InterFlow_IKW.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for KinWavSed_CH:</div>
+Inheritance diagram for InterFlow_IKW:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d2f/a00991.png" border="0" usemap="#_kin_wav_sed___c_h_inherit__map" alt="Inheritance graph"/></div>
-<map name="_kin_wav_sed___c_h_inherit__map" id="_kin_wav_sed___c_h_inherit__map">
-<area shape="rect" id="node2" href="../../d9/da5/a00075.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="30,5,215,333"/></map>
+<div class="center"><img src="../../d4/dc5/a01024.png" border="0" usemap="#_inter_flow___i_k_w_inherit__map" alt="Inheritance graph"/></div>
+<map name="_inter_flow___i_k_w_inherit__map" id="_inter_flow___i_k_w_inherit__map">
+<area shape="rect" id="node2" href="../../d4/d63/a00082.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3731ef3e9f15ecc1e904994647334d25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3731ef3e9f15ecc1e904994647334d25"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a3731ef3e9f15ecc1e904994647334d25">KinWavSed_CH</a> (void)</td></tr>
-<tr class="memdesc:a3731ef3e9f15ecc1e904994647334d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="separator:a3731ef3e9f15ecc1e904994647334d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56938d342328c12059c9f4250a9538a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56938d342328c12059c9f4250a9538a6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a56938d342328c12059c9f4250a9538a6">~KinWavSed_CH</a> (void)</td></tr>
-<tr class="memdesc:a56938d342328c12059c9f4250a9538a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a56938d342328c12059c9f4250a9538a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad329ac39f3ddb216d23271d2aede6b9b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad329ac39f3ddb216d23271d2aede6b9b"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ad329ac39f3ddb216d23271d2aede6b9b">Execute</a> ()</td></tr>
-<tr class="memdesc:ad329ac39f3ddb216d23271d2aede6b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute. <br/></td></tr>
-<tr class="separator:ad329ac39f3ddb216d23271d2aede6b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63ac7811ccafdcf82bae2feecf215d0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63ac7811ccafdcf82bae2feecf215d0e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a63ac7811ccafdcf82bae2feecf215d0e">SetValue</a> (const char *key, float value)</td></tr>
-<tr class="memdesc:a63ac7811ccafdcf82bae2feecf215d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
-<tr class="separator:a63ac7811ccafdcf82bae2feecf215d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3f43237125732ae9a89bf1f28c842f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af3f43237125732ae9a89bf1f28c842f3">GetValue</a> (const char *key, float *value)</td></tr>
-<tr class="memdesc:af3f43237125732ae9a89bf1f28c842f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value.  <a href="#af3f43237125732ae9a89bf1f28c842f3">More...</a><br/></td></tr>
-<tr class="separator:af3f43237125732ae9a89bf1f28c842f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64b2503c13eb4e4758fdb4684a3ebf37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64b2503c13eb4e4758fdb4684a3ebf37"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a64b2503c13eb4e4758fdb4684a3ebf37">Set1DData</a> (const char *key, int n, float *data)</td></tr>
-<tr class="memdesc:a64b2503c13eb4e4758fdb4684a3ebf37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
-<tr class="separator:a64b2503c13eb4e4758fdb4684a3ebf37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6ba8d4ab14295f813a4e27c8e7a5c09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6ba8d4ab14295f813a4e27c8e7a5c09"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ab6ba8d4ab14295f813a4e27c8e7a5c09">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
-<tr class="memdesc:ab6ba8d4ab14295f813a4e27c8e7a5c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
-<tr class="separator:ab6ba8d4ab14295f813a4e27c8e7a5c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5199205dc2fe1c2f31ceb82eb23c4db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5199205dc2fe1c2f31ceb82eb23c4db"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ab5199205dc2fe1c2f31ceb82eb23c4db">Set2DData</a> (const char *key, int nrows, int ncols, float **data)</td></tr>
-<tr class="memdesc:ab5199205dc2fe1c2f31ceb82eb23c4db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
-<tr class="separator:ab5199205dc2fe1c2f31ceb82eb23c4db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fc64e49874528fc874f82a234b822ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fc64e49874528fc874f82a234b822ed"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a5fc64e49874528fc874f82a234b822ed">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
-<tr class="memdesc:a5fc64e49874528fc874f82a234b822ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
-<tr class="separator:a5fc64e49874528fc874f82a234b822ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5d3d44fb3ed5322a6a73f7e6ecea6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#afb5d3d44fb3ed5322a6a73f7e6ecea6c">CheckInputData</a> (void)</td></tr>
-<tr class="memdesc:afb5d3d44fb3ed5322a6a73f7e6ecea6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input data. Make sure all the input data is available.  <a href="#afb5d3d44fb3ed5322a6a73f7e6ecea6c">More...</a><br/></td></tr>
-<tr class="separator:afb5d3d44fb3ed5322a6a73f7e6ecea6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387b5c41522371daa22884e74e8253ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a387b5c41522371daa22884e74e8253ce">CheckInputSize</a> (const char *, int)</td></tr>
-<tr class="memdesc:a387b5c41522371daa22884e74e8253ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the input size. Make sure all the input data have same dimension.  <a href="#a387b5c41522371daa22884e74e8253ce">More...</a><br/></td></tr>
-<tr class="separator:a387b5c41522371daa22884e74e8253ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00075"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00075')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/da5/a00075.html">SimulationModule</a></td></tr>
-<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
-<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
-<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
-<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
-<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
-<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
-<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
-<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
-<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
-virtual <a class="el" href="../../d3/dea/a00444.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
-<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
-<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
-<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
-<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a72808aa39b12c090b91518a6bb5c66d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a72808aa39b12c090b91518a6bb5c66d8">CalcuVelocityChannelFlow</a> (int iReach, int iCell, int id)</td></tr>
-<tr class="memdesc:a72808aa39b12c090b91518a6bb5c66d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate the velocity of overland flow.  <a href="#a72808aa39b12c090b91518a6bb5c66d8">More...</a><br/></td></tr>
-<tr class="separator:a72808aa39b12c090b91518a6bb5c66d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af837ea49bc3fd3fb4a28c0ea62034fc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af837ea49bc3fd3fb4a28c0ea62034fc2">CalcuChFlowDetachment</a> (int iReach, int iCell, int id)</td></tr>
-<tr class="memdesc:af837ea49bc3fd3fb4a28c0ea62034fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate the flow detachment.  <a href="#af837ea49bc3fd3fb4a28c0ea62034fc2">More...</a><br/></td></tr>
-<tr class="separator:af837ea49bc3fd3fb4a28c0ea62034fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addd0ec4c1295f9933d2d2ef2ddd6fd81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#addd0ec4c1295f9933d2d2ef2ddd6fd81">ChannelflowSedRouting</a> (int iReach, int iCell, int id)</td></tr>
-<tr class="memdesc:addd0ec4c1295f9933d2d2ef2ddd6fd81"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate the sediment routing of overland flow.  <a href="#addd0ec4c1295f9933d2d2ef2ddd6fd81">More...</a><br/></td></tr>
-<tr class="separator:addd0ec4c1295f9933d2d2ef2ddd6fd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8388cd4b9e589b6b2c851c1814f1981"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ae8388cd4b9e589b6b2c851c1814f1981">simpleSedCalc</a> (float Qj1i1, float Qj1i, float Sj1i, float dt, float vol, float sed)</td></tr>
-<tr class="memdesc:ae8388cd4b9e589b6b2c851c1814f1981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple calculation of sediment outflux from a cell based on the sediment concentration multiplied by the new water flux, j = time and i = place: j1i1 is the new output, j1i is the new flux at the upstream 'entrance' flowing into the gridcell.  <a href="#ae8388cd4b9e589b6b2c851c1814f1981">More...</a><br/></td></tr>
-<tr class="separator:ae8388cd4b9e589b6b2c851c1814f1981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5385c705061b448a892af3f32dff4231"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a5385c705061b448a892af3f32dff4231">complexSedCalc</a> (float Qj1i1, float Qj1i, float Qji1, float Sj1i, float Sji1, float alpha, float dt, float dx)</td></tr>
-<tr class="separator:a5385c705061b448a892af3f32dff4231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3234ebc38b6d321386e2952add34f15b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3234ebc38b6d321386e2952add34f15b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a3234ebc38b6d321386e2952add34f15b">InterFlow_IKW</a> (void)</td></tr>
+<tr class="memdesc:a3234ebc38b6d321386e2952add34f15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a3234ebc38b6d321386e2952add34f15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4413d912681a981eff2939ffd1227114"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4413d912681a981eff2939ffd1227114"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a4413d912681a981eff2939ffd1227114">~InterFlow_IKW</a> (void)</td></tr>
+<tr class="memdesc:a4413d912681a981eff2939ffd1227114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a4413d912681a981eff2939ffd1227114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661ac13d279fbe1f98edf8a514adedd7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a661ac13d279fbe1f98edf8a514adedd7"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a661ac13d279fbe1f98edf8a514adedd7">Execute</a> ()</td></tr>
+<tr class="memdesc:a661ac13d279fbe1f98edf8a514adedd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
+<tr class="separator:a661ac13d279fbe1f98edf8a514adedd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30646bc5f2151606d3456c373c6bd6c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30646bc5f2151606d3456c373c6bd6c4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a30646bc5f2151606d3456c373c6bd6c4">SetValue</a> (const char *key, float data)</td></tr>
+<tr class="memdesc:a30646bc5f2151606d3456c373c6bd6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
+<tr class="separator:a30646bc5f2151606d3456c373c6bd6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab89fdfe400ec9f213d5cb1d1290197"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ab89fdfe400ec9f213d5cb1d1290197"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a1ab89fdfe400ec9f213d5cb1d1290197">Set1DData</a> (const char *key, int n, float *data)</td></tr>
+<tr class="memdesc:a1ab89fdfe400ec9f213d5cb1d1290197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
+<tr class="separator:a1ab89fdfe400ec9f213d5cb1d1290197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b9f61498c48ce59a8f888c0c20707c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50b9f61498c48ce59a8f888c0c20707c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a50b9f61498c48ce59a8f888c0c20707c">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
+<tr class="memdesc:a50b9f61498c48ce59a8f888c0c20707c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
+<tr class="separator:a50b9f61498c48ce59a8f888c0c20707c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab685721c7cacf1041e5ecd7df76abe53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab685721c7cacf1041e5ecd7df76abe53"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ab685721c7cacf1041e5ecd7df76abe53">Set2DData</a> (const char *key, int nrows, int ncols, float **data)</td></tr>
+<tr class="memdesc:ab685721c7cacf1041e5ecd7df76abe53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
+<tr class="separator:ab685721c7cacf1041e5ecd7df76abe53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00082"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00082')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d63/a00082.html">SimulationModule</a></td></tr>
+<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
+<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
+<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
+<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
+<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
+<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
+<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
+<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
+<tr class="separator:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6dc960ad0a7bd7714e9644b64dc0acb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab6dc960ad0a7bd7714e9644b64dc0acb">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
+<tr class="memdesc:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
+<tr class="separator:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
+virtual <a class="el" href="../../d1/d0b/a00452.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
+<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
+<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
+<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
+<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a4f499a1762e7cbef23da51caf06a1a6f"><td class="memItemLeft" align="right" valign="top">map&lt; int, vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a4f499a1762e7cbef23da51caf06a1a6f">m_reachLayers</a></td></tr>
-<tr class="memdesc:a4f499a1762e7cbef23da51caf06a1a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">reach layers map  <a href="#a4f499a1762e7cbef23da51caf06a1a6f">More...</a><br/></td></tr>
-<tr class="separator:a4f499a1762e7cbef23da51caf06a1a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58dec224baea93209d7884b7af4a108d"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a58dec224baea93209d7884b7af4a108d">m_flowInIndex</a></td></tr>
-<tr class="memdesc:a58dec224baea93209d7884b7af4a108d"><td class="mdescLeft">&#160;</td><td class="mdescRight">2d array of flow in cells  <a href="#a58dec224baea93209d7884b7af4a108d">More...</a><br/></td></tr>
-<tr class="separator:a58dec224baea93209d7884b7af4a108d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae54872c279e04ba046b6f7afab7040a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae54872c279e04ba046b6f7afab7040a2"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ae54872c279e04ba046b6f7afab7040a2">m_flowOutIndex</a></td></tr>
-<tr class="memdesc:ae54872c279e04ba046b6f7afab7040a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">flow out index <br/></td></tr>
-<tr class="separator:ae54872c279e04ba046b6f7afab7040a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80dc84cd237d606dd4aa341ca692185e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80dc84cd237d606dd4aa341ca692185e"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a80dc84cd237d606dd4aa341ca692185e">m_chWidth</a></td></tr>
-<tr class="memdesc:a80dc84cd237d606dd4aa341ca692185e"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel width (zero for non-channel cells) <br/></td></tr>
-<tr class="separator:a80dc84cd237d606dd4aa341ca692185e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa605dd2712db3d6988b10033ed31b6e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa605dd2712db3d6988b10033ed31b6e2"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa605dd2712db3d6988b10033ed31b6e2">m_streamOrder</a></td></tr>
-<tr class="memdesc:aa605dd2712db3d6988b10033ed31b6e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">stream order <br/></td></tr>
-<tr class="separator:aa605dd2712db3d6988b10033ed31b6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1439c1d8784d9aa537f9f6b065a9bb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1439c1d8784d9aa537f9f6b065a9bb2"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af1439c1d8784d9aa537f9f6b065a9bb2">m_reachDownStream</a></td></tr>
-<tr class="memdesc:af1439c1d8784d9aa537f9f6b065a9bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">stream id of downstream <br/></td></tr>
-<tr class="separator:af1439c1d8784d9aa537f9f6b065a9bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dc333e58eaeb931d977f337466a0159"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dc333e58eaeb931d977f337466a0159"></a>
-vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a7dc333e58eaeb931d977f337466a0159">m_reachUpStream</a></td></tr>
-<tr class="memdesc:a7dc333e58eaeb931d977f337466a0159"><td class="mdescLeft">&#160;</td><td class="mdescRight">upstream id (The value is -1 if there if no upstream reach) <br/></td></tr>
-<tr class="separator:a7dc333e58eaeb931d977f337466a0159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca3799688ae60ba49d101297a5218749"><td class="memItemLeft" align="right" valign="top">map&lt; int, vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aca3799688ae60ba49d101297a5218749">m_reachs</a></td></tr>
-<tr class="memdesc:aca3799688ae60ba49d101297a5218749"><td class="mdescLeft">&#160;</td><td class="mdescRight">reach links  <a href="#aca3799688ae60ba49d101297a5218749">More...</a><br/></td></tr>
-<tr class="separator:aca3799688ae60ba49d101297a5218749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab76b4bc5c89765cfc5ea18cf50aba58e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab76b4bc5c89765cfc5ea18cf50aba58e"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ab76b4bc5c89765cfc5ea18cf50aba58e">m_CellWith</a></td></tr>
-<tr class="memdesc:ab76b4bc5c89765cfc5ea18cf50aba58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">cell width of grid map (m) <br/></td></tr>
-<tr class="separator:ab76b4bc5c89765cfc5ea18cf50aba58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a006c3ab7e8f5d3408a784b06a490b748"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a006c3ab7e8f5d3408a784b06a490b748"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a006c3ab7e8f5d3408a784b06a490b748">m_nCells</a></td></tr>
-<tr class="memdesc:a006c3ab7e8f5d3408a784b06a490b748"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of valid cells <br/></td></tr>
-<tr class="separator:a006c3ab7e8f5d3408a784b06a490b748"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab0948bdb3e5d565410c0adf7734443a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab0948bdb3e5d565410c0adf7734443a"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aab0948bdb3e5d565410c0adf7734443a">m_TimeStep</a></td></tr>
-<tr class="memdesc:aab0948bdb3e5d565410c0adf7734443a"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of time step (s) <br/></td></tr>
-<tr class="separator:aab0948bdb3e5d565410c0adf7734443a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a494d972e78883e28b3096482c5c65e18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a494d972e78883e28b3096482c5c65e18"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a494d972e78883e28b3096482c5c65e18">m_ChTcCo</a></td></tr>
-<tr class="memdesc:a494d972e78883e28b3096482c5c65e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">calibration coefficient of transport capacity <br/></td></tr>
-<tr class="separator:a494d972e78883e28b3096482c5c65e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39cfb4cd0567db93b3066f647db223db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39cfb4cd0567db93b3066f647db223db"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a39cfb4cd0567db93b3066f647db223db">m_ChDetCo</a></td></tr>
-<tr class="memdesc:a39cfb4cd0567db93b3066f647db223db"><td class="mdescLeft">&#160;</td><td class="mdescRight">calibration coefficient of channel flow detachment <br/></td></tr>
-<tr class="separator:a39cfb4cd0567db93b3066f647db223db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc40440043ab2013721e9e8dc38a1d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabc40440043ab2013721e9e8dc38a1d9"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aabc40440043ab2013721e9e8dc38a1d9">m_Slope</a></td></tr>
-<tr class="memdesc:aabc40440043ab2013721e9e8dc38a1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">slope of map, to calculate slope gradient. <br/></td></tr>
-<tr class="separator:aabc40440043ab2013721e9e8dc38a1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af00402650bf9cbe6af82f52883ceaec8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af00402650bf9cbe6af82f52883ceaec8"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af00402650bf9cbe6af82f52883ceaec8">m_USLE_K</a></td></tr>
-<tr class="memdesc:af00402650bf9cbe6af82f52883ceaec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">USLE K. <br/></td></tr>
-<tr class="separator:af00402650bf9cbe6af82f52883ceaec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a448fb251672bdf1cc024fafdb785c306"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a448fb251672bdf1cc024fafdb785c306"></a>
-int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a448fb251672bdf1cc024fafdb785c306">m_sourceCellIds</a></td></tr>
-<tr class="memdesc:a448fb251672bdf1cc024fafdb785c306"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of source cells of reaches <br/></td></tr>
-<tr class="separator:a448fb251672bdf1cc024fafdb785c306"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2cd14968d371f93d44c148f79b727a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2cd14968d371f93d44c148f79b727a3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af2cd14968d371f93d44c148f79b727a3">m_chNumber</a></td></tr>
-<tr class="memdesc:af2cd14968d371f93d44c148f79b727a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel number <br/></td></tr>
-<tr class="separator:af2cd14968d371f93d44c148f79b727a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99dd03a13bfdecd5a3a9f1d4a48649e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99dd03a13bfdecd5a3a9f1d4a48649e3"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a99dd03a13bfdecd5a3a9f1d4a48649e3">m_streamLink</a></td></tr>
-<tr class="memdesc:a99dd03a13bfdecd5a3a9f1d4a48649e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">stream link <br/></td></tr>
-<tr class="separator:a99dd03a13bfdecd5a3a9f1d4a48649e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a160eb7902b60fd33069e78961e720a41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a160eb7902b60fd33069e78961e720a41"></a>
-map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a160eb7902b60fd33069e78961e720a41">m_idToIndex</a></td></tr>
-<tr class="memdesc:a160eb7902b60fd33069e78961e720a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">map from subbasin id to index of the array <br/></td></tr>
-<tr class="separator:a160eb7902b60fd33069e78961e720a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72c0dea31e6e166784b5095c5772fef1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72c0dea31e6e166784b5095c5772fef1"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a72c0dea31e6e166784b5095c5772fef1">m_ChManningN</a></td></tr>
-<tr class="memdesc:a72c0dea31e6e166784b5095c5772fef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manning N. <br/></td></tr>
-<tr class="separator:a72c0dea31e6e166784b5095c5772fef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb491bce3c4d95421400f191ebb3909d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb491bce3c4d95421400f191ebb3909d"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#adb491bce3c4d95421400f191ebb3909d">m_ChannelWH</a></td></tr>
-<tr class="memdesc:adb491bce3c4d95421400f191ebb3909d"><td class="mdescLeft">&#160;</td><td class="mdescRight">water depth for channel cell [mm], i.e., "HCH" from channel routing module <br/></td></tr>
-<tr class="separator:adb491bce3c4d95421400f191ebb3909d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5191a4c3bac5d761f759bcd2680cbbcc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5191a4c3bac5d761f759bcd2680cbbcc"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a5191a4c3bac5d761f759bcd2680cbbcc">m_SedToChannel</a></td></tr>
-<tr class="memdesc:a5191a4c3bac5d761f759bcd2680cbbcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">sediment flow into the channel [kg] <br/></td></tr>
-<tr class="separator:a5191a4c3bac5d761f759bcd2680cbbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21a3e20b676e674d384857ebeccd5b5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21a3e20b676e674d384857ebeccd5b5c"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a21a3e20b676e674d384857ebeccd5b5c">m_ChQkin</a></td></tr>
-<tr class="memdesc:a21a3e20b676e674d384857ebeccd5b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel flow of each cell, [m3/s] <br/></td></tr>
-<tr class="separator:a21a3e20b676e674d384857ebeccd5b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a131a1e0aa06379e6d6447066ecd8c705"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a131a1e0aa06379e6d6447066ecd8c705"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a131a1e0aa06379e6d6447066ecd8c705">m_ChVol</a></td></tr>
-<tr class="memdesc:a131a1e0aa06379e6d6447066ecd8c705"><td class="mdescLeft">&#160;</td><td class="mdescRight">water volume in cell m3 <br/></td></tr>
-<tr class="separator:a131a1e0aa06379e6d6447066ecd8c705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98fb198889a22a539a5f93796e946c23"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98fb198889a22a539a5f93796e946c23"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a98fb198889a22a539a5f93796e946c23">m_ChV</a></td></tr>
-<tr class="memdesc:a98fb198889a22a539a5f93796e946c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">flow velocity <br/></td></tr>
-<tr class="separator:a98fb198889a22a539a5f93796e946c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ecf7bbc8fef1008fc614bd989a0c85d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ecf7bbc8fef1008fc614bd989a0c85d"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a1ecf7bbc8fef1008fc614bd989a0c85d">m_CHDETFlow</a></td></tr>
-<tr class="memdesc:a1ecf7bbc8fef1008fc614bd989a0c85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel flow detachment [kg] <br/></td></tr>
-<tr class="separator:a1ecf7bbc8fef1008fc614bd989a0c85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6258a34ebb1d99303100277cd203eefb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6258a34ebb1d99303100277cd203eefb"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a6258a34ebb1d99303100277cd203eefb">m_CHSedDep</a></td></tr>
-<tr class="memdesc:a6258a34ebb1d99303100277cd203eefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">sediment deposition[kg] <br/></td></tr>
-<tr class="separator:a6258a34ebb1d99303100277cd203eefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01b16ad5bb4c43e3e36e65c541b432e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01b16ad5bb4c43e3e36e65c541b432e4"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a01b16ad5bb4c43e3e36e65c541b432e4">m_CHSedConc</a></td></tr>
-<tr class="memdesc:a01b16ad5bb4c43e3e36e65c541b432e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">sediment concentration in flow [kg/m^3] <br/></td></tr>
-<tr class="separator:a01b16ad5bb4c43e3e36e65c541b432e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18aadf82f8188e3cacf2af05bbb2c99f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18aadf82f8188e3cacf2af05bbb2c99f"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a18aadf82f8188e3cacf2af05bbb2c99f">m_CHSed_kg</a></td></tr>
-<tr class="memdesc:a18aadf82f8188e3cacf2af05bbb2c99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sediment content in flow [kg] <br/></td></tr>
-<tr class="separator:a18aadf82f8188e3cacf2af05bbb2c99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd045963478aa390338d2387d900599"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfd045963478aa390338d2387d900599"></a>
-float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#acfd045963478aa390338d2387d900599">m_Qsn</a></td></tr>
-<tr class="memdesc:acfd045963478aa390338d2387d900599"><td class="mdescLeft">&#160;</td><td class="mdescRight">outgoing sediment flux of the cell (kg/s), first is channel Id <br/></td></tr>
-<tr class="separator:acfd045963478aa390338d2387d900599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc9e558a789e205e8dc7c266c0944a84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc9e558a789e205e8dc7c266c0944a84"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#abc9e558a789e205e8dc7c266c0944a84">m_detCH</a></td></tr>
-<tr class="memdesc:abc9e558a789e205e8dc7c266c0944a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">sediment flux at subbasin (kg/s), useless? by LJ <br/></td></tr>
-<tr class="separator:abc9e558a789e205e8dc7c266c0944a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdf7c332fbd53e26cfe107f16914a038"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdf7c332fbd53e26cfe107f16914a038"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#abdf7c332fbd53e26cfe107f16914a038">m_nCells</a></td></tr>
+<tr class="memdesc:abdf7c332fbd53e26cfe107f16914a038"><td class="mdescLeft">&#160;</td><td class="mdescRight">size <br/></td></tr>
+<tr class="separator:abdf7c332fbd53e26cfe107f16914a038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc89a32c55b92a70d0671aff0d5fd02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcc89a32c55b92a70d0671aff0d5fd02"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#abcc89a32c55b92a70d0671aff0d5fd02">m_CellWidth</a></td></tr>
+<tr class="memdesc:abcc89a32c55b92a70d0671aff0d5fd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">cell width of the grid (m) <br/></td></tr>
+<tr class="separator:abcc89a32c55b92a70d0671aff0d5fd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91bc4f3fe377b599f1b938c1776a74cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91bc4f3fe377b599f1b938c1776a74cb"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a91bc4f3fe377b599f1b938c1776a74cb">m_dt</a></td></tr>
+<tr class="memdesc:a91bc4f3fe377b599f1b938c1776a74cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">time step (second) <br/></td></tr>
+<tr class="separator:a91bc4f3fe377b599f1b938c1776a74cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b80d70de126effbce39b05bb3c9a060"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b80d70de126effbce39b05bb3c9a060"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a3b80d70de126effbce39b05bb3c9a060">m_chWidth</a></td></tr>
+<tr class="memdesc:a3b80d70de126effbce39b05bb3c9a060"><td class="mdescLeft">&#160;</td><td class="mdescRight">channel width <br/></td></tr>
+<tr class="separator:a3b80d70de126effbce39b05bb3c9a060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc3729f02915d2b5363745f7733d9b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecc3729f02915d2b5363745f7733d9b1"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aecc3729f02915d2b5363745f7733d9b1">m_s0</a></td></tr>
+<tr class="memdesc:aecc3729f02915d2b5363745f7733d9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">slope (percent) <br/></td></tr>
+<tr class="separator:aecc3729f02915d2b5363745f7733d9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba841bd531d52f8258ddbd34eaeeb9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ba841bd531d52f8258ddbd34eaeeb9c"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a8ba841bd531d52f8258ddbd34eaeeb9c">m_rootDepth</a></td></tr>
+<tr class="memdesc:a8ba841bd531d52f8258ddbd34eaeeb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">root depth (m) /// mm? LJ <br/></td></tr>
+<tr class="separator:a8ba841bd531d52f8258ddbd34eaeeb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad78ae4f374cf9a78089e1efe5acdd276"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad78ae4f374cf9a78089e1efe5acdd276"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ad78ae4f374cf9a78089e1efe5acdd276">m_soilDepth</a></td></tr>
+<tr class="memdesc:ad78ae4f374cf9a78089e1efe5acdd276"><td class="mdescLeft">&#160;</td><td class="mdescRight">soil depth (mm) <br/></td></tr>
+<tr class="separator:ad78ae4f374cf9a78089e1efe5acdd276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6fec78f0c5a73354e6b863fdc9e1d73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6fec78f0c5a73354e6b863fdc9e1d73"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ae6fec78f0c5a73354e6b863fdc9e1d73">m_ks</a></td></tr>
+<tr class="memdesc:ae6fec78f0c5a73354e6b863fdc9e1d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">conductivity (mm/h) <br/></td></tr>
+<tr class="separator:ae6fec78f0c5a73354e6b863fdc9e1d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a088ff5f85f6140b6b328c99c38e6df18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a088ff5f85f6140b6b328c99c38e6df18"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a088ff5f85f6140b6b328c99c38e6df18">m_landuseFactor</a></td></tr>
+<tr class="memdesc:a088ff5f85f6140b6b328c99c38e6df18"><td class="mdescLeft">&#160;</td><td class="mdescRight">scaling factor depending on land use (Ki) <br/></td></tr>
+<tr class="separator:a088ff5f85f6140b6b328c99c38e6df18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bdca251295b07f6261c9ed495a082e4"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a0bdca251295b07f6261c9ed495a082e4">m_flowInIndex</a></td></tr>
+<tr class="memdesc:a0bdca251295b07f6261c9ed495a082e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">2d array of flow in cells  <a href="#a0bdca251295b07f6261c9ed495a082e4">More...</a><br/></td></tr>
+<tr class="separator:a0bdca251295b07f6261c9ed495a082e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516f185e02a0205411851ecc664decf9"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a516f185e02a0205411851ecc664decf9">m_routingLayers</a></td></tr>
+<tr class="memdesc:a516f185e02a0205411851ecc664decf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routing layers according to the flow direction.  <a href="#a516f185e02a0205411851ecc664decf9">More...</a><br/></td></tr>
+<tr class="separator:a516f185e02a0205411851ecc664decf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01fcacddb0b7fbfdb30901fe5e96ef0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab01fcacddb0b7fbfdb30901fe5e96ef0"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ab01fcacddb0b7fbfdb30901fe5e96ef0">m_sr</a></td></tr>
+<tr class="memdesc:ab01fcacddb0b7fbfdb30901fe5e96ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">depression storage <br/></td></tr>
+<tr class="separator:ab01fcacddb0b7fbfdb30901fe5e96ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38299b86b9910323e25428472c136f6f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38299b86b9910323e25428472c136f6f"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a38299b86b9910323e25428472c136f6f">m_q</a></td></tr>
+<tr class="memdesc:a38299b86b9910323e25428472c136f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">output flow to downstream cells (output) <br/></td></tr>
+<tr class="separator:a38299b86b9910323e25428472c136f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5984f36d9979875b6c7a7fdb11f7bd0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5984f36d9979875b6c7a7fdb11f7bd0a"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a5984f36d9979875b6c7a7fdb11f7bd0a">m_h</a></td></tr>
+<tr class="memdesc:a5984f36d9979875b6c7a7fdb11f7bd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">interflow depth <br/></td></tr>
+<tr class="separator:a5984f36d9979875b6c7a7fdb11f7bd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8643a8181d1fadf37e97934bf828214"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8643a8181d1fadf37e97934bf828214"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ad8643a8181d1fadf37e97934bf828214">m_hReturnFlow</a></td></tr>
+<tr class="memdesc:ad8643a8181d1fadf37e97934bf828214"><td class="mdescLeft">&#160;</td><td class="mdescRight">return flow <br/></td></tr>
+<tr class="separator:ad8643a8181d1fadf37e97934bf828214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61af74e942fd008d2ec11db3c42b59df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61af74e942fd008d2ec11db3c42b59df"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a61af74e942fd008d2ec11db3c42b59df">SQ2</a></td></tr>
+<tr class="memdesc:a61af74e942fd008d2ec11db3c42b59df"><td class="mdescLeft">&#160;</td><td class="mdescRight">sqrt(2.0f) <br/></td></tr>
+<tr class="separator:a61af74e942fd008d2ec11db3c42b59df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00075"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00075')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d9/da5/a00075.html">SimulationModule</a></td></tr>
-<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
-time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
-<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
-<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00075"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
-<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00075"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
-<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00082"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00082')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d4/d63/a00082.html">SimulationModule</a></td></tr>
+<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
+<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
+<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
+<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
+<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Kinematic wave method for channel flow erosion and deposition. </p>
+<div class="textblock"><p>Interflow routing using implicit finite difference method. </p>
 
-<p>Definition at line <a class="el" href="../../dc/df9/a00554_source.html#l00032">32</a> of file <a class="el" href="../../dc/df9/a00554_source.html">KinWavSed_CH.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af837ea49bc3fd3fb4a28c0ea62034fc2"></a>
+<p>Definition at line <a class="el" href="../../d0/dec/a00592_source.html#l00027">27</a> of file <a class="el" href="../../d0/dec/a00592_source.html">InterFlow_IKW.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a0bdca251295b07f6261c9ed495a082e4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -373,443 +291,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../..
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void KinWavSed_CH::CalcuChFlowDetachment </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iReach</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iCell</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>calculate the flow detachment. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iReach</td><td>The index in the array of m_reaches</td></tr>
-    <tr><td class="paramname">iCell</td><td>The index of cell array in each reach</td></tr>
-    <tr><td class="paramname">ID</td><td>The id of cell in grid map </td></tr>
-  </table>
-  </dd>
-</dl>
-<p>kg/(m2*min), convert to kg </p>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00545">545</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a72808aa39b12c090b91518a6bb5c66d8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KinWavSed_CH::CalcuVelocityChannelFlow </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iReach</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iCell</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>calculate the velocity of overland flow. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">R</td><td>The hydraulic radius </td></tr>
-    <tr><td class="paramname">S</td><td>The sine of the Slope </td></tr>
-    <tr><td class="paramname">n</td><td>The Manning's n </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the velocity V, m/s calculate the channel flow velocity. m/s</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iReach</td><td>The index in the array of m_reaches</td></tr>
-    <tr><td class="paramname">iCell</td><td>The index of cell array in each reach</td></tr>
-    <tr><td class="paramname">ID</td><td>The id of cell in grid map </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00484">484</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="addd0ec4c1295f9933d2d2ef2ddd6fd81"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KinWavSed_CH::ChannelflowSedRouting </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iReach</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iCell</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>calculate the sediment routing of overland flow. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iReach</td><td>The index in the array of m_reaches</td></tr>
-    <tr><td class="paramname">iCell</td><td>The index of cell array in each reach</td></tr>
-    <tr><td class="paramname">ID</td><td>The id of cell in grid map </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00685">685</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d6/d42/a00043_addd0ec4c1295f9933d2d2ef2ddd6fd81_cgraph.png" border="0" usemap="#d6/d42/a00043_addd0ec4c1295f9933d2d2ef2ddd6fd81_cgraph" alt=""/></div>
-<map name="d6/d42/a00043_addd0ec4c1295f9933d2d2ef2ddd6fd81_cgraph" id="d6/d42/a00043_addd0ec4c1295f9933d2d2ef2ddd6fd81_cgraph">
-<area shape="rect" id="node2" href="../../d6/d42/a00043.html#ae8388cd4b9e589b6b2c851c1814f1981" title="Simple calculation of sediment outflux from a cell based on the sediment concentration multiplied by ..." alt="" coords="294,13,551,43"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="afb5d3d44fb3ed5322a6a73f7e6ecea6c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool KinWavSed_CH::CheckInputData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>check the input data. Make sure all the input data is available. </p>
-<dl class="section return"><dt>Returns</dt><dd>bool The validity of the input data. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00238">238</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a387b5c41522371daa22884e74e8253ce"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool KinWavSed_CH::CheckInputSize </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>check the input size. Make sure all the input data have same dimension. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The key of the input data </td></tr>
-    <tr><td class="paramname">n</td><td>The input data dimension </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>bool The validity of the dimension </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00329">329</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5385c705061b448a892af3f32dff4231"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float KinWavSed_CH::complexSedCalc </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Qj1i1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Qj1i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Qji1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Sj1i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Sji1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>alpha</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>calculation of sediment outflux from a cell based on a explicit solution of the time/space matrix, j = time and i = place: j1i1 is the new output, j1i is the new flux at the upstream 'entrance' flowing into the gridcell </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Qj1i1</td><td>Qj+1,i+1 : result kin wave for this cell ;j = time, i = place </td></tr>
-    <tr><td class="paramname">Qj1i</td><td>Qj+1,i : sum of all upstreamwater from kin wave </td></tr>
-    <tr><td class="paramname">Qji1</td><td>Qj,i+1 : incoming Q for kinematic wave (t=j) in this cell, map Qin in LISEM </td></tr>
-    <tr><td class="paramname">Sj1i</td><td>Sj+1,i : sum of all upstream sediment </td></tr>
-    <tr><td class="paramname">Sji1</td><td>Si,j+1 : incoming Sed for kinematic wave (t=j) in this cell, map Qsin in LISEM </td></tr>
-    <tr><td class="paramname">alpha</td><td>alpha calculated in LISEM from before kinematic wave </td></tr>
-    <tr><td class="paramname">dt</td><td>timestep </td></tr>
-    <tr><td class="paramname">dx</td><td>dx: length of the cell, corrected for slope (DX map in LISEM) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00657">657</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af3f43237125732ae9a89bf1f28c842f3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KinWavSed_CH::GetValue </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get value. </p>
-<p>1000; //kg -&gt; ton </p>
-
-<p>Reimplemented from <a class="el" href="../../d9/da5/a00075.html#aafd60bc9d4176a0cf64af01aed881980">SimulationModule</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00107">107</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae8388cd4b9e589b6b2c851c1814f1981"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float KinWavSed_CH::simpleSedCalc </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Qj1i1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Qj1i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>Sj1i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>vol</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>sed</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Simple calculation of sediment outflux from a cell based on the sediment concentration multiplied by the new water flux, j = time and i = place: j1i1 is the new output, j1i is the new flux at the upstream 'entrance' flowing into the gridcell. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Qn</td><td>result kin wave for this cell </td></tr>
-    <tr><td class="paramname">Qin</td><td>sum of all upstreamwater from kin wave </td></tr>
-    <tr><td class="paramname">Sin</td><td>sum of all upstream sediment kg/s </td></tr>
-    <tr><td class="paramname">dt</td><td>the time step </td></tr>
-    <tr><td class="paramname">vol</td><td>current volume of water in cell </td></tr>
-    <tr><td class="paramname">sed</td><td>current mass of sediment in cell </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the newer sediment outflux, kg/s </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d0/d79/a00553_source.html#l00645">645</a> of file <a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a58dec224baea93209d7884b7af4a108d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float** KinWavSed_CH::m_flowInIndex</td>
+          <td class="memname">float** InterFlow_IKW::m_flowInIndex</td>
         </tr>
       </table>
   </td>
@@ -822,11 +304,11 @@ Here is the call graph for this function:</div>
 <p>2d array of flow in cells </p>
 <p>The first element in each sub-array is the number of flow in cells in this sub-array </p>
 
-<p>Definition at line <a class="el" href="../../dc/df9/a00554_source.html#l00084">84</a> of file <a class="el" href="../../dc/df9/a00554_source.html">KinWavSed_CH.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dec/a00592_source.html#l00092">92</a> of file <a class="el" href="../../d0/dec/a00592_source.html">InterFlow_IKW.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4f499a1762e7cbef23da51caf06a1a6f"></a>
+<a class="anchor" id="a516f185e02a0205411851ecc664decf9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -834,7 +316,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">map&lt;int, vector&lt;int&gt; &gt; KinWavSed_CH::m_reachLayers</td>
+          <td class="memname">float** InterFlow_IKW::m_routingLayers</td>
         </tr>
       </table>
   </td>
@@ -844,49 +326,24 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>reach layers map </p>
-<p>The first element in each sub-array is the number of reaches in this sub-array The following elements are the index of reach array </p>
+<p>Routing layers according to the flow direction. </p>
+<p>There are not flow relationships within each layer. The first element in each layer is the number of cells in the layer </p>
 
-<p>Definition at line <a class="el" href="../../dc/df9/a00554_source.html#l00078">78</a> of file <a class="el" href="../../dc/df9/a00554_source.html">KinWavSed_CH.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aca3799688ae60ba49d101297a5218749"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">map&lt;int, vector&lt;int&gt; &gt; KinWavSed_CH::m_reachs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>reach links </p>
-<p>key: index of the reach value: vector of cell index </p>
-
-<p>Definition at line <a class="el" href="../../dc/df9/a00554_source.html#l00103">103</a> of file <a class="el" href="../../dc/df9/a00554_source.html">KinWavSed_CH.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dec/a00592_source.html#l00100">100</a> of file <a class="el" href="../../d0/dec/a00592_source.html">InterFlow_IKW.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/modules/erosion/KinWavSed_CH/<a class="el" href="../../dc/df9/a00554_source.html">KinWavSed_CH.h</a></li>
-<li>src/modules/erosion/KinWavSed_CH/<a class="el" href="../../d0/d79/a00553_source.html">KinWavSed_CH.cpp</a></li>
+<li>src/modules/hydrology/IKW_IF/<a class="el" href="../../d0/dec/a00592_source.html">InterFlow_IKW.h</a></li>
+<li>src/modules/hydrology/IKW_IF/<a class="el" href="../../d9/dad/a00591_source.html">InterFlow_IKW.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d42/a00043.html">KinWavSed_CH</a></li>
-    <li class="footer">Generated on Mon May 23 2016 12:35:35 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d6/d42/a00043.html">InterFlow_IKW</a></li>
+    <li class="footer">Generated on Mon May 23 2016 13:29:16 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

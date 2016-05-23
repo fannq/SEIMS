@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/PET_H/PETHargreaves.h Source File</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/IUH_OL/IUH_OL.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,87 +111,74 @@ $(document).ready(function(){initNavTree('dc/db1/a00621_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PETHargreaves.h</div>  </div>
+<div class="title">IUH_OL.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dc/db1/a00621.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef SEIMS_PET_HARGREAVES_INCLUDE</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEIMS_PET_HARGREAVES_INCLUDE</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dea/a00444.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">PETHargreaves</a> : <span class="keyword">public</span> <a class="code" href="../../d9/da5/a00075.html">SimulationModule</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../df/d5f/a00064.html">PETHargreaves</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    ~<a class="code" href="../../df/d5f/a00064.html">PETHargreaves</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span> *value);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span> **data);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// input from Database</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#adf77f62f87e78a9f1a76091fdeb21705">   40</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5f/a00064.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a5df9ae68bd6846c98a389fa4126f9227">   42</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5f/a00064.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#afbb2148f57db1a0ce4e343e8f56ccbeb">   44</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5f/a00064.html#afbb2148f57db1a0ce4e343e8f56ccbeb">m_latitude</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// input from other module</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#ac314113751262beca529b1180a166763">   47</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5f/a00064.html#ac314113751262beca529b1180a166763">m_tMean</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a408f2239d3446b7047177f2602ef031c">   49</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5f/a00064.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a884c87f974059a72aba03d6ddc4efab9">   51</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#acaf6d54c4471fe0a6d6e4b5af8918e36">   53</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/d5f/a00064.html#acaf6d54c4471fe0a6d6e4b5af8918e36">m_HCoef_pet</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a8727d0b39c3f9db1c3c4db8f9809616d">   55</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/d5f/a00064.html#a8727d0b39c3f9db1c3c4db8f9809616d">m_petFactor</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">   57</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../df/d5f/a00064.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">m_jday</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a7bb48f6000aaef40a221a51a5e267816">   59</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5f/a00064.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>*,<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//  /*!</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//   * \brief Calculate the max solar radiation for a station of one day</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//   *</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//   *</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">//   * \param[in] day Julian day.</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//   * \param[in] lat Latitude of the station</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">//   * \return float The max solar radiation.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//   */</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//  float MaxSolarRadiation(int,float);</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//  /*!</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//   * \brief Get the Julian day of one day</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//   * \return int Julian day</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//   */</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//  int JulianDay(time_t);</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a00064_html_a8727d0b39c3f9db1c3c4db8f9809616d"><div class="ttname"><a href="../../df/d5f/a00064.html#a8727d0b39c3f9db1c3c4db8f9809616d">PETHargreaves::m_petFactor</a></div><div class="ttdeci">float m_petFactor</div><div class="ttdoc">Correction Factor for PET. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00055">PETHargreaves.h:55</a></div></div>
-<div class="ttc" id="a00064_html_a884c87f974059a72aba03d6ddc4efab9"><div class="ttname"><a href="../../df/d5f/a00064.html#a884c87f974059a72aba03d6ddc4efab9">PETHargreaves::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdoc">size of the input array, i.e., the HydroClimate sites number </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00051">PETHargreaves.h:51</a></div></div>
-<div class="ttc" id="a00444_html"><div class="ttname"><a href="../../d3/dea/a00444.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00064_html_a408f2239d3446b7047177f2602ef031c"><div class="ttname"><a href="../../df/d5f/a00064.html#a408f2239d3446b7047177f2602ef031c">PETHargreaves::m_srMax</a></div><div class="ttdeci">float * m_srMax</div><div class="ttdoc">maximum solar radiation </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00049">PETHargreaves.h:49</a></div></div>
-<div class="ttc" id="a00064_html_a7bb48f6000aaef40a221a51a5e267816"><div class="ttname"><a href="../../df/d5f/a00064.html#a7bb48f6000aaef40a221a51a5e267816">PETHargreaves::m_pet</a></div><div class="ttdeci">float * m_pet</div><div class="ttdoc">output PET array </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00059">PETHargreaves.h:59</a></div></div>
-<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">PETHargreaves</a></div><div class="ttdoc">Hargreaves method to Compute PET. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00026">PETHargreaves.h:26</a></div></div>
-<div class="ttc" id="a00064_html_acaf6d54c4471fe0a6d6e4b5af8918e36"><div class="ttname"><a href="../../df/d5f/a00064.html#acaf6d54c4471fe0a6d6e4b5af8918e36">PETHargreaves::m_HCoef_pet</a></div><div class="ttdeci">float m_HCoef_pet</div><div class="ttdoc">coefficient related to radiation used in Hargreaves method </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00053">PETHargreaves.h:53</a></div></div>
-<div class="ttc" id="a00075_html"><div class="ttname"><a href="../../d9/da5/a00075.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00032">SimulationModule.h:32</a></div></div>
-<div class="ttc" id="a00064_html_adf77f62f87e78a9f1a76091fdeb21705"><div class="ttname"><a href="../../df/d5f/a00064.html#adf77f62f87e78a9f1a76091fdeb21705">PETHargreaves::m_tMax</a></div><div class="ttdeci">float * m_tMax</div><div class="ttdoc">maximum air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00040">PETHargreaves.h:40</a></div></div>
-<div class="ttc" id="a00064_html_afbb2148f57db1a0ce4e343e8f56ccbeb"><div class="ttname"><a href="../../df/d5f/a00064.html#afbb2148f57db1a0ce4e343e8f56ccbeb">PETHargreaves::m_latitude</a></div><div class="ttdeci">float * m_latitude</div><div class="ttdoc">latitude of the stations </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00044">PETHargreaves.h:44</a></div></div>
-<div class="ttc" id="a00064_html_a2d0197e1fb2c7dc9a9b392ea0d0a2de6"><div class="ttname"><a href="../../df/d5f/a00064.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">PETHargreaves::m_jday</a></div><div class="ttdeci">int m_jday</div><div class="ttdoc">Julian day. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00057">PETHargreaves.h:57</a></div></div>
-<div class="ttc" id="a00064_html_ac314113751262beca529b1180a166763"><div class="ttname"><a href="../../df/d5f/a00064.html#ac314113751262beca529b1180a166763">PETHargreaves::m_tMean</a></div><div class="ttdeci">float * m_tMean</div><div class="ttdoc">mean air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00047">PETHargreaves.h:47</a></div></div>
-<div class="ttc" id="a00064_html_a5df9ae68bd6846c98a389fa4126f9227"><div class="ttname"><a href="../../df/d5f/a00064.html#a5df9ae68bd6846c98a389fa4126f9227">PETHargreaves::m_tMin</a></div><div class="ttdeci">float * m_tMin</div><div class="ttdoc">minimum air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00042">PETHargreaves.h:42</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d0b/a00452.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d2d/a00047.html">IUH_OL</a>:<span class="keyword">public</span> <a class="code" href="../../d4/d63/a00082.html">SimulationModule</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="../../d6/d2d/a00047.html">IUH_OL</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ~<a class="code" href="../../d6/d2d/a00047.html">IUH_OL</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">int</span> nCols, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a61cfc964f6e0f3e435c911a05f74ce90">   62</a></span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="../../d6/d2d/a00047.html#a61cfc964f6e0f3e435c911a05f74ce90">m_TimeStep</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#ac67a95ee0dc035ce4171f18f95afca46">   64</a></span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="../../d6/d2d/a00047.html#ac67a95ee0dc035ce4171f18f95afca46">m_nCells</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#afc6c25e9810f94e5b317189decc50ccb">   66</a></span>&#160;    <span class="keywordtype">float</span>  <a class="code" href="../../d6/d2d/a00047.html#afc6c25e9810f94e5b317189decc50ccb">m_CellWidth</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a257bdff137860fc6cfdbd15a49574262">   68</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d6/d2d/a00047.html#a257bdff137860fc6cfdbd15a49574262">m_nsub</a>;  </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#aa1dc7fe96259478f4044ae22823f81df">   70</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d6/d2d/a00047.html#aa1dc7fe96259478f4044ae22823f81df">m_subbasin</a>;              </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a62c439d85c32be20d508f9401682089f">   76</a></span>&#160;    <span class="keywordtype">float</span>** <a class="code" href="../../d6/d2d/a00047.html#a62c439d85c32be20d508f9401682089f">m_iuhCell</a>;   </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#ad0a8d6cda853ead9e7514424bd9efc18">   78</a></span>&#160;    <span class="keywordtype">int</span>     <a class="code" href="../../d6/d2d/a00047.html#ad0a8d6cda853ead9e7514424bd9efc18">m_iuhCols</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#ae3ce9bc29a4189542dda84e3b5839d02">   80</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d6/d2d/a00047.html#ae3ce9bc29a4189542dda84e3b5839d02">m_rs</a>; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">/*/// length of rainfall series</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">    int m_nr;*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//temparory</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a824633a53584503cb1ed48bbbdd46690">   87</a></span>&#160;    <span class="keywordtype">float</span>** <a class="code" href="../../d6/d2d/a00047.html#a824633a53584503cb1ed48bbbdd46690">m_cellFlow</a>; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">int</span>     m_cellFlowCols;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//output</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a545e736269756ef0fb60df86c287a76b">   92</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span>* <a class="code" href="../../d6/d2d/a00047.html#a545e736269756ef0fb60df86c287a76b">m_Q_SBOF</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> initalOutputs();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="ttc" id="a00047_html_ae3ce9bc29a4189542dda84e3b5839d02"><div class="ttname"><a href="../../d6/d2d/a00047.html#ae3ce9bc29a4189542dda84e3b5839d02">IUH_OL::m_rs</a></div><div class="ttdeci">float * m_rs</div><div class="ttdoc">surface runoff from depression module </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00080">IUH_OL.h:80</a></div></div>
+<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">IUH_OL</a></div><div class="ttdoc">IUH overland method to calculate interflow routing. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00045">IUH_OL.h:45</a></div></div>
+<div class="ttc" id="a00047_html_a62c439d85c32be20d508f9401682089f"><div class="ttname"><a href="../../d6/d2d/a00047.html#a62c439d85c32be20d508f9401682089f">IUH_OL::m_iuhCell</a></div><div class="ttdeci">float ** m_iuhCell</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00076">IUH_OL.h:76</a></div></div>
+<div class="ttc" id="a00047_html_a257bdff137860fc6cfdbd15a49574262"><div class="ttname"><a href="../../d6/d2d/a00047.html#a257bdff137860fc6cfdbd15a49574262">IUH_OL::m_nsub</a></div><div class="ttdeci">int m_nsub</div><div class="ttdoc">the total number of subbasins </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00068">IUH_OL.h:68</a></div></div>
+<div class="ttc" id="a00082_html"><div class="ttname"><a href="../../d4/d63/a00082.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00032">SimulationModule.h:32</a></div></div>
+<div class="ttc" id="a00047_html_aa1dc7fe96259478f4044ae22823f81df"><div class="ttname"><a href="../../d6/d2d/a00047.html#aa1dc7fe96259478f4044ae22823f81df">IUH_OL::m_subbasin</a></div><div class="ttdeci">float * m_subbasin</div><div class="ttdoc">subbasin grid ( subwatersheds ID) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00070">IUH_OL.h:70</a></div></div>
+<div class="ttc" id="a00047_html_a824633a53584503cb1ed48bbbdd46690"><div class="ttname"><a href="../../d6/d2d/a00047.html#a824633a53584503cb1ed48bbbdd46690">IUH_OL::m_cellFlow</a></div><div class="ttdeci">float ** m_cellFlow</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00087">IUH_OL.h:87</a></div></div>
+<div class="ttc" id="a00047_html_ac67a95ee0dc035ce4171f18f95afca46"><div class="ttname"><a href="../../d6/d2d/a00047.html#ac67a95ee0dc035ce4171f18f95afca46">IUH_OL::m_nCells</a></div><div class="ttdeci">int m_nCells</div><div class="ttdoc">cell size of the grid (the validate cells of the whole basin) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00064">IUH_OL.h:64</a></div></div>
+<div class="ttc" id="a00047_html_a61cfc964f6e0f3e435c911a05f74ce90"><div class="ttname"><a href="../../d6/d2d/a00047.html#a61cfc964f6e0f3e435c911a05f74ce90">IUH_OL::m_TimeStep</a></div><div class="ttdeci">int m_TimeStep</div><div class="ttdoc">time step (hr) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00062">IUH_OL.h:62</a></div></div>
+<div class="ttc" id="a00452_html"><div class="ttname"><a href="../../d1/d0b/a00452.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00047_html_a545e736269756ef0fb60df86c287a76b"><div class="ttname"><a href="../../d6/d2d/a00047.html#a545e736269756ef0fb60df86c287a76b">IUH_OL::m_Q_SBOF</a></div><div class="ttdeci">float * m_Q_SBOF</div><div class="ttdoc">overland flow to streams for each subbasin (m3/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00092">IUH_OL.h:92</a></div></div>
+<div class="ttc" id="a00047_html_ad0a8d6cda853ead9e7514424bd9efc18"><div class="ttname"><a href="../../d6/d2d/a00047.html#ad0a8d6cda853ead9e7514424bd9efc18">IUH_OL::m_iuhCols</a></div><div class="ttdeci">int m_iuhCols</div><div class="ttdoc">the number of columns of Ol_iuh </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00078">IUH_OL.h:78</a></div></div>
+<div class="ttc" id="a00047_html_afc6c25e9810f94e5b317189decc50ccb"><div class="ttname"><a href="../../d6/d2d/a00047.html#afc6c25e9810f94e5b317189decc50ccb">IUH_OL::m_CellWidth</a></div><div class="ttdeci">float m_CellWidth</div><div class="ttdoc">cell width of the grid (m) </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db1/a00621_source.html#l00066">IUH_OL.h:66</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_6d26aae79096b6ff7593b14f645c7768.html">PET_H</a></li><li class="navelem"><a class="el" href="../../dc/db1/a00621.html">PETHargreaves.h</a></li>
-    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_9067e6dd421cbbd36fb5bdc90dc601f3.html">IUH_OL</a></li><li class="navelem"><a class="el" href="../../dc/db1/a00621.html">IUH_OL.h</a></li>
+    <li class="footer">Generated on Mon May 23 2016 13:29:15 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

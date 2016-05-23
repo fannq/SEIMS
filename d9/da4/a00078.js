@@ -1,7 +1,11 @@
 var a00078 =
 [
-    [ "Execute", "d9/da4/a00078.html#aa566a3707230b0aeb25403e973908977", null ],
-    [ "Get1DData", "d9/da4/a00078.html#ade2b88b62c896967edfb4cf106c0254c", null ],
-    [ "Set1DData", "d9/da4/a00078.html#a8bc8d5119d374db49e35287fe6203f4e", null ],
-    [ "SetValue", "d9/da4/a00078.html#abb864b216b39376a7bbc49217d4dde26", null ]
+    [ "SEIMSModule", "d9/da4/a00078.html#ab8fe2454147cec15aff0443c70ba1b80", null ],
+    [ "~SEIMSModule", "d9/da4/a00078.html#aff75b2e2dc0f0654e914caee401270e5", null ],
+    [ "CheckInputData", "d9/da4/a00078.html#a5d9914736640a75c80981c31f32a4746", null ],
+    [ "CheckInputSize", "d9/da4/a00078.html#a13869abaa288d21f2eb3588e1edd9241", null ],
+    [ "CreateBasicMetadataInfo", "d9/da4/a00078.html#acf2fb28583bb5849af4fe0d05cbfc258", null ],
+    [ "MetadataInformation", "d9/da4/a00078.html#a5eb27c0499ed1c6b9f2590e7845729e6", null ],
+    [ "SetDate", "d9/da4/a00078.html#a994d63884d44b202c96fb0c0ee86253d", null ],
+    [ "SetValue", "d9/da4/a00078.html#a2f5460b94d05ab6f0e09d90806ac0fa5", null ]
 ];

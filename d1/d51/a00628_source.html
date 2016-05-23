@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/SET_LM/SET_LM.cpp Source File</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/PET_H/PETHargreaves.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,218 +111,246 @@ $(document).ready(function(){initNavTree('d1/d51/a00628_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SET_LM.cpp</div>  </div>
+<div class="title">PETHargreaves.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;SET_LM.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d3a/a00439.html">MetadataInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d34/a00442.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;SET_LM::SET_LM(<span class="keywordtype">void</span>):m_nSoilLayers(2), m_nCells(-1), m_fc(NULL), m_wp(NULL), m_EI(NULL), m_PET(NULL), m_ED(NULL), m_sm(NULL), m_soilT(NULL),</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                        m_frozenT(-99.f), m_rootDepth(NULL), m_soilET(NULL), m_upSoilDepth(200.f)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;SET_LM::~SET_LM(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{   </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span>(m_soilET != NULL) </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">delete</span>[] m_soilET;  </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//Execute module</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#aa9b938e08bf9df68bdc175a86c41fdc0">   25</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d2c/a00072.html#aa9b938e08bf9df68bdc175a86c41fdc0">SET_LM::Execute</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{   </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../d6/d2c/a00072.html#ad8e0115e3ded51047067d9d84b5fe8f4">CheckInputData</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(m_soilET == NULL)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        m_soilET = <span class="keyword">new</span> <span class="keywordtype">float</span>[m_nCells];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">    #pragma omp parallel for</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        m_soilET[i] = 0.0f;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span>(m_soilT[i] &lt;= m_frozenT) <span class="comment">//if the soil temperature is lower than tFrozen, then ES = 0.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">float</span> et2d[2];</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">float</span> depth[2];</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        depth[0] = m_upSoilDepth;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        depth[1] = m_rootDepth[i] - m_upSoilDepth;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span>(depth[1] &lt; 0)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            ostringstream oss;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            oss &lt;&lt; <span class="stringliteral">&quot;The root depth at cell(&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;) is &quot;</span> &lt;&lt; m_rootDepth[i] &lt;&lt; <span class="stringliteral">&quot;, and is less than the upper soil depth (&quot;</span> &lt;&lt; m_upSoilDepth &lt;&lt; endl;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>, <span class="stringliteral">&quot;Execute&quot;</span>,  oss.str());</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">float</span> etDeficiency = m_PET[i] - m_EI[i] - m_ED[i];</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; m_nSoilLayers; j++)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">if</span>(etDeficiency &lt;= 0.f)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            et2d[j] = 0.f;</div>
+<a href="../../d1/d51/a00628.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dd1/a00629.html">PETHargreaves.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d84/a00447.html">MetadataInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/df4/a00450.html">ModelException.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;PETHargreaves::PETHargreaves(<span class="keywordtype">void</span>):m_size(-1), m_petFactor(1.f),m_HCoef_pet(0.0023f), m_tMin(NULL), m_tMax(NULL), m_pet(NULL)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;PETHargreaves::~PETHargreaves(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a> != NULL)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span> [] this-&gt;<a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#a6d353a208f981a5b9b048c506e7d227c">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d89/a00071.html#a6d353a208f981a5b9b048c506e7d227c">PETHargreaves::SetValue</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> value)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk,VAR_PET_K))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d0/d89/a00071.html#a8727d0b39c3f9db1c3c4db8f9809616d">m_petFactor</a>  = value;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_PET_HCOEF))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d0/d89/a00071.html#acaf6d54c4471fe0a6d6e4b5af8918e36">m_HCoef_pet</a> = value;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_JULIAN_DAY))</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d0/d89/a00071.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">m_jday</a> = value;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_OMP_THREADNUM))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        omp_set_num_threads((<span class="keywordtype">int</span>)value);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PET_H&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist in Hargreaves method. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">if</span>(m_sm[i][j] &gt;= m_fc[i][j])</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                et2d[j] = etDeficiency;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(m_sm[i][j] &gt;= m_wp[i][j])   </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                et2d[j] = etDeficiency * (m_sm[i][j] - m_wp[i][j]) / (m_fc[i][j] - m_wp[i][j]);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">else</span>                        </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                et2d[j] = 0.0f;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">float</span> sm0 = m_sm[i][j];</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordtype">float</span> availableWater = (m_sm[i][j] - m_wp[i][j])*depth[j];</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (et2d[j] &gt; availableWater)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                et2d[j] = availableWater;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                m_sm[i][j] = m_wp[i][j];</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                m_sm[i][j] -= et2d[j]/depth[j];</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">if</span>(m_sm[i][j] &lt; 0.f)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                cout &lt;&lt; <span class="stringliteral">&quot;SET_LM\t&quot;</span> &lt;&lt; sm0 &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; m_wp[i][j] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; m_sm[i][j]&lt;&lt; <span class="stringliteral">&quot;\t&quot;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    &lt;&lt; availableWater/depth[j] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; et2d[j]/depth[j] &lt;&lt; endl;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>, <span class="stringliteral">&quot;Execute&quot;</span>, <span class="stringliteral">&quot;moisture is less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            etDeficiency -= et2d[j];</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            m_soilET[i] += et2d[j];</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#a6965c172477d51b3f6cc80f4603a9d4c">   92</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a6965c172477d51b3f6cc80f4603a9d4c">SET_LM::Get1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* nRows, <span class="keywordtype">float</span>** data)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">string</span> s(key);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, VAR_SOET))                </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        *data = m_soilET;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">else</span>                                    </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;getResult&quot;</span>,<span class="stringliteral">&quot;Result &quot;</span> + s + <span class="stringliteral">&quot; does not exist in SET_LM method. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    *nRows = m_nCells;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#a3835542ebbb1a1846a9ead1e9c8b5726">  103</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a3835542ebbb1a1846a9ead1e9c8b5726">SET_LM::SetValue</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">string</span> s(key);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, VAR_T_SOIL))              </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        m_frozenT = data;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(s, VAR_OMP_THREADNUM))</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        omp_set_num_threads((<span class="keywordtype">int</span>)data);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">else</span>                                </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + s + <span class="stringliteral">&quot; does not exist in SET_LM method. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#ac38f0919363f9f5efa50b0038fb28f7a">  114</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#ac38f0919363f9f5efa50b0038fb28f7a">SET_LM::Set1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">float</span>* data)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">string</span> s(key);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="../../d6/d2c/a00072.html#a67ae96879b74013b221fa81275086f42">CheckInputSize</a>(key,nRows);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, VAR_ROOTDEPTH))       </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        m_rootDepth = data;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,VAR_INET))        </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        m_EI = data;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s,VAR_PET))         </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        m_PET = data;   </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_DEET))       </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        m_ED = data;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SOTE))       </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        m_soilT = data;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">else</span>                                    </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + s + <span class="stringliteral">&quot; does not exist in SET_LM method. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#a578808702086688a2ad7cd861f0fe547">  135</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2c/a00072.html#a578808702086688a2ad7cd861f0fe547">SET_LM::Set2DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nrows, <span class="keywordtype">int</span> ncols, <span class="keywordtype">float</span>** data)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="../../d6/d2c/a00072.html#a67ae96879b74013b221fa81275086f42">CheckInputSize</a>(key, nrows);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    m_nSoilLayers = ncols;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_FIELDCAP))</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        m_fc = data;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(sk, VAR_WILTPOINT))     </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        m_wp = data;    </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(sk, VAR_SOMO))      </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        m_sm = data;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;PER_PI&quot;</span>, <span class="stringliteral">&quot;Set1DData&quot;</span>, </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#ad8e0115e3ded51047067d9d84b5fe8f4">  152</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d2c/a00072.html#ad8e0115e3ded51047067d9d84b5fe8f4">SET_LM::CheckInputData</a>()</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">if</span>(m_nCells &lt;= 0)                   </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The dimension of the input data can not be less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">if</span>(m_fc == NULL)        </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Soil field capacity can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span>(m_wp == NULL)        </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The plant wilting point moisture can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">if</span>(m_EI == NULL)                </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The EI can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">if</span>(m_PET == NULL)               </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The PET can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">if</span>(m_ED == NULL)                </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The ED can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">if</span>(m_sm == NULL)            </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The soil moisture can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span>(m_soilT == NULL)         </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The soil temerature can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">if</span>(m_frozenT &lt; -90.0f)      </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The threshold soil freezing temerature can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">if</span>(m_nSoilLayers != 2) </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>, <span class="stringliteral">&quot;CheckInputData&quot;</span>, <span class="stringliteral">&quot;Only 2 soil layers are supported now.&quot;</span>);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../d6/d2c/a00072.html#a67ae96879b74013b221fa81275086f42">  178</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d2c/a00072.html#a67ae96879b74013b221fa81275086f42">SET_LM::CheckInputSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;{</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">if</span>(n&lt;=0)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. The size could not be less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    </div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span>(m_nCells != n)</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">if</span>(m_nCells &lt;=0) </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            m_nCells = n;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;SET_LM&quot;</span>,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. All the input data should have same size.&quot;</span>);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
-<div class="ttc" id="a00439_html"><div class="ttname"><a href="../../d9/d3a/a00439.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
-<div class="ttc" id="a00442_html"><div class="ttname"><a href="../../db/d34/a00442.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
-<div class="ttc" id="a00072_html_aa9b938e08bf9df68bdc175a86c41fdc0"><div class="ttname"><a href="../../d6/d2c/a00072.html#aa9b938e08bf9df68bdc175a86c41fdc0">SET_LM::Execute</a></div><div class="ttdeci">virtual int Execute()</div><div class="ttdoc">Execute the simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00025">SET_LM.cpp:25</a></div></div>
-<div class="ttc" id="a00072_html_a578808702086688a2ad7cd861f0fe547"><div class="ttname"><a href="../../d6/d2c/a00072.html#a578808702086688a2ad7cd861f0fe547">SET_LM::Set2DData</a></div><div class="ttdeci">virtual void Set2DData(const char *key, int nrows, int ncols, float **data)</div><div class="ttdoc">Set 2D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00135">SET_LM.cpp:135</a></div></div>
-<div class="ttc" id="a00072_html_a3835542ebbb1a1846a9ead1e9c8b5726"><div class="ttname"><a href="../../d6/d2c/a00072.html#a3835542ebbb1a1846a9ead1e9c8b5726">SET_LM::SetValue</a></div><div class="ttdeci">virtual void SetValue(const char *key, float data)</div><div class="ttdoc">Set data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00103">SET_LM.cpp:103</a></div></div>
-<div class="ttc" id="a00049_html"><div class="ttname"><a href="../../d2/dee/a00049.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d34/a00442_source.html#l00024">ModelException.h:24</a></div></div>
-<div class="ttc" id="a00072_html_a6965c172477d51b3f6cc80f4603a9d4c"><div class="ttname"><a href="../../d6/d2c/a00072.html#a6965c172477d51b3f6cc80f4603a9d4c">SET_LM::Get1DData</a></div><div class="ttdeci">virtual void Get1DData(const char *key, int *nRows, float **data)</div><div class="ttdoc">Get 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00092">SET_LM.cpp:92</a></div></div>
-<div class="ttc" id="a00072_html_ad8e0115e3ded51047067d9d84b5fe8f4"><div class="ttname"><a href="../../d6/d2c/a00072.html#ad8e0115e3ded51047067d9d84b5fe8f4">SET_LM::CheckInputData</a></div><div class="ttdeci">bool CheckInputData(void)</div><div class="ttdoc">check the input data. Make sure all the input data is available. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00152">SET_LM.cpp:152</a></div></div>
-<div class="ttc" id="a00072_html_a67ae96879b74013b221fa81275086f42"><div class="ttname"><a href="../../d6/d2c/a00072.html#a67ae96879b74013b221fa81275086f42">SET_LM::CheckInputSize</a></div><div class="ttdeci">bool CheckInputSize(const char *, int)</div><div class="ttdoc">checke the input size. Make sure all the input data have same dimension. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00178">SET_LM.cpp:178</a></div></div>
-<div class="ttc" id="a00072_html_ac38f0919363f9f5efa50b0038fb28f7a"><div class="ttname"><a href="../../d6/d2c/a00072.html#ac38f0919363f9f5efa50b0038fb28f7a">SET_LM::Set1DData</a></div><div class="ttdeci">virtual void Set1DData(const char *key, int nRows, float *data)</div><div class="ttdoc">Set 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00114">SET_LM.cpp:114</a></div></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#ab588ffc7c5abc04603910f951801f79b">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d89/a00071.html#ab588ffc7c5abc04603910f951801f79b">PETHargreaves::Set1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key,<span class="keywordtype">int</span> n, <span class="keywordtype">float</span> *value)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d0/d89/a00071.html#a00bd74f194c86eae40b0d95cd4bba6a7">CheckInputSize</a>(key,n)) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (StringMatch( sk,DataType_MeanTemperature))</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;<a class="code" href="../../d0/d89/a00071.html#ac314113751262beca529b1180a166763">m_tMean</a> = value;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch( sk,DataType_MaximumTemperature))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        this-&gt;<a class="code" href="../../d0/d89/a00071.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a> = value;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch( sk, DataType_MinimumTemperature))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        this-&gt;<a class="code" href="../../d0/d89/a00071.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a> = value;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch( sk, Tag_Latitude_Meteorology))</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        this-&gt;<a class="code" href="../../d0/d89/a00071.html#afbb2148f57db1a0ce4e343e8f56ccbeb">m_latitude</a> = value;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_SR_MAX))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        this-&gt;<a class="code" href="../../d0/d89/a00071.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a> = value;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;Set1DValue&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist in PETHargreaves method. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">// int PETHargreaves::JulianDay(time_t date)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//  struct tm dateInfo;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//  LocalTime(date, &amp;dateInfo);</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//  return dateInfo.tm_yday + 1;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">// }</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">// float PETHargreaves::MaxSolarRadiation(int day,float lat)</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">// {</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//    lat = lat*3.1415926/180;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//    //Calculate Daylength</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//       //calculate solar declination: equation 1:1.1.2 in SWAT Theory 2009, p31</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//       float sd = asin(0.4f * sin((day - 82.0f) / 58.09f));  /// 365/2pi = 58.09</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//       //calculate the relative distance of the earth from the sun</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//       //also called the eccentricity correction factor of the orbit, Duffie and Beckman(1980)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//       //equation 1:1.1.1 in SWAT Theory 2009, p30</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//       float dd = 1.0f + 0.033f * cos(day / 58.09f);</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//       //daylength = 2 * Acos(-Tan(sd) * Tan(lat)) / omega</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//       //where the angular velocity of the earth&#39;s rotation, omega, is equal</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">//       //to 15 deg/hr or 0.2618 rad/hr and 2/0.2618 = 7.6374</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//       //equation 2.1.6 in SWAT manual</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">//       float h = 0.0f;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">//    /// equation 1:1.1.4 in SWAT Theory 2009, p32</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">//       float ch = -sin(lat) * tan(sd) / cos(lat);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">//       if (ch &gt; 1.f) //ch will be &gt;= 1. if latitude exceeds +/- 66.5 deg in winter</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">//         h = 0.0f;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">//       else if (ch &gt;= -1.0f)</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//         h = acos(ch);</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">//       else</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">//         h = 3.1416f; //latitude exceeds +/- 66.5 deg in summer</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">//       </span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">//       float dayl = 7.6394f * h; /// useless?</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">//           </span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">//       //Calculate Potential (maximum) Radiation !!</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">//       /// equation 1:1.1.3 in SWAT Theory 2009, p31</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">//       float ys = sin(lat) * sin(sd);</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">//       float yc = cos(lat) * cos(sd);</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//       /// equation 1:1.1.7 in SWAT Theory 2009, p34</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">//    return 30.f * dd * (h * ys + yc * sin(h));</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">// }</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#aaf05ab866192717802d14fa26189224b">  123</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d0/d89/a00071.html#aaf05ab866192717802d14fa26189224b">PETHargreaves::Execute</a>()</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="../../d0/d89/a00071.html#a7e04f825331f418ccf131194dd4eb48c">CheckInputData</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(NULL == <a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        this-&gt;<a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>];</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// int d = JulianDay(this-&gt;m_date);</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">//cout&lt;&lt;m_tMean[0]&lt;&lt;&quot;,&quot;&lt;&lt;m_tMax[0]&lt;&lt;&quot;,&quot;&lt;&lt;m_tMin[0]&lt;&lt;endl;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#pragma omp parallel for</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>; ++i)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {   </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="comment">//float tMean = (m_tMax[i] + m_tMin[i])/2;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">//float srMax = this-&gt;MaxSolarRadiation(m_jday, m_latitude[i]);</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordtype">float</span> latentHeat = 2.501f - 0.002361f * <a class="code" href="../../d0/d89/a00071.html#ac314113751262beca529b1180a166763">m_tMean</a>[i];</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordtype">float</span> h0 = <a class="code" href="../../d0/d89/a00071.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a>[i] * 37.59f / 30.0f;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordtype">float</span> petValue = <a class="code" href="../../d0/d89/a00071.html#acaf6d54c4471fe0a6d6e4b5af8918e36">m_HCoef_pet</a> * h0 * pow(<a class="code" href="../../d0/d89/a00071.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a>[i]-<a class="code" href="../../d0/d89/a00071.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a>[i], 0.5f)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            * (<a class="code" href="../../d0/d89/a00071.html#ac314113751262beca529b1180a166763">m_tMean</a>[i] + 17.8f) / latentHeat;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>[i] = <a class="code" href="../../d0/d89/a00071.html#a8727d0b39c3f9db1c3c4db8f9809616d">m_petFactor</a> * max(0.0f, petValue);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">/*for (int i = 0; i &lt; m_size; ++i)</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">        cout&lt;&lt; &quot;m_srMax: &quot; &lt;&lt; m_srMax[i] &lt;&lt; &quot;, m_pet: &quot; &lt;&lt; m_pet[i] &lt;&lt; &quot;; &quot;;*/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">//cout&lt;&lt;endl;</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#af5e4b87dc5fcf0804b8adabcc085e70b">  155</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d89/a00071.html#af5e4b87dc5fcf0804b8adabcc085e70b">PETHargreaves::Get1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span> **data)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;{</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a> == NULL) </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;GetPET&quot;</span>,<span class="stringliteral">&quot;The result is NULL. Please first execute the module.&quot;</span>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_PET_T) || StringMatch(sk, <span class="stringliteral">&quot;PET&quot;</span>))</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        *data = this-&gt;<a class="code" href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">m_pet</a>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        *n = this-&gt;<a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H, <span class="stringliteral">&quot;Get1DData&quot;</span>,<span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#a00bd74f194c86eae40b0d95cd4bba6a7">  169</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d0/d89/a00071.html#a00bd74f194c86eae40b0d95cd4bba6a7">PETHargreaves::CheckInputSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;{</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span>(n&lt;=0)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. The size could not be less than zero.&quot;</span>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> != n)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> &lt;=0) this-&gt;<a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> = n;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. All the input data should have same size.&quot;</span>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#a7e04f825331f418ccf131194dd4eb48c">  187</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d0/d89/a00071.html#a7e04f825331f418ccf131194dd4eb48c">PETHargreaves::CheckInputData</a>()</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d4/d63/a00082.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a> == -1)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;You have not set the time.&quot;</span>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">m_size</a> &lt;= 0)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The dimension of the input data can not be less than zero.&quot;</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#adf77f62f87e78a9f1a76091fdeb21705">m_tMax</a> == NULL)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The maximum temperature can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a5df9ae68bd6846c98a389fa4126f9227">m_tMin</a> == NULL)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The minimum temperature can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a408f2239d3446b7047177f2602ef031c">m_srMax</a> == NULL)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The maximum solar radiation can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#ac314113751262beca529b1180a166763">m_tMean</a> == NULL)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The mean temperature can not be NULL.&quot;</span>);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="../../d0/d89/a00071.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">m_jday</a> &lt;= 0)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(MID_PET_H,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Julian day must be greater than 0.&quot;</span>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="ttc" id="a00071_html_a2d0197e1fb2c7dc9a9b392ea0d0a2de6"><div class="ttname"><a href="../../d0/d89/a00071.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6">PETHargreaves::m_jday</a></div><div class="ttdeci">int m_jday</div><div class="ttdoc">Julian day. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00057">PETHargreaves.h:57</a></div></div>
+<div class="ttc" id="a00071_html_ab588ffc7c5abc04603910f951801f79b"><div class="ttname"><a href="../../d0/d89/a00071.html#ab588ffc7c5abc04603910f951801f79b">PETHargreaves::Set1DData</a></div><div class="ttdeci">virtual void Set1DData(const char *key, int n, float *value)</div><div class="ttdoc">Set 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00060">PETHargreaves.cpp:60</a></div></div>
+<div class="ttc" id="a00447_html"><div class="ttname"><a href="../../de/d84/a00447.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
+<div class="ttc" id="a00450_html"><div class="ttname"><a href="../../de/df4/a00450.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
+<div class="ttc" id="a00071_html_ac314113751262beca529b1180a166763"><div class="ttname"><a href="../../d0/d89/a00071.html#ac314113751262beca529b1180a166763">PETHargreaves::m_tMean</a></div><div class="ttdeci">float * m_tMean</div><div class="ttdoc">mean air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00047">PETHargreaves.h:47</a></div></div>
+<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df4/a00450_source.html#l00024">ModelException.h:24</a></div></div>
+<div class="ttc" id="a00071_html_a8727d0b39c3f9db1c3c4db8f9809616d"><div class="ttname"><a href="../../d0/d89/a00071.html#a8727d0b39c3f9db1c3c4db8f9809616d">PETHargreaves::m_petFactor</a></div><div class="ttdeci">float m_petFactor</div><div class="ttdoc">Correction Factor for PET. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00055">PETHargreaves.h:55</a></div></div>
+<div class="ttc" id="a00071_html_a884c87f974059a72aba03d6ddc4efab9"><div class="ttname"><a href="../../d0/d89/a00071.html#a884c87f974059a72aba03d6ddc4efab9">PETHargreaves::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdoc">size of the input array, i.e., the HydroClimate sites number </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00051">PETHargreaves.h:51</a></div></div>
+<div class="ttc" id="a00082_html_aabd631c05d3e74aa9970f7415f2f5de7"><div class="ttname"><a href="../../d4/d63/a00082.html#aabd631c05d3e74aa9970f7415f2f5de7">SimulationModule::m_date</a></div><div class="ttdeci">time_t m_date</div><div class="ttdoc">date time </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00098">SimulationModule.h:98</a></div></div>
+<div class="ttc" id="a00629_html"><div class="ttname"><a href="../../da/dd1/a00629.html">PETHargreaves.h</a></div></div>
+<div class="ttc" id="a00071_html_af5e4b87dc5fcf0804b8adabcc085e70b"><div class="ttname"><a href="../../d0/d89/a00071.html#af5e4b87dc5fcf0804b8adabcc085e70b">PETHargreaves::Get1DData</a></div><div class="ttdeci">virtual void Get1DData(const char *key, int *n, float **data)</div><div class="ttdoc">Get 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00155">PETHargreaves.cpp:155</a></div></div>
+<div class="ttc" id="a00071_html_a5df9ae68bd6846c98a389fa4126f9227"><div class="ttname"><a href="../../d0/d89/a00071.html#a5df9ae68bd6846c98a389fa4126f9227">PETHargreaves::m_tMin</a></div><div class="ttdeci">float * m_tMin</div><div class="ttdoc">minimum air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00042">PETHargreaves.h:42</a></div></div>
+<div class="ttc" id="a00071_html_a408f2239d3446b7047177f2602ef031c"><div class="ttname"><a href="../../d0/d89/a00071.html#a408f2239d3446b7047177f2602ef031c">PETHargreaves::m_srMax</a></div><div class="ttdeci">float * m_srMax</div><div class="ttdoc">maximum solar radiation </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00049">PETHargreaves.h:49</a></div></div>
+<div class="ttc" id="a00071_html_a00bd74f194c86eae40b0d95cd4bba6a7"><div class="ttname"><a href="../../d0/d89/a00071.html#a00bd74f194c86eae40b0d95cd4bba6a7">PETHargreaves::CheckInputSize</a></div><div class="ttdeci">bool CheckInputSize(const char *, int)</div><div class="ttdoc">check the input size. Make sure all the input data have same dimension. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00169">PETHargreaves.cpp:169</a></div></div>
+<div class="ttc" id="a00071_html_aaf05ab866192717802d14fa26189224b"><div class="ttname"><a href="../../d0/d89/a00071.html#aaf05ab866192717802d14fa26189224b">PETHargreaves::Execute</a></div><div class="ttdeci">virtual int Execute()</div><div class="ttdoc">Execute the simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00123">PETHargreaves.cpp:123</a></div></div>
+<div class="ttc" id="a00071_html_a7bb48f6000aaef40a221a51a5e267816"><div class="ttname"><a href="../../d0/d89/a00071.html#a7bb48f6000aaef40a221a51a5e267816">PETHargreaves::m_pet</a></div><div class="ttdeci">float * m_pet</div><div class="ttdoc">output PET array </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00059">PETHargreaves.h:59</a></div></div>
+<div class="ttc" id="a00071_html_adf77f62f87e78a9f1a76091fdeb21705"><div class="ttname"><a href="../../d0/d89/a00071.html#adf77f62f87e78a9f1a76091fdeb21705">PETHargreaves::m_tMax</a></div><div class="ttdeci">float * m_tMax</div><div class="ttdoc">maximum air temperature for a given day(degree) </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00040">PETHargreaves.h:40</a></div></div>
+<div class="ttc" id="a00071_html_a7e04f825331f418ccf131194dd4eb48c"><div class="ttname"><a href="../../d0/d89/a00071.html#a7e04f825331f418ccf131194dd4eb48c">PETHargreaves::CheckInputData</a></div><div class="ttdeci">bool CheckInputData(void)</div><div class="ttdoc">check the input data. Make sure all the input data is available. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00187">PETHargreaves.cpp:187</a></div></div>
+<div class="ttc" id="a00071_html_acaf6d54c4471fe0a6d6e4b5af8918e36"><div class="ttname"><a href="../../d0/d89/a00071.html#acaf6d54c4471fe0a6d6e4b5af8918e36">PETHargreaves::m_HCoef_pet</a></div><div class="ttdeci">float m_HCoef_pet</div><div class="ttdoc">coefficient related to radiation used in Hargreaves method </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00053">PETHargreaves.h:53</a></div></div>
+<div class="ttc" id="a00071_html_afbb2148f57db1a0ce4e343e8f56ccbeb"><div class="ttname"><a href="../../d0/d89/a00071.html#afbb2148f57db1a0ce4e343e8f56ccbeb">PETHargreaves::m_latitude</a></div><div class="ttdeci">float * m_latitude</div><div class="ttdoc">latitude of the stations </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd1/a00629_source.html#l00044">PETHargreaves.h:44</a></div></div>
+<div class="ttc" id="a00071_html_a6d353a208f981a5b9b048c506e7d227c"><div class="ttname"><a href="../../d0/d89/a00071.html#a6d353a208f981a5b9b048c506e7d227c">PETHargreaves::SetValue</a></div><div class="ttdeci">virtual void SetValue(const char *key, float value)</div><div class="ttdoc">Set data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d51/a00628_source.html#l00034">PETHargreaves.cpp:34</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_72b8d1fa67e800740c61a9695b95091e.html">SET_LM</a></li><li class="navelem"><b>SET_LM.cpp</b></li>
-    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_6d26aae79096b6ff7593b14f645c7768.html">PET_H</a></li><li class="navelem"><a class="el" href="../../d1/d51/a00628.html">PETHargreaves.cpp</a></li>
+    <li class="footer">Generated on Mon May 23 2016 13:29:15 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

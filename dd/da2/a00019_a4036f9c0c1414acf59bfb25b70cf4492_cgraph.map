@@ -1,0 +1,6 @@
+<map id="clsRasterData::outputGTiff" name="clsRasterData::outputGTiff">
+<area shape="rect" id="node2" href="$dd/da2/a00019.html#ae6d573951cf55cd9ae106bd98a2ffb02" title="Get non&#45;NODATA position index data, include cell number and (row, col) " alt="" coords="269,29,469,75"/>
+<area shape="rect" id="node3" href="$dd/da2/a00019.html#aa88d47b1fad870a6357edb2030d4ba90" title="Get the spatial reference. " alt="" coords="276,100,463,129"/>
+<area shape="rect" id="node4" href="$dd/da2/a00019.html#afc9a17ef964f85090c500bd2faa9be82" title="Write raster to GTIFF Grid file, if 2D raster, output name will be filename_LyrNum. " alt="" coords="265,153,474,183"/>
+<area shape="rect" id="node5" href="$dd/da2/a00019.html#af9129b542dc471fe7dcc045cb607e39d" title="Get raster header information. " alt="" coords="269,231,469,278"/>
+</map>
