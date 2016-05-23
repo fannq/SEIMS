@@ -1,3 +1,5 @@
-<map id="PET_H" name="PET_H">
-<area shape="rect" id="node2" href="$d6/d59/a00726.html" title="Longterm hydrology related modules. " alt="" coords="6,4,173,33"/>
+<map id="Climate" name="Climate">
+<area shape="rect" id="node1" href="$d5/de8/a00749.html" title="Read Time Series Data. " alt="" coords="261,5,349,35"/>
+<area shape="rect" id="node2" href="$da/da3/a00741.html" title="All functional modules in SEIMS. " alt="" coords="5,32,88,61"/>
+<area shape="rect" id="node4" href="$de/d3d/a00748.html" title="Interpolation Module. " alt="" coords="282,59,329,88"/>
 </map>

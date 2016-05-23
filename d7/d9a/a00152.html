@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/gk_mksort.h File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/blas.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,28 +111,38 @@ $(document).ready(function(){initNavTree('d7/d9a/a00152.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">gk_mksort.h File Reference</div>  </div>
+<div class="title">blas.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Templates for the qsort routine.  
+<p>This file contains GKlib's implementation of BLAS-like routines.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for blas.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d2/d5a/a00792.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2blas_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2blas_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2blas_8c">
+<area shape="rect" id="node2" href="../../de/d45/a00175_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../de/d38/a00160.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d8/df1/a00174.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d7/d3f/a00173.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../db/d44/a00162.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d6/d7d/a00161.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../db/ddf/a00164.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../dd/dae/a00163.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../d5/dcb/a00170.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d0/d48/a00165.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../d9/d38/a00166.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../dc/de6/a00167.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../dd/da7/a00168.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../de/d53/a00169.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d1/d0d/a00171.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d6/dfb/a00172.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
+</div>
+</div>
 <p><a href="../../d7/d9a/a00152_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Templates for the qsort routine. </p>
-<dl class="section date"><dt>Date</dt><dd>Started 3/28/07 </dd></dl>
+<div class="textblock"><p>This file contains GKlib's implementation of BLAS-like routines. </p>
+<p>The BLAS routines that are currently implemented are mostly level-one. They follow a naming convention of the type gk_[type][name], where [type] is one of c, i, f, and d, based on C's four standard scalar datatypes of characters, integers, floats, and doubles.</p>
+<p>These routines are implemented using a generic macro template, which is used for code generation.</p>
+<dl class="section date"><dt>Date</dt><dd>Started 9/28/95 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>George </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: gk_mksort.h 10711 2011-08-31 22:23:04Z karypis $ </pre> </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: blas.c 11848 2012-04-20 13:47:37Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d7/d9a/a00152_source.html">gk_mksort.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/d9a/a00152_source.html">blas.c</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">gk_mksort.h</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:45 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">blas.c</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

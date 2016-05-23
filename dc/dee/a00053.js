@@ -1,7 +1,10 @@
 var a00053 =
 [
-    [ "Description", "dc/dee/a00053.html#a840ebd73a2997bdf6f77b1e99c000870", null ],
-    [ "Dimension", "dc/dee/a00053.html#a2e8daad960dbc6114dba107b8b5b7a3a", null ],
-    [ "Name", "dc/dee/a00053.html#a8c4da332703fffd4f83f8e11d967bd59", null ],
-    [ "Units", "dc/dee/a00053.html#a90435e32e071c3d7261068a63ddaf62c", null ]
+    [ "Execute", "dc/dee/a00053.html#afe324268c959ab8383aeb25548745cd8", null ],
+    [ "Get1DData", "dc/dee/a00053.html#ad22c448f0e68939c9456cb78bc2ef298", null ],
+    [ "GetValue", "dc/dee/a00053.html#ab174a75676945c1e580aef919eb42d73", null ],
+    [ "Set1DData", "dc/dee/a00053.html#acb559594b0c11042b9dd14230a0581af", null ],
+    [ "SetValue", "dc/dee/a00053.html#aa9dca27827857fbf83857d33df525bb5", null ],
+    [ "m_depRatio", "dc/dee/a00053.html#a49d4694cf966de92bea205a04151501d", null ],
+    [ "m_streamLink", "dc/dee/a00053.html#a6b51cdc541c9d0c80df31b87796bad42", null ]
 ];

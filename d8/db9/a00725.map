@@ -1,6 +1,0 @@
-<map id="Hydrology" name="Hydrology">
-<area shape="rect" id="node1" href="$d1/da6/a00738.html" title="Routing in the channel cells using Muskingum method. " alt="" coords="335,5,425,35"/>
-<area shape="rect" id="node2" href="$da/df7/a00739.html" title="Calculate groundwater using reservoir method. " alt="" coords="281,59,479,88"/>
-<area shape="rect" id="node3" href="$de/de6/a00723.html" title="All functional modules in SEIMS. " alt="" coords="5,59,88,88"/>
-<area shape="rect" id="node4" href="$dd/db2/a00737.html" title="Channel routing using diffusive wave equation. " alt="" coords="339,112,421,141"/>
-</map>

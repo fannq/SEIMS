@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/main/main_omp/ModelMain.cpp File Reference</title>
+<title>SEIMS-2016: src/Deprecated/base_data/clsSiteData.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,43 +111,43 @@ $(document).ready(function(){initNavTree('d7/d9f/a00454.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ModelMain.cpp File Reference</div>  </div>
+<div class="title">clsSiteData.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Control the simulation of SEIMS.  
+<p>Read hydrological or meteorological site data.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d63/a00455_source.html">ModelMain.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../df/d70/a00431_source.html">utils.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d63/a00455_source.html">clsSiteData.h</a>&quot;</code><br/>
 <code>#include &quot;util.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/df3/a00424_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/d3d/a00409_source.html">PrintInfo.h</a>&quot;</code><br/>
-<code>#include &quot;MongoUtil.h&quot;</code><br/>
-<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d10/a00449_source.html">utils.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d84/a00447_source.html">text.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d34/a00442_source.html">ModelException.h</a>&quot;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &quot;mongoc.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ModelMain.cpp:</div>
+Include dependency graph for clsSiteData.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d1b/a00864.png" border="0" usemap="#src_2main_2main__omp_2_model_main_8cpp" alt=""/></div>
-<map name="src_2main_2main__omp_2_model_main_8cpp" id="src_2main_2main__omp_2_model_main_8cpp">
-<area shape="rect" id="node2" href="../../dd/d63/a00455.html" title="Control the simulation of SEIMS. " alt="" coords="669,83,784,112"/><area shape="rect" id="node11" href="../../df/d70/a00431.html" title="Utilities class to handle string, date time and file. " alt="" coords="2475,469,2539,499"/><area shape="rect" id="node15" href="../../dc/df3/a00424.html" title="Define ModelException class. " alt="" coords="2613,547,2763,576"/><area shape="rect" id="node40" href="../../de/d3d/a00409.html" title="Class to store and manage the PRINT information from the file.out file. " alt="" coords="859,315,953,344"/><area shape="rect" id="node3" href="../../d8/de7/a00417.html" title="Setting Inputs for SEIMS. " alt="" coords="1487,237,1615,267"/><area shape="rect" id="node39" href="../../d3/d29/a00419.html" title="Setting Outputs for SEIMS. " alt="" coords="657,237,796,267"/><area shape="rect" id="node43" href="../../d2/d56/a00384.html" title="Define Raster class to handle raster data. " alt="" coords="523,392,657,421"/><area shape="rect" id="node45" href="../../de/de8/a00405.html" title="Constructor of ModuleFactory from config file. " alt="" coords="1049,160,1189,189"/><area shape="rect" id="node4" href="../../d0/dd6/a00415.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="2159,392,2252,421"/><area shape="rect" id="node18" href="../../d4/d27/a00392.html" title="InputStation.h" alt="" coords="1613,392,1733,421"/><area shape="rect" id="node23" href="../../d5/db5/a00374_source.html" title="Scenario.h" alt="" coords="3255,315,3353,344"/><area shape="rect" id="node22" href="../../d9/dad/a00394.html" title="Measurement class to store HydroClimate site data. " alt="" coords="1539,469,1671,499"/><area shape="rect" id="node24" href="../../d9/d0a/a00390.html" title="Database manager for Sqlite. " alt="" coords="3006,547,3127,576"/><area shape="rect" id="node25" href="../../df/d73/a00358_source.html" title="BMPText.h" alt="" coords="3625,547,3727,576"/><area shape="rect" id="node26" href="../../d9/d48/a00345_source.html" title="BMPBase.h" alt="" coords="2712,392,2819,421"/><area shape="rect" id="node27" href="../../d1/dc6/a00347_source.html" title="BMPFactory.h" alt="" coords="3191,469,3313,499"/><area shape="rect" id="node28" href="../../db/ddc/a00353_source.html" title="BMPReachFlowDiversion.h" alt="" coords="3151,547,3371,576"/><area shape="rect" id="node29" href="../../d3/dc9/a00355_source.html" title="BMPReachPointSource.h" alt="" coords="3396,547,3601,576"/><area shape="rect" id="node30" href="../../df/df1/a00357_source.html" title="BMPReachReservoir.h" alt="" coords="1931,547,2117,576"/><area shape="rect" id="node32" href="../../d0/d48/a00351_source.html" title="BMPReachFactory.h" alt="" coords="3157,392,3328,421"/><area shape="rect" id="node33" href="../../dc/d59/a00364_source.html" title="ManagementOperation.h" alt="" coords="3841,469,4039,499"/><area shape="rect" id="node34" href="../../d3/d30/a00370_source.html" title="ManagementOperationPlant.h" alt="" coords="3555,392,3788,421"/><area shape="rect" id="node35" href="../../d8/d21/a00368_source.html" title="ManagementOperationHarvest.h" alt="" coords="3813,392,4067,421"/><area shape="rect" id="node36" href="../../d2/d3e/a00366_source.html" title="ManagementOperationFertilizer.h" alt="" coords="4141,392,4400,421"/><area shape="rect" id="node31" href="../../d3/d45/a00382.html" title="Update mongo&#45;c&#45;driver from v0.6 to v1.3.5. " alt="" coords="651,624,877,653"/><area shape="rect" id="node41" href="../../d1/d98/a00407.html" title="Class to store parameter item information. " alt="" coords="746,392,853,421"/><area shape="rect" id="node42" href="../../db/d43/a00422.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="1054,624,1223,653"/><area shape="rect" id="node44" href="../../d7/d93/a00397_source.html" title="MongoUtil.h" alt="" coords="550,469,657,499"/><area shape="rect" id="node46" href="../../d7/db9/a00426.html" title="Parent class for all modules in SEIMS. " alt="" coords="2563,469,2727,499"/><area shape="rect" id="node48" href="../../da/d9c/a00413.html" title="SEIMS_ModuleSetting.h" alt="" coords="936,469,1133,499"/></map>
+<div class="center"><img src="../../d7/d46/a00890.png" border="0" usemap="#src_2_deprecated_2base__data_2cls_site_data_8cpp" alt=""/></div>
+<map name="src_2_deprecated_2base__data_2cls_site_data_8cpp" id="src_2_deprecated_2base__data_2cls_site_data_8cpp">
+<area shape="rect" id="node2" href="../../dd/d63/a00455.html" title="Read hydrological or meteorological site data. " alt="" coords="131,101,247,131"/><area shape="rect" id="node9" href="../../d9/d10/a00449.html" title="Utilities class to handle string, date time and file. " alt="" coords="729,101,793,131"/><area shape="rect" id="node16" href="../../de/d84/a00447.html" title="Predefined string constants used in the code. " alt="" coords="1265,101,1324,131"/><area shape="rect" id="node17" href="../../db/d34/a00442.html" title="Define ModelException class. " alt="" coords="1009,101,1159,131"/><area shape="rect" id="node4" href="../../d5/d5f/a00461.html" title="Class to store the site information from the Hydroclimate database stations table. " alt="" coords="307,179,396,208"/><area shape="rect" id="node6" href="../../d9/d69/a00451.html" title="Hydrological climate data class. " alt="" coords="96,179,283,208"/></map>
 </div>
 </div>
 <p><a href="../../d7/d9f/a00454_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Control the simulation of SEIMS. </p>
+<div class="textblock"><p>Read hydrological or meteorological site data. </p>
 <dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>May 2016 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>June 2010 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d7/d9f/a00454_source.html">ModelMain.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/d9f/a00454_source.html">clsSiteData.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_4594e9aa377feebada7b877d79ee74dc.html">main</a></li><li class="navelem"><a class="el" href="../../dir_ec129a0ae27569175b993da0ebe57df5.html">main_omp</a></li><li class="navelem"><a class="el" href="../../d7/d9f/a00454.html">ModelMain.cpp</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_e024f65f7c082294db5aef71ed19f995.html">Deprecated</a></li><li class="navelem"><a class="el" href="../../dir_e622f27deed5465148d1b237a813d80b.html">base_data</a></li><li class="navelem"><a class="el" href="../../d7/d9f/a00454.html">clsSiteData.cpp</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

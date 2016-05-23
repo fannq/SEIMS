@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/pqueue.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/gk_struct.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,65 +111,148 @@ $(document).ready(function(){initNavTree('d7/d3f/a00173.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">pqueue.c File Reference</div>  </div>
+<div class="title">gk_struct.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file implements various max-priority queues.  
+<p>This file contains various datastructures used/provided by GKlib.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for pqueue.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/d7e/a00770.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pqueue_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pqueue_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2pqueue_8c">
-<area shape="rect" id="node2" href="../../d1/db7/a00157_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../d2/d82/a00142.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d2/d34/a00156.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d3/df8/a00155.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../d5/da7/a00144.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d7/dce/a00143.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d9/db6/a00146.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../da/ddb/a00145.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../d7/d9a/a00152.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d0/d4a/a00147.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../db/d48/a00148.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../da/d1e/a00149.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../d9/d7d/a00150.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../dd/db2/a00151.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../da/d01/a00153.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d3/d65/a00154.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
-</div>
-</div>
+
 <p><a href="../../d7/d3f/a00173_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html">gk_mop_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a89b02dbc0bd6ec64351eff7c65c6440e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3f/a00173.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>(a, b)&#160;&#160;&#160;((a) &gt; (b))</td></tr>
-<tr class="separator:a89b02dbc0bd6ec64351eff7c65c6440e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11341707bef5a28f3747df28e8e5a8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3f/a00173.html#ad11341707bef5a28f3747df28e8e5a8a">GK_MKKEYVALUE_T</a>(NAME, KEYTYPE, VALTYPE)</td></tr>
+<tr class="separator:ad11341707bef5a28f3747df28e8e5a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b321ad0a72d8cbe45cfe882aee7b2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3f/a00173.html#a57b321ad0a72d8cbe45cfe882aee7b2f">GK_MKPQUEUE_T</a>(NAME, KVTYPE)</td></tr>
+<tr class="separator:a57b321ad0a72d8cbe45cfe882aee7b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5139aff4a7772eefb88d15a3fe266e51"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../df/d61/a00031.html">gk_mop_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3f/a00173.html#a5139aff4a7772eefb88d15a3fe266e51">gk_mop_t</a></td></tr>
+<tr class="separator:a5139aff4a7772eefb88d15a3fe266e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344c3bd385c76cdaf70d77316c82b48c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3f/a00173.html#a344c3bd385c76cdaf70d77316c82b48c">gk_mcore_t</a></td></tr>
+<tr class="separator:a344c3bd385c76cdaf70d77316c82b48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file implements various max-priority queues. </p>
-<p>The priority queues are generated using the GK_MKPQUEUE macro.</p>
+<div class="textblock"><p>This file contains various datastructures used/provided by GKlib. </p>
 <dl class="section date"><dt>Date</dt><dd>Started 3/27/2007 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>George </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: pqueue.c 10711 2011-08-31 22:23:04Z karypis $ </pre> </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: gk_struct.h 13005 2012-10-23 22:34:36Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d7/d3f/a00173_source.html">pqueue.c</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/d3f/a00173_source.html">gk_struct.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a89b02dbc0bd6ec64351eff7c65c6440e"></a>
+<a class="anchor" id="ad11341707bef5a28f3747df28e8e5a8a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define key_gt</td>
+          <td class="memname">#define GK_MKKEYVALUE_T</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">a, </td>
+          <td class="paramname">NAME, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">b&#160;</td>
+          <td class="paramname">KEYTYPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">VALTYPE&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((a) &gt; (b))</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create the various max priority queues </p>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{\</div>
+<div class="line">  KEYTYPE key;\</div>
+<div class="line">  VALTYPE val;\</div>
+<div class="line">} NAME;\</div>
+</div><!-- fragment --><p>Generator for gk_??KeyVal_t data structure </p>
 
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00018">18</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">pqueue.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00017">17</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57b321ad0a72d8cbe45cfe882aee7b2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GK_MKPQUEUE_T</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">KVTYPE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{\</div>
+<div class="line">  gk_idx_t nnodes;\</div>
+<div class="line">  gk_idx_t maxnodes;\</div>
+<div class="line">\</div>
+<div class="line">  <span class="comment">/* Heap version of the data structure */</span> \</div>
+<div class="line">  KVTYPE   *heap;\</div>
+<div class="line">  gk_idx_t *locator;\</div>
+<div class="line">} NAME;\</div>
+</div><!-- fragment --><p>Generator for gk_?pq_t data structure </p>
+
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00039">39</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">gk_struct.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a344c3bd385c76cdaf70d77316c82b48c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a>  <a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The following structure stores information used by Metis </p>
+
+</div>
+</div>
+<a class="anchor" id="a5139aff4a7772eefb88d15a3fe266e51"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../df/d61/a00031.html">gk_mop_t</a>  <a class="el" href="../../df/d61/a00031.html">gk_mop_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The following data structure stores information about a memory allocation operation that can either be served from <a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> or by a gk_malloc if not sufficient workspace memory is available. </p>
 
 </div>
 </div>
@@ -178,8 +261,8 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d3f/a00173.html">pqueue.c</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:45 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d3f/a00173.html">gk_struct.h</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/main/functionTest/main.cpp Source File</title>
+<title>SEIMS-2016: doc/EcoModulesDesign.md Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d1/d84/a00097_source.html','../../');});
+$(document).ready(function(){initNavTree('d1/d84/a00097.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -111,85 +111,65 @@ $(document).ready(function(){initNavTree('d1/d84/a00097_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">main.cpp</div>  </div>
+<div class="title">doc/EcoModulesDesign.md</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;gdal_priv.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;omp.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;mongoc.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d56/a00384.html">clsRasterData.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define TEST</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="keywordtype">int</span> <a class="code" href="../../d0/d81/a00180.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* argv[])</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    GDALAllRegister();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    mongoc_client_t     *client;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    mongoc_database_t   *database;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    mongoc_collection_t *collection;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    mongoc_cursor_t     *cursor;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    bson_t              *query = bson_new();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> bson_t        *doc;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    bson_error_t        *err = NULL;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">char</span>                *str;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//char* dbname = &quot;climate_dianbu&quot;;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">char</span>* dbname = <span class="stringliteral">&quot;model_dianbu_30m_longterm&quot;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//char* collname = &quot;DataValues&quot;;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">char</span>* collname = <span class="stringliteral">&quot;spatial&quot;</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">char</span>* newGridFS = <span class="stringliteral">&quot;output&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mongoc_init();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mongoc_uri_t *uri;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">char</span>* hostname = <span class="stringliteral">&quot;127.0.0.1&quot;</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    uint16_t port = 27017;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    uri = mongoc_uri_new_for_host_port(hostname, port);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    client = mongoc_client_new_from_uri(uri);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//mongoc_collection_t   *collection;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mongoc_gridfs_t *gfs = mongoc_client_get_gridfs(client,dbname,collname,err);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a> *mask = <span class="keyword">new</span> <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a>(gfs,<span class="stringliteral">&quot;1_MASK&quot;</span>,NULL);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a> *raster1d = <span class="keyword">new</span> <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a>(gfs,<span class="stringliteral">&quot;1_BLAI&quot;</span>,mask);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a> *raster2d = <span class="keyword">new</span> <a class="code" href="../../d4/d51/a00017.html">clsRasterData</a>(gfs,<span class="stringliteral">&quot;1_DENSITY&quot;</span>,mask);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">string</span> rs1dascfile = <span class="stringliteral">&quot;e:/test/1_blai_asc.asc&quot;</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">string</span> rs2dascfile = <span class="stringliteral">&quot;e:/test/1_density_asc.asc&quot;</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">string</span> rs1dtiffile = <span class="stringliteral">&quot;e:/test/1_blai_asc.tif&quot;</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">string</span> rs2dtiffile = <span class="stringliteral">&quot;e:/test/1_density_asc.tif&quot;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">string</span> rs1dMongo = <span class="stringliteral">&quot;2_BLAI&quot;</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">string</span> rs2dMongo = <span class="stringliteral">&quot;2_DENSITY&quot;</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    raster1d-&gt;<a class="code" href="../../d4/d51/a00017.html#aa43c0f15709e3d4d5eca43dc39b8ec7f">outputASCFile</a>(rs1dascfile);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    raster2d-&gt;<a class="code" href="../../d4/d51/a00017.html#aa43c0f15709e3d4d5eca43dc39b8ec7f">outputASCFile</a>(rs2dascfile);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    raster1d-&gt;<a class="code" href="../../d4/d51/a00017.html#afc9a17ef964f85090c500bd2faa9be82">outputGTiff</a>(rs1dtiffile);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    raster2d-&gt;<a class="code" href="../../d4/d51/a00017.html#afc9a17ef964f85090c500bd2faa9be82">outputGTiff</a>(rs2dtiffile);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    raster1d-&gt;<a class="code" href="../../d4/d51/a00017.html#a08f701b29c119b75d9858c5dccc3a77a">outputToMongoDB</a>(rs1dMongo, gfs);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    raster2d-&gt;<a class="code" href="../../d4/d51/a00017.html#a08f701b29c119b75d9858c5dccc3a77a">outputToMongoDB</a>(rs2dMongo, gfs);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">//bson_destroy(query);</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">//mongoc_cursor_destroy(cursor);</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    mongoc_gridfs_destroy(gfs);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">//mongoc_gridfs_destroy(newGridFS);</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//mongoc_collection_destroy(collection);</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//mongoc_database_destroy(database);</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    mongoc_client_destroy(client);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    mongoc_cleanup();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    system(<span class="stringliteral">&quot;pause&quot;</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="ttc" id="a00017_html_a08f701b29c119b75d9858c5dccc3a77a"><div class="ttname"><a href="../../d4/d51/a00017.html#a08f701b29c119b75d9858c5dccc3a77a">clsRasterData::outputToMongoDB</a></div><div class="ttdeci">void outputToMongoDB(string remoteFilename, mongoc_gridfs_t *gfs)</div><div class="ttdoc">Write raster data to MongoDB, if 2D raster, output name will be filename_LyrNum. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dee/a00383_source.html#l00512">clsRasterData.cpp:512</a></div></div>
-<div class="ttc" id="a00017_html_aa43c0f15709e3d4d5eca43dc39b8ec7f"><div class="ttname"><a href="../../d4/d51/a00017.html#aa43c0f15709e3d4d5eca43dc39b8ec7f">clsRasterData::outputASCFile</a></div><div class="ttdeci">void outputASCFile(string &amp;filename)</div><div class="ttdoc">Write raster to ASC Grid file, if 2D raster, output name will be filename_LyrNum. ...</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dee/a00383_source.html#l00251">clsRasterData.cpp:251</a></div></div>
-<div class="ttc" id="a00017_html_afc9a17ef964f85090c500bd2faa9be82"><div class="ttname"><a href="../../d4/d51/a00017.html#afc9a17ef964f85090c500bd2faa9be82">clsRasterData::outputGTiff</a></div><div class="ttdeci">void outputGTiff(string &amp;filename)</div><div class="ttdoc">Write raster to GTIFF Grid file, if 2D raster, output name will be filename_LyrNum. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dee/a00383_source.html#l00353">clsRasterData.cpp:353</a></div></div>
-<div class="ttc" id="a00180_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d0/d81/a00180.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00110">fis.c:110</a></div></div>
-<div class="ttc" id="a00384_html"><div class="ttname"><a href="../../d2/d56/a00384.html">clsRasterData.h</a></div><div class="ttdoc">Define Raster class to handle raster data. </div></div>
-<div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">clsRasterData</a></div><div class="ttdoc">Raster data (1D and 2D) class to get access to raster data in MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d56/a00384_source.html#l00029">clsRasterData.h:29</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;生态模块设计</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;-----</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;SWAT模型采用了简化的EPIC模型，SEIMS将其借鉴并重新组织。</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;在《SWAT Theory 2009》中关于生态（植被生长）部分主要为第5部分——Land Cover/Plant，和第6部分的第1章节——General Management，下面根据该书的章节顺序，整理了对应的源码文件：</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;+ Section 5: Land Cover/Plant</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    + 5:1 Growth Cycle</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    + 5:2 Optimal Growth</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ```</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    1. plantmod.f: 计算总植物生物量和根系生物量的日尺度潜在生长量，计算LAI</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    2. swu.f: 计算植被潜在蒸发量在根系中的分布、基于土壤可获得水量计算植被实际用水量，并估计水胁迫因子</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ```</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    + 5:3 Actual Growth</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ```</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    3. grow.f: 考虑水、温度、养分对植被的胁迫作用，校正植被生物量、LAI、冠层高度的计算</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    其中，调用tstr.f计算温度胁迫，调用nup.f计算氮吸收（如果作物为豆科作物，调用nfix.f计算氮固定，调用nuts.f计算氮磷胁迫），调用npup.f计算磷吸收，调用氮元素自动施肥</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ```</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    + 5:4 Crop Yield</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    + SEIMS 模块计划</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        + 植被潜在蒸腾（Priestley-Taylor 和 Hargreaves 蒸散发计算方法）、潜在/实际土壤蒸发量。目前SEIMS模型中有`PET_PT, PET_H, PET_PM`,需要看是直接将植被蒸腾计算添加进现有模块还是重新设置模块。 涉及到的SWAT源码为`etpot.f, etact.f` --- **计划 2016-4-21 完成**</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        + </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;+ Section 6: Management Practices</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    + 6:1 General Management</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        ```</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        operatn.f, sched_mgt.f (包括plantop.f, dormant.f, harvkillop.f, harvestop.f, killip.f, tillmix.f, graze.f等)`</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        施肥相关 fert.f, confert.f</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        ```</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        SWAT中，每个HRU对应一个`.mgt`文件，定义管理措施，对应于Access数据库中，Management Scheduled Operations对应于`mgt2`表，而常规管理措施对应于`mgt1`表。</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        SEIMS沿用一张表设置管理措施的方式。但是输入数据的准备比较麻烦，目前SWAT Editor设置管理措施也很不方便。</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        &gt; 需要设计一种简便的方法设置每种土地利用的管理措施（或者加上其他限制条件）。</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        &gt; TODO: ManagementType.txt中新加了一个`FIELDS`列，用于整理每种管理措施需要填写的属性列表</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_4594e9aa377feebada7b877d79ee74dc.html">main</a></li><li class="navelem"><a class="el" href="../../dir_11f8cb043c17028f60dc184cf1bc9cad.html">functionTest</a></li><li class="navelem"><b>main.cpp</b></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:43 for SEIMS-2016 by
+    <li class="navelem"><b>EcoModulesDesign.md</b></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:31 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

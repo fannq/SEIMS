@@ -1,5 +1,0 @@
-<map id="clsRasterData::outputASCFile" name="clsRasterData::outputASCFile">
-<area shape="rect" id="node2" href="$d4/d51/a00017.html#ae6d573951cf55cd9ae106bd98a2ffb02" title="Get non&#45;NODATA position index data, include cell number and (row, col) " alt="" coords="309,29,509,75"/>
-<area shape="rect" id="node3" href="$d4/d51/a00017.html#aa43c0f15709e3d4d5eca43dc39b8ec7f" title="Write raster to ASC Grid file, if 2D raster, output name will be filename_LyrNum. ..." alt="" coords="291,100,527,129"/>
-<area shape="rect" id="node4" href="$d4/d51/a00017.html#af9129b542dc471fe7dcc045cb607e39d" title="Get raster header information. " alt="" coords="309,178,509,225"/>
-</map>

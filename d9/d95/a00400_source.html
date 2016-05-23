@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/NotRegularMeasurement.h Source File</title>
+<title>SEIMS-2016: src/base/data/clsInterpolationWeightData.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,43 +111,44 @@ $(document).ready(function(){initNavTree('d9/d95/a00400_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">NotRegularMeasurement.h</div>  </div>
+<div class="title">clsInterpolationWeightData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d95/a00400.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/a00394.html">Measurement.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;MongoUtil.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/de0/a00050.html">NotRegularMeasurement</a> : <span class="keyword">public</span> <a class="code" href="../../db/d3a/a00040.html">Measurement</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;mongoc.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//#include &quot;gridfs.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>clsInterpolationWeightData</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../d5/de0/a00050.html#a3c9de25b026a3918f3655e4381a867e7">NotRegularMeasurement</a>(mongoc_client_t* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../d5/de0/a00050.html#a156ee633e6dfc626a362bb826525ea6e">~NotRegularMeasurement</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span>*              <a class="code" href="../../d5/de0/a00050.html#af77a1b276a9f174603a977b2a6e4c5cc">GetSiteDataByTime</a>(time_t t);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ac49bfde12525e6ad88d058122eba3aba">   47</a></span>&#160;    vector&lt; vector&lt;time_t&gt; &gt;    <a class="code" href="../../d5/de0/a00050.html#ac49bfde12525e6ad88d058122eba3aba">m_timeList</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">   49</a></span>&#160;    vector&lt; vector&lt;float&gt; &gt;     <a class="code" href="../../d5/de0/a00050.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">m_valueList</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#abb545ecf27b9011ea628ad92bc0ac697">   51</a></span>&#160;    vector&lt;int&gt;                 <a class="code" href="../../d5/de0/a00050.html#abb545ecf27b9011ea628ad92bc0ac697">m_curIndexList</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="ttc" id="a00050_html_abb545ecf27b9011ea628ad92bc0ac697"><div class="ttname"><a href="../../d5/de0/a00050.html#abb545ecf27b9011ea628ad92bc0ac697">NotRegularMeasurement::m_curIndexList</a></div><div class="ttdeci">vector&lt; int &gt; m_curIndexList</div><div class="ttdoc">index </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00051">NotRegularMeasurement.h:51</a></div></div>
-<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">NotRegularMeasurement</a></div><div class="ttdoc">Not Regular hydroclimate data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00024">NotRegularMeasurement.h:24</a></div></div>
-<div class="ttc" id="a00050_html_ac13ca9e77b8b7d54845def6bbd0e7e5b"><div class="ttname"><a href="../../d5/de0/a00050.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">NotRegularMeasurement::m_valueList</a></div><div class="ttdeci">vector&lt; vector&lt; float &gt; &gt; m_valueList</div><div class="ttdoc">site data corresponding to m_timeList </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00049">NotRegularMeasurement.h:49</a></div></div>
-<div class="ttc" id="a00050_html_a156ee633e6dfc626a362bb826525ea6e"><div class="ttname"><a href="../../d5/de0/a00050.html#a156ee633e6dfc626a362bb826525ea6e">NotRegularMeasurement::~NotRegularMeasurement</a></div><div class="ttdeci">~NotRegularMeasurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00103">NotRegularMeasurement.cpp:103</a></div></div>
-<div class="ttc" id="a00050_html_a3c9de25b026a3918f3655e4381a867e7"><div class="ttname"><a href="../../d5/de0/a00050.html#a3c9de25b026a3918f3655e4381a867e7">NotRegularMeasurement::NotRegularMeasurement</a></div><div class="ttdeci">NotRegularMeasurement(mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startTime, time_t endTime)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00017">NotRegularMeasurement.cpp:17</a></div></div>
-<div class="ttc" id="a00050_html_ac49bfde12525e6ad88d058122eba3aba"><div class="ttname"><a href="../../d5/de0/a00050.html#ac49bfde12525e6ad88d058122eba3aba">NotRegularMeasurement::m_timeList</a></div><div class="ttdeci">vector&lt; vector&lt; time_t &gt; &gt; m_timeList</div><div class="ttdoc">time list of site data </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/a00400_source.html#l00047">NotRegularMeasurement.h:47</a></div></div>
-<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">Measurement</a></div><div class="ttdoc">Get HydroClimate measurement data from MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00024">Measurement.h:24</a></div></div>
-<div class="ttc" id="a00050_html_af77a1b276a9f174603a977b2a6e4c5cc"><div class="ttname"><a href="../../d5/de0/a00050.html#af77a1b276a9f174603a977b2a6e4c5cc">NotRegularMeasurement::GetSiteDataByTime</a></div><div class="ttdeci">virtual float * GetSiteDataByTime(time_t t)</div><div class="ttdoc">Get site date by time pData. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00107">NotRegularMeasurement.cpp:107</a></div></div>
-<div class="ttc" id="a00394_html"><div class="ttname"><a href="../../d9/dad/a00394.html">Measurement.h</a></div><div class="ttdoc">Measurement class to store HydroClimate site data. </div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    clsInterpolationWeightData(<span class="keywordtype">string</span> weightFileName);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    clsInterpolationWeightData(mongoc_gridfs_t *gfs, <span class="keyword">const</span> <span class="keywordtype">char</span>* remoteFilename);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~clsInterpolationWeightData(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> getWeightData(<span class="keywordtype">int</span>*,<span class="keywordtype">float</span>**);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> dump(ostream *fs);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> dump(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">string</span> m_fileName;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">float</span>* m_weightData;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> m_nRows;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> m_nCols;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> ReadFromMongoDB(mongoc_gridfs_t *gfs, <span class="keyword">const</span> <span class="keywordtype">char</span>* remoteFilename);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">NotRegularMeasurement.h</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:44 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d9/d95/a00400.html">clsInterpolationWeightData.h</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

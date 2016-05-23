@@ -1,3 +1,5 @@
-<map id="src/base/util/utils.cpp" name="src/base/util/utils.cpp">
-<area shape="rect" id="node2" href="$df/d70/a00431.html" title="Utilities class to handle string, date time and file. " alt="" coords="296,83,360,112"/>
+<map id="src/base/data/DBManager.cpp" name="src/base/data/DBManager.cpp">
+<area shape="rect" id="node2" href="$dd/dea/a00408.html" title="Database manager for Sqlite. " alt="" coords="5,83,125,112"/>
+<area shape="rect" id="node6" href="$db/d34/a00442.html" title="Define ModelException class. " alt="" coords="253,83,403,112"/>
+<area shape="rect" id="node8" href="$d9/d10/a00449.html" title="Utilities class to handle string, date time and file. " alt="" coords="511,83,575,112"/>
 </map>

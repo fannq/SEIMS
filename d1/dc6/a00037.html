@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: IUHCalculator Class Reference</title>
+<title>SEIMS-2016: InputVariable Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,106 +113,55 @@ $(document).ready(function(){initNavTree('d1/dc6/a00037.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="../../d9/dce/a00944.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../dd/d24/a00981.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">IUHCalculator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">InputVariable Class Reference<div class="ingroups"><a class="el" href="../../dc/d85/a00736.html">Util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This class is the base class of IUH calculation.  
+<p>Input variable information class.  
  <a href="../../d1/dc6/a00037.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/d72/a00124_source.html">IUHCalculator.h</a>&gt;</code></p>
-
-<p>Inherited by RiverIUHCalculator, and WatershedIUHCalculator.</p>
+<p><code>#include &lt;<a class="el" href="../../d9/d3a/a00439_source.html">MetadataInfo.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9e7c19106d792aa23d1e7de7f4efafc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9e7c19106d792aa23d1e7de7f4efafc"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#aa9e7c19106d792aa23d1e7de7f4efafc">calIUH</a> (void)=0</td></tr>
-<tr class="memdesc:aa9e7c19106d792aa23d1e7de7f4efafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate IUH. <br/></td></tr>
-<tr class="separator:aa9e7c19106d792aa23d1e7de7f4efafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:ada0a43ef89e61b07de87d672e5240b5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada0a43ef89e61b07de87d672e5240b5e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#ada0a43ef89e61b07de87d672e5240b5e">readData</a> ()</td></tr>
-<tr class="memdesc:ada0a43ef89e61b07de87d672e5240b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data. <br/></td></tr>
-<tr class="separator:ada0a43ef89e61b07de87d672e5240b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39da0e3315d838724ff5f3ac5f98303e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a39da0e3315d838724ff5f3ac5f98303e">IUHti</a> (double delta0, double t00, double ti)</td></tr>
-<tr class="memdesc:a39da0e3315d838724ff5f3ac5f98303e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate IUH for time step ti.  <a href="#a39da0e3315d838724ff5f3ac5f98303e">More...</a><br/></td></tr>
-<tr class="separator:a39da0e3315d838724ff5f3ac5f98303e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:af99b3ec7f57773deec50ad5df619570e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af99b3ec7f57773deec50ad5df619570e"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#af99b3ec7f57773deec50ad5df619570e">Name</a></td></tr>
+<tr class="memdesc:af99b3ec7f57773deec50ad5df619570e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name. <br/></td></tr>
+<tr class="separator:af99b3ec7f57773deec50ad5df619570e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb39a1a99108f15439249e0c108b384"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebb39a1a99108f15439249e0c108b384"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#aebb39a1a99108f15439249e0c108b384">Units</a></td></tr>
+<tr class="memdesc:aebb39a1a99108f15439249e0c108b384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Units. <br/></td></tr>
+<tr class="separator:aebb39a1a99108f15439249e0c108b384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a575ddb3a443f1af8b2bbda99b93f352d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a575ddb3a443f1af8b2bbda99b93f352d"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a575ddb3a443f1af8b2bbda99b93f352d">Description</a></td></tr>
+<tr class="memdesc:a575ddb3a443f1af8b2bbda99b93f352d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description. <br/></td></tr>
+<tr class="separator:a575ddb3a443f1af8b2bbda99b93f352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80ce26a8f8f8779e70a29a091cbe914"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab80ce26a8f8f8779e70a29a091cbe914"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#ab80ce26a8f8f8779e70a29a091cbe914">Source</a></td></tr>
+<tr class="memdesc:ab80ce26a8f8f8779e70a29a091cbe914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source. <br/></td></tr>
+<tr class="separator:ab80ce26a8f8f8779e70a29a091cbe914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5791bfd6dcb1157dd9b424b5b96ed9fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5791bfd6dcb1157dd9b424b5b96ed9fa"></a>
+<a class="el" href="../../dc/d85/a00736.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a5791bfd6dcb1157dd9b424b5b96ed9fa">Dimension</a></td></tr>
+<tr class="memdesc:a5791bfd6dcb1157dd9b424b5b96ed9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data dimension type. <br/></td></tr>
+<tr class="separator:a5791bfd6dcb1157dd9b424b5b96ed9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is the base class of IUH calculation. </p>
+<div class="textblock"><p>Input variable information class. </p>
 
-<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00022">22</a> of file <a class="el" href="../../da/d72/a00124_source.html">IUHCalculator.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a39da0e3315d838724ff5f3ac5f98303e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double IUHCalculator::IUHti </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>delta0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>t00</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>ti</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculate IUH for time step ti. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">double</td><td>delta0:standard deviation of t00 </td></tr>
-    <tr><td class="paramname">double</td><td>t00:flow time to the watershed outlet from each grid cell </td></tr>
-    <tr><td class="paramname">double</td><td>ti: time step, eg. hourly </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00101">101</a> of file <a class="el" href="../../de/d36/a00123_source.html">IUHCalculator.cpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>preprocess/cpp_src/iuh/<a class="el" href="../../da/d72/a00124_source.html">IUHCalculator.h</a></li>
-<li>preprocess/cpp_src/iuh/<a class="el" href="../../de/d36/a00123_source.html">IUHCalculator.cpp</a></li>
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00073">73</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">MetadataInfo.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>src/base/util/<a class="el" href="../../d9/d3a/a00439_source.html">MetadataInfo.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d1/dc6/a00037.html">IUHCalculator</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d1/dc6/a00037.html">InputVariable</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

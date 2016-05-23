@@ -1,8 +1,0 @@
-<map id="Erosion" name="Erosion">
-<area shape="rect" id="node3" href="$d4/db8/a00732.html" title="Kinematic wave method for channel flow erosion and deposition. " alt="" coords="262,5,402,35"/>
-<area shape="rect" id="node4" href="$dc/d85/a00736.html" title="Park Equation for splash erosion. " alt="" coords="263,59,401,88"/>
-<area shape="rect" id="node5" href="$d4/d91/a00733.html" title="Kinematic wave method for overland flow erosion and deposition. " alt="" coords="263,112,401,141"/>
-<area shape="rect" id="node6" href="$d6/dc0/a00734.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="277,165,387,195"/>
-<area shape="rect" id="node7" href="$d0/dab/a00735.html" title="Sediment routing using variable channel dimension(VCD) method at daily time scale. " alt="" coords="276,219,388,248"/>
-<area shape="rect" id="node2" href="$de/de6/a00723.html" title="All functional modules in SEIMS. " alt="" coords="5,112,88,141"/>
-</map>

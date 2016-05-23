@@ -1,9 +1,10 @@
 var a00155 =
 [
-    [ "gk_mop_t", "d5/d16/a00029.html", null ],
-    [ "gk_mcore_t", "dc/d3c/a00028.html", "dc/d3c/a00028" ],
-    [ "GK_MKKEYVALUE_T", "d3/df8/a00155.html#ad11341707bef5a28f3747df28e8e5a8a", null ],
-    [ "GK_MKPQUEUE_T", "d3/df8/a00155.html#a57b321ad0a72d8cbe45cfe882aee7b2f", null ],
-    [ "gk_mcore_t", "d3/df8/a00155.html#a344c3bd385c76cdaf70d77316c82b48c", null ],
-    [ "gk_mop_t", "d3/df8/a00155.html#a5139aff4a7772eefb88d15a3fe266e51", null ]
+    [ "errexit", "d3/df8/a00155.html#a56d0f2cc40cd8633a784582d6200d8b5", null ],
+    [ "gk_errexit", "d3/df8/a00155.html#a4c320c13bcdc9967613253ef4c73f59f", null ],
+    [ "gk_set_exit_on_error", "d3/df8/a00155.html#ac8478262a791bb8b09708996ad1a548e", null ],
+    [ "gk_sigthrow", "d3/df8/a00155.html#ad17d21ff26300b9b5bdb291e8ad2bcef", null ],
+    [ "gk_sigtrap", "d3/df8/a00155.html#a05869524d1c30cfaab2a8690e7da6fd4", null ],
+    [ "gk_siguntrap", "d3/df8/a00155.html#a08f287b6dbdc0779c916ecbd49540a1e", null ],
+    [ "gk_strerror", "d3/df8/a00155.html#a4e5e21eb7f29fcdabd4ef027223bbdf0", null ]
 ];

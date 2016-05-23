@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/auxapi.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/omp.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,42 +111,43 @@ $(document).ready(function(){initNavTree('da/deb/a00189_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">auxapi.c</div>  </div>
+<div class="title">omp.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../da/deb/a00189.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../da/deb/a00189.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">   23</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/deb/a00189.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">METIS_Free</a>(<span class="keywordtype">void</span> *ptr)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordflow">if</span> (ptr != NULL) free(ptr);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d15/a00188.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../da/deb/a00189.html#abea67bb0c6286795ac5fc9bee605dc5d">   36</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/deb/a00189.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a>(idx_t *options)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  iset(METIS_NOPTIONS, -1, options);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d15/a00188.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="ttc" id="a00188_html_ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656"><div class="ttname"><a href="../../da/d15/a00188.html#ac2f4a66b49d7100c9eea6d8df6c57781a9c0cea68e5a7b61c2cae5993b3bf7656">METIS_OK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d15/a00188_source.html#l00242">metis.h:242</a></div></div>
-<div class="ttc" id="a00189_html_a8b3f46b67d6ec9fccaa8c72b9ad10b71"><div class="ttname"><a href="../../da/deb/a00189.html#a8b3f46b67d6ec9fccaa8c72b9ad10b71">METIS_Free</a></div><div class="ttdeci">int METIS_Free(void *ptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/deb/a00189_source.html#l00023">auxapi.c:23</a></div></div>
-<div class="ttc" id="a00189_html_abea67bb0c6286795ac5fc9bee605dc5d"><div class="ttname"><a href="../../da/deb/a00189.html#abea67bb0c6286795ac5fc9bee605dc5d">METIS_SetDefaultOptions</a></div><div class="ttdeci">int METIS_SetDefaultOptions(idx_t *options)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/deb/a00189_source.html#l00036">auxapi.c:36</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * omp.c</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains &quot;fake&quot; implementations of OpenMP&#39;s runtime libraries</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifdef GK_NOOPENMP  </span><span class="comment">/* remove those for now */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if !defined(_OPENMP)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="keywordtype">void</span> omp_set_num_threads(<span class="keywordtype">int</span> num_threads) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> omp_get_num_threads(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> omp_get_max_threads(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">int</span> omp_get_thread_num(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> omp_get_num_procs(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> omp_in_parallel(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> omp_set_dynamic(<span class="keywordtype">int</span> num_threads) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> omp_get_dynamic(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> omp_set_nested(<span class="keywordtype">int</span> nested) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> omp_get_nested(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">auxapi.c</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:43 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><b>omp.c</b></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:32 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['regularmeasurement',['RegularMeasurement',['../d4/de8/a00061.html',1,'']]]
+  ['regularmeasurement',['RegularMeasurement',['../da/d24/a00068.html',1,'']]],
+  ['reservoirmethod',['ReservoirMethod',['../d4/d31/a00069.html',1,'']]]
 ];

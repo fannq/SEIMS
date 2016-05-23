@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology/IKW_CH/IKW_CH.h Source File</title>
+<title>SEIMS-2016: src/modules/erosion/SPLASHERO_PARK/SplashEro_Park.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,134 +111,90 @@ $(document).ready(function(){initNavTree('d0/dc2/a00564_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">IKW_CH.h</div>  </div>
+<div class="title">SplashEro_Park.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*   Purpose:    routing in the channel cells using implicit finite difference method (kinematic wave method in LISEM model)</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*   Created:    Junzhi Liu</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*   Date:       23-Febrary-2011</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*   Revision:</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">*   Date:</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*---------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/db9/a00426.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>ImplicitKinematicWave : <span class="keyword">public</span> <a class="code" href="../../d9/db3/a00066.html">SimulationModule</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ImplicitKinematicWave(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ~ImplicitKinematicWave(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span>* value);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nrows, <span class="keywordtype">int</span> ncols, <span class="keywordtype">float</span>** data);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> CheckInputSizeChannel(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d7/db9/a00426.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a> GetTimeStepType()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d7/db9/a00426.html#ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">float</span> Power(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> n)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> (a &gt;= 0)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> pow(a, n);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> -pow(-a, n);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">float</span> GetNewQ(<span class="keywordtype">float</span> qIn, <span class="keywordtype">float</span> qLast, <span class="keywordtype">float</span> surplus, <span class="keywordtype">float</span> alpha, <span class="keywordtype">float</span> dt, <span class="keywordtype">float</span> dx);</div>
+<a href="../../d0/dc2/a00564.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef SEIMS_SplashEro_Park_INCLUDE</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEIMS_SplashEro_Park_INCLUDE</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;api.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dea/a00444.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5d/a00084.html">SplashEro_Park</a> : <span class="keyword">public</span> <a class="code" href="../../d9/da5/a00075.html">SimulationModule</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../df/d5d/a00084.html">SplashEro_Park</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~<a class="code" href="../../df/d5d/a00084.html">SplashEro_Park</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>*,<span class="keywordtype">int</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> ChannelFlow(<span class="keywordtype">int</span> iReach, <span class="keywordtype">int</span> iCell, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">float</span> qgEachCell);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> initalOutputs();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> initalOutputs2();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> m_nCells;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">//static string toString(float value);</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> initial();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">float</span> m_CellWidth;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">float</span> m_dt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">float</span> *m_sRadian;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">float</span> *m_chWidth;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//Parameters</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#aa70b35f87275d322bebc926ffc863090">   67</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../df/d5d/a00084.html#aa70b35f87275d322bebc926ffc863090">m_CellWith</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#ac589f4a8677fbc93ba6e3b6c89591c2e">   69</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../df/d5d/a00084.html#ac589f4a8677fbc93ba6e3b6c89591c2e">m_nCells</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#a2130dcee3dac02f573e1d1004361757d">   71</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/d5d/a00084.html#a2130dcee3dac02f573e1d1004361757d">m_TimeStep</a>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">float</span> *m_streamLink;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">float</span> m_manningScalingFactor;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">float</span> *m_direction;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">float</span> *m_prec;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">float</span> *m_qs;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">float</span> *m_qi;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">float</span> *m_qg;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">float</span> m_qgDeep;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">float</span> **m_flowInIndex;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">float</span> *m_flowOutIndex;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">float</span> **m_hCh;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">float</span> **m_qCh;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">float</span> *m_qSubbasin;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">//float *m_qsInput;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">// id of the outlet</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">int</span> m_idOutlet;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">int</span> m_idUpReach;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">float</span> m_qUpReach;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// the following are intermediate variables </span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment"></span>    std::map&lt;int, int&gt; m_diagonal;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">float</span> **m_flowLen;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">int</span> m_chNumber;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">float</span> *m_reachDownStream;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    vector&lt; vector&lt;int&gt; &gt; m_reachUpStream;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">float</span>* m_reachN;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">float</span>* m_streamOrder;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">// id the reaches</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">float</span>* m_reachId;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    map&lt;int, int&gt; m_idToIndex;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    map&lt;int, vector&lt;int&gt; &gt; m_reachLayers;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    map&lt;int, vector&lt;int&gt; &gt; m_reachs;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">int</span>* m_sourceCellIds;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;};</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="ttc" id="a00426_html"><div class="ttname"><a href="../../d7/db9/a00426.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00066_html"><div class="ttname"><a href="../../d9/db3/a00066.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00032">SimulationModule.h:32</a></div></div>
-<div class="ttc" id="a00426_html_ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c"><div class="ttname"><a href="../../d7/db9/a00426.html#ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00024">SimulationModule.h:24</a></div></div>
-<div class="ttc" id="a00426_html_ad2dde160974c283ccf8f0ce280f791ba"><div class="ttname"><a href="../../d7/db9/a00426.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a></div><div class="ttdeci">TimeStepType</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00021">SimulationModule.h:21</a></div></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#a2d273b56ebc6f60256caa041e7ccb4d3">   74</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/d5d/a00084.html#a2d273b56ebc6f60256caa041e7ccb4d3">m_Omega</a>; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#a3454289beca39472b995719ea4b1cc97">   76</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/d5d/a00084.html#a3454289beca39472b995719ea4b1cc97">m_Ccoe</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#aecb5464d81ffd924d481938a87e605f8">   78</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../df/d5d/a00084.html#aecb5464d81ffd924d481938a87e605f8">m_Slope</a>;   </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//float* m_GrassFrac;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span>    <span class="comment">//float* m_coverFrac;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span>    <span class="comment">//float* m_ChWidth;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#a3638a2eaca43b24b4aae390dccad466f">   86</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span>* <a class="code" href="../../df/d5d/a00084.html#a3638a2eaca43b24b4aae390dccad466f">m_USLE_C</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#ab12f65d6d7bf3aa3954e12f29828bc51">   88</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../df/d5d/a00084.html#ab12f65d6d7bf3aa3954e12f29828bc51">m_USLE_K</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//input from modules</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#af1626f6aa723fcf09d497ff69fa558cb">   93</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span> *<a class="code" href="../../df/d5d/a00084.html#af1626f6aa723fcf09d497ff69fa558cb">m_sr</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">float</span> *m_depression;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#abd1a3cf3a1d0f95597236cf18e3ce8a7">   97</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../df/d5d/a00084.html#abd1a3cf3a1d0f95597236cf18e3ce8a7">m_Q</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#a455fd2539cdf496aaaccb73b52fafb41">   99</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../df/d5d/a00084.html#a455fd2539cdf496aaaccb73b52fafb41">m_Rain</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//float* m_SnowCover;</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">//output</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../df/d5d/a00084.html#ad5aa4d31faba63c30c212f63d631e95b">  105</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span>* <a class="code" href="../../df/d5d/a00084.html#ad5aa4d31faba63c30c212f63d631e95b">m_DETSplash</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a00444_html"><div class="ttname"><a href="../../d3/dea/a00444.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00084_html"><div class="ttname"><a href="../../df/d5d/a00084.html">SplashEro_Park</a></div><div class="ttdoc">Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00029">SplashEro_Park.h:29</a></div></div>
+<div class="ttc" id="a00075_html"><div class="ttname"><a href="../../d9/da5/a00075.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00032">SimulationModule.h:32</a></div></div>
+<div class="ttc" id="a00084_html_a2130dcee3dac02f573e1d1004361757d"><div class="ttname"><a href="../../df/d5d/a00084.html#a2130dcee3dac02f573e1d1004361757d">SplashEro_Park::m_TimeStep</a></div><div class="ttdeci">float m_TimeStep</div><div class="ttdoc">length of time step (s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00071">SplashEro_Park.h:71</a></div></div>
+<div class="ttc" id="a00084_html_ab12f65d6d7bf3aa3954e12f29828bc51"><div class="ttname"><a href="../../df/d5d/a00084.html#ab12f65d6d7bf3aa3954e12f29828bc51">SplashEro_Park::m_USLE_K</a></div><div class="ttdeci">float * m_USLE_K</div><div class="ttdoc">soil erodibility factor </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00088">SplashEro_Park.h:88</a></div></div>
+<div class="ttc" id="a00084_html_abd1a3cf3a1d0f95597236cf18e3ce8a7"><div class="ttname"><a href="../../df/d5d/a00084.html#abd1a3cf3a1d0f95597236cf18e3ce8a7">SplashEro_Park::m_Q</a></div><div class="ttdeci">float * m_Q</div><div class="ttdoc">water flux after kinematic wave model, m3/s </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00097">SplashEro_Park.h:97</a></div></div>
+<div class="ttc" id="a00084_html_ad5aa4d31faba63c30c212f63d631e95b"><div class="ttname"><a href="../../df/d5d/a00084.html#ad5aa4d31faba63c30c212f63d631e95b">SplashEro_Park::m_DETSplash</a></div><div class="ttdeci">float * m_DETSplash</div><div class="ttdoc">snowmelt cover map, value 1.0 if there is snowcover, 0 without [-], from distribution of snow accumul...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00105">SplashEro_Park.h:105</a></div></div>
+<div class="ttc" id="a00084_html_a3454289beca39472b995719ea4b1cc97"><div class="ttname"><a href="../../df/d5d/a00084.html#a3454289beca39472b995719ea4b1cc97">SplashEro_Park::m_Ccoe</a></div><div class="ttdeci">float m_Ccoe</div><div class="ttdoc">parameter calibration coefficient of splash erosion (-) /// NOT USED, deleted? LJ ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00076">SplashEro_Park.h:76</a></div></div>
+<div class="ttc" id="a00084_html_aecb5464d81ffd924d481938a87e605f8"><div class="ttname"><a href="../../df/d5d/a00084.html#aecb5464d81ffd924d481938a87e605f8">SplashEro_Park::m_Slope</a></div><div class="ttdeci">float * m_Slope</div><div class="ttdoc">slope of map, to calculate slope gradient. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00078">SplashEro_Park.h:78</a></div></div>
+<div class="ttc" id="a00084_html_af1626f6aa723fcf09d497ff69fa558cb"><div class="ttname"><a href="../../df/d5d/a00084.html#af1626f6aa723fcf09d497ff69fa558cb">SplashEro_Park::m_sr</a></div><div class="ttdeci">float * m_sr</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00093">SplashEro_Park.h:93</a></div></div>
+<div class="ttc" id="a00084_html_a3638a2eaca43b24b4aae390dccad466f"><div class="ttname"><a href="../../df/d5d/a00084.html#a3638a2eaca43b24b4aae390dccad466f">SplashEro_Park::m_USLE_C</a></div><div class="ttdeci">float * m_USLE_C</div><div class="ttdoc">fraction of stones on the surface, affects splash [-] </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00086">SplashEro_Park.h:86</a></div></div>
+<div class="ttc" id="a00084_html_a2d273b56ebc6f60256caa041e7ccb4d3"><div class="ttname"><a href="../../df/d5d/a00084.html#a2d273b56ebc6f60256caa041e7ccb4d3">SplashEro_Park::m_Omega</a></div><div class="ttdeci">float m_Omega</div><div class="ttdoc">parameter calibration coefficient of splash erosion (-) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00074">SplashEro_Park.h:74</a></div></div>
+<div class="ttc" id="a00084_html_a455fd2539cdf496aaaccb73b52fafb41"><div class="ttname"><a href="../../df/d5d/a00084.html#a455fd2539cdf496aaaccb73b52fafb41">SplashEro_Park::m_Rain</a></div><div class="ttdeci">float * m_Rain</div><div class="ttdoc">the amount of rainfall (mm) (pNet?) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00099">SplashEro_Park.h:99</a></div></div>
+<div class="ttc" id="a00084_html_aa70b35f87275d322bebc926ffc863090"><div class="ttname"><a href="../../df/d5d/a00084.html#aa70b35f87275d322bebc926ffc863090">SplashEro_Park::m_CellWith</a></div><div class="ttdeci">int m_CellWith</div><div class="ttdoc">cell width of grid map (m) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00067">SplashEro_Park.h:67</a></div></div>
+<div class="ttc" id="a00084_html_ac589f4a8677fbc93ba6e3b6c89591c2e"><div class="ttname"><a href="../../df/d5d/a00084.html#ac589f4a8677fbc93ba6e3b6c89591c2e">SplashEro_Park::m_nCells</a></div><div class="ttdeci">int m_nCells</div><div class="ttdoc">number of cells </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/a00564_source.html#l00069">SplashEro_Park.h:69</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_d5e46763d5cde90a0af42ceb81057499.html">IKW_CH</a></li><li class="navelem"><b>IKW_CH.h</b></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:45 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_dcd95ff35297d5aa74f812bf513a1acc.html">SPLASHERO_PARK</a></li><li class="navelem"><a class="el" href="../../d0/dc2/a00564.html">SplashEro_Park.h</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

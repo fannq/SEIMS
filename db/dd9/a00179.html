@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/string.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/graph.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,459 +113,197 @@ $(document).ready(function(){initNavTree('db/dd9/a00179.html','../../');});
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">string.c File Reference</div>  </div>
+<div class="title">graph.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions for manipulating strings.  
+<p>Functions that deal with setting up the graphs for METIS.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;metislib.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for string.c:</div>
+Include dependency graph for graph.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d5d/a00775.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2string_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2string_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2string_8c">
-<area shape="rect" id="node2" href="../../d1/db7/a00157_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../d2/d82/a00142.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d2/d34/a00156.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d3/df8/a00155.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../d5/da7/a00144.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d7/dce/a00143.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d9/db6/a00146.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../da/ddb/a00145.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../d7/d9a/a00152.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d0/d4a/a00147.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../db/d48/a00148.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../da/d1e/a00149.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../d9/d7d/a00150.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../dd/db2/a00151.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../da/d01/a00153.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d3/d65/a00154.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
+<div class="center"><img src="../../df/d0e/a00800.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2graph_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2graph_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2libmetis_2graph_8c">
+<area shape="rect" id="node2" href="../../df/d17/a00231_source.html" title="metislib.h" alt="" coords="4009,117,4100,147"/><area shape="rect" id="node3" href="../../de/d45/a00175_source.html" title="GKlib.h" alt="" coords="1724,195,1797,224"/><area shape="rect" id="node40" href="../../d5/df1/a00206.html" title="This file contains function prototypes and constant definitions for METIS. " alt="" coords="3735,195,3808,224"/><area shape="rect" id="node41" href="../../d2/dc8/a00242_source.html" title="rename.h" alt="" coords="3833,195,3921,224"/><area shape="rect" id="node42" href="../../dd/d52/a00221.html" title="Data structures and prototypes for GKlib integration. " alt="" coords="3946,195,4053,224"/><area shape="rect" id="node44" href="../../d3/dd5/a00215_source.html" title="defs.h" alt="" coords="4078,195,4143,224"/><area shape="rect" id="node45" href="../../de/dbc/a00249_source.html" title="struct.h" alt="" coords="4167,195,4240,224"/><area shape="rect" id="node46" href="../../d9/d01/a00227_source.html" title="macros.h" alt="" coords="4265,195,4351,224"/><area shape="rect" id="node47" href="../../d0/d27/a00239_source.html" title="proto.h" alt="" coords="4375,195,4445,224"/><area shape="rect" id="node4" href="../../de/d38/a00160.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="175,272,267,301"/><area shape="rect" id="node26" href="../../d8/df1/a00174.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1876,272,1975,301"/><area shape="rect" id="node27" href="../../d7/d3f/a00173.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="1999,272,2097,301"/><area shape="rect" id="node28" href="../../db/d44/a00162.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2122,272,2235,301"/><area shape="rect" id="node29" href="../../d6/d7d/a00161.html" title="This file contains various constants definitions. " alt="" coords="2260,272,2351,301"/><area shape="rect" id="node30" href="../../db/ddf/a00164.html" title="This file contains various macros. " alt="" coords="2375,272,2488,301"/><area shape="rect" id="node31" href="../../dd/dae/a00163.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2513,272,2617,301"/><area shape="rect" id="node32" href="../../d5/dcb/a00170.html" title="Templates for the qsort routine. " alt="" coords="2642,272,2749,301"/><area shape="rect" id="node33" href="../../d0/d48/a00165.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2775,272,2885,301"/><area shape="rect" id="node34" href="../../d9/d38/a00166.html" title="Templates for memory allocation routines. " alt="" coords="2911,272,3049,301"/><area shape="rect" id="node35" href="../../dc/de6/a00167.html" title="Templates for priority queues. " alt="" coords="3073,272,3208,301"/><area shape="rect" id="node36" href="../../dd/da7/a00168.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3234,272,3379,301"/><area shape="rect" id="node37" href="../../de/d53/a00169.html" title="Templates for portable random number generation. " alt="" coords="3404,272,3539,301"/><area shape="rect" id="node38" href="../../d1/d0d/a00171.html" title="Templates for various utility routines. " alt="" coords="3565,272,3675,301"/><area shape="rect" id="node39" href="../../d6/dfb/a00172.html" title="This file contains function prototypes. " alt="" coords="3699,272,3796,301"/><area shape="rect" id="node43" href="../../d0/d24/a00222.html" title="gklib_rename.h" alt="" coords="3934,272,4065,301"/></map>
 </div>
 </div>
 <p><a href="../../db/dd9/a00179_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a29b909254dcbcae417f8c09ce21d5423"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a29b909254dcbcae417f8c09ce21d5423">gk_strchr_replace</a> (char *str, char *fromlist, char *tolist)</td></tr>
-<tr class="memdesc:a29b909254dcbcae417f8c09ce21d5423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces certain characters in a string.  <a href="#a29b909254dcbcae417f8c09ce21d5423">More...</a><br/></td></tr>
-<tr class="separator:a29b909254dcbcae417f8c09ce21d5423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e5cf8f76a1ece74adf1b8b9dfcb275"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a46e5cf8f76a1ece74adf1b8b9dfcb275">gk_strstr_replace</a> (char *str, char *pattern, char *replacement, char *options, char **new_str)</td></tr>
-<tr class="memdesc:a46e5cf8f76a1ece74adf1b8b9dfcb275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regex-based search-and-replace function.  <a href="#a46e5cf8f76a1ece74adf1b8b9dfcb275">More...</a><br/></td></tr>
-<tr class="separator:a46e5cf8f76a1ece74adf1b8b9dfcb275"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05261ee12d082a78cabc018d2f5e2266"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a05261ee12d082a78cabc018d2f5e2266">gk_strtprune</a> (char *str, char *rmlist)</td></tr>
-<tr class="memdesc:a05261ee12d082a78cabc018d2f5e2266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prunes characters from the end of the string.  <a href="#a05261ee12d082a78cabc018d2f5e2266">More...</a><br/></td></tr>
-<tr class="separator:a05261ee12d082a78cabc018d2f5e2266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6c1dfa83b68cea7f048086e0a585c0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#adf6c1dfa83b68cea7f048086e0a585c0">gk_strhprune</a> (char *str, char *rmlist)</td></tr>
-<tr class="memdesc:adf6c1dfa83b68cea7f048086e0a585c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prunes characters from the beginning of the string.  <a href="#adf6c1dfa83b68cea7f048086e0a585c0">More...</a><br/></td></tr>
-<tr class="separator:adf6c1dfa83b68cea7f048086e0a585c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2e962be7af156e5200766fa8543cff1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#ae2e962be7af156e5200766fa8543cff1">gk_strtoupper</a> (char *str)</td></tr>
-<tr class="memdesc:ae2e962be7af156e5200766fa8543cff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to upper case.  <a href="#ae2e962be7af156e5200766fa8543cff1">More...</a><br/></td></tr>
-<tr class="separator:ae2e962be7af156e5200766fa8543cff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2d603de6c132e340d85e8e125d847a0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#aa2d603de6c132e340d85e8e125d847a0">gk_strtolower</a> (char *str)</td></tr>
-<tr class="memdesc:aa2d603de6c132e340d85e8e125d847a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to lower case.  <a href="#aa2d603de6c132e340d85e8e125d847a0">More...</a><br/></td></tr>
-<tr class="separator:aa2d603de6c132e340d85e8e125d847a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af62038e97ca55f14ec2557a01bd85ca2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a> (char *orgstr)</td></tr>
-<tr class="memdesc:af62038e97ca55f14ec2557a01bd85ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplicates a string.  <a href="#af62038e97ca55f14ec2557a01bd85ca2">More...</a><br/></td></tr>
-<tr class="separator:af62038e97ca55f14ec2557a01bd85ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47570da67818e57e97fdd464bc60fbd1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a47570da67818e57e97fdd464bc60fbd1">gk_strcasecmp</a> (char *s1, char *s2)</td></tr>
-<tr class="memdesc:a47570da67818e57e97fdd464bc60fbd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Case insensitive string comparison.  <a href="#a47570da67818e57e97fdd464bc60fbd1">More...</a><br/></td></tr>
-<tr class="separator:a47570da67818e57e97fdd464bc60fbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50149c8c9f8dd36fcad46773f35eedc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a50149c8c9f8dd36fcad46773f35eedc4">gk_strrcmp</a> (char *s1, char *s2)</td></tr>
-<tr class="memdesc:a50149c8c9f8dd36fcad46773f35eedc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two strings in revere order.  <a href="#a50149c8c9f8dd36fcad46773f35eedc4">More...</a><br/></td></tr>
-<tr class="separator:a50149c8c9f8dd36fcad46773f35eedc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ca4ee9f715e6ce364af43f7f7a6cfc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a79ca4ee9f715e6ce364af43f7f7a6cfc">gk_time2str</a> (time_t time)</td></tr>
-<tr class="memdesc:a79ca4ee9f715e6ce364af43f7f7a6cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a time_t time into a string.  <a href="#a79ca4ee9f715e6ce364af43f7f7a6cfc">More...</a><br/></td></tr>
-<tr class="separator:a79ca4ee9f715e6ce364af43f7f7a6cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5973a9945423f69a60d3b209082fd718"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a5973a9945423f69a60d3b209082fd718">gk_str2time</a> (char *str)</td></tr>
-<tr class="memdesc:a5973a9945423f69a60d3b209082fd718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a date/time string into its equivalent time_t value.  <a href="#a5973a9945423f69a60d3b209082fd718">More...</a><br/></td></tr>
-<tr class="separator:a5973a9945423f69a60d3b209082fd718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9192cba632de98d1759721a5676eaf05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a9192cba632de98d1759721a5676eaf05">SetupGraph</a> (<a class="el" href="../../d6/d5b/a00026.html">ctrl_t</a> *ctrl, idx_t nvtxs, idx_t ncon, idx_t *xadj, idx_t *adjncy, idx_t *vwgt, idx_t *vsize, idx_t *adjwgt)</td></tr>
+<tr class="separator:a9192cba632de98d1759721a5676eaf05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a274db8b39f4bc294fcb5757b01ae31f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a274db8b39f4bc294fcb5757b01ae31f1">SetupGraph_tvwgt</a> (<a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *graph)</td></tr>
+<tr class="separator:a274db8b39f4bc294fcb5757b01ae31f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6513355a80c360956e3f38816621ae1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a6513355a80c360956e3f38816621ae1e">SetupGraph_label</a> (<a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *graph)</td></tr>
+<tr class="separator:a6513355a80c360956e3f38816621ae1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1dfd83fc2dc5e9f855c2d86b960c809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#ad1dfd83fc2dc5e9f855c2d86b960c809">SetupSplitGraph</a> (<a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *graph, idx_t snvtxs, idx_t snedges)</td></tr>
+<tr class="separator:ad1dfd83fc2dc5e9f855c2d86b960c809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01903fa912de9fc7f01dace993a3fc85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a01903fa912de9fc7f01dace993a3fc85">CreateGraph</a> (void)</td></tr>
+<tr class="separator:a01903fa912de9fc7f01dace993a3fc85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af046766ada304a0cf49db44b544810a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#af046766ada304a0cf49db44b544810a8">InitGraph</a> (<a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *graph)</td></tr>
+<tr class="separator:af046766ada304a0cf49db44b544810a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a6bda050dc470113f4d1cd5aa5777d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a12a6bda050dc470113f4d1cd5aa5777d">FreeRData</a> (<a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *graph)</td></tr>
+<tr class="separator:a12a6bda050dc470113f4d1cd5aa5777d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6af2646733e761482dafebbb5e351240"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd9/a00179.html#a6af2646733e761482dafebbb5e351240">FreeGraph</a> (<a class="el" href="../../d0/dc0/a00033.html">graph_t</a> **r_graph)</td></tr>
+<tr class="separator:a6af2646733e761482dafebbb5e351240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions for manipulating strings. </p>
-<p>Various functions for manipulating strings. Some of these functions provide new functionality, whereas others are drop-in replacements of standard functions (but with enhanced functionality).</p>
-<dl class="section date"><dt>Date</dt><dd>Started 11/1/99 </dd></dl>
-<dl class="section author"><dt>Author</dt><dd>George </dd></dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<dl class="section rcs"><dt>Id:</dt><dd><a class="el" href="../../db/dd9/a00179.html" title="Functions for manipulating strings. ">string.c</a> 10711 2011-08-31 22:23:04Z karypis </dd></dl>
+<div class="textblock"><p>Functions that deal with setting up the graphs for METIS. </p>
+<dl class="section date"><dt>Date</dt><dd>Started 7/25/1997 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>George </dd>
+<dd>
+Copyright 1997-2009, Regents of the University of Minnesota </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: graph.c 10513 2011-07-07 22:06:03Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+<p>Definition in file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5973a9945423f69a60d3b209082fd718"></a>
+<a class="anchor" id="a01903fa912de9fc7f01dace993a3fc85"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">time_t gk_str2time </td>
+          <td class="memname"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a>* CreateGraph </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This function creates and initializes a <a class="el" href="../../d0/dc0/a00033.html">graph_t</a> data structure </p>
 
-<p>Converts a date/time string into its equivalent time_t value. </p>
-<p>This function takes date and/or time specification and converts it in the equivalent time_t representation. The conversion is done using the strptime() function. The format that <a class="el" href="../../db/dd9/a00179.html#a5973a9945423f69a60d3b209082fd718" title="Converts a date/time string into its equivalent time_t value. ">gk_str2time()</a> understands is <em>mm/dd/yyyy hh:mm:ss</em>, in which the hours are in military time.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the date/time string to be converted. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>If the conversion was successful it returns the time, otherwise it returns -1. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00499">499</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a47570da67818e57e97fdd464bc60fbd1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gk_strcasecmp </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Case insensitive string comparison. </p>
-<p>This function compares two strings for equality by ignoring the case of the strings.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This function is <b>not</b> equivalent to a case-insensitive <em>strcmp()</em> function, as it does not return ordering information.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../d9/db0/a00750.html#_todo000001">Todo:</a></b></dt><dd>Remove the above warning.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s1</td><td>is the first string to be compared. </td></tr>
-    <tr><td class="paramname">s2</td><td>is the second string to be compared. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">1</td><td>if the strings are identical, </td></tr>
-    <tr><td class="paramname">0</td><td>otherwise. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00405">405</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a29b909254dcbcae417f8c09ce21d5423"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* gk_strchr_replace </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fromlist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>tolist</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Replaces certain characters in a string. </p>
-<p>This function takes a string and replaces all the characters in the <code>fromlist</code> with the corresponding characters from the <code>tolist</code>. That is, each occurence of <code>fromlist[i]</code> is replaced by <code>tolist[i]</code>. If the <code>tolist</code> is shorter than <code>fromlist</code>, then the corresponding characters are deleted. The modifications on <code>str</code> are done in place. It tries to provide a functionality similar to Perl's <b>tr//</b> function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string whose characters will be replaced. </td></tr>
-    <tr><td class="paramname">fromlist</td><td>is the set of characters to be replaced. </td></tr>
-    <tr><td class="paramname">tolist</td><td>is the set of replacement characters . </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00037">37</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af62038e97ca55f14ec2557a01bd85ca2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* gk_strdup </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>orgstr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Duplicates a string. </p>
-<p>This function is a replacement for C's standard <em>strdup()</em> function. The key differences between the two are that <a class="el" href="../../db/dd9/a00179.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. ">gk_strdup()</a>:</p>
-<ul>
-<li>uses the dynamic memory allocation routines of <em>GKlib</em>.</li>
-<li>it correctly handles NULL input strings.</li>
-</ul>
-<p>The string that is returned must be freed by gk_free().</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">orgstr</td><td>is the string that will be duplicated. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created string. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>gk_free() </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00372">372</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00162">162</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/dd9/a00179_af62038e97ca55f14ec2557a01bd85ca2_cgraph.png" border="0" usemap="#db/dd9/a00179_af62038e97ca55f14ec2557a01bd85ca2_cgraph" alt=""/></div>
-<map name="db/dd9/a00179_af62038e97ca55f14ec2557a01bd85ca2_cgraph" id="db/dd9/a00179_af62038e97ca55f14ec2557a01bd85ca2_cgraph">
-<area shape="rect" id="node2" href="../../d3/d65/a00154.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="147,5,242,35"/><area shape="rect" id="node3" href="../../d2/df5/a00137.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="478,5,570,35"/><area shape="rect" id="node4" href="../../d3/d65/a00154.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="291,31,429,60"/></map>
+<div class="center"><img src="../../db/dd9/a00179_a01903fa912de9fc7f01dace993a3fc85_cgraph.png" border="0" usemap="#db/dd9/a00179_a01903fa912de9fc7f01dace993a3fc85_cgraph" alt=""/></div>
+<map name="db/dd9/a00179_a01903fa912de9fc7f01dace993a3fc85_cgraph" id="db/dd9/a00179_a01903fa912de9fc7f01dace993a3fc85_cgraph">
+<area shape="rect" id="node2" href="../../d6/dfb/a00172.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="169,5,263,35"/><area shape="rect" id="node5" href="../../db/dd9/a00179.html#af046766ada304a0cf49db44b544810a8" title="InitGraph" alt="" coords="173,59,259,88"/><area shape="rect" id="node3" href="../../d3/df8/a00155.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="499,7,591,36"/><area shape="rect" id="node4" href="../../d6/dfb/a00172.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="312,32,451,61"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="adf6c1dfa83b68cea7f048086e0a585c0"></a>
+<a class="anchor" id="a6af2646733e761482dafebbb5e351240"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strhprune </td>
+          <td class="memname">void FreeGraph </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> **&#160;</td>
+          <td class="paramname"><em>r_graph</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>rmlist</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This function deallocates any memory stored in a graph </p>
 
-<p>Prunes characters from the beginning of the string. </p>
-<p>This function removes any starting characters that are included in the <code>rmlist</code>. The trimming stops at the first character that is not in <code>rmlist</code>. This function can be used to removed leading spaces, tabs, etc. This is a distructive operation as it modifies the string.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string that will be trimmed. </td></tr>
-    <tr><td class="paramname">rmlist</td><td>contains the set of characters that will be removed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../db/dd9/a00179.html#a05261ee12d082a78cabc018d2f5e2266" title="Prunes characters from the end of the string. ">gk_strtprune()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00291">291</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a50149c8c9f8dd36fcad46773f35eedc4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gk_strrcmp </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compare two strings in revere order. </p>
-<p>This function is similar to strcmp but it performs the comparison as if the two strings were reversed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s1</td><td>is the first string to be compared. </td></tr>
-    <tr><td class="paramname">s2</td><td>is the second string to be compared. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">-1,0,1,if</td><td>the s1 &lt; s2, s1 == s2, or s1 &gt; s2. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00433">433</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a46e5cf8f76a1ece74adf1b8b9dfcb275"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gk_strstr_replace </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>pattern</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>replacement</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>options</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>new_str</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Regex-based search-and-replace function. </p>
-<p>This function is a C implementation of Perl's <code> s//</code> regular-expression based substitution function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the input string on which the operation will be performed. </td></tr>
-    <tr><td class="paramname">pattern</td><td>is the regular expression for the pattern to be matched for substitution. </td></tr>
-    <tr><td class="paramname">replacement</td><td>is the replacement string, in which the possible captured pattern substrings are referred to as $1, $2, ..., $9. The entire matched pattern is refered to as $0. </td></tr>
-    <tr><td class="paramname">options</td><td>is a string specified options for the substitution operation. Currently the <code>"i"</code> (case insensitive) and <code>"g"</code> (global substitution) are supported. </td></tr>
-    <tr><td class="paramname">new_str</td><td>is a reference to a pointer that will store a pointer to the newly created string that results from the substitutions. This string is allocated via <a class="el" href="../../d3/d65/a00154.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc()</a> and needs to be freed using gk_free(). The string is returned even if no substitutions were performed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>If successful, it returns 1 + the number of substitutions that were performed. Thus, if no substitutions were performed, the returned value will be 1. Otherwise it returns 0. In case of error, a meaningful error message is returned in <code>newstr</code>, which also needs to be freed afterwards. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00094">94</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00247">247</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/dd9/a00179_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph.png" border="0" usemap="#db/dd9/a00179_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph" alt=""/></div>
-<map name="db/dd9/a00179_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph" id="db/dd9/a00179_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph">
-<area shape="rect" id="node2" href="../../db/dd9/a00179.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="198,5,290,35"/><area shape="rect" id="node3" href="../../d3/d65/a00154.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="339,5,434,35"/><area shape="rect" id="node4" href="../../d2/df5/a00137.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="670,5,762,35"/><area shape="rect" id="node5" href="../../d3/d65/a00154.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="483,31,621,60"/></map>
+<div class="center"><img src="../../db/dd9/a00179_a6af2646733e761482dafebbb5e351240_cgraph.png" border="0" usemap="#db/dd9/a00179_a6af2646733e761482dafebbb5e351240_cgraph" alt=""/></div>
+<map name="db/dd9/a00179_a6af2646733e761482dafebbb5e351240_cgraph" id="db/dd9/a00179_a6af2646733e761482dafebbb5e351240_cgraph">
+<area shape="rect" id="node2" href="../../db/dd9/a00179.html#a12a6bda050dc470113f4d1cd5aa5777d" title="FreeRData" alt="" coords="152,4,253,33"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aa2d603de6c132e340d85e8e125d847a0"></a>
+<a class="anchor" id="a12a6bda050dc470113f4d1cd5aa5777d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strtolower </td>
+          <td class="memname">void FreeRData </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This function frees the refinement/partition memory stored in a graph </p>
 
-<p>Converts a string to lower case. </p>
-<p>This function converts a string to lower case. This operation modifies the string itself.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string whose case will be changed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../db/dd9/a00179.html#ae2e962be7af156e5200766fa8543cff1" title="Converts a string to upper case. ">gk_strtoupper()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00348">348</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00228">228</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae2e962be7af156e5200766fa8543cff1"></a>
+<a class="anchor" id="af046766ada304a0cf49db44b544810a8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strtoupper </td>
+          <td class="memname">void InitGraph </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This function initializes a <a class="el" href="../../d0/dc0/a00033.html">graph_t</a> data structure </p>
 
-<p>Converts a string to upper case. </p>
-<p>This function converts a string to upper case. This operation modifies the string itself.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string whose case will be changed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../db/dd9/a00179.html#aa2d603de6c132e340d85e8e125d847a0" title="Converts a string to lower case. ">gk_strtolower()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00328">328</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00177">177</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a05261ee12d082a78cabc018d2f5e2266"></a>
+<a class="anchor" id="a9192cba632de98d1759721a5676eaf05"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strtprune </td>
+          <td class="memname"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a>* SetupGraph </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d6/d5b/a00026.html">ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>ctrl</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>rmlist</em>&#160;</td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>nvtxs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>ncon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>xadj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>adjncy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>vwgt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>vsize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t *&#160;</td>
+          <td class="paramname"><em>adjwgt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -574,48 +312,100 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This function sets up the graph from the user input </p>
 
-<p>Prunes characters from the end of the string. </p>
-<p>This function removes any trailing characters that are included in the <code>rmlist</code>. The trimming stops at the last character (i.e., first character from the end) that is not in <code>rmlist</code>. This function can be used to removed trailing spaces, newlines, etc. This is a distructive operation as it modifies the string.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string that will be trimmed. </td></tr>
-    <tr><td class="paramname">rmlist</td><td>contains the set of characters that will be removed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../db/dd9/a00179.html#adf6c1dfa83b68cea7f048086e0a585c0" title="Prunes characters from the beginning of the string. ">gk_strhprune()</a> </dd></dl>
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00017">17</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00254">254</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/dd9/a00179_a9192cba632de98d1759721a5676eaf05_cgraph.png" border="0" usemap="#db/dd9/a00179_a9192cba632de98d1759721a5676eaf05_cgraph" alt=""/></div>
+<map name="db/dd9/a00179_a9192cba632de98d1759721a5676eaf05_cgraph" id="db/dd9/a00179_a9192cba632de98d1759721a5676eaf05_cgraph">
+<area shape="rect" id="node2" href="../../db/dd9/a00179.html#a01903fa912de9fc7f01dace993a3fc85" title="CreateGraph" alt="" coords="183,32,297,61"/><area shape="rect" id="node7" href="../../db/dd9/a00179.html#a274db8b39f4bc294fcb5757b01ae31f1" title="SetupGraph_tvwgt" alt="" coords="163,85,317,115"/><area shape="rect" id="node8" href="../../db/dd9/a00179.html#a6513355a80c360956e3f38816621ae1e" title="SetupGraph_label" alt="" coords="164,139,316,168"/><area shape="rect" id="node3" href="../../d6/dfb/a00172.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="366,5,461,35"/><area shape="rect" id="node6" href="../../db/dd9/a00179.html#af046766ada304a0cf49db44b544810a8" title="InitGraph" alt="" coords="370,59,457,88"/><area shape="rect" id="node4" href="../../d3/df8/a00155.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="697,7,789,36"/><area shape="rect" id="node5" href="../../d6/dfb/a00172.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="509,32,648,61"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a79ca4ee9f715e6ce364af43f7f7a6cfc"></a>
+<a class="anchor" id="a6513355a80c360956e3f38816621ae1e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_time2str </td>
+          <td class="memname">void SetupGraph_label </td>
           <td>(</td>
-          <td class="paramtype">time_t&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Set's up the label info </p>
 
-<p>Converts a time_t time into a string. </p>
-<p>This function takes a time_t-specified time and returns a string-formated representation of the corresponding time. The format of the string is <em>mm/dd/yyyy hh:mm:ss</em>, in which the hours are in military time.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">time</td><td>is the time to be converted. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>It returns a pointer to a statically allocated string that is over-written in successive calls of this function. If the conversion failed, it returns NULL. </dd></dl>
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00118">118</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
 
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00470">470</a> of file <a class="el" href="../../db/dd9/a00179_source.html">string.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a274db8b39f4bc294fcb5757b01ae31f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetupGraph_tvwgt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set's up the tvwgt/invtvwgt info </p>
+
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00099">99</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1dfd83fc2dc5e9f855c2d86b960c809"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a>* SetupSplitGraph </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/dc0/a00033.html">graph_t</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>snvtxs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">idx_t&#160;</td>
+          <td class="paramname"><em>snedges</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setup the various arrays for the splitted graph </p>
+
+<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00133">133</a> of file <a class="el" href="../../db/dd9/a00179_source.html">graph.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/dd9/a00179_ad1dfd83fc2dc5e9f855c2d86b960c809_cgraph.png" border="0" usemap="#db/dd9/a00179_ad1dfd83fc2dc5e9f855c2d86b960c809_cgraph" alt=""/></div>
+<map name="db/dd9/a00179_ad1dfd83fc2dc5e9f855c2d86b960c809_cgraph" id="db/dd9/a00179_ad1dfd83fc2dc5e9f855c2d86b960c809_cgraph">
+<area shape="rect" id="node2" href="../../db/dd9/a00179.html#a01903fa912de9fc7f01dace993a3fc85" title="CreateGraph" alt="" coords="195,32,309,61"/><area shape="rect" id="node3" href="../../d6/dfb/a00172.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="358,5,453,35"/><area shape="rect" id="node6" href="../../db/dd9/a00179.html#af046766ada304a0cf49db44b544810a8" title="InitGraph" alt="" coords="362,59,449,88"/><area shape="rect" id="node4" href="../../d3/df8/a00155.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="689,7,781,36"/><area shape="rect" id="node5" href="../../d6/dfb/a00172.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="501,32,640,61"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -624,8 +414,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../db/dd9/a00179.html">string.c</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:45 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><a class="el" href="../../db/dd9/a00179.html">graph.c</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

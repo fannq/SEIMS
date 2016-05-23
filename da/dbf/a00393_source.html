@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/Measurement.cpp Source File</title>
+<title>SEIMS-2016: src/base/bmps/TillageParameter.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,48 +111,50 @@ $(document).ready(function(){initNavTree('da/dbf/a00393_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Measurement.cpp</div>  </div>
+<div class="title">TillageParameter.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../da/dbf/a00393.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dad/a00394.html">Measurement.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d70/a00431.html">utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;bson.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/df3/a00424.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;TillageParameter.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;stdlib.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>MainBMP;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>BMPParameter;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define TILLAGE_PARAMETER_COUNT 5</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define     TILLAGE_PARAMETER_INDEX_EFFMIX      3</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define     TILLAGE_PARAMETER_INDEX_DEPTIL      4</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;TillageParameter::TillageParameter(vector&lt;string&gt; *oneRow):ArealParameter(oneRow)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(<span class="keywordtype">int</span>(oneRow-&gt;size()) &lt; TILLAGE_PARAMETER_COUNT)   <span class="keywordflow">throw</span> <a class="code" href="../../d2/dee/a00049.html">ModelException</a>(<span class="stringliteral">&quot;TillageParameter&quot;</span>,<span class="stringliteral">&quot;TillageParameter&quot;</span>,<span class="stringliteral">&quot;oneRow should have 5 parameters at least!&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    this-&gt;m_mixingEfficiency    =   (float)atof(oneRow-&gt;at(TILLAGE_PARAMETER_INDEX_EFFMIX).c_str());</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;m_mixingDepth         =   (float)atof(oneRow-&gt;at(TILLAGE_PARAMETER_INDEX_DEPTIL).c_str());</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../db/d3a/a00040.html#a4ceebf09b2dbb7edfefe10c7f64b0683">   20</a></span>&#160;<a class="code" href="../../db/d3a/a00040.html#a4ceebf09b2dbb7edfefe10c7f64b0683">Measurement::Measurement</a>(mongoc_client_t* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    :m_conn(conn), m_startTime(startTime), m_endTime(endTime), pData(NULL)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;TillageParameter::~TillageParameter(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    vector&lt;string&gt; vecSites = <a class="code" href="../../d1/d6e/a00073.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a>(sitesList, <span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> nSites = vecSites.size();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">//convert from string to int and sort</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iSite = 0; iSite &lt; nSites; iSite++)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="../../db/d3a/a00040.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.push_back(atoi(vecSites[iSite].c_str()));</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    sort(<a class="code" href="../../db/d3a/a00040.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.begin(), <a class="code" href="../../db/d3a/a00040.html#acffdb39ed0357326cec16264231ae695">m_siteIDList</a>.end());</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../db/d3a/a00040.html#a2114a606e03739f92b2ba8825fc1334c">pData</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[nSites];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../db/d3a/a00040.html#a6743c23fdd99a63831f93979bef779c8">   31</a></span>&#160;<a class="code" href="../../db/d3a/a00040.html#a6743c23fdd99a63831f93979bef779c8">Measurement::~Measurement</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../db/d3a/a00040.html#a2114a606e03739f92b2ba8825fc1334c">pData</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="ttc" id="a00424_html"><div class="ttname"><a href="../../dc/df3/a00424.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
-<div class="ttc" id="a00040_html_acffdb39ed0357326cec16264231ae695"><div class="ttname"><a href="../../db/d3a/a00040.html#acffdb39ed0357326cec16264231ae695">Measurement::m_siteIDList</a></div><div class="ttdeci">vector&lt; int &gt; m_siteIDList</div><div class="ttdoc">Site IDs list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00058">Measurement.h:58</a></div></div>
-<div class="ttc" id="a00040_html_a2114a606e03739f92b2ba8825fc1334c"><div class="ttname"><a href="../../db/d3a/a00040.html#a2114a606e03739f92b2ba8825fc1334c">Measurement::pData</a></div><div class="ttdeci">float * pData</div><div class="ttdoc">Measurement data of all sites in given date. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dad/a00394_source.html#l00066">Measurement.h:66</a></div></div>
-<div class="ttc" id="a00040_html_a4ceebf09b2dbb7edfefe10c7f64b0683"><div class="ttname"><a href="../../db/d3a/a00040.html#a4ceebf09b2dbb7edfefe10c7f64b0683">Measurement::Measurement</a></div><div class="ttdeci">Measurement(mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startDate, time_t endDate)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00020">Measurement.cpp:20</a></div></div>
-<div class="ttc" id="a00073_html_acc97bce7b8fc83ae5fbf851233dbf29a"><div class="ttname"><a href="../../d1/d6e/a00073.html#acc97bce7b8fc83ae5fbf851233dbf29a">utils::SplitString</a></div><div class="ttdeci">static vector&lt; string &gt; SplitString(string item, char delimiter)</div><div class="ttdoc">Splits the given string based on the given delimiter. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00243">utils.cpp:243</a></div></div>
-<div class="ttc" id="a00040_html_a6743c23fdd99a63831f93979bef779c8"><div class="ttname"><a href="../../db/d3a/a00040.html#a6743c23fdd99a63831f93979bef779c8">Measurement::~Measurement</a></div><div class="ttdeci">~Measurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/a00393_source.html#l00031">Measurement.cpp:31</a></div></div>
-<div class="ttc" id="a00431_html"><div class="ttname"><a href="../../df/d70/a00431.html">utils.h</a></div><div class="ttdoc">Utilities class to handle string, date time and file. </div></div>
-<div class="ttc" id="a00394_html"><div class="ttname"><a href="../../d9/dad/a00394.html">Measurement.h</a></div><div class="ttdoc">Measurement class to store HydroClimate site data. </div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> TillageParameter::Dump(ostream* fs)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(fs == NULL) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ArealParameter::Dump(fs);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    *fs &lt;&lt; <span class="stringliteral">&quot;EFFMIX:&quot;</span> &lt;&lt; this-&gt;m_mixingEfficiency &lt;&lt; endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    *fs &lt;&lt; <span class="stringliteral">&quot;DEPTIL:&quot;</span> &lt;&lt; this-&gt;m_mixingDepth &lt;&lt; endl;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="ttc" id="a00049_html"><div class="ttname"><a href="../../d2/dee/a00049.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d34/a00442_source.html#l00024">ModelException.h:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../da/dbf/a00393.html">Measurement.cpp</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:44 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_f612669f2eca1d9a6dfdb1f85a58d99d.html">bmps</a></li><li class="navelem"><b>TillageParameter.cpp</b></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

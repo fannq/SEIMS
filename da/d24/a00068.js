@@ -1,9 +1,8 @@
 var a00068 =
 [
-    [ "slTable", "da/d24/a00068.html#ac847356c51cf0f2de2ad033525bbf23e", null ],
-    [ "~slTable", "da/d24/a00068.html#a6e89beb6ee7638c477ee8dc96f85dd66", null ],
-    [ "FieldValue", "da/d24/a00068.html#abb56a581d1fd10567ad208347ec578a7", null ],
-    [ "nCols", "da/d24/a00068.html#a4e2965e5fd32bef8dd66b8e46cd00a9f", null ],
-    [ "nRows", "da/d24/a00068.html#adea6ff1f79a5048f86d45a1a77ec9ae2", null ],
-    [ "pData", "da/d24/a00068.html#adfbf7d70ba482dcc689ef8eb248e27b0", null ]
+    [ "RegularMeasurement", "da/d24/a00068.html#aa99c037597c244227ecfd437a8644432", null ],
+    [ "~RegularMeasurement", "da/d24/a00068.html#a1f44d19ffde71e64385f25b24732ff83", null ],
+    [ "GetSiteDataByTime", "da/d24/a00068.html#a6528f99c36c06961b7eeafbccc2a5f52", null ],
+    [ "m_interval", "da/d24/a00068.html#a6fffb32a797276d7cc6b2bd8b2f369c8", null ],
+    [ "m_siteData", "da/d24/a00068.html#a9e9eee588a575d7a89a66b9728b9f81c", null ]
 ];

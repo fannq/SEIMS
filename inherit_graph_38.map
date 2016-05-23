@@ -1,18 +1,36 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d9/db3/a00066.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="6,379,157,408"/>
-<area shape="rect" id="node2" href="$d7/de0/a00022.html" title="Read Time Series Data, e.g., Maximum temperature. " alt="" coords="239,5,347,35"/>
-<area shape="rect" id="node3" href="$d0/d33/a00027.html" title="Routing in the channel. " alt="" coords="231,59,356,88"/>
-<area shape="rect" id="node4" href="$d4/d8c/a00035.html" title="Interpolation. " alt="" coords="245,112,342,141"/>
-<area shape="rect" id="node5" href="$d8/d41/a00038.html" title="Kinematic wave method for channel flow erosion and deposition. " alt="" coords="223,165,363,195"/>
-<area shape="rect" id="node6" href="$d3/de7/a00039.html" title="Kinematic wave method for overland flow erosion and deposition. " alt="" coords="225,219,362,248"/>
-<area shape="rect" id="node7" href="$d3/dea/a00046.html" title="channel flow routing using Muskingum method " alt="" coords="242,272,345,301"/>
-<area shape="rect" id="node8" href="$d6/d2d/a00047.html" title="Channel routing using Muskingum&#45;Cunge method. " alt="" coords="241,325,345,355"/>
-<area shape="rect" id="node9" href="$d4/dca/a00048.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="239,379,348,408"/>
-<area shape="rect" id="node10" href="$d1/d84/a00052.html" title="Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the prof..." alt="" coords="219,432,368,461"/>
-<area shape="rect" id="node11" href="$d1/d22/a00057.html" title="Hargreaves method to Compute PET. " alt="" coords="225,485,362,515"/>
-<area shape="rect" id="node12" href="$d7/df7/a00058.html" title="Penman Monteith Method to Compute PET. " alt="" coords="206,539,381,568"/>
-<area shape="rect" id="node13" href="$d3/d8b/a00059.html" title="Priestley Taylor Method to Compute PET. " alt="" coords="213,592,374,621"/>
-<area shape="rect" id="node14" href="$df/d03/a00062.html" title="Sediment routing using variable channel dimension(VCD) method at daily time scale. " alt="" coords="237,645,349,675"/>
-<area shape="rect" id="node15" href="$d2/db1/a00070.html" title="Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_..." alt="" coords="224,699,363,728"/>
-<area shape="rect" id="node16" href="$d6/d2c/a00072.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="220,752,367,781"/>
+<area shape="rect" id="node1" href="$d9/da5/a00075.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="6,859,157,888"/>
+<area shape="rect" id="node2" href="$d4/d51/a00017.html" title="Calculate the Precipitation Interception. " alt="" coords="247,5,350,35"/>
+<area shape="rect" id="node3" href="$d3/d52/a00023.html" title="Read Time Series Data, e.g., Maximum temperature. " alt="" coords="245,59,353,88"/>
+<area shape="rect" id="node4" href="$dc/d3c/a00028.html" title="function to return the XML Metadata document string " alt="" coords="217,112,380,141"/>
+<area shape="rect" id="node5" href="$d5/d16/a00029.html" title="Routing in the channel. " alt="" coords="236,165,361,195"/>
+<area shape="rect" id="node6" href="$db/df3/a00034.html" title="Overland routing using 4&#45;point implicit finite difference method. " alt="" coords="239,219,358,248"/>
+<area shape="rect" id="node7" href="$d8/d41/a00038.html" title="Interpolation. " alt="" coords="250,272,347,301"/>
+<area shape="rect" id="node8" href="$db/d3a/a00040.html" title="IUH overland method to calculate interflow routing. " alt="" coords="262,325,335,355"/>
+<area shape="rect" id="node9" href="$dd/d32/a00041.html" title="IUH overland method to calculate interflow routing. " alt="" coords="259,379,339,408"/>
+<area shape="rect" id="node10" href="$d6/d42/a00043.html" title="Kinematic wave method for channel flow erosion and deposition. " alt="" coords="229,432,369,461"/>
+<area shape="rect" id="node11" href="$d5/df9/a00044.html" title="Kinematic wave method for overland flow erosion and deposition. " alt="" coords="230,485,367,515"/>
+<area shape="rect" id="node12" href="$d2/d79/a00051.html" title="Overland routing using 4&#45;point implicit finite difference method. " alt="" coords="247,539,350,568"/>
+<area shape="rect" id="node13" href="$d1/d84/a00052.html" title="Channel routing using Muskingum&#45;Cunge method. " alt="" coords="247,592,351,621"/>
+<area shape="rect" id="node14" href="$dc/dee/a00053.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="244,645,353,675"/>
+<area shape="rect" id="node15" href="$d1/d22/a00057.html" title="Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the prof..." alt="" coords="224,699,373,728"/>
+<area shape="rect" id="node16" href="$df/d03/a00062.html" title="Calculate water percolated. " alt="" coords="259,752,339,781"/>
+<area shape="rect" id="node17" href="$d1/d6f/a00063.html" title="Calculate water percolated. " alt="" coords="249,805,348,835"/>
+<area shape="rect" id="node18" href="$df/d5f/a00064.html" title="Hargreaves method to Compute PET. " alt="" coords="230,859,367,888"/>
+<area shape="rect" id="node19" href="$de/de1/a00065.html" title="Penman Monteith Method to Compute PET. " alt="" coords="211,912,386,941"/>
+<area shape="rect" id="node20" href="$d9/db3/a00066.html" title="Priestley Taylor Method to Compute PET. " alt="" coords="218,965,379,995"/>
+<area shape="rect" id="node21" href="$d4/d31/a00069.html" title="Reservoir Method to calculate groundwater balance and baseflow. " alt="" coords="227,1019,371,1048"/>
+<area shape="rect" id="node22" href="$d2/db1/a00070.html" title="Sediment routing using variable channel dimension(VCD) method at daily time scale. " alt="" coords="243,1072,355,1101"/>
+<area shape="rect" id="node23" href="$d6/d2c/a00072.html" title="Calculate soil Temperature. " alt="" coords="256,1125,341,1155"/>
+<area shape="rect" id="node24" href="$d9/da4/a00078.html" title="Calculate snow accumulation and istribution of snowmelt. " alt="" coords="253,1179,344,1208"/>
+<area shape="rect" id="node25" href="$d1/d51/a00079.html" title="Calculate distribution of snowmelt. " alt="" coords="255,1232,343,1261"/>
+<area shape="rect" id="node26" href="$da/dec/a00080.html" title="– " alt="" coords="253,1285,345,1315"/>
+<area shape="rect" id="node27" href="$d4/d63/a00082.html" title="Soil temperature. " alt="" coords="205,1339,392,1368"/>
+<area shape="rect" id="node28" href="$d2/d1f/a00083.html" title="Soil water balance. " alt="" coords="254,1392,343,1421"/>
+<area shape="rect" id="node29" href="$df/d5d/a00084.html" title="Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_..." alt="" coords="229,1445,368,1475"/>
+<area shape="rect" id="node30" href="$df/d13/a00085.html" title="Calculate distribution of snow sublimation. " alt="" coords="255,1499,343,1528"/>
+<area shape="rect" id="node31" href="$da/d2a/a00086.html" title="– " alt="" coords="255,1552,343,1581"/>
+<area shape="rect" id="node32" href="$db/ddf/a00088.html" title="SCS Curve Number Method to calculate infiltration and excess precipitation. " alt="" coords="253,1605,344,1635"/>
+<area shape="rect" id="node33" href="$db/dab/a00089.html" title="Modified Rational Method to calculate infiltration and excess precipitation. " alt="" coords="253,1659,344,1688"/>
+<area shape="rect" id="node34" href="$d9/dec/a00090.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="225,1712,372,1741"/>
 </map>

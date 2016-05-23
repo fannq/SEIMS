@@ -1,11 +1,11 @@
 var a00063 =
 [
-    [ "SEIMSModule", "d1/d6f/a00063.html#ab8fe2454147cec15aff0443c70ba1b80", null ],
-    [ "~SEIMSModule", "d1/d6f/a00063.html#aff75b2e2dc0f0654e914caee401270e5", null ],
-    [ "CheckInputData", "d1/d6f/a00063.html#a5d9914736640a75c80981c31f32a4746", null ],
-    [ "CheckInputSize", "d1/d6f/a00063.html#a13869abaa288d21f2eb3588e1edd9241", null ],
-    [ "CreateBasicMetadataInfo", "d1/d6f/a00063.html#acf2fb28583bb5849af4fe0d05cbfc258", null ],
-    [ "MetadataInformation", "d1/d6f/a00063.html#a5eb27c0499ed1c6b9f2590e7845729e6", null ],
-    [ "SetDate", "d1/d6f/a00063.html#a994d63884d44b202c96fb0c0ee86253d", null ],
-    [ "SetValue", "d1/d6f/a00063.html#a2f5460b94d05ab6f0e09d90806ac0fa5", null ]
+    [ "CheckInputData", "d1/d6f/a00063.html#a4b248834086f8b5dee27526dfaad25ac", null ],
+    [ "CheckInputSize", "d1/d6f/a00063.html#a73e9193375fd8bdf8b1798c6c944a3aa", null ],
+    [ "Execute", "d1/d6f/a00063.html#aa872fbe3398dc30a7964c63950c7b981", null ],
+    [ "Get2DData", "d1/d6f/a00063.html#a49f446cb775149844fe3c006250353d6", null ],
+    [ "Set1DData", "d1/d6f/a00063.html#a42b2a1454db6bf651cc343d8db7c85d6", null ],
+    [ "Set2DData", "d1/d6f/a00063.html#af916d5aa6dbab5d0e314b33fb673766a", null ],
+    [ "SetValue", "d1/d6f/a00063.html#a684c669815b1441f244b50dff863a0fe", null ],
+    [ "m_nLayers", "d1/d6f/a00063.html#ac34af575843712753fbed5a31592dc33", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: vkrinfo_t Struct Reference</title>
+<title>SEIMS-2016: SimulationModule Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,118 +113,111 @@ $(document).ready(function(){initNavTree('d9/da5/a00075.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../dd/d48/a00995.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../d4/dbc/a01038.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">vkrinfo_t Struct Reference</div>  </div>
+<div class="title">SimulationModule Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../df/d17/a00231_source.html">struct.h</a>&gt;</code></p>
+<p>Base module for all simulation modules in SEIMS.  
+ <a href="../../d9/da5/a00075.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d3/dea/a00444_source.html">SimulationModule.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SimulationModule:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d21/a01039.png" border="0" usemap="#_simulation_module_inherit__map" alt="Inheritance graph"/></div>
+<map name="_simulation_module_inherit__map" id="_simulation_module_inherit__map">
+<area shape="rect" id="node2" href="../../d4/d51/a00017.html" title="Calculate the Precipitation Interception. " alt="" coords="5,399,176,1004"/><area shape="rect" id="node3" href="../../d3/d52/a00023.html" title="Read Time Series Data, e.g., Maximum temperature. " alt="" coords="201,624,340,779"/><area shape="rect" id="node4" href="../../dc/d3c/a00028.html" title="function to return the XML Metadata document string " alt="" coords="365,520,560,883"/><area shape="rect" id="node5" href="../../d5/d16/a00029.html" title="Routing in the channel. " alt="" coords="584,451,803,952"/><area shape="rect" id="node6" href="../../db/df3/a00034.html" title="Overland routing using 4&#45;point implicit finite difference method. " alt="" coords="827,442,1045,961"/><area shape="rect" id="node7" href="../../d8/d41/a00038.html" title="Interpolation. " alt="" coords="1069,485,1228,917"/><area shape="rect" id="node8" href="../../db/d3a/a00040.html" title="IUH overland method to calculate interflow routing. " alt="" coords="1253,494,1412,909"/><area shape="rect" id="node9" href="../../dd/d32/a00041.html" title="IUH overland method to calculate interflow routing. " alt="" coords="1437,494,1596,909"/><area shape="rect" id="node10" href="../../d6/d42/a00043.html" title="Kinematic wave method for channel flow erosion and deposition. " alt="" coords="1621,399,1856,1004"/><area shape="rect" id="node11" href="../../d5/df9/a00044.html" title="Kinematic wave method for overland flow erosion and deposition. " alt="" coords="1881,399,2121,1004"/><area shape="rect" id="node12" href="../../d2/d79/a00051.html" title="Overland routing using 4&#45;point implicit finite difference method. " alt="" coords="2145,433,2364,969"/><area shape="rect" id="node13" href="../../d1/d84/a00052.html" title="Channel routing using Muskingum&#45;Cunge method. " alt="" coords="2388,433,2607,969"/><area shape="rect" id="node14" href="../../dc/dee/a00053.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="2631,485,2812,917"/><area shape="rect" id="node15" href="../../d1/d22/a00057.html" title="Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the prof..." alt="" coords="2836,468,3017,935"/><area shape="rect" id="node16" href="../../df/d03/a00062.html" title="Calculate water percolated. " alt="" coords="3042,468,3197,935"/><area shape="rect" id="node17" href="../../d1/d6f/a00063.html" title="Calculate water percolated. " alt="" coords="3222,468,3377,935"/><area shape="rect" id="node18" href="../../df/d5f/a00064.html" title="Hargreaves method to Compute PET. " alt="" coords="3402,520,3571,883"/><area shape="rect" id="node19" href="../../de/de1/a00065.html" title="Penman Monteith Method to Compute PET. " alt="" coords="3596,477,3817,926"/><area shape="rect" id="node20" href="../../d9/db3/a00066.html" title="Priestley Taylor Method to Compute PET. " alt="" coords="3842,520,4035,883"/><area shape="rect" id="node21" href="../../d4/d31/a00069.html" title="Reservoir Method to calculate groundwater balance and baseflow. " alt="" coords="4060,477,4236,926"/><area shape="rect" id="node22" href="../../d2/db1/a00070.html" title="Sediment routing using variable channel dimension(VCD) method at daily time scale. " alt="" coords="4260,381,4565,1021"/><area shape="rect" id="node23" href="../../d6/d2c/a00072.html" title="Calculate soil Temperature. " alt="" coords="4591,485,4747,917"/><area shape="rect" id="node24" href="../../d9/da4/a00078.html" title="Calculate snow accumulation and istribution of snowmelt. " alt="" coords="4772,503,4931,900"/><area shape="rect" id="node25" href="../../d1/d51/a00079.html" title="Calculate distribution of snowmelt. " alt="" coords="4956,485,5115,917"/><area shape="rect" id="node26" href="../../da/dec/a00080.html" title="– " alt="" coords="5140,468,5332,935"/><area shape="rect" id="node27" href="../../d4/d63/a00082.html" title="Soil temperature. " alt="" coords="5356,494,5575,909"/><area shape="rect" id="node28" href="../../d2/d1f/a00083.html" title="Soil water balance. " alt="" coords="5599,477,5789,926"/><area shape="rect" id="node29" href="../../df/d5d/a00084.html" title="Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_..." alt="" coords="5815,485,5985,917"/><area shape="rect" id="node30" href="../../df/d13/a00085.html" title="Calculate distribution of snow sublimation. " alt="" coords="6009,503,6168,900"/><area shape="rect" id="node31" href="../../da/d2a/a00086.html" title="– " alt="" coords="6194,477,6349,926"/><area shape="rect" id="node32" href="../../db/ddf/a00088.html" title="SCS Curve Number Method to calculate infiltration and excess precipitation. " alt="" coords="6375,468,6533,935"/><area shape="rect" id="node33" href="../../db/dab/a00089.html" title="Modified Rational Method to calculate infiltration and excess precipitation. " alt="" coords="6559,485,6717,917"/><area shape="rect" id="node34" href="../../d9/dec/a00090.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="6743,468,6924,935"/></map>
+</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a9befff2ea2c811563ad38aaf921a8f21"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a9befff2ea2c811563ad38aaf921a8f21">nid</a></td></tr>
-<tr class="separator:a9befff2ea2c811563ad38aaf921a8f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0af0fec11cab7aa7a343c268832cc709"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a0af0fec11cab7aa7a343c268832cc709">ned</a></td></tr>
-<tr class="separator:a0af0fec11cab7aa7a343c268832cc709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d9e4e351610f7b03203940a134bcd74"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a8d9e4e351610f7b03203940a134bcd74">gv</a></td></tr>
-<tr class="separator:a8d9e4e351610f7b03203940a134bcd74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa337d338d253918348c5ba9e4a5082ca"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aa337d338d253918348c5ba9e4a5082ca">nnbrs</a></td></tr>
-<tr class="separator:aa337d338d253918348c5ba9e4a5082ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a0150ff0f0fe87b0fc3bf445b60bca"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a85a0150ff0f0fe87b0fc3bf445b60bca">inbr</a></td></tr>
-<tr class="separator:a85a0150ff0f0fe87b0fc3bf445b60bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa9934866122995dc98611de6515f47c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:aa9934866122995dc98611de6515f47c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:aa9934866122995dc98611de6515f47c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686c39c1c4894cc144699ba0681d509d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a686c39c1c4894cc144699ba0681d509d"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a686c39c1c4894cc144699ba0681d509d">Execute</a> ()</td></tr>
+<tr class="memdesc:a686c39c1c4894cc144699ba0681d509d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
+<tr class="separator:a686c39c1c4894cc144699ba0681d509d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
+<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
+<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46191d743a839a5290fd42d318b500d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
+<tr class="memdesc:a46191d743a839a5290fd42d318b500d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
+<tr class="separator:a46191d743a839a5290fd42d318b500d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
+<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
+<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfef6ce1ce8761a961f694e3a7969bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcfef6ce1ce8761a961f694e3a7969bb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#afcfef6ce1ce8761a961f694e3a7969bb">SetValue</a> (const char *key, float data)</td></tr>
+<tr class="memdesc:afcfef6ce1ce8761a961f694e3a7969bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
+<tr class="separator:afcfef6ce1ce8761a961f694e3a7969bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba2d6fc2b0e4f8ccf202e0752c45d55c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba2d6fc2b0e4f8ccf202e0752c45d55c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aba2d6fc2b0e4f8ccf202e0752c45d55c">Set1DData</a> (const char *key, int n, float *data)</td></tr>
+<tr class="memdesc:aba2d6fc2b0e4f8ccf202e0752c45d55c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
+<tr class="separator:aba2d6fc2b0e4f8ccf202e0752c45d55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497fa950bc9c4d85cfb1ae13d83f06c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a497fa950bc9c4d85cfb1ae13d83f06c9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a497fa950bc9c4d85cfb1ae13d83f06c9">Set2DData</a> (const char *key, int nRows, int nCols, float **data)</td></tr>
+<tr class="memdesc:a497fa950bc9c4d85cfb1ae13d83f06c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
+<tr class="separator:a497fa950bc9c4d85cfb1ae13d83f06c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
+<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
+<tr class="separator:aafd60bc9d4176a0cf64af01aed881980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad834fe6ed6d11b333fd34e1ff605ebb7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad834fe6ed6d11b333fd34e1ff605ebb7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ad834fe6ed6d11b333fd34e1ff605ebb7">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
+<tr class="memdesc:ad834fe6ed6d11b333fd34e1ff605ebb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
+<tr class="separator:ad834fe6ed6d11b333fd34e1ff605ebb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dc960ad0a7bd7714e9644b64dc0acb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6dc960ad0a7bd7714e9644b64dc0acb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ab6dc960ad0a7bd7714e9644b64dc0acb">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
+<tr class="memdesc:ab6dc960ad0a7bd7714e9644b64dc0acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
+<tr class="separator:ab6dc960ad0a7bd7714e9644b64dc0acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272481bef46db20353da33e95a5f5426"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
+virtual <a class="el" href="../../d3/dea/a00444.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
+<tr class="memdesc:a272481bef46db20353da33e95a5f5426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
+<tr class="separator:a272481bef46db20353da33e95a5f5426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
+<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
+<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
+<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
+<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee1865c86a9761af76cec98cac30a44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
+<tr class="memdesc:adee1865c86a9761af76cec98cac30a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
+<tr class="separator:adee1865c86a9761af76cec98cac30a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The following data structure holds information on degrees for k-way vol-based partition </p>
+<div class="textblock"><p>Base module for all simulation modules in SEIMS. </p>
 
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00060">60</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8d9e4e351610f7b03203940a134bcd74"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::gv</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The volume gain of moving that vertex </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00063">63</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a85a0150ff0f0fe87b0fc3bf445b60bca"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::inbr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The index in the <a class="el" href="../../db/df8/a00076.html">vnbr_t</a> array where the nnbrs list of neighbors is stored </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00065">65</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0af0fec11cab7aa7a343c268832cc709"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::ned</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The total external degree of a vertex (count of edges) </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00062">62</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9befff2ea2c811563ad38aaf921a8f21"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::nid</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The internal degree of a vertex (count of edges) </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00061">61</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa337d338d253918348c5ba9e4a5082ca"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t vkrinfo_t::nnbrs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of neighboring subdomains </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00064">64</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../df/d17/a00231_source.html">struct.h</a></li>
+<p>Definition at line <a class="el" href="../../d3/dea/a00444_source.html#l00032">32</a> of file <a class="el" href="../../d3/dea/a00444_source.html">SimulationModule.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/util/<a class="el" href="../../d3/dea/a00444_source.html">SimulationModule.h</a></li>
+<li>src/base/util/<a class="el" href="../../d0/dc4/a00443_source.html">SimulationModule.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/da5/a00075.html">vkrinfo_t</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d9/da5/a00075.html">SimulationModule</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/TauDEM/Node.h Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/TauDEM/createpart.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,18 +111,18 @@ $(document).ready(function(){initNavTree('d3/d58/a00285_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Node.h</div>  </div>
+<div class="title">createpart.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*  TauDEM node headers that are part of D8 flow direction program.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">     </span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  David G Tarboton, Teklu K Tesfa</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Utah State University     </span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*  Taudem create partition header</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  David Tarboton, Dan Watson</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Utah State University  </span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  May 23, 2010</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  </span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*  Copyright (C) 2010  David Tarboton, Utah State University</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*  Copyright (C) 2009  David Tarboton, Utah State University</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">This program is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">modify it under the terms of the GNU General Public License </span></div>
@@ -153,28 +153,59 @@ $(document).ready(function(){initNavTree('d3/d58/a00285_source.html','../../');}
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//  This software is distributed from http://hydrology.usu.edu/taudem/</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">struct </span>Node {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> x;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> y;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    Node *parent;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">short</span> attr;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">short</span> ID;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifndef CREATEPART_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CREATEPART_H</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;commonLib.h&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;partition.h&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;linearpart.h&quot;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> merge( Node *A, Node *B) ;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> collapse( Node *A );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> setAttr( Node *A, <span class="keywordtype">int</span> newAttr );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span> getAttr( Node *A );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> setID( Node *A, <span class="keywordtype">int</span> newID );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> getID( Node *A );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;tdpartition *CreateNewPartition(DATA_TYPE datatype, <span class="keywordtype">long</span> totalx, <span class="keywordtype">long</span> totaly, <span class="keywordtype">double</span> dx, <span class="keywordtype">double</span> dy, <span class="keywordtype">void</span>* nodata){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">//Currently, this just creates a new linear partition</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//In the future, this could create any kind of partition, possibly using</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">//a &quot;partition_type&quot; flag as an argument</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//Also note that any data types that can be used must be listed here</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    tdpartition* ptr = NULL;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(datatype == SHORT_TYPE){</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        ptr = <span class="keyword">new</span> linearpart&lt;short&gt;;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        ptr-&gt;init(totalx, totaly, dx, dy, MPI_SHORT, *((<span class="keywordtype">short</span>*)nodata));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(datatype == LONG_TYPE){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        ptr = <span class="keyword">new</span> linearpart&lt;long&gt;;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        ptr-&gt;init(totalx, totaly, dx, dy, MPI_LONG, *((<span class="keywordtype">long</span>*)nodata));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(datatype == FLOAT_TYPE){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        ptr = <span class="keyword">new</span> linearpart&lt;float&gt;;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        ptr-&gt;init(totalx, totaly, dx, dy, MPI_FLOAT, *((<span class="keywordtype">float</span>*)nodata));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> ptr;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> type&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;tdpartition *CreateNewPartition(DATA_TYPE datatype, <span class="keywordtype">long</span> totalx, <span class="keywordtype">long</span> totaly, <span class="keywordtype">double</span> dx, <span class="keywordtype">double</span> dy, type nodata){</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">//Overloaded template version of the function</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">//Takes a constant as the nodata parameter, rather than a void pointer</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    tdpartition* ptr = NULL;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(datatype == SHORT_TYPE){</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        ptr = <span class="keyword">new</span> linearpart&lt;short&gt;;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        ptr-&gt;init(totalx, totaly, dx, dy, MPI_SHORT, (<span class="keywordtype">short</span>)nodata);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(datatype == LONG_TYPE){</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ptr = <span class="keyword">new</span> linearpart&lt;long&gt;;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        ptr-&gt;init(totalx, totaly, dx, dy, MPI_LONG, (<span class="keywordtype">long</span>)nodata);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(datatype == FLOAT_TYPE){</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        ptr = <span class="keyword">new</span> linearpart&lt;float&gt;;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        ptr-&gt;init(totalx, totaly, dx, dy, MPI_FLOAT, (<span class="keywordtype">float</span>)nodata);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> ptr;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_de4c123db9a00eb1452e6ec6a9e67c00.html">TauDEM</a></li><li class="navelem"><b>Node.h</b></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:44 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_de4c123db9a00eb1452e6ec6a9e67c00.html">TauDEM</a></li><li class="navelem"><b>createpart.h</b></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:33 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

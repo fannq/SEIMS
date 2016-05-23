@@ -1,7 +1,5 @@
 var a00220 =
 [
-    [ "METIS_PartGraphRecursive", "d5/d0b/a00220.html#a25fc90fd934931239b3c98ac4bdbce76", null ],
-    [ "MlevelRecursiveBisection", "d5/d0b/a00220.html#a5510f276b321a8450b2e9cc913c2f00f", null ],
-    [ "MultilevelBisect", "d5/d0b/a00220.html#a33c48a23cc94ea0221fa5c7317cd0222", null ],
-    [ "SplitGraphPart", "d5/d0b/a00220.html#a49d272affb67ce57b2d20dccd7f15f53", null ]
+    [ "key_gt", "d5/d0b/a00220.html#a89b02dbc0bd6ec64351eff7c65c6440e", null ],
+    [ "isorti", "d5/d0b/a00220.html#afc154279aa00bea9ce5c90b8c6906cc6", null ]
 ];

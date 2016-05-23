@@ -1,0 +1,9 @@
+<map id="ModelMain::ModelMain" name="ModelMain::ModelMain">
+<area shape="rect" id="node2" href="$db/db6/a00074.html#a69c16babc6f91db1fb907c7045ae3e09" title="Get daily time interval of simulation in sec. " alt="" coords="255,5,454,35"/>
+<area shape="rect" id="node3" href="$db/db6/a00074.html#afcb41ae2cda97acf9cde4ea93ac42f2c" title="Get time interval for hillslope scale processes. " alt="" coords="243,59,467,88"/>
+<area shape="rect" id="node4" href="$db/db6/a00074.html#a2aadc540afcd4379cdfa1af8d24ed99c" title="Get time interval for channel scale processes. " alt="" coords="243,112,466,141"/>
+<area shape="rect" id="node5" href="$d5/de0/a00050.html#ae73ce1d889374aa3deeb390a1e6e24c1" title="Check whether the output file is valid &#160;NEED TO BE UPDATED. " alt="" coords="253,165,456,195"/>
+<area shape="rect" id="node8" href="$d9/da5/a00075.html#a272481bef46db20353da33e95a5f5426" title="Get time step type. " alt="" coords="245,219,465,266"/>
+<area shape="rect" id="node6" href="$db/db6/a00074.html#a7a9ce2224d4680bccfd069f0fadf9a1d" title="Get start time of simulation. " alt="" coords="515,139,730,168"/>
+<area shape="rect" id="node7" href="$db/db6/a00074.html#a7c23aa31719d03a2ac39dbab46dbc184" title="Get end time of simulation. " alt="" coords="517,192,728,221"/>
+</map>

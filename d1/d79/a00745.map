@@ -1,3 +1,8 @@
-<map id="SNO_DD" name="SNO_DD">
-<area shape="rect" id="node1" href="$d6/d59/a00726.html" title="Longterm hydrology related modules. " alt="" coords="6,4,173,33"/>
+<map id="Erosion" name="Erosion">
+<area shape="rect" id="node3" href="$d9/db0/a00750.html" title="Kinematic wave method for channel flow erosion and deposition. " alt="" coords="262,5,402,35"/>
+<area shape="rect" id="node4" href="$d8/d4e/a00754.html" title="Park Equation for splash erosion. " alt="" coords="263,59,401,88"/>
+<area shape="rect" id="node5" href="$da/df2/a00751.html" title="Kinematic wave method for overland flow erosion and deposition. " alt="" coords="263,112,401,141"/>
+<area shape="rect" id="node6" href="$dd/d5c/a00752.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="277,165,387,195"/>
+<area shape="rect" id="node7" href="$dc/dd0/a00753.html" title="Sediment routing using variable channel dimension(VCD) method at daily time scale. " alt="" coords="276,219,388,248"/>
+<area shape="rect" id="node2" href="$da/da3/a00741.html" title="All functional modules in SEIMS. " alt="" coords="5,112,88,141"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SettingsOutput.h File Reference</title>
+<title>SEIMS-2016: src/base/data/RegularMeasurement.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,40 +111,37 @@ $(document).ready(function(){initNavTree('d3/d29/a00419.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SettingsOutput.h File Reference</div>  </div>
+<div class="title">RegularMeasurement.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Setting Outputs for SEIMS.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/dd6/a00415_source.html">Settings.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/d3d/a00409_source.html">PrintInfo.h</a>&quot;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/d56/a00384_source.html">clsRasterData.h</a>&quot;</code><br/>
-<code>#include &quot;mongoc.h&quot;</code><br/>
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d4f/a00420_source.html">RegularMeasurement.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d10/a00449_source.html">utils.h</a>&quot;</code><br/>
+<code>#include &quot;bson.h&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d34/a00442_source.html">ModelException.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SettingsOutput.h:</div>
+Include dependency graph for RegularMeasurement.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/de8/a00839.png" border="0" usemap="#src_2base_2module__setting_2_settings_output_8h" alt=""/></div>
-<map name="src_2base_2module__setting_2_settings_output_8h" id="src_2base_2module__setting_2_settings_output_8h">
-<area shape="rect" id="node2" href="../../d0/dd6/a00415.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="349,179,443,208"/><area shape="rect" id="node15" href="../../de/d3d/a00409.html" title="Class to store and manage the PRINT information from the file.out file. " alt="" coords="825,101,919,131"/><area shape="rect" id="node20" href="../../d2/d56/a00384.html" title="Define Raster class to handle raster data. " alt="" coords="993,179,1128,208"/><area shape="rect" id="node9" href="../../df/d70/a00431.html" title="Utilities class to handle string, date time and file. " alt="" coords="345,256,409,285"/><area shape="rect" id="node13" href="../../dc/df3/a00424.html" title="Define ModelException class. " alt="" coords="1053,333,1203,363"/><area shape="rect" id="node16" href="../../d1/d98/a00407.html" title="Class to store parameter item information. " alt="" coords="818,256,925,285"/><area shape="rect" id="node17" href="../../db/d43/a00422.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="757,333,925,363"/><area shape="rect" id="node21" href="../../d7/d93/a00397_source.html" title="MongoUtil.h" alt="" coords="1053,256,1160,285"/></map>
+<div class="center"><img src="../../d0/d82/a00857.png" border="0" usemap="#src_2base_2data_2_regular_measurement_8cpp" alt=""/></div>
+<map name="src_2base_2data_2_regular_measurement_8cpp" id="src_2base_2data_2_regular_measurement_8cpp">
+<area shape="rect" id="node3" href="../../db/d4f/a00420.html" title="Regular hydroclimate data, e.g., daily data. " alt="" coords="473,83,663,112"/><area shape="rect" id="node14" href="../../db/d34/a00442.html" title="Define ModelException class. " alt="" coords="5,237,155,267"/><area shape="rect" id="node16" href="../../d9/d10/a00449.html" title="Utilities class to handle string, date time and file. " alt="" coords="759,160,823,189"/><area shape="rect" id="node4" href="../../d9/d72/a00412.html" title="Measurement class to store HydroClimate site data. " alt="" coords="455,160,587,189"/><area shape="rect" id="node8" href="../../de/d84/a00447.html" title="Predefined string constants used in the code. " alt="" coords="611,160,671,189"/><area shape="rect" id="node9" href="../../d0/dd6/a00415_source.html" title="MongoUtil.h" alt="" coords="318,160,425,189"/><area shape="rect" id="node11" href="../../d4/d6d/a00402.html" title="Define Raster class to handle raster data. " alt="" coords="297,237,432,267"/></map>
 </div>
 </div>
 <p><a href="../../d3/d29/a00419_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Setting Outputs for SEIMS. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>June 2010 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>May 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d3/d29/a00419_source.html">SettingsOutput.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/d29/a00419_source.html">RegularMeasurement.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d3/d29/a00419.html">SettingsOutput.h</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d3/d29/a00419.html">RegularMeasurement.cpp</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:34 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

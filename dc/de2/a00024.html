@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: cnbr_t Struct Reference</title>
+<title>SEIMS-2016: clsWgnData Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,67 +113,73 @@ $(document).ready(function(){initNavTree('dc/de2/a00024.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../dc/d92/a00929.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d3/dcd/a00965.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">cnbr_t Struct Reference</div>  </div>
+<div class="title">clsWgnData Class Reference<div class="ingroups"><a class="el" href="../../d0/dab/a00735.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../df/d17/a00231_source.html">struct.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d91/a00459_source.html">clsWgnData.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a22be164ee3de87a051946a9ab71ae3b9"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a22be164ee3de87a051946a9ab71ae3b9">pid</a></td></tr>
-<tr class="separator:a22be164ee3de87a051946a9ab71ae3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dd27d862ee4554553d909072a8931f3"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a2dd27d862ee4554553d909072a8931f3">ed</a></td></tr>
-<tr class="separator:a2dd27d862ee4554553d909072a8931f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3f04ec5883590ee2e953bbef4af580e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f04ec5883590ee2e953bbef4af580e5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a3f04ec5883590ee2e953bbef4af580e5">clsWgnData</a> (string databasePath, <a class="el" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type)</td></tr>
+<tr class="memdesc:a3f04ec5883590ee2e953bbef4af580e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a3f04ec5883590ee2e953bbef4af580e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3d63f329531bd498e272057a26c5b79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3d63f329531bd498e272057a26c5b79"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#ab3d63f329531bd498e272057a26c5b79">~clsWgnData</a> (void)</td></tr>
+<tr class="memdesc:ab3d63f329531bd498e272057a26c5b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:ab3d63f329531bd498e272057a26c5b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc00d5baf9e09d2e1d44f0c433a88ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebc00d5baf9e09d2e1d44f0c433a88ac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#aebc00d5baf9e09d2e1d44f0c433a88ac">getWgnData</a> (int *nRows, int *nCols, float ***wgnData)</td></tr>
+<tr class="memdesc:aebc00d5baf9e09d2e1d44f0c433a88ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">get wgn data, nRows is 12 (months), <br/></td></tr>
+<tr class="separator:aebc00d5baf9e09d2e1d44f0c433a88ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc140a53f7099c46215a3f39f6fbb4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cc140a53f7099c46215a3f39f6fbb4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a8cc140a53f7099c46215a3f39f6fbb4b">show</a> (void)</td></tr>
+<tr class="memdesc:a8cc140a53f7099c46215a3f39f6fbb4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">show data <br/></td></tr>
+<tr class="separator:a8cc140a53f7099c46215a3f39f6fbb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a35213b076acce178f6953469016e3c84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35213b076acce178f6953469016e3c84"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a35213b076acce178f6953469016e3c84">readWgnData</a> (string, <a class="el" href="../../d2/d91/a00459.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type)</td></tr>
+<tr class="memdesc:a35213b076acce178f6953469016e3c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">read wgn data from Sqlite database. <br/></td></tr>
+<tr class="separator:a35213b076acce178f6953469016e3c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0b43da215ebd51fe8c0aa418fca08373"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b43da215ebd51fe8c0aa418fca08373"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a0b43da215ebd51fe8c0aa418fca08373">m_wtgTableName</a></td></tr>
+<tr class="memdesc:a0b43da215ebd51fe8c0aa418fca08373"><td class="mdescLeft">&#160;</td><td class="mdescRight">table name <br/></td></tr>
+<tr class="separator:a0b43da215ebd51fe8c0aa418fca08373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0f633156f50038d623f28e55049f96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a0f633156f50038d623f28e55049f96"></a>
+vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a2a0f633156f50038d623f28e55049f96">m_columns</a></td></tr>
+<tr class="memdesc:a2a0f633156f50038d623f28e55049f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">table column name <br/></td></tr>
+<tr class="separator:a2a0f633156f50038d623f28e55049f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a59f7e26b36f0e51734fa89ef41c22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7a59f7e26b36f0e51734fa89ef41c22"></a>
+float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a></td></tr>
+<tr class="memdesc:ab7a59f7e26b36f0e51734fa89ef41c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">wgn data <br/></td></tr>
+<tr class="separator:ab7a59f7e26b36f0e51734fa89ef41c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure stores cut-based k-way refinement info about an adjacent subdomain for a given vertex. </p>
+<div class="textblock"><dl class="deprecated"><dt><b><a class="el" href="../../d8/d7f/a00787.html#_deprecated000008">Deprecated:</a></b></dt><dd>For now, this class is deprecated?</dd></dl>
 
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00023">23</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a2dd27d862ee4554553d909072a8931f3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t cnbr_t::ed</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The sum of the weights of the adjacent edges that are incident on pid </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00025">25</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a22be164ee3de87a051946a9ab71ae3b9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t cnbr_t::pid</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The partition ID </p>
-
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00024">24</a> of file <a class="el" href="../../df/d17/a00231_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../df/d17/a00231_source.html">struct.h</a></li>
+<p>Definition at line <a class="el" href="../../d2/d91/a00459_source.html#l00034">34</a> of file <a class="el" href="../../d2/d91/a00459_source.html">clsWgnData.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/Deprecated/base_data/<a class="el" href="../../d2/d91/a00459_source.html">clsWgnData.h</a></li>
+<li>src/Deprecated/base_data/<a class="el" href="../../da/d65/a00458_source.html">clsWgnData.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/de2/a00024.html">cnbr_t</a></li>
-    <li class="footer">Generated on Sun May 22 2016 09:19:46 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dc/de2/a00024.html">clsWgnData</a></li>
+    <li class="footer">Generated on Mon May 23 2016 12:35:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
