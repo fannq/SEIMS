@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['var_5fa_5fbnk',['VAR_A_BNK',['../dd/d63/a00455.html#a76c725f412ec7c6cf0ae8c30217b5739',1,'text.h']]]
+  ['unit_5farea_5fkm2',['UNIT_AREA_KM2',['../dd/d63/a00455.html#a7725836907ba1e21cba7c855d67051f1',1,'text.h']]]
 ];

@@ -1,5 +1,5 @@
 <map id="PETPriestleyTaylor::Execute" name="PETPriestleyTaylor::Execute">
-<area shape="rect" id="node2" href="$d1/d6e/a00073.html#ae3be944e3a102d9320b1883e46adf272" title="calculates saturation vapor pressure at a given air temperature. " alt="" coords="237,5,398,51"/>
+<area shape="rect" id="node2" href="$d1/d6e/a00073.html#ae3be944e3a102d9320b1883e46adf272" title="check the input data. Make sure all the input data is available. " alt="" coords="237,5,398,51"/>
 <area shape="rect" id="node3" href="$de/de8/a00405.html#a6a04547c5d7d36efb95a9f9cc4a94378" title="Get the Julian day of one day. " alt="" coords="270,76,365,105"/>
 <area shape="rect" id="node4" href="$de/de8/a00405.html#aa197f33e632e504c37e04e47185ddcd7" title="Calculate the max solar radiation for a station of one day. " alt="" coords="238,129,397,159"/>
 <area shape="rect" id="node5" href="$de/de8/a00405.html#a699b5ae6b4166d7295090f27b3671c89" title="Calculates saturation vapor pressure at a given air temperature. " alt="" coords="216,183,419,212"/>
