@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('dd/d6d/a00111_source.html','../../');}
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        conn.drop_database(modelName)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    db = conn[modelName]</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ImportParameters(sqliteFile, db)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ImportParameters(sqliteFile, db)  <span class="comment">## import parameters.db3 to mongoDB</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    f.write(<span class="stringliteral">&quot;10, Generating reach table...\n&quot;</span>)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    f.flush()</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    GenerateReachTable(workingDir, db, forCluster)</div>
@@ -266,7 +266,7 @@ $(document).ready(function(){initNavTree('dd/d6d/a00111_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>build_db.py</b></li>
-    <li class="footer">Generated on Mon May 23 2016 14:27:58 for SEIMS-2016 by
+    <li class="footer">Generated on Tue May 24 2016 01:24:16 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -3,6 +3,7 @@ var searchData=
   ['size_5fcallocs',['size_callocs',['../dc/d87/a00032.html#aa407f9b9ca318fa8afa36ab1c936ec07',1,'gk_mcore_t']]],
   ['size_5fhallocs',['size_hallocs',['../dc/d87/a00032.html#a4c180c60538546b4ab67bb91264e1c6e',1,'gk_mcore_t']]],
   ['slope',['Slope',['../db/db2/a00020.html#acea9463fa94d48d3a29eed96650eb83f',1,'clsReach']]],
+  ['soil_5ftexture',['Soil_Texture',['../db/ddf/a00088.html#a7634b7721118c545c62a6bab93578960',1,'soil_param::SoilProperty']]],
   ['soillayers',['SoilLAYERS',['../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c',1,'soil_param::SoilProperty']]],
   ['sol_5ffop',['Sol_FOP',['../db/ddf/a00088.html#ae8db26addf6a2bd398e8a723547a747a',1,'soil_param::SoilProperty']]],
   ['sol_5fzmx',['Sol_ZMX',['../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039',1,'soil_param::SoilProperty']]],

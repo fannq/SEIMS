@@ -6,7 +6,7 @@ var a00751 =
     [ "GW_RSVR", "d4/d13/a00766.html", "d4/d13/a00766" ],
     [ "HS_WB", "d5/dae/a00767.html", null ],
     [ "IKW_CH", "d8/d20/a00768.html", "d8/d20/a00768" ],
-    [ "InterFlow_IKW", "dd/d51/a00769.html", "dd/d51/a00769" ],
+    [ "IKW_IF", "dd/d51/a00769.html", "dd/d51/a00769" ],
     [ "IKW_OL", "d0/d7e/a00770.html", "d0/d7e/a00770" ],
     [ "PERCO_DARCY", "dd/de5/a00771.html", "dd/de5/a00771" ],
     [ "PI_STORM", "d9/d9c/a00772.html", "d9/d9c/a00772" ],
