@@ -60,7 +60,6 @@ var searchData=
   ['sno_5fdd',['SNO_DD',['../df/d13/a00085.html',1,'SNO_DD'],['../df/d0c/a00788.html',1,'(Global Namespace)']]],
   ['sno_5fsp',['SNO_SP',['../da/d2a/a00086.html',1,'SNO_SP'],['../d8/d7d/a00789.html',1,'(Global Namespace)']]],
   ['sno_5fwb',['SNO_WB',['../d1/d1e/a00087.html',1,'SNO_WB'],['../d3/daf/a00790.html',1,'(Global Namespace)']]],
-  ['soil_5ftexture',['Soil_Texture',['../db/ddf/a00088.html#a7634b7721118c545c62a6bab93578960',1,'soil_param::SoilProperty']]],
   ['soillayers',['SoilLAYERS',['../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c',1,'soil_param::SoilProperty']]],
   ['soilproperty',['SoilProperty',['../db/ddf/a00088.html',1,'soil_param']]],
   ['soiltemperaturefinpl',['SoilTemperatureFINPL',['../db/dab/a00089.html',1,'']]],

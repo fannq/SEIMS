@@ -230,7 +230,7 @@ $(document).ready(function(){initNavTree('d0/d48/a00351_source.html','../../');}
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    sumorgp = 0.</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">## Calculate by layer</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">## calculate sol_cbn for lower layers if only have upper layer&#39;s data</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> nlyrs &gt;= 3 <span class="keywordflow">and</span> cbn[3] &lt;= 0:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> nlyrs &gt;= 3 <span class="keywordflow">and</span> cbn[2] &lt;= 0:</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(2,nlyrs):</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            tmpDepth = depth[i] - depth[1]</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            cbn[i] = cbn[i-1] * numpy.exp(-.001 * tmpDepth)</div>
@@ -358,7 +358,7 @@ $(document).ready(function(){initNavTree('d0/d48/a00351_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_chem.py</b></li>
-    <li class="footer">Generated on Tue May 24 2016 13:22:03 for SEIMS-2016 by
+    <li class="footer">Generated on Wed May 25 2016 02:57:09 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
