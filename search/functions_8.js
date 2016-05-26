@@ -4,7 +4,7 @@ var searchData=
   ['implicitkinematicwave_5fch',['ImplicitKinematicWave_CH',['../d8/d41/a00038.html#a3d60b115be96a7730cfa0ea0b329443a',1,'ImplicitKinematicWave_CH']]],
   ['implicitkinematicwave_5fol',['ImplicitKinematicWave_OL',['../d3/de7/a00039.html#add989b6aa66ad8d877fcadadab91518e',1,'ImplicitKinematicWave_OL']]],
   ['includechannelprocesses',['IncludeChannelProcesses',['../d9/d2e/a00056.html#a76bc77809bac87c75a8257e3e4ceb64b',1,'ModelMain']]],
-  ['initaloutputs',['initalOutputs',['../df/d61/a00031.html#ad2ffd915deabd117350947ebe5c4082a',1,'DiffusiveWave::initalOutputs()'],['../d1/d22/a00057.html#a0063a15974ae017e6546862c20079aab',1,'MUSK_CH::initalOutputs()']]],
+  ['initaloutputs',['initalOutputs',['../df/d61/a00031.html#ad2ffd915deabd117350947ebe5c4082a',1,'DiffusiveWave::initalOutputs()'],['../d1/d22/a00057.html#a0063a15974ae017e6546862c20079aab',1,'MUSK_CH::initalOutputs()'],['../da/d2a/a00086.html#a58a2f84e82608b101137f9208633a111',1,'SNO_SP::initalOutputs()']]],
   ['initgraph',['InitGraph',['../d6/daa/a00187.html#af046766ada304a0cf49db44b544810a8',1,'graph.c']]],
   ['initial',['initial',['../d5/de0/a00050.html#ae83fe1d0064598ec73ee127557803b12',1,'KinWavSed_OL']]],
   ['initkwaypartitioning',['InitKWayPartitioning',['../d0/d53/a00232.html#a870e37cc14eb1033c62d83d3a7c33a91',1,'kmetis.c']]],

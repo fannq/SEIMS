@@ -29,9 +29,9 @@
 <area shape="rect" id="node28" href="$db/df8/a00076.html" title="Reservoir Method to calculate groundwater balance and baseflow. " alt="" coords="243,1392,387,1421"/>
 <area shape="rect" id="node29" href="$d1/d09/a00077.html" title="Sediment routing using variable channel dimension(VCD) method at daily time scale. " alt="" coords="259,1445,371,1475"/>
 <area shape="rect" id="node30" href="$d1/d51/a00079.html" title="Calculate soil Temperature. " alt="" coords="272,1499,357,1528"/>
-<area shape="rect" id="node31" href="$df/d13/a00085.html" title="Calculate snow accumulation and istribution of snowmelt. " alt="" coords="269,1552,360,1581"/>
-<area shape="rect" id="node32" href="$da/d2a/a00086.html" title="Calculate distribution of snowmelt. " alt="" coords="271,1605,359,1635"/>
-<area shape="rect" id="node33" href="$d1/d1e/a00087.html" title="– " alt="" coords="269,1659,361,1688"/>
+<area shape="rect" id="node31" href="$df/d13/a00085.html" title="Calculate snow melt by Degree&#45;Day method. " alt="" coords="269,1552,360,1581"/>
+<area shape="rect" id="node32" href="$da/d2a/a00086.html" title="Calculate snow melt by snowpack daily method from SWAT. " alt="" coords="271,1605,359,1635"/>
+<area shape="rect" id="node33" href="$d1/d1e/a00087.html" title="Calculate snow water balance. " alt="" coords="269,1659,361,1688"/>
 <area shape="rect" id="node34" href="$db/dab/a00089.html" title="Soil temperature. " alt="" coords="221,1712,408,1741"/>
 <area shape="rect" id="node35" href="$d9/dec/a00090.html" title="Soil water balance. " alt="" coords="270,1765,359,1795"/>
 <area shape="rect" id="node36" href="$da/d82/a00091.html" title="Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_..." alt="" coords="245,1819,384,1848"/>

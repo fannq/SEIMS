@@ -1,6 +1,5 @@
 var a00757 =
 [
-    [ "clsTSD_RD.cpp", "d9/d87/a00551.html", null ],
     [ "clsTSD_RD.h", "dd/de9/a00552.html", null ],
     [ "clsTSD_RD", "dc/de2/a00024.html", [
       [ "Get1DData", "dc/de2/a00024.html#a1b2832f37325e31503995626135bdb67", null ],

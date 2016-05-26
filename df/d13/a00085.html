@@ -114,26 +114,35 @@ $(document).ready(function(){initNavTree('df/d13/a00085.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d9/df5/a01086.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d0/d1f/a01087.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SNO_DD Class Reference<div class="ingroups"><a class="el" href="../../df/d0c/a00788.html">SNO_DD</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Calculate snow accumulation and istribution of snowmelt.  
+<p>Calculate snow melt by Degree-Day method.  
  <a href="../../df/d13/a00085.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../dd/db6/a00639_source.html">SNO_DD.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SNO_DD:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d1f/a01087.png" border="0" usemap="#_s_n_o___d_d_inherit__map" alt="Inheritance graph"/></div>
+<div class="center"><img src="../../da/db7/a01088.png" border="0" usemap="#_s_n_o___d_d_inherit__map" alt="Inheritance graph"/></div>
 <map name="_s_n_o___d_d_inherit__map" id="_s_n_o___d_d_inherit__map">
 <area shape="rect" id="node2" href="../../d4/d63/a00082.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a42868fa2a41c1c7ebca190788d287552"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42868fa2a41c1c7ebca190788d287552"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a42868fa2a41c1c7ebca190788d287552">SNO_DD</a> (void)</td></tr>
+<tr class="memdesc:a42868fa2a41c1c7ebca190788d287552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a42868fa2a41c1c7ebca190788d287552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3293ee28c91ecfe39321247a27760c7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3293ee28c91ecfe39321247a27760c7f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a3293ee28c91ecfe39321247a27760c7f">~SNO_DD</a> (void)</td></tr>
+<tr class="memdesc:a3293ee28c91ecfe39321247a27760c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a3293ee28c91ecfe39321247a27760c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa566a3707230b0aeb25403e973908977"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa566a3707230b0aeb25403e973908977"></a>
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#aa566a3707230b0aeb25403e973908977">Execute</a> ()</td></tr>
 <tr class="memdesc:aa566a3707230b0aeb25403e973908977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
@@ -192,6 +201,21 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
 <tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a87f0b15b96ce0a086e00332a96f1d10f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87f0b15b96ce0a086e00332a96f1d10f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a87f0b15b96ce0a086e00332a96f1d10f">m_nCells</a></td></tr>
+<tr class="memdesc:a87f0b15b96ce0a086e00332a96f1d10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid cells number. <br/></td></tr>
+<tr class="separator:a87f0b15b96ce0a086e00332a96f1d10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9672e0f416cbb4fc7795d79cf04cb9a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9672e0f416cbb4fc7795d79cf04cb9a2"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a9672e0f416cbb4fc7795d79cf04cb9a2">m_SA</a></td></tr>
+<tr class="memdesc:a9672e0f416cbb4fc7795d79cf04cb9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snow accumulation. <br/></td></tr>
+<tr class="separator:a9672e0f416cbb4fc7795d79cf04cb9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b774eceb4a247dc829f4861daed384"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2b774eceb4a247dc829f4861daed384"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#af2b774eceb4a247dc829f4861daed384">m_SM</a></td></tr>
+<tr class="memdesc:af2b774eceb4a247dc829f4861daed384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snow melt. <br/></td></tr>
+<tr class="separator:af2b774eceb4a247dc829f4861daed384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_a00082"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00082')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d4/d63/a00082.html">SimulationModule</a></td></tr>
@@ -205,9 +229,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../..
 <tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculate snow accumulation and istribution of snowmelt. </p>
+<div class="textblock"><p>Calculate snow melt by Degree-Day method. </p>
 
-<p>Definition at line <a class="el" href="../../dd/db6/a00639_source.html#l00021">21</a> of file <a class="el" href="../../dd/db6/a00639_source.html">SNO_DD.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/db6/a00639_source.html#l00020">20</a> of file <a class="el" href="../../dd/db6/a00639_source.html">SNO_DD.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/modules/hydrology_longterm/SNO_DD/<a class="el" href="../../dd/db6/a00639_source.html">SNO_DD.h</a></li>
 <li>src/modules/hydrology_longterm/SNO_DD/<a class="el" href="../../d1/daa/a00638_source.html">SNO_DD.cpp</a></li>
@@ -218,7 +242,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/d13/a00085.html">SNO_DD</a></li>
-    <li class="footer">Generated on Wed May 25 2016 10:06:27 for SEIMS-2016 by
+    <li class="footer">Generated on Thu May 26 2016 14:32:12 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
