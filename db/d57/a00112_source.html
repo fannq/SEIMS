@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('db/d57/a00112_source.html','../../');}
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> util</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">def </span><a class="code" href="../../da/d3a/a00694.html">chwidth</a>(accFile, chwidthFile):</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">def </span><a class="code" href="../../d2/d74/a00697.html">chwidth</a>(accFile, chwidthFile):</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    ds = gdal.Open(accFile)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    band = ds.GetRasterBand(1)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    dataAcc = band.ReadAsArray()</div>
@@ -155,19 +155,19 @@ $(document).ready(function(){initNavTree('db/d57/a00112_source.html','../../');}
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                width[i][j] =  math.pow(a*(dataAcc[i][j] + 1)*cellArea/1000000, b)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../da/df7/a00739.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(chwidthFile, ysize, xsize, width, \</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d4/d8f/a00742.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(chwidthFile, ysize, xsize, width, \</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        geotransform, srs, noDataValue, gdal.GDT_Float32)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> width</div>
-<div class="ttc" id="a00739_html_acfba40e23f24bf57f47c23b7e096aa4b"><div class="ttname"><a href="../../da/df7/a00739.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a></div><div class="ttdeci">def WriteGTiffFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00251">util.py:251</a></div></div>
-<div class="ttc" id="a00694_html"><div class="ttname"><a href="../../da/d3a/a00694.html">chwidth</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00001">chwidth.py:1</a></div></div>
+<div class="ttc" id="a00742_html_acfba40e23f24bf57f47c23b7e096aa4b"><div class="ttname"><a href="../../d4/d8f/a00742.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a></div><div class="ttdeci">def WriteGTiffFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00251">util.py:251</a></div></div>
+<div class="ttc" id="a00697_html"><div class="ttname"><a href="../../d2/d74/a00697.html">chwidth</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00001">chwidth.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>chwidth.py</b></li>
-    <li class="footer">Generated on Thu May 26 2016 14:32:09 for SEIMS-2016 by
+    <li class="footer">Generated on Fri May 27 2016 09:50:16 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

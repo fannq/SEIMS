@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/erosion/MUSLE_AS/MUSLE_AS.cpp File Reference</title>
+<title>SEIMS-2016: src/modules/erosion/KinWavSed_CH/KinWavSed_CH.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,43 +110,51 @@ $(document).ready(function(){initNavTree('d8/dd2/a00565.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">MUSLE_AS.cpp File Reference</div>  </div>
+<div class="title">KinWavSed_CH.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>use MUSLE method to calculate sediment yield of each cell  
+<p>Kinematic wave method for channel flow erosion and deposition.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cmath&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/d3e/a00566_source.html">MUSLE_AS.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/d84/a00447_source.html">MetadataInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &quot;util.h&quot;</code><br/>
-<code>#include &lt;math.h&gt;</code><br/>
-<code>#include &lt;omp.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;api.h&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d0b/a00452_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for MUSLE_AS.cpp:</div>
+Include dependency graph for KinWavSed_CH.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d98/a00927.png" border="0" usemap="#src_2modules_2erosion_2_m_u_s_l_e___a_s_2_m_u_s_l_e___a_s_8cpp" alt=""/></div>
-<map name="src_2modules_2erosion_2_m_u_s_l_e___a_s_2_m_u_s_l_e___a_s_8cpp" id="src_2modules_2erosion_2_m_u_s_l_e___a_s_2_m_u_s_l_e___a_s_8cpp">
-<area shape="rect" id="node3" href="../../d0/d3e/a00566.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="251,101,373,131"/><area shape="rect" id="node8" href="../../de/df4/a00450.html" title="Define ModelException class. " alt="" coords="5,333,155,363"/><area shape="rect" id="node11" href="../../de/d84/a00447.html" title="Define MetadataInfo class used by modules. " alt="" coords="517,256,643,285"/><area shape="rect" id="node6" href="../../d4/d53/a00429_source.html" title="api.h" alt="" coords="366,179,423,208"/><area shape="rect" id="node7" href="../../d1/d0b/a00452.html" title="Parent class for all modules in SEIMS. " alt="" coords="231,256,395,285"/><area shape="rect" id="node14" href="../../de/dfe/a00448.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="373,333,541,363"/></map>
+<div class="center"><img src="../../dd/d98/a00927.png" border="0" usemap="#src_2modules_2erosion_2_kin_wav_sed___c_h_2_kin_wav_sed___c_h_8h" alt=""/></div>
+<map name="src_2modules_2erosion_2_kin_wav_sed___c_h_2_kin_wav_sed___c_h_8h" id="src_2modules_2erosion_2_kin_wav_sed___c_h_2_kin_wav_sed___c_h_8h">
+<area shape="rect" id="node2" href="../../d4/d53/a00429_source.html" title="api.h" alt="" coords="187,101,244,131"/><area shape="rect" id="node3" href="../../d1/d0b/a00452.html" title="Parent class for all modules in SEIMS. " alt="" coords="133,179,296,208"/><area shape="rect" id="node5" href="../../de/df4/a00450.html" title="Define ModelException class. " alt="" coords="5,256,155,285"/></map>
 </div>
 </div>
 <p><a href="../../d8/dd2/a00565_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html">KinWavSed_CH</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kinematic wave method for channel flow erosion and deposition.  <a href="../../d2/dee/a00049.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>use MUSLE method to calculate sediment yield of each cell </p>
-<dl class="section author"><dt>Author</dt><dd>Zhiqiang Yu </dd></dl>
+<div class="textblock"><p>Kinematic wave method for channel flow erosion and deposition. </p>
+<dl class="section author"><dt>Author</dt><dd>Hui Wu </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Feb. 2012  LiangJun Zhu  date May. 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d8/dd2/a00565_source.html">MUSLE_AS.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d8/dd2/a00565_source.html">KinWavSed_CH.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_ecb41b355ad37de97f751829bf7f0be0.html">MUSLE_AS</a></li><li class="navelem"><a class="el" href="../../d8/dd2/a00565.html">MUSLE_AS.cpp</a></li>
-    <li class="footer">Generated on Thu May 26 2016 14:32:12 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_f0d0854837a912c2eef8dcffce5f5cad.html">erosion</a></li><li class="navelem"><a class="el" href="../../dir_51b2383fefae427ae4b0ad4aff19471a.html">KinWavSed_CH</a></li><li class="navelem"><a class="el" href="../../d8/dd2/a00565.html">KinWavSed_CH.h</a></li>
+    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

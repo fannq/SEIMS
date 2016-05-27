@@ -1,13 +1,12 @@
 var a00790 =
 [
-    [ "SNO_WB", "d1/d1e/a00087.html", [
-      [ "SNO_WB", "d1/d1e/a00087.html#abcf4471d143e9362a56afbc7f97bfe7a", null ],
-      [ "~SNO_WB", "d1/d1e/a00087.html#a439603fa8b0fb6338748c73ee9bba2e0", null ],
-      [ "Execute", "d1/d1e/a00087.html#adcd3db4af0fe481140345a0b188871da", null ],
-      [ "Get1DData", "d1/d1e/a00087.html#ae99983c22de777796eff611ab8390a5e", null ],
-      [ "GetValue", "d1/d1e/a00087.html#a973d02d674a080fa6030f11c18f8b7c6", null ],
-      [ "Set1DData", "d1/d1e/a00087.html#ac5b765a9566894e0acfac3c19453b6b5", null ],
-      [ "SetValue", "d1/d1e/a00087.html#a396999211170f869ea24ba192f5b26fe", null ],
-      [ "m_nCells", "d1/d1e/a00087.html#a16bf7ef02b2a4d4af6a1c26ccb00bdfb", null ]
+    [ "SET_LM", "d1/d51/a00079.html", [
+      [ "CheckInputData", "d1/d51/a00079.html#ad8e0115e3ded51047067d9d84b5fe8f4", null ],
+      [ "CheckInputSize", "d1/d51/a00079.html#a67ae96879b74013b221fa81275086f42", null ],
+      [ "Execute", "d1/d51/a00079.html#aa9b938e08bf9df68bdc175a86c41fdc0", null ],
+      [ "Get1DData", "d1/d51/a00079.html#a6965c172477d51b3f6cc80f4603a9d4c", null ],
+      [ "Set1DData", "d1/d51/a00079.html#ac38f0919363f9f5efa50b0038fb28f7a", null ],
+      [ "Set2DData", "d1/d51/a00079.html#a578808702086688a2ad7cd861f0fe547", null ],
+      [ "SetValue", "d1/d51/a00079.html#a3835542ebbb1a1846a9ead1e9c8b5726", null ]
     ] ]
 ];

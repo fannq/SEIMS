@@ -37,7 +37,7 @@ var hierarchy =
     [ "Parameter", "de/de1/a00065.html", null ],
     [ "ParamInfo", "d9/db3/a00066.html", null ],
     [ "params_t", "dc/ddf/a00067.html", null ],
-    [ "PringInfoItem", "db/db6/a00074.html", null ],
+    [ "PrintInfoItem", "db/db6/a00074.html", null ],
     [ "Module::SEIMSModule", "d9/da4/a00078.html", null ],
     [ "Settings", "da/dec/a00080.html", [
       [ "SettingsInput", "d8/d53/a00081.html", null ]

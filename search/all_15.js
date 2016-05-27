@@ -2,6 +2,7 @@ var searchData=
 [
   ['v0',['V0',['../db/db2/a00020.html#ab231214d45bea5cc1a509e0ba64562ef',1,'clsReach']]],
   ['val',['val',['../db/df3/a00034.html#abf964c7489d269515ec8e5e62b2164ba',1,'gk_option']]],
+  ['validcellcount',['ValidCellCount',['../db/db6/a00074.html#a479691f5abb08a19c9093af442bae90b',1,'PrintInfoItem']]],
   ['value',['Value',['../d9/db3/a00066.html#a698d9a7a6b8fad7c2aabdc7c64428f26',1,'ParamInfo::Value()'],['../da/dec/a00080.html#a7f5d6a01b9ae2afb3b11c9a2a1c64705',1,'Settings::Value()']]],
   ['var_5fa_5fbnk',['VAR_A_BNK',['../dd/d63/a00455.html#a76c725f412ec7c6cf0ae8c30217b5739',1,'text.h']]],
   ['version',['Version',['../db/d3a/a00040.html#a0fea44ad14e758340799fe8ce77b8330',1,'Information']]],

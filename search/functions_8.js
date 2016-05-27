@@ -16,6 +16,7 @@ var searchData=
   ['isbalanced',['IsBalanced',['../da/d31/a00234.html#ae2f5446999d83461cf5763dc4946182a',1,'kwayrefine.c']]],
   ['isconnected',['IsConnected',['../dd/d52/a00221.html#a06638e74c8e49f9fb9881b960f8c4f05',1,'contig.c']]],
   ['isconnectedsubdomain',['IsConnectedSubdomain',['../dd/d52/a00221.html#aa6e8cf71404dada70fbba7451df92acb',1,'contig.c']]],
+  ['isdateinrange',['IsDateInRange',['../db/db6/a00074.html#ab68b36813e70444c5c33a55cf146cbb3',1,'PrintInfoItem']]],
   ['iserror',['IsError',['../dc/d3c/a00028.html#aebd9e5246ae9f047eedbb199699005ae',1,'DBManager']]],
   ['isinitialized',['IsInitialized',['../d9/d2e/a00056.html#aec1ac19038b0667f6ee0db1c7bf9beb8',1,'ModelMain']]],
   ['isipaddress',['isIPAddress',['../d9/dea/a00478.html#abc4f83a78d50228ab7614c4345a751a6',1,'isIPAddress(const char *ip):&#160;invoke.cpp'],['../d9/d4a/a00479.html#abc4f83a78d50228ab7614c4345a751a6',1,'isIPAddress(const char *ip):&#160;invoke.cpp']]],

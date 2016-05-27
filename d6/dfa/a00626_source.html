@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/PER_STR/PER_STR.cpp Source File</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/MUSK_CH/MUSK_CH.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,277 +111,167 @@ $(document).ready(function(){initNavTree('d6/dfa/a00626_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PER_STR.cpp</div>  </div>
+<div class="title">MUSK_CH.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// PER_STR.cpp : main project file.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;PER_STR.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d84/a00447.html">MetadataInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/df4/a00450.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<a href="../../d6/dfa/a00626.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;PER_STR::PER_STR(<span class="keywordtype">void</span>):m_nLayers(2), m_dt(-1), m_nCells(-1), m_frozenT(-99.f), m_ks(NULL), m_porosity(NULL),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    m_infil(NULL), m_poreIndex(NULL), m_sm(NULL), m_fc(NULL), m_soilT(NULL), m_rootDepth(NULL), m_perc(NULL), m_upSoilDepth(200.f)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d0b/a00452.html">SimulationModule.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;PER_STR::~PER_STR(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{   </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(m_perc == NULL) </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keyword">delete</span>[] m_perc[i];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">delete</span>[] m_perc;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//Execute module</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#aa872fbe3398dc30a7964c63950c7b981">   35</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d4/d31/a00069.html#aa872fbe3398dc30a7964c63950c7b981">PER_STR::Execute</a>()</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d4/d31/a00069.html#a4b248834086f8b5dee27526dfaad25ac">CheckInputData</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>(m_perc == NULL) </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        m_perc = <span class="keyword">new</span> <span class="keywordtype">float</span>*[m_nCells];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">        #pragma omp parallel for</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            m_perc[i] = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code" href="../../d4/d31/a00069.html#ac34af575843712753fbed5a31592dc33">m_nLayers</a>];</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="../../d4/d31/a00069.html#ac34af575843712753fbed5a31592dc33">m_nLayers</a>; j++)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                m_perc[i][j] = 0.f;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    #pragma omp parallel for</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; m_nCells; i++)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">float</span> maxSoilWater, fcSoilWater, soilWater;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">float</span> depth[3];</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        depth[0] = m_upSoilDepth;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        depth[1] = m_rootDepth[i] - m_upSoilDepth;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span>(depth[1] &lt; 0)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            ostringstream oss;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            oss &lt;&lt; <span class="stringliteral">&quot;The root depth at cell(&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;) is &quot;</span> &lt;&lt; m_rootDepth[i] &lt;&lt; <span class="stringliteral">&quot;, and is less than the upper soil depth (&quot;</span> &lt;&lt; m_upSoilDepth &lt;&lt; endl;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>, <span class="stringliteral">&quot;Execute&quot;</span>,  oss.str());</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        m_sm[i][0] += m_infil[i] / depth[0];</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="../../d4/d31/a00069.html#ac34af575843712753fbed5a31592dc33">m_nLayers</a>; j++)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="comment">//No movement if soil moisture is below field capacity</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            m_perc[i][j] = 0.f;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">struct </span>MuskWeights{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">float</span> c1;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">float</span> c2;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">float</span> c3;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">float</span> c4;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">float</span> dt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> n;  </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html">   54</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d22/a00057.html">MUSK_CH</a> : <span class="keyword">public</span> <a class="code" href="../../d4/d63/a00082.html">SimulationModule</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="../../d1/d22/a00057.html">MUSK_CH</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ~<a class="code" href="../../d1/d22/a00057.html">MUSK_CH</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Execute();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> GetValue(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span>* value);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n, <span class="keywordtype">float</span>* data);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get1DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span>* n, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Set2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nrows, <span class="keywordtype">int</span> ncols, <span class="keywordtype">float</span>** data);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Get2DData(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> CheckInputSize(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> CheckInputSizeChannel(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> CheckInputData(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="comment">// for the upper two layers, soil may be frozen</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span>(j == 0 &amp;&amp; m_soilT[i] &lt;= m_frozenT) </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span> (m_sm[i][j] &gt; m_fc[i][j])</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                maxSoilWater = depth[j] * m_porosity[i][j];</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                soilWater = depth[j] * m_sm[i][j];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                fcSoilWater = depth[j] * m_fc[i][j];</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="comment">// method from swat</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordtype">float</span> tt = 3600 * (m_porosity[i][j] - m_fc[i][j]) * depth[j] / m_ks[i][j];</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                m_perc[i][j] = soilWater * (1 - exp(-m_dt/tt));</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="comment">//the moisture content can exceed the porosity in the way the algorithm is implemented</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="comment">//if (m_sm[i][j] &gt; m_porosity[i][j])</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="comment">//  k = m_ks[i][j];</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="comment">//else</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="comment">//{</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="comment">//  float dcIndex = 2.f/m_poreIndex[i][j] + 3.f; // pore disconnectedness index</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="comment">//  k = m_ks[i][j] * pow(m_sm[i][j]/m_porosity[i][j], dcIndex);</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="comment">//}</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="comment">//m_perc[i][j] = k * m_dt/3600.f;</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordflow">if</span>(soilWater - m_perc[i][j] &lt; fcSoilWater)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    m_perc[i][j] = soilWater - fcSoilWater;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(soilWater - m_perc[i][j] &gt; maxSoilWater)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    m_perc[i][j] = soilWater - maxSoilWater;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="comment">//Adjust the moisture content in the current layer, and the layer immediately below it</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                m_sm[i][j] -= m_perc[i][j]/depth[j];</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">if</span>(j &lt; m_nLayers-1)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    m_sm[i][j+1] += m_perc[i][j]/depth[j+1];</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span>(m_sm[i][j] != m_sm[i][j] || m_sm[i][j] &lt; 0.f)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    cout &lt;&lt; <span class="stringliteral">&quot;PER_STR CELL:&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;\tPerco:&quot;</span> &lt;&lt; soilWater &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        fcSoilWater &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; m_perc[i][j] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; depth[j] &lt;&lt; <span class="stringliteral">&quot;\tValue:&quot;</span> &lt;&lt; m_sm[i][j] &lt;&lt; endl;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>, <span class="stringliteral">&quot;Execute&quot;</span>, <span class="stringliteral">&quot;moisture is less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a4d1acfda09744be09f61ef9fb739f901">   73</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d1/d0b/a00452.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a> <a class="code" href="../../d1/d22/a00057.html#a4d1acfda09744be09f61ef9fb739f901">GetTimeStepType</a>()</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d1/d0b/a00452.html#ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">float</span> m_vScalingFactor;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a0493e054af8975a515f1ce102250eba0">   82</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d1/d22/a00057.html#a0493e054af8975a515f1ce102250eba0">m_dt</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ada6d5b2e49d695dfd1f7c6e22c5996c5">   84</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d1/d22/a00057.html#ada6d5b2e49d695dfd1f7c6e22c5996c5">m_nreach</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a289b64822dbb8e8fe47bfa060e0deb7a">   87</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#a289b64822dbb8e8fe47bfa060e0deb7a">m_Vdiv</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a9fe0118c37113b00bbb6a41eccaf10fc">   89</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#a9fe0118c37113b00bbb6a41eccaf10fc">m_Vpoint</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a927331337eadf050fa362f9e7da9f50c">   92</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a927331337eadf050fa362f9e7da9f50c">m_Kchb</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a36331b94a66b826eaa0127dc6157715f">   94</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a36331b94a66b826eaa0127dc6157715f">m_Kbank</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a35350ca356d0d3b663caec85ff50e69a">   96</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a35350ca356d0d3b663caec85ff50e69a">m_Epch</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ac26579b9bf3d7778706f9493a3e331e4">   98</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#ac26579b9bf3d7778706f9493a3e331e4">m_Bnk0</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a93b25ffd8a262abe66a970de3bc1958e">  100</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a93b25ffd8a262abe66a970de3bc1958e">m_Chs0</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a21d13efc0708dc5a2dad091efee97707">  102</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a21d13efc0708dc5a2dad091efee97707">m_Vseep0</a>;   <span class="comment">//added</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ac58e2782333080795df781e33559307e">  104</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#ac58e2782333080795df781e33559307e">m_aBank</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a50ffe6abd3869dfc113fc47243667874">  106</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d1/d22/a00057.html#a50ffe6abd3869dfc113fc47243667874">m_bBank</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">float</span>* m_subbasin;              <span class="comment">//subbasin grid</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a15d8df768526b30a91bbf16de94b5927">  110</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#a15d8df768526b30a91bbf16de94b5927">m_area</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a64732d39a3db1753ea1f23307f297883">  113</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#a64732d39a3db1753ea1f23307f297883">m_petCh</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#af3eb766ebf070623cd47c82e875ca51d">  116</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#af3eb766ebf070623cd47c82e875ca51d">m_qsSub</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#af82feca7df14b7cec230ae11065d3477">  118</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#af82feca7df14b7cec230ae11065d3477">m_qiSub</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ad8e22417fe99650452ecd3fc1e99eb1f">  120</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#ad8e22417fe99650452ecd3fc1e99eb1f">m_qgSub</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a5c6f6f7a893763d661afa40bb810020e">  122</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#a5c6f6f7a893763d661afa40bb810020e">m_gwStorage</a>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a49f446cb775149844fe3c006250353d6">  124</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d31/a00069.html#a49f446cb775149844fe3c006250353d6">PER_STR::Get2DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> *nRows, <span class="keywordtype">int</span> *nCols, <span class="keywordtype">float</span>*** data)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    *nRows = m_nCells;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    *nCols = <a class="code" href="../../d4/d31/a00069.html#ac34af575843712753fbed5a31592dc33">m_nLayers</a>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">if</span> (StringMatch(sk, VAR_PERCO))   <span class="comment">// excess precipitation</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        *data = m_perc;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>, <span class="stringliteral">&quot;Get2DData&quot;</span>, <span class="stringliteral">&quot;Output &quot;</span> + sk </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        + <span class="stringliteral">&quot; does not exist. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a42b2a1454db6bf651cc343d8db7c85d6">  140</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d31/a00069.html#a42b2a1454db6bf651cc343d8db7c85d6">PER_STR::Set1DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nRows, <span class="keywordtype">float</span>* data)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">string</span> s(key);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="../../d4/d31/a00069.html#a73e9193375fd8bdf8b1798c6c944a3aa">CheckInputSize</a>(key,nRows);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, VAR_ROOTDEPTH))       </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        m_rootDepth = data;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_SOTE))       </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        m_soilT = data;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_INFIL))      </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        m_infil = data;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span>                                    </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;Set1DData&quot;</span>,</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="stringliteral">&quot;Parameter &quot;</span> + s + <span class="stringliteral">&quot; does not exist in PER_STR method. Please contact the module developer.&quot;</span>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ad375286f9c0a1921df8ef58b6b5666e7">  125</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#ad375286f9c0a1921df8ef58b6b5666e7">m_qsCh</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">float</span> *m_qiCh;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">float</span> *m_qgCh;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">float</span> *m_chOrder;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">float</span> *m_chWidth;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">float</span> *m_chDepth;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">float</span> *m_chLen;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">float</span> *m_chVel;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">float</span> *m_bankStorage;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">float</span> m_deepGroudwater;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a4152019a630faffa626fa8c2c0a99030">  140</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a4152019a630faffa626fa8c2c0a99030">m_seepage</a>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a72b10e45b27b8230fb7268938484f1db">  143</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a72b10e45b27b8230fb7268938484f1db">m_reachDownStream</a>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a490c2dbe8e8570aae550fdbb20ddad2d">  145</a></span>&#160;    vector&lt; vector&lt;int&gt; &gt; <a class="code" href="../../d1/d22/a00057.html#a490c2dbe8e8570aae550fdbb20ddad2d">m_reachUpStream</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">// id the reaches</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">float</span>* m_reachId;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a8d94ef5e03e2d794b7d3b516dc4c3893">  150</a></span>&#160;    map&lt;int, int&gt; <a class="code" href="../../d1/d22/a00057.html#a8d94ef5e03e2d794b7d3b516dc4c3893">m_idToIndex</a>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">// for muskingum</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">float</span> m_x;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">float</span> m_co1;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">float</span> m_qUpReach;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#af916d5aa6dbab5d0e314b33fb673766a">  158</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d31/a00069.html#af916d5aa6dbab5d0e314b33fb673766a">PER_STR::Set2DData</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> nrows, <span class="keywordtype">int</span> ncols, <span class="keywordtype">float</span>** data)</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">string</span> sk(key);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="../../d4/d31/a00069.html#a73e9193375fd8bdf8b1798c6c944a3aa">CheckInputSize</a>(key, nrows);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="../../d4/d31/a00069.html#ac34af575843712753fbed5a31592dc33">m_nLayers</a> = ncols;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">if</span>(StringMatch(sk, VAR_CONDUCT))        </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        m_ks = data;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_POROST))</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        m_porosity = data;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(sk, VAR_FIELDCAP))</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        m_fc = data;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(sk, VAR_POREID))        </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        m_poreIndex = data; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(sk, VAR_SOMO))      </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        m_sm = data;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>, <span class="stringliteral">&quot;Set2DData&quot;</span>, </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="stringliteral">&quot;Parameter &quot;</span> + sk + <span class="stringliteral">&quot; does not exist. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a684c669815b1441f244b50dff863a0fe">  179</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d31/a00069.html#a684c669815b1441f244b50dff863a0fe">PER_STR::SetValue</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">float</span> data)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;{</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">string</span> s(key);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordflow">if</span>(StringMatch(s, Tag_TimeStep))            </div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        m_dt = int(data);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(StringMatch(s, VAR_T_SOIL))</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        m_frozenT = data;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (StringMatch(s, VAR_OMP_THREADNUM))</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        omp_set_num_threads((<span class="keywordtype">int</span>)data);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">//else if(StringMatch(s,&quot;UpperSoilDepth&quot;))      </span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">//  m_upSoilDepth = data;</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">else</span>                                    </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;SetValue&quot;</span>,</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="stringliteral">&quot;Parameter &quot;</span> + s + <span class="stringliteral">&quot; does not exist in PER_STR method. Please contact the module developer.&quot;</span>);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">string</span> PER_STR::toString(<span class="keywordtype">float</span> value)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;{</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">char</span> s[20];</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    strprintf(s,20,<span class="stringliteral">&quot;%f&quot;</span>,value);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">return</span> string(s);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a4b248834086f8b5dee27526dfaad25ac">  202</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d31/a00069.html#a4b248834086f8b5dee27526dfaad25ac">PER_STR::CheckInputData</a>()</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d4/d63/a00082.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a> &lt;=0)              </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;You have not set the time.&quot;</span>);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">if</span>(m_nCells &lt;= 0)                   </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The dimension of the input data can not be less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span>(m_dt &lt;=0)            </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The time step can not be less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">if</span>(m_ks == NULL)    </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Conductivity can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span>(m_porosity == NULL)      </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Porosity can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span>(m_poreIndex == NULL)     </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Poreindex can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span>(m_sm == NULL)        </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The Moisture can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">if</span>(m_rootDepth == NULL)     </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The rootdepth can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span>(m_soilT == NULL)         </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The soil temerature can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">if</span>(m_infil == NULL)         </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The infiltration can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">if</span>(FloatEqual(m_frozenT, -99.0f))       </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputData&quot;</span>,<span class="stringliteral">&quot;The threshold soil freezing temerature can not be NULL.&quot;</span>);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
-<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a73e9193375fd8bdf8b1798c6c944a3aa">  232</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d31/a00069.html#a73e9193375fd8bdf8b1798c6c944a3aa">PER_STR::CheckInputSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keywordtype">int</span> n)</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">if</span>(n&lt;=0)</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    {</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. The size could not be less than zero.&quot;</span>);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">if</span>(this-&gt;m_nCells != n)</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">if</span>(this-&gt;m_nCells &lt;=0) this-&gt;m_nCells = n;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="../../d4/d6d/a00055.html">ModelException</a>(<span class="stringliteral">&quot;PER_STR&quot;</span>,<span class="stringliteral">&quot;CheckInputSize&quot;</span>,<span class="stringliteral">&quot;Input data for &quot;</span>+<span class="keywordtype">string</span>(key) +<span class="stringliteral">&quot; is invalid. All the input data should have same size.&quot;</span>);</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
-<div class="ttc" id="a00447_html"><div class="ttname"><a href="../../de/d84/a00447.html">MetadataInfo.h</a></div><div class="ttdoc">Define MetadataInfo class used by modules. </div></div>
-<div class="ttc" id="a00450_html"><div class="ttname"><a href="../../de/df4/a00450.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
-<div class="ttc" id="a00069_html_a42b2a1454db6bf651cc343d8db7c85d6"><div class="ttname"><a href="../../d4/d31/a00069.html#a42b2a1454db6bf651cc343d8db7c85d6">PER_STR::Set1DData</a></div><div class="ttdeci">virtual void Set1DData(const char *key, int nRows, float *data)</div><div class="ttdoc">Set 1D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00140">PER_STR.cpp:140</a></div></div>
-<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">ModelException</a></div><div class="ttdoc">Print the exception message. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df4/a00450_source.html#l00024">ModelException.h:24</a></div></div>
-<div class="ttc" id="a00069_html_a684c669815b1441f244b50dff863a0fe"><div class="ttname"><a href="../../d4/d31/a00069.html#a684c669815b1441f244b50dff863a0fe">PER_STR::SetValue</a></div><div class="ttdeci">virtual void SetValue(const char *key, float data)</div><div class="ttdoc">Set data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00179">PER_STR.cpp:179</a></div></div>
-<div class="ttc" id="a00082_html_aabd631c05d3e74aa9970f7415f2f5de7"><div class="ttname"><a href="../../d4/d63/a00082.html#aabd631c05d3e74aa9970f7415f2f5de7">SimulationModule::m_date</a></div><div class="ttdeci">time_t m_date</div><div class="ttdoc">date time </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00098">SimulationModule.h:98</a></div></div>
-<div class="ttc" id="a00069_html_a4b248834086f8b5dee27526dfaad25ac"><div class="ttname"><a href="../../d4/d31/a00069.html#a4b248834086f8b5dee27526dfaad25ac">PER_STR::CheckInputData</a></div><div class="ttdeci">bool CheckInputData(void)</div><div class="ttdoc">check the input data. Make sure all the input data is available. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00202">PER_STR.cpp:202</a></div></div>
-<div class="ttc" id="a00069_html_a49f446cb775149844fe3c006250353d6"><div class="ttname"><a href="../../d4/d31/a00069.html#a49f446cb775149844fe3c006250353d6">PER_STR::Get2DData</a></div><div class="ttdeci">virtual void Get2DData(const char *key, int *nRows, int *nCols, float ***data)</div><div class="ttdoc">Get 2D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00124">PER_STR.cpp:124</a></div></div>
-<div class="ttc" id="a00069_html_af916d5aa6dbab5d0e314b33fb673766a"><div class="ttname"><a href="../../d4/d31/a00069.html#af916d5aa6dbab5d0e314b33fb673766a">PER_STR::Set2DData</a></div><div class="ttdeci">virtual void Set2DData(const char *key, int nrows, int ncols, float **data)</div><div class="ttdoc">Set 2D data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00158">PER_STR.cpp:158</a></div></div>
-<div class="ttc" id="a00069_html_ac34af575843712753fbed5a31592dc33"><div class="ttname"><a href="../../d4/d31/a00069.html#ac34af575843712753fbed5a31592dc33">PER_STR::m_nLayers</a></div><div class="ttdeci">int m_nLayers</div><div class="ttdoc">number of soil layers </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da3/a00627_source.html#l00026">PER_STR.h:26</a></div></div>
-<div class="ttc" id="a00069_html_a73e9193375fd8bdf8b1798c6c944a3aa"><div class="ttname"><a href="../../d4/d31/a00069.html#a73e9193375fd8bdf8b1798c6c944a3aa">PER_STR::CheckInputSize</a></div><div class="ttdeci">bool CheckInputSize(const char *, int)</div><div class="ttdoc">checke the input size. Make sure all the input data have same dimension. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00232">PER_STR.cpp:232</a></div></div>
-<div class="ttc" id="a00069_html_aa872fbe3398dc30a7964c63950c7b981"><div class="ttname"><a href="../../d4/d31/a00069.html#aa872fbe3398dc30a7964c63950c7b981">PER_STR::Execute</a></div><div class="ttdeci">virtual int Execute()</div><div class="ttdoc">Execute the simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00035">PER_STR.cpp:35</a></div></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">//temporary at routing time</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a129873925bf861064dde3d642d28b97d">  160</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#a129873925bf861064dde3d642d28b97d">m_chStorage</a>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ac8ce0d2425241fec26f4b01acfc51c56">  163</a></span>&#160;    <span class="keywordtype">float</span>* <a class="code" href="../../d1/d22/a00057.html#ac8ce0d2425241fec26f4b01acfc51c56">m_qOut</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a8c67563ef54e6e5df541b83978691bac">  165</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#a8c67563ef54e6e5df541b83978691bac">m_qIn</a>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ac3eb5ec95695d7aaaecce0e69890f58a">  167</a></span>&#160;    <span class="keywordtype">float</span> *<a class="code" href="../../d1/d22/a00057.html#ac3eb5ec95695d7aaaecce0e69890f58a">m_chWTdepth</a>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    map&lt;int, vector&lt;int&gt; &gt; m_reachLayers;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> initalOutputs();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> ChannelFlow(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">void</span> GetDt(<span class="keywordtype">float</span> timeStep,<span class="keywordtype">float</span> fmin, <span class="keywordtype">float</span> fmax, <span class="keywordtype">float</span>&amp; dt, <span class="keywordtype">int</span>&amp; n);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">void</span> GetCoefficients(<span class="keywordtype">float</span> reachLength, <span class="keywordtype">float</span> v0, MuskWeights&amp; weights);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="ttc" id="a00057_html_a36331b94a66b826eaa0127dc6157715f"><div class="ttname"><a href="../../d1/d22/a00057.html#a36331b94a66b826eaa0127dc6157715f">MUSK_CH::m_Kbank</a></div><div class="ttdeci">float m_Kbank</div><div class="ttdoc">hydraulic conductivity of the channel bank (mm/h) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00094">MUSK_CH.h:94</a></div></div>
+<div class="ttc" id="a00057_html_af3eb766ebf070623cd47c82e875ca51d"><div class="ttname"><a href="../../d1/d22/a00057.html#af3eb766ebf070623cd47c82e875ca51d">MUSK_CH::m_qsSub</a></div><div class="ttdeci">float * m_qsSub</div><div class="ttdoc">overland flow to streams from each subbasin (m3/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00116">MUSK_CH.h:116</a></div></div>
+<div class="ttc" id="a00057_html_a21d13efc0708dc5a2dad091efee97707"><div class="ttname"><a href="../../d1/d22/a00057.html#a21d13efc0708dc5a2dad091efee97707">MUSK_CH::m_Vseep0</a></div><div class="ttdeci">float m_Vseep0</div><div class="ttdoc">the initial volume of transmission loss to the deep aquifer over the time interval (m3/s) ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00102">MUSK_CH.h:102</a></div></div>
+<div class="ttc" id="a00057_html_ad375286f9c0a1921df8ef58b6b5666e7"><div class="ttname"><a href="../../d1/d22/a00057.html#ad375286f9c0a1921df8ef58b6b5666e7">MUSK_CH::m_qsCh</a></div><div class="ttdeci">float * m_qsCh</div><div class="ttdoc">channel outflow </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00125">MUSK_CH.h:125</a></div></div>
+<div class="ttc" id="a00057_html_ac58e2782333080795df781e33559307e"><div class="ttname"><a href="../../d1/d22/a00057.html#ac58e2782333080795df781e33559307e">MUSK_CH::m_aBank</a></div><div class="ttdeci">float m_aBank</div><div class="ttdoc">bank flow recession constant </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00104">MUSK_CH.h:104</a></div></div>
+<div class="ttc" id="a00057_html_ac8ce0d2425241fec26f4b01acfc51c56"><div class="ttname"><a href="../../d1/d22/a00057.html#ac8ce0d2425241fec26f4b01acfc51c56">MUSK_CH::m_qOut</a></div><div class="ttdeci">float * m_qOut</div><div class="ttdoc">reach outflow (m3/s) at time t </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00163">MUSK_CH.h:163</a></div></div>
+<div class="ttc" id="a00057_html_a129873925bf861064dde3d642d28b97d"><div class="ttname"><a href="../../d1/d22/a00057.html#a129873925bf861064dde3d642d28b97d">MUSK_CH::m_chStorage</a></div><div class="ttdeci">float * m_chStorage</div><div class="ttdoc">reach storage (m3) at time t </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00160">MUSK_CH.h:160</a></div></div>
+<div class="ttc" id="a00082_html"><div class="ttname"><a href="../../d4/d63/a00082.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00032">SimulationModule.h:32</a></div></div>
+<div class="ttc" id="a00452_html_ad2dde160974c283ccf8f0ce280f791ba"><div class="ttname"><a href="../../d1/d0b/a00452.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a></div><div class="ttdeci">TimeStepType</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00021">SimulationModule.h:21</a></div></div>
+<div class="ttc" id="a00057_html_a72b10e45b27b8230fb7268938484f1db"><div class="ttname"><a href="../../d1/d22/a00057.html#a72b10e45b27b8230fb7268938484f1db">MUSK_CH::m_reachDownStream</a></div><div class="ttdeci">float * m_reachDownStream</div><div class="ttdoc">downstream id (The value is 0 if there if no downstream reach) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00143">MUSK_CH.h:143</a></div></div>
+<div class="ttc" id="a00057_html_a15d8df768526b30a91bbf16de94b5927"><div class="ttname"><a href="../../d1/d22/a00057.html#a15d8df768526b30a91bbf16de94b5927">MUSK_CH::m_area</a></div><div class="ttdeci">float * m_area</div><div class="ttdoc">the subbasin area (m2) //add to the reach parameters file </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00110">MUSK_CH.h:110</a></div></div>
+<div class="ttc" id="a00057_html_ac26579b9bf3d7778706f9493a3e331e4"><div class="ttname"><a href="../../d1/d22/a00057.html#ac26579b9bf3d7778706f9493a3e331e4">MUSK_CH::m_Bnk0</a></div><div class="ttdeci">float m_Bnk0</div><div class="ttdoc">initial bank storage per meter of reach length (m3/m) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00098">MUSK_CH.h:98</a></div></div>
+<div class="ttc" id="a00452_html_ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c"><div class="ttname"><a href="../../d1/d0b/a00452.html#ad2dde160974c283ccf8f0ce280f791baa4df7462501d1a9e2d2799cfdda3cdf4c">TIMESTEP_CHANNEL</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00024">SimulationModule.h:24</a></div></div>
+<div class="ttc" id="a00057_html_a289b64822dbb8e8fe47bfa060e0deb7a"><div class="ttname"><a href="../../d1/d22/a00057.html#a289b64822dbb8e8fe47bfa060e0deb7a">MUSK_CH::m_Vdiv</a></div><div class="ttdeci">float * m_Vdiv</div><div class="ttdoc">diversion loss (Vdiv) of the river reach .. m_Vid[id], id is the reach id </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00087">MUSK_CH.h:87</a></div></div>
+<div class="ttc" id="a00057_html_ada6d5b2e49d695dfd1f7c6e22c5996c5"><div class="ttname"><a href="../../d1/d22/a00057.html#ada6d5b2e49d695dfd1f7c6e22c5996c5">MUSK_CH::m_nreach</a></div><div class="ttdeci">int m_nreach</div><div class="ttdoc">reach number (= subbasin number) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00084">MUSK_CH.h:84</a></div></div>
+<div class="ttc" id="a00057_html_af82feca7df14b7cec230ae11065d3477"><div class="ttname"><a href="../../d1/d22/a00057.html#af82feca7df14b7cec230ae11065d3477">MUSK_CH::m_qiSub</a></div><div class="ttdeci">float * m_qiSub</div><div class="ttdoc">interflow to streams from each subbasin (m3/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00118">MUSK_CH.h:118</a></div></div>
+<div class="ttc" id="a00057_html_a50ffe6abd3869dfc113fc47243667874"><div class="ttname"><a href="../../d1/d22/a00057.html#a50ffe6abd3869dfc113fc47243667874">MUSK_CH::m_bBank</a></div><div class="ttdeci">float m_bBank</div><div class="ttdoc">bank storage loss coefficient </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00106">MUSK_CH.h:106</a></div></div>
+<div class="ttc" id="a00057_html_a4152019a630faffa626fa8c2c0a99030"><div class="ttname"><a href="../../d1/d22/a00057.html#a4152019a630faffa626fa8c2c0a99030">MUSK_CH::m_seepage</a></div><div class="ttdeci">float * m_seepage</div><div class="ttdoc">seepage to deep aquifer </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00140">MUSK_CH.h:140</a></div></div>
+<div class="ttc" id="a00057_html_a4d1acfda09744be09f61ef9fb739f901"><div class="ttname"><a href="../../d1/d22/a00057.html#a4d1acfda09744be09f61ef9fb739f901">MUSK_CH::GetTimeStepType</a></div><div class="ttdeci">virtual TimeStepType GetTimeStepType()</div><div class="ttdoc">Get time step type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00073">MUSK_CH.h:73</a></div></div>
+<div class="ttc" id="a00057_html_a35350ca356d0d3b663caec85ff50e69a"><div class="ttname"><a href="../../d1/d22/a00057.html#a35350ca356d0d3b663caec85ff50e69a">MUSK_CH::m_Epch</a></div><div class="ttdeci">float m_Epch</div><div class="ttdoc">reach evaporation adjustment factor; </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00096">MUSK_CH.h:96</a></div></div>
+<div class="ttc" id="a00452_html"><div class="ttname"><a href="../../d1/d0b/a00452.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">MUSK_CH</a></div><div class="ttdoc">Overland routing using 4-point implicit finite difference method. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00054">MUSK_CH.h:54</a></div></div>
+<div class="ttc" id="a00057_html_a0493e054af8975a515f1ce102250eba0"><div class="ttname"><a href="../../d1/d22/a00057.html#a0493e054af8975a515f1ce102250eba0">MUSK_CH::m_dt</a></div><div class="ttdeci">int m_dt</div><div class="ttdoc">time step (hr) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00082">MUSK_CH.h:82</a></div></div>
+<div class="ttc" id="a00057_html_a490c2dbe8e8570aae550fdbb20ddad2d"><div class="ttname"><a href="../../d1/d22/a00057.html#a490c2dbe8e8570aae550fdbb20ddad2d">MUSK_CH::m_reachUpStream</a></div><div class="ttdeci">vector&lt; vector&lt; int &gt; &gt; m_reachUpStream</div><div class="ttdoc">upstream id (The value is -1 if there if no upstream reach) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00145">MUSK_CH.h:145</a></div></div>
+<div class="ttc" id="a00057_html_a5c6f6f7a893763d661afa40bb810020e"><div class="ttname"><a href="../../d1/d22/a00057.html#a5c6f6f7a893763d661afa40bb810020e">MUSK_CH::m_gwStorage</a></div><div class="ttdeci">float * m_gwStorage</div><div class="ttdoc">Groundwater storage (mm) of the subbasin. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00122">MUSK_CH.h:122</a></div></div>
+<div class="ttc" id="a00057_html_a927331337eadf050fa362f9e7da9f50c"><div class="ttname"><a href="../../d1/d22/a00057.html#a927331337eadf050fa362f9e7da9f50c">MUSK_CH::m_Kchb</a></div><div class="ttdeci">float m_Kchb</div><div class="ttdoc">hydraulic conductivity of the channel bed (mm/h) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00092">MUSK_CH.h:92</a></div></div>
+<div class="ttc" id="a00057_html_ac3eb5ec95695d7aaaecce0e69890f58a"><div class="ttname"><a href="../../d1/d22/a00057.html#ac3eb5ec95695d7aaaecce0e69890f58a">MUSK_CH::m_chWTdepth</a></div><div class="ttdeci">float * m_chWTdepth</div><div class="ttdoc">channel water depth m </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00167">MUSK_CH.h:167</a></div></div>
+<div class="ttc" id="a00057_html_a8d94ef5e03e2d794b7d3b516dc4c3893"><div class="ttname"><a href="../../d1/d22/a00057.html#a8d94ef5e03e2d794b7d3b516dc4c3893">MUSK_CH::m_idToIndex</a></div><div class="ttdeci">map&lt; int, int &gt; m_idToIndex</div><div class="ttdoc">map from subbasin id to index of the array </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00150">MUSK_CH.h:150</a></div></div>
+<div class="ttc" id="a00057_html_a93b25ffd8a262abe66a970de3bc1958e"><div class="ttname"><a href="../../d1/d22/a00057.html#a93b25ffd8a262abe66a970de3bc1958e">MUSK_CH::m_Chs0</a></div><div class="ttdeci">float m_Chs0</div><div class="ttdoc">initial channel storage per meter of reach length (m3/m) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00100">MUSK_CH.h:100</a></div></div>
+<div class="ttc" id="a00057_html_a9fe0118c37113b00bbb6a41eccaf10fc"><div class="ttname"><a href="../../d1/d22/a00057.html#a9fe0118c37113b00bbb6a41eccaf10fc">MUSK_CH::m_Vpoint</a></div><div class="ttdeci">float * m_Vpoint</div><div class="ttdoc">The point source discharge .. m_Vpoint[id], id is the reach id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00089">MUSK_CH.h:89</a></div></div>
+<div class="ttc" id="a00057_html_ad8e22417fe99650452ecd3fc1e99eb1f"><div class="ttname"><a href="../../d1/d22/a00057.html#ad8e22417fe99650452ecd3fc1e99eb1f">MUSK_CH::m_qgSub</a></div><div class="ttdeci">float * m_qgSub</div><div class="ttdoc">groundwater flow out of the subbasin (m3/s) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00120">MUSK_CH.h:120</a></div></div>
+<div class="ttc" id="a00057_html_a8c67563ef54e6e5df541b83978691bac"><div class="ttname"><a href="../../d1/d22/a00057.html#a8c67563ef54e6e5df541b83978691bac">MUSK_CH::m_qIn</a></div><div class="ttdeci">float * m_qIn</div><div class="ttdoc">flowin discharge at the last time step </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00165">MUSK_CH.h:165</a></div></div>
+<div class="ttc" id="a00057_html_a64732d39a3db1753ea1f23307f297883"><div class="ttname"><a href="../../d1/d22/a00057.html#a64732d39a3db1753ea1f23307f297883">MUSK_CH::m_petCh</a></div><div class="ttdeci">float * m_petCh</div><div class="ttdoc">Average PET for each subbasin. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfa/a00626_source.html#l00113">MUSK_CH.h:113</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_11afe5ec1d9bd9d97b12f3812ca93792.html">PER_STR</a></li><li class="navelem"><b>PER_STR.cpp</b></li>
-    <li class="footer">Generated on Thu May 26 2016 14:32:11 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_e0ca60487d078d857644626256151310.html">MUSK_CH</a></li><li class="navelem"><a class="el" href="../../d6/dfa/a00626.html">MUSK_CH.h</a></li>
+    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

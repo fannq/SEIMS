@@ -1,5 +1,0 @@
-<map id="Base" name="Base">
-<area shape="rect" id="node1" href="$d1/d79/a00745.html" title="Setting for SEIMS. " alt="" coords="112,5,243,35"/>
-<area shape="rect" id="node2" href="$d5/db3/a00744.html" title="Include classes of MetadataInfo, ModelException and SimulationModule et al. " alt="" coords="154,59,201,88"/>
-<area shape="rect" id="node4" href="$d0/d0a/a00743.html" title="Include data related classes, e.g. Measurement, HydroClimateData etc. " alt="" coords="149,112,205,141"/>
-</map>

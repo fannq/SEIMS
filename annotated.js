@@ -70,7 +70,7 @@ var annotated =
     [ "PETHargreaves", "d0/d89/a00071.html", "d0/d89/a00071" ],
     [ "PETPenmanMonteith", "d6/d2c/a00072.html", "d6/d2c/a00072" ],
     [ "PETPriestleyTaylor", "d1/d6e/a00073.html", "d1/d6e/a00073" ],
-    [ "PringInfoItem", "db/db6/a00074.html", null ],
+    [ "PrintInfoItem", "db/db6/a00074.html", "db/db6/a00074" ],
     [ "RegularMeasurement", "d9/da5/a00075.html", "d9/da5/a00075" ],
     [ "ReservoirMethod", "db/df8/a00076.html", "db/df8/a00076" ],
     [ "SEDR_VCD", "d1/d09/a00077.html", "d1/d09/a00077" ],

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['random_2ec',['random.c',['../d3/db1/a00200.html',1,'']]],
+  ['rasterdata',['RasterData',['../db/db6/a00074.html#a2aa9b451cda6c147f8073e17db869e7d',1,'PrintInfoItem']]],
   ['reach_5fsubbasin',['REACH_SUBBASIN',['../dd/d63/a00455.html#acd78fdb764182ed107203bd184fe848e',1,'text.h']]],
   ['readascfile',['ReadASCFile',['../dd/da2/a00019.html#aa6afc5c966e826e211b0c4633b276b4b',1,'clsRasterData::ReadASCFile(string)'],['../dd/da2/a00019.html#a8043bdbf94e6e1b0a304650b5424916c',1,'clsRasterData::ReadASCFile(string, clsRasterData *mask)']]],
   ['readdata',['readData',['../d4/dca/a00048.html#ada0a43ef89e61b07de87d672e5240b5e',1,'IUHCalculator']]],
@@ -19,12 +20,12 @@ var searchData=
   ['regularmeasurement_2eh',['RegularMeasurement.h',['../d4/dd3/a00428.html',1,'']]],
   ['reorder_5fcentroid',['reorder_centroid',['../de/dd2/a00207.html#a1a7121f82ee758732f18aedf847fe88a',1,'gkgraph.c']]],
   ['reservoirmethod',['ReservoirMethod',['../db/df8/a00076.html',1,'']]],
-  ['reservoirmethod_2eh',['ReservoirMethod.h',['../db/d3f/a00609.html',1,'']]],
+  ['reservoirmethod_2eh',['ReservoirMethod.h',['../d0/d8d/a00612.html',1,'']]],
   ['reset',['Reset',['../db/db2/a00020.html#ada1c83a14c9be8fcb2b1c34cad62f2e1',1,'clsReach::Reset()'],['../d9/db3/a00066.html#a86b59d5285b7826b2b98b8afac9732e3',1,'ParamInfo::Reset()']]],
   ['resetsubtimestep',['ResetSubTimeStep',['../d4/d63/a00082.html#a1a3a7bd2ff8748ec360e9464c358500b',1,'SimulationModule']]],
   ['resize',['Resize',['../d9/d77/a00095.html#a91e4c52c28c9bf1126e9932f3ceb42e7',1,'StringList']]],
   ['rstatus_5fet',['rstatus_et',['../d3/dd1/a00214.html#ac2f4a66b49d7100c9eea6d8df6c57781',1,'metis.h']]],
-  ['rw_2ec',['rw.c',['../db/d53/a00202.html',1,'']]],
   ['rw_2ec',['rw.c',['../dd/de3/a00201.html',1,'']]],
+  ['rw_2ec',['rw.c',['../db/d53/a00202.html',1,'']]],
   ['rwspacemalloc',['rwspacemalloc',['../dd/dd7/a00260.html#a194ce386758eefa7996960b928c5d0aa',1,'wspace.c']]]
 ];

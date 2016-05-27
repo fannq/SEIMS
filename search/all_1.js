@@ -1,9 +1,15 @@
 var searchData=
 [
   ['add',['Add',['../d9/d77/a00095.html#a39d7276a511637ca2bbf01b9375f2a5e',1,'StringList']]],
+  ['add1dtimeseriesresult',['add1DTimeSeriesResult',['../db/db6/a00074.html#a6c98c805a69f47e95575c103508dff0a',1,'PrintInfoItem']]],
   ['adddatatypemongo',['addDataTypeMongo',['../d7/de0/a00022.html#adfb501124ee05dca18201a6e6f242aa5',1,'clsSiteData']]],
   ['adjust1darray',['Adjust1DArray',['../d9/db3/a00066.html#aaee91ca6510c999cd689171a704575e8',1,'ParamInfo']]],
-  ['aggregationtype',['AggregationType',['../d1/d79/a00745.html#ga0271fcfc94579b48ed1dd87309d8e118',1,'PrintInfo.h']]],
+  ['adjust1draster',['Adjust1DRaster',['../d9/db3/a00066.html#a80511ea5a368997e89066aee66788e2e',1,'ParamInfo']]],
+  ['adjust2darray',['Adjust2DArray',['../d9/db3/a00066.html#a25d08aee0e83774468aaebfeb7f6e3e5',1,'ParamInfo']]],
+  ['adjust2draster',['Adjust2DRaster',['../d9/db3/a00066.html#a32f9eead1547f38be571ae13d164d627',1,'ParamInfo']]],
+  ['aggregatedata',['AggregateData',['../db/db6/a00074.html#ae374a8bb064ce806e48f1de099a48271',1,'PrintInfoItem::AggregateData(int numrows, float **data, AggregationType type, float NoDataValue)'],['../db/db6/a00074.html#a2ab0e72285759f565fa6506f43310444',1,'PrintInfoItem::AggregateData(time_t time, int numrows, float *data)']]],
+  ['aggregatedata2d',['AggregateData2D',['../db/db6/a00074.html#a796b76b5523eba12dbc1e3e972ca9aa1',1,'PrintInfoItem']]],
+  ['aggregationtype',['AggregationType',['../de/d3d/a00748.html#ga0271fcfc94579b48ed1dd87309d8e118',1,'PrintInfo.h']]],
   ['allocatekwaypartitionmemory',['AllocateKWayPartitionMemory',['../da/d31/a00234.html#a22a23a687ef7ed0d4f66ab58e3a81d12',1,'kwayrefine.c']]],
   ['allocaterefinementworkspace',['AllocateRefinementWorkSpace',['../dd/dd7/a00260.html#a2b337cc68be55b7e8b6d2218fcea855d',1,'wspace.c']]],
   ['allocateworkspace',['AllocateWorkSpace',['../dd/dd7/a00260.html#a38986a3bdf3ee614ee37396e8f3c149b',1,'wspace.c']]],
@@ -19,9 +25,9 @@ var searchData=
   ['at_5fspecificcells',['AT_SpecificCells',['../d0/dc5/a00435.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523',1,'PrintInfo.h']]],
   ['at_5fsum',['AT_Sum',['../d0/dc5/a00435.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea',1,'PrintInfo.h']]],
   ['at_5funknown',['AT_Unknown',['../d0/dc5/a00435.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959',1,'PrintInfo.h']]],
-  ['atmdep',['ATMDEP',['../da/db8/a00797.html',1,'']]],
-  ['atmosphericdeposition_2ecpp',['AtmosphericDeposition.cpp',['../dc/df1/a00662.html',1,'']]],
-  ['atmosphericdeposition_2eh',['AtmosphericDeposition.h',['../d7/d5f/a00663.html',1,'']]],
+  ['atmdep',['ATMDEP',['../df/d0e/a00800.html',1,'']]],
+  ['atmosphericdeposition_2ecpp',['AtmosphericDeposition.cpp',['../da/d46/a00665.html',1,'']]],
+  ['atmosphericdeposition_2eh',['AtmosphericDeposition.h',['../d9/d41/a00666.html',1,'']]],
   ['author',['Author',['../db/d3a/a00040.html#a1b8fa5ae955f80cbd549cd3186788d3f',1,'Information']]],
   ['auxapi_2ec',['auxapi.c',['../d3/dd5/a00215.html',1,'']]]
 ];
