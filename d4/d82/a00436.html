@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SEIMS_ModuleForModule.cpp File Reference</title>
+<title>SEIMS-2016: src/base/module_setting/PrintInfo.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,34 +110,68 @@ $(document).ready(function(){initNavTree('d4/d82/a00436.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">SEIMS_ModuleForModule.cpp File Reference</div>  </div>
+<div class="title">PrintInfo.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/da8/a00437_source.html">SEIMS_ModuleForModule.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">ModelException.h</a>&quot;</code><br/>
+
+<p>Class to store and manage the PRINT information from the file.out file.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;time.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d7e/a00434_source.html">ParamInfo.h</a>&quot;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &quot;mongoc.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d2/db6/a00411_source.html">clsRasterData.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SEIMS_ModuleForModule.cpp:</div>
+Include dependency graph for PrintInfo.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d08/a00884.png" border="0" usemap="#src_2base_2module__setting_2_s_e_i_m_s___module_for_module_8cpp" alt=""/></div>
-<map name="src_2base_2module__setting_2_s_e_i_m_s___module_for_module_8cpp" id="src_2base_2module__setting_2_s_e_i_m_s___module_for_module_8cpp">
-<area shape="rect" id="node2" href="../../d4/da8/a00437.html" title="SEIMS_ModuleForModule.h" alt="" coords="705,101,927,131"/><area shape="rect" id="node20" href="../../de/df4/a00450.html" title="Define ModelException class. " alt="" coords="1017,643,1167,672"/><area shape="rect" id="node4" href="../../de/d84/a00447.html" title="Define MetadataInfo class used by modules. " alt="" coords="116,565,242,595"/><area shape="rect" id="node9" href="../../d9/d95/a00400_source.html" title="Scenario.h" alt="" coords="1357,179,1455,208"/><area shape="rect" id="node43" href="../../d9/d3a/a00439.html" title="SEIMS_ModuleSetting.h" alt="" coords="1938,643,2135,672"/><area shape="rect" id="node8" href="../../de/dfe/a00448.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="23,643,191,672"/><area shape="rect" id="node10" href="../../df/d15/a00416.html" title="Database manager for Sqlite. " alt="" coords="487,411,607,440"/><area shape="rect" id="node13" href="../../d2/d56/a00384_source.html" title="BMPText.h" alt="" coords="1735,643,1837,672"/><area shape="rect" id="node14" href="../../d6/d80/a00371_source.html" title="BMPBase.h" alt="" coords="1579,565,1686,595"/><area shape="rect" id="node24" href="../../dc/de3/a00373_source.html" title="BMPFactory.h" alt="" coords="1430,333,1553,363"/><area shape="rect" id="node25" href="../../d8/d95/a00379_source.html" title="BMPReachFlowDiversion.h" alt="" coords="1381,411,1601,440"/><area shape="rect" id="node27" href="../../de/d08/a00381_source.html" title="BMPReachPointSource.h" alt="" coords="1626,411,1831,440"/><area shape="rect" id="node28" href="../../da/dee/a00383_source.html" title="BMPReachReservoir.h" alt="" coords="697,411,883,440"/><area shape="rect" id="node32" href="../../d4/d13/a00377_source.html" title="BMPReachFactory.h" alt="" coords="1610,256,1781,285"/><area shape="rect" id="node34" href="../../d9/d0a/a00390_source.html" title="ManagementOperation.h" alt="" coords="639,333,837,363"/><area shape="rect" id="node36" href="../../d9/da1/a00396_source.html" title="ManagementOperationPlant.h" alt="" coords="747,256,981,285"/><area shape="rect" id="node38" href="../../d9/dad/a00394_source.html" title="ManagementOperationHarvest.h" alt="" coords="419,256,673,285"/><area shape="rect" id="node39" href="../../d4/d27/a00392_source.html" title="ManagementOperationFertilizer.h" alt="" coords="1276,256,1535,285"/><area shape="rect" id="node41" href="../../d9/dd1/a00398_source.html" title="ManagementOperationTillage.h" alt="" coords="1005,256,1251,285"/><area shape="rect" id="node16" href="../../d1/dbd/a00457.html" title="Utilities class to handle string, date time and file. " alt="" coords="1517,643,1581,672"/><area shape="rect" id="node26" href="../../dd/dcb/a00375_source.html" title="BMPReach.h" alt="" coords="1503,488,1619,517"/><area shape="rect" id="node29" href="../../dd/dea/a00408.html" title="Update mongo&#45;c&#45;driver from v0.6 to v1.3.5. " alt="" coords="677,565,903,595"/><area shape="rect" id="node31" href="../../d4/dbc/a00414.html" title="A simple text read class. " alt="" coords="491,565,651,595"/><area shape="rect" id="node35" href="../../dd/db5/a00365_source.html" title="ArealParameter.h" alt="" coords="969,488,1115,517"/><area shape="rect" id="node37" href="../../dd/df5/a00386_source.html" title="CropParameter.h" alt="" coords="862,333,1006,363"/><area shape="rect" id="node40" href="../../d9/dc1/a00388_source.html" title="FertilizerParameter.h" alt="" coords="1214,333,1385,363"/><area shape="rect" id="node42" href="../../d4/d6d/a00402_source.html" title="TillageParameter.h" alt="" coords="1031,333,1189,363"/></map>
+<div class="center"><img src="../../db/d18/a00885.png" border="0" usemap="#src_2base_2module__setting_2_print_info_8h" alt=""/></div>
+<map name="src_2base_2module__setting_2_print_info_8h" id="src_2base_2module__setting_2_print_info_8h">
+<area shape="rect" id="node5" href="../../d1/d7e/a00434.html" title="Class to store parameter item information. " alt="" coords="83,179,191,208"/><area shape="rect" id="node9" href="../../d2/db6/a00411.html" title="Define Raster class to handle raster data. " alt="" coords="355,101,489,131"/><area shape="rect" id="node6" href="../../d9/d10/a00449.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="22,256,191,285"/><area shape="rect" id="node11" href="../../dc/df3/a00424_source.html" title="MongoUtil.h" alt="" coords="449,179,556,208"/><area shape="rect" id="node13" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="502,256,652,285"/></map>
 </div>
 </div>
 <p><a href="../../d4/d82/a00436_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html">PrintInfoItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class stores output information.  <a href="../../db/db6/a00074.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga0271fcfc94579b48ed1dd87309d8e118"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118">AggregationType</a> { <br/>
+&#160;&#160;<a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118a0a24f0979a83ec450cd516883da71959">AT_Unknown</a> = 0, 
+<a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118a9bdff781c1c004c800d09a3df79225ea">AT_Sum</a> = 1, 
+<a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118ad0fe044928688ac4746eeb213f10d61a">AT_Average</a> = 2, 
+<a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118a40ec0014676c0abbca8429caf02b9dc7">AT_Minimum</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118a13507e59e71100cb237ee11d4c771445">AT_Maximum</a> = 4, 
+<a class="el" href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118a636ecaa4b2e0d12cd14889857a5e8523">AT_SpecificCells</a> = 5
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga0271fcfc94579b48ed1dd87309d8e118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregation type for OUTPUT.  <a href="../../d5/de8/a00749.html#ga0271fcfc94579b48ed1dd87309d8e118">More...</a><br/></td></tr>
+<tr class="separator:ga0271fcfc94579b48ed1dd87309d8e118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>[your name] </dd></dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<dl class="section date"><dt>Date</dt><dd>June 2015 </dd></dl>
+<div class="textblock"><p>Class to store and manage the PRINT information from the file.out file. </p>
+<dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>June 2010 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d4/d82/a00436_source.html">SEIMS_ModuleForModule.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d4/d82/a00436_source.html">PrintInfo.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d4/d82/a00436.html">SEIMS_ModuleForModule.cpp</a></li>
-    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d4/d82/a00436.html">PrintInfo.h</a></li>
+    <li class="footer">Generated on Sun May 29 2016 13:23:37 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

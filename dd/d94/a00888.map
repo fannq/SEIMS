@@ -1,5 +1,5 @@
-<map id="src/base/module_setting/Settings.cpp" name="src/base/module_setting/Settings.cpp">
-<area shape="rect" id="node2" href="$d6/d66/a00441.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="449,101,543,131"/>
-<area shape="rect" id="node9" href="$d1/dbd/a00457.html" title="Utilities class to handle string, date time and file. " alt="" coords="395,179,459,208"/>
-<area shape="rect" id="node13" href="$de/df4/a00450.html" title="Define ModelException class. " alt="" coords="75,179,225,208"/>
+<map id="src/base/module_setting/SEIMS_ModuleSetting.cpp" name="src/base/module_setting/SEIMS_ModuleSetting.cpp">
+<area shape="rect" id="node2" href="$de/df8/a00440.html" title="SEIMS_ModuleSetting.h" alt="" coords="441,101,639,131"/>
+<area shape="rect" id="node5" href="$da/d65/a00458.html" title="Utilities class to handle string, date time and file. " alt="" coords="331,101,395,131"/>
+<area shape="rect" id="node11" href="$d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="663,101,813,131"/>
 </map>

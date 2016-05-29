@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/nutrient/SurTra/SurrunoffTransfer.h File Reference</title>
+<title>SEIMS-2016: src/modules/nutrient/SurTra/SurrunoffTransfer.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,43 +110,39 @@ $(document).ready(function(){initNavTree('da/d3a/a00694.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">SurrunoffTransfer.h File Reference<div class="ingroups"><a class="el" href="../../d5/d72/a00803.html">SurTra</a></div></div>  </div>
+<div class="title">SurrunoffTransfer.cpp File Reference<div class="ingroups"><a class="el" href="../../d7/dff/a00805.html">SurTra</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/d0b/a00452_source.html">SimulationModule.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d5/d5b/a00695_source.html">SurrunoffTransfer.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/dfe/a00448_source.html">MetadataInfo.h</a>&quot;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d69/a00451_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SurrunoffTransfer.h:</div>
+Include dependency graph for SurrunoffTransfer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d49/a00979.png" border="0" usemap="#src_2modules_2nutrient_2_sur_tra_2_surrunoff_transfer_8h" alt=""/></div>
-<map name="src_2modules_2nutrient_2_sur_tra_2_surrunoff_transfer_8h" id="src_2modules_2nutrient_2_sur_tra_2_surrunoff_transfer_8h">
-<area shape="rect" id="node3" href="../../d4/d53/a00429_source.html" title="api.h" alt="" coords="85,101,141,131"/><area shape="rect" id="node4" href="../../d1/d0b/a00452.html" title="Parent class for all modules in SEIMS. " alt="" coords="98,179,261,208"/><area shape="rect" id="node5" href="../../de/df4/a00450.html" title="Define ModelException class. " alt="" coords="121,256,271,285"/></map>
+<div class="center"><img src="../../d3/d7b/a00986.png" border="0" usemap="#src_2modules_2nutrient_2_sur_tra_2_surrunoff_transfer_8cpp" alt=""/></div>
+<map name="src_2modules_2nutrient_2_sur_tra_2_surrunoff_transfer_8cpp" id="src_2modules_2nutrient_2_sur_tra_2_surrunoff_transfer_8cpp">
+<area shape="rect" id="node3" href="../../d5/d5b/a00695.html" title="SurrunoffTransfer.h" alt="" coords="222,101,380,131"/><area shape="rect" id="node7" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="5,333,155,363"/><area shape="rect" id="node10" href="../../de/dfe/a00448.html" title="Define MetadataInfo class used by modules. " alt="" coords="517,256,643,285"/><area shape="rect" id="node5" href="../../dc/d0c/a00430_source.html" title="api.h" alt="" coords="299,179,356,208"/><area shape="rect" id="node6" href="../../da/dc3/a00453.html" title="Parent class for all modules in SEIMS. " alt="" coords="231,256,395,285"/><area shape="rect" id="node13" href="../../d9/d10/a00449.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="373,333,541,363"/></map>
 </div>
 </div>
 <p><a href="../../da/d3a/a00694_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html">SurrunoffTransfer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nutrient removed and lost in surface runoff.  <a href="../../d1/d44/a00098.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Huiran Gao </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>April 2016 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>May 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../da/d3a/a00694_source.html">SurrunoffTransfer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../da/d3a/a00694_source.html">SurrunoffTransfer.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_849de4688926fda39963c0da963f3a41.html">SurTra</a></li><li class="navelem"><a class="el" href="../../da/d3a/a00694.html">SurrunoffTransfer.h</a></li>
-    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_295a917b36cf5dbcf356883884d98644.html">nutrient</a></li><li class="navelem"><a class="el" href="../../dir_849de4688926fda39963c0da963f3a41.html">SurTra</a></li><li class="navelem"><a class="el" href="../../da/d3a/a00694.html">SurrunoffTransfer.cpp</a></li>
+    <li class="footer">Generated on Sun May 29 2016 13:23:37 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

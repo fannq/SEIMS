@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/module_setting/SettingsInput.h File Reference</title>
+<title>SEIMS-2016: src/base/module_setting/SettingsInput.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,52 +110,42 @@ $(document).ready(function(){initNavTree('d0/dc4/a00443.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">SettingsInput.h File Reference</div>  </div>
+<div class="title">SettingsInput.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Setting Inputs for SEIMS.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d66/a00441_source.html">Settings.h</a>&quot;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/df7/a00418_source.html">InputStation.h</a>&quot;</code><br/>
-<code>#include &quot;Scenario.h&quot;</code><br/>
-<code>#include &quot;mongoc.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/dea/a00444_source.html">SettingsInput.h</a>&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d65/a00458_source.html">utils.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d69/a00451_source.html">ModelException.h</a>&quot;</code><br/>
 <code>#include &quot;MongoUtil.h&quot;</code><br/>
-<code>#include &lt;set&gt;</code><br/>
+<code>#include &lt;cstdlib&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SettingsInput.h:</div>
+Include dependency graph for SettingsInput.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/dfc/a00891.png" border="0" usemap="#src_2base_2module__setting_2_settings_input_8h" alt=""/></div>
-<map name="src_2base_2module__setting_2_settings_input_8h" id="src_2base_2module__setting_2_settings_input_8h">
-<area shape="rect" id="node2" href="../../d6/d66/a00441.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="225,488,319,517"/><area shape="rect" id="node16" href="../../de/df7/a00418.html" title="InputStation.h" alt="" coords="2187,488,2307,517"/><area shape="rect" id="node21" href="../../d9/d95/a00400_source.html" title="Scenario.h" alt="" coords="1644,101,1743,131"/><area shape="rect" id="node9" href="../../d1/dbd/a00457.html" title="Utilities class to handle string, date time and file. " alt="" coords="219,565,283,595"/><area shape="rect" id="node13" href="../../de/df4/a00450.html" title="Define ModelException class. " alt="" coords="1070,565,1220,595"/><area shape="rect" id="node20" href="../../db/d4f/a00420.html" title="Measurement class to store HydroClimate site data. " alt="" coords="1955,565,2087,595"/><area shape="rect" id="node22" href="../../df/d15/a00416.html" title="Database manager for Sqlite. " alt="" coords="1110,333,1231,363"/><area shape="rect" id="node24" href="../../d2/d56/a00384_source.html" title="BMPText.h" alt="" coords="1552,565,1653,595"/><area shape="rect" id="node25" href="../../d6/d80/a00371_source.html" title="BMPBase.h" alt="" coords="1307,488,1413,517"/><area shape="rect" id="node28" href="../../dc/de3/a00373_source.html" title="BMPFactory.h" alt="" coords="1635,256,1757,285"/><area shape="rect" id="node29" href="../../d8/d95/a00379_source.html" title="BMPReachFlowDiversion.h" alt="" coords="1409,333,1628,363"/><area shape="rect" id="node31" href="../../de/d08/a00381_source.html" title="BMPReachPointSource.h" alt="" coords="1653,333,1859,363"/><area shape="rect" id="node32" href="../../da/dee/a00383_source.html" title="BMPReachReservoir.h" alt="" coords="899,333,1085,363"/><area shape="rect" id="node35" href="../../d4/d13/a00377_source.html" title="BMPReachFactory.h" alt="" coords="1435,179,1605,208"/><area shape="rect" id="node37" href="../../d9/d0a/a00390_source.html" title="ManagementOperation.h" alt="" coords="661,256,859,285"/><area shape="rect" id="node39" href="../../d9/da1/a00396_source.html" title="ManagementOperationPlant.h" alt="" coords="905,179,1139,208"/><area shape="rect" id="node41" href="../../d9/dad/a00394_source.html" title="ManagementOperationHarvest.h" alt="" coords="577,179,831,208"/><area shape="rect" id="node42" href="../../d4/d27/a00392_source.html" title="ManagementOperationFertilizer.h" alt="" coords="293,179,552,208"/><area shape="rect" id="node44" href="../../d9/dd1/a00398_source.html" title="ManagementOperationTillage.h" alt="" coords="1163,179,1409,208"/><area shape="rect" id="node30" href="../../dd/dcb/a00375_source.html" title="BMPReach.h" alt="" coords="1372,411,1488,440"/><area shape="rect" id="node33" href="../../dd/dea/a00408.html" title="Update mongo&#45;c&#45;driver from v0.6 to v1.3.5. " alt="" coords="899,488,1125,517"/><area shape="rect" id="node34" href="../../d4/dbc/a00414.html" title="A simple text read class. " alt="" coords="662,488,823,517"/><area shape="rect" id="node38" href="../../dd/db5/a00365_source.html" title="ArealParameter.h" alt="" coords="711,411,857,440"/><area shape="rect" id="node40" href="../../dd/df5/a00386_source.html" title="CropParameter.h" alt="" coords="909,256,1053,285"/><area shape="rect" id="node43" href="../../d9/dc1/a00388_source.html" title="FertilizerParameter.h" alt="" coords="328,256,499,285"/><area shape="rect" id="node45" href="../../d4/d6d/a00402_source.html" title="TillageParameter.h" alt="" coords="1155,256,1313,285"/></map>
+<div class="center"><img src="../../d0/de2/a00892.png" border="0" usemap="#src_2base_2module__setting_2_settings_input_8cpp" alt=""/></div>
+<map name="src_2base_2module__setting_2_settings_input_8cpp" id="src_2base_2module__setting_2_settings_input_8cpp">
+<area shape="rect" id="node2" href="../../d3/dea/a00444.html" title="Setting Inputs for SEIMS. " alt="" coords="1991,101,2119,131"/><area shape="rect" id="node10" href="../../da/d65/a00458.html" title="Utilities class to handle string, date time and file. " alt="" coords="188,643,252,672"/><area shape="rect" id="node14" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="658,643,808,672"/><area shape="rect" id="node3" href="../../db/d34/a00442.html" title="Settings class to store the settings information from Configuration files. " alt="" coords="247,565,340,595"/><area shape="rect" id="node17" href="../../d3/d29/a00419.html" title="InputStation.h" alt="" coords="2359,565,2479,595"/><area shape="rect" id="node22" href="../../d7/d00/a00401_source.html" title="Scenario.h" alt="" coords="1703,179,1801,208"/><area shape="rect" id="node21" href="../../d2/de1/a00421.html" title="Measurement class to store HydroClimate site data. " alt="" coords="2249,643,2380,672"/><area shape="rect" id="node23" href="../../d8/de7/a00417.html" title="Database manager for Sqlite. " alt="" coords="970,411,1091,440"/><area shape="rect" id="node25" href="../../d5/d05/a00385_source.html" title="BMPText.h" alt="" coords="1167,643,1268,672"/><area shape="rect" id="node26" href="../../db/d7e/a00372_source.html" title="BMPBase.h" alt="" coords="985,565,1092,595"/><area shape="rect" id="node29" href="../../d5/db5/a00374_source.html" title="BMPFactory.h" alt="" coords="1373,333,1496,363"/><area shape="rect" id="node30" href="../../d8/ddd/a00380_source.html" title="BMPReachFlowDiversion.h" alt="" coords="1269,411,1488,440"/><area shape="rect" id="node32" href="../../d3/d45/a00382_source.html" title="BMPReachPointSource.h" alt="" coords="1564,411,1769,440"/><area shape="rect" id="node33" href="../../d2/d56/a00384_source.html" title="BMPReachReservoir.h" alt="" coords="1844,411,2031,440"/><area shape="rect" id="node36" href="../../d7/d08/a00378_source.html" title="BMPReachFactory.h" alt="" coords="995,256,1165,285"/><area shape="rect" id="node38" href="../../db/d95/a00391_source.html" title="ManagementOperation.h" alt="" coords="1625,333,1823,363"/><area shape="rect" id="node40" href="../../d7/d93/a00397_source.html" title="ManagementOperationPlant.h" alt="" coords="415,256,648,285"/><area shape="rect" id="node42" href="../../db/dbc/a00395_source.html" title="ManagementOperationHarvest.h" alt="" coords="1625,256,1879,285"/><area shape="rect" id="node43" href="../../da/dbf/a00393_source.html" title="ManagementOperationFertilizer.h" alt="" coords="1190,256,1449,285"/><area shape="rect" id="node45" href="../../d1/d53/a00399_source.html" title="ManagementOperationTillage.h" alt="" coords="723,256,969,285"/><area shape="rect" id="node31" href="../../d6/db8/a00376_source.html" title="BMPReach.h" alt="" coords="1356,488,1472,517"/><area shape="rect" id="node34" href="../../de/d3d/a00409.html" title="Update mongo&#45;c&#45;driver from v0.6 to v1.3.5. " alt="" coords="1956,565,2183,595"/><area shape="rect" id="node35" href="../../d0/dd6/a00415.html" title="A simple text read class. " alt="" coords="1719,565,1880,595"/><area shape="rect" id="node39" href="../../d2/d3e/a00366_source.html" title="ArealParameter.h" alt="" coords="780,488,927,517"/><area shape="rect" id="node41" href="../../db/db9/a00387_source.html" title="CropParameter.h" alt="" coords="500,333,644,363"/><area shape="rect" id="node44" href="../../dc/dc9/a00389_source.html" title="FertilizerParameter.h" alt="" coords="959,333,1129,363"/><area shape="rect" id="node46" href="../../d0/da0/a00403_source.html" title="TillageParameter.h" alt="" coords="725,333,883,363"/></map>
 </div>
 </div>
 <p><a href="../../d0/dc4/a00443_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html">SettingsInput</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input settings for SEIMS.  <a href="../../d8/d53/a00081.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Setting Inputs for SEIMS. </p>
 <dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>June 2010 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d0/dc4/a00443_source.html">SettingsInput.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d0/dc4/a00443_source.html">SettingsInput.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d0/dc4/a00443.html">SettingsInput.h</a></li>
-    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><a class="el" href="../../d0/dc4/a00443.html">SettingsInput.cpp</a></li>
+    <li class="footer">Generated on Sun May 29 2016 13:23:37 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

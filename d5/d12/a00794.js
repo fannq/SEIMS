@@ -1,12 +1,14 @@
 var a00794 =
 [
-    [ "SOL_WB", "d9/dec/a00090.html", [
-      [ "CheckInputData", "d9/dec/a00090.html#a6b803bd6fb3e800c8732336b517ed123", null ],
-      [ "CheckInputSize", "d9/dec/a00090.html#a731a81b1e33e9937e436a4f2e93647cb", null ],
-      [ "Execute", "d9/dec/a00090.html#ada3f026f8225a51403194aebbf517555", null ],
-      [ "Get2DData", "d9/dec/a00090.html#a56e2a3a62bc26f117657bd28fc133b0e", null ],
-      [ "Set1DData", "d9/dec/a00090.html#a8ee8d124c758fdff0a080f64363f28b4", null ],
-      [ "Set2DData", "d9/dec/a00090.html#a76b655af13eec0552b7f8b63713a0016", null ],
-      [ "SetValue", "d9/dec/a00090.html#a54589e2c16713af0532519393be022bc", null ]
+    [ "SNO_WB", "d1/d1e/a00087.html", [
+      [ "SNO_WB", "d1/d1e/a00087.html#abcf4471d143e9362a56afbc7f97bfe7a", null ],
+      [ "~SNO_WB", "d1/d1e/a00087.html#a439603fa8b0fb6338748c73ee9bba2e0", null ],
+      [ "Execute", "d1/d1e/a00087.html#adcd3db4af0fe481140345a0b188871da", null ],
+      [ "Get1DData", "d1/d1e/a00087.html#ae99983c22de777796eff611ab8390a5e", null ],
+      [ "GetValue", "d1/d1e/a00087.html#a973d02d674a080fa6030f11c18f8b7c6", null ],
+      [ "initalOutputs", "d1/d1e/a00087.html#ab3fa635f5a2bdadcd051dd7dffd6a9a8", null ],
+      [ "Set1DData", "d1/d1e/a00087.html#ac5b765a9566894e0acfac3c19453b6b5", null ],
+      [ "SetValue", "d1/d1e/a00087.html#a396999211170f869ea24ba192f5b26fe", null ],
+      [ "m_nCells", "d1/d1e/a00087.html#a16bf7ef02b2a4d4af6a1c26ccb00bdfb", null ]
     ] ]
 ];

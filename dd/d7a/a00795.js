@@ -1,9 +1,12 @@
 var a00795 =
 [
-    [ "SSM_PE", "d1/dc1/a00092.html", [
-      [ "Execute", "d1/dc1/a00092.html#a05d50acd9b5fa117b07e5b784b4dcb3a", null ],
-      [ "Get1DData", "d1/dc1/a00092.html#a6192da955f6cb63161086e81c04aa7a2", null ],
-      [ "Set1DData", "d1/dc1/a00092.html#acf17f10e85bffee8fa9aa5f60f3ae602", null ],
-      [ "SetValue", "d1/dc1/a00092.html#ad555a811d3599008622ce5fa99b7b97f", null ]
+    [ "SOL_WB", "d9/dec/a00090.html", [
+      [ "CheckInputData", "d9/dec/a00090.html#a6b803bd6fb3e800c8732336b517ed123", null ],
+      [ "CheckInputSize", "d9/dec/a00090.html#a731a81b1e33e9937e436a4f2e93647cb", null ],
+      [ "Execute", "d9/dec/a00090.html#ada3f026f8225a51403194aebbf517555", null ],
+      [ "Get2DData", "d9/dec/a00090.html#a56e2a3a62bc26f117657bd28fc133b0e", null ],
+      [ "Set1DData", "d9/dec/a00090.html#a8ee8d124c758fdff0a080f64363f28b4", null ],
+      [ "Set2DData", "d9/dec/a00090.html#a76b655af13eec0552b7f8b63713a0016", null ],
+      [ "SetValue", "d9/dec/a00090.html#a54589e2c16713af0532519393be022bc", null ]
     ] ]
 ];

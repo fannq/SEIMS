@@ -4,6 +4,7 @@ var a00085 =
     [ "~SNO_DD", "df/d13/a00085.html#a3293ee28c91ecfe39321247a27760c7f", null ],
     [ "Execute", "df/d13/a00085.html#aa566a3707230b0aeb25403e973908977", null ],
     [ "Get1DData", "df/d13/a00085.html#ade2b88b62c896967edfb4cf106c0254c", null ],
+    [ "initalOutputs", "df/d13/a00085.html#ab673b5185ab7500ebc98fe146553e927", null ],
     [ "Set1DData", "df/d13/a00085.html#a8bc8d5119d374db49e35287fe6203f4e", null ],
     [ "SetValue", "df/d13/a00085.html#abb864b216b39376a7bbc49217d4dde26", null ],
     [ "m_nCells", "df/d13/a00085.html#a87f0b15b96ce0a086e00332a96f1d10f", null ],

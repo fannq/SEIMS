@@ -1,4 +1,4 @@
-<map id="src/base/data/ClimateParams.cpp" name="src/base/data/ClimateParams.cpp">
-<area shape="rect" id="node2" href="$d1/d8b/a00406.html" title="Functions for climate related intermediate parameters, e.g., saturation vapor pressure, max solar radiation. " alt="" coords="5,83,149,112"/>
-<area shape="rect" id="node7" href="$de/df4/a00450.html" title="Define ModelException class. " alt="" coords="470,83,620,112"/>
+<map id="src/base/data/base_VariableData.cpp" name="src/base/data/base_VariableData.cpp">
+<area shape="rect" id="node2" href="$de/de8/a00405.html" title="Base class used to store input and output variable datasets. " alt="" coords="5,101,179,131"/>
+<area shape="rect" id="node4" href="$d9/d10/a00449.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="69,179,237,208"/>
 </map>

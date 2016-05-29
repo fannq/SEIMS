@@ -44,5 +44,6 @@ var a00783 =
       [ "m_Vdiv", "d1/d22/a00057.html#a289b64822dbb8e8fe47bfa060e0deb7a", null ],
       [ "m_Vpoint", "d1/d22/a00057.html#a9fe0118c37113b00bbb6a41eccaf10fc", null ],
       [ "m_Vseep0", "d1/d22/a00057.html#a21d13efc0708dc5a2dad091efee97707", null ]
-    ] ]
+    ] ],
+    [ "MetadataInformation", "dc/d0c/a00783.html#ga0087c853569e2c94d58c3499365662e9", null ]
 ];

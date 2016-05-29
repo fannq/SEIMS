@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/string.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/sort.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,112 +113,107 @@ $(document).ready(function(){initNavTree('d5/d13/a00205.html','../../');});
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">string.c File Reference</div>  </div>
+<div class="title">sort.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions for manipulating strings.  
+<p>This file contains GKlib's various sorting routines.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for string.c:</div>
+Include dependency graph for sort.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dea/a00829.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2string_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2string_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2string_8c">
-<area shape="rect" id="node2" href="../../dc/d52/a00183_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../dd/da7/a00168.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d7/d25/a00182.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d8/d64/a00181.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../d5/dcb/a00170.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../de/d53/a00169.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d6/dfb/a00172.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d1/d0d/a00171.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../d9/d90/a00178.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d7/d3f/a00173.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../d8/df1/a00174.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../de/d45/a00175.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../d5/de9/a00176.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../dd/d4c/a00177.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../db/dd9/a00179.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d0/d81/a00180.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
+<div class="center"><img src="../../d9/daf/a00830.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2sort_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2sort_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2sort_8c">
+<area shape="rect" id="node2" href="../../d2/d94/a00184_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../de/d53/a00169.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../dc/d52/a00183.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d7/d25/a00182.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../d1/d0d/a00171.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d5/dcb/a00170.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d7/d3f/a00173.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d6/dfb/a00172.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../db/dd9/a00179.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d8/df1/a00174.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../de/d45/a00175.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d5/de9/a00176.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../dd/d4c/a00177.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../d9/d90/a00178.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d0/d81/a00180.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d8/d64/a00181.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
 </div>
 </div>
 <p><a href="../../d5/d13/a00205_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a29b909254dcbcae417f8c09ce21d5423"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a29b909254dcbcae417f8c09ce21d5423">gk_strchr_replace</a> (char *str, char *fromlist, char *tolist)</td></tr>
-<tr class="memdesc:a29b909254dcbcae417f8c09ce21d5423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces certain characters in a string.  <a href="#a29b909254dcbcae417f8c09ce21d5423">More...</a><br/></td></tr>
-<tr class="separator:a29b909254dcbcae417f8c09ce21d5423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e5cf8f76a1ece74adf1b8b9dfcb275"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a46e5cf8f76a1ece74adf1b8b9dfcb275">gk_strstr_replace</a> (char *str, char *pattern, char *replacement, char *options, char **new_str)</td></tr>
-<tr class="memdesc:a46e5cf8f76a1ece74adf1b8b9dfcb275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regex-based search-and-replace function.  <a href="#a46e5cf8f76a1ece74adf1b8b9dfcb275">More...</a><br/></td></tr>
-<tr class="separator:a46e5cf8f76a1ece74adf1b8b9dfcb275"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05261ee12d082a78cabc018d2f5e2266"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a05261ee12d082a78cabc018d2f5e2266">gk_strtprune</a> (char *str, char *rmlist)</td></tr>
-<tr class="memdesc:a05261ee12d082a78cabc018d2f5e2266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prunes characters from the end of the string.  <a href="#a05261ee12d082a78cabc018d2f5e2266">More...</a><br/></td></tr>
-<tr class="separator:a05261ee12d082a78cabc018d2f5e2266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6c1dfa83b68cea7f048086e0a585c0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#adf6c1dfa83b68cea7f048086e0a585c0">gk_strhprune</a> (char *str, char *rmlist)</td></tr>
-<tr class="memdesc:adf6c1dfa83b68cea7f048086e0a585c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prunes characters from the beginning of the string.  <a href="#adf6c1dfa83b68cea7f048086e0a585c0">More...</a><br/></td></tr>
-<tr class="separator:adf6c1dfa83b68cea7f048086e0a585c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2e962be7af156e5200766fa8543cff1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#ae2e962be7af156e5200766fa8543cff1">gk_strtoupper</a> (char *str)</td></tr>
-<tr class="memdesc:ae2e962be7af156e5200766fa8543cff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to upper case.  <a href="#ae2e962be7af156e5200766fa8543cff1">More...</a><br/></td></tr>
-<tr class="separator:ae2e962be7af156e5200766fa8543cff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2d603de6c132e340d85e8e125d847a0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#aa2d603de6c132e340d85e8e125d847a0">gk_strtolower</a> (char *str)</td></tr>
-<tr class="memdesc:aa2d603de6c132e340d85e8e125d847a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to lower case.  <a href="#aa2d603de6c132e340d85e8e125d847a0">More...</a><br/></td></tr>
-<tr class="separator:aa2d603de6c132e340d85e8e125d847a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af62038e97ca55f14ec2557a01bd85ca2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a> (char *orgstr)</td></tr>
-<tr class="memdesc:af62038e97ca55f14ec2557a01bd85ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplicates a string.  <a href="#af62038e97ca55f14ec2557a01bd85ca2">More...</a><br/></td></tr>
-<tr class="separator:af62038e97ca55f14ec2557a01bd85ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47570da67818e57e97fdd464bc60fbd1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a47570da67818e57e97fdd464bc60fbd1">gk_strcasecmp</a> (char *s1, char *s2)</td></tr>
-<tr class="memdesc:a47570da67818e57e97fdd464bc60fbd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Case insensitive string comparison.  <a href="#a47570da67818e57e97fdd464bc60fbd1">More...</a><br/></td></tr>
-<tr class="separator:a47570da67818e57e97fdd464bc60fbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50149c8c9f8dd36fcad46773f35eedc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a50149c8c9f8dd36fcad46773f35eedc4">gk_strrcmp</a> (char *s1, char *s2)</td></tr>
-<tr class="memdesc:a50149c8c9f8dd36fcad46773f35eedc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two strings in revere order.  <a href="#a50149c8c9f8dd36fcad46773f35eedc4">More...</a><br/></td></tr>
-<tr class="separator:a50149c8c9f8dd36fcad46773f35eedc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ca4ee9f715e6ce364af43f7f7a6cfc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a79ca4ee9f715e6ce364af43f7f7a6cfc">gk_time2str</a> (time_t time)</td></tr>
-<tr class="memdesc:a79ca4ee9f715e6ce364af43f7f7a6cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a time_t time into a string.  <a href="#a79ca4ee9f715e6ce364af43f7f7a6cfc">More...</a><br/></td></tr>
-<tr class="separator:a79ca4ee9f715e6ce364af43f7f7a6cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5973a9945423f69a60d3b209082fd718"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a5973a9945423f69a60d3b209082fd718">gk_str2time</a> (char *str)</td></tr>
-<tr class="memdesc:a5973a9945423f69a60d3b209082fd718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a date/time string into its equivalent time_t value.  <a href="#a5973a9945423f69a60d3b209082fd718">More...</a><br/></td></tr>
-<tr class="separator:a5973a9945423f69a60d3b209082fd718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e3b58cec06398521af35dc21642c97d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a4e3b58cec06398521af35dc21642c97d">gk_csorti</a> (size_t n, char *base)</td></tr>
+<tr class="separator:a4e3b58cec06398521af35dc21642c97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd4b6ef6aa36734ad488d600e46aa57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a0dd4b6ef6aa36734ad488d600e46aa57">gk_csortd</a> (size_t n, char *base)</td></tr>
+<tr class="separator:a0dd4b6ef6aa36734ad488d600e46aa57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad434d886936ca951a6694a1d2037bbe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#ad434d886936ca951a6694a1d2037bbe3">gk_isorti</a> (size_t n, int *base)</td></tr>
+<tr class="separator:ad434d886936ca951a6694a1d2037bbe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d6536ac92fc1258c8386320dbda99ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a0d6536ac92fc1258c8386320dbda99ce">gk_isortd</a> (size_t n, int *base)</td></tr>
+<tr class="separator:a0d6536ac92fc1258c8386320dbda99ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab149dbe80d68dde0fd497f852233b3d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#ab149dbe80d68dde0fd497f852233b3d8">gk_fsorti</a> (size_t n, float *base)</td></tr>
+<tr class="separator:ab149dbe80d68dde0fd497f852233b3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364e63dcdc210ab135b648daf598313e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a364e63dcdc210ab135b648daf598313e">gk_fsortd</a> (size_t n, float *base)</td></tr>
+<tr class="separator:a364e63dcdc210ab135b648daf598313e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedce2ad9d9cc3dc07260adb2cf843c62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#aedce2ad9d9cc3dc07260adb2cf843c62">gk_dsorti</a> (size_t n, double *base)</td></tr>
+<tr class="separator:aedce2ad9d9cc3dc07260adb2cf843c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2696ea8ea8ee66e5c2eb69e9ad4703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#afa2696ea8ea8ee66e5c2eb69e9ad4703">gk_dsortd</a> (size_t n, double *base)</td></tr>
+<tr class="separator:afa2696ea8ea8ee66e5c2eb69e9ad4703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b782afd9dd6604c6e8a035c7e1de46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a53b782afd9dd6604c6e8a035c7e1de46">gk_idxsorti</a> (size_t n, gk_idx_t *base)</td></tr>
+<tr class="separator:a53b782afd9dd6604c6e8a035c7e1de46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a851c55670d9c95d34c588eb086626e6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a851c55670d9c95d34c588eb086626e6d">gk_idxsortd</a> (size_t n, gk_idx_t *base)</td></tr>
+<tr class="separator:a851c55670d9c95d34c588eb086626e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174146fc7e90c9afe88d792377916db6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a174146fc7e90c9afe88d792377916db6">gk_ckvsorti</a> (size_t n, gk_ckv_t *base)</td></tr>
+<tr class="separator:a174146fc7e90c9afe88d792377916db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb7cdf8f8069ea5d9717b43785fd1a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#adb7cdf8f8069ea5d9717b43785fd1a6c">gk_ckvsortd</a> (size_t n, gk_ckv_t *base)</td></tr>
+<tr class="separator:adb7cdf8f8069ea5d9717b43785fd1a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c57772aafc9ec6239683438641c08b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#af0c57772aafc9ec6239683438641c08b">gk_ikvsorti</a> (size_t n, gk_ikv_t *base)</td></tr>
+<tr class="separator:af0c57772aafc9ec6239683438641c08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fde2ad2770975c122bab802cbd5094b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a0fde2ad2770975c122bab802cbd5094b">gk_ikvsortd</a> (size_t n, gk_ikv_t *base)</td></tr>
+<tr class="separator:a0fde2ad2770975c122bab802cbd5094b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a939089a3ab9d7ec9fb5e785543f45d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a9a939089a3ab9d7ec9fb5e785543f45d">gk_i32kvsorti</a> (size_t n, gk_i32kv_t *base)</td></tr>
+<tr class="separator:a9a939089a3ab9d7ec9fb5e785543f45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e979cb0725e053df4397f40d02ce23f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a0e979cb0725e053df4397f40d02ce23f">gk_i32kvsortd</a> (size_t n, gk_i32kv_t *base)</td></tr>
+<tr class="separator:a0e979cb0725e053df4397f40d02ce23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442355d8561580d45d5a75afb5fb9698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a442355d8561580d45d5a75afb5fb9698">gk_i64kvsorti</a> (size_t n, gk_i64kv_t *base)</td></tr>
+<tr class="separator:a442355d8561580d45d5a75afb5fb9698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa957686d304c93a52441fa6fce6652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a7fa957686d304c93a52441fa6fce6652">gk_i64kvsortd</a> (size_t n, gk_i64kv_t *base)</td></tr>
+<tr class="separator:a7fa957686d304c93a52441fa6fce6652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e869c6f637d2a3cbe92e89f2495d39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a39e869c6f637d2a3cbe92e89f2495d39">gk_zkvsorti</a> (size_t n, gk_zkv_t *base)</td></tr>
+<tr class="separator:a39e869c6f637d2a3cbe92e89f2495d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af837cf83cd77a2232ee7204561d028b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#af837cf83cd77a2232ee7204561d028b1">gk_zkvsortd</a> (size_t n, gk_zkv_t *base)</td></tr>
+<tr class="separator:af837cf83cd77a2232ee7204561d028b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf119da593511faacd54cb35ac8de4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a3cf119da593511faacd54cb35ac8de4e">gk_fkvsorti</a> (size_t n, gk_fkv_t *base)</td></tr>
+<tr class="separator:a3cf119da593511faacd54cb35ac8de4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b1d86908a6e2acb384bc003e3bc40a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#a0b1d86908a6e2acb384bc003e3bc40a0">gk_fkvsortd</a> (size_t n, gk_fkv_t *base)</td></tr>
+<tr class="separator:a0b1d86908a6e2acb384bc003e3bc40a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b778397ac67a5f9f61b0eaaec281f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#aa7b778397ac67a5f9f61b0eaaec281f7">gk_dkvsorti</a> (size_t n, gk_dkv_t *base)</td></tr>
+<tr class="separator:aa7b778397ac67a5f9f61b0eaaec281f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a7384657265b7085aa5a17b970e88e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#ac8a7384657265b7085aa5a17b970e88e">gk_dkvsortd</a> (size_t n, gk_dkv_t *base)</td></tr>
+<tr class="separator:ac8a7384657265b7085aa5a17b970e88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab75cbfb8dbe418fab354f124992d7c70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#ab75cbfb8dbe418fab354f124992d7c70">gk_skvsorti</a> (size_t n, gk_skv_t *base)</td></tr>
+<tr class="separator:ab75cbfb8dbe418fab354f124992d7c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36cc3e92563f4f97c8e21f45728bf72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#aa36cc3e92563f4f97c8e21f45728bf72">gk_skvsortd</a> (size_t n, gk_skv_t *base)</td></tr>
+<tr class="separator:aa36cc3e92563f4f97c8e21f45728bf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0fa267ef67c10f98065915c6033f683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#af0fa267ef67c10f98065915c6033f683">gk_idxkvsorti</a> (size_t n, gk_idxkv_t *base)</td></tr>
+<tr class="separator:af0fa267ef67c10f98065915c6033f683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf1ba87bf59cbb6c93372843224adbc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d13/a00205.html#adf1ba87bf59cbb6c93372843224adbc7">gk_idxkvsortd</a> (size_t n, gk_idxkv_t *base)</td></tr>
+<tr class="separator:adf1ba87bf59cbb6c93372843224adbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions for manipulating strings. </p>
-<p>Various functions for manipulating strings. Some of these functions provide new functionality, whereas others are drop-in replacements of standard functions (but with enhanced functionality).</p>
-<dl class="section date"><dt>Date</dt><dd>Started 11/1/99 </dd></dl>
+<div class="textblock"><p>This file contains GKlib's various sorting routines. </p>
+<p>These routines are implemented using the GKSORT macro that is defined in gk_qsort.h and is based on GNU's GLIBC qsort() implementation.</p>
+<p>Additional sorting routines can be created using the same way that these routines where defined.</p>
+<dl class="section date"><dt>Date</dt><dd>Started 4/4/07 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>George </dd></dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<dl class="section rcs"><dt>Id:</dt><dd><a class="el" href="../../d5/d13/a00205.html" title="Functions for manipulating strings. ">string.c</a> 10711 2011-08-31 22:23:04Z karypis </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: sort.c 10796 2011-09-23 21:33:09Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+<p>Definition in file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5973a9945423f69a60d3b209082fd718"></a>
+<a class="anchor" id="adb7cdf8f8069ea5d9717b43785fd1a6c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">time_t gk_str2time </td>
+          <td class="memname">void gk_ckvsortd </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a date/time string into its equivalent time_t value. </p>
-<p>This function takes date and/or time specification and converts it in the equivalent time_t representation. The conversion is done using the strptime() function. The format that <a class="el" href="../../d5/d13/a00205.html#a5973a9945423f69a60d3b209082fd718" title="Converts a date/time string into its equivalent time_t value. ">gk_str2time()</a> understands is <em>mm/dd/yyyy hh:mm:ss</em>, in which the hours are in military time.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the date/time string to be converted. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>If the conversion was successful it returns the time, otherwise it returns -1. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00499">499</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a47570da67818e57e97fdd464bc60fbd1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int gk_strcasecmp </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s2</em>&#160;</td>
+          <td class="paramtype">gk_ckv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -227,51 +222,27 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of gk_ckv_t in decreasing order </p>
 
-<p>Case insensitive string comparison. </p>
-<p>This function compares two strings for equality by ignoring the case of the strings.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This function is <b>not</b> equivalent to a case-insensitive <em>strcmp()</em> function, as it does not return ordering information.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="../../d1/dd1/a00804.html#_todo000001">Todo:</a></b></dt><dd>Remove the above warning.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s1</td><td>is the first string to be compared. </td></tr>
-    <tr><td class="paramname">s2</td><td>is the second string to be compared. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">1</td><td>if the strings are identical, </td></tr>
-    <tr><td class="paramname">0</td><td>otherwise. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00405">405</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00146">146</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a29b909254dcbcae417f8c09ce21d5423"></a>
+<a class="anchor" id="a174146fc7e90c9afe88d792377916db6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strchr_replace </td>
+          <td class="memname">void gk_ckvsorti </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fromlist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>tolist</em>&#160;</td>
+          <td class="paramtype">gk_ckv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -280,81 +251,27 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of gk_ckv_t in increasing order </p>
 
-<p>Replaces certain characters in a string. </p>
-<p>This function takes a string and replaces all the characters in the <code>fromlist</code> with the corresponding characters from the <code>tolist</code>. That is, each occurence of <code>fromlist[i]</code> is replaced by <code>tolist[i]</code>. If the <code>tolist</code> is shorter than <code>fromlist</code>, then the corresponding characters are deleted. The modifications on <code>str</code> are done in place. It tries to provide a functionality similar to Perl's <b>tr//</b> function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string whose characters will be replaced. </td></tr>
-    <tr><td class="paramname">fromlist</td><td>is the set of characters to be replaced. </td></tr>
-    <tr><td class="paramname">tolist</td><td>is the set of replacement characters . </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00037">37</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00135">135</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af62038e97ca55f14ec2557a01bd85ca2"></a>
+<a class="anchor" id="a0dd4b6ef6aa36734ad488d600e46aa57"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strdup </td>
+          <td class="memname">void gk_csortd </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>orgstr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Duplicates a string. </p>
-<p>This function is a replacement for C's standard <em>strdup()</em> function. The key differences between the two are that <a class="el" href="../../d5/d13/a00205.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. ">gk_strdup()</a>:</p>
-<ul>
-<li>uses the dynamic memory allocation routines of <em>GKlib</em>.</li>
-<li>it correctly handles NULL input strings.</li>
-</ul>
-<p>The string that is returned must be freed by gk_free().</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">orgstr</td><td>is the string that will be duplicated. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created string. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>gk_free() </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00372">372</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d5/d13/a00205_af62038e97ca55f14ec2557a01bd85ca2_cgraph.png" border="0" usemap="#d5/d13/a00205_af62038e97ca55f14ec2557a01bd85ca2_cgraph" alt=""/></div>
-<map name="d5/d13/a00205_af62038e97ca55f14ec2557a01bd85ca2_cgraph" id="d5/d13/a00205_af62038e97ca55f14ec2557a01bd85ca2_cgraph">
-<area shape="rect" id="node2" href="../../d0/d81/a00180.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="147,5,242,35"/><area shape="rect" id="node3" href="../../dd/dae/a00163.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="478,5,570,35"/><area shape="rect" id="node4" href="../../d0/d81/a00180.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="291,31,429,60"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="adf6c1dfa83b68cea7f048086e0a585c0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* gk_strhprune </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>rmlist</em>&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -363,38 +280,27 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of chars in decreasing order </p>
 
-<p>Prunes characters from the beginning of the string. </p>
-<p>This function removes any starting characters that are included in the <code>rmlist</code>. The trimming stops at the first character that is not in <code>rmlist</code>. This function can be used to removed leading spaces, tabs, etc. This is a distructive operation as it modifies the string.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string that will be trimmed. </td></tr>
-    <tr><td class="paramname">rmlist</td><td>contains the set of characters that will be removed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d5/d13/a00205.html#a05261ee12d082a78cabc018d2f5e2266" title="Prunes characters from the end of the string. ">gk_strtprune()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00291">291</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00034">34</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a50149c8c9f8dd36fcad46773f35eedc4"></a>
+<a class="anchor" id="a4e3b58cec06398521af35dc21642c97d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int gk_strrcmp </td>
+          <td class="memname">void gk_csorti </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>s2</em>&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -403,60 +309,27 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of chars in increasing order </p>
 
-<p>Compare two strings in revere order. </p>
-<p>This function is similar to strcmp but it performs the comparison as if the two strings were reversed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s1</td><td>is the first string to be compared. </td></tr>
-    <tr><td class="paramname">s2</td><td>is the second string to be compared. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">-1,0,1,if</td><td>the s1 &lt; s2, s1 == s2, or s1 &gt; s2. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00433">433</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00023">23</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a46e5cf8f76a1ece74adf1b8b9dfcb275"></a>
+<a class="anchor" id="ac8a7384657265b7085aa5a17b970e88e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int gk_strstr_replace </td>
+          <td class="memname">void gk_dkvsortd </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>pattern</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>replacement</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>options</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>new_str</em>&#160;</td>
+          <td class="paramtype">gk_dkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -465,107 +338,27 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of gk_fkv_t in decreasing order </p>
 
-<p>Regex-based search-and-replace function. </p>
-<p>This function is a C implementation of Perl's <code> s//</code> regular-expression based substitution function.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the input string on which the operation will be performed. </td></tr>
-    <tr><td class="paramname">pattern</td><td>is the regular expression for the pattern to be matched for substitution. </td></tr>
-    <tr><td class="paramname">replacement</td><td>is the replacement string, in which the possible captured pattern substrings are referred to as $1, $2, ..., $9. The entire matched pattern is refered to as $0. </td></tr>
-    <tr><td class="paramname">options</td><td>is a string specified options for the substitution operation. Currently the <code>"i"</code> (case insensitive) and <code>"g"</code> (global substitution) are supported. </td></tr>
-    <tr><td class="paramname">new_str</td><td>is a reference to a pointer that will store a pointer to the newly created string that results from the substitutions. This string is allocated via <a class="el" href="../../d0/d81/a00180.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc()</a> and needs to be freed using gk_free(). The string is returned even if no substitutions were performed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>If successful, it returns 1 + the number of substitutions that were performed. Thus, if no substitutions were performed, the returned value will be 1. Otherwise it returns 0. In case of error, a meaningful error message is returned in <code>newstr</code>, which also needs to be freed afterwards. </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00094">94</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d5/d13/a00205_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph.png" border="0" usemap="#d5/d13/a00205_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph" alt=""/></div>
-<map name="d5/d13/a00205_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph" id="d5/d13/a00205_a46e5cf8f76a1ece74adf1b8b9dfcb275_cgraph">
-<area shape="rect" id="node2" href="../../d5/d13/a00205.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="198,5,290,35"/><area shape="rect" id="node3" href="../../d0/d81/a00180.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="339,5,434,35"/><area shape="rect" id="node4" href="../../dd/dae/a00163.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="670,5,762,35"/><area shape="rect" id="node5" href="../../d0/d81/a00180.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="483,31,621,60"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00278">278</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa2d603de6c132e340d85e8e125d847a0"></a>
+<a class="anchor" id="aa7b778397ac67a5f9f61b0eaaec281f7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_strtolower </td>
+          <td class="memname">void gk_dkvsorti </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a string to lower case. </p>
-<p>This function converts a string to lower case. This operation modifies the string itself.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string whose case will be changed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d5/d13/a00205.html#ae2e962be7af156e5200766fa8543cff1" title="Converts a string to upper case. ">gk_strtoupper()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00348">348</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae2e962be7af156e5200766fa8543cff1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* gk_strtoupper </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a string to upper case. </p>
-<p>This function converts a string to upper case. This operation modifies the string itself.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string whose case will be changed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d5/d13/a00205.html#aa2d603de6c132e340d85e8e125d847a0" title="Converts a string to lower case. ">gk_strtolower()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00328">328</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a05261ee12d082a78cabc018d2f5e2266"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* gk_strtprune </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>rmlist</em>&#160;</td>
+          <td class="paramtype">gk_dkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -574,48 +367,647 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of gk_dkv_t in increasing order </p>
 
-<p>Prunes characters from the end of the string. </p>
-<p>This function removes any trailing characters that are included in the <code>rmlist</code>. The trimming stops at the last character (i.e., first character from the end) that is not in <code>rmlist</code>. This function can be used to removed trailing spaces, newlines, etc. This is a distructive operation as it modifies the string.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>is the string that will be trimmed. </td></tr>
-    <tr><td class="paramname">rmlist</td><td>contains the set of characters that will be removed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to <code>str</code> itself. </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d5/d13/a00205.html#adf6c1dfa83b68cea7f048086e0a585c0" title="Prunes characters from the beginning of the string. ">gk_strhprune()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00254">254</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00267">267</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a79ca4ee9f715e6ce364af43f7f7a6cfc"></a>
+<a class="anchor" id="afa2696ea8ea8ee66e5c2eb69e9ad4703"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* gk_time2str </td>
+          <td class="memname">void gk_dsortd </td>
           <td>(</td>
-          <td class="paramtype">time_t&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sorts an array of doubles in decreasing order </p>
 
-<p>Converts a time_t time into a string. </p>
-<p>This function takes a time_t-specified time and returns a string-formated representation of the corresponding time. The format of the string is <em>mm/dd/yyyy hh:mm:ss</em>, in which the hours are in military time.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">time</td><td>is the time to be converted. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>It returns a pointer to a statically allocated string that is over-written in successive calls of this function. If the conversion failed, it returns NULL. </dd></dl>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00100">100</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00470">470</a> of file <a class="el" href="../../d5/d13/a00205_source.html">string.c</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aedce2ad9d9cc3dc07260adb2cf843c62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_dsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of doubles in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00089">89</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b1d86908a6e2acb384bc003e3bc40a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_fkvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_fkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_fkv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00256">256</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3cf119da593511faacd54cb35ac8de4e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_fkvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_fkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_fkv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00245">245</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a364e63dcdc210ab135b648daf598313e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_fsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of floats in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00078">78</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab149dbe80d68dde0fd497f852233b3d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_fsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of floats in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00067">67</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e979cb0725e053df4397f40d02ce23f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_i32kvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_i32kv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_i32kv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00190">190</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a939089a3ab9d7ec9fb5e785543f45d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_i32kvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_i32kv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_i32kv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00179">179</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7fa957686d304c93a52441fa6fce6652"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_i64kvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_i64kv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_i64kv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00212">212</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a442355d8561580d45d5a75afb5fb9698"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_i64kvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_i64kv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_i64kv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00201">201</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf1ba87bf59cbb6c93372843224adbc7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_idxkvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_idxkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_idxkv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00322">322</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af0fa267ef67c10f98065915c6033f683"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_idxkvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_idxkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_idxkv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00311">311</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a851c55670d9c95d34c588eb086626e6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_idxsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_idx_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_idx_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00122">122</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53b782afd9dd6604c6e8a035c7e1de46"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_idxsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_idx_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_idx_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00111">111</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0fde2ad2770975c122bab802cbd5094b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_ikvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_ikv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_ikv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00168">168</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af0c57772aafc9ec6239683438641c08b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_ikvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_ikv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_ikv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00157">157</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d6536ac92fc1258c8386320dbda99ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_isortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of integers in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00056">56</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad434d886936ca951a6694a1d2037bbe3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_isorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of integers in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00045">45</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa36cc3e92563f4f97c8e21f45728bf72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_skvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_skv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_skv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00300">300</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab75cbfb8dbe418fab354f124992d7c70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_skvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_skv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_skv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00289">289</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af837cf83cd77a2232ee7204561d028b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_zkvsortd </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_zkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_zkv_t in decreasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00234">234</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39e869c6f637d2a3cbe92e89f2495d39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gk_zkvsorti </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gk_zkv_t *&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts an array of gk_zkv_t in increasing order </p>
+
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00223">223</a> of file <a class="el" href="../../d5/d13/a00205_source.html">sort.c</a>.</p>
 
 </div>
 </div>
@@ -624,8 +1016,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d5/d13/a00205.html">string.c</a></li>
-    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d5/d13/a00205.html">sort.c</a></li>
+    <li class="footer">Generated on Sun May 29 2016 13:23:37 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: README.md Source File</title>
+<title>SEIMS-2016: preprocess/weights_mongo.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d9/d9b/a00363.html','../../');});
+$(document).ready(function(){initNavTree('d9/d9b/a00363_source.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -111,61 +111,207 @@ $(document).ready(function(){initNavTree('d9/d9b/a00363.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">README.md</div>  </div>
+<div class="title">weights_mongo.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Welcome to SEIMS</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;==========</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;----------</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;**SEIMS** is <span class="keywordtype">short</span> <span class="keywordflow">for</span> **Spatially Explicit Integrated Modeling System** and is originally developed by **Dr.** Junzhi Liu and **Prof.** A-Xing Zhu et al. since 2010 in Lreis Lab., IGSNRR, CAS, China.</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;Here are some brief information about SEIMS:</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">from</span> pymongo.errors <span class="keyword">import</span> ConnectionFailure</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> gridfs <span class="keyword">import</span> *  </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> math</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> struct <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> util</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;Firstly hosted on Github in 2015/6/8.</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;Language: C++, Python</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;Parallel: OpenMP and MPI</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;Platform: Windows and linux cluster</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;Modules:  **Hydrology, Erosion, Nutrient, Plant Growth**</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;Compile</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;----------</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;~~~</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;cd &lt;build path&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;cmake &lt;SEIMS source path&gt; [-DVERSION=MPI]</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;~~~</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;Preprocessing</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;----------</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;See [Preprocessing](doc/Preprocess.md) <span class="keywordflow">for</span> more detail.</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;Postprocessing</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;----------</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;TO BE CONTINUE.</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;Developer</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;----------</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;For helping developers to contribute to SEIMS, we prepared a detail manual.</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;See [Mannual <span class="keywordflow">for</span> Developers](doc/Developers.md) <span class="keywordflow">for</span> more information.</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;Contact</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;----------</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;Dr.Junzhi Liu (liujunzhi@njnu.edu.cn)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;Liangjun Zhu (zlj@lreis.ac.cn)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span>cal_dis(x1, y1, x2, y2):</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    dx = x2 - x1</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    dy = y2 - y1</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> math.sqrt(dx*dx + dy*dy)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"># there exist some problem in this funciton</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">def </span>idw(x, y, locList):</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    ex = 2</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    coef_list = []</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    sum = 0</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">for</span> pt <span class="keywordflow">in</span> locList:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        dis = cal_dis(x, y, pt[0], pt[1])</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        coef = math.pow(dis, -ex)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        coef_list.append(coef)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        sum = sum + coef</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    weightList = []</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span> coef <span class="keywordflow">in</span> coef_list:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        weightList.append(coef/sum)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">#print weightList</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    fmt = <span class="stringliteral">&#39;%df&#39;</span>%(len(weightList))</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    s = pack(fmt, *weightList)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> s</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">def </span>thiessen(x, y, locList):</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    iMin = 0</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    coef_list = []</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">#print locList</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> len(locList) &lt;= 1:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        coef_list.append(1)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        fmt = <span class="stringliteral">&#39;%df&#39;</span>%(1)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> pack(fmt, *coef_list), iMin</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    disMin = cal_dis(x, y, locList[0][0], locList[0][1])</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    coef_list.append(0)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1, len(locList)):</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        coef_list.append(0)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        dis = cal_dis(x, y, locList[i][0], locList[i][1])</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">#print x, y, locList[i][0], locList[i][1], dis</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> dis &lt; disMin:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            iMin = i</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            disMin = dis</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    coef_list[iMin] = 1</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    fmt = <span class="stringliteral">&#39;%df&#39;</span>%(len(coef_list))</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    s = pack(fmt, *coef_list)    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> s, iMin</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                       </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">def </span>GenerateWeightInfo(conn, modelName, subbasinID, stormMode = False, useRsData = False):</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">#print &quot;\t Subbasin:&quot;, subbasinID</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    dbModel = conn[modelName]</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    spatial = GridFS(dbModel, <span class="stringliteral">&#39;spatial&#39;</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">#read mask file from mongodb</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    maskName = str(subbasinID) + <span class="stringliteral">&#39;_MASK&#39;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">#print maskName</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    mask = dbModel.spatial.files.find({<span class="stringliteral">&quot;filename&quot;</span>:maskName})[0]</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">#data = band.ReadAsArray()</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ysize = int(mask[<span class="stringliteral">&quot;metadata&quot;</span>][<span class="stringliteral">&quot;NROWS&quot;</span>])</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    xsize = int(mask[<span class="stringliteral">&quot;metadata&quot;</span>][<span class="stringliteral">&quot;NCOLS&quot;</span>])</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    noDataValue =  mask[<span class="stringliteral">&quot;metadata&quot;</span>][<span class="stringliteral">&quot;NODATA_VALUE&quot;</span>]</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    dx = mask[<span class="stringliteral">&quot;metadata&quot;</span>][<span class="stringliteral">&quot;CELLSIZE&quot;</span>]</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    xll = mask[<span class="stringliteral">&quot;metadata&quot;</span>][<span class="stringliteral">&quot;XLLCENTER&quot;</span>]</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    yll = mask[<span class="stringliteral">&quot;metadata&quot;</span>][<span class="stringliteral">&quot;YLLCENTER&quot;</span>]</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">#print xsize, ysize, noDataValue</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">#print dx, xll, yll</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    data = spatial.get(mask[<span class="stringliteral">&quot;_id&quot;</span>])</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    totalLen = xsize*ysize</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    fmt = <span class="stringliteral">&#39;%df&#39;</span> % (totalLen,)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    data = unpack(fmt, data.read())</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">#print data[0], len(data), type(data)</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">#count number of valid cells</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    num = 0</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, totalLen):</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        if(abs(data[i] - noDataValue) &gt; util.DELTA):</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            num = num + 1</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">#read stations information from database    </span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    metadic = {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="stringliteral">&#39;SUBBASIN&#39;</span>: subbasinID, </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="stringliteral">&#39;NUM_CELLS&#39;</span>: num}    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    siteLists = dbModel[DB_TAB_SITELIST].find({<span class="stringliteral">&#39;SubbasinID&#39;</span>:subbasinID})</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    siteList = siteLists.next()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    dbName = siteList[<span class="stringliteral">&#39;DB&#39;</span>]</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    pList = siteList.get(<span class="stringliteral">&#39;SiteListP&#39;</span>)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    mList = siteList.get(<span class="stringliteral">&#39;SiteListM&#39;</span>)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    petList = siteList.get(<span class="stringliteral">&#39;SiteListPET&#39;</span>)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">#print pList</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">#print mList</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    dbHydro = conn[dbName]</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    typeList = [DataType_Meteorology, DataType_Precipitation, DataType_PotentialEvapotranspiration]</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    siteLists = [mList, pList, petList]</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> petList <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        del typeList[2]</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        del siteLists[2]</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    if(stormMode):</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        typeList = [DataType_Precipitation]</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        siteLists = [pList]   </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">#print typeList</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">#print siteLists</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(typeList)):</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        fname = <span class="stringliteral">&#39;%d_WEIGHT_%s&#39;</span>%(subbasinID,typeList[i])</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">print</span> fname</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        siteList = siteLists[i]</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span> siteList != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            siteList = siteList.split(<span class="stringliteral">&#39;,&#39;</span>)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="comment">#print siteList</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            siteList = [int(item) <span class="keywordflow">for</span> item <span class="keywordflow">in</span> siteList]            </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            metadic[<span class="stringliteral">&#39;NUM_SITES&#39;</span>] = len(siteList)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="comment">#print siteList</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            qDic = {Tag_ST_StationID: {<span class="stringliteral">&#39;$in&#39;</span> : siteList}, Tag_ST_Type:typeList[i]}</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            cursor = dbHydro.Sites.find(qDic).sort(Tag_ST_StationID, 1)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="comment">#meteorology station can also be used as precipitation station</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">if</span> cursor.count() == 0 <span class="keywordflow">and</span> typeList[i] == DataType_Precipitation:</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                qDic = {Tag_ST_StationID: {<span class="stringliteral">&#39;$in&#39;</span> : siteList}, Tag_ST_Type:DataType_Meteorology}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                cursor = dbHydro.Sites.find(qDic).sort(Tag_ST_StationID, 1)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="comment">#get site locations </span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            idList = []</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            locList = []</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">for</span> site <span class="keywordflow">in</span> cursor:</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                idList.append(site[Tag_ST_StationID])</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                locList.append([site[Tag_ST_LocalX], site[Tag_ST_LocalY]])</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <span class="comment">#print site[&#39;ID&#39;], [site[&#39;LocalX&#39;], site[&#39;LocalY&#39;]]</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="comment">#print &#39;loclist&#39;, locList</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="comment">#interpolate using the locations</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="comment">#weightList = []</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            myfile = spatial.new_file(filename=fname, metadata=metadic)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="comment">#fTest = open(r&quot;/data/tmp/weight_%d_%s.txt&quot;%(subbasinID, typeList[i]), &#39;w&#39;)</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    index = i*xsize + j</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                    <span class="comment">#print index</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                    if(abs(data[index] - noDataValue) &gt; util.DELTA):</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                        <span class="comment">#x = geo[0] + (j+0.5)*geo[1] + i*geo[2]</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                        <span class="comment">#y = geo[3] + j*geo[4] + (i+0.5)*geo[5]</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                        x = xll + j*dx</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        y = yll + (ysize-i-1)*dx</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                        nearIndex = 0</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                        <span class="comment">#print locList</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                        <span class="keywordflow">if</span> useRsData:</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                            line, nearIndex = thiessen(x, y, locList)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                            <span class="comment">#line = idw(x, y, locList)</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                            line, nearIndex = thiessen(x, y, locList)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                        <span class="comment">#weightList.append(line)</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                        myfile.write(line)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                        <span class="comment">#fTest.write(&quot;%f %f &quot;%(x,y) + line+&quot;\n&quot;)</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                        </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                        <span class="comment">#print line</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="comment">#weightStr = &#39;\n&#39;.join(weightList)</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="comment">#spatial.put(weightStr, filename=fname, metadata=metadic)     </span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            myfile.close()</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="comment">#fTest.close()</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">#hostname = &#39;192.168.6.55&#39;</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    hostname = <span class="stringliteral">&#39;127.0.0.1&#39;</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    port = 27017</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        conn = MongoClient(host=hostname, port=27017)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">except</span> ConnectionFailure, e:</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        sys.stderr.write(<span class="stringliteral">&quot;Could not connect to MongoDB: %s&quot;</span> % e)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        sys.exit(1)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">#for i in range(1, 900):</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    GenerateWeightInfo(conn, <span class="stringliteral">&#39;model_dianbu_30m_longterm&#39;</span>, 1, <span class="keyword">False</span>)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;done!&#39;</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>README.md</b></li>
-    <li class="footer">Generated on Fri May 27 2016 09:50:18 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>weights_mongo.py</b></li>
+    <li class="footer">Generated on Sun May 29 2016 13:23:35 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

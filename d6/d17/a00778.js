@@ -1,28 +1,21 @@
 var a00778 =
 [
-    [ "ReservoirMethod", "db/df8/a00076.html", [
-      [ "CheckInputData", "db/df8/a00076.html#a5ae22da6507f47127eee77a003bc77dd", null ],
-      [ "CheckInputSize", "db/df8/a00076.html#a336c08f825e74672af6ad0efbcb5a64f", null ],
-      [ "Execute", "db/df8/a00076.html#ac9526924c03bf3d631a2bc6a595f3a6e", null ],
-      [ "Get1DData", "db/df8/a00076.html#a87abf432eaa500eb30d037c7a73d94dc", null ],
-      [ "Get2DData", "db/df8/a00076.html#a3e0802a4b8c1ebdb4d66ed6249e08a14", null ],
-      [ "Set1DData", "db/df8/a00076.html#a08b3d21d4df5aab9774cef4ad7dcd6a1", null ],
-      [ "Set2DData", "db/df8/a00076.html#abbb9e2c2175606135f66dd68adfc10f0", null ],
-      [ "SetValue", "db/df8/a00076.html#a05f0a35444ad4d8debd7e64a79ee335d", null ],
-      [ "m_Base_ex", "db/df8/a00076.html#a8306ed95e7505ccb2d7908ee93238a36", null ],
-      [ "m_CellWidth", "db/df8/a00076.html#a961d8802de37f9412bf6454725f95b89", null ],
-      [ "m_D_ED", "db/df8/a00076.html#a3efc0eb8420f7ebdbfd88c231627cd3e", null ],
-      [ "m_D_EI", "db/df8/a00076.html#a20a0a91604172206e1b9763182a8e923", null ],
-      [ "m_D_ES", "db/df8/a00076.html#a81f7f8ea0e6254bc7098e4e7f75f031f", null ],
-      [ "m_D_PET", "db/df8/a00076.html#a7f81ffd996f2733af7a2c0bf43971bdf", null ],
-      [ "m_dp_co", "db/df8/a00076.html#ac7f7721f70b05466ae2c501e58eed598", null ],
-      [ "m_GW0", "db/df8/a00076.html#aaf6217afdea218d53fd4665aa9c77c85", null ],
-      [ "m_GWMAX", "db/df8/a00076.html#a7edda44ccdda0029bb4af931dd81e236", null ],
-      [ "m_Kg", "db/df8/a00076.html#a41b6cfc16190964b8270f3e3ae66e0bd", null ],
-      [ "m_nCells", "db/df8/a00076.html#aa83af229513cc0581609b5ab3e2421f3", null ],
-      [ "m_perc", "db/df8/a00076.html#a1a1874fe716515842b80dfb7b69f2ebb", null ],
-      [ "m_petSubbasin", "db/df8/a00076.html#a140e0ddde21f4138888fb4dba8fa5eb4", null ],
-      [ "m_Slope", "db/df8/a00076.html#a41ab7cc58cdac85b1390df9aeac351e7", null ],
-      [ "m_TimeStep", "db/df8/a00076.html#a98ec57ecc2e1e2da55722fda7fe57f68", null ]
+    [ "DepressionFSDaily", "d5/d79/a00030.html", [
+      [ "DepressionFSDaily", "d5/d79/a00030.html#a5c187e844ad928d76bdc4744c39902d7", null ],
+      [ "~DepressionFSDaily", "d5/d79/a00030.html#aec72b0a72f1308fa773341db189a7af1", null ],
+      [ "Execute", "d5/d79/a00030.html#a960abfaaaeb189ccdec1405f02aadae3", null ],
+      [ "Get1DData", "d5/d79/a00030.html#a17566ea3454fd35d03e48bb9fb890421", null ],
+      [ "initalOutputs", "d5/d79/a00030.html#aaabb19ca56a52dc4db1540e66044d315", null ],
+      [ "Set1DData", "d5/d79/a00030.html#aa1ac50721b7796524e44c65cdd81e8af", null ],
+      [ "SetValue", "d5/d79/a00030.html#a6f55886c44ca86564a8dd6913a746268", null ],
+      [ "m_depCap", "d5/d79/a00030.html#ab131703b62b2e663b13c7ed1eb2cbf08", null ],
+      [ "m_depCo", "d5/d79/a00030.html#af7de53843bee81cb01de19789b415e63", null ],
+      [ "m_ed", "d5/d79/a00030.html#abe6254533edb2e17dd4119aa2491d933", null ],
+      [ "m_ei", "d5/d79/a00030.html#a50e9604f12e3cf1e731ea7477acdcc4a", null ],
+      [ "m_nCells", "d5/d79/a00030.html#a41812fdacbd055bb3d0c007c2fadbaa5", null ],
+      [ "m_pe", "d5/d79/a00030.html#aa69586fd84baec826d4315425ee782c3", null ],
+      [ "m_pet", "d5/d79/a00030.html#a449c3732cc0a934e7895e43d481d6c59", null ],
+      [ "m_sd", "d5/d79/a00030.html#a8be427d2951411cfe3eb79bd07335612", null ],
+      [ "m_sr", "d5/d79/a00030.html#a9dc508a018a02680dcedb88f82924dfb", null ]
     ] ]
 ];

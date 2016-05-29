@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology/IKW_OL/ImplicitKinematicWave.cpp File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology/IKW_IF/InterFlow_IKW.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,43 +110,49 @@ $(document).ready(function(){initNavTree('dc/d25/a00596.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">ImplicitKinematicWave.cpp File Reference</div>  </div>
+<div class="title">InterFlow_IKW.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Routing in the overland cells using implicit finite difference method kinematic wave method in LISEM model.  
+<p>Interflow routing using implicit finite difference method kinematic wave method in LISEM model.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/dbd/a00597_source.html">ImplicitKinematicWave.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/d84/a00447_source.html">MetadataInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &quot;util.h&quot;</code><br/>
-<code>#include &lt;omp.h&gt;</code><br/>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
 <code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;assert.h&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/dc3/a00453_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ImplicitKinematicWave.cpp:</div>
+Include dependency graph for InterFlow_IKW.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d18/a00948.png" border="0" usemap="#src_2modules_2hydrology_2_i_k_w___o_l_2_implicit_kinematic_wave_8cpp" alt=""/></div>
-<map name="src_2modules_2hydrology_2_i_k_w___o_l_2_implicit_kinematic_wave_8cpp" id="src_2modules_2hydrology_2_i_k_w___o_l_2_implicit_kinematic_wave_8cpp">
-<area shape="rect" id="node2" href="../../d8/dbd/a00597.html" title="Routing in the overland cells using implicit finite difference method kinematic wave method in LISEM ..." alt="" coords="160,101,357,131"/><area shape="rect" id="node8" href="../../de/df4/a00450.html" title="Define ModelException class. " alt="" coords="10,256,160,285"/><area shape="rect" id="node11" href="../../de/d84/a00447.html" title="Define MetadataInfo class used by modules. " alt="" coords="566,179,692,208"/><area shape="rect" id="node7" href="../../d1/d0b/a00452.html" title="Parent class for all modules in SEIMS. " alt="" coords="236,179,400,208"/><area shape="rect" id="node14" href="../../de/dfe/a00448.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="378,256,546,285"/></map>
+<div class="center"><img src="../../df/dc6/a00949.png" border="0" usemap="#src_2modules_2hydrology_2_i_k_w___i_f_2_inter_flow___i_k_w_8h" alt=""/></div>
+<map name="src_2modules_2hydrology_2_i_k_w___i_f_2_inter_flow___i_k_w_8h" id="src_2modules_2hydrology_2_i_k_w___i_f_2_inter_flow___i_k_w_8h">
+<area shape="rect" id="node6" href="../../da/dc3/a00453.html" title="Parent class for all modules in SEIMS. " alt="" coords="274,101,438,131"/><area shape="rect" id="node7" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="214,179,364,208"/></map>
 </div>
 </div>
 <p><a href="../../dc/d25/a00596_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html">InterFlow_IKW</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interflow routing using implicit finite difference method.  <a href="../../d6/d42/a00043.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Routing in the overland cells using implicit finite difference method kinematic wave method in LISEM model. </p>
+<div class="textblock"><p>Interflow routing using implicit finite difference method kinematic wave method in LISEM model. </p>
 <dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Feb. 2011 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../dc/d25/a00596_source.html">ImplicitKinematicWave.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d25/a00596_source.html">InterFlow_IKW.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_fde61486c210b6021276bce57453d529.html">IKW_OL</a></li><li class="navelem"><a class="el" href="../../dc/d25/a00596.html">ImplicitKinematicWave.cpp</a></li>
-    <li class="footer">Generated on Fri May 27 2016 09:50:19 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_1c8ad619ef07a3eeed912a2dd45fa92a.html">IKW_IF</a></li><li class="navelem"><a class="el" href="../../dc/d25/a00596.html">InterFlow_IKW.h</a></li>
+    <li class="footer">Generated on Sun May 29 2016 13:23:37 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,10 +1,10 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d4/d63/a00082.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="6,1072,157,1101"/>
+<area shape="rect" id="node1" href="$d4/d63/a00082.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="6,1099,157,1128"/>
 <area shape="rect" id="node2" href="$d4/d51/a00017.html" title="typedef vector&lt;vector&lt;float&gt; &gt; double2DArray; /// NOT USED? LJ " alt="" coords="263,5,366,35"/>
 <area shape="rect" id="node3" href="$d1/d2b/a00018.html" title="Precipitation interception for STORM model. " alt="" coords="253,59,377,88"/>
 <area shape="rect" id="node4" href="$dc/de2/a00024.html" title="Read Time Series Data, e.g., Maximum temperature. " alt="" coords="261,112,369,141"/>
 <area shape="rect" id="node5" href="$d5/d16/a00029.html" title="A simple fill and spill method method to calculate depression storage. " alt="" coords="252,165,377,195"/>
-<area shape="rect" id="node6" href="$d5/d79/a00030.html" title="function to return the XML Metadata document string " alt="" coords="233,219,396,248"/>
+<area shape="rect" id="node6" href="$d5/d79/a00030.html" title="A simple fill and spill method method to calculate depression storage. " alt="" coords="233,219,396,248"/>
 <area shape="rect" id="node7" href="$df/d61/a00031.html" title="Routing in the channel. " alt="" coords="252,272,377,301"/>
 <area shape="rect" id="node8" href="$de/d8c/a00036.html" title="Calculate groundwater using reservoir method. " alt="" coords="242,325,387,355"/>
 <area shape="rect" id="node9" href="$d1/dc6/a00037.html" title="Overland routing using 4&#45;point implicit finite difference method. " alt="" coords="255,379,374,408"/>
@@ -20,8 +20,8 @@
 <area shape="rect" id="node19" href="$d7/df7/a00058.html" title="Channel routing using Muskingum&#45;Cunge method. " alt="" coords="263,912,367,941"/>
 <area shape="rect" id="node20" href="$d3/d8b/a00059.html" title="use MUSLE method to calculate sediment yield of each cell " alt="" coords="260,965,369,995"/>
 <area shape="rect" id="node21" href="$d1/d6f/a00063.html" title="Nutrient removed and loss in surface runoff, lateral flow, tile flow, and percolation out of the prof..." alt="" coords="240,1019,389,1048"/>
-<area shape="rect" id="node22" href="$da/d24/a00068.html" title="Calculate water percolated. " alt="" coords="275,1072,355,1101"/>
-<area shape="rect" id="node23" href="$d4/d31/a00069.html" title="Calculate water percolated. " alt="" coords="265,1125,364,1155"/>
+<area shape="rect" id="node22" href="$da/d24/a00068.html" title="Calculate water percolated from the soil water reservoir. " alt="" coords="275,1072,355,1101"/>
+<area shape="rect" id="node23" href="$d4/d31/a00069.html" title="Percolation calculated by storage routing method. " alt="" coords="265,1125,364,1155"/>
 <area shape="rect" id="node24" href="$d2/db1/a00070.html" title="Calculate percolation using Darcy law. " alt="" coords="229,1179,400,1208"/>
 <area shape="rect" id="node25" href="$d0/d89/a00071.html" title="Hargreaves method to Compute PET. " alt="" coords="246,1232,383,1261"/>
 <area shape="rect" id="node26" href="$d6/d2c/a00072.html" title="Penman Monteith Method to Compute PET. " alt="" coords="227,1285,402,1315"/>
@@ -35,10 +35,11 @@
 <area shape="rect" id="node34" href="$db/dab/a00089.html" title="Soil temperature. " alt="" coords="221,1712,408,1741"/>
 <area shape="rect" id="node35" href="$d9/dec/a00090.html" title="Soil water balance. " alt="" coords="270,1765,359,1795"/>
 <area shape="rect" id="node36" href="$da/d82/a00091.html" title="Park Equation for splash erosion, and Foster Equation for overland flow soil detachment use the USLE_..." alt="" coords="245,1819,384,1848"/>
-<area shape="rect" id="node37" href="$d1/dc1/a00092.html" title="Calculate distribution of snow sublimation. " alt="" coords="271,1872,359,1901"/>
-<area shape="rect" id="node38" href="$d4/d7d/a00093.html" title="– " alt="" coords="271,1925,359,1955"/>
-<area shape="rect" id="node39" href="$dc/d54/a00094.html" title="Green Ampt Method to calculate infiltration and excess precipitation. " alt="" coords="242,1979,387,2008"/>
-<area shape="rect" id="node40" href="$d9/df8/a00096.html" title="SCS Curve Number Method to calculate infiltration and excess precipitation. " alt="" coords="269,2032,360,2061"/>
-<area shape="rect" id="node41" href="$d1/d84/a00097.html" title="Modified Rational Method to calculate infiltration and excess precipitation. " alt="" coords="269,2085,360,2115"/>
-<area shape="rect" id="node42" href="$d1/d44/a00098.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="241,2139,388,2168"/>
+<area shape="rect" id="node37" href="$d1/dc1/a00092.html" title="Soil redistribution calculation. " alt="" coords="269,1872,360,1901"/>
+<area shape="rect" id="node38" href="$d4/d7d/a00093.html" title="Calculate distribution of snow sublimation. " alt="" coords="271,1925,359,1955"/>
+<area shape="rect" id="node39" href="$dc/d54/a00094.html" title="– " alt="" coords="271,1979,359,2008"/>
+<area shape="rect" id="node40" href="$d9/d77/a00095.html" title="Green Ampt Method to calculate infiltration and excess precipitation. " alt="" coords="242,2032,387,2061"/>
+<area shape="rect" id="node41" href="$d1/d84/a00097.html" title="SCS Curve Number Method to calculate infiltration and excess precipitation. " alt="" coords="269,2085,360,2115"/>
+<area shape="rect" id="node42" href="$d1/d44/a00098.html" title="Modified Rational Method to calculate infiltration and excess precipitation. " alt="" coords="269,2139,360,2168"/>
+<area shape="rect" id="node43" href="$da/d74/a00099.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="241,2192,388,2221"/>
 </map>

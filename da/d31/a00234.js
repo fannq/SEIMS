@@ -1,10 +1,9 @@
 var a00234 =
 [
-    [ "AllocateKWayPartitionMemory", "da/d31/a00234.html#a22a23a687ef7ed0d4f66ab58e3a81d12", null ],
-    [ "ComputeKWayBoundary", "da/d31/a00234.html#aa23b4d433fc175282f237653d3edb8a5", null ],
-    [ "ComputeKWayPartitionParams", "da/d31/a00234.html#afd723ab2f44ffaa25d1d9f1909e06dfd", null ],
-    [ "ComputeKWayVolGains", "da/d31/a00234.html#acd248e19a1ba82c235d52479e231e2f7", null ],
-    [ "IsBalanced", "da/d31/a00234.html#ae2f5446999d83461cf5763dc4946182a", null ],
-    [ "ProjectKWayPartition", "da/d31/a00234.html#a974cb62c010e195c90f8fb900359957c", null ],
-    [ "RefineKWay", "da/d31/a00234.html#adeb3fad496482fea745a00c7b39ca7cf", null ]
+    [ "Greedy_KWayCutOptimize", "da/d31/a00234.html#aaa70dea85e3a1149132362c93099d543", null ],
+    [ "Greedy_KWayVolOptimize", "da/d31/a00234.html#af249da13cad4e148e2a6efcacad5d5da", null ],
+    [ "Greedy_McKWayCutOptimize", "da/d31/a00234.html#a68223b074be60fa4ac030e3c52071410", null ],
+    [ "Greedy_McKWayVolOptimize", "da/d31/a00234.html#a4177983ff9528ecb665a71f0ab1785e9", null ],
+    [ "IsArticulationNode", "da/d31/a00234.html#af791bf8cc50b3b218224e0560decc422", null ],
+    [ "KWayVolUpdate", "da/d31/a00234.html#ac4e797b3ea2db37f88f436fc6481b989", null ]
 ];
