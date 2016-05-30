@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/NotRegularMeasurement.h Source File</title>
+<title>SEIMS-2016: src/base/module_setting/api.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,43 +111,35 @@ $(document).ready(function(){initNavTree('da/db6/a00427_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">NotRegularMeasurement.h</div>  </div>
+<div class="title">api.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../da/db6/a00427.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/de1/a00421.html">Measurement.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;MongoUtil.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/de8/a00061.html">NotRegularMeasurement</a> : <span class="keyword">public</span> <a class="code" href="../../d2/d79/a00051.html">Measurement</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../d4/de8/a00061.html#a3c9de25b026a3918f3655e4381a867e7">NotRegularMeasurement</a>(mongoc_client_t* conn, <span class="keywordtype">string</span> hydroDBName, <span class="keywordtype">string</span> sitesList, <span class="keywordtype">string</span> siteType, time_t startTime, time_t endTime);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../d4/de8/a00061.html#a156ee633e6dfc626a362bb826525ea6e">~NotRegularMeasurement</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span>*              <a class="code" href="../../d4/de8/a00061.html#af77a1b276a9f174603a977b2a6e4c5cc">GetSiteDataByTime</a>(time_t t);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#ac49bfde12525e6ad88d058122eba3aba">   47</a></span>&#160;    vector&lt; vector&lt;time_t&gt; &gt;    <a class="code" href="../../d4/de8/a00061.html#ac49bfde12525e6ad88d058122eba3aba">m_timeList</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">   49</a></span>&#160;    vector&lt; vector&lt;float&gt; &gt;     <a class="code" href="../../d4/de8/a00061.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">m_valueList</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#abb545ecf27b9011ea628ad92bc0ac697">   51</a></span>&#160;    vector&lt;int&gt;                 <a class="code" href="../../d4/de8/a00061.html#abb545ecf27b9011ea628ad92bc0ac697">m_curIndexList</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="ttc" id="a00421_html"><div class="ttname"><a href="../../d2/de1/a00421.html">Measurement.h</a></div><div class="ttdoc">Measurement class to store HydroClimate site data. </div></div>
-<div class="ttc" id="a00061_html_ac13ca9e77b8b7d54845def6bbd0e7e5b"><div class="ttname"><a href="../../d4/de8/a00061.html#ac13ca9e77b8b7d54845def6bbd0e7e5b">NotRegularMeasurement::m_valueList</a></div><div class="ttdeci">vector&lt; vector&lt; float &gt; &gt; m_valueList</div><div class="ttdoc">site data corresponding to m_timeList </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00049">NotRegularMeasurement.h:49</a></div></div>
-<div class="ttc" id="a00061_html_a3c9de25b026a3918f3655e4381a867e7"><div class="ttname"><a href="../../d4/de8/a00061.html#a3c9de25b026a3918f3655e4381a867e7">NotRegularMeasurement::NotRegularMeasurement</a></div><div class="ttdeci">NotRegularMeasurement(mongoc_client_t *conn, string hydroDBName, string sitesList, string siteType, time_t startTime, time_t endTime)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00017">NotRegularMeasurement.cpp:17</a></div></div>
-<div class="ttc" id="a00061_html"><div class="ttname"><a href="../../d4/de8/a00061.html">NotRegularMeasurement</a></div><div class="ttdoc">Not Regular hydroclimate data. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00024">NotRegularMeasurement.h:24</a></div></div>
-<div class="ttc" id="a00061_html_abb545ecf27b9011ea628ad92bc0ac697"><div class="ttname"><a href="../../d4/de8/a00061.html#abb545ecf27b9011ea628ad92bc0ac697">NotRegularMeasurement::m_curIndexList</a></div><div class="ttdeci">vector&lt; int &gt; m_curIndexList</div><div class="ttdoc">index </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00051">NotRegularMeasurement.h:51</a></div></div>
-<div class="ttc" id="a00061_html_af77a1b276a9f174603a977b2a6e4c5cc"><div class="ttname"><a href="../../d4/de8/a00061.html#af77a1b276a9f174603a977b2a6e4c5cc">NotRegularMeasurement::GetSiteDataByTime</a></div><div class="ttdeci">virtual float * GetSiteDataByTime(time_t t)</div><div class="ttdoc">Get site date by time pData. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00107">NotRegularMeasurement.cpp:107</a></div></div>
-<div class="ttc" id="a00061_html_a156ee633e6dfc626a362bb826525ea6e"><div class="ttname"><a href="../../d4/de8/a00061.html#a156ee633e6dfc626a362bb826525ea6e">NotRegularMeasurement::~NotRegularMeasurement</a></div><div class="ttdeci">~NotRegularMeasurement(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db9/a00426_source.html#l00103">NotRegularMeasurement.cpp:103</a></div></div>
-<div class="ttc" id="a00051_html"><div class="ttname"><a href="../../d2/d79/a00051.html">Measurement</a></div><div class="ttdoc">Get HydroClimate measurement data from MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de1/a00421_source.html#l00024">Measurement.h:24</a></div></div>
-<div class="ttc" id="a00061_html_ac49bfde12525e6ad88d058122eba3aba"><div class="ttname"><a href="../../d4/de8/a00061.html#ac49bfde12525e6ad88d058122eba3aba">NotRegularMeasurement::m_timeList</a></div><div class="ttdeci">vector&lt; vector&lt; time_t &gt; &gt; m_timeList</div><div class="ttdoc">time list of site data </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00047">NotRegularMeasurement.h:47</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #ifdef MODULE_EXPORTS</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEIMS_MODULE_API __declspec(dllexport)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEIMS_MODULE_API __declspec(dllimport)</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define SEIMS_MODULE_API</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/df4/a00450.html">SimulationModule.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../dc/d0c/a00783.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> SEIMS_MODULE_API <a class="code" href="../../da/dec/a00080.html">SimulationModule</a>* GetInstance();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="ttc" id="a00450_html"><div class="ttname"><a href="../../de/df4/a00450.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
+<div class="ttc" id="a00783_html_ga0087c853569e2c94d58c3499365662e9"><div class="ttname"><a href="../../dc/d0c/a00783.html#ga0087c853569e2c94d58c3499365662e9">MetadataInformation</a></div><div class="ttdeci">SEIMS_MODULE_API const char * MetadataInformation(void)</div><div class="ttdoc">function to return the XML Metadata document string </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d19/a00515_source.html#l00033">api.cpp:33</a></div></div>
+<div class="ttc" id="a00080_html"><div class="ttname"><a href="../../da/dec/a00080.html">SimulationModule</a></div><div class="ttdoc">Base module for all simulation modules in SEIMS. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df4/a00450_source.html#l00032">SimulationModule.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../da/db6/a00427.html">NotRegularMeasurement.h</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_7eacd73e6c0fe4133718759f709d1310.html">module_setting</a></li><li class="navelem"><b>api.h</b></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

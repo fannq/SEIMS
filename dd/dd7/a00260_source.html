@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/libmetis/timing.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/programs/cmdline_m2gmetis.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,80 +111,165 @@ $(document).ready(function(){initNavTree('dd/dd7/a00260_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">timing.c</div>  </div>
+<div class="title">cmdline_m2gmetis.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * timing.c</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains routines that deal with timing Metis</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Started 7/24/97</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * George</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * $Id: timing.c 13936 2013-03-30 03:59:09Z karypis $</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;metislib.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* This function clears the timers</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> InitTimers(<a class="code" href="../../d0/d33/a00027.html">ctrl_t</a> *ctrl)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  gk_clearcputimer(ctrl-&gt;TotalTmr);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  gk_clearcputimer(ctrl-&gt;InitPartTmr);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  gk_clearcputimer(ctrl-&gt;MatchTmr);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  gk_clearcputimer(ctrl-&gt;ContractTmr);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  gk_clearcputimer(ctrl-&gt;CoarsenTmr);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  gk_clearcputimer(ctrl-&gt;UncoarsenTmr);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  gk_clearcputimer(ctrl-&gt;RefTmr);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  gk_clearcputimer(ctrl-&gt;ProjectTmr);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  gk_clearcputimer(ctrl-&gt;SplitTmr);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  gk_clearcputimer(ctrl-&gt;Aux1Tmr);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  gk_clearcputimer(ctrl-&gt;Aux2Tmr);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  gk_clearcputimer(ctrl-&gt;Aux3Tmr);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<a href="../../dd/dd7/a00260.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;metisbin.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * Command-line options </span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *-------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keyword">struct </span><a class="code" href="../../dc/d87/a00032.html">gk_option</a> long_options[] = {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  {<span class="stringliteral">&quot;gtype&quot;</span>,          1,      0,      METIS_OPTION_GTYPE},</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  {<span class="stringliteral">&quot;ncommon&quot;</span>,        1,      0,      METIS_OPTION_NCOMMON},</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  {<span class="stringliteral">&quot;dbglvl&quot;</span>,         1,      0,      METIS_OPTION_DBGLVL},</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {<span class="stringliteral">&quot;help&quot;</span>,           0,      0,      METIS_OPTION_HELP},</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  {0,                0,      0,      0}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * Mappings for the various parameter values</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> *-------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">static</span> gk_StringMap_t gtype_options[] = {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; {<span class="stringliteral">&quot;dual&quot;</span>,               METIS_GTYPE_DUAL},</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; {<span class="stringliteral">&quot;nodal&quot;</span>,              METIS_GTYPE_NODAL},</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; {NULL,                 0}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*************************************************************************</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">* This function prints the various timers</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">**************************************************************************/</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> PrintTimers(<a class="code" href="../../d0/d33/a00027.html">ctrl_t</a> *ctrl)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * Mini help</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> *-------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> helpstr[][100] =</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  printf(<span class="stringliteral">&quot;\nTiming Information -------------------------------------------------&quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  printf(<span class="stringliteral">&quot;\n Multilevel: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;TotalTmr));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  printf(<span class="stringliteral">&quot;\n     Coarsening: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;CoarsenTmr));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  printf(<span class="stringliteral">&quot;\n            Matching: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;MatchTmr));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  printf(<span class="stringliteral">&quot;\n            Contract: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;ContractTmr));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  printf(<span class="stringliteral">&quot;\n     Initial Partition: \t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;InitPartTmr));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  printf(<span class="stringliteral">&quot;\n     Uncoarsening: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;UncoarsenTmr));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  printf(<span class="stringliteral">&quot;\n          Refinement: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;RefTmr));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  printf(<span class="stringliteral">&quot;\n          Projection: \t\t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;ProjectTmr));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  printf(<span class="stringliteral">&quot;\n     Splitting: \t\t %7.3&quot;</span>PRREAL<span class="stringliteral">&quot;&quot;</span>, gk_getcputimer(ctrl-&gt;SplitTmr));</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  printf(&quot;\n       Aux1Tmr: \t\t %7.3&quot;PRREAL&quot;&quot;, gk_getcputimer(ctrl-&gt;Aux1Tmr));</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  printf(&quot;\n       Aux2Tmr: \t\t %7.3&quot;PRREAL&quot;&quot;, gk_getcputimer(ctrl-&gt;Aux2Tmr));</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  printf(&quot;\n       Aux3Tmr: \t\t %7.3&quot;PRREAL&quot;&quot;, gk_getcputimer(ctrl-&gt;Aux3Tmr));</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  printf(<span class="stringliteral">&quot;\n********************************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="ttc" id="a00027_html"><div class="ttname"><a href="../../d0/d33/a00027.html">ctrl_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d2f/a00258_source.html#l00139">struct.h:139</a></div></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="stringliteral">&quot;Usage: m2gmetis [options] &lt;meshfile&gt; &lt;graphfile&gt;&quot;</span>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="stringliteral">&quot; Required parameters&quot;</span>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral">&quot;    meshfile    Stores the input mesh.&quot;</span>,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">&quot;    graphfile   The filename of the output graph.&quot;</span>,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral">&quot; Optional parameters&quot;</span>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="stringliteral">&quot;  -gtype=string&quot;</span>,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="stringliteral">&quot;     Specifies the graph that will be generated.&quot;</span>,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="stringliteral">&quot;     The possible values are:&quot;</span>,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="stringliteral">&quot;        dual     - Generate dual graph of the mesh [default]&quot;</span>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="stringliteral">&quot;        nodal    - Generate the nodal graph of the mesh&quot;</span>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">&quot;  -ncommon=int [applies when gtype=dual]&quot;</span>,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="stringliteral">&quot;     Specifies the common number of nodes that two elements must have&quot;</span>,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="stringliteral">&quot;     in order to put an edge between them in the dual graph. Default is 1.&quot;</span>,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">&quot;  -dbglvl=int      &quot;</span>,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="stringliteral">&quot;     Selects the dbglvl.&quot;</span>,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">&quot;  -help&quot;</span>,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">&quot;     Prints this message.&quot;</span>,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> shorthelpstr[][100] = {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">&quot; &quot;</span>,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">&quot;   Usage: m2gmetis [options] &lt;meshfile&gt; &lt;graphfile&gt;&quot;</span>,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">&quot;          use &#39;m2gmetis -help&#39; for a summary of the options.&quot;</span>,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/*************************************************************************</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">* This is the entry point of the command-line argument parser</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">**************************************************************************/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../dd/dd7/a00260.html#a0e7ce196a2f8882777957bf898739f6f">   82</a></span>&#160;<a class="code" href="../../de/de1/a00065.html">params_t</a> *<a class="code" href="../../dd/dd7/a00260.html#a0e7ce196a2f8882777957bf898739f6f">parse_cmdline</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">int</span> i, j, k;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">int</span> c, option_index;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <a class="code" href="../../de/de1/a00065.html">params_t</a> *params;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  params = (<a class="code" href="../../de/de1/a00065.html">params_t</a> *)<a class="code" href="../../d9/d90/a00178.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../de/de1/a00065.html">params_t</a>), <span class="stringliteral">&quot;parse_cmdline&quot;</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  memset((<span class="keywordtype">void</span> *)params, 0, <span class="keyword">sizeof</span>(<a class="code" href="../../de/de1/a00065.html">params_t</a>));</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">/* initialize the params data structure */</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  params-&gt;gtype     = METIS_GTYPE_DUAL;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  params-&gt;ncommon   = 1;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  params-&gt;dbglvl    = 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  params-&gt;filename  = NULL;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  params-&gt;outfile   = NULL;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  gk_clearcputimer(params-&gt;iotimer);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  gk_clearcputimer(params-&gt;parttimer);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  gk_clearcputimer(params-&gt;reporttimer);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">/* Parse the command line arguments  */</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">while</span> ((c = <a class="code" href="../../d0/d48/a00165.html#abb224612ca0aae2d39bd87f6146bd67d">gk_getopt_long_only</a>(argc, argv, <span class="stringliteral">&quot;&quot;</span>, long_options, &amp;option_index)) != -1) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">switch</span> (c) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_GTYPE:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;          <span class="keywordflow">if</span> ((params-&gt;gtype = gk_GetStringID(gtype_options, <a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>)) == -1)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <a class="code" href="../../d6/d7d/a00161.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Invalid option -%s=%s\n&quot;</span>, long_options[option_index].<a class="code" href="../../dc/d87/a00032.html#aa47d0e4e90d3cd1793fc5344b1e99afc">name</a>, <a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_NCOMMON:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;ncommon = (idx_t)atoi(<a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> (params-&gt;ncommon &lt; 1) </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;           <a class="code" href="../../d6/d7d/a00161.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;The -ncommon option should specify a number &gt;= 1.\n&quot;</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_DBGLVL:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>) params-&gt;dbglvl = (idx_t)atoi(<a class="code" href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a>);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keywordflow">case</span> METIS_OPTION_HELP:</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">for</span> (i=0; strlen(helpstr[i]) &gt; 0; i++)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          printf(<span class="stringliteral">&quot;%s\n&quot;</span>, helpstr[i]);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        exit(0);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;?&#39;</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="../../d6/d7d/a00161.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a>(<span class="stringliteral">&quot;Illegal command-line option(s)\n&quot;</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="stringliteral">&quot;Use %s -help for a summary of the options.\n&quot;</span>, argv[0]);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordflow">if</span> (argc-<a class="code" href="../../d0/d48/a00165.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a> != 2) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    printf(<span class="stringliteral">&quot;Missing parameters.&quot;</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">for</span> (i=0; strlen(shorthelpstr[i]) &gt; 0; i++)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      printf(<span class="stringliteral">&quot;%s\n&quot;</span>, shorthelpstr[i]);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    exit(0);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  params-&gt;filename = <a class="code" href="../../d9/d90/a00178.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(argv[<a class="code" href="../../d0/d48/a00165.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a>++]);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  params-&gt;outfile  = <a class="code" href="../../d9/d90/a00178.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a>(argv[<a class="code" href="../../d0/d48/a00165.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a>++]);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordflow">return</span> params;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="ttc" id="a00260_html_a0e7ce196a2f8882777957bf898739f6f"><div class="ttname"><a href="../../dd/dd7/a00260.html#a0e7ce196a2f8882777957bf898739f6f">parse_cmdline</a></div><div class="ttdeci">params_t * parse_cmdline(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dd7/a00260_source.html#l00082">cmdline_m2gmetis.c:82</a></div></div>
+<div class="ttc" id="a00165_html_ab70fc0e7e22192b687bd0d377bf61e32"><div class="ttname"><a href="../../d0/d48/a00165.html#ab70fc0e7e22192b687bd0d377bf61e32">gk_optind</a></div><div class="ttdeci">int gk_optind</div><div class="ttdoc">Index in ARGV of the next element to be scanned. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d48/a00165_source.html#l00068">getopt.c:68</a></div></div>
+<div class="ttc" id="a00161_html_a56d0f2cc40cd8633a784582d6200d8b5"><div class="ttname"><a href="../../d6/d7d/a00161.html#a56d0f2cc40cd8633a784582d6200d8b5">errexit</a></div><div class="ttdeci">void errexit(char *f_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7d/a00161_source.html#l00054">error.c:54</a></div></div>
+<div class="ttc" id="a00032_html"><div class="ttname"><a href="../../dc/d87/a00032.html">gk_option</a></div><div class="ttdoc">The structure that stores the information about the command-line options. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00028">gk_getopt.h:28</a></div></div>
+<div class="ttc" id="a00032_html_aa47d0e4e90d3cd1793fc5344b1e99afc"><div class="ttname"><a href="../../dc/d87/a00032.html#aa47d0e4e90d3cd1793fc5344b1e99afc">gk_option::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00029">gk_getopt.h:29</a></div></div>
+<div class="ttc" id="a00165_html_a7e251e946564d7de41aa8f602b94e74e"><div class="ttname"><a href="../../d0/d48/a00165.html#a7e251e946564d7de41aa8f602b94e74e">gk_optarg</a></div><div class="ttdeci">char * gk_optarg</div><div class="ttdoc">For communication arguments to the caller. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d48/a00165_source.html#l00056">getopt.c:56</a></div></div>
+<div class="ttc" id="a00065_html"><div class="ttname"><a href="../../de/de1/a00065.html">params_t</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d72/a00204_source.html#l00015">fis.c:15</a></div></div>
+<div class="ttc" id="a00178_html_af62038e97ca55f14ec2557a01bd85ca2"><div class="ttname"><a href="../../d9/d90/a00178.html#af62038e97ca55f14ec2557a01bd85ca2">gk_strdup</a></div><div class="ttdeci">char * gk_strdup(char *orgstr)</div><div class="ttdoc">Duplicates a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d79/a00203_source.html#l00372">string.c:372</a></div></div>
+<div class="ttc" id="a00165_html_abb224612ca0aae2d39bd87f6146bd67d"><div class="ttname"><a href="../../d0/d48/a00165.html#abb224612ca0aae2d39bd87f6146bd67d">gk_getopt_long_only</a></div><div class="ttdeci">int gk_getopt_long_only(int argc, char **argv, char *options, struct gk_option *long_options, int *opt_index)</div><div class="ttdoc">Parse command-line arguments with only long options. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d48/a00165_source.html#l00849">getopt.c:849</a></div></div>
+<div class="ttc" id="a00178_html_aba6f76f5c67b9b7e9c2e45988d3d3e9d"><div class="ttname"><a href="../../d9/d90/a00178.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d">gk_malloc</a></div><div class="ttdeci">void * gk_malloc(size_t nbytes, char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00140">memory.c:140</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_18a2ea4dac1d4264daad117772368823.html">libmetis</a></li><li class="navelem"><b>timing.c</b></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_191e76d4301b50d959103fb7ff475e31.html">programs</a></li><li class="navelem"><a class="el" href="../../dd/dd7/a00260.html">cmdline_m2gmetis.c</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:21 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

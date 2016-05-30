@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: TODO LISTS</title>
+<title>SEIMS-2016: ckrinfo_t Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -52,9 +52,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="../../pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="../../pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="../../modules.html"><span>Modules</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -72,6 +72,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
           </span>
         </div>
       </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -104,187 +112,102 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d3/daa/a00996.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">TODO LISTS </div>  </div>
+<div class="title">ckrinfo_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>1. SEIMS模块</h1>
-<h2>功能模块</h2>
-<h3>气象数据类</h3>
-<ul>
-<li>TSD_RD 读取站点时间序列数据</li>
-<li>ITP 泰森多边形插值</li>
-</ul>
-<h3>土壤温度类</h3>
-<ul>
-<li>STP_FP Finn Plauborg Method</li>
-<li>STP_CJ TODO: Method used in SWAT (solt.f)</li>
-</ul>
-<h3>蒸散发类</h3>
-<ul>
-<li>PET_H</li>
-<li>PET_PT</li>
-<li>PET_PM</li>
-</ul>
-<h3>截留类</h3>
-<h1>1.代码注释工作</h1>
-<h2>1.1已完成模块</h2>
-<ul>
-<li>Base模块组下面的Util（遗留MetadataInfo没有注释）、data、</li>
-<li>Modules 模块组<ul>
-<li>Climate 模块组</li>
-</ul>
-</li>
-</ul>
-<h1>2.代码整理工作</h1>
-<h2>2.1Data模块</h2>
-<p>弃用列表</p>
-<ul>
-<li>SQLite相关<ul>
-<li><a class="el" href="../../dd/d1b/a00015.html" title="Hydrological climate data class. ">clsHydroClimateData</a></li>
-</ul>
-</li>
-</ul>
-<h1>3.功能补充</h1>
-<h2>3.1模型结构</h2>
-<ul>
-<li>1. 土壤数据问题</li>
-</ul>
-<p>目前土壤数据的的输入为机械组成和有机质含量的TIFF，这样做可扩展性太差。而且，土层默认为2层，程序中有些地方明确写死为2层，比如<code>MongoUtil.cpp</code>里的<code>Read2DSoilAttr</code>函数，这样不够合理。应改为可支持多层土壤层数。</p>
-<ul>
-<li>2.</li>
-</ul>
-<blockquote class="doxtable">
-<p>2016-5-18 已完成 <code>DT_Rater2D</code>的读写，详见<code>clsRaterData</code>类 2016-5-21 已完成多层土壤理化性质的计算，但是，对于设置层数大于3，但是没有对应层数属性的情况，暂未考虑，SWAT中有计算，所以以后考虑加上！</p>
-<p></p>
-</blockquote>
-<ul>
-<li>2. 河道数据结构</li>
-</ul>
-<p>目前有两个河道相关的AddParameter，即Tag_ReachParameter和Tag_RchParam，但是读取的均是reaches表。因此，有必要进行合并，用一个clsReach类替代。</p>
-<h2>TODO by Zhu</h2>
-<h3>KINWAVSED_CH模块</h3>
-<ul>
-<li>1. Tag_ReachParameter问题</li>
-</ul>
-<h3>KINWAVSED_OL模块</h3>
-<ul>
-<li>1. mdi.AddInput("QRECH", "m3/s", "Flux in the downslope boundary of cells", "Module",DT_Array2D); QRECH变量名与MUSK_CH中河道出口流量冲突，而且DimensionType也不相符</li>
-<li></li>
-</ul>
-<h3>MUSLE_AS模块</h3>
-<ul>
-<li>1. SEDTOCH和SEDTOCH_T单位到底是吨还是千克？，是DT_Raster1D还是DT_Array1D</li>
-<li>SEDR_VCD中AddInput原写的是tons</li>
-</ul>
-<h3>SEDR_VCD模块</h3>
-<p>SWAT 最新版中内置了4种泥沙河道汇流模拟方法，后续可以补充</p>
-<ul>
-<li>1. CHSB Get2DData 注释掉了，WHY？</li>
-</ul>
-<h3>SplashEro_Park模块</h3>
-<ul>
-<li>1. float m_Ccoe;并未使用，是否删掉</li>
-</ul>
-<h3>CH_DW模块</h3>
-<ul>
-<li>1. m_manningScalingFactor 模块初始化时赋值为1，但是SetValue中依然有，是否需要在数据库中添加？</li>
-<li><h3>CH_MSK模块</h3>
-</li>
-</ul>
-<ul>
-<li>1. TWO_THIRDS(2.f/3.f), m_msk_x(0.2f), m_vScalingFactor（即"VelocityScalingFactor"）(3.0f), m_chS0(0.f), m_beta(5.0f/3), m_delta(1e-6f)，，模块初始化时赋值，是否需要在数据库中添加？</li>
-<li>2. 与其他几个河道汇流模块类似，m_diagonal到底应该用ArcGIS的流向编码还是TauDEM的呢？</li>
-</ul>
-<h3>GWA_RE和GW_RSVR什么关系？</h3>
-<p>为什么会有2个reservoir method的地下水模块</p>
-<h3>HS_WB模块</h3>
-<ul>
-<li>1. Get2DData中，*nCols=17？ HOW TO FIX？</li>
-</ul>
-<h3>IKW_CH模块</h3>
-<ul>
-<li>1. “QRECH” 为何在Get1DData和Get2DData中均有？</li>
-</ul>
-<h3>IKW_OL模块</h3>
-<ul>
-<li>1. m_FlowLen</li>
-</ul>
-<h3>单位转换问题</h3>
-<p>有必要在util模块中加入多个单位之间转换的代码。</p>
-<h3>RootDepth和SoilDepth的问题</h3>
-<ul>
-<li>1. 之前代码中认为rootDepth即为soilDepth，这是不对的，目前数据准备提供了soilDepth，具体模块还未改过来，如IKW_IF模块</li>
-</ul>
-<h3>ValueToString()</h3>
-<ul>
-<li>1. 许多模块中都有一个函数toString()，用于将float转换为string输出，造成代码冗余，TODO：均用util下的ValueToString()替换，该函数为模板函数</li>
-<li><h2>TODO by Gao</h2>
-</li>
-</ul>
-<h2>1.代码整理</h2>
-<ul>
-<li>1 nReach等变量赋值问题<ul>
-<li>未直接赋值，通过相关变量间接赋值，</li>
-<li>模块：Hydrology_longterm - <a class="el" href="../../d1/dc6/a00037.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a></li>
-<li>模块：Hydrology_longterm - <a class="el" href="../../d3/dea/a00046.html" title="IUH overland method to calculate interflow routing. ">IUH_IF</a></li>
-<li>模块：Hydrology_longterm - IUH_OF</li>
-</ul>
-</li>
-<li>2 DT_Array2D变量及所在模块</li>
-</ul>
-<table class="doxtable">
-<tr>
-<th>模块</th><th>子模块</th><th>变量名</th><th>类型  </th></tr>
-<tr>
-<td>Hydrology_longterm</td><td>GWA_RE</td><td>VAR_PERCO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td>GWA_RE</td><td>VAR_SOMO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td>PEI_PI</td><td>VAR_SOMO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td>PEI_STR</td><td>VAR_SOMO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td><a class="el" href="../../d1/d51/a00079.html" title="Calculate soil Temperature. ">SET_LM</a></td><td>VAR_SOMO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td><a class="el" href="../../d9/dec/a00090.html" title="Soil water balance. ">SOL_WB</a></td><td>VAR_PERCO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td><a class="el" href="../../d9/dec/a00090.html" title="Soil water balance. ">SOL_WB</a></td><td>VAR_SOMO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td><a class="el" href="../../d9/dec/a00090.html" title="Soil water balance. ">SOL_WB</a></td><td>VAR_SSRU</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td><a class="el" href="../../dc/d54/a00094.html" title="– ">SSR_DA</a></td><td>VAR_SOMO</td><td>AddInput </td></tr>
-<tr>
-<td>Hydrology_longterm</td><td><a class="el" href="../../d1/d84/a00097.html" title="SCS Curve Number Method to calculate infiltration and excess precipitation. ">SUR_CN</a></td><td>VAR_SOMO</td><td>AddOutput </td></tr>
+
+<p><code>#include &lt;<a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6d1da388f70555f25dc90fdcc011bb9b"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a6d1da388f70555f25dc90fdcc011bb9b">id</a></td></tr>
+<tr class="separator:a6d1da388f70555f25dc90fdcc011bb9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57270f8839a5146d9342569f12865e57"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a57270f8839a5146d9342569f12865e57">ed</a></td></tr>
+<tr class="separator:a57270f8839a5146d9342569f12865e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73fbc8555b843b3fd414ac0a9ec244f1"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a73fbc8555b843b3fd414ac0a9ec244f1">nnbrs</a></td></tr>
+<tr class="separator:a73fbc8555b843b3fd414ac0a9ec244f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4e2d97adbc1b6401b4ee8acba70770"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#aca4e2d97adbc1b6401b4ee8acba70770">inbr</a></td></tr>
+<tr class="separator:aca4e2d97adbc1b6401b4ee8acba70770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<ul>
-<li>3 变量定义不明确问题<ul>
-<li>Hydrology_longterm - <a class="el" href="../../d1/dc6/a00037.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a>: VAR_QOUTLET &amp; VAR_QSOUTLET</li>
-<li>Hydrology_longterm - <a class="el" href="../../d1/dc6/a00037.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a>: VAR_MSF &amp; <a class="el" href="../../d1/d22/a00057.html" title="Overland routing using 4-point implicit finite difference method. ">MUSK_CH</a>: VAR_VSF</li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The following data structure stores holds information on degrees for k-way partition </p>
+
+<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00034">34</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a57270f8839a5146d9342569f12865e57"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">idx_t ckrinfo_t::ed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The total external degree of a vertex </p>
+
+<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00036">36</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d1da388f70555f25dc90fdcc011bb9b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">idx_t ckrinfo_t::id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The internal degree of a vertex (sum of weights) </p>
+
+<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00035">35</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aca4e2d97adbc1b6401b4ee8acba70770"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">idx_t ckrinfo_t::inbr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The index in the <a class="el" href="../../dc/de2/a00024.html">cnbr_t</a> array where the nnbrs list of neighbors is stored </p>
+
+<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00038">38</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73fbc8555b843b3fd414ac0a9ec244f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">idx_t ckrinfo_t::nnbrs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of neighboring subdomains </p>
+
+<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00037">37</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d4/d04/a00255_source.html">struct.h</a></li>
 </ul>
-</li>
-<li>4 add-()与set-()、get-()中变量不一致的问题<ul>
-<li>Hydrology_longterm - <a class="el" href="../../d1/dc6/a00037.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a>: VAR_QUPREACH</li>
-<li>Hydrology_longterm - <a class="el" href="../../dc/d54/a00094.html" title="– ">SSR_DA</a>: Tag_FLOWIN_PERCENTAGE_D8</li>
-</ul>
-</li>
-<li>5 变量单位不明确问题<ul>
-<li>Hydrology_longterm - SON_DD: VAR_C_SNOW</li>
-<li>Hydrology_longterm - SON_DD: VAR_C_RAIN</li>
-<li>Hydrology_longterm - SON_SP: VAR_C_SNOW6 ("mm/oC/day")</li>
-<li>Hydrology_longterm - SON_SP: VAR_C_SNOW12 ("mm/oC/day")</li>
-</ul>
-</li>
-</ul>
-<h3>file.out</h3>
-<h4>Snow accumulate and melt</h4>
-<p><a class="el" href="../../df/d13/a00085.html" title="Calculate snow melt by Degree-Day method. ">SNO_DD</a> is required, <a class="el" href="../../d1/d1e/a00087.html" title="Calculate snow water balance. ">SNO_WB</a> dependent on <a class="el" href="../../df/d13/a00085.html" title="Calculate snow melt by Degree-Day method. ">SNO_DD</a>, and <a class="el" href="../../da/d2a/a00086.html" title="Calculate snow melt by snowpack daily method from SWAT. ">SNO_SP</a> dependent on <a class="el" href="../../d1/d1e/a00087.html" title="Calculate snow water balance. ">SNO_WB</a> </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../df/d86/a00012.html">ckrinfo_t</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

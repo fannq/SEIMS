@@ -1,15 +1,18 @@
 var a00027 =
 [
-    [ "cfactor", "d0/d33/a00027.html#a90cc3aac501d85a6b43edc4b1e7e7e5e", null ],
-    [ "cnbrpool", "d0/d33/a00027.html#a3743efedf432aec050a9ebfb2e4a166a", null ],
-    [ "mcore", "d0/d33/a00027.html#a70ca2e591af5d7b1ec3116fe138fce85", null ],
-    [ "nbrpoolcpos", "d0/d33/a00027.html#acafe4ebea8585403e053dc33e7b4ac64", null ],
-    [ "nbrpoolreallocs", "d0/d33/a00027.html#a091baa9be72262dca61c641d1f1e4ad3", null ],
-    [ "nbrpoolsize", "d0/d33/a00027.html#ae37af5d894dbeea35f735361503e58a9", null ],
-    [ "ncon", "d0/d33/a00027.html#afb1fd1cb311eb4bcefa46a14ef05afa0", null ],
-    [ "nparts", "d0/d33/a00027.html#a98f3c9d6ea8b5d18b51d500dcb54d1ee", null ],
-    [ "pijbm", "d0/d33/a00027.html#ae347c6497954a20166af15a2ddd4e286", null ],
-    [ "tpwgts", "d0/d33/a00027.html#a37fcd7cb16b54211eed8bd8ec8b5385a", null ],
-    [ "ubfactors", "d0/d33/a00027.html#ac7c04d9f87e4028ee55135f0f790e670", null ],
-    [ "vnbrpool", "d0/d33/a00027.html#a1f7258a6dc2780d0f8224293ecff26b7", null ]
+    [ "DepressionFS", "d0/d33/a00027.html#a933ffc1557cef29993ee8f619e0a7d77", null ],
+    [ "~DepressionFS", "d0/d33/a00027.html#a11678128e4bc7eb5dae4b63878e2ca0a", null ],
+    [ "Execute", "d0/d33/a00027.html#ada7ecb072e13e1c36a9702536fa22cfe", null ],
+    [ "Get1DData", "d0/d33/a00027.html#a5f4c599baf74b8387ab2008432385e3a", null ],
+    [ "Set1DData", "d0/d33/a00027.html#a42120f0926a585eff3ac89f8c4fc135a", null ],
+    [ "SetValue", "d0/d33/a00027.html#a32402d251581d1b75aad27907e394282", null ],
+    [ "m_checkInput", "d0/d33/a00027.html#ac055334e35fb65b2c5f971b7f6ebc620", null ],
+    [ "m_depCap", "d0/d33/a00027.html#a6ce504413d1677dd565a6cd120fc6597", null ],
+    [ "m_depCo", "d0/d33/a00027.html#a5817c75d4bbfbdfd8ec4d58045a4e1d9", null ],
+    [ "m_ei", "d0/d33/a00027.html#adb2445504dbddb88819bdbbaae403e3a", null ],
+    [ "m_nCells", "d0/d33/a00027.html#ad57e04a7dc0b0058628574bf22b17e8b", null ],
+    [ "m_pet", "d0/d33/a00027.html#a2271f5d76746d34da5407ffb7d03a19b", null ],
+    [ "m_sd", "d0/d33/a00027.html#a45f46a8f39c5a96518c35b82127f2691", null ],
+    [ "m_sr", "d0/d33/a00027.html#a2a346f7d4c55cf593401bf08ca0652ec", null ],
+    [ "m_storageCapSurplus", "d0/d33/a00027.html#ada7e687d5d87387f1f52dbd0074624ee", null ]
 ];

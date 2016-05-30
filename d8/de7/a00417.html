@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/DBManager.h File Reference</title>
+<title>SEIMS-2016: src/base/data/Measurement.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,50 +110,42 @@ $(document).ready(function(){initNavTree('d8/de7/a00417.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">DBManager.h File Reference</div>  </div>
+<div class="title">Measurement.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Database manager for Sqlite.  
+<p><a class="el" href="../../d2/dee/a00049.html" title="Get HydroClimate measurement data from MongoDB. ">Measurement</a> class to store HydroClimate site data.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;sqlite3.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/df7/a00418_source.html">Measurement.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/d63/a00455_source.html">utils.h</a>&quot;</code><br/>
+<code>#include &quot;bson.h&quot;</code><br/>
+<code>#include &quot;util.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/dfe/a00448_source.html">ModelException.h</a>&quot;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for DBManager.h:</div>
+Include dependency graph for Measurement.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/de1/a00871.png" border="0" usemap="#src_2base_2data_2_d_b_manager_8h" alt=""/></div>
-<map name="src_2base_2data_2_d_b_manager_8h" id="src_2base_2data_2_d_b_manager_8h">
-</map>
+<div class="center"><img src="../../df/d2a/a00874.png" border="0" usemap="#src_2base_2data_2_measurement_8cpp" alt=""/></div>
+<map name="src_2base_2data_2_measurement_8cpp" id="src_2base_2data_2_measurement_8cpp">
+<area shape="rect" id="node2" href="../../de/df7/a00418.html" title="Measurement class to store HydroClimate site data. " alt="" coords="169,83,300,112"/><area shape="rect" id="node6" href="../../dd/d63/a00455.html" title="Utilities class to handle string, date time and file. " alt="" coords="407,83,471,112"/><area shape="rect" id="node14" href="../../de/dfe/a00448.html" title="Define ModelException class. " alt="" coords="546,83,696,112"/></map>
 </div>
 </div>
 <p><a href="../../d8/de7/a00417_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html">slTable</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table class for sqlite database tables.  <a href="../../df/d5d/a00084.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html">DBManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">sqlite database management class  <a href="../../dc/d3c/a00028.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Database manager for Sqlite. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<div class="textblock"><p><a class="el" href="../../d2/dee/a00049.html" title="Get HydroClimate measurement data from MongoDB. ">Measurement</a> class to store HydroClimate site data. </p>
+<dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Jun. 2010 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>May 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d8/de7/a00417_source.html">DBManager.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d8/de7/a00417_source.html">Measurement.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d8/de7/a00417.html">DBManager.h</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../d8/de7/a00417.html">Measurement.cpp</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

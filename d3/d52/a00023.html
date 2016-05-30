@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: clsSpecificOutput Class Reference</title>
+<title>SEIMS-2016: clsWgnData Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,125 +114,72 @@ $(document).ready(function(){initNavTree('d3/d52/a00023.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="../../d6/d8d/a01007.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d0/d2b/a01010.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">clsSpecificOutput Class Reference<div class="ingroups"><a class="el" href="../../d5/d68/a00747.html">Data</a></div></div>  </div>
+<div class="title">clsWgnData Class Reference<div class="ingroups"><a class="el" href="../../d5/d68/a00747.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Special output class.  
- <a href="../../d3/d52/a00023.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../db/d2c/a00466_source.html">clsSpecificOutput.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../db/de0/a00465_source.html">clsWgnData.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6c2afe972c7c8b07e7dfe8c32f0a2f6e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a6c2afe972c7c8b07e7dfe8c32f0a2f6e">clsSpecificOutput</a> (string projectPath, string databasePath, <a class="el" href="../../dd/da2/a00019.html">clsRasterData</a> *templateRasterData, string outputID)</td></tr>
-<tr class="separator:a6c2afe972c7c8b07e7dfe8c32f0a2f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae972efcb5a6a9311733d10327b47a3a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae972efcb5a6a9311733d10327b47a3a0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#ae972efcb5a6a9311733d10327b47a3a0">~clsSpecificOutput</a> (void)</td></tr>
-<tr class="memdesc:ae972efcb5a6a9311733d10327b47a3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:ae972efcb5a6a9311733d10327b47a3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4db3111b661c27210aa25a7a9e6aa266"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4db3111b661c27210aa25a7a9e6aa266"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a4db3111b661c27210aa25a7a9e6aa266">setData</a> (time_t time, float *data)</td></tr>
-<tr class="memdesc:a4db3111b661c27210aa25a7a9e6aa266"><td class="mdescLeft">&#160;</td><td class="mdescRight">set data <br/></td></tr>
-<tr class="separator:a4db3111b661c27210aa25a7a9e6aa266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa504114357dfe9a246ffe772a0320ec6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa504114357dfe9a246ffe772a0320ec6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#aa504114357dfe9a246ffe772a0320ec6">dump</a> (string fileName)</td></tr>
-<tr class="memdesc:aa504114357dfe9a246ffe772a0320ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">write output to fileName <br/></td></tr>
-<tr class="separator:aa504114357dfe9a246ffe772a0320ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:abbf276d591a199908784c1a82f71970c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbf276d591a199908784c1a82f71970c"></a>
-static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#abbf276d591a199908784c1a82f71970c">TableNameFromOutputID</a> (string outputID)</td></tr>
-<tr class="memdesc:abbf276d591a199908784c1a82f71970c"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the outputID is SNAC, which means snowOutput <br/></td></tr>
-<tr class="separator:abbf276d591a199908784c1a82f71970c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f04ec5883590ee2e953bbef4af580e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f04ec5883590ee2e953bbef4af580e5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a3f04ec5883590ee2e953bbef4af580e5">clsWgnData</a> (string databasePath, <a class="el" href="../../db/de0/a00465.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type)</td></tr>
+<tr class="memdesc:a3f04ec5883590ee2e953bbef4af580e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a3f04ec5883590ee2e953bbef4af580e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3d63f329531bd498e272057a26c5b79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3d63f329531bd498e272057a26c5b79"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#ab3d63f329531bd498e272057a26c5b79">~clsWgnData</a> (void)</td></tr>
+<tr class="memdesc:ab3d63f329531bd498e272057a26c5b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:ab3d63f329531bd498e272057a26c5b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc00d5baf9e09d2e1d44f0c433a88ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebc00d5baf9e09d2e1d44f0c433a88ac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#aebc00d5baf9e09d2e1d44f0c433a88ac">getWgnData</a> (int *nRows, int *nCols, float ***wgnData)</td></tr>
+<tr class="memdesc:aebc00d5baf9e09d2e1d44f0c433a88ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">get wgn data, nRows is 12 (months), <br/></td></tr>
+<tr class="separator:aebc00d5baf9e09d2e1d44f0c433a88ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc140a53f7099c46215a3f39f6fbb4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cc140a53f7099c46215a3f39f6fbb4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a8cc140a53f7099c46215a3f39f6fbb4b">show</a> (void)</td></tr>
+<tr class="memdesc:a8cc140a53f7099c46215a3f39f6fbb4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">show data <br/></td></tr>
+<tr class="separator:a8cc140a53f7099c46215a3f39f6fbb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a22f6ac54ea90bb0a8c289549a1fd00bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22f6ac54ea90bb0a8c289549a1fd00bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a22f6ac54ea90bb0a8c289549a1fd00bf">setSlope</a> (string projectPath)</td></tr>
-<tr class="memdesc:a22f6ac54ea90bb0a8c289549a1fd00bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set slope data (slope_wind.asc) <br/></td></tr>
-<tr class="separator:a22f6ac54ea90bb0a8c289549a1fd00bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada874234d6441332a85e7fbb7926fd22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada874234d6441332a85e7fbb7926fd22"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#ada874234d6441332a85e7fbb7926fd22">setCurvature</a> (string projectPath)</td></tr>
-<tr class="memdesc:ada874234d6441332a85e7fbb7926fd22"><td class="mdescLeft">&#160;</td><td class="mdescRight">set curvature data (curva_wind.asc) <br/></td></tr>
-<tr class="separator:ada874234d6441332a85e7fbb7926fd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64a2c5eb768922c23aecebbc55800618"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64a2c5eb768922c23aecebbc55800618"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a64a2c5eb768922c23aecebbc55800618">setLanduse</a> (string projectPath)</td></tr>
-<tr class="memdesc:a64a2c5eb768922c23aecebbc55800618"><td class="mdescLeft">&#160;</td><td class="mdescRight">set landuse data (landuse2.asc) <br/></td></tr>
-<tr class="separator:a64a2c5eb768922c23aecebbc55800618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35213b076acce178f6953469016e3c84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35213b076acce178f6953469016e3c84"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a35213b076acce178f6953469016e3c84">readWgnData</a> (string, <a class="el" href="../../db/de0/a00465.html#a687c287c85e281a878aa31fb7b4f78de">WgnType</a> type)</td></tr>
+<tr class="memdesc:a35213b076acce178f6953469016e3c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">read wgn data from Sqlite database. <br/></td></tr>
+<tr class="separator:a35213b076acce178f6953469016e3c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0b43da215ebd51fe8c0aa418fca08373"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b43da215ebd51fe8c0aa418fca08373"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373">m_wtgTableName</a></td></tr>
+<tr class="memdesc:a0b43da215ebd51fe8c0aa418fca08373"><td class="mdescLeft">&#160;</td><td class="mdescRight">table name <br/></td></tr>
+<tr class="separator:a0b43da215ebd51fe8c0aa418fca08373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0f633156f50038d623f28e55049f96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a0f633156f50038d623f28e55049f96"></a>
+vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96">m_columns</a></td></tr>
+<tr class="memdesc:a2a0f633156f50038d623f28e55049f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">table column name <br/></td></tr>
+<tr class="separator:a2a0f633156f50038d623f28e55049f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a59f7e26b36f0e51734fa89ef41c22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7a59f7e26b36f0e51734fa89ef41c22"></a>
+float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22">m_wgnData</a></td></tr>
+<tr class="memdesc:ab7a59f7e26b36f0e51734fa89ef41c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">wgn data <br/></td></tr>
+<tr class="separator:ab7a59f7e26b36f0e51734fa89ef41c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Special output class. </p>
+<div class="textblock"><dl class="deprecated"><dt><b><a class="el" href="../../d7/dc8/a00808.html#_deprecated000008">Deprecated:</a></b></dt><dd>For now, this class is deprecated?</dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/d2c/a00466_source.html#l00026">26</a> of file <a class="el" href="../../db/d2c/a00466_source.html">clsSpecificOutput.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6c2afe972c7c8b07e7dfe8c32f0a2f6e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">clsSpecificOutput::clsSpecificOutput </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>projectPath</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>databasePath</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dd/da2/a00019.html">clsRasterData</a> *&#160;</td>
-          <td class="paramname"><em>templateRasterData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>outputID</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Constructor for Sqlite </p>
-<dl class="deprecated"><dt><b><a class="el" href="../../d7/dc8/a00808.html#_deprecated000007">Deprecated:</a></b></dt><dd>For now, this constructor is deprecated! </dd></dl>
-
-<p>Definition at line <a class="el" href="../../db/de0/a00465_source.html#l00034">34</a> of file <a class="el" href="../../db/de0/a00465_source.html">clsSpecificOutput.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/d52/a00023_a6c2afe972c7c8b07e7dfe8c32f0a2f6e_cgraph.png" border="0" usemap="#d3/d52/a00023_a6c2afe972c7c8b07e7dfe8c32f0a2f6e_cgraph" alt=""/></div>
-<map name="d3/d52/a00023_a6c2afe972c7c8b07e7dfe8c32f0a2f6e_cgraph" id="d3/d52/a00023_a6c2afe972c7c8b07e7dfe8c32f0a2f6e_cgraph">
-<area shape="rect" id="node2" href="../../d3/d52/a00023.html#abbf276d591a199908784c1a82f71970c" title="if the outputID is SNAC, which means snowOutput " alt="" coords="210,5,417,51"/><area shape="rect" id="node4" href="../../dc/d3c/a00028.html#a0739d27b1ca7443329e5e4d24409b8ac" title="if the given table exists " alt="" coords="211,177,415,207"/><area shape="rect" id="node6" href="../../dc/d3c/a00028.html#a451113a0e298f84c030ea7b9892d8f8b" title="Open the given sqlite database. " alt="" coords="507,71,661,100"/><area shape="rect" id="node7" href="../../dc/d3c/a00028.html#aebd9e5246ae9f047eedbb199699005ae" title="Returns a flag indicating if an error occured. " alt="" coords="503,124,665,153"/><area shape="rect" id="node8" href="../../dc/d3c/a00028.html#a8dba35872dea3b8a49782ab7b880306e" title="Run the given SQL query and return an instance of a slTable class containing the results. " alt="" coords="508,231,660,260"/><area shape="rect" id="node9" href="../../dc/d3c/a00028.html#a1bcd1fc4e7c5b0ae658f3e779a176268" title="Close the currently open database. " alt="" coords="505,284,663,313"/><area shape="rect" id="node10" href="../../d0/d61/a00100.html#acb448f13021cc56b7ae4795aac36737f" title="Convert string to date time, string format could be %4d%2d%2d or d&#45;d&#45;d. " alt="" coords="228,332,399,361"/><area shape="rect" id="node11" href="../../df/d5d/a00084.html#abb56a581d1fd10567ad208347ec578a7" title="Return the value in the field defined by the given row and column. " alt="" coords="233,385,394,415"/><area shape="rect" id="node12" href="../../dd/da2/a00019.html#a9f7defa777e6641d023693aa2ca30802" title="Get position index in 1D raster data for specific row and column, return &#45;1 is error occurs..." alt="" coords="208,439,419,468"/><area shape="rect" id="node13" href="../../d3/d52/a00023.html#a22f6ac54ea90bb0a8c289549a1fd00bf" title="set slope data (slope_wind.asc) " alt="" coords="236,493,391,539"/><area shape="rect" id="node15" href="../../d3/d52/a00023.html#ada874234d6441332a85e7fbb7926fd22" title="set curvature data (curva_wind.asc) " alt="" coords="236,563,391,610"/><area shape="rect" id="node16" href="../../d3/d52/a00023.html#a64a2c5eb768922c23aecebbc55800618" title="set landuse data (landuse2.asc) " alt="" coords="236,634,391,681"/><area shape="rect" id="node3" href="../../d0/d61/a00100.html#acc97bce7b8fc83ae5fbf851233dbf29a" title="Splits the given string based on the given delimiter. " alt="" coords="517,13,651,43"/><area shape="rect" id="node5" href="../../d0/d61/a00100.html#aab71f707faaacf41928fc45b326b3232" title="Return a flag indicating if the given file exists. " alt="" coords="519,177,649,207"/><area shape="rect" id="node14" href="../../dd/da2/a00019.html#acbd4e369da73e7136442dc95027ce17c" title="Get raster data, include valid cell number and data. " alt="" coords="467,572,701,601"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/Deprecated/base_data/<a class="el" href="../../db/d2c/a00466_source.html">clsSpecificOutput.h</a></li>
-<li>src/Deprecated/base_data/<a class="el" href="../../db/de0/a00465_source.html">clsSpecificOutput.cpp</a></li>
+<p>Definition at line <a class="el" href="../../db/de0/a00465_source.html#l00034">34</a> of file <a class="el" href="../../db/de0/a00465_source.html">clsWgnData.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/Deprecated/base_data/<a class="el" href="../../db/de0/a00465_source.html">clsWgnData.h</a></li>
+<li>src/Deprecated/base_data/<a class="el" href="../../d2/d9d/a00464_source.html">clsWgnData.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d52/a00023.html">clsSpecificOutput</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../d3/d52/a00023.html">clsWgnData</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

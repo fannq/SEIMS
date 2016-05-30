@@ -1,10 +1,11 @@
 var a00023 =
 [
-    [ "clsSpecificOutput", "d3/d52/a00023.html#a6c2afe972c7c8b07e7dfe8c32f0a2f6e", null ],
-    [ "~clsSpecificOutput", "d3/d52/a00023.html#ae972efcb5a6a9311733d10327b47a3a0", null ],
-    [ "dump", "d3/d52/a00023.html#aa504114357dfe9a246ffe772a0320ec6", null ],
-    [ "setCurvature", "d3/d52/a00023.html#ada874234d6441332a85e7fbb7926fd22", null ],
-    [ "setData", "d3/d52/a00023.html#a4db3111b661c27210aa25a7a9e6aa266", null ],
-    [ "setLanduse", "d3/d52/a00023.html#a64a2c5eb768922c23aecebbc55800618", null ],
-    [ "setSlope", "d3/d52/a00023.html#a22f6ac54ea90bb0a8c289549a1fd00bf", null ]
+    [ "clsWgnData", "d3/d52/a00023.html#a3f04ec5883590ee2e953bbef4af580e5", null ],
+    [ "~clsWgnData", "d3/d52/a00023.html#ab3d63f329531bd498e272057a26c5b79", null ],
+    [ "getWgnData", "d3/d52/a00023.html#aebc00d5baf9e09d2e1d44f0c433a88ac", null ],
+    [ "readWgnData", "d3/d52/a00023.html#a35213b076acce178f6953469016e3c84", null ],
+    [ "show", "d3/d52/a00023.html#a8cc140a53f7099c46215a3f39f6fbb4b", null ],
+    [ "m_columns", "d3/d52/a00023.html#a2a0f633156f50038d623f28e55049f96", null ],
+    [ "m_wgnData", "d3/d52/a00023.html#ab7a59f7e26b36f0e51734fa89ef41c22", null ],
+    [ "m_wtgTableName", "d3/d52/a00023.html#a0b43da215ebd51fe8c0aa418fca08373", null ]
 ];

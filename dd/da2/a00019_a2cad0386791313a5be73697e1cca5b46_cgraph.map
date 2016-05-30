@@ -1,6 +1,0 @@
-<map id="clsRasterData::outputToMongoDB" name="clsRasterData::outputToMongoDB">
-<area shape="rect" id="node2" href="$dd/da2/a00019.html#ae6d573951cf55cd9ae106bd98a2ffb02" title="Get non&#45;NODATA position index data, include cell number and (row, col) " alt="" coords="353,29,553,75"/>
-<area shape="rect" id="node3" href="$dd/da2/a00019.html#aa88d47b1fad870a6357edb2030d4ba90" title="Get the spatial reference. " alt="" coords="360,100,547,129"/>
-<area shape="rect" id="node4" href="$dd/da2/a00019.html#a08f701b29c119b75d9858c5dccc3a77a" title="Write raster data to MongoDB, if 2D raster, output name will be filename_LyrNum. " alt="" coords="320,153,587,183"/>
-<area shape="rect" id="node5" href="$dd/da2/a00019.html#af9129b542dc471fe7dcc045cb607e39d" title="Get raster header information. " alt="" coords="353,231,553,278"/>
-</map>

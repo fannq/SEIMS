@@ -1,7 +1,5 @@
 var a00024 =
 [
-    [ "Get1DData", "dc/de2/a00024.html#a1b2832f37325e31503995626135bdb67", null ],
-    [ "Set1DData", "dc/de2/a00024.html#a06bb50257ea4080511c1d6448684f9f3", null ],
-    [ "m_Data", "dc/de2/a00024.html#ab896e92ea639d8981eb1a16d89264f16", null ],
-    [ "m_Rows", "dc/de2/a00024.html#ac5ce2b186049bee1f70280c20a8fee6f", null ]
+    [ "ed", "dc/de2/a00024.html#a2dd27d862ee4554553d909072a8931f3", null ],
+    [ "pid", "dc/de2/a00024.html#a22be164ee3de87a051946a9ab71ae3b9", null ]
 ];

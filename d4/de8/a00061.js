@@ -1,9 +1,20 @@
 var a00061 =
 [
-    [ "NotRegularMeasurement", "d4/de8/a00061.html#a3c9de25b026a3918f3655e4381a867e7", null ],
-    [ "~NotRegularMeasurement", "d4/de8/a00061.html#a156ee633e6dfc626a362bb826525ea6e", null ],
-    [ "GetSiteDataByTime", "d4/de8/a00061.html#af77a1b276a9f174603a977b2a6e4c5cc", null ],
-    [ "m_curIndexList", "d4/de8/a00061.html#abb545ecf27b9011ea628ad92bc0ac697", null ],
-    [ "m_timeList", "d4/de8/a00061.html#ac49bfde12525e6ad88d058122eba3aba", null ],
-    [ "m_valueList", "d4/de8/a00061.html#ac13ca9e77b8b7d54845def6bbd0e7e5b", null ]
+    [ "~NutrientRemviaSr", "d4/de8/a00061.html#a7256db1166feaed19a1d879e49f68ad6", null ],
+    [ "CalculateEnrRatio", "d4/de8/a00061.html#a872f9555ec4827b4628f9aef2b5b0bf2", null ],
+    [ "CheckInputData", "d4/de8/a00061.html#aed34028890537d87e34cd1e426d8426e", null ],
+    [ "CheckInputSize", "d4/de8/a00061.html#a3ae7b89c7d20b2ca0ba9aa2eac954256", null ],
+    [ "Execute", "d4/de8/a00061.html#ae24c69926cb876f07010defdc622f8a0", null ],
+    [ "Get1DData", "d4/de8/a00061.html#af524e6df80687adefc401e437b8a6faa", null ],
+    [ "Get2DData", "d4/de8/a00061.html#a32081fb99b953c5d8ca7b801ceff253b", null ],
+    [ "OrgnRemoveinSr", "d4/de8/a00061.html#a375dd0f4a6181008271774209113bf06", null ],
+    [ "OrgpAttachedtoSed", "d4/de8/a00061.html#ac2094a1be6083d50f447455d11b5fde5", null ],
+    [ "Set1DData", "d4/de8/a00061.html#a012dbfda44951465303fcbdac94eb055", null ],
+    [ "Set2DData", "d4/de8/a00061.html#a54a3cc15b15f97cd133d71275e5620c0", null ],
+    [ "SetValue", "d4/de8/a00061.html#ab0f829a91e7ea448a3be18f89ec52237", null ],
+    [ "m_cellWidth", "d4/de8/a00061.html#ad7828a0d0c6405ab554413798b5e1156", null ],
+    [ "m_nCells", "d4/de8/a00061.html#a1141cf225e338eecc74764ed60b456c0", null ],
+    [ "m_sedimentYield", "d4/de8/a00061.html#a4a18e5f6cc8f9b80ca3f270ff76632fa", null ],
+    [ "m_sedorgn", "d4/de8/a00061.html#a754a2ea690fc96fb691579d211fb6146", null ],
+    [ "m_sol_aorgn", "d4/de8/a00061.html#aca530e292006a6d117a9050522e81281", null ]
 ];

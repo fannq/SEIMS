@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/util/SimulationModule.cpp Source File</title>
+<title>SEIMS-2016: src/base/util/StringList.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,31 +111,43 @@ $(document).ready(function(){initNavTree('d1/d0b/a00452_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SimulationModule.cpp</div>  </div>
+<div class="title">StringList.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d0b/a00452.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dc3/a00453.html">SimulationModule.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d4/d63/a00082.html#aa9934866122995dc98611de6515f47c5">   12</a></span>&#160;<a class="code" href="../../d4/d63/a00082.html#aa9934866122995dc98611de6515f47c5">SimulationModule::SimulationModule</a>(<span class="keywordtype">void</span>):m_date(-1), m_tsCounter(1)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d4/d63/a00082.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">   17</a></span>&#160;<a class="code" href="../../d4/d63/a00082.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">SimulationModule::~SimulationModule</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="ttc" id="a00082_html_a75fc67bcf8bc5a1dc0eb467af5a9861c"><div class="ttname"><a href="../../d4/d63/a00082.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">SimulationModule::~SimulationModule</a></div><div class="ttdeci">virtual ~SimulationModule(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00017">SimulationModule.cpp:17</a></div></div>
-<div class="ttc" id="a00453_html"><div class="ttname"><a href="../../da/dc3/a00453.html">SimulationModule.h</a></div><div class="ttdoc">Parent class for all modules in SEIMS. </div></div>
-<div class="ttc" id="a00082_html_aa9934866122995dc98611de6515f47c5"><div class="ttname"><a href="../../d4/d63/a00082.html#aa9934866122995dc98611de6515f47c5">SimulationModule::SimulationModule</a></div><div class="ttdeci">SimulationModule(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00012">SimulationModule.cpp:12</a></div></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../dc/d54/a00094.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d54/a00094.html">StringList</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    vector&lt;string&gt; m_List;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../dc/d54/a00094.html">StringList</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ~<a class="code" href="../../dc/d54/a00094.html">StringList</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../dc/d54/a00094.html">StringList</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../dc/d54/a00094.html">StringList</a> &amp;obj);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> Add(<span class="keywordtype">string</span> item);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">string</span> At(<span class="keywordtype">int</span> postion);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> Append(<span class="keywordtype">string</span> item);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> Clear(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> Contains(<span class="keywordtype">string</span> item);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> Count(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> Insert(<span class="keywordtype">int</span> index, <span class="keywordtype">string</span> item);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> Resize(<span class="keywordtype">int</span> newsize, <span class="keywordtype">string</span> value);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="ttc" id="a00094_html"><div class="ttname"><a href="../../dc/d54/a00094.html">StringList</a></div><div class="ttdoc">Common operation of string vector. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0b/a00452_source.html#l00027">StringList.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d0b/a00452.html">SimulationModule.cpp</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_6a113dadc2228a6c13d0f646894a64f0.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d0b/a00452.html">StringList.h</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

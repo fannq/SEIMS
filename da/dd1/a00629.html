@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/PER_PI/PER_PI.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/PET_H/PETHargreaves.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,48 +113,46 @@ $(document).ready(function(){initNavTree('da/dd1/a00629.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">PER_PI.h File Reference</div>  </div>
+<div class="title">PETHargreaves.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Percolation calculated by Darcy's law and Brooks-Corey equation.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/dc3/a00453_source.html">SimulationModule.h</a>&quot;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &lt;sstream&gt;</code><br/>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &quot;api.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PER_PI.h:</div>
+Include dependency graph for PETHargreaves.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/dcd/a00965.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_p_e_r___p_i_2_p_e_r___p_i_8h" alt=""/></div>
-<map name="src_2modules_2hydrology__longterm_2_p_e_r___p_i_2_p_e_r___p_i_8h" id="src_2modules_2hydrology__longterm_2_p_e_r___p_i_2_p_e_r___p_i_8h">
-<area shape="rect" id="node2" href="../../dc/d0c/a00430_source.html" title="api.h" alt="" coords="187,101,244,131"/><area shape="rect" id="node3" href="../../da/dc3/a00453.html" title="Parent class for all modules in SEIMS. " alt="" coords="133,179,296,208"/><area shape="rect" id="node5" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="5,256,155,285"/></map>
+<div class="center"><img src="../../d7/dd4/a00968.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_p_e_t___h_2_p_e_t_hargreaves_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_p_e_t___h_2_p_e_t_hargreaves_8h" id="src_2modules_2hydrology__longterm_2_p_e_t___h_2_p_e_t_hargreaves_8h">
+<area shape="rect" id="node3" href="../../da/db6/a00427_source.html" title="api.h" alt="" coords="118,101,175,131"/><area shape="rect" id="node4" href="../../de/df4/a00450.html" title="Parent class for all modules in SEIMS. " alt="" coords="131,179,295,208"/><area shape="rect" id="node5" href="../../de/dfe/a00448.html" title="Define ModelException class. " alt="" coords="154,256,304,285"/></map>
 </div>
 </div>
 <p><a href="../../da/dd1/a00629_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html">PER_PI</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate water percolated from the soil water reservoir.  <a href="../../da/d24/a00068.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html">PETHargreaves</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hargreaves method to Compute PET.  <a href="../../d4/d31/a00069.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Percolation calculated by Darcy's law and Brooks-Corey equation. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>May 2011  LiangJun Zhu </dd>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Nov. 2010  LiangJun Zhu </dd>
 <dd>
-2016-5-29 </dd></dl>
+May. 2016 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>: 1. Add m_tMean from database, which may be measurement value or the mean of tMax and tMin;<ol type="1">
+<li>The PET calculate is changed from site-based to cell-based, because PET is not only dependent on Climate site data; </li>
+</ol>
+</dd></dl>
 
-<p>Definition in file <a class="el" href="../../da/dd1/a00629_source.html">PER_PI.h</a>.</p>
+<p>Definition in file <a class="el" href="../../da/dd1/a00629_source.html">PETHargreaves.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_b6eeeca36cef5a7a41fe191fc2286699.html">PER_PI</a></li><li class="navelem"><a class="el" href="../../da/dd1/a00629.html">PER_PI.h</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_6d26aae79096b6ff7593b14f645c7768.html">PET_H</a></li><li class="navelem"><a class="el" href="../../da/dd1/a00629.html">PETHargreaves.h</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

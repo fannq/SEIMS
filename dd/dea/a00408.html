@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/base/data/clsInterpolationWeightData.cpp File Reference</title>
+<title>SEIMS-2016: src/base/data/clsRasterData.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,44 +110,54 @@ $(document).ready(function(){initNavTree('dd/dea/a00408.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">clsInterpolationWeightData.cpp File Reference</div>  </div>
+<div class="title">clsRasterData.h File Reference<div class="ingroups"><a class="el" href="../../d5/d68/a00747.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Methods for clsInterpolationWeightData class.  
+<p>Define Raster class to handle raster data.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d3d/a00409_source.html">clsInterpolationWeightData.h</a>&quot;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/d65/a00458_source.html">utils.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
 <code>#include &quot;util.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/d69/a00451_source.html">ModelException.h</a>&quot;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;mongoc.h&quot;</code><br/>
 <code>#include &quot;MongoUtil.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for clsInterpolationWeightData.cpp:</div>
+Include dependency graph for clsRasterData.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d41/a00862.png" border="0" usemap="#src_2base_2data_2cls_interpolation_weight_data_8cpp" alt=""/></div>
-<map name="src_2base_2data_2cls_interpolation_weight_data_8cpp" id="src_2base_2data_2cls_interpolation_weight_data_8cpp">
-<area shape="rect" id="node2" href="../../de/d3d/a00409.html" title="Update mongo&#45;c&#45;driver from v0.6 to v1.3.5. " alt="" coords="5,179,232,208"/><area shape="rect" id="node7" href="../../da/d65/a00458.html" title="Utilities class to handle string, date time and file. " alt="" coords="963,101,1027,131"/><area shape="rect" id="node15" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="257,179,407,208"/><area shape="rect" id="node17" href="../../dc/df3/a00424_source.html" title="MongoUtil.h" alt="" coords="614,101,721,131"/><area shape="rect" id="node19" href="../../d2/db6/a00411.html" title="Define Raster class to handle raster data. " alt="" coords="600,179,735,208"/></map>
+<div class="center"><img src="../../dd/d7b/a00865.png" border="0" usemap="#src_2base_2data_2cls_raster_data_8h" alt=""/></div>
+<map name="src_2base_2data_2cls_raster_data_8h" id="src_2base_2data_2cls_raster_data_8h">
+<area shape="rect" id="node6" href="../../d2/de1/a00421_source.html" title="MongoUtil.h" alt="" coords="229,83,337,112"/><area shape="rect" id="node9" href="../../de/dfe/a00448.html" title="Define ModelException class. " alt="" coords="368,160,518,189"/></map>
 </div>
 </div>
 <p><a href="../../dd/dea/a00408_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html">clsRasterData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raster data (1D and 2D) class to get access to raster data in MongoDB.  <a href="../../d4/d51/a00017.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Methods for clsInterpolationWeightData class. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
+<div class="textblock"><p>Define Raster class to handle raster data. </p>
+<ol type="1">
+<li>Using GDAL and MongoDB (currently, mongo-c-driver 1.3.5)</li>
+<li>Array1D and Array2D raster data are supported <dl class="section author"><dt>Author</dt><dd>Junzhi Liu, LiangJun Zhu </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>May. 2016 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Apr. 2011  May. 2016 </dd></dl>
+</li>
+</ol>
 
-<p>Definition in file <a class="el" href="../../dd/dea/a00408_source.html">clsInterpolationWeightData.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/dea/a00408_source.html">clsRasterData.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../dd/dea/a00408.html">clsInterpolationWeightData.cpp</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b4ca53ffb2c260661619bf522f102579.html">base</a></li><li class="navelem"><a class="el" href="../../dir_5f2a42d11974f4ea66643eb06afc91dc.html">data</a></li><li class="navelem"><a class="el" href="../../dd/dea/a00408.html">clsRasterData.h</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

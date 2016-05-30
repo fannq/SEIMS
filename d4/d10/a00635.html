@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/PET_PM/PETPenmanMonteith.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/PI_MSM/clsPI_MSM.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,50 +113,47 @@ $(document).ready(function(){initNavTree('d4/d10/a00635.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">PETPenmanMonteith.h File Reference</div>  </div>
+<div class="title">clsPI_MSM.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Compute canopy interception of rainfall using Maximum Storage Method.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 <code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/dc3/a00453_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PETPenmanMonteith.h:</div>
+Include dependency graph for clsPI_MSM.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/dfd/a00969.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_p_e_t___p_m_2_p_e_t_penman_monteith_8h" alt=""/></div>
-<map name="src_2modules_2hydrology__longterm_2_p_e_t___p_m_2_p_e_t_penman_monteith_8h" id="src_2modules_2hydrology__longterm_2_p_e_t___p_m_2_p_e_t_penman_monteith_8h">
-<area shape="rect" id="node3" href="../../dc/d0c/a00430_source.html" title="api.h" alt="" coords="142,101,199,131"/><area shape="rect" id="node4" href="../../da/dc3/a00453.html" title="Parent class for all modules in SEIMS. " alt="" coords="155,179,319,208"/><area shape="rect" id="node5" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="178,256,328,285"/></map>
+<div class="center"><img src="../../d0/d3c/a00971.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_p_i___m_s_m_2cls_p_i___m_s_m_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_p_i___m_s_m_2cls_p_i___m_s_m_8h" id="src_2modules_2hydrology__longterm_2_p_i___m_s_m_2cls_p_i___m_s_m_8h">
+<area shape="rect" id="node4" href="../../da/db6/a00427_source.html" title="api.h" alt="" coords="147,101,204,131"/><area shape="rect" id="node5" href="../../de/df4/a00450.html" title="Parent class for all modules in SEIMS. " alt="" coords="102,179,265,208"/><area shape="rect" id="node6" href="../../de/dfe/a00448.html" title="Define ModelException class. " alt="" coords="109,256,259,285"/></map>
 </div>
 </div>
 <p><a href="../../d4/d10/a00635_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html">PETPenmanMonteith</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Penman Monteith Method to Compute PET.  <a href="../../d6/d2c/a00072.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html">clsPI_MSM</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef vector&lt;vector&lt;float&gt; &gt; double2DArray; /// NOT USED? LJ  <a href="../../dd/d1b/a00015.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Nov. 2010  LiangJun Zhu </dd>
+<div class="textblock"><p>Compute canopy interception of rainfall using Maximum Storage Method. </p>
+<dl class="section author"><dt>Author</dt><dd>Alex Storey </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>May 2011  LiangJun Zhu </dd>
 <dd>
-May. 2016 </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>: 1. Add m_tMean from database, which may be measurement value or the mean of tMax and tMin;<ol type="1">
-<li>The PET calculate is changed from site-based to cell-based, because PET is not only dependent on Climate site data;</li>
-</ol>
-</dd></dl>
-<ol type="1">
-<li>Add ecology related parameters (initialized value).</li>
-<li>Add potential plant transpiration as output. </li>
-</ol>
+May 2016 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d4/d10/a00635_source.html">PETPenmanMonteith.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d4/d10/a00635_source.html">clsPI_MSM.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_46dd043c8214f76f8446c07ad742c550.html">PET_PM</a></li><li class="navelem"><a class="el" href="../../d4/d10/a00635.html">PETPenmanMonteith.h</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_1b9fea6bd1f64ea151cbc4720e92f9bf.html">PI_MSM</a></li><li class="navelem"><a class="el" href="../../d4/d10/a00635.html">clsPI_MSM.h</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

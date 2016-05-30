@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/soil_param.py Source File</title>
+<title>SEIMS-2016: preprocess/t0_s.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,474 +111,149 @@ $(document).ready(function(){initNavTree('db/ddc/a00353_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">soil_param.py</div>  </div>
+<div class="title">t0_s.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment"># -*- coding: utf-8 -*-</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="stringliteral">Created on Thu Jan 10 15:36:19 2013</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="stringliteral">@author: junzhi</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="stringliteral">@revised: LiangJun Zhu, Huiran Gao</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="stringliteral">@date: 2016-5-21</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> math <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> pyproj <span class="keyword">import</span> Proj, transform</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">#from numpy import *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> numpy</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">from</span> soil_texture <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">from</span> soil_chem <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> os</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../db/ddf/a00088.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/ddf/a00088.html">SoilProperty</a>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="stringliteral">&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral">    base class of Soil properties</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">    :method: init(SEQN, SNAM)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral">    &#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">def </span>__init__(self, SEQN, SNAM):</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#af39bcbb4dfa9da55d08f70b54ad47371">SEQN</a>       = SEQN</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a6d3f154cb31c5af4b331496a710554bd">SNAM</a>       = SNAM</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">   28</a></span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>       = DEFAULT_NODATA</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>      = []</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>     = []</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>       = []</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">SILT</a>       = []</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a>       = []</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a3b26dd4a71c4a3f1e090532e815ee54d">ROCK</a>       = []</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039">   35</a></span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039">Sol_ZMX</a>    = DEFAULT_NODATA</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#add6fdb593a3e7199d0130e6e6133100e">ANION_EXCL</a> = DEFAULT_NODATA</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#af1581e86f79a5604e861b3108f43a549">Sol_CRK</a>    = DEFAULT_NODATA</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>     = []</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a>      = []</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>     = []</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>     = []</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a>    = []</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a> = []</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#acc942cf1d7f4190bf83d3a51223bd5be">Poreindex</a>= []</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">   45</a></span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a> = []</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a>    = []</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a7634b7721118c545c62a6bab93578960">Soil_Texture</a>    = DEFAULT_NODATA</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a3a104f978958cac08b9c8be6e342e9cc">Hydro_Group</a>= DEFAULT_NODATA</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">#self.Residue     = [] TODO: residue should be defined in Management module or dependent on landuse</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">### Here after are soil chemical properties</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../db/ddf/a00088.html#ae8db26addf6a2bd398e8a723547a747a">   51</a></span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#ae8db26addf6a2bd398e8a723547a747a">Sol_FOP</a> = []</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a000bd6d89ef4c56f96bb936323cdf901">Sol_fon</a> = []</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a84b3b97bc6c5ad8072c727dd9cf25cc8">Sol_no3</a> = []</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a394900b8fd52fa290594eb8616cef18c">Sol_orgn</a> = []</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#ae62ee65bde8999b5e72a30c1eec20815">Sol_aorgn</a> = []</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a8a22277ce1eda43e935cbcaaef90845b">Sol_orgp</a> = []</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a92c61b5fb52d565b354a12a364660dae">Sol_solp</a> = []</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a44be2f993ef9f1f73b1bc4c9e253183b">Sol_actp</a> = []</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a4b23a5f1721beb2a00d9e36592876120">Sol_stap</a> = []</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a045ea8864e01d95d0dd87b499f463203">Sol_hum</a> = []</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a998cc7ca12e2352e2cec9a845724f8e6">sol_cov</a> = DEFAULT_NODATA</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a3e79581a8c81167f8195c27104dae003">sumno3</a> = DEFAULT_NODATA</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a51c9b3e96c34799050da16dfcbcb8200">sumorgn</a> = DEFAULT_NODATA</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#abc61bd677d4722fc3b17cf97e2eb2722">summinp</a> = DEFAULT_NODATA</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a11d2a462d2045de5e1cb8d4add1f4f04">sumorgp</a> = DEFAULT_NODATA</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">def </span>SoilDict(self):</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        solDict = self.__dict__</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        solDict.pop(<span class="stringliteral">&#39;SNAM&#39;</span>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> solDict</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">def </span>CheckData(self): <span class="comment">## check the required input, and calculate all physical and chemical properties</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">raise</span> ValueError(<span class="stringliteral">&quot;Soil layers number must be provided, please check the input file!&quot;</span>)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a> == [] <span class="keywordflow">or</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil depth must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a> == [] <span class="keywordflow">or</span> len(self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil organic matter must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a> <span class="keywordflow">and</span> self.OM.index(DEFAULT_NODATA) &gt;= 2 <span class="keywordflow">and</span> self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> &gt;= 3:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(2,self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    tmpDepth = self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>[i] - self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>[1]</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>[i] = self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>[i-1] * numpy.exp(-.001 * tmpDepth)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a> == [] <span class="keywordflow">or</span> len(self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil Clay content must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">SILT</a> == [] <span class="keywordflow">or</span> len(self.<a class="code" href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">SILT</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">SILT</a>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil Silt content must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a> == [] <span class="keywordflow">or</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a>:</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil Sand content must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a3b26dd4a71c4a3f1e090532e815ee54d">ROCK</a> == [] <span class="keywordflow">or</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a3b26dd4a71c4a3f1e090532e815ee54d">ROCK</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a> <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a3b26dd4a71c4a3f1e090532e815ee54d">ROCK</a>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil Rock content must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">### temperory variables</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        tmp_fc = []</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        tmp_sat = []</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        tmp_wp = []</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            s = self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a>[i] * 0.01</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            c = self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>[i] * 0.01</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            om = self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>[i]</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            wpt = -0.024*s + 0.487*c + 0.006*om + 0.005*s*om - 0.013*c*om + 0.068*s*c + 0.031</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            tmp_wp.append(1.14*wpt - 0.02)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            fct = -0.251*s + 0.195*c + 0.011*om + 0.006*s*om - 0.027*c*om + 0.452*s*c + 0.299</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            fc = fct + 1.283*fct*fct - 0.374*fct - 0.015</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            s33t = 0.278*s + 0.034*c + 0.022*om - 0.018*s*om - 0.027*c*om - 0.584*s*c + 0.078</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            s33 = 1.636*s33t - 0.107</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            sat = fc + s33 - 0.097*s + 0.043</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            tmp_fc.append(fc)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            tmp_sat.append(sat)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039">Sol_ZMX</a> == DEFAULT_NODATA <span class="keywordflow">or</span> self.<a class="code" href="../../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039">Sol_ZMX</a> &gt; self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>[-1]:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            self.<a class="code" href="../../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039">Sol_ZMX</a> = self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>[-1]</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#add6fdb593a3e7199d0130e6e6133100e">ANION_EXCL</a> == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            self.<a class="code" href="../../db/ddf/a00088.html#add6fdb593a3e7199d0130e6e6133100e">ANION_EXCL</a> = 0.5</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Wilting point must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a> == []:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a> = tmp_wp[:]</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>[i] = tmp_wp[i]</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Bulk density must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a> == [] <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            tmp_bd = []</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                sat = tmp_sat[i]</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                fc = tmp_fc[i]</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>) == self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    sat = sat - fc + self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>[i]</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                tmp_bd.append(2.65 * (1.0 - sat))</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">if</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>:</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                        self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>[i] = tmp_bd[i]</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a> == []:</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a> = tmp_bd[:]</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Field capacity must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a> == [] <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>:</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            tmp_fc_bdeffect = []</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                fc = tmp_fc[i]</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                sat = tmp_sat[i]</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>) == self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                    p_df = self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>[i]</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                    p_df = 2.65*(1.0 - sat)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                sat_df = 1 - p_df/2.65</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                tmp_fc_bdeffect.append(fc - 0.2 * (sat - sat_df))</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">if</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                    <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                        self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>[i] = tmp_fc_bdeffect[i]</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a> == []:</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a> = tmp_fc_bdeffect[:]</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Available water capacity must have the size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a> == []:</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                self.Sol_AWC.append(self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>[i] - self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>[i])</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a>:</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    self.<a class="code" href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">Sol_AWC</a>[i] = self.<a class="code" href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">FieldCap</a>[i] - self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>[i]</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#acc942cf1d7f4190bf83d3a51223bd5be">Poreindex</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#acc942cf1d7f4190bf83d3a51223bd5be">Poreindex</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Pore disconnectedness index must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#acc942cf1d7f4190bf83d3a51223bd5be">Poreindex</a> == []:</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                fc = tmp_fc[i]</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                wp = self.<a class="code" href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">WiltingPoint</a>[i]</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                b = (log(1500.) - log(33.)) / (log(fc) - log(wp))</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                self.Poreindex.append(1.0 / b)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil Porosity must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a> == []:</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                self.POROSITY.append(1 - self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>[i] / 2.65)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a>:</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a>[i] = 1 - self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>[i] / 2.65</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#af1581e86f79a5604e861b3108f43a549">Sol_CRK</a> == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            self.<a class="code" href="../../db/ddf/a00088.html#af1581e86f79a5604e861b3108f43a549">Sol_CRK</a> = numpy.mean(self.<a class="code" href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">POROSITY</a>)</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Saturated conductivity must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a> == [] <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a>:</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            tmp_k = []</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                lamda = self.<a class="code" href="../../db/ddf/a00088.html#acc942cf1d7f4190bf83d3a51223bd5be">Poreindex</a>[i]</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                fc = tmp_fc[i]</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                sat = tmp_sat[i]</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                tmp_k.append(1930 * pow(sat - fc, 3 - lamda))</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a> == []:</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a> = tmp_k[:]</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a>:</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                        self.<a class="code" href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">Conductivity</a>[i] = tmp_k[i]</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;Soil albedo must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a> == [] <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a>:</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            tmp_alb = []</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                cbn = self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>[i] * 0.58</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                tmp_alb.append(0.2227 * exp(-1.8672 * cbn))</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a> == []:</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a> = tmp_alb[:]</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a>:</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                    <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                        self.<a class="code" href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">Sol_ALB</a>[i] = tmp_alb[i]</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a> != [] <span class="keywordflow">and</span> len(self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a>) != self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>:</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordflow">raise</span> IndexError(<span class="stringliteral">&quot;USLE K factor must have a size equal to soil layers number!&quot;</span>)</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">elif</span> self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a> == [] <span class="keywordflow">or</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a>:</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            tmp_usle_k = []</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>): <span class="comment">## According to Liu BY et al., (1999)</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                sand = self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a>[i]</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                silt = self.<a class="code" href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">SILT</a>[i]</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                clay = self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>[i]</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                cbn = self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>[i] * 0.58</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                sn = 1 - sand * 0.01</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                a = (0.2+0.3*exp(-0.0256*sand*(1-silt*0.01)))</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                b = pow(silt/(clay+silt),0.3)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                c = (1-0.25*cbn/(cbn+exp(3.72-2.95*cbn)))</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                d = (1-0.25*sn/(sn+exp(-5.51+22.9*sn)))</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                k = a * b * c * d</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                tmp_usle_k.append(k)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a> == []:</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a> = tmp_usle_k[:]</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keywordflow">elif</span> DEFAULT_NODATA <span class="keywordflow">in</span> self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a>:</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>):</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                    <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a>[i] == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        self.<a class="code" href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">USLE_K</a>[i] = tmp_usle_k[i]</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="../../db/ddf/a00088.html#a7634b7721118c545c62a6bab93578960">Soil_Texture</a> == DEFAULT_NODATA <span class="keywordflow">or</span> self.<a class="code" href="../../db/ddf/a00088.html#a3a104f978958cac08b9c8be6e342e9cc">Hydro_Group</a> == DEFAULT_NODATA:</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            st, hg, uslek = GetTexture(self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>[0], self.<a class="code" href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">SILT</a>[0], self.<a class="code" href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">SAND</a>[0])</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            self.<a class="code" href="../../db/ddf/a00088.html#a7634b7721118c545c62a6bab93578960">Soil_Texture</a> = st</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            self.<a class="code" href="../../db/ddf/a00088.html#a3a104f978958cac08b9c8be6e342e9cc">Hydro_Group</a> = hg</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="comment">### Here after is initialization of soil chemical properties. Algorithms from SWAT.</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="comment">### Prepared by Huiran Gao</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="comment">### Revised by LiangJun Zhu</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="comment">### Date: 2016-5-23</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="comment">### sol_fop, sol_fon, sol_no3, sol_orgn, sol_aorgn, sol_orgp, sol_solp, sol_actp,</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="comment">###    sol_stap, sol_hum, sol_cov, sumno3, sumorgn, summinp, sumorgp</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        tmpSolChem = SoilChemProperties(self.<a class="code" href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">SoilLAYERS</a>, self.<a class="code" href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">SoilDepth</a>, self.<a class="code" href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">OM</a>, self.<a class="code" href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">CLAY</a>, self.<a class="code" href="../../db/ddf/a00088.html#a3b26dd4a71c4a3f1e090532e815ee54d">ROCK</a>, self.<a class="code" href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">Density</a>)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#ae8db26addf6a2bd398e8a723547a747a">Sol_FOP</a> = tmpSolChem[0]</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a000bd6d89ef4c56f96bb936323cdf901">Sol_fon</a> = tmpSolChem[1]</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a84b3b97bc6c5ad8072c727dd9cf25cc8">Sol_no3</a> = tmpSolChem[2]</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a394900b8fd52fa290594eb8616cef18c">Sol_orgn</a> = tmpSolChem[3]</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#ae62ee65bde8999b5e72a30c1eec20815">Sol_aorgn</a> = tmpSolChem[4]</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a8a22277ce1eda43e935cbcaaef90845b">Sol_orgp</a> = tmpSolChem[5]</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a92c61b5fb52d565b354a12a364660dae">Sol_solp</a> = tmpSolChem[6]</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a44be2f993ef9f1f73b1bc4c9e253183b">Sol_actp</a> = tmpSolChem[7]</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a4b23a5f1721beb2a00d9e36592876120">Sol_stap</a> = tmpSolChem[8]</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a045ea8864e01d95d0dd87b499f463203">Sol_hum</a> = tmpSolChem[9]</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a998cc7ca12e2352e2cec9a845724f8e6">sol_cov</a> = tmpSolChem[10]</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a3e79581a8c81167f8195c27104dae003">sumno3</a> = tmpSolChem[11]</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a51c9b3e96c34799050da16dfcbcb8200">sumorgn</a> = tmpSolChem[12]</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#abc61bd677d4722fc3b17cf97e2eb2722">summinp</a> = tmpSolChem[13]</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        self.<a class="code" href="../../db/ddf/a00088.html#a11d2a462d2045de5e1cb8d4add1f4f04">sumorgp</a> = tmpSolChem[14]</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="comment">### SOIL CHEMICAL PROPERTIES INITIALIATION DONE</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">## Calculate soil properties from sand, clay and organic matter.</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">## TODO, add reference.</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="keyword">def </span>GetProperties(s, c, om):</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">## wilting point (SOL_WP)</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    wpt = -0.024*s + 0.487*c + 0.006*om + 0.005*s*om - 0.013*c*om + 0.068*s*c + 0.031</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    wp = 1.14*wpt - 0.02</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">## bulk density according to field capacity</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    fct = -0.251*s + 0.195*c + 0.011*om + 0.006*s*om - 0.027*c*om + 0.452*s*c + 0.299</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    fc = fct + 1.283*fct*fct - 0.374*fct - 0.015</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    s33t = 0.278*s + 0.034*c + 0.022*om - 0.018*s*om - 0.027*c*om - 0.584*s*c + 0.078</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    s33 = 1.636*s33t - 0.107</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    sat = fc + s33 - 0.097*s + 0.043</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    pn = 2.65*(1.0 - sat)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">## field capacity (SOL_FC) with density effects (df)</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    p_df = pn</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    sat_df = 1 - p_df/2.65  <span class="comment">## porosity</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    fc_df = fc - 0.2*(sat - sat_df)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">## available water capacity (SOL_AWC)</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    awc = fc_df - wp</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment"># pore disconnectedness index</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    b = (log(1500.) - log(33.)) / (log(fc) - log(wp))</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    lamda = 1.0/b</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment"># saturated conductivity</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">#print s, c, sat, fc, 3-lamda</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    ks = 1930*pow(sat-fc, 3-lamda)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    </div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="comment">#print wp, fc_df, awc,</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordflow">return</span> wp, fc_df, sat_df, p_df, ks, lamda</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="comment">#&quot;WiltingPoint&quot;, &quot;FieldCap&quot;, &quot;Porosity&quot;,&quot;Density&quot;,&quot;Conductivity&quot;, &quot;Poreindex&quot;</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="keyword">def </span>GetValue(geoMask, geoMap, data, i, j):</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">#pGeo = Proj(&quot;+proj=longlat +ellps=krass +no_defs&quot;)</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">#pAlbers = Proj(&quot;+proj=aea +ellps=krass +lon_0=105 +lat_0=0 +lat_1=25 +lat_2=47&quot;)</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">#xMask = geoMask[0] + (j+0.5)*geoMask[1]</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">#yMask = geoMask[3] + (i+0.5)*geoMask[5]</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="comment">#xMap, yMap = transform(pAlbers, pGeo, xMask, yMask)</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    xMap = geoMask[0] + (j+0.5)*geoMask[1]</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    yMap = geoMask[3] + (i+0.5)*geoMask[5]</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    jMap = (xMap - geoMap[0])/geoMap[1]</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    iMap = (yMap - geoMap[3])/geoMap[5]</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> data[iMap][jMap]</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">## Deprecated by LJ, 2016-5-21</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment"># def GenerateSoilAttributes(outputFolder, layerNum, sandFile=None, clayFile=None, orgFile=None):</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">#     maskFile = outputFolder + os.sep + mask_to_ext</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment"># #    if sandFile is None:</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment"># #        sandFile = &#39;%s/sand%d_albers.img&#39; % (SPATIAL_DATA_DIR, layerNum)</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment"># #    if clayFile is None:</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment"># #        clayFile = &#39;%s/clay%d_albers.img&#39; % (SPATIAL_DATA_DIR, layerNum)</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">#     dataSom = None</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">#     if orgFile is not None and os.path.exists(orgFile):</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">#         dsSom = gdal.Open(orgFile)</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">#         bandSom = dsSom.GetRasterBand(1)</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">#         dataSom = bandSom.ReadAsArray()</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">#     print sandFile</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">#     print clayFile</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">#     dsSand = gdal.Open(sandFile)</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">#     if dsSand is None:</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">#         print &quot;Open file:&quot;, sandFile, &quot; failed.\n&quot;</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">#         return</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">#     bandSand = dsSand.GetRasterBand(1)</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">#     dataSand = bandSand.ReadAsArray()</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">#     geoSand = dsSand.GetGeoTransform()</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">#     dsClay = gdal.Open(clayFile)</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">#     if dsClay is None:</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">#         print &quot;Open file:&quot;, clayFile, &quot; failed.\n&quot;</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">#         return</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">#     bandClay = dsClay.GetRasterBand(1)</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">#     dataClay = bandClay.ReadAsArray()</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">#     dsMask = gdal.Open(maskFile)</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">#     bandMask = dsMask.GetRasterBand(1)</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">#     dataMask = bandMask.ReadAsArray()</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment">#     xSizeMask = bandMask.XSize</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">#     ySizeMask = bandMask.YSize</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment">#     geoMask = dsMask.GetGeoTransform()</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment">#     noDataValue = bandMask.GetNoDataValue()</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">#     print noDataValue</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">#     srs = osr.SpatialReference()</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">#     srs.ImportFromWkt(dsMask.GetProjection())</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">#     attrMapList = []</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">#     n = 6</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">#     for i in range(n):</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">#         attrMapList.append(numpy.zeros((ySizeMask, xSizeMask)))</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment">#     attrPool = {}</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">#     lastKey = None</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="comment">#     for i in range(ySizeMask):</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment">#         #print &quot;soil&quot;, i</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="comment">#         for j in range(xSizeMask):</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="comment">#             if abs(dataMask[i][j] - noDataValue) &lt; DELTA:</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment">#                 for iAttr in range(n):</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment">#                     attrMapList[iAttr][i][j] = DEFAULT_NODATA</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">#                 continue</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">#             s = GetValue(geoMask, geoSand, dataSand, i, j)</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">#             c = GetValue(geoMask, geoSand, dataClay, i, j)</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="comment">#             k = &quot;%d_%d_%d&quot; % (int(s*1000), int(c*1000), layerNum)</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment">#             #print s, c</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment">#             if dataSom is not None:</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">#                 om = dataSom[i][j]</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">#             else:</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment">#                 om = defaultOrg  # om=2.5</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment">#                 if layerNum &gt;= 1:</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment">#                     om = 1.0</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment">#             if s &lt; 0 or c &lt; 0:</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">#                 attrs = attrPool[lastKey]</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment">#                 k = lastKey</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment">#             elif k in attrPool.keys():</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">#                 attrs = attrPool[k]</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment">#             else:</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment">#                 attrs = GetProperties(s * 0.01, c * 0.01, om)</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment">#                 print dataMask[i][j], s, c</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">#                 #attrs = GetProperties(s, c, om)</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment">#                 attrPool[k] = attrs</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">#             lastKey = k</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment">#             for iAttr in range(n):</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment">#                 attrMapList[iAttr][i][j] = attrs[iAttr]</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment">#     attrList = []</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">#     ##layerStr = str(layerNum) if layerNum &gt; 1 else &#39;&#39;</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">#     for i in range(n):</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">#         filename = outputFolder + os.sep + r&quot;%s_%s.tif&quot; % (SOIL_ATTR_LIST[i+2], str(layerNum))</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">#         WriteGTiffFile(filename, ySizeMask, xSizeMask, attrMapList[i], \</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment">#                                    geoMask, srs, DEFAULT_NODATA, gdal.GDT_Float32)</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment">#         attrList.append(filename)</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment">#     return attrList</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">#if __name__ == &quot;__main__&quot;:</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="comment">#testList = [[0.84627,0.04302,0.0208], [0.85,0.05,0.025], [0.65,0.1,0.025]]</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="comment">#for s in testList:</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="comment">#    print s[0], s[1], s[2]</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="comment">#    print GetProperties(s[0], s[1], s[2]*100)</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">#    layerNum = 1</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">#    inputFolder = r&#39;F:\data\soilmap_china&#39;</span></div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">#    #outputFolder = r&#39;F:\data\fenkeng_30m\data&#39;</span></div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">#    outputFolder = r&#39;F:\data\poyanghu\fenkeng\data&#39;</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment">#    GenerateAttrMap(inputFolder, outputFolder, layerNum)</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment">#    print &#39;done!&#39;</span></div>
-<div class="ttc" id="a00088_html_a7634b7721118c545c62a6bab93578960"><div class="ttname"><a href="../../db/ddf/a00088.html#a7634b7721118c545c62a6bab93578960">soil_param.SoilProperty.Soil_Texture</a></div><div class="ttdeci">Soil_Texture</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00047">soil_param.py:47</a></div></div>
-<div class="ttc" id="a00088_html_a3c9b3796fd798d58ce0a65cdb58dc85e"><div class="ttname"><a href="../../db/ddf/a00088.html#a3c9b3796fd798d58ce0a65cdb58dc85e">soil_param.SoilProperty.Sol_AWC</a></div><div class="ttdeci">Sol_AWC</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00042">soil_param.py:42</a></div></div>
-<div class="ttc" id="a00088_html_adb32bd3174f6146974f35b77a7946c30"><div class="ttname"><a href="../../db/ddf/a00088.html#adb32bd3174f6146974f35b77a7946c30">soil_param.SoilProperty.SILT</a></div><div class="ttdeci">SILT</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00032">soil_param.py:32</a></div></div>
-<div class="ttc" id="a00088_html_a3851f2aabb6561700ad85301081d44a8"><div class="ttname"><a href="../../db/ddf/a00088.html#a3851f2aabb6561700ad85301081d44a8">soil_param.SoilProperty.Sol_ALB</a></div><div class="ttdeci">Sol_ALB</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00046">soil_param.py:46</a></div></div>
-<div class="ttc" id="a00088_html_a51c9b3e96c34799050da16dfcbcb8200"><div class="ttname"><a href="../../db/ddf/a00088.html#a51c9b3e96c34799050da16dfcbcb8200">soil_param.SoilProperty.sumorgn</a></div><div class="ttdeci">sumorgn</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00063">soil_param.py:63</a></div></div>
-<div class="ttc" id="a00088_html"><div class="ttname"><a href="../../db/ddf/a00088.html">soil_param.SoilProperty</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00020">soil_param.py:20</a></div></div>
-<div class="ttc" id="a00088_html_aeb924560ccfa9e6307a20867b9f792e4"><div class="ttname"><a href="../../db/ddf/a00088.html#aeb924560ccfa9e6307a20867b9f792e4">soil_param.SoilProperty.OM</a></div><div class="ttdeci">OM</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00030">soil_param.py:30</a></div></div>
-<div class="ttc" id="a00088_html_aebcdb0d86793bdef8396bdd88ff7830c"><div class="ttname"><a href="../../db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c">soil_param.SoilProperty.SoilLAYERS</a></div><div class="ttdeci">SoilLAYERS</div><div class="ttdoc">check the required input, and calculate all physical and chemical properties </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00028">soil_param.py:28</a></div></div>
-<div class="ttc" id="a00088_html_a5c72ea8bb1c7dbfe6b715c56cf16b90b"><div class="ttname"><a href="../../db/ddf/a00088.html#a5c72ea8bb1c7dbfe6b715c56cf16b90b">soil_param.SoilProperty.SoilDepth</a></div><div class="ttdeci">SoilDepth</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00029">soil_param.py:29</a></div></div>
-<div class="ttc" id="a00088_html_af39bcbb4dfa9da55d08f70b54ad47371"><div class="ttname"><a href="../../db/ddf/a00088.html#af39bcbb4dfa9da55d08f70b54ad47371">soil_param.SoilProperty.SEQN</a></div><div class="ttdeci">SEQN</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00026">soil_param.py:26</a></div></div>
-<div class="ttc" id="a00088_html_a4b23a5f1721beb2a00d9e36592876120"><div class="ttname"><a href="../../db/ddf/a00088.html#a4b23a5f1721beb2a00d9e36592876120">soil_param.SoilProperty.Sol_stap</a></div><div class="ttdeci">Sol_stap</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00059">soil_param.py:59</a></div></div>
-<div class="ttc" id="a00088_html_add6fdb593a3e7199d0130e6e6133100e"><div class="ttname"><a href="../../db/ddf/a00088.html#add6fdb593a3e7199d0130e6e6133100e">soil_param.SoilProperty.ANION_EXCL</a></div><div class="ttdeci">ANION_EXCL</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00036">soil_param.py:36</a></div></div>
-<div class="ttc" id="a00088_html_a394900b8fd52fa290594eb8616cef18c"><div class="ttname"><a href="../../db/ddf/a00088.html#a394900b8fd52fa290594eb8616cef18c">soil_param.SoilProperty.Sol_orgn</a></div><div class="ttdeci">Sol_orgn</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00054">soil_param.py:54</a></div></div>
-<div class="ttc" id="a00088_html_ac63cbe48768891c7229e6eb22136b654"><div class="ttname"><a href="../../db/ddf/a00088.html#ac63cbe48768891c7229e6eb22136b654">soil_param.SoilProperty.CLAY</a></div><div class="ttdeci">CLAY</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00031">soil_param.py:31</a></div></div>
-<div class="ttc" id="a00088_html_a3a104f978958cac08b9c8be6e342e9cc"><div class="ttname"><a href="../../db/ddf/a00088.html#a3a104f978958cac08b9c8be6e342e9cc">soil_param.SoilProperty.Hydro_Group</a></div><div class="ttdeci">Hydro_Group</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00048">soil_param.py:48</a></div></div>
-<div class="ttc" id="a00088_html_a1b7512627793fe09e80ec85067c2b7c4"><div class="ttname"><a href="../../db/ddf/a00088.html#a1b7512627793fe09e80ec85067c2b7c4">soil_param.SoilProperty.Conductivity</a></div><div class="ttdeci">Conductivity</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00039">soil_param.py:39</a></div></div>
-<div class="ttc" id="a00088_html_af8c81e9411f94c5796a41885d25f4772"><div class="ttname"><a href="../../db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772">soil_param.SoilProperty.USLE_K</a></div><div class="ttdeci">USLE_K</div><div class="ttdoc">According to Liu BY et al., (1999) </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00045">soil_param.py:45</a></div></div>
-<div class="ttc" id="a00088_html_ae8db26addf6a2bd398e8a723547a747a"><div class="ttname"><a href="../../db/ddf/a00088.html#ae8db26addf6a2bd398e8a723547a747a">soil_param.SoilProperty.Sol_FOP</a></div><div class="ttdeci">Sol_FOP</div><div class="ttdoc">Here after are soil chemical properties. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00051">soil_param.py:51</a></div></div>
-<div class="ttc" id="a00088_html_a0a285dbe4d8302767a3883396e9e014a"><div class="ttname"><a href="../../db/ddf/a00088.html#a0a285dbe4d8302767a3883396e9e014a">soil_param.SoilProperty.POROSITY</a></div><div class="ttdeci">POROSITY</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00043">soil_param.py:43</a></div></div>
-<div class="ttc" id="a00088_html_a11d2a462d2045de5e1cb8d4add1f4f04"><div class="ttname"><a href="../../db/ddf/a00088.html#a11d2a462d2045de5e1cb8d4add1f4f04">soil_param.SoilProperty.sumorgp</a></div><div class="ttdeci">sumorgp</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00065">soil_param.py:65</a></div></div>
-<div class="ttc" id="a00088_html_a623ed920c885210f9f1e41fb9c2143af"><div class="ttname"><a href="../../db/ddf/a00088.html#a623ed920c885210f9f1e41fb9c2143af">soil_param.SoilProperty.WiltingPoint</a></div><div class="ttdeci">WiltingPoint</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00040">soil_param.py:40</a></div></div>
-<div class="ttc" id="a00088_html_a139c00c26fe40a4b20da2f464b60f039"><div class="ttname"><a href="../../db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039">soil_param.SoilProperty.Sol_ZMX</a></div><div class="ttdeci">Sol_ZMX</div><div class="ttdoc">temperory variables </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00035">soil_param.py:35</a></div></div>
-<div class="ttc" id="a00088_html_a998cc7ca12e2352e2cec9a845724f8e6"><div class="ttname"><a href="../../db/ddf/a00088.html#a998cc7ca12e2352e2cec9a845724f8e6">soil_param.SoilProperty.sol_cov</a></div><div class="ttdeci">sol_cov</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00061">soil_param.py:61</a></div></div>
-<div class="ttc" id="a00088_html_a548b032bf3519900f8685b78a472c3d5"><div class="ttname"><a href="../../db/ddf/a00088.html#a548b032bf3519900f8685b78a472c3d5">soil_param.SoilProperty.SAND</a></div><div class="ttdeci">SAND</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00033">soil_param.py:33</a></div></div>
-<div class="ttc" id="a00088_html_af1581e86f79a5604e861b3108f43a549"><div class="ttname"><a href="../../db/ddf/a00088.html#af1581e86f79a5604e861b3108f43a549">soil_param.SoilProperty.Sol_CRK</a></div><div class="ttdeci">Sol_CRK</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00037">soil_param.py:37</a></div></div>
-<div class="ttc" id="a00088_html_a6d3f154cb31c5af4b331496a710554bd"><div class="ttname"><a href="../../db/ddf/a00088.html#a6d3f154cb31c5af4b331496a710554bd">soil_param.SoilProperty.SNAM</a></div><div class="ttdeci">SNAM</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00027">soil_param.py:27</a></div></div>
-<div class="ttc" id="a00088_html_ae62ee65bde8999b5e72a30c1eec20815"><div class="ttname"><a href="../../db/ddf/a00088.html#ae62ee65bde8999b5e72a30c1eec20815">soil_param.SoilProperty.Sol_aorgn</a></div><div class="ttdeci">Sol_aorgn</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00055">soil_param.py:55</a></div></div>
-<div class="ttc" id="a00088_html_a44be2f993ef9f1f73b1bc4c9e253183b"><div class="ttname"><a href="../../db/ddf/a00088.html#a44be2f993ef9f1f73b1bc4c9e253183b">soil_param.SoilProperty.Sol_actp</a></div><div class="ttdeci">Sol_actp</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00058">soil_param.py:58</a></div></div>
-<div class="ttc" id="a00088_html_a84b3b97bc6c5ad8072c727dd9cf25cc8"><div class="ttname"><a href="../../db/ddf/a00088.html#a84b3b97bc6c5ad8072c727dd9cf25cc8">soil_param.SoilProperty.Sol_no3</a></div><div class="ttdeci">Sol_no3</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00053">soil_param.py:53</a></div></div>
-<div class="ttc" id="a00088_html_a8a22277ce1eda43e935cbcaaef90845b"><div class="ttname"><a href="../../db/ddf/a00088.html#a8a22277ce1eda43e935cbcaaef90845b">soil_param.SoilProperty.Sol_orgp</a></div><div class="ttdeci">Sol_orgp</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00056">soil_param.py:56</a></div></div>
-<div class="ttc" id="a00088_html_a3e79581a8c81167f8195c27104dae003"><div class="ttname"><a href="../../db/ddf/a00088.html#a3e79581a8c81167f8195c27104dae003">soil_param.SoilProperty.sumno3</a></div><div class="ttdeci">sumno3</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00062">soil_param.py:62</a></div></div>
-<div class="ttc" id="a00088_html_a000bd6d89ef4c56f96bb936323cdf901"><div class="ttname"><a href="../../db/ddf/a00088.html#a000bd6d89ef4c56f96bb936323cdf901">soil_param.SoilProperty.Sol_fon</a></div><div class="ttdeci">Sol_fon</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00052">soil_param.py:52</a></div></div>
-<div class="ttc" id="a00088_html_a045ea8864e01d95d0dd87b499f463203"><div class="ttname"><a href="../../db/ddf/a00088.html#a045ea8864e01d95d0dd87b499f463203">soil_param.SoilProperty.Sol_hum</a></div><div class="ttdeci">Sol_hum</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00060">soil_param.py:60</a></div></div>
-<div class="ttc" id="a00088_html_a27ca4b4c05778b1fe2ed4a0f9a53243c"><div class="ttname"><a href="../../db/ddf/a00088.html#a27ca4b4c05778b1fe2ed4a0f9a53243c">soil_param.SoilProperty.FieldCap</a></div><div class="ttdeci">FieldCap</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00041">soil_param.py:41</a></div></div>
-<div class="ttc" id="a00088_html_abc61bd677d4722fc3b17cf97e2eb2722"><div class="ttname"><a href="../../db/ddf/a00088.html#abc61bd677d4722fc3b17cf97e2eb2722">soil_param.SoilProperty.summinp</a></div><div class="ttdeci">summinp</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00064">soil_param.py:64</a></div></div>
-<div class="ttc" id="a00088_html_a92c61b5fb52d565b354a12a364660dae"><div class="ttname"><a href="../../db/ddf/a00088.html#a92c61b5fb52d565b354a12a364660dae">soil_param.SoilProperty.Sol_solp</a></div><div class="ttdeci">Sol_solp</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00057">soil_param.py:57</a></div></div>
-<div class="ttc" id="a00088_html_acc942cf1d7f4190bf83d3a51223bd5be"><div class="ttname"><a href="../../db/ddf/a00088.html#acc942cf1d7f4190bf83d3a51223bd5be">soil_param.SoilProperty.Poreindex</a></div><div class="ttdeci">Poreindex</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00044">soil_param.py:44</a></div></div>
-<div class="ttc" id="a00088_html_a20b09d218dc81346d7a7328dd8774ba4"><div class="ttname"><a href="../../db/ddf/a00088.html#a20b09d218dc81346d7a7328dd8774ba4">soil_param.SoilProperty.Density</a></div><div class="ttdeci">Density</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00038">soil_param.py:38</a></div></div>
-<div class="ttc" id="a00088_html_a3b26dd4a71c4a3f1e090532e815ee54d"><div class="ttname"><a href="../../db/ddf/a00088.html#a3b26dd4a71c4a3f1e090532e815ee54d">soil_param.SoilProperty.ROCK</a></div><div class="ttdeci">ROCK</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00353_source.html#l00034">soil_param.py:34</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal, osr</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> math, os, sys</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> sqlite3</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> util</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> WriteGTiffFile</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;sys.setrecursionlimit(10000)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">#the flowout of outletId is nodata</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;sqrt2 = math.sqrt(2)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;celllen = {1:1,4:1,16:1,64:1, 2:sqrt2, 8:sqrt2, 32:sqrt2, 128:sqrt2}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;deffer = {1:[0,1], 2:[1,1], 4:[1,0], 8:[1,-1],16:[0,-1],32:[-1,-1],64:[-1,0],128:[-1,1]}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">def </span>flowlen_cell(i,j,ysize,xsize,fdir,cellsize, weight, length):  </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">#print i,j, weight[i][j]</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    if(i&lt;ysize <span class="keywordflow">and</span> j&lt;xsize):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        if(length[i][j] == 0):</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            if(weight[i][j] &gt; 0):</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                prei = i </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                prej = j</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                wt = weight[i][j]</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                fdirV = fdir[i][j]</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                di = deffer[fdirV][0]</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                dj = deffer[fdirV][1]</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                i = i + di</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                j = j + dj</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                relen = flowlen_cell(i,j,ysize,xsize,fdir,cellsize,weight, length)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="comment">#print i,j,fdirV</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                length[prei][prej] = cellsize * celllen[fdirV] * wt + relen</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">return</span> length[prei][prej]</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        if(length[i][j] &gt; 0):</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> length[i][j]</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        if(length[i][j] &lt; 0):</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">print</span> <span class="stringliteral">&quot;Error in flowlen_cell function! i,j:&quot;</span>, i, j, length[i][j]</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> -1  </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">def </span>cal_flowlen(filepath, weight):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    flow_dir = filepath + os.sep + flowDirOut</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ds = gdal.Open(flow_dir)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    fdir_data = band.ReadAsArray()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    xsize = band.XSize</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ysize = band.YSize</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    noDataValue = band.GetNoDataValue()</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    geotransform = ds.GetGeoTransform()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    srs = osr.SpatialReference()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    srs.ImportFromWkt(ds.GetProjection())    </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    cellsize = geotransform[1]</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    length = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">#weight = zeros((ysize, xsize))</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">#weight[:] = 1</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            if(abs(fdir_data[i][j]-noDataValue) &lt; util.DELTA):</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                length[i][j] = noDataValue</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            flowlen_cell(i,j,ysize,xsize,fdir_data, cellsize, weight, length)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> length</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">#coeTable = {&quot;T2&quot;:[0.05, 0.48],&quot;T10&quot;:[0.12, 0.52], &quot;T100&quot;:[0.18,0.55]}</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">def </span>GenerateT0_s(filepath):</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    streamlink = filepath + os.sep + streamLinkOut</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    ds = gdal.Open(streamlink)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    strlk_data = band.ReadAsArray()    </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    velocity = filepath + os.sep + velocityFile</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    ds = gdal.Open(velocity)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    vel_data = band.ReadAsArray()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    xsize = band.XSize</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    ysize = band.YSize</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">#print xsize,ysize</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    noDataValue = band.GetNoDataValue()</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    geotransform = ds.GetGeoTransform()</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    srs = osr.SpatialReference()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    srs.ImportFromWkt(ds.GetProjection())    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    cellsize = geotransform[1]</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    weight = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    traveltime = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            if(abs(vel_data[i][j]-noDataValue) &lt; util.DELTA):</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                traveltime[i][j] = noDataValue</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            if(strlk_data[i][j] &lt;= 0):</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                weight[i][j] = 1</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                weight[i][j] = 0</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="comment"># 0 is river</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    flowlen = cal_flowlen(filepath, weight)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            if(abs(vel_data[i][j]-noDataValue) &lt; util.DELTA):</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                traveltime[i][j] = -9999</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            celerity = vel_data[i][j] * 5.0 / 3</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            traveltime[i][j] = flowlen[i][j] / celerity / 3600</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                            </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    filename = filepath + os.sep + t0_sFile</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    WriteGTiffFile(filename, ysize, xsize, traveltime, \</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                geotransform, srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                     </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;The t0_s file is generated!&#39;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> filename</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    filepath = <span class="stringliteral">r&#39;E:\data\lygtest&#39;</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    GenerateT0_s(filepath)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_param.py</b></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>t0_s.py</b></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

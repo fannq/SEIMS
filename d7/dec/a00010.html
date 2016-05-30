@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: Preprocessing for SEIMS</title>
+<title>SEIMS-2016: TODO LISTS</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -105,147 +105,186 @@ $(document).ready(function(){initNavTree('d7/dec/a00010.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Preprocessing for SEIMS </div>  </div>
+<div class="title">TODO LISTS </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>prepared by Liangjun Zhu</p>
-<p>2015/6/20</p>
-<h2>1 Prepared Data</h2>
-<p>像所有的水文模型一样，我们的准备数据有气象、水文、空间数据等，下图先入为主，展示了输入数据的文件结构。</p>
-<div class="image">
-<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fprepareddata.png" />
-</div>
-<p>**图1 模型数据准备**</p>
-<h3>1.1 Climate Data</h3>
-<p>Include <b>Precipitation</b> and <b>Meteorological</b> daily data. </p>
-<div class="fragment"><div class="line">preprocess/<a class="code" href="../../de/dd2/a00207.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>.py</div>
-<div class="line">--ImportDailyMeteoData(hostname,port,climateDBName,MeteoVarFile,MeteoDailyFile,MetroSiteFile)</div>
-<div class="line">--ImportDailyPrecData(hostname,port,climateDBName,PrecSitesVorShp,PrecExcelPrefix,PrecDataYear)</div>
-</div><!-- fragment --><p> <b>TODO</b>:</p>
+<div class="textblock"><h1>1. SEIMS模块</h1>
+<h2>功能模块</h2>
+<h3>气象数据类</h3>
 <ul>
-<li>降水数据和气象数据的准备形式不同，应尽量简单化，如都用文本文件，逐条存储，并带有表头，用于匹配Variables名。</li>
-<li>站点泰森多边形此处并没有什么用处，只是读取了站点信息，应当将站点信息存入文本文件，而将泰森多边形作为<a href="../../#13-spatial-data">Spatial Data</a>的输入信息</li>
+<li>TSD_RD 读取站点时间序列数据</li>
+<li>ITP 泰森多边形插值</li>
 </ul>
-<h3>1.2 Hydrological Data</h3>
-<p>Include <b>Discharge</b> daily and storm date. </p>
-<div class="fragment"><div class="line">ImportDailyDischargeData(hostname,port,climateDBName,DischargeExcelPrefix,DischargeYear)</div>
-</div><!-- fragment --><p> <b>TODO</b>:</p>
+<h3>土壤温度类</h3>
 <ul>
-<li>流量日值数据的导入和气象数据存在问题一样，需组织成二维矩阵形式的excel表格，非常不方便。</li>
-<li>现在没将暴雨流量数据导入放进来，之后也需要对其进行统一格式整理</li>
-<li>我觉得最好是将流量测量的原始数据存入数据库，用的时候再读取出来，处理后使用</li>
+<li>STP_FP Finn Plauborg Method</li>
+<li>STP_CJ TODO: Method used in SWAT (solt.f)</li>
 </ul>
-<h3>1.3 Spatial Data</h3>
-<p>空间数据主要输入数据为DEM、流域出口、土壤粘粒砂粒含量及有机质含量、土地利用。 处理的步骤为：</p>
+<h3>蒸散发类</h3>
 <ul>
-<li>调用<a href="http://hydrology.usu.edu/taudem/taudem5/index.html">TauDEM</a>进行坡度、流向、河网提取、子流域划分等</li>
-<li>根据SQLite数据库，通过土地利用和土壤属性及水文变量，进行模型参数提取，包括CN值、水力半径、曼宁系数、流速、IUH、潜在径流系数等等</li>
-<li>最后，将所有栅格文件导入MongoDB数据库 <div class="fragment"><div class="line"><span class="preprocessor">## Spatial Data</span></div>
-<div class="line"><span class="preprocessor"></span>SubbasinDelineation(np, WORKING_DIR,dem,outlet_file, threshold, mpiexeDir=MPIEXEC_DIR,exeDir=CPP_PROGRAM_DIR)</div>
-<div class="line">f = open(WORKING_DIR + os.sep + &quot;ProjConfig.txt&quot;)</div>
-<div class="line">proj4Str = f.readlines()[2].strip()</div>
-<div class="line">f.close()</div>
-<div class="line">GenerateSubbasins(WORKING_DIR, proj4Str,exeDir=CPP_PROGRAM_DIR)</div>
-<div class="line"><span class="preprocessor">## Extract parameters from landuse, soil properties etc.</span></div>
-<div class="line"><span class="preprocessor"></span>ExtractParameters(landuseFile, sandList, clayList, orgList, WORKING_DIR, True, True, True, True)</div>
-<div class="line"><span class="preprocessor">## Import to MongoDB database</span></div>
-<div class="line"><span class="preprocessor">BuildMongoDB(WORKING_DIR, SpatialDBName, stormMode, forCluster, ClimateDBName, PrecSitesVorShp,MeteorSitesVorShp)</span></div>
-</div><!-- fragment --></li>
+<li>PET_H</li>
+<li>PET_PT</li>
+<li>PET_PM</li>
 </ul>
-<h2>2 Configuration for Preprocessing Program</h2>
-<p>以上输入数据准备完成之后，我们首先需要编译一下预处理需要的C++程序。</p>
+<h3>截留类</h3>
+<h1>1.代码注释工作</h1>
+<h2>1.1已完成模块</h2>
 <ul>
-<li>在源代码外新建一个build文件夹，如E:, 打开 “开始”-&gt;Microsoft Visual Studio 2010-&gt;Visual Studio Tools-&gt;Visual Studio 命令提示(2010)，以管理员方式运行，依次输入以下命令： <div class="fragment"><div class="line">cd e:\build</div>
-<div class="line">e:</div>
-<div class="line">cmake &lt;SEIMS Folder&gt;/preprocess</div>
-<div class="line">mkdir metis</div>
-<div class="line">cd .\metis</div>
-<div class="line">cmake &lt;SEIMS Folder&gt;/preprocess/cpp_src/metis-5.1.0-pk</div>
-</div><!-- fragment --></li>
-<li>用VS打开<code>e:\build</code>文件夹下的<code>SEIMS_Preprocess.sln</code>，并生成解决方案，此时，预处理程序目录为<code>CPP_PROGRAM_DIR = r'E:\build\Debug'</code>，或者<code>CPP_PROGRAM_DIR = r'E:\build\Release'</code></li>
-<li>用VS打开<code>e:\build\metis</code>文件夹下的<code>METIS.sln</code>，并生成解决方案，此时，用于任务划分的<code>METIS</code>程序目录为<code>METIS_DIR = r'E:\build\metis\programs\Debug'</code>，或者<code>METIS_DIR = r'E:\build\metis\programs\Release'</code></li>
+<li>Base模块组下面的Util（遗留MetadataInfo没有注释）、data、</li>
+<li>Modules 模块组<ul>
+<li>Climate 模块组</li>
 </ul>
-<p>编译完成后，打开<code>./preprocess/config.py</code>进行程序运行前的配置</p>
+</li>
+</ul>
+<h1>2.代码整理工作</h1>
+<h2>2.1Data模块</h2>
+<p>弃用列表</p>
 <ul>
-<li>首先是一些目录的指定，下面是<code>Windows</code>的设置，<code>Linux</code>也类似： <div class="fragment"><div class="line"><span class="preprocessor">## Directionaries </span></div>
-<div class="line"><span class="preprocessor"></span><span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
-<div class="line">    DATA_BASE_DIR = r<span class="stringliteral">&#39;E:\data_prepare&#39;</span></div>
-<div class="line">    PREPROC_SCRIPT_DIR = r<span class="stringliteral">&#39;&lt;SEIMS Folder&gt;\preprocess&#39;</span></div>
-<div class="line">    CPP_PROGRAM_DIR = r<span class="stringliteral">&#39;E:\build\Debug&#39;</span></div>
-<div class="line">    METIS_DIR = r<span class="stringliteral">&#39;E:\build\metis\programs\Debug&#39;</span></div>
-<div class="line">    MPIEXEC_DIR = None</div>
-</div><!-- fragment --></li>
-<li>然后，设置<code>mongoDB</code>数据库相关,下例为本机数据库地址： <div class="fragment"><div class="line"><span class="preprocessor">## MongoDB related</span></div>
-<div class="line"><span class="preprocessor"></span>HOSTNAME = <span class="stringliteral">&#39;127.0.0.1&#39;</span></div>
-<div class="line">PORT = 27017</div>
-<div class="line">ClimateDBName = <span class="stringliteral">&#39;climate_dianbu&#39;</span></div>
-<div class="line">SpatialDBName = <span class="stringliteral">&#39;model_dianbu_30m_longterm&#39;</span></div>
-<div class="line">forCluster = True </div>
-<div class="line">stormMode = False</div>
-</div><!-- fragment --> <code>forCluster</code> 如为<code>True</code>，则说明所建数据库是为<code>MPI</code>并行程序准备的，此时，所有栅格数据均按照子流域编号进行分别存储，如坡度数据在<code>forCluster</code>为<code>False</code>时，数据库中存储为<code>1_SLOPE</code>,而<code>forCluster</code>为True时，则存储为<code>1_SLOPE</code>, <code>2_SLOPE</code>...<code>N_SLOPE</code></li>
+<li>SQLite相关<ul>
+<li><a class="el" href="../../d7/dd4/a00013.html" title="Hydrological climate data class. ">clsHydroClimateData</a></li>
 </ul>
-<p>stormMode指示数据库是为暴雨模拟还是长时段模拟所建</p>
+</li>
+</ul>
+<h1>3.功能补充</h1>
+<h2>3.1模型结构</h2>
 <ul>
-<li>再然后，需要设置<code>Climate</code>数据的路径，其中<code>PrecDataYear</code>如果有多个年份，则可为[2011,2012,2013]等 <div class="fragment"><div class="line"><span class="preprocessor">## Climate Input</span></div>
-<div class="line"><span class="preprocessor"></span>PrecSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor.shp&#39;</span></div>
-<div class="line"><span class="keywordflow">if</span> stormMode:</div>
-<div class="line">    PrecStormSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor_storm.shp&#39;</span></div>
-<div class="line">MeteorSitesVorShp = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;shp&#39;</span> + os.sep + <span class="stringliteral">&#39;Metero_hefei_Vor.shp&#39;</span></div>
-<div class="line">PrecExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;precipitation_by_day_&#39;</span></div>
-<div class="line">PrecDataYear = [2014]</div>
-<div class="line">MeteoVarFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Variables.txt&#39;</span></div>
-<div class="line">MeteoDailyFile = CLIMATE_DATA_DIR + os.sep+ <span class="stringliteral">&#39;meteorology_dianbu_daily.txt&#39;</span></div>
-<div class="line">MetroSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;sites_hefei.txt&#39;</span></div>
-<div class="line">DischargeExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;discharge_by_day_&#39;</span></div>
-<div class="line">DischargeYear = [2014]</div>
-</div><!-- fragment --></li>
-<li>随后，设置<code>SQLite</code>数据库名 <div class="fragment"><div class="line"><span class="preprocessor">## Parameters for SEIMS</span></div>
-<div class="line"><span class="preprocessor">sqliteFile = DATA_BASE_DIR + os.sep + &quot;Parameter.db3&quot;</span></div>
-</div><!-- fragment --></li>
-<li>随后，设置空间数据路径及<code>TauDEM</code>运行的并行核数 <div class="fragment"><div class="line"><span class="preprocessor">## Spatial Input</span></div>
-<div class="line"><span class="preprocessor"></span>dem = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;dem_30m.tif&#39;</span></div>
-<div class="line">outlet_file = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;outlet_30m.shp&#39;</span></div>
-<div class="line"></div>
-<div class="line">threshold = 0  # threshold <span class="keywordflow">for</span> stream extraction from D8-flow accumulation weighted Peuker-Douglas stream sources</div>
-<div class="line"><span class="preprocessor">               # if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
-<div class="line"><span class="preprocessor"></span>np = 4  # number of parallel processors</div>
-<div class="line">landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
-<div class="line">sandList = []</div>
-<div class="line">clayList = []</div>
-<div class="line">orgList = []</div>
-<div class="line"><span class="keywordflow">for</span> i in [1,2]:</div>
-<div class="line">    sandFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;sand&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span> </div>
-<div class="line">    clayFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;clay&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
-<div class="line">    orgFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&quot;org&quot;</span> + str(i) + <span class="stringliteral">&quot;.tif&quot;</span></div>
-<div class="line">    sandList.append(sandFile)</div>
-<div class="line">    clayList.append(clayFile)</div>
-<div class="line">    orgList.append(orgFile)</div>
-<div class="line">defaultSand = 40</div>
-<div class="line">defaultClay = 30</div>
-<div class="line">defaultOrg = 2.5</div>
-</div><!-- fragment --></li>
-<li>最后，可以选择根据土地利用和土壤属性查找表的项目，其中<code>LANDUSE_ATTR_LIST</code>为导入数据库时的表名，<code>LANDUSE_ATTR_DB</code>为<code>SQLite</code>数据库表中的属性列名 <div class="fragment"><div class="line"><span class="preprocessor"># LANDUSE_ATTR_LIST and SOIL_ATTR_LIST is selected from sqliteFile database</span></div>
-<div class="line"><span class="preprocessor"></span>LANDUSE_ATTR_LIST = [<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;Interc_max&quot;</span>, <span class="stringliteral">&quot;Interc_min&quot;</span>, <span class="stringliteral">&quot;RootDepth&quot;</span>, \</div>
-<div class="line">                    <span class="stringliteral">&quot;USLE_C&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>,<span class="stringliteral">&quot;USLE_P&quot;</span>]</div>
-<div class="line">LANDUSE_ATTR_DB = [<span class="stringliteral">&quot;manning&quot;</span>,<span class="stringliteral">&quot;i_max&quot;</span>,<span class="stringliteral">&quot;i_min&quot;</span>, <span class="stringliteral">&quot;root_depth&quot;</span>, <span class="stringliteral">&quot;usle_c&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>]</div>
-<div class="line">SOIL_ATTR_LIST = [<span class="stringliteral">&quot;Sand&quot;</span>, <span class="stringliteral">&quot;Clay&quot;</span>, <span class="stringliteral">&quot;FieldCap&quot;</span>, <span class="stringliteral">&quot;Conductivity&quot;</span>, <span class="stringliteral">&quot;Porosity&quot;</span>,\</div>
-<div class="line">                <span class="stringliteral">&quot;USLE_K&quot;</span>, <span class="stringliteral">&quot;WiltingPoint&quot;</span>, <span class="stringliteral">&quot;Poreindex&quot;</span>, <span class="stringliteral">&quot;Residual&quot;</span>, <span class="stringliteral">&quot;Density&quot;</span>]</div>
-<div class="line">SOIL_ATTR_DB  = [<span class="stringliteral">&quot;sand&quot;</span>, <span class="stringliteral">&quot;clay&quot;</span>, <span class="stringliteral">&quot;fc&quot;</span>, <span class="stringliteral">&quot;ks&quot;</span>, <span class="stringliteral">&quot;porosity&quot;</span>,<span class="stringliteral">&quot;usle_k&quot;</span>,<span class="stringliteral">&quot;wp&quot;</span>,\</div>
-<div class="line">                    <span class="stringliteral">&quot;P_INDEX&quot;</span>,<span class="stringliteral">&quot;rm&quot;</span>,<span class="stringliteral">&quot;B_DENSITY&quot;</span>]</div>
-</div><!-- fragment --></li>
+<li>1. 土壤数据问题</li>
 </ul>
-<h2>3 Running Preprocessing Program</h2>
-<p>以上设置完成之后，直接运行<code>./preprocess/main.py</code>即可！ 如果一切顺利，在<code>mongoDB</code>中我们可以看到自动创建的气象数据库和空间数据库，如下图所示：</p>
-<div class="image">
-<img src="http://zhulj-blog.oss-cn-beijing.aliyuncs.com/seims-img%2Fdatabases.png" />
-</div>
-<p>**图2 数据库列表** </p>
+<p>目前土壤数据的的输入为机械组成和有机质含量的TIFF，这样做可扩展性太差。而且，土层默认为2层，程序中有些地方明确写死为2层，比如<code>MongoUtil.cpp</code>里的<code>Read2DSoilAttr</code>函数，这样不够合理。应改为可支持多层土壤层数。</p>
+<ul>
+<li>2.</li>
+</ul>
+<blockquote class="doxtable">
+<p>2016-5-18 已完成 <code>DT_Rater2D</code>的读写，详见<code>clsRaterData</code>类 2016-5-21 已完成多层土壤理化性质的计算，但是，对于设置层数大于3，但是没有对应层数属性的情况，暂未考虑，SWAT中有计算，所以以后考虑加上！</p>
+<p></p>
+</blockquote>
+<ul>
+<li>2. 河道数据结构</li>
+</ul>
+<p>目前有两个河道相关的AddParameter，即Tag_ReachParameter和Tag_RchParam，但是读取的均是reaches表。因此，有必要进行合并，用一个clsReach类替代。</p>
+<h2>TODO by Zhu</h2>
+<h3>KINWAVSED_CH模块</h3>
+<ul>
+<li>1. Tag_ReachParameter问题</li>
+</ul>
+<h3>KINWAVSED_OL模块</h3>
+<ul>
+<li>1. mdi.AddInput("QRECH", "m3/s", "Flux in the downslope boundary of cells", "Module",DT_Array2D); QRECH变量名与MUSK_CH中河道出口流量冲突，而且DimensionType也不相符</li>
+<li></li>
+</ul>
+<h3>MUSLE_AS模块</h3>
+<ul>
+<li>1. SEDTOCH和SEDTOCH_T单位到底是吨还是千克？，是DT_Raster1D还是DT_Array1D</li>
+<li>SEDR_VCD中AddInput原写的是tons</li>
+</ul>
+<h3>SEDR_VCD模块</h3>
+<p>SWAT 最新版中内置了4种泥沙河道汇流模拟方法，后续可以补充</p>
+<ul>
+<li>1. CHSB Get2DData 注释掉了，WHY？</li>
+</ul>
+<h3>SplashEro_Park模块</h3>
+<ul>
+<li>1. float m_Ccoe;并未使用，是否删掉</li>
+</ul>
+<h3>CH_DW模块</h3>
+<ul>
+<li>1. m_manningScalingFactor 模块初始化时赋值为1，但是SetValue中依然有，是否需要在数据库中添加？</li>
+<li><h3>CH_MSK模块</h3>
+</li>
+</ul>
+<ul>
+<li>1. TWO_THIRDS(2.f/3.f), m_msk_x(0.2f), m_vScalingFactor（即"VelocityScalingFactor"）(3.0f), m_chS0(0.f), m_beta(5.0f/3), m_delta(1e-6f)，，模块初始化时赋值，是否需要在数据库中添加？</li>
+<li>2. 与其他几个河道汇流模块类似，m_diagonal到底应该用ArcGIS的流向编码还是TauDEM的呢？</li>
+</ul>
+<h3>GWA_RE和GW_RSVR什么关系？</h3>
+<p>为什么会有2个reservoir method的地下水模块</p>
+<h3>HS_WB模块</h3>
+<ul>
+<li>1. Get2DData中，*nCols=17？ HOW TO FIX？</li>
+</ul>
+<h3>IKW_CH模块</h3>
+<ul>
+<li>1. “QRECH” 为何在Get1DData和Get2DData中均有？</li>
+</ul>
+<h3>IKW_OL模块</h3>
+<ul>
+<li>1. m_FlowLen</li>
+</ul>
+<h3>单位转换问题</h3>
+<p>有必要在util模块中加入多个单位之间转换的代码。</p>
+<h3>RootDepth和SoilDepth的问题</h3>
+<ul>
+<li>1. 之前代码中认为rootDepth即为soilDepth，这是不对的，目前数据准备提供了soilDepth，具体模块还未改过来，如IKW_IF模块</li>
+</ul>
+<h3>ValueToString()</h3>
+<ul>
+<li>1. 许多模块中都有一个函数toString()，用于将float转换为string输出，造成代码冗余，TODO：均用util下的ValueToString()替换，该函数为模板函数</li>
+<li><h2>TODO by Gao</h2>
+</li>
+</ul>
+<h2>1.代码整理</h2>
+<ul>
+<li>1 nReach等变量赋值问题<ul>
+<li>未直接赋值，通过相关变量间接赋值，</li>
+<li>模块：Hydrology_longterm - <a class="el" href="../../d4/d8c/a00035.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a></li>
+<li>模块：Hydrology_longterm - <a class="el" href="../../d5/df9/a00044.html" title="IUH overland method to calculate interflow routing. ">IUH_IF</a></li>
+<li>模块：Hydrology_longterm - IUH_OF</li>
+</ul>
+</li>
+<li>2 DT_Array2D变量及所在模块</li>
+</ul>
+<table class="doxtable">
+<tr>
+<th>模块</th><th>子模块</th><th>变量名</th><th>类型  </th></tr>
+<tr>
+<td>Hydrology_longterm</td><td>GWA_RE</td><td>VAR_PERCO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>GWA_RE</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>PEI_PI</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td>PEI_STR</td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td><a class="el" href="../../d1/d09/a00077.html" title="Calculate soil Temperature. ">SET_LM</a></td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td><a class="el" href="../../db/ddf/a00088.html" title="Soil water balance. ">SOL_WB</a></td><td>VAR_PERCO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td><a class="el" href="../../db/ddf/a00088.html" title="Soil water balance. ">SOL_WB</a></td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td><a class="el" href="../../db/ddf/a00088.html" title="Soil water balance. ">SOL_WB</a></td><td>VAR_SSRU</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td><a class="el" href="../../d1/dc1/a00092.html" title="– ">SSR_DA</a></td><td>VAR_SOMO</td><td>AddInput </td></tr>
+<tr>
+<td>Hydrology_longterm</td><td><a class="el" href="../../d9/d77/a00095.html" title="SCS Curve Number Method to calculate infiltration and excess precipitation. ">SUR_CN</a></td><td>VAR_SOMO</td><td>AddOutput </td></tr>
+</table>
+<ul>
+<li>3 变量定义不明确问题<ul>
+<li>Hydrology_longterm - <a class="el" href="../../d4/d8c/a00035.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a>: VAR_QOUTLET &amp; VAR_QSOUTLET</li>
+<li>Hydrology_longterm - <a class="el" href="../../d4/d8c/a00035.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a>: VAR_MSF &amp; <a class="el" href="../../d4/d6d/a00055.html" title="Overland routing using 4-point implicit finite difference method. ">MUSK_CH</a>: VAR_VSF</li>
+</ul>
+</li>
+<li>4 add-()与set-()、get-()中变量不一致的问题<ul>
+<li>Hydrology_longterm - <a class="el" href="../../d4/d8c/a00035.html" title="Overland routing using 4-point implicit finite difference method. ">IKW_REACH</a>: VAR_QUPREACH</li>
+<li>Hydrology_longterm - <a class="el" href="../../d1/dc1/a00092.html" title="– ">SSR_DA</a>: Tag_FLOWIN_PERCENTAGE_D8</li>
+</ul>
+</li>
+<li>5 变量单位不明确问题<ul>
+<li>Hydrology_longterm - SON_DD: VAR_C_SNOW</li>
+<li>Hydrology_longterm - SON_DD: VAR_C_RAIN</li>
+<li>Hydrology_longterm - SON_SP: VAR_C_SNOW6 ("mm/oC/day")</li>
+<li>Hydrology_longterm - SON_SP: VAR_C_SNOW12 ("mm/oC/day")</li>
+</ul>
+</li>
+</ul>
+<h3>file.out</h3>
+<h4>Snow accumulate and melt</h4>
+<p><a class="el" href="../../d2/d1f/a00083.html" title="Calculate snow melt by Degree-Day method. ">SNO_DD</a> is required, <a class="el" href="../../df/d13/a00085.html" title="Calculate snow water balance. ">SNO_WB</a> dependent on <a class="el" href="../../d2/d1f/a00083.html" title="Calculate snow melt by Degree-Day method. ">SNO_DD</a>, and <a class="el" href="../../df/d5d/a00084.html" title="Calculate snow melt by snowpack daily method from SWAT. ">SNO_SP</a> dependent on <a class="el" href="../../df/d13/a00085.html" title="Calculate snow water balance. ">SNO_WB</a> </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

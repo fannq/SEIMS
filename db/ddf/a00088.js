@@ -1,7 +1,10 @@
 var a00088 =
 [
-    [ "SoilLAYERS", "db/ddf/a00088.html#aebcdb0d86793bdef8396bdd88ff7830c", null ],
-    [ "Sol_FOP", "db/ddf/a00088.html#ae8db26addf6a2bd398e8a723547a747a", null ],
-    [ "Sol_ZMX", "db/ddf/a00088.html#a139c00c26fe40a4b20da2f464b60f039", null ],
-    [ "USLE_K", "db/ddf/a00088.html#af8c81e9411f94c5796a41885d25f4772", null ]
+    [ "CheckInputData", "db/ddf/a00088.html#a6b803bd6fb3e800c8732336b517ed123", null ],
+    [ "CheckInputSize", "db/ddf/a00088.html#a731a81b1e33e9937e436a4f2e93647cb", null ],
+    [ "Execute", "db/ddf/a00088.html#ada3f026f8225a51403194aebbf517555", null ],
+    [ "Get2DData", "db/ddf/a00088.html#a56e2a3a62bc26f117657bd28fc133b0e", null ],
+    [ "Set1DData", "db/ddf/a00088.html#a8ee8d124c758fdff0a080f64363f28b4", null ],
+    [ "Set2DData", "db/ddf/a00088.html#a76b655af13eec0552b7f8b63713a0016", null ],
+    [ "SetValue", "db/ddf/a00088.html#a54589e2c16713af0532519393be022bc", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: MetadataInfo Class Reference</title>
+<title>SEIMS-2016: ModelException Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,64 +113,159 @@ $(document).ready(function(){initNavTree('dc/dee/a00053.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/dce/a01052.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../dd/d57/a01054.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">MetadataInfo Class Reference</div>  </div>
+<div class="title">ModelException Class Reference<div class="ingroups"><a class="el" href="../../de/d3d/a00748.html">Util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Metadata information of module.  
+<p>Print the exception message.  
  <a href="../../dc/dee/a00053.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/dfe/a00448_source.html">MetadataInfo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dfe/a00448_source.html">ModelException.h</a>&gt;</code></p>
+
+<p>Inherits exception.</p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ae0991113a1ad420c68e3475bf5d4b830"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0991113a1ad420c68e3475bf5d4b830"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ae0991113a1ad420c68e3475bf5d4b830">m_strSchemaVersion</a></td></tr>
-<tr class="memdesc:ae0991113a1ad420c68e3475bf5d4b830"><td class="mdescLeft">&#160;</td><td class="mdescRight">latest XML schema version supported by this class <br/></td></tr>
-<tr class="separator:ae0991113a1ad420c68e3475bf5d4b830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a8276b621b77495068b9a4a9f3d098c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a8276b621b77495068b9a4a9f3d098c"></a>
-<a class="el" href="../../d1/dea/a00054.html">ModelClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a1a8276b621b77495068b9a4a9f3d098c">m_oClass</a></td></tr>
-<tr class="memdesc:a1a8276b621b77495068b9a4a9f3d098c"><td class="mdescLeft">&#160;</td><td class="mdescRight">class name for the module <br/></td></tr>
-<tr class="separator:a1a8276b621b77495068b9a4a9f3d098c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a198c06e1084efade404ae7cb0c8b2920"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a198c06e1084efade404ae7cb0c8b2920"></a>
-<a class="el" href="../../db/d3a/a00040.html">Information</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a198c06e1084efade404ae7cb0c8b2920">m_Info</a></td></tr>
-<tr class="memdesc:a198c06e1084efade404ae7cb0c8b2920"><td class="mdescLeft">&#160;</td><td class="mdescRight">the general information for the module <br/></td></tr>
-<tr class="separator:a198c06e1084efade404ae7cb0c8b2920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37676224841b1dfb9e6e8b7e55ba4c76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37676224841b1dfb9e6e8b7e55ba4c76"></a>
-vector&lt; <a class="el" href="../../d5/db6/a00042.html">InputVariable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a37676224841b1dfb9e6e8b7e55ba4c76">m_vInputs</a></td></tr>
-<tr class="memdesc:a37676224841b1dfb9e6e8b7e55ba4c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of input parameters for the module <br/></td></tr>
-<tr class="separator:a37676224841b1dfb9e6e8b7e55ba4c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab01cd84b9e3e756ad9716ad679c2b472"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab01cd84b9e3e756ad9716ad679c2b472"></a>
-vector&lt; <a class="el" href="../../df/d5f/a00064.html">OutputVariable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ab01cd84b9e3e756ad9716ad679c2b472">m_vOutputs</a></td></tr>
-<tr class="memdesc:ab01cd84b9e3e756ad9716ad679c2b472"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of output parameters for the module <br/></td></tr>
-<tr class="separator:ab01cd84b9e3e756ad9716ad679c2b472"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b5c3ff81df63f0451f444cd16c12f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9b5c3ff81df63f0451f444cd16c12f9"></a>
-vector&lt; <a class="el" href="../../d1/dea/a00054.html">ModelClass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ae9b5c3ff81df63f0451f444cd16c12f9">m_vDependencies</a></td></tr>
-<tr class="memdesc:ae9b5c3ff81df63f0451f444cd16c12f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of dependency classes for the module <br/></td></tr>
-<tr class="separator:ae9b5c3ff81df63f0451f444cd16c12f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96dd309d3ec5f6d9056114fcb6e9c15f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96dd309d3ec5f6d9056114fcb6e9c15f"></a>
-vector&lt; <a class="el" href="../../de/de1/a00065.html">Parameter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a96dd309d3ec5f6d9056114fcb6e9c15f">m_vParameters</a></td></tr>
-<tr class="memdesc:a96dd309d3ec5f6d9056114fcb6e9c15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of parameters for the module <br/></td></tr>
-<tr class="separator:a96dd309d3ec5f6d9056114fcb6e9c15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aed15cfba3a2fed8fbe9760cfefa32f10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aed15cfba3a2fed8fbe9760cfefa32f10">ModelException</a> (string, string, string)</td></tr>
+<tr class="memdesc:aed15cfba3a2fed8fbe9760cfefa32f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aed15cfba3a2fed8fbe9760cfefa32f10">More...</a><br/></td></tr>
+<tr class="separator:aed15cfba3a2fed8fbe9760cfefa32f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b1352b304a1a4e082cd6c322607dafc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b1352b304a1a4e082cd6c322607dafc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a9b1352b304a1a4e082cd6c322607dafc">~ModelException</a> (void)  throw ()</td></tr>
+<tr class="memdesc:a9b1352b304a1a4e082cd6c322607dafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor (void) <br/></td></tr>
+<tr class="separator:a9b1352b304a1a4e082cd6c322607dafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee5445c8d05c17a796a7bd40654d62fd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aee5445c8d05c17a796a7bd40654d62fd">toString</a> ()</td></tr>
+<tr class="memdesc:aee5445c8d05c17a796a7bd40654d62fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct error information (string version)  <a href="#aee5445c8d05c17a796a7bd40654d62fd">More...</a><br/></td></tr>
+<tr class="separator:aee5445c8d05c17a796a7bd40654d62fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad628c8e55ba32a0a106b66174ebdc725"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ad628c8e55ba32a0a106b66174ebdc725">what</a> () const   throw ()</td></tr>
+<tr class="memdesc:ad628c8e55ba32a0a106b66174ebdc725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct error information (char* version)  <a href="#ad628c8e55ba32a0a106b66174ebdc725">More...</a><br/></td></tr>
+<tr class="separator:ad628c8e55ba32a0a106b66174ebdc725"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Metadata information of module. </p>
+<div class="textblock"><p>Print the exception message. </p>
 
-<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00108">108</a> of file <a class="el" href="../../de/dfe/a00448_source.html">MetadataInfo.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/util/<a class="el" href="../../de/dfe/a00448_source.html">MetadataInfo.h</a></li>
-<li>src/base/util/<a class="el" href="../../de/d84/a00447_source.html">MetadataInfo.cpp</a></li>
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00024">24</a> of file <a class="el" href="../../de/dfe/a00448_source.html">ModelException.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aed15cfba3a2fed8fbe9760cfefa32f10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ModelException::ModelException </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>className</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>functionName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">className,functionName,msg</td><td><em>string</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00011">11</a> of file <a class="el" href="../../de/d84/a00447_source.html">ModelException.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aee5445c8d05c17a796a7bd40654d62fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ModelException::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct error information (string version) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">\a</td><td>string error information </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00025">25</a> of file <a class="el" href="../../de/d84/a00447_source.html">ModelException.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad628c8e55ba32a0a106b66174ebdc725"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* ModelException::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2"></td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct error information (char* version) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">\a</td><td>char* error information </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00044">44</a> of file <a class="el" href="../../de/dfe/a00448_source.html">ModelException.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/util/<a class="el" href="../../de/dfe/a00448_source.html">ModelException.h</a></li>
+<li>src/base/util/<a class="el" href="../../de/d84/a00447_source.html">ModelException.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/dee/a00053.html">MetadataInfo</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dc/dee/a00053.html">ModelException</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:25 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

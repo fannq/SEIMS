@@ -1,9 +1,10 @@
 var a00021 =
 [
-    [ "clsSimpleTxtData", "de/d11/a00021.html#a9890dc862e7f48c11d634165a9820553", null ],
-    [ "~clsSimpleTxtData", "de/d11/a00021.html#a0cb6a4ddde29491222b60ce5d94c0e45", null ],
-    [ "dump", "de/d11/a00021.html#a6b54efebcd02f985015177e44f3de4be", null ],
-    [ "getData", "de/d11/a00021.html#a3631ad13cb1773ca283015c078ef7229", null ],
-    [ "m_data", "de/d11/a00021.html#ac60fad8ef1dcc286a7b87e825714b3f9", null ],
-    [ "m_row", "de/d11/a00021.html#a5d47df1c4be351606574455954384264", null ]
+    [ "clsSpecificOutput", "de/d11/a00021.html#a6c2afe972c7c8b07e7dfe8c32f0a2f6e", null ],
+    [ "~clsSpecificOutput", "de/d11/a00021.html#ae972efcb5a6a9311733d10327b47a3a0", null ],
+    [ "dump", "de/d11/a00021.html#aa504114357dfe9a246ffe772a0320ec6", null ],
+    [ "setCurvature", "de/d11/a00021.html#ada874234d6441332a85e7fbb7926fd22", null ],
+    [ "setData", "de/d11/a00021.html#a4db3111b661c27210aa25a7a9e6aa266", null ],
+    [ "setLanduse", "de/d11/a00021.html#a64a2c5eb768922c23aecebbc55800618", null ],
+    [ "setSlope", "de/d11/a00021.html#a22f6ac54ea90bb0a8c289549a1fd00bf", null ]
 ];

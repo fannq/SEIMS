@@ -1,11 +1,19 @@
 var a00028 =
 [
-    [ "DBManager", "dc/d3c/a00028.html#a0b70068a52d94cb2a0b8eba773b4e121", null ],
-    [ "~DBManager", "dc/d3c/a00028.html#abf19331a14657f1c2e4453999218c416", null ],
-    [ "Close", "dc/d3c/a00028.html#a1bcd1fc4e7c5b0ae658f3e779a176268", null ],
-    [ "Execute", "dc/d3c/a00028.html#af5e73a7e86d1217f6bc32bbd0983e271", null ],
-    [ "GetErrorMessage", "dc/d3c/a00028.html#a6f8713d2e4335e298ffb825ec07cad11", null ],
-    [ "IsError", "dc/d3c/a00028.html#aebd9e5246ae9f047eedbb199699005ae", null ],
-    [ "Load", "dc/d3c/a00028.html#a8dba35872dea3b8a49782ab7b880306e", null ],
-    [ "Open", "dc/d3c/a00028.html#a451113a0e298f84c030ea7b9892d8f8b", null ]
+    [ "DepressionFSDaily", "dc/d3c/a00028.html#a5c187e844ad928d76bdc4744c39902d7", null ],
+    [ "~DepressionFSDaily", "dc/d3c/a00028.html#aec72b0a72f1308fa773341db189a7af1", null ],
+    [ "Execute", "dc/d3c/a00028.html#a960abfaaaeb189ccdec1405f02aadae3", null ],
+    [ "Get1DData", "dc/d3c/a00028.html#a17566ea3454fd35d03e48bb9fb890421", null ],
+    [ "initalOutputs", "dc/d3c/a00028.html#aaabb19ca56a52dc4db1540e66044d315", null ],
+    [ "Set1DData", "dc/d3c/a00028.html#aa1ac50721b7796524e44c65cdd81e8af", null ],
+    [ "SetValue", "dc/d3c/a00028.html#a6f55886c44ca86564a8dd6913a746268", null ],
+    [ "m_depCap", "dc/d3c/a00028.html#ab131703b62b2e663b13c7ed1eb2cbf08", null ],
+    [ "m_depCo", "dc/d3c/a00028.html#af7de53843bee81cb01de19789b415e63", null ],
+    [ "m_ed", "dc/d3c/a00028.html#abe6254533edb2e17dd4119aa2491d933", null ],
+    [ "m_ei", "dc/d3c/a00028.html#a50e9604f12e3cf1e731ea7477acdcc4a", null ],
+    [ "m_nCells", "dc/d3c/a00028.html#a41812fdacbd055bb3d0c007c2fadbaa5", null ],
+    [ "m_pe", "dc/d3c/a00028.html#aa69586fd84baec826d4315425ee782c3", null ],
+    [ "m_pet", "dc/d3c/a00028.html#a449c3732cc0a934e7895e43d481d6c59", null ],
+    [ "m_sd", "dc/d3c/a00028.html#a8be427d2951411cfe3eb79bd07335612", null ],
+    [ "m_sr", "dc/d3c/a00028.html#a9dc508a018a02680dcedb88f82924dfb", null ]
 ];

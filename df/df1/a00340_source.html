@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/hydroclimate_sites.py Source File</title>
+<title>SEIMS-2016: preprocess/main.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,131 +111,51 @@ $(document).ready(function(){initNavTree('df/df1/a00340_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">hydroclimate_sites.py</div>  </div>
+<div class="title">main.py</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @Import hydroClimate sites information and variables</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @Main function entrance for preprocessing</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> pymongo.errors <span class="keyword">import</span> ConnectionFailure</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> math</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d1f/a00083.html">SiteInfo</a>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="stringliteral">&#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="stringliteral">    base class of HydroClimate site information</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="stringliteral">    :method: init(ID, Name, lat, lon, LocalX, LocalY, alti)</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="stringliteral">    &#39;&#39;&#39;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">def </span>__init__(self, ID = 0, Name = &#39;&#39;, lat=DEFAULT_NODATA, lon=DEFAULT_NODATA, LocalX=DEFAULT_NODATA, \</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                 LocalY=DEFAULT_NODATA,alti=DEFAULT_NODATA):</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#ad69532c6a79b3d0e48612a3d19133038">StationID</a> = ID      <span class="comment">## integer</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#a7c630f84d3767984ee90417b6b6028a7">   20</a></span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#a7c630f84d3767984ee90417b6b6028a7">Name</a>      = Name    <span class="comment">## station name, string</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#afdb09aa744715eead7aa2734e1592c1b">   21</a></span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#afdb09aa744715eead7aa2734e1592c1b">lat</a>       = lat     <span class="comment">## latitude, float degree</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#a1404b595df951f2a6177b62ed4d4d4d9">   22</a></span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#a1404b595df951f2a6177b62ed4d4d4d9">lon</a>       = lon     <span class="comment">## longitude, float degree</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#ae9e95f3afdaddc39ea1171bb44d5ff25">   23</a></span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#ae9e95f3afdaddc39ea1171bb44d5ff25">LocalX</a>    = LocalX  <span class="comment">## X coordinate in projection, float</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#aa7a1c33ac14a005f913304db3a900259">   24</a></span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#aa7a1c33ac14a005f913304db3a900259">LocalY</a>    = LocalY  <span class="comment">## Y coordinate in projection, float</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#a4ec93a9967162e64ef2922310855bc4d">   25</a></span>&#160;        self.<a class="code" href="../../d2/d1f/a00083.html#a4ec93a9967162e64ef2922310855bc4d">alti</a>      = alti    <span class="comment">## altitude, as ORIGIN: unit 0.1 meter</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">def </span>LonLat(self):</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> (self.<a class="code" href="../../d2/d1f/a00083.html#a1404b595df951f2a6177b62ed4d4d4d9">lon</a>, self.<a class="code" href="../../d2/d1f/a00083.html#afdb09aa744715eead7aa2734e1592c1b">lat</a>)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">def </span>LocalXY(self):</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> (self.<a class="code" href="../../d2/d1f/a00083.html#ae9e95f3afdaddc39ea1171bb44d5ff25">LocalX</a>, self.<a class="code" href="../../d2/d1f/a00083.html#aa7a1c33ac14a005f913304db3a900259">LocalY</a>)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">### Import HydroClimate sites table</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">def </span>ImportSitesTable(db, siteFile, siteType):</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    sitesLoc = {}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    siteDataItems = ReadDataItemsFromTxt(siteFile)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    siteFlds = siteDataItems[0]</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1,len(siteDataItems)):</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        dic = {}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(len(siteDataItems[i])):</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> StringMatch(siteFlds[j], Tag_ST_StationID):</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                dic[Tag_ST_StationID] = int(siteDataItems[i][j])</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_StationName):</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                dic[Tag_ST_StationName] = siteDataItems[i][j]  <span class="comment">## unicode(siteDataItems[i][j], &#39;gb2312&#39;)</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_LocalX):</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                dic[Tag_ST_LocalX] = float(siteDataItems[i][j])</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_LocalY):</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                dic[Tag_ST_LocalY] = float(siteDataItems[i][j])</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_LocalPrjID):</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                dic[Tag_ST_LocalPrjID] = siteDataItems[i][j]</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_Longitude):</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                dic[Tag_ST_Longitude] = float(siteDataItems[i][j])</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_Latitude):</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                dic[Tag_ST_Latitude] = float(siteDataItems[i][j])</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_DatumID):</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                dic[Tag_ST_DatumID] = siteDataItems[i][j]</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">elif</span> StringMatch(siteFlds[j], Tag_ST_Elevation):</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                dic[Tag_ST_Elevation] = float(siteDataItems[i][j])</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        dic[Tag_ST_Type] = siteType</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        insertResult = db[Tag_ClimateDB_Sites].insert_one(dic)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        if(<span class="keywordflow">not</span> insertResult.acknowledged):</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">print</span> <span class="stringliteral">&quot;Insert Site information to MongoDB faied!&quot;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            exit(-1)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> dic[Tag_ST_StationID] <span class="keywordflow">not</span> <span class="keywordflow">in</span> sitesLoc.keys():</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            sitesLoc[dic[Tag_ST_StationID]] = <a class="code" href="../../d2/d1f/a00083.html">SiteInfo</a>(dic[Tag_ST_StationID], dic[Tag_ST_StationName], \</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                                       dic[Tag_ST_Latitude], dic[Tag_ST_Longitude], \</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                                       dic[Tag_ST_LocalX], dic[Tag_ST_LocalY], \</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                                       dic[Tag_ST_Elevation])</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment"># sitesLoc[dic[Tag_ST_StationID]] = [dic[Tag_ST_StationName], dic[Tag_ST_Longitude], dic[Tag_ST_Latitude],\</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">#                                    dic[Tag_ST_LocalX], dic[Tag_ST_LocalY]]</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> sitesLoc</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">### Import variables table</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">def </span>ImportVariableTable(db, varFile):</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    varDataItems = ReadDataItemsFromTxt(varFile)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    varFlds = varDataItems[0]</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1,len(varDataItems)):</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        dic = {}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(len(varDataItems[i])):</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> StringMatch(varFlds[j], Tag_VAR_ID):</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                dic[Tag_VAR_ID] = int(varDataItems[i][j])</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">elif</span> StringMatch(varFlds[j], Tag_VAR_Type):</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                dic[Tag_VAR_Type] = varDataItems[i][j]  <span class="comment">## unicode(siteDataItems[i][j], &#39;gb2312&#39;)</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">elif</span> StringMatch(varFlds[j], Tag_VAR_UNIT):</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                dic[Tag_VAR_UNIT] = varDataItems[i][j]</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">elif</span> StringMatch(varFlds[j], Tag_VAR_IsReg):</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                dic[Tag_VAR_IsReg] = varDataItems[i][j]</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">elif</span> StringMatch(varFlds[j], Tag_VAR_Time):</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                dic[Tag_VAR_Time] = float(varDataItems[i][j])</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        db[Tag_ClimateDB_VARs].insert_one(dic)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">def </span>ImportHydroClimateSitesInfo(hostname,port,dbName,varfile, meteofile, precfile):</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        connMongo = MongoClient(hostname, port)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">#print &quot;Connected successfully&quot;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">except</span> ConnectionFailure, e:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        sys.stderr.write(<span class="stringliteral">&quot;Could not connect to MongoDB: %s&quot;</span> % e)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        sys.exit(1)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    db = connMongo[dbName]</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    cList = db.collection_names()</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    tables = [Tag_ClimateDB_Sites, Tag_ClimateDB_VARs]</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">for</span> tb <span class="keywordflow">in</span> tables:</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> tb <span class="keywordflow">in</span> cList:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            db.create_collection(tb)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment"># else:</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">#     db.drop_collection(tb)</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    ImportVariableTable(db, varfile)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    SiteMLoc = ImportSitesTable(db,meteofile,DataType_Meteorology)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    SitePLoc = ImportSitesTable(db,precfile,DataType_Precipitation)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    connMongo.close()</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> (SiteMLoc, SitePLoc)</div>
-<div class="ttc" id="a00083_html_ae9e95f3afdaddc39ea1171bb44d5ff25"><div class="ttname"><a href="../../d2/d1f/a00083.html#ae9e95f3afdaddc39ea1171bb44d5ff25">hydroclimate_sites.SiteInfo.LocalX</a></div><div class="ttdeci">LocalX</div><div class="ttdoc">longitude, float degree </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00023">hydroclimate_sites.py:23</a></div></div>
-<div class="ttc" id="a00083_html_a1404b595df951f2a6177b62ed4d4d4d9"><div class="ttname"><a href="../../d2/d1f/a00083.html#a1404b595df951f2a6177b62ed4d4d4d9">hydroclimate_sites.SiteInfo.lon</a></div><div class="ttdeci">lon</div><div class="ttdoc">latitude, float degree </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00022">hydroclimate_sites.py:22</a></div></div>
-<div class="ttc" id="a00083_html"><div class="ttname"><a href="../../d2/d1f/a00083.html">hydroclimate_sites.SiteInfo</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00012">hydroclimate_sites.py:12</a></div></div>
-<div class="ttc" id="a00083_html_ad69532c6a79b3d0e48612a3d19133038"><div class="ttname"><a href="../../d2/d1f/a00083.html#ad69532c6a79b3d0e48612a3d19133038">hydroclimate_sites.SiteInfo.StationID</a></div><div class="ttdeci">StationID</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00019">hydroclimate_sites.py:19</a></div></div>
-<div class="ttc" id="a00083_html_aa7a1c33ac14a005f913304db3a900259"><div class="ttname"><a href="../../d2/d1f/a00083.html#aa7a1c33ac14a005f913304db3a900259">hydroclimate_sites.SiteInfo.LocalY</a></div><div class="ttdeci">LocalY</div><div class="ttdoc">X coordinate in projection, float. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00024">hydroclimate_sites.py:24</a></div></div>
-<div class="ttc" id="a00083_html_afdb09aa744715eead7aa2734e1592c1b"><div class="ttname"><a href="../../d2/d1f/a00083.html#afdb09aa744715eead7aa2734e1592c1b">hydroclimate_sites.SiteInfo.lat</a></div><div class="ttdeci">lat</div><div class="ttdoc">station name, string </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00021">hydroclimate_sites.py:21</a></div></div>
-<div class="ttc" id="a00083_html_a4ec93a9967162e64ef2922310855bc4d"><div class="ttname"><a href="../../d2/d1f/a00083.html#a4ec93a9967162e64ef2922310855bc4d">hydroclimate_sites.SiteInfo.alti</a></div><div class="ttdeci">alti</div><div class="ttdoc">Y coordinate in projection, float. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00025">hydroclimate_sites.py:25</a></div></div>
-<div class="ttc" id="a00083_html_a7c630f84d3767984ee90417b6b6028a7"><div class="ttname"><a href="../../d2/d1f/a00083.html#a7c630f84d3767984ee90417b6b6028a7">hydroclimate_sites.SiteInfo.Name</a></div><div class="ttdeci">Name</div><div class="ttdoc">integer </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00340_source.html#l00020">hydroclimate_sites.py:20</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> txt2db3 <span class="keyword">import</span> reConstructSQLiteDB</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">## Climate modules</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> hydroclimate_sites <span class="keyword">import</span> ImportHydroClimateSitesInfo</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> PrecipitationDaily <span class="keyword">import</span> ImportDailyPrecData</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> MeteorologicalDaily <span class="keyword">import</span> ImportDailyMeteoData</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> DischargeDaily <span class="keyword">import</span> ImportDailyDischargeData</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">## Spatial modules</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">from</span> subbasin_delineation <span class="keyword">import</span> SubbasinDelineation</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">from</span> gen_subbasins <span class="keyword">import</span> GenerateSubbasins</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">from</span> parameters_extraction <span class="keyword">import</span> ExtractParameters</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">## Import to MongoDB</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">from</span> build_db <span class="keyword">import</span> BuildMongoDB</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">## Update SQLite Parameters.db3 database</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    reConstructSQLiteDB()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">## Climate Data</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    SitesMList, SitesPList = ImportHydroClimateSitesInfo(HOSTNAME,PORT,ClimateDBName,HydroClimateVarFile, MetroSiteFile, PrecSiteFile)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ImportDailyMeteoData(HOSTNAME, PORT, ClimateDBName, MeteoDailyFile, SitesMList)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ImportDailyPrecData(HOSTNAME,PORT,ClimateDBName,PrecExcelPrefix,PrecDataYear, SitesPList)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">## TODO: Measurements Data, i.e., DB_TAB_MEASUREMENT, field design refers to DB_TAB_DATAVALUES</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ImportDailyDischargeData(HOSTNAME,PORT,ClimateDBName,DischargeExcelPrefix,DischargeYear)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">## Spatial Data derived from DEM</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SubbasinDelineation(np, WORKING_DIR, dem, outlet_file, threshold, mpiexeDir=MPIEXEC_DIR,exeDir=CPP_PROGRAM_DIR)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    GenerateSubbasins(WORKING_DIR, exeDir=CPP_PROGRAM_DIR)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">## Extract parameters from landuse, soil properties etc.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ExtractParameters(landuseFile, WORKING_DIR, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">## Import to MongoDB database</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    BuildMongoDB(WORKING_DIR, SpatialDBName, stormMode, forCluster, ClimateDBName, PrecSitesThiessen, MeteorSitesThiessen)</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>hydroclimate_sites.py</b></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:54 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>main.py</b></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

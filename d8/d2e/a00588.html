@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology/DEP_FS/DepressionFS.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology/HS_WB/HS_WB.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -110,55 +110,37 @@ $(document).ready(function(){initNavTree('d8/d2e/a00588.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">DepressionFS.h File Reference</div>  </div>
+<div class="title">HS_WB.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A simple fill and spill method method to calculate depression storage.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
 <code>#include &quot;api.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/dc3/a00453_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for DepressionFS.h:</div>
+Include dependency graph for HS_WB.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d12/a00942.png" border="0" usemap="#src_2modules_2hydrology_2_d_e_p___f_s_2_depression_f_s_8h" alt=""/></div>
-<map name="src_2modules_2hydrology_2_d_e_p___f_s_2_depression_f_s_8h" id="src_2modules_2hydrology_2_d_e_p___f_s_2_depression_f_s_8h">
-<area shape="rect" id="node4" href="../../dc/d0c/a00430_source.html" title="api.h" alt="" coords="122,101,179,131"/><area shape="rect" id="node5" href="../../da/dc3/a00453.html" title="Parent class for all modules in SEIMS. " alt="" coords="82,179,245,208"/><area shape="rect" id="node6" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="89,256,239,285"/></map>
+<div class="center"><img src="../../da/d40/a00946.png" border="0" usemap="#src_2modules_2hydrology_2_h_s___w_b_2_h_s___w_b_8h" alt=""/></div>
+<map name="src_2modules_2hydrology_2_h_s___w_b_2_h_s___w_b_8h" id="src_2modules_2hydrology_2_h_s___w_b_2_h_s___w_b_8h">
+<area shape="rect" id="node6" href="../../da/db6/a00427_source.html" title="api.h" alt="" coords="304,101,361,131"/><area shape="rect" id="node7" href="../../de/df4/a00450.html" title="Parent class for all modules in SEIMS. " alt="" coords="251,179,414,208"/><area shape="rect" id="node8" href="../../de/dfe/a00448.html" title="Define ModelException class. " alt="" coords="191,256,341,285"/></map>
 </div>
 </div>
 <p><a href="../../d8/d2e/a00588_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html">DepressionFS</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple fill and spill method method to calculate depression storage.  <a href="../../d5/d16/a00029.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple fill and spill method method to calculate depression storage. </p>
-<dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Feb. 2011  Zhiqiang Yu </dd>
-<dd>
-2011-2-15</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>1. Modify the name of some parameters, input and output variables. Please see the metadata rules for the names.<ol type="1">
-<li>Depre_in would be DT_Single. Add function SetSingleData() to set its value.</li>
-<li>This module will be called by infiltration module to get the depression storage. And this module will also use the outputs of infiltration module. The sequence of this two modules is infiltration-&gt;depression. When infiltration first calls the depression module, the execute function of depression module is not executed before getting the outputs. So, the output variables should be initial in the Get1DData function. This initialization is realized by function initalOutputs. </li>
-</ol>
-</dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Junzhi Liu </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>May 2011 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d8/d2e/a00588_source.html">DepressionFS.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d8/d2e/a00588_source.html">HS_WB.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_24a18e1ceb44bdfd9407b604c1f03c58.html">DEP_FS</a></li><li class="navelem"><a class="el" href="../../d8/d2e/a00588.html">DepressionFS.h</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_604d0925f9b60393c50da4b0dd350e41.html">hydrology</a></li><li class="navelem"><a class="el" href="../../dir_1c85b6c22352757ea821a9a577177544.html">HS_WB</a></li><li class="navelem"><a class="el" href="../../d8/d2e/a00588.html">HS_WB.h</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

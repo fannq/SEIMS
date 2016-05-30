@@ -1,10 +1,9 @@
 var a00059 =
 [
-    [ "Execute", "d3/d8b/a00059.html#afe324268c959ab8383aeb25548745cd8", null ],
-    [ "Get1DData", "d3/d8b/a00059.html#ad22c448f0e68939c9456cb78bc2ef298", null ],
-    [ "GetValue", "d3/d8b/a00059.html#ab174a75676945c1e580aef919eb42d73", null ],
-    [ "Set1DData", "d3/d8b/a00059.html#acb559594b0c11042b9dd14230a0581af", null ],
-    [ "SetValue", "d3/d8b/a00059.html#aa9dca27827857fbf83857d33df525bb5", null ],
-    [ "m_depRatio", "d3/d8b/a00059.html#a49d4694cf966de92bea205a04151501d", null ],
-    [ "m_streamLink", "d3/d8b/a00059.html#a6b51cdc541c9d0c80df31b87796bad42", null ]
+    [ "NotRegularMeasurement", "d3/d8b/a00059.html#a3c9de25b026a3918f3655e4381a867e7", null ],
+    [ "~NotRegularMeasurement", "d3/d8b/a00059.html#a156ee633e6dfc626a362bb826525ea6e", null ],
+    [ "GetSiteDataByTime", "d3/d8b/a00059.html#af77a1b276a9f174603a977b2a6e4c5cc", null ],
+    [ "m_curIndexList", "d3/d8b/a00059.html#abb545ecf27b9011ea628ad92bc0ac697", null ],
+    [ "m_timeList", "d3/d8b/a00059.html#ac49bfde12525e6ad88d058122eba3aba", null ],
+    [ "m_valueList", "d3/d8b/a00059.html#ac13ca9e77b8b7d54845def6bbd0e7e5b", null ]
 ];

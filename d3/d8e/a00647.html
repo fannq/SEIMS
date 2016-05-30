@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/modules/hydrology_longterm/SNO_WB/SNO_WB.h File Reference</title>
+<title>SEIMS-2016: src/modules/hydrology_longterm/SRD_MB/SRD_MB.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,49 +113,47 @@ $(document).ready(function(){initNavTree('d3/d8e/a00647.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">SNO_WB.h File Reference</div>  </div>
+<div class="title">SRD_MB.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Snow redistribution calculated by the original WetSpa algorithm.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;ctime&gt;</code><br/>
 <code>#include &quot;api.h&quot;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &quot;subbasin.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/dc3/a00453_source.html">SimulationModule.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/df4/a00450_source.html">SimulationModule.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SNO_WB.h:</div>
+Include dependency graph for SRD_MB.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/dce/a00974.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_s_n_o___w_b_2_s_n_o___w_b_8h" alt=""/></div>
-<map name="src_2modules_2hydrology__longterm_2_s_n_o___w_b_2_s_n_o___w_b_8h" id="src_2modules_2hydrology__longterm_2_s_n_o___w_b_2_s_n_o___w_b_8h">
-<area shape="rect" id="node4" href="../../dc/d0c/a00430_source.html" title="api.h" alt="" coords="124,101,181,131"/><area shape="rect" id="node5" href="../../da/dc3/a00453.html" title="Parent class for all modules in SEIMS. " alt="" coords="74,179,237,208"/><area shape="rect" id="node10" href="../../de/d85/a00618_source.html" title="subbasin.h" alt="" coords="308,101,408,131"/><area shape="rect" id="node6" href="../../d9/d69/a00451.html" title="Define ModelException class. " alt="" coords="84,256,234,285"/></map>
+<div class="center"><img src="../../db/dbf/a00975.png" border="0" usemap="#src_2modules_2hydrology__longterm_2_s_r_d___m_b_2_s_r_d___m_b_8h" alt=""/></div>
+<map name="src_2modules_2hydrology__longterm_2_s_r_d___m_b_2_s_r_d___m_b_8h" id="src_2modules_2hydrology__longterm_2_s_r_d___m_b_2_s_r_d___m_b_8h">
+<area shape="rect" id="node4" href="../../da/db6/a00427_source.html" title="api.h" alt="" coords="143,101,200,131"/><area shape="rect" id="node5" href="../../de/df4/a00450.html" title="Parent class for all modules in SEIMS. " alt="" coords="103,179,267,208"/><area shape="rect" id="node6" href="../../de/dfe/a00448.html" title="Define ModelException class. " alt="" coords="110,256,260,285"/></map>
 </div>
 </div>
 <p><a href="../../d3/d8e/a00647_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d1e/a00087.html">SNO_WB</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate snow water balance.  <a href="../../d1/d1e/a00087.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html">SRD_MB</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soil redistribution calculation.  <a href="../../d9/dec/a00090.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Chunping Ou </dd></dl>
+<div class="textblock"><p>Snow redistribution calculated by the original WetSpa algorithm. </p>
+<dl class="section author"><dt>Author</dt><dd>Chunping Ou </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>May 2011  LiangJun Zhu </dd>
 <dd>
-2016-5-29<ol type="1">
-<li>Remove m_isInitial and add initialOutputs()</li>
-<li>Wind speed is DT_Raster1D </li>
-</ol>
-</dd></dl>
+2016-5-29 </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d3/d8e/a00647_source.html">SNO_WB.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/d8e/a00647_source.html">SRD_MB.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_b9bb655e7bf6472ac25375581afdf08a.html">SNO_WB</a></li><li class="navelem"><a class="el" href="../../d3/d8e/a00647.html">SNO_WB.h</a></li>
-    <li class="footer">Generated on Mon May 30 2016 08:41:56 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_a622aae991adac0fec5ac08c477458ec.html">modules</a></li><li class="navelem"><a class="el" href="../../dir_aba66779f987b7fbfc692ce6a689a699.html">hydrology_longterm</a></li><li class="navelem"><a class="el" href="../../dir_eef8de3ea302887874ef45e3ad795f8a.html">SRD_MB</a></li><li class="navelem"><a class="el" href="../../d3/d8e/a00647.html">SRD_MB.h</a></li>
+    <li class="footer">Generated on Mon May 30 2016 09:34:24 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
