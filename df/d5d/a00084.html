@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: SNO_SP Class Reference</title>
+<title>SEIMS-2016: SNO_DD Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -116,128 +116,134 @@ $(document).ready(function(){initNavTree('df/d5d/a00084.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d99/a01101.html">List of all members</a>  </div>
+<a href="../../d4/da7/a01102.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SNO_SP Class Reference<div class="ingroups"><a class="el" href="../../d4/dd7/a00793.html">SNO_SP</a></div></div>  </div>
+<div class="title">SNO_DD Class Reference<div class="ingroups"><a class="el" href="../../d2/d5a/a00792.html">SNO_DD</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Calculate snow melt by snowpack daily method from SWAT.  
+<p>Calculate snow melt by Degree-Day method.  
  <a href="../../df/d5d/a00084.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../db/d3a/a00641_source.html">SNO_SP.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/daa/a00638_source.html">SNO_DD.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for SNO_SP:</div>
+Inheritance diagram for SNO_DD:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/da7/a01102.png" border="0" usemap="#_s_n_o___s_p_inherit__map" alt="Inheritance graph"/></div>
-<map name="_s_n_o___s_p_inherit__map" id="_s_n_o___s_p_inherit__map">
-<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
+<div class="center"><img src="../../d9/d10/a01103.png" border="0" usemap="#_s_n_o___d_d_inherit__map" alt="Inheritance graph"/></div>
+<map name="_s_n_o___d_d_inherit__map" id="_s_n_o___d_d_inherit__map">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="5,5,189,333"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0531fd3b20460ab574580dc2b026f8d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a0531fd3b20460ab574580dc2b026f8d3">SNO_SP</a> (void)</td></tr>
-<tr class="memdesc:a0531fd3b20460ab574580dc2b026f8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a0531fd3b20460ab574580dc2b026f8d3">More...</a><br/></td></tr>
-<tr class="separator:a0531fd3b20460ab574580dc2b026f8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79591efe13e06e7d1c03de1f931074e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79591efe13e06e7d1c03de1f931074e4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a79591efe13e06e7d1c03de1f931074e4">~SNO_SP</a> (void)</td></tr>
-<tr class="memdesc:a79591efe13e06e7d1c03de1f931074e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a79591efe13e06e7d1c03de1f931074e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a490eec596164334c8d3b60b2581b03aa"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a490eec596164334c8d3b60b2581b03aa">Execute</a> ()</td></tr>
-<tr class="memdesc:a490eec596164334c8d3b60b2581b03aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation.  <a href="#a490eec596164334c8d3b60b2581b03aa">More...</a><br/></td></tr>
-<tr class="separator:a490eec596164334c8d3b60b2581b03aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a065ced66ff05f5e75a005d87813953ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a065ced66ff05f5e75a005d87813953ea"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a065ced66ff05f5e75a005d87813953ea">SetValue</a> (const char *key, float data)</td></tr>
-<tr class="memdesc:a065ced66ff05f5e75a005d87813953ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
-<tr class="separator:a065ced66ff05f5e75a005d87813953ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92debd5b9ff3070de4995567b5f61eea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a92debd5b9ff3070de4995567b5f61eea">Set1DData</a> (const char *key, int n, float *data)</td></tr>
-<tr class="memdesc:a92debd5b9ff3070de4995567b5f61eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data.  <a href="#a92debd5b9ff3070de4995567b5f61eea">More...</a><br/></td></tr>
-<tr class="separator:a92debd5b9ff3070de4995567b5f61eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81f9752e63768ee4803246181b2a49a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81f9752e63768ee4803246181b2a49a9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a81f9752e63768ee4803246181b2a49a9">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
-<tr class="memdesc:a81f9752e63768ee4803246181b2a49a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
-<tr class="separator:a81f9752e63768ee4803246181b2a49a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d2d4adbb30e6933852cc2923d33db5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a4d2d4adbb30e6933852cc2923d33db5a">CheckInputData</a> (void)</td></tr>
-<tr class="separator:a4d2d4adbb30e6933852cc2923d33db5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00080"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00080')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../da/dec/a00080.html">SimulationModule</a></td></tr>
-<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
-<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
-<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
-<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
-<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
-<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
-<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
-<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
-<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
-<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a497fa950bc9c4d85cfb1ae13d83f06c9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#a497fa950bc9c4d85cfb1ae13d83f06c9">Set2DData</a> (const char *key, int nRows, int nCols, float **data)</td></tr>
-<tr class="memdesc:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
-<tr class="separator:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
-<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
-<tr class="separator:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6dc960ad0a7bd7714e9644b64dc0acb"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#ab6dc960ad0a7bd7714e9644b64dc0acb">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
-<tr class="memdesc:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
-<tr class="separator:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
-virtual <a class="el" href="../../de/df4/a00450.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
-<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
-<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
-<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
-<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42868fa2a41c1c7ebca190788d287552"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a42868fa2a41c1c7ebca190788d287552">SNO_DD</a> (void)</td></tr>
+<tr class="memdesc:a42868fa2a41c1c7ebca190788d287552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a42868fa2a41c1c7ebca190788d287552">More...</a><br/></td></tr>
+<tr class="separator:a42868fa2a41c1c7ebca190788d287552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3293ee28c91ecfe39321247a27760c7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3293ee28c91ecfe39321247a27760c7f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a3293ee28c91ecfe39321247a27760c7f">~SNO_DD</a> (void)</td></tr>
+<tr class="memdesc:a3293ee28c91ecfe39321247a27760c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a3293ee28c91ecfe39321247a27760c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa566a3707230b0aeb25403e973908977"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa566a3707230b0aeb25403e973908977"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#aa566a3707230b0aeb25403e973908977">Execute</a> ()</td></tr>
+<tr class="memdesc:aa566a3707230b0aeb25403e973908977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the simulation. <br/></td></tr>
+<tr class="separator:aa566a3707230b0aeb25403e973908977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb864b216b39376a7bbc49217d4dde26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb864b216b39376a7bbc49217d4dde26"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#abb864b216b39376a7bbc49217d4dde26">SetValue</a> (const char *key, float data)</td></tr>
+<tr class="memdesc:abb864b216b39376a7bbc49217d4dde26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data. <br/></td></tr>
+<tr class="separator:abb864b216b39376a7bbc49217d4dde26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc8d5119d374db49e35287fe6203f4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bc8d5119d374db49e35287fe6203f4e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a8bc8d5119d374db49e35287fe6203f4e">Set1DData</a> (const char *key, int n, float *data)</td></tr>
+<tr class="memdesc:a8bc8d5119d374db49e35287fe6203f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 1D data. <br/></td></tr>
+<tr class="separator:a8bc8d5119d374db49e35287fe6203f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade2b88b62c896967edfb4cf106c0254c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade2b88b62c896967edfb4cf106c0254c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ade2b88b62c896967edfb4cf106c0254c">Get1DData</a> (const char *key, int *n, float **data)</td></tr>
+<tr class="memdesc:ade2b88b62c896967edfb4cf106c0254c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 1D data. <br/></td></tr>
+<tr class="separator:ade2b88b62c896967edfb4cf106c0254c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00081"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00081')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d8/d53/a00081.html">SimulationModule</a></td></tr>
+<tr class="memitem:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9934866122995dc98611de6515f47c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#aa9934866122995dc98611de6515f47c5">SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:aa9934866122995dc98611de6515f47c5 inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75fc67bcf8bc5a1dc0eb467af5a9861c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a75fc67bcf8bc5a1dc0eb467af5a9861c">~SimulationModule</a> (void)</td></tr>
+<tr class="memdesc:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a75fc67bcf8bc5a1dc0eb467af5a9861c inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20bb3a6443b9bd60a0c5a22d18deafa2"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a20bb3a6443b9bd60a0c5a22d18deafa2">SetDate</a> (time_t t)</td></tr>
+<tr class="memdesc:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set date time. <br/></td></tr>
+<tr class="separator:a20bb3a6443b9bd60a0c5a22d18deafa2 inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46191d743a839a5290fd42d318b500d0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a46191d743a839a5290fd42d318b500d0">SetTheadNumber</a> (int threadNum)</td></tr>
+<tr class="memdesc:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread number for OpenMP. <br/></td></tr>
+<tr class="separator:a46191d743a839a5290fd42d318b500d0 inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada9172c6eaa09a831a727dfba7da1c0d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#ada9172c6eaa09a831a727dfba7da1c0d">SetDataType</a> (float value)</td></tr>
+<tr class="memdesc:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set data type among. <br/></td></tr>
+<tr class="separator:ada9172c6eaa09a831a727dfba7da1c0d inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a497fa950bc9c4d85cfb1ae13d83f06c9"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a497fa950bc9c4d85cfb1ae13d83f06c9">Set2DData</a> (const char *key, int nRows, int nCols, float **data)</td></tr>
+<tr class="memdesc:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set 2D data. <br/></td></tr>
+<tr class="separator:a497fa950bc9c4d85cfb1ae13d83f06c9 inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafd60bc9d4176a0cf64af01aed881980"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#aafd60bc9d4176a0cf64af01aed881980">GetValue</a> (const char *key, float *value)</td></tr>
+<tr class="memdesc:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value. <br/></td></tr>
+<tr class="separator:aafd60bc9d4176a0cf64af01aed881980 inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6dc960ad0a7bd7714e9644b64dc0acb"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#ab6dc960ad0a7bd7714e9644b64dc0acb">Get2DData</a> (const char *key, int *nRows, int *nCols, float ***data)</td></tr>
+<tr class="memdesc:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 2D data. <br/></td></tr>
+<tr class="separator:ab6dc960ad0a7bd7714e9644b64dc0acb inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a272481bef46db20353da33e95a5f5426"></a>
+virtual <a class="el" href="../../d9/d69/a00451.html#ad2dde160974c283ccf8f0ce280f791ba">TimeStepType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a272481bef46db20353da33e95a5f5426">GetTimeStepType</a> ()</td></tr>
+<tr class="memdesc:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get time step type. <br/></td></tr>
+<tr class="separator:a272481bef46db20353da33e95a5f5426 inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a3a7bd2ff8748ec360e9464c358500b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a1a3a7bd2ff8748ec360e9464c358500b">ResetSubTimeStep</a> ()</td></tr>
+<tr class="memdesc:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset subtime step. <br/></td></tr>
+<tr class="separator:a1a3a7bd2ff8748ec360e9464c358500b inherit pub_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ac6394b876ed7272c7506a80fcfdd027c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ac6394b876ed7272c7506a80fcfdd027c">CMelt</a> ()</td></tr>
-<tr class="separator:ac6394b876ed7272c7506a80fcfdd027c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab673b5185ab7500ebc98fe146553e927"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ab673b5185ab7500ebc98fe146553e927">initalOutputs</a> ()</td></tr>
+<tr class="separator:ab673b5185ab7500ebc98fe146553e927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a65f08af75374b964c6a3d88959ec4195"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65f08af75374b964c6a3d88959ec4195"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a65f08af75374b964c6a3d88959ec4195">m_nCells</a></td></tr>
-<tr class="memdesc:a65f08af75374b964c6a3d88959ec4195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid cells number. <br/></td></tr>
-<tr class="separator:a65f08af75374b964c6a3d88959ec4195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2031155beb11794aa6fe07b8103d43f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#af2031155beb11794aa6fe07b8103d43f">m_t0</a></td></tr>
-<tr class="separator:af2031155beb11794aa6fe07b8103d43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87f0b15b96ce0a086e00332a96f1d10f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87f0b15b96ce0a086e00332a96f1d10f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a87f0b15b96ce0a086e00332a96f1d10f">m_nCells</a></td></tr>
+<tr class="memdesc:a87f0b15b96ce0a086e00332a96f1d10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid cells number. <br/></td></tr>
+<tr class="separator:a87f0b15b96ce0a086e00332a96f1d10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9672e0f416cbb4fc7795d79cf04cb9a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9672e0f416cbb4fc7795d79cf04cb9a2"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a9672e0f416cbb4fc7795d79cf04cb9a2">m_SA</a></td></tr>
+<tr class="memdesc:a9672e0f416cbb4fc7795d79cf04cb9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snow accumulation. <br/></td></tr>
+<tr class="separator:a9672e0f416cbb4fc7795d79cf04cb9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b774eceb4a247dc829f4861daed384"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2b774eceb4a247dc829f4861daed384"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#af2b774eceb4a247dc829f4861daed384">m_SM</a></td></tr>
+<tr class="memdesc:af2b774eceb4a247dc829f4861daed384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snow melt. <br/></td></tr>
+<tr class="separator:af2b774eceb4a247dc829f4861daed384"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00080"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00080')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../da/dec/a00080.html">SimulationModule</a></td></tr>
-<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
-time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
-<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
-<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dec/a00080.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
-<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00080"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
-<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00081"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00081')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d8/d53/a00081.html">SimulationModule</a></td></tr>
+<tr class="memitem:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabd631c05d3e74aa9970f7415f2f5de7"></a>
+time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#aabd631c05d3e74aa9970f7415f2f5de7">m_date</a></td></tr>
+<tr class="memdesc:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">date time <br/></td></tr>
+<tr class="separator:aabd631c05d3e74aa9970f7415f2f5de7 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee1865c86a9761af76cec98cac30a44"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#adee1865c86a9761af76cec98cac30a44">m_tsCounter</a></td></tr>
+<tr class="memdesc:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">sub-timestep counter <br/></td></tr>
+<tr class="separator:adee1865c86a9761af76cec98cac30a44 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculate snow melt by snowpack daily method from SWAT. </p>
+<div class="textblock"><p>Calculate snow melt by Degree-Day method. </p>
 
-<p>Definition at line <a class="el" href="../../db/d3a/a00641_source.html#l00030">30</a> of file <a class="el" href="../../db/d3a/a00641_source.html">SNO_SP.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/daa/a00638_source.html#l00030">30</a> of file <a class="el" href="../../d1/daa/a00638_source.html">SNO_DD.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0531fd3b20460ab574580dc2b026f8d3"></a>
+<a class="anchor" id="a42868fa2a41c1c7ebca190788d287552"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SNO_SP::SNO_SP </td>
+          <td class="memname">SNO_DD::SNO_DD </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -249,31 +255,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../..
 <p>Constructor. </p>
 <p>m_isInitial = true; </p>
 
-<p>Definition at line <a class="el" href="../../dc/d62/a00640_source.html#l00010">10</a> of file <a class="el" href="../../dc/d62/a00640_source.html">SNO_SP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dbb/a00637_source.html#l00007">7</a> of file <a class="el" href="../../de/dbb/a00637_source.html">SNO_DD.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4d2d4adbb30e6933852cc2923d33db5a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool SNO_SP::CheckInputData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>m_SA should be the output! By LJ </p>
-
-<p>Definition at line <a class="el" href="../../dc/d62/a00640_source.html#l00046">46</a> of file <a class="el" href="../../dc/d62/a00640_source.html">SNO_SP.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac6394b876ed7272c7506a80fcfdd027c"></a>
+<a class="anchor" id="ab673b5185ab7500ebc98fe146553e927"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -281,7 +268,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../..
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float SNO_SP::CMelt </td>
+          <td class="memname">void SNO_DD::initalOutputs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -294,142 +281,23 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../..
 </table>
 </div><div class="memdoc">
 <p>removed by LJ bool m_isInitial; </p>
+<p>Since m_tMean is output of other modules, m_tMean is NULL when the first run invoked by the modules ahead of <a class="el" href="../../df/d5d/a00084.html" title="Calculate snow melt by Degree-Day method. ">SNO_DD</a>. LJ </p>
 
-<p>Definition at line <a class="el" href="../../dc/d62/a00640_source.html#l00158">158</a> of file <a class="el" href="../../dc/d62/a00640_source.html">SNO_SP.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d5d/a00084_ac6394b876ed7272c7506a80fcfdd027c_cgraph.png" border="0" usemap="#df/d5d/a00084_ac6394b876ed7272c7506a80fcfdd027c_cgraph" alt=""/></div>
-<map name="df/d5d/a00084_ac6394b876ed7272c7506a80fcfdd027c_cgraph" id="df/d5d/a00084_ac6394b876ed7272c7506a80fcfdd027c_cgraph">
-<area shape="rect" id="node2" href="../../d0/da0/a00403.html#a6a04547c5d7d36efb95a9f9cc4a94378" title="Get the Julian day of one day. " alt="" coords="193,4,287,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a490eec596164334c8d3b60b2581b03aa"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int SNO_SP::Execute </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Execute the simulation. </p>
-<p>the initialization should be removed when snow redistribution module is accomplished. LJ </p>
-
-<p>Reimplemented from <a class="el" href="../../da/dec/a00080.html#a686c39c1c4894cc144699ba0681d509d">SimulationModule</a>.</p>
-
-<p>Definition at line <a class="el" href="../../dc/d62/a00640_source.html#l00086">86</a> of file <a class="el" href="../../dc/d62/a00640_source.html">SNO_SP.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d5d/a00084_a490eec596164334c8d3b60b2581b03aa_cgraph.png" border="0" usemap="#df/d5d/a00084_a490eec596164334c8d3b60b2581b03aa_cgraph" alt=""/></div>
-<map name="df/d5d/a00084_a490eec596164334c8d3b60b2581b03aa_cgraph" id="df/d5d/a00084_a490eec596164334c8d3b60b2581b03aa_cgraph">
-<area shape="rect" id="node2" href="../../df/d5d/a00084.html#a4d2d4adbb30e6933852cc2923d33db5a" title="SNO_SP::CheckInputData" alt="" coords="208,5,419,35"/><area shape="rect" id="node3" href="../../df/d5d/a00084.html#ac6394b876ed7272c7506a80fcfdd027c" title="SNO_SP::CMelt" alt="" coords="244,59,383,88"/><area shape="rect" id="node4" href="../../d0/da0/a00403.html#a6a04547c5d7d36efb95a9f9cc4a94378" title="Get the Julian day of one day. " alt="" coords="467,59,562,88"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a92debd5b9ff3070de4995567b5f61eea"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SNO_SP::Set1DData </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set 1D data. </p>
-<p>else if(StringMatch(s, VAR_SNAC)) this-&gt;m_SA = data; m_SA should be a output. By LJ </p>
-
-<p>Reimplemented from <a class="el" href="../../da/dec/a00080.html#aba2d6fc2b0e4f8ccf202e0752c45d55c">SimulationModule</a>.</p>
-
-<p>Definition at line <a class="el" href="../../dc/d62/a00640_source.html#l00200">200</a> of file <a class="el" href="../../dc/d62/a00640_source.html">SNO_SP.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af2031155beb11794aa6fe07b8103d43f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float SNO_SP::m_t0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Current date time_t m_Date; No need to define date again! By LJ </p>
-
-<p>Definition at line <a class="el" href="../../db/d3a/a00641_source.html#l00051">51</a> of file <a class="el" href="../../db/d3a/a00641_source.html">SNO_SP.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dbb/a00637_source.html#l00050">50</a> of file <a class="el" href="../../de/dbb/a00637_source.html">SNO_DD.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/modules/hydrology_longterm/SNO_SP/<a class="el" href="../../db/d3a/a00641_source.html">SNO_SP.h</a></li>
-<li>src/modules/hydrology_longterm/SNO_SP/<a class="el" href="../../dc/d62/a00640_source.html">SNO_SP.cpp</a></li>
+<li>src/modules/hydrology_longterm/SNO_DD/<a class="el" href="../../d1/daa/a00638_source.html">SNO_DD.h</a></li>
+<li>src/modules/hydrology_longterm/SNO_DD/<a class="el" href="../../de/dbb/a00637_source.html">SNO_DD.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../df/d5d/a00084.html">SNO_SP</a></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:41 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../df/d5d/a00084.html">SNO_DD</a></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:25 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

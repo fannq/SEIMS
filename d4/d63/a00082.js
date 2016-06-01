@@ -1,9 +1,9 @@
 var a00082 =
 [
-    [ "slTable", "d4/d63/a00082.html#ac847356c51cf0f2de2ad033525bbf23e", null ],
-    [ "~slTable", "d4/d63/a00082.html#a6e89beb6ee7638c477ee8dc96f85dd66", null ],
-    [ "FieldValue", "d4/d63/a00082.html#abb56a581d1fd10567ad208347ec578a7", null ],
-    [ "nCols", "d4/d63/a00082.html#a4e2965e5fd32bef8dd66b8e46cd00a9f", null ],
-    [ "nRows", "d4/d63/a00082.html#adea6ff1f79a5048f86d45a1a77ec9ae2", null ],
-    [ "pData", "d4/d63/a00082.html#adfbf7d70ba482dcc689ef8eb248e27b0", null ]
+    [ "alti", "d4/d63/a00082.html#a4ec93a9967162e64ef2922310855bc4d", null ],
+    [ "lat", "d4/d63/a00082.html#afdb09aa744715eead7aa2734e1592c1b", null ],
+    [ "LocalX", "d4/d63/a00082.html#ae9e95f3afdaddc39ea1171bb44d5ff25", null ],
+    [ "LocalY", "d4/d63/a00082.html#aa7a1c33ac14a005f913304db3a900259", null ],
+    [ "lon", "d4/d63/a00082.html#a1404b595df951f2a6177b62ed4d4d4d9", null ],
+    [ "Name", "d4/d63/a00082.html#a7c630f84d3767984ee90417b6b6028a7", null ]
 ];

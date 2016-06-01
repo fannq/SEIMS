@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/adjust_groups.py Source File</title>
+<title>SEIMS-2016: postprocess/QueryMongoDB.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,52 +111,30 @@ $(document).ready(function(){initNavTree('d1/dd6/a00108_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">adjust_groups.py</div>  </div>
+<div class="title">QueryMongoDB.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">def </span>GetMaxWeight(groupWeightDic, groupDic):</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    maxId = -1</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    maxWeight = -1</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keywordflow">for</span> id <span class="keywordflow">in</span> groupWeightDic:</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        <span class="keywordflow">if</span> len(groupDic[id]) &gt; 1 <span class="keywordflow">and</span> maxWeight &lt; groupWeightDic[id]:</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;            maxWeight = groupWeightDic[id]</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;            maxId = id</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">from</span> pymongo <span class="keyword">import</span> Connection</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># i have updated and included the complete code </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;client = Connection(<span class="stringliteral">&#39;localhost&#39;</span>, 27017)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;db = client[<span class="stringliteral">&#39;database&#39;</span>] <span class="comment"># your database name</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;inoshare = db[<span class="stringliteral">&#39;inoshare&#39;</span>]</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">return</span> maxId, maxWeight</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">def </span>AdjustGroupResult(g, weightDic, groupList, nGroups):</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    groupDic = {}<span class="comment"># group id from 0</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    groupWeightDic = {} <span class="comment"># subbasin id form 1</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    n = len(weightDic.keys())</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">for</span> subId <span class="keywordflow">in</span> range(1,n+1):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        groupId = groupList[subId-1]</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        groupDic.setdefault(groupId,[]).append(subId)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        groupWeightDic[groupId] = groupWeightDic.setdefault(groupId,0) + weightDic[subId]</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">#get average weight for each group, which is the ideal aim of task scheduling</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    aveWeight = 0</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">for</span> id <span class="keywordflow">in</span> groupWeightDic:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        aveWeight += groupWeightDic[id]</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    aveWeight /= nGroups</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> iGroup <span class="keywordflow">in</span> range(nGroups):</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> iGroup <span class="keywordflow">in</span> groupDic:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            maxId, maxWeight = GetMaxWeight(groupWeightDic, groupDic)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">if</span> maxId &lt; 0:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">continue</span> </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            subList = groupDic[maxId]</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            subId = subList[0]</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            groupDic[iGroup] = [subId,]</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            groupList[subId-1] = iGroup</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            groupDic[maxId].remove(subId)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"># convert your date string to datetime object</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;start = datetime(2014, 9, 24, 7, 51, 04)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;end = datetime(2014, 9, 24, 7, 52, 04)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;inoshare.find( {<span class="stringliteral">&#39;id_no&#39;</span>: 1, <span class="stringliteral">&#39;datahora&#39;</span>: {<span class="stringliteral">&#39;$lt&#39;</span>: end, <span class="stringliteral">&#39;$gte&#39;</span>: start}, <span class="stringliteral">&#39;porta&#39;</span>: <span class="stringliteral">&#39;A0&#39;</span>})</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>adjust_groups.py</b></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:37 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_ea73ff9840ca2fea81572ead8d971f31.html">postprocess</a></li><li class="navelem"><b>QueryMongoDB.py</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

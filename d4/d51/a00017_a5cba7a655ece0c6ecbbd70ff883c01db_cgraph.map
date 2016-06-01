@@ -1,9 +1,0 @@
-<map id="clsRasterData::ReadFromGDAL" name="clsRasterData::ReadFromGDAL">
-<area shape="rect" id="node2" href="$d4/d51/a00017.html#a85f80fde2cb34eeead63ae635abc2581" title="Read raster data using GDAL. " alt="" coords="304,5,555,35"/>
-<area shape="rect" id="node3" href="$d1/d44/a00098.html#aab71f707faaacf41928fc45b326b3232" title="Return a flag indicating if the given file exists. " alt="" coords="365,59,494,88"/>
-<area shape="rect" id="node4" href="$d4/d51/a00017.html#af9129b542dc471fe7dcc045cb607e39d" title="Get raster header information. " alt="" coords="329,137,529,183"/>
-<area shape="rect" id="node5" href="$d4/d51/a00017.html#aa88d47b1fad870a6357edb2030d4ba90" title="Get the spatial reference. " alt="" coords="336,208,523,237"/>
-<area shape="rect" id="node6" href="$d4/d51/a00017.html#ae6d573951cf55cd9ae106bd98a2ffb02" title="Get non&#45;NODATA position index data, include cell number and (row, col) " alt="" coords="329,286,529,333"/>
-<area shape="rect" id="node7" href="$d4/d51/a00017.html#acb210f7c2ebb66ea63c5963698f91de6" title="Get column number of raster data. " alt="" coords="336,357,523,387"/>
-<area shape="rect" id="node8" href="$d4/d51/a00017.html#a627ed4a52765633fa262deeb24ee7e2a" title="Get row number of raster data. " alt="" coords="332,411,527,440"/>
-</map>

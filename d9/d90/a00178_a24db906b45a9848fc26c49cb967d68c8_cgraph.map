@@ -1,7 +1,0 @@
-<map id="gk_graph_Dup" name="gk_graph_Dup">
-<area shape="rect" id="node2" href="$d2/d94/a00184.html#a0d092a371d797437de53ae1a64bd78f4" title="gk_graph_Create" alt="" coords="181,32,328,61"/>
-<area shape="rect" id="node3" href="$d9/d90/a00178.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="389,5,483,35"/>
-<area shape="rect" id="node6" href="$d2/d94/a00184.html#ab017e0e6f2436f3ad24ea01d8b2c588c" title="gk_graph_Init" alt="" coords="377,59,495,88"/>
-<area shape="rect" id="node4" href="$d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="731,7,823,36"/>
-<area shape="rect" id="node5" href="$d9/d90/a00178.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="544,32,683,61"/>
-</map>

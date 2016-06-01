@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: ckrinfo_t Struct Reference</title>
+<title>SEIMS-2016: base_VariableData Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -113,101 +113,89 @@ $(document).ready(function(){initNavTree('df/d86/a00012.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d3/daa/a00996.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../d9/d9a/a00998.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ckrinfo_t Struct Reference</div>  </div>
+<div class="title">base_VariableData Class Reference<div class="ingroups"><a class="el" href="../../d4/dfa/a00746.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>&gt;</code></p>
+<p>Base class for variable data.  
+ <a href="../../df/d86/a00012.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d0/da0/a00403_source.html">base_VariableData.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a6d1da388f70555f25dc90fdcc011bb9b"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a6d1da388f70555f25dc90fdcc011bb9b">id</a></td></tr>
-<tr class="separator:a6d1da388f70555f25dc90fdcc011bb9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57270f8839a5146d9342569f12865e57"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a57270f8839a5146d9342569f12865e57">ed</a></td></tr>
-<tr class="separator:a57270f8839a5146d9342569f12865e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73fbc8555b843b3fd414ac0a9ec244f1"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a73fbc8555b843b3fd414ac0a9ec244f1">nnbrs</a></td></tr>
-<tr class="separator:a73fbc8555b843b3fd414ac0a9ec244f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca4e2d97adbc1b6401b4ee8acba70770"><td class="memItemLeft" align="right" valign="top">idx_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#aca4e2d97adbc1b6401b4ee8acba70770">inbr</a></td></tr>
-<tr class="separator:aca4e2d97adbc1b6401b4ee8acba70770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a40eb0905d7a4c4aafb523e14b6d412ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40eb0905d7a4c4aafb523e14b6d412ae"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a40eb0905d7a4c4aafb523e14b6d412ae">base_VariableData</a> (void)</td></tr>
+<tr class="memdesc:a40eb0905d7a4c4aafb523e14b6d412ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor (by default, m_Dimention is Unknown) <br/></td></tr>
+<tr class="separator:a40eb0905d7a4c4aafb523e14b6d412ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5e2c42f75af4f7eb86b2ec17dfcf188"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5e2c42f75af4f7eb86b2ec17dfcf188"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#ae5e2c42f75af4f7eb86b2ec17dfcf188">base_VariableData</a> (const <a class="el" href="../../df/d86/a00012.html">base_VariableData</a> &amp;obj)</td></tr>
+<tr class="memdesc:ae5e2c42f75af4f7eb86b2ec17dfcf188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy Constructor. <br/></td></tr>
+<tr class="separator:ae5e2c42f75af4f7eb86b2ec17dfcf188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b5f636b8d7171f4b378f5798f2f3276"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b5f636b8d7171f4b378f5798f2f3276"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a1b5f636b8d7171f4b378f5798f2f3276">~base_VariableData</a> (void)</td></tr>
+<tr class="memdesc:a1b5f636b8d7171f4b378f5798f2f3276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a1b5f636b8d7171f4b378f5798f2f3276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa920192f4d517065eed71344ccea3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaa920192f4d517065eed71344ccea3c"></a>
+virtual <a class="el" href="../../df/d86/a00012.html">base_VariableData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#aeaa920192f4d517065eed71344ccea3c">operator=</a> (const <a class="el" href="../../df/d86/a00012.html">base_VariableData</a> &amp;obj)</td></tr>
+<tr class="memdesc:aeaa920192f4d517065eed71344ccea3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator overload. <br/></td></tr>
+<tr class="separator:aeaa920192f4d517065eed71344ccea3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad40aae2bb46bbb46ce4f50063e39f89d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad40aae2bb46bbb46ce4f50063e39f89d"></a>
+virtual <a class="el" href="../../d5/d68/a00747.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#ad40aae2bb46bbb46ce4f50063e39f89d">Dimension</a> (void)</td></tr>
+<tr class="memdesc:ad40aae2bb46bbb46ce4f50063e39f89d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimension type for the object instance. <br/></td></tr>
+<tr class="separator:ad40aae2bb46bbb46ce4f50063e39f89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ab96cf2d176ba9e157121492f85e7bf05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d68/a00747.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#ab96cf2d176ba9e157121492f85e7bf05">m_Dimension</a></td></tr>
+<tr class="memdesc:ab96cf2d176ba9e157121492f85e7bf05"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; dimension type for the dataset,  <a href="#ab96cf2d176ba9e157121492f85e7bf05">More...</a><br/></td></tr>
+<tr class="separator:ab96cf2d176ba9e157121492f85e7bf05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The following data structure stores holds information on degrees for k-way partition </p>
+<div class="textblock"><p>Base class for variable data. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00034">34</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da0/a00403_source.html#l00020">20</a> of file <a class="el" href="../../d0/da0/a00403_source.html">base_VariableData.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a57270f8839a5146d9342569f12865e57"></a>
+<a class="anchor" id="ab96cf2d176ba9e157121492f85e7bf05"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">idx_t ckrinfo_t::ed</td>
+          <td class="memname"><a class="el" href="../../d5/d68/a00747.html#gac6cf78ef837450cfb19495fe34976b8c">dimensionTypes</a> base_VariableData::m_Dimension</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>The total external degree of a vertex </p>
 
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00036">36</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+<p>&lt; dimension type for the dataset, </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d5/d68/a00747.html#gac6cf78ef837450cfb19495fe34976b8c" title="enum of dimension data types ">dimensionTypes</a> </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="a6d1da388f70555f25dc90fdcc011bb9b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t ckrinfo_t::id</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The internal degree of a vertex (sum of weights) </p>
-
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00035">35</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da0/a00403_source.html#l00024">24</a> of file <a class="el" href="../../d0/da0/a00403_source.html">base_VariableData.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aca4e2d97adbc1b6401b4ee8acba70770"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t ckrinfo_t::inbr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The index in the <a class="el" href="../../dc/de2/a00024.html">cnbr_t</a> array where the nnbrs list of neighbors is stored </p>
-
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00038">38</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a73fbc8555b843b3fd414ac0a9ec244f1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">idx_t ckrinfo_t::nnbrs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The number of neighboring subdomains </p>
-
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00037">37</a> of file <a class="el" href="../../d4/d04/a00255_source.html">struct.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>preprocess/cpp_src/metis-5.1.0-pk/libmetis/<a class="el" href="../../d4/d04/a00255_source.html">struct.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/base/data/<a class="el" href="../../d0/da0/a00403_source.html">base_VariableData.h</a></li>
+<li>src/base/data/<a class="el" href="../../d4/d6d/a00402_source.html">base_VariableData.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../df/d86/a00012.html">ckrinfo_t</a></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../df/d86/a00012.html">base_VariableData</a></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:25 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

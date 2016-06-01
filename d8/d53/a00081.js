@@ -1,9 +1,19 @@
 var a00081 =
 [
-    [ "alti", "d8/d53/a00081.html#a4ec93a9967162e64ef2922310855bc4d", null ],
-    [ "lat", "d8/d53/a00081.html#afdb09aa744715eead7aa2734e1592c1b", null ],
-    [ "LocalX", "d8/d53/a00081.html#ae9e95f3afdaddc39ea1171bb44d5ff25", null ],
-    [ "LocalY", "d8/d53/a00081.html#aa7a1c33ac14a005f913304db3a900259", null ],
-    [ "lon", "d8/d53/a00081.html#a1404b595df951f2a6177b62ed4d4d4d9", null ],
-    [ "Name", "d8/d53/a00081.html#a7c630f84d3767984ee90417b6b6028a7", null ]
+    [ "SimulationModule", "d8/d53/a00081.html#aa9934866122995dc98611de6515f47c5", null ],
+    [ "~SimulationModule", "d8/d53/a00081.html#a75fc67bcf8bc5a1dc0eb467af5a9861c", null ],
+    [ "Execute", "d8/d53/a00081.html#a686c39c1c4894cc144699ba0681d509d", null ],
+    [ "Get1DData", "d8/d53/a00081.html#ad834fe6ed6d11b333fd34e1ff605ebb7", null ],
+    [ "Get2DData", "d8/d53/a00081.html#ab6dc960ad0a7bd7714e9644b64dc0acb", null ],
+    [ "GetTimeStepType", "d8/d53/a00081.html#a272481bef46db20353da33e95a5f5426", null ],
+    [ "GetValue", "d8/d53/a00081.html#aafd60bc9d4176a0cf64af01aed881980", null ],
+    [ "ResetSubTimeStep", "d8/d53/a00081.html#a1a3a7bd2ff8748ec360e9464c358500b", null ],
+    [ "Set1DData", "d8/d53/a00081.html#aba2d6fc2b0e4f8ccf202e0752c45d55c", null ],
+    [ "Set2DData", "d8/d53/a00081.html#a497fa950bc9c4d85cfb1ae13d83f06c9", null ],
+    [ "SetDataType", "d8/d53/a00081.html#ada9172c6eaa09a831a727dfba7da1c0d", null ],
+    [ "SetDate", "d8/d53/a00081.html#a20bb3a6443b9bd60a0c5a22d18deafa2", null ],
+    [ "SetTheadNumber", "d8/d53/a00081.html#a46191d743a839a5290fd42d318b500d0", null ],
+    [ "SetValue", "d8/d53/a00081.html#afcfef6ce1ce8761a961f694e3a7969bb", null ],
+    [ "m_date", "d8/d53/a00081.html#aabd631c05d3e74aa9970f7415f2f5de7", null ],
+    [ "m_tsCounter", "d8/d53/a00081.html#adee1865c86a9761af76cec98cac30a44", null ]
 ];

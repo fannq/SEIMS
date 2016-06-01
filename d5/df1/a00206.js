@@ -1,11 +1,11 @@
 var a00206 =
 [
-    [ "test_dkvsort", "d5/df1/a00206.html#a91e0ce6fc88d5ab6695cda68dc4e79b5", null ],
-    [ "test_fkvsort", "d5/df1/a00206.html#a179814629e9b2ff14387734d6ac52a38", null ],
-    [ "test_fsort", "d5/df1/a00206.html#a92bfe9a7c6bec5eab568c71eda7eb1f1", null ],
-    [ "test_idxkvsort", "d5/df1/a00206.html#ab63d10c508d01adca7672ac341b950ba", null ],
-    [ "test_idxsort", "d5/df1/a00206.html#a3a4da1d3370fc7c176261dfc8eef5691", null ],
-    [ "test_ikvsort", "d5/df1/a00206.html#a03d0ef2537e50ad38d65892cc9c28118", null ],
-    [ "test_isort", "d5/df1/a00206.html#a8de21ffeb988c6322635a778ecdd4066", null ],
-    [ "test_skvsort", "d5/df1/a00206.html#ae2471bde9a7e9419d330392c2e2b35fd", null ]
+    [ "params_t", "d9/db3/a00066.html", null ],
+    [ "CMD_NITER", "d5/df1/a00206.html#a26e9eb9179a727d896d5524a20dd80fd", null ],
+    [ "compute_compactness", "d5/df1/a00206.html#aaa05369855e182bb76940a4c0e3898d8", null ],
+    [ "main", "d5/df1/a00206.html#a0ddf1224851353fc92bfbff6f499fa97", null ],
+    [ "parse_cmdline", "d5/df1/a00206.html#a0e7ce196a2f8882777957bf898739f6f", null ],
+    [ "print_final_info", "d5/df1/a00206.html#a702976a4c55992ddbfc1918ec1b70943", null ],
+    [ "print_init_info", "d5/df1/a00206.html#a4598b170c85571dc5cabc5cf4c0a960f", null ],
+    [ "reorder_centroid", "d5/df1/a00206.html#a1a7121f82ee758732f18aedf847fe88a", null ]
 ];

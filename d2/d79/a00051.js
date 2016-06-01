@@ -1,10 +1,7 @@
 var a00051 =
 [
-    [ "m_Info", "d2/d79/a00051.html#a198c06e1084efade404ae7cb0c8b2920", null ],
-    [ "m_oClass", "d2/d79/a00051.html#a1a8276b621b77495068b9a4a9f3d098c", null ],
-    [ "m_strSchemaVersion", "d2/d79/a00051.html#ae0991113a1ad420c68e3475bf5d4b830", null ],
-    [ "m_vDependencies", "d2/d79/a00051.html#ae9b5c3ff81df63f0451f444cd16c12f9", null ],
-    [ "m_vInputs", "d2/d79/a00051.html#a37676224841b1dfb9e6e8b7e55ba4c76", null ],
-    [ "m_vOutputs", "d2/d79/a00051.html#ab01cd84b9e3e756ad9716ad679c2b472", null ],
-    [ "m_vParameters", "d2/d79/a00051.html#a96dd309d3ec5f6d9056114fcb6e9c15f", null ]
+    [ "eind", "d2/d79/a00051.html#aea23f507e73665abf78ffc3ecc540210", null ],
+    [ "ewgt", "d2/d79/a00051.html#a0a2369b26fbcc6229681ec8cb9e8f713", null ],
+    [ "ncon", "d2/d79/a00051.html#ad18b1da90165616c622c16ce79c6907f", null ],
+    [ "nn", "d2/d79/a00051.html#a6321957b37b2040997c84db2fd2b8427", null ]
 ];

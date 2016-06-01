@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/depression.py Source File</title>
+<title>SEIMS-2016: preprocess/delta_s.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,120 +111,155 @@ $(document).ready(function(){initNavTree('dd/d4e/a00329_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">depression.py</div>  </div>
+<div class="title">delta_s.py</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal,osr</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> sqlite3</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal, osr</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> util</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span>DepressionCap(filepath, sqliteFile):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">#read landuselookup table from sqlite</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    stFields = [<span class="stringliteral">&quot;DSC_ST%d&quot;</span> % (i,) <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(1,13)]</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    sqlLanduse = <span class="stringliteral">&#39;select LANDUSE_ID,%s from LanduseLookup&#39;</span> % (<span class="stringliteral">&#39;,&#39;</span>.join(stFields),)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    conn = sqlite3.connect(sqliteFile)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    cursor = conn.cursor()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    cursor.execute(sqlLanduse)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    dep_sd0 = {}   </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">for</span> row <span class="keywordflow">in</span> cursor:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        id = int(row[0])</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        dep_sd0[id] = [float(item) <span class="keywordflow">for</span> item <span class="keywordflow">in</span> row[1:]]</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    cursor.close()</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    conn.close()</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment"># end read data</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    slope = filepath + os.sep + slopeM</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ds = gdal.Open(slope)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    band = ds.GetRasterBand(1)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    slo_data = band.ReadAsArray()</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    soilTextureFile = filepath + os.sep + soilTexture</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ds = gdal.Open(soilTextureFile)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    band = ds.GetRasterBand(1)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    soilTextureArray = band.ReadAsArray()   </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;     </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    mask = filepath + os.sep + mask_to_ext</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ds = gdal.Open(mask)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    band = ds.GetRasterBand(1)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mask_data = band.ReadAsArray()    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    noDataValue1 = band.GetNoDataValue() </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">#print mask_data</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    landuse = filepath + os.sep + landuseMFile</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ds = gdal.Open(landuse)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    band = ds.GetRasterBand(1)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    landu_data = band.ReadAsArray()</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    xsize = band.XSize</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ysize = band.YSize</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">#print xsize,ysize</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    noDataValue2 = band.GetNoDataValue()</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> WriteGTiffFile</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> util</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;sys.setrecursionlimit(10000)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">#the flowout of outletId is nodata</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;sqrt2 = math.sqrt(2)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">#This flow direction is ArcGIS encode.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;celllen = {1:1,4:1,16:1,64:1, 2:sqrt2, 8:sqrt2, 32:sqrt2, 128:sqrt2}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;differ = {1:[0, 1], 2:[1, 1], 4:[1, 0], 8:[1, -1], 16:[0, -1], 32:[-1, -1], 64:[-1, 0], 128:[-1, 1]}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">def </span>flowlen_cell(i,j,ysize,xsize,fdir,cellsize, weight, length):  </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">#print i,j, weight[i][j]</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    if(i&lt;ysize <span class="keywordflow">and</span> j&lt;xsize):</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        if(length[i][j] == 0):</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            if(weight[i][j] &gt; 0):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                prei = i </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                prej = j</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                wt = weight[i][j]</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                fdirV = fdir[i][j]</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                di = differ[fdirV][0]</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                dj = differ[fdirV][1]</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                i = i + di</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                j = j + dj</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                relen = flowlen_cell(i,j,ysize,xsize,fdir,cellsize,weight, length)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="comment">#print i,j,fdirV</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                length[prei][prej] = cellsize * celllen[fdirV] * wt + relen</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">return</span> length[prei][prej]</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        if(length[i][j] &gt; 0):</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> length[i][j]</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        if(length[i][j] &lt; 0):</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">print</span> <span class="stringliteral">&quot;Error in calculating flowlen_cell function! i,j:&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">print</span> i,j</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span> -1  </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> 0</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">def </span>cal_flowlen(filepath, weight):</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    flow_dir = filepath + os.sep + flowDirOut</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ds = gdal.Open(flow_dir)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    fdir_data = band.ReadAsArray()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    xsize = band.XSize</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ysize = band.YSize</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    noDataValue = band.GetNoDataValue()</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    geotransform = ds.GetGeoTransform()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    srs = osr.SpatialReference()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    srs.ImportFromWkt(ds.GetProjection())    </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    cellsize = geotransform[1]</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    depStorageCap = zeros((ysize, xsize))</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">#Set impervious percentage for urban cells</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    imp = 0.3    </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    defaultLanduseId = 8</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    idOmited = []</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    lastStid = 0</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            if(abs(mask_data[i][j]-noDataValue1) &lt; util.DELTA):</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                depStorageCap[i][j] = noDataValue2</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            landuID = int(landu_data[i][j])</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> landuID <span class="keywordflow">in</span> dep_sd0.keys():</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> landuID <span class="keywordflow">in</span> idOmited:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keywordflow">print</span> <span class="stringliteral">&#39;The landuse ID: %d does not exist.&#39;</span> % (landuID,) </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    idOmited.append(landuID)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                landuID = defaultLanduseId</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            stid = int(soilTextureArray[i][j]) - 1</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                depressionGrid0 = dep_sd0[landuID][stid]</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                lastStid = stid</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                depressionGrid0 = dep_sd0[landuID][lastStid]</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            tempGrid1 = log(depressionGrid0 + 0.0001)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            theSlopeGrid = slo_data[i][j] / 100</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            tempGrid2 = theSlopeGrid * (-9.5)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            depressionGrid = math.exp(tempGrid1 + tempGrid2)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            if(landuID == 106 <span class="keywordflow">or</span> landuID == 107 <span class="keywordflow">or</span> landuID ==105):</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                depStorageCap[i][j] = 0.5*imp+(1-imp)*depressionGrid</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                depStorageCap[i][j] = depressionGrid</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    filename = filepath + os.sep + depressionFile   </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../d0/d0a/a00743.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a>(filename, ysize, xsize, depStorageCap, \</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                            geotransform, srs, noDataValue2, gdal.GDT_Float32)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;The depression storage capacity is generated!&#39;</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> filename</div>
-<div class="ttc" id="a00743_html_acfba40e23f24bf57f47c23b7e096aa4b"><div class="ttname"><a href="../../d0/d0a/a00743.html#acfba40e23f24bf57f47c23b7e096aa4b">util.WriteGTiffFile</a></div><div class="ttdeci">def WriteGTiffFile</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00251">util.py:251</a></div></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    cellsize = geotransform[1]</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    length = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">#weight = zeros((ysize, xsize))</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">#weight[:] = 1</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            if(abs(fdir_data[i][j]-noDataValue) &lt; util.DELTA):</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                length[i][j] = noDataValue</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            flowlen_cell(i,j,ysize,xsize,fdir_data, cellsize, weight, length)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> length</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">def </span>GenerateDelta_s(filepath):</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    streamlink = filepath + os.sep + streamLinkOut</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    ds = gdal.Open(streamlink)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    strlk_data = band.ReadAsArray() </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    radius = filepath + os.sep + radiusFile</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    ds = gdal.Open(radius)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    rad_data = band.ReadAsArray() </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    slope = filepath + os.sep + slopeM</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    ds = gdal.Open(slope)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    slo_data = band.ReadAsArray()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    velocity = filepath + os.sep + velocityFile</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    ds = gdal.Open(velocity)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    band = ds.GetRasterBand(1)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    vel_data = band.ReadAsArray()</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    xsize = band.XSize</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    ysize = band.YSize</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    noDataValue = band.GetNoDataValue()</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    geotransform = ds.GetGeoTransform()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    srs = osr.SpatialReference()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    srs.ImportFromWkt(ds.GetProjection())    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    cellsize = geotransform[1]</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    weight = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    delta_s = zeros((ysize, xsize))</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            if(abs(vel_data[i][j]-noDataValue) &lt; util.DELTA ):</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                delta_s[i][j] = DEFAULT_NODATA</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            if(strlk_data[i][j] &lt;= 0):</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                weight[i][j] = 1</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                weight[i][j] = 0</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="comment"># 0 is river</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            if(slo_data[i][j] &lt; 0.0005 ):</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                slo_data[i][j] = 0.0005</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            dampGrid = vel_data[i][j] * rad_data[i][j] / (slo_data[i][j]/100*2)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            celerity = vel_data[i][j] * 5 / 3</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            weight[i][j] = dampGrid*2 / math.pow(celerity, 3) * weight[i][j]</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    delta_s_sqr = cal_flowlen(filepath, weight)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(0, ysize):</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(0, xsize):</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            if(abs(vel_data[i][j]-noDataValue) &lt; util.DELTA ):</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            delta_s[i][j] = math.sqrt(delta_s_sqr[i][j]) / 3600</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                            </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    filename = filepath + os.sep + delta_sFile</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    WriteGTiffFile(filename, ysize, xsize, delta_s, \</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                geotransform, srs, DEFAULT_NODATA, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                     </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&#39;The delta_s file is generated!&#39;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> filename</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    filepath = <span class="stringliteral">r&#39;E:\data\lygtest&#39;</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    GenerateDelta_s(filepath)</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>depression.py</b></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:38 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>delta_s.py</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

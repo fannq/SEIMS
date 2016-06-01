@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/grid_layering/CompressIndex.cpp Source File</title>
+<title>SEIMS-2016: preprocess/config.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,31 +111,129 @@ $(document).ready(function(){initNavTree('d3/d00/a00113_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CompressIndex.cpp</div>  </div>
+<div class="title">config.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Author: Junzhi Liu</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Date: 2013-04-19</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">int</span> CalCompressedIndex(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span>* mask, <span class="keywordtype">int</span> noDataValue, <span class="keywordtype">int</span>* compressedIndex)</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordtype">int</span> counter = 0;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordflow">if</span>(mask[i] == noDataValue)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;            compressedIndex[i] = -1;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            compressedIndex[i] = counter++;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> counter;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @Configuration of Preprocessing for SEIMS</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">#  TODO, give more detailed description here.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> os,platform,sys</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">## Directionaries </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    BASE_DATA_DIR = <span class="stringliteral">r&#39;E:\data\model_data\model_dianbu_30m_longterm\data_prepare&#39;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    TXT_DB_DIR = <span class="stringliteral">r&#39;E:\code\Hydro\SEIMS\database&#39;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    PREPROC_SCRIPT_DIR = <span class="stringliteral">r&#39;E:\code\Hydro\SEIMS\preprocess&#39;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    CPP_PROGRAM_DIR = <span class="stringliteral">r&#39;D:\Compile\SEIMS_Preprocess\Release&#39;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    METIS_DIR = <span class="stringliteral">r&#39;D:\Compile\SEIMS_Preprocess\metis\programs\Release&#39;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    MPIEXEC_DIR = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordflow">elif</span> platform.system() == <span class="stringliteral">&quot;Linux&quot;</span>: <span class="comment">### Hasn&#39;t tested yet, Apr.,2016, LJ.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    BASE_DATA_DIR = <span class="stringliteral">r&#39;/data/liujz/data&#39;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    TXT_DB_DIR = <span class="stringliteral">r&#39;/data/liujz/data/database&#39;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    PREPROC_SCRIPT_DIR = <span class="stringliteral">r&#39;/data/hydro_preprocessing&#39;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    CPP_PROGRAM_DIR = <span class="stringliteral">r&#39;/data/hydro_preprocessing/cpp_programs&#39;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    METIS_DIR = <span class="stringliteral">r&#39;/soft/programming/metis-5.1.0/build/programs&#39;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    MPIEXEC_DIR = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;CLIMATE_DATA_DIR = BASE_DATA_DIR + os.sep + <span class="stringliteral">&#39;climate&#39;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;SPATIAL_DATA_DIR = BASE_DATA_DIR + os.sep + <span class="stringliteral">&#39;spatial&#39;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;WORKING_DIR      = BASE_DATA_DIR + os.sep + <span class="stringliteral">&#39;output&#39;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">## MongoDB related</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">#HOSTNAME = &#39;192.168.6.55&#39;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;HOSTNAME = <span class="stringliteral">&#39;127.0.0.1&#39;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;PORT = 27017</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;ClimateDBName = <span class="stringliteral">&#39;climate_dianbu&#39;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;SpatialDBName = <span class="stringliteral">&#39;model_dianbu_30m_longterm&#39;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;forCluster = <span class="keyword">False</span> </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;stormMode = <span class="keyword">False</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordflow">if</span> forCluster <span class="keywordflow">and</span> <span class="stringliteral">&#39;cluster_&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> SpatialDBName.lower():</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    SpatialDBName = <span class="stringliteral">&#39;cluster_&#39;</span> + SpatialDBName</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">## Climate Input</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;HydroClimateVarFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Variables.txt&#39;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;MetroSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Sites_M.txt&#39;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;PrecSiteFile = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;Sites_P.txt&#39;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;MeteoDailyFile = CLIMATE_DATA_DIR + os.sep+ <span class="stringliteral">&#39;meteorology_dianbu_daily.txt&#39;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;PrecExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;precipitation_by_day_&#39;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;PrecDataYear = [2014]</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;DischargeExcelPrefix = CLIMATE_DATA_DIR + os.sep + <span class="stringliteral">&#39;discharge_by_day_&#39;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;DischargeYear = [2014]</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">## Spatial Input</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;PrecSitesThiessen = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordflow">if</span> stormMode:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    PrecStormSitesThiessen = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;Preci_dianbu_Vor_storm.shp&#39;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;MeteorSitesThiessen = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;Metero_hefei_Vor.shp&#39;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;dem = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;dem_30m.tif&#39;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;outlet_file = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;outlet_30m.shp&#39;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;threshold = 0  <span class="comment"># threshold for stream extraction from D8-flow accumulation weighted Peuker-Douglas stream sources</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;               <span class="comment"># if threshold is 0, then Drop Analysis is used to select the optimal value.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;np = 4  <span class="comment"># number of parallel processors for TauDEM</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;landuseFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;landuse_30m.tif&#39;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;soilSEQNFile = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;soil_SEQN.tif&#39;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;soilSEQNText = SPATIAL_DATA_DIR + os.sep + <span class="stringliteral">&#39;soil_properties_lookup.txt&#39;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">#rootDepthFile = SPATIAL_DATA_DIR + os.sep + &#39;RootDepth.tif&#39;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"># densityList = []</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"># sandList = []</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"># clayList = []</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"># orgList = []</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"># nlyrs = 2   # soil layers</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"># nlyrs_thick=[]</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">#nlyrs_thick = [100, DEFAULT_NODATA]   #soil layer thick, unit is mm</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"># for i in range(1, nlyrs + 1):</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">#     densityFile = SPATIAL_DATA_DIR + os.sep + &quot;Density&quot; + str(i) + &quot;.tif&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">#     sandFile = SPATIAL_DATA_DIR + os.sep + &quot;sand&quot; + str(i) + &quot;.tif&quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">#     clayFile = SPATIAL_DATA_DIR + os.sep + &quot;clay&quot; + str(i) + &quot;.tif&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">#     orgFile = SPATIAL_DATA_DIR + os.sep + &quot;org&quot; + str(i) + &quot;.tif&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">#     densityList.append(densityFile)</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">#     sandList.append(sandFile)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">#     clayList.append(clayFile)</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">#     orgList.append(orgFile)</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"># defaultSand = 40</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"># defaultClay = 30</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"># defaultOrg = 2.5</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">## Predefined variables</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">### CROP, LANDUSE, and SOIL attribute are imported to mongoDB</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">### TODO: Match to the new lookup table of SWAT 2012 rev.637. LJ</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;CROP_ATTR_LIST  = [<span class="stringliteral">&quot;IDC&quot;</span>, <span class="stringliteral">&quot;EXT_COEF&quot;</span>,  <span class="stringliteral">&quot;BMX_TREES&quot;</span>, <span class="stringliteral">&quot;BLAI&quot;</span>, <span class="stringliteral">&quot;HVSTI&quot;</span>,\</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="stringliteral">&quot;MAT_YRS&quot;</span>, <span class="stringliteral">&quot;T_BASE&quot;</span>, <span class="stringliteral">&quot;FRGRW1&quot;</span>, <span class="stringliteral">&quot;FRGRW2&quot;</span>, <span class="stringliteral">&quot;LAIMX1&quot;</span>,\</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    <span class="stringliteral">&quot;LAIMX2&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;BN1&quot;</span>, <span class="stringliteral">&quot;BN2&quot;</span>, <span class="stringliteral">&quot;BN3&quot;</span>, <span class="stringliteral">&quot;BP1&quot;</span>, <span class="stringliteral">&quot;BP2&quot;</span>,\</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="stringliteral">&quot;BP3&quot;</span>, <span class="stringliteral">&quot;BIO_E&quot;</span>, <span class="stringliteral">&quot;BIOEHI&quot;</span>, <span class="stringliteral">&quot;CO2HI&quot;</span>, <span class="stringliteral">&quot;WAVP&quot;</span>, <span class="stringliteral">&quot;BIO_LEAF&quot;</span>,\</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    <span class="stringliteral">&quot;RDMX&quot;</span>,<span class="stringliteral">&quot;CNYLD&quot;</span>, <span class="stringliteral">&quot;CPYLD&quot;</span>, <span class="stringliteral">&quot;WSYF&quot;</span>, <span class="stringliteral">&quot;DLAI&quot;</span>, <span class="stringliteral">&quot;T_OPT&quot;</span>]</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"># LANDUSE_ATTR_LIST and SOIL_ATTR_LIST is selected from sqliteFile database</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;LANDUSE_ATTR_LIST = [<span class="stringliteral">&quot;Manning&quot;</span>, <span class="stringliteral">&quot;Interc_max&quot;</span>, <span class="stringliteral">&quot;Interc_min&quot;</span>, <span class="stringliteral">&quot;RootDepth&quot;</span>, \</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="stringliteral">&quot;USLE_C&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>,<span class="stringliteral">&quot;USLE_P&quot;</span>]</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;LANDUSE_ATTR_DB = [<span class="stringliteral">&quot;manning&quot;</span>,<span class="stringliteral">&quot;i_max&quot;</span>,<span class="stringliteral">&quot;i_min&quot;</span>, <span class="stringliteral">&quot;root_depth&quot;</span>, <span class="stringliteral">&quot;usle_c&quot;</span>, <span class="stringliteral">&quot;SOIL_T10&quot;</span>]</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">## Be caution, the sequence from &quot;Sand&quot; to &quot;Poreindex&quot; is fixed because of soil_param.py.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"># SOIL_ATTR_LIST = [&quot;Sand&quot;, &quot;Clay&quot;, &quot;WiltingPoint&quot;, &quot;FieldCap&quot;, &quot;Porosity&quot;,&quot;Density&quot;,\</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">#                 &quot;Conductivity&quot;, &quot;Poreindex&quot;, &quot;USLE_K&quot;, &quot;Residual&quot;]</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"># SOIL_ATTR_DB  = [&quot;sand&quot;, &quot;clay&quot;,&quot;wp&quot;, &quot;fc&quot;, &quot;porosity&quot;,&quot;B_DENSITY&quot;,&quot;ks&quot;, &quot;P_INDEX&quot;,\</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">#                 &quot;usle_k&quot;, &quot;rm&quot;]</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">### There are 15 attributes in SoilLookup table now. </span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">### They are [SOILCODE], [SNAM], [KS](Conductivity), [POROSITY], [FC](field capacity), [P_INDEX](Poreindex), [RM],</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">### [WP](wiltingpoint), [B_DENSITY], [SAND], [CLAY], [SILT], [USLE_K], [TEXTURE], [HG]</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">## Parameters for soil chemical properties initialization</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">## Hydrological parameters</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;coeTable = {<span class="stringliteral">&quot;T2&quot;</span>:[0.05, 0.48],<span class="stringliteral">&quot;T10&quot;</span>:[0.12, 0.52], <span class="stringliteral">&quot;T100&quot;</span>:[0.18,0.55]} <span class="comment">## Adopted from WetSpa, used in radius.py, TODO: what&#39;s meaning</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_4e59daba8acc2ca3fae80817fdd779e6.html">grid_layering</a></li><li class="navelem"><b>CompressIndex.cpp</b></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:37 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>config.py</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:22 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

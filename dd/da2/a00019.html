@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: clsSimpleTxtData Class Reference</title>
+<title>SEIMS-2016: clsReach Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -114,63 +114,107 @@ $(document).ready(function(){initNavTree('dd/da2/a00019.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d7/d06/a01005.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d6/d8d/a01007.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">clsSimpleTxtData Class Reference<div class="ingroups"><a class="el" href="../../d5/d68/a00747.html">Data</a></div></div>  </div>
+<div class="title">clsReach Class Reference<div class="ingroups"><a class="el" href="../../d4/dfa/a00746.html">Data</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>read string line from text file  
+<p>Class to store reach related parameters from REACHES table.  
  <a href="../../dd/da2/a00019.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d72/a00412_source.html">clsSimpleTxtData.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/db6/a00411_source.html">clsReach.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9890dc862e7f48c11d634165a9820553"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9890dc862e7f48c11d634165a9820553"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a9890dc862e7f48c11d634165a9820553">clsSimpleTxtData</a> (string fileName)</td></tr>
-<tr class="memdesc:a9890dc862e7f48c11d634165a9820553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, from text file read lines data. <br/></td></tr>
-<tr class="separator:a9890dc862e7f48c11d634165a9820553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb6a4ddde29491222b60ce5d94c0e45"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cb6a4ddde29491222b60ce5d94c0e45"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a0cb6a4ddde29491222b60ce5d94c0e45">~clsSimpleTxtData</a> ()</td></tr>
-<tr class="memdesc:a0cb6a4ddde29491222b60ce5d94c0e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="separator:a0cb6a4ddde29491222b60ce5d94c0e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3631ad13cb1773ca283015c078ef7229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3631ad13cb1773ca283015c078ef7229"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a3631ad13cb1773ca283015c078ef7229">getData</a> (int *nRow, float **data)</td></tr>
-<tr class="memdesc:a3631ad13cb1773ca283015c078ef7229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get line number and data. <br/></td></tr>
-<tr class="separator:a3631ad13cb1773ca283015c078ef7229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b54efebcd02f985015177e44f3de4be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b54efebcd02f985015177e44f3de4be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a6b54efebcd02f985015177e44f3de4be">dump</a> (ostream *fs)</td></tr>
-<tr class="memdesc:a6b54efebcd02f985015177e44f3de4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output lines data to <em>ostream</em>. <br/></td></tr>
-<tr class="separator:a6b54efebcd02f985015177e44f3de4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a21f4bccdebcc652b27b5480ae8d59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48a21f4bccdebcc652b27b5480ae8d59"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a48a21f4bccdebcc652b27b5480ae8d59">clsReach</a> (void)</td></tr>
+<tr class="memdesc:a48a21f4bccdebcc652b27b5480ae8d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a48a21f4bccdebcc652b27b5480ae8d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904e2ce879893010167c1bc6b6587d87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a904e2ce879893010167c1bc6b6587d87"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a904e2ce879893010167c1bc6b6587d87">~clsReach</a> (void)</td></tr>
+<tr class="memdesc:a904e2ce879893010167c1bc6b6587d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a904e2ce879893010167c1bc6b6587d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1c83a14c9be8fcb2b1c34cad62f2e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada1c83a14c9be8fcb2b1c34cad62f2e1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ada1c83a14c9be8fcb2b1c34cad62f2e1">Reset</a> (void)</td></tr>
+<tr class="memdesc:ada1c83a14c9be8fcb2b1c34cad62f2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the contents of the object to default values. <br/></td></tr>
+<tr class="separator:ada1c83a14c9be8fcb2b1c34cad62f2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a5d47df1c4be351606574455954384264"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d47df1c4be351606574455954384264"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a5d47df1c4be351606574455954384264">m_row</a></td></tr>
-<tr class="memdesc:a5d47df1c4be351606574455954384264"><td class="mdescLeft">&#160;</td><td class="mdescRight">line number <br/></td></tr>
-<tr class="separator:a5d47df1c4be351606574455954384264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac60fad8ef1dcc286a7b87e825714b3f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac60fad8ef1dcc286a7b87e825714b3f9"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ac60fad8ef1dcc286a7b87e825714b3f9">m_data</a></td></tr>
-<tr class="memdesc:ac60fad8ef1dcc286a7b87e825714b3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">lines data <br/></td></tr>
-<tr class="separator:ac60fad8ef1dcc286a7b87e825714b3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a7abf1987198f46d49cce7bef77f0c721"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7abf1987198f46d49cce7bef77f0c721"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a7abf1987198f46d49cce7bef77f0c721">Area</a></td></tr>
+<tr class="memdesc:a7abf1987198f46d49cce7bef77f0c721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Area. <br/></td></tr>
+<tr class="separator:a7abf1987198f46d49cce7bef77f0c721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0970b4ab61585936dc0ae600f97ed24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0970b4ab61585936dc0ae600f97ed24"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ab0970b4ab61585936dc0ae600f97ed24">Depth</a></td></tr>
+<tr class="memdesc:ab0970b4ab61585936dc0ae600f97ed24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depth. <br/></td></tr>
+<tr class="separator:ab0970b4ab61585936dc0ae600f97ed24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229ed9c972093b99a212bdf83d3b2d10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a229ed9c972093b99a212bdf83d3b2d10"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a229ed9c972093b99a212bdf83d3b2d10">DownStream</a></td></tr>
+<tr class="memdesc:a229ed9c972093b99a212bdf83d3b2d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downstream reach index. <br/></td></tr>
+<tr class="separator:a229ed9c972093b99a212bdf83d3b2d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef26bb35b339e8938cf2fb99ef86b850"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef26bb35b339e8938cf2fb99ef86b850"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aef26bb35b339e8938cf2fb99ef86b850">DownUpOrder</a></td></tr>
+<tr class="memdesc:aef26bb35b339e8938cf2fb99ef86b850"><td class="mdescLeft">&#160;</td><td class="mdescRight">DOWN_UP stream order. <br/></td></tr>
+<tr class="separator:aef26bb35b339e8938cf2fb99ef86b850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add778a50d9c142b69649ee912b7f9d85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add778a50d9c142b69649ee912b7f9d85"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#add778a50d9c142b69649ee912b7f9d85">Group</a></td></tr>
+<tr class="memdesc:add778a50d9c142b69649ee912b7f9d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Group Index. <br/></td></tr>
+<tr class="separator:add778a50d9c142b69649ee912b7f9d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665f1aff11e05c54e2541a2168f2608c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a665f1aff11e05c54e2541a2168f2608c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a665f1aff11e05c54e2541a2168f2608c">GroupDivided</a></td></tr>
+<tr class="memdesc:a665f1aff11e05c54e2541a2168f2608c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Group divided. <br/></td></tr>
+<tr class="separator:a665f1aff11e05c54e2541a2168f2608c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88bbc0a300ab7121a032bd4d7e507f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab88bbc0a300ab7121a032bd4d7e507f1"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ab88bbc0a300ab7121a032bd4d7e507f1">Length</a></td></tr>
+<tr class="memdesc:ab88bbc0a300ab7121a032bd4d7e507f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length. <br/></td></tr>
+<tr class="separator:ab88bbc0a300ab7121a032bd4d7e507f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb57dd6f128dd21c91d1d50c73d96f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7eb57dd6f128dd21c91d1d50c73d96f2"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a7eb57dd6f128dd21c91d1d50c73d96f2">Manning</a></td></tr>
+<tr class="memdesc:a7eb57dd6f128dd21c91d1d50c73d96f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manning coefficient. <br/></td></tr>
+<tr class="separator:a7eb57dd6f128dd21c91d1d50c73d96f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae496ea651d90be3aa7777de12a7573ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae496ea651d90be3aa7777de12a7573ef"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ae496ea651d90be3aa7777de12a7573ef">NumCells</a></td></tr>
+<tr class="memdesc:ae496ea651d90be3aa7777de12a7573ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell numbers. <br/></td></tr>
+<tr class="separator:ae496ea651d90be3aa7777de12a7573ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea9463fa94d48d3a29eed96650eb83f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acea9463fa94d48d3a29eed96650eb83f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#acea9463fa94d48d3a29eed96650eb83f">Slope</a></td></tr>
+<tr class="memdesc:acea9463fa94d48d3a29eed96650eb83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slope gradient. <br/></td></tr>
+<tr class="separator:acea9463fa94d48d3a29eed96650eb83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39c41f1839e8ce6ef361cc470910fa76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39c41f1839e8ce6ef361cc470910fa76"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a39c41f1839e8ce6ef361cc470910fa76">Subbasin</a></td></tr>
+<tr class="memdesc:a39c41f1839e8ce6ef361cc470910fa76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subbasin ID. <br/></td></tr>
+<tr class="separator:a39c41f1839e8ce6ef361cc470910fa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2364cf22763369565ec587939b19ba61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2364cf22763369565ec587939b19ba61"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a2364cf22763369565ec587939b19ba61">UpDownOrder</a></td></tr>
+<tr class="memdesc:a2364cf22763369565ec587939b19ba61"><td class="mdescLeft">&#160;</td><td class="mdescRight">UP_DOWN stream order. <br/></td></tr>
+<tr class="separator:a2364cf22763369565ec587939b19ba61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab231214d45bea5cc1a509e0ba64562ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab231214d45bea5cc1a509e0ba64562ef"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ab231214d45bea5cc1a509e0ba64562ef">V0</a></td></tr>
+<tr class="memdesc:ab231214d45bea5cc1a509e0ba64562ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">V0. <br/></td></tr>
+<tr class="separator:ab231214d45bea5cc1a509e0ba64562ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3965e1b49051846ecd1fc3b012dafac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3965e1b49051846ecd1fc3b012dafac"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ab3965e1b49051846ecd1fc3b012dafac">Width</a></td></tr>
+<tr class="memdesc:ab3965e1b49051846ecd1fc3b012dafac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width. <br/></td></tr>
+<tr class="separator:ab3965e1b49051846ecd1fc3b012dafac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>read string line from text file </p>
+<div class="textblock"><p>Class to store reach related parameters from REACHES table. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00028">28</a> of file <a class="el" href="../../d9/d72/a00412_source.html">clsSimpleTxtData.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db6/a00411_source.html#l00021">21</a> of file <a class="el" href="../../d2/db6/a00411_source.html">clsReach.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/base/data/<a class="el" href="../../d9/d72/a00412_source.html">clsSimpleTxtData.h</a></li>
-<li>src/base/data/<a class="el" href="../../d2/db6/a00411_source.html">clsSimpleTxtData.cpp</a></li>
+<li>src/base/data/<a class="el" href="../../d2/db6/a00411_source.html">clsReach.h</a></li>
+<li>src/base/data/<a class="el" href="../../d8/d91/a00410_source.html">clsReach.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/da2/a00019.html">clsSimpleTxtData</a></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dd/da2/a00019.html">clsReach</a></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:25 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

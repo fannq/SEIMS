@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/mcore.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/itemsets.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,416 +111,106 @@ $(document).ready(function(){initNavTree('d7/d6e/a00190.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">mcore.c File Reference</div>  </div>
+<div class="title">itemsets.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions dealing with creating and allocating mcores.  
+<p>Frequent/Closed itemset discovery routines.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for mcore.c:</div>
+Include dependency graph for itemsets.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/db4/a00823.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2mcore_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2mcore_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2mcore_8c">
-<area shape="rect" id="node2" href="../../d8/d64/a00181_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../d9/d38/a00166.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d0/d81/a00180.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../db/dd9/a00179.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../dd/da7/a00168.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../dc/de6/a00167.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d5/dcb/a00170.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../de/d53/a00169.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../d5/de9/a00176.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d1/d0d/a00171.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../d6/dfb/a00172.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d7/d3f/a00173.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../d8/df1/a00174.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../de/d45/a00175.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../dd/d4c/a00177.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d9/d90/a00178.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
+<div class="center"><img src="../../d6/da7/a00822.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2itemsets_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2itemsets_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2itemsets_8c">
+<area shape="rect" id="node2" href="../../d7/d25/a00182_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../dc/de6/a00167.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d8/d64/a00181.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d0/d81/a00180.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../de/d53/a00169.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../dd/da7/a00168.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d1/d0d/a00171.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d5/dcb/a00170.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../dd/d4c/a00177.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d6/dfb/a00172.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../d7/d3f/a00173.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d8/df1/a00174.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../de/d45/a00175.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../d5/de9/a00176.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d9/d90/a00178.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../db/dd9/a00179.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
 </div>
 </div>
 <p><a href="../../d7/d6e/a00190_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html">isparams_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aba5df0f5155d88c0331fd6c996b483ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#aba5df0f5155d88c0331fd6c996b483ed">gk_mcoreCreate</a> (size_t coresize)</td></tr>
-<tr class="separator:aba5df0f5155d88c0331fd6c996b483ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe0ba6f8d611bfebcbe80468c86af884"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#afe0ba6f8d611bfebcbe80468c86af884">gk_gkmcoreCreate</a> ()</td></tr>
-<tr class="separator:afe0ba6f8d611bfebcbe80468c86af884"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acecd8b70b01b2b365695f034967c9536"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#acecd8b70b01b2b365695f034967c9536">gk_mcoreDestroy</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> **r_mcore, int showstats)</td></tr>
-<tr class="separator:acecd8b70b01b2b365695f034967c9536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af01302d6237a06da732bba561ed53538"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#af01302d6237a06da732bba561ed53538">gk_gkmcoreDestroy</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> **r_mcore, int showstats)</td></tr>
-<tr class="separator:af01302d6237a06da732bba561ed53538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7a380f0696a0d5421653fad336bcae0"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#ab7a380f0696a0d5421653fad336bcae0">gk_mcoreMalloc</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore, size_t nbytes)</td></tr>
-<tr class="separator:ab7a380f0696a0d5421653fad336bcae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07579694837248c1f2908860edc643c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#a07579694837248c1f2908860edc643c0">gk_mcorePush</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore)</td></tr>
-<tr class="separator:a07579694837248c1f2908860edc643c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e52f5d61f36e5c6a9e6634d90dadf2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#a7e52f5d61f36e5c6a9e6634d90dadf2d">gk_gkmcorePush</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore)</td></tr>
-<tr class="separator:a7e52f5d61f36e5c6a9e6634d90dadf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7b3189a2be11b6736dc4c27d3d30f3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#ac7b3189a2be11b6736dc4c27d3d30f3a">gk_mcorePop</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore)</td></tr>
-<tr class="separator:ac7b3189a2be11b6736dc4c27d3d30f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8c9738b8a6a34af2aa8f271fe14cfa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#ad8c9738b8a6a34af2aa8f271fe14cfa9">gk_gkmcorePop</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore)</td></tr>
-<tr class="separator:ad8c9738b8a6a34af2aa8f271fe14cfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a366348b623d380f773e5946011e14059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#a366348b623d380f773e5946011e14059">gk_mcoreAdd</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore, int type, size_t nbytes, void *ptr)</td></tr>
-<tr class="separator:a366348b623d380f773e5946011e14059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3777d3929aad6ae5e17b76656cd6797b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#a3777d3929aad6ae5e17b76656cd6797b">gk_gkmcoreAdd</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore, int type, size_t nbytes, void *ptr)</td></tr>
-<tr class="separator:a3777d3929aad6ae5e17b76656cd6797b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e63861ea56a62080a63408af43a9075"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#a0e63861ea56a62080a63408af43a9075">gk_mcoreDel</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore, void *ptr)</td></tr>
-<tr class="separator:a0e63861ea56a62080a63408af43a9075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b0166aa10e35fb252f8561cac8f3bbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#a6b0166aa10e35fb252f8561cac8f3bbb">gk_gkmcoreDel</a> (<a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *mcore, void *ptr)</td></tr>
-<tr class="separator:a6b0166aa10e35fb252f8561cac8f3bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab19ae99e1e3ba575373cf0fe846a8cd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#ab19ae99e1e3ba575373cf0fe846a8cd9">itemsets_find_frequent_itemsets</a> (<a class="el" href="../../d5/df9/a00044.html">isparams_t</a> *params, gk_csr_t *mat, int preflen, int *prefix)</td></tr>
+<tr class="separator:ab19ae99e1e3ba575373cf0fe846a8cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab348ad8f89d70692400d7602e3a824bf"><td class="memItemLeft" align="right" valign="top">gk_csr_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#ab348ad8f89d70692400d7602e3a824bf">itemsets_project_matrix</a> (<a class="el" href="../../d5/df9/a00044.html">isparams_t</a> *param, gk_csr_t *mat, int cid)</td></tr>
+<tr class="separator:ab348ad8f89d70692400d7602e3a824bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9e8f6a3efe2f0f3ec79b5d8883b246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html#abc9e8f6a3efe2f0f3ec79b5d8883b246">gk_find_frequent_itemsets</a> (int ntrans, ssize_t *tranptr, int *tranind, int minfreq, int maxfreq, int minlen, int maxlen, void(*process_itemset)(void *stateptr, int nitems, int *itemids, int ntrans, int *transids), void *stateptr)</td></tr>
+<tr class="separator:abc9e8f6a3efe2f0f3ec79b5d8883b246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions dealing with creating and allocating mcores. </p>
-<dl class="section date"><dt>Date</dt><dd>Started 5/30/11 </dd></dl>
-<dl class="section author"><dt>Author</dt><dd>George </dd>
-<dd>
-Copyright 1997-2011, Regents of the University of Minnesota </dd></dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<dl class="section rcs"><dt>Id:</dt><dd><a class="el" href="../../d7/d6e/a00190.html" title="Functions dealing with creating and allocating mcores. ">mcore.c</a> 13953 2013-03-30 16:20:07Z karypis </dd></dl>
+<div class="textblock"><p>Frequent/Closed itemset discovery routines. </p>
+<p>This file contains the code for finding frequent/closed itemests. These routines are implemented using a call-back mechanism to deal with the discovered itemsets.</p>
+<dl class="section date"><dt>Date</dt><dd>6/13/2008 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>George Karypis </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: itemsets.c 11075 2011-11-11 22:31:52Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/d6e/a00190_source.html">itemsets.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a3777d3929aad6ae5e17b76656cd6797b"></a>
+<a class="anchor" id="abc9e8f6a3efe2f0f3ec79b5d8883b246"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gk_gkmcoreAdd </td>
+          <td class="memname">void gk_find_frequent_itemsets </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ntrans</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ssize_t *&#160;</td>
+          <td class="paramname"><em>tranptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tranind</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>nbytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Adds a memory allocation at the end of the list. This is the gkmcore version. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00309">309</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_a3777d3929aad6ae5e17b76656cd6797b_cgraph.png" border="0" usemap="#d7/d6e/a00190_a3777d3929aad6ae5e17b76656cd6797b_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_a3777d3929aad6ae5e17b76656cd6797b_cgraph" id="d7/d6e/a00190_a3777d3929aad6ae5e17b76656cd6797b_cgraph">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="193,4,285,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="afe0ba6f8d611bfebcbe80468c86af884"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a>* gk_gkmcoreCreate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function creates an mcore. This version is used for gkmcore. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00043">43</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6b0166aa10e35fb252f8561cac8f3bbb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_gkmcoreDel </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function deletes the mop associated with the supplied pointer. The mop has to be a heap allocation, otherwise it fails violently. This is the gkmcore version. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00373">373</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_a6b0166aa10e35fb252f8561cac8f3bbb_cgraph.png" border="0" usemap="#d7/d6e/a00190_a6b0166aa10e35fb252f8561cac8f3bbb_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_a6b0166aa10e35fb252f8561cac8f3bbb_cgraph" id="d7/d6e/a00190_a6b0166aa10e35fb252f8561cac8f3bbb_cgraph">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="190,4,282,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="af01302d6237a06da732bba561ed53538"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_gkmcoreDestroy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> **&#160;</td>
-          <td class="paramname"><em>r_mcore</em>, </td>
+          <td class="paramname"><em>minfreq</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>showstats</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function destroys an mcore. This version is for gkmcore. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00103">103</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad8c9738b8a6a34af2aa8f271fe14cfa9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_gkmcorePop </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function frees all mops since the last push. This version is for poping the gkmcore and it uses free instead of gk_free. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00237">237</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_ad8c9738b8a6a34af2aa8f271fe14cfa9_cgraph.png" border="0" usemap="#d7/d6e/a00190_ad8c9738b8a6a34af2aa8f271fe14cfa9_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_ad8c9738b8a6a34af2aa8f271fe14cfa9_cgraph" id="d7/d6e/a00190_ad8c9738b8a6a34af2aa8f271fe14cfa9_cgraph">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="193,4,285,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a7e52f5d61f36e5c6a9e6634d90dadf2d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_gkmcorePush </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function sets a marker in the stack of malloc ops to be used subsequently for freeing purposes. This is the gkmcore version. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00187">187</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_a7e52f5d61f36e5c6a9e6634d90dadf2d_cgraph.png" border="0" usemap="#d7/d6e/a00190_a7e52f5d61f36e5c6a9e6634d90dadf2d_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_a7e52f5d61f36e5c6a9e6634d90dadf2d_cgraph" id="d7/d6e/a00190_a7e52f5d61f36e5c6a9e6634d90dadf2d_cgraph">
-<area shape="rect" id="node2" href="../../d7/d6e/a00190.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="200,4,339,33"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="387,4,479,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a366348b623d380f773e5946011e14059"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_mcoreAdd </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em>, </td>
+          <td class="paramname"><em>maxfreq</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>nbytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Adds a memory allocation at the end of the list. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00265">265</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_a366348b623d380f773e5946011e14059_cgraph.png" border="0" usemap="#d7/d6e/a00190_a366348b623d380f773e5946011e14059_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_a366348b623d380f773e5946011e14059_cgraph" id="d7/d6e/a00190_a366348b623d380f773e5946011e14059_cgraph">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="177,4,269,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aba5df0f5155d88c0331fd6c996b483ed"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a>* gk_mcoreCreate </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>coresize</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function creates an mcore </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00018">18</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_aba5df0f5155d88c0331fd6c996b483ed_cgraph.png" border="0" usemap="#d7/d6e/a00190_aba5df0f5155d88c0331fd6c996b483ed_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_aba5df0f5155d88c0331fd6c996b483ed_cgraph" id="d7/d6e/a00190_aba5df0f5155d88c0331fd6c996b483ed_cgraph">
-<area shape="rect" id="node2" href="../../d9/d90/a00178.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="195,5,290,35"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="526,5,618,35"/><area shape="rect" id="node4" href="../../d9/d90/a00178.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="339,31,477,60"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a0e63861ea56a62080a63408af43a9075"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_mcoreDel </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function deletes the mop associated with the supplied pointer. The mop has to be a heap allocation, otherwise it fails violently. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00345">345</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_a0e63861ea56a62080a63408af43a9075_cgraph.png" border="0" usemap="#d7/d6e/a00190_a0e63861ea56a62080a63408af43a9075_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_a0e63861ea56a62080a63408af43a9075_cgraph" id="d7/d6e/a00190_a0e63861ea56a62080a63408af43a9075_cgraph">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="171,4,263,33"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="acecd8b70b01b2b365695f034967c9536"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gk_mcoreDestroy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> **&#160;</td>
-          <td class="paramname"><em>r_mcore</em>, </td>
+          <td class="paramname"><em>minlen</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>showstats</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function destroys an mcore. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00067">67</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab7a380f0696a0d5421653fad336bcae0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* gk_mcoreMalloc </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em>, </td>
+          <td class="paramname"><em>maxlen</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>nbytes</em>&#160;</td>
+          <td class="paramtype">void(*)(void *stateptr, int nitems, int *itemids, int ntrans, int *transids)&#160;</td>
+          <td class="paramname"><em>process_itemset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>stateptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -529,72 +219,116 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function allocate space from the core/heap </p>
+<p>The entry point of the frequent itemset discovery code </p>
 
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00140">140</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00047">47</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">itemsets.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_ab7a380f0696a0d5421653fad336bcae0_cgraph.png" border="0" usemap="#d7/d6e/a00190_ab7a380f0696a0d5421653fad336bcae0_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_ab7a380f0696a0d5421653fad336bcae0_cgraph" id="d7/d6e/a00190_ab7a380f0696a0d5421653fad336bcae0_cgraph">
-<area shape="rect" id="node2" href="../../d7/d6e/a00190.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="345,5,466,35"/><area shape="rect" id="node4" href="../../d9/d90/a00178.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="193,57,287,87"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="523,57,615,87"/><area shape="rect" id="node5" href="../../d9/d90/a00178.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="336,109,475,139"/></map>
+<div class="center"><img src="../../d7/d6e/a00190_abc9e8f6a3efe2f0f3ec79b5d8883b246_cgraph.png" border="0" usemap="#d7/d6e/a00190_abc9e8f6a3efe2f0f3ec79b5d8883b246_cgraph" alt=""/></div>
+<map name="d7/d6e/a00190_abc9e8f6a3efe2f0f3ec79b5d8883b246_cgraph" id="d7/d6e/a00190_abc9e8f6a3efe2f0f3ec79b5d8883b246_cgraph">
+<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="761,31,887,60"/><area shape="rect" id="node7" href="../../d6/d7d/a00161.html#a8bdd383ab80fe76507463f59c3d2863a" title="gk_csr_CreateIndex" alt="" coords="1107,136,1272,165"/><area shape="rect" id="node8" href="../../d7/d6e/a00190.html#ab348ad8f89d70692400d7602e3a824bf" title="itemsets_project_matrix" alt="" coords="497,84,687,113"/><area shape="rect" id="node10" href="../../d6/d7d/a00161.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="537,228,647,257"/><area shape="rect" id="node12" href="../../d7/d6e/a00190.html#ab19ae99e1e3ba575373cf0fe846a8cd9" title="itemsets_find_frequent\l_itemsets" alt="" coords="265,189,447,235"/><area shape="rect" id="node3" href="../../db/dd9/a00179.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="962,59,1057,88"/><area shape="rect" id="node6" href="../../d6/d7d/a00161.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="960,5,1059,35"/><area shape="rect" id="node4" href="../../db/d44/a00162.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1321,84,1413,113"/><area shape="rect" id="node5" href="../../db/dd9/a00179.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="1120,32,1259,61"/><area shape="rect" id="node9" href="../../db/dd9/a00179.html#a87b4cd1adb002c1987c1537130e8ee31" title="gk_ikvsorti" alt="" coords="775,84,873,113"/><area shape="rect" id="node11" href="../../d6/d7d/a00161.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="737,228,911,257"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac7b3189a2be11b6736dc4c27d3d30f3a"></a>
+<a class="anchor" id="ab19ae99e1e3ba575373cf0fe846a8cd9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gk_mcorePop </td>
+          <td class="memname">void itemsets_find_frequent_itemsets </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d5/df9/a00044.html">isparams_t</a> *&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">gk_csr_t *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>preflen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function frees all mops since the last push </p>
+<p>Prototypes for this module</p>
+<p>The recursive routine for DFS-based frequent pattern discovery </p>
 
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00198">198</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00095">95</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">itemsets.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_ac7b3189a2be11b6736dc4c27d3d30f3a_cgraph.png" border="0" usemap="#d7/d6e/a00190_ac7b3189a2be11b6736dc4c27d3d30f3a_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_ac7b3189a2be11b6736dc4c27d3d30f3a_cgraph" id="d7/d6e/a00190_ac7b3189a2be11b6736dc4c27d3d30f3a_cgraph">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="189,5,256,35"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="177,59,269,88"/></map>
+<div class="center"><img src="../../d7/d6e/a00190_ab19ae99e1e3ba575373cf0fe846a8cd9_cgraph.png" border="0" usemap="#d7/d6e/a00190_ab19ae99e1e3ba575373cf0fe846a8cd9_cgraph" alt=""/></div>
+<map name="d7/d6e/a00190_ab19ae99e1e3ba575373cf0fe846a8cd9_cgraph" id="d7/d6e/a00190_ab19ae99e1e3ba575373cf0fe846a8cd9_cgraph">
+<area shape="rect" id="node2" href="../../d7/d6e/a00190.html#ab348ad8f89d70692400d7602e3a824bf" title="itemsets_project_matrix" alt="" coords="238,85,429,115"/><area shape="rect" id="node9" href="../../d6/d7d/a00161.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="278,139,389,168"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="502,32,629,61"/><area shape="rect" id="node8" href="../../db/dd9/a00179.html#a87b4cd1adb002c1987c1537130e8ee31" title="gk_ikvsorti" alt="" coords="516,85,615,115"/><area shape="rect" id="node4" href="../../db/dd9/a00179.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="703,5,798,35"/><area shape="rect" id="node7" href="../../d6/d7d/a00161.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="701,59,800,88"/><area shape="rect" id="node5" href="../../db/d44/a00162.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="1035,7,1127,36"/><area shape="rect" id="node6" href="../../db/dd9/a00179.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="848,32,987,61"/><area shape="rect" id="node10" href="../../d6/d7d/a00161.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="478,139,653,168"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a07579694837248c1f2908860edc643c0"></a>
+<a class="anchor" id="ab348ad8f89d70692400d7602e3a824bf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gk_mcorePush </td>
+          <td class="memname">gk_csr_t * itemsets_project_matrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">gk_mcore_t</a> *&#160;</td>
-          <td class="paramname"><em>mcore</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d5/df9/a00044.html">isparams_t</a> *&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">gk_csr_t *&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets a marker in the stack of malloc ops to be used subsequently for freeing purposes </p>
+<p>This function projects a matrix w.r.t. to a particular column. It performs the following steps:</p>
+<ul>
+<li>Determines the length of each column that is remaining</li>
+<li>Sorts the columns in increasing length</li>
+<li>Creates a column-based version of the matrix with the proper column ordering and renamed rowids. </li>
+</ul>
 
-<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00175">175</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">mcore.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d6e/a00190_source.html#l00128">128</a> of file <a class="el" href="../../d7/d6e/a00190_source.html">itemsets.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d6e/a00190_a07579694837248c1f2908860edc643c0_cgraph.png" border="0" usemap="#d7/d6e/a00190_a07579694837248c1f2908860edc643c0_cgraph" alt=""/></div>
-<map name="d7/d6e/a00190_a07579694837248c1f2908860edc643c0_cgraph" id="d7/d6e/a00190_a07579694837248c1f2908860edc643c0_cgraph">
-<area shape="rect" id="node2" href="../../d7/d6e/a00190.html#a366348b623d380f773e5946011e14059" title="gk_mcoreAdd" alt="" coords="185,4,306,33"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="355,4,447,33"/></map>
+<div class="center"><img src="../../d7/d6e/a00190_ab348ad8f89d70692400d7602e3a824bf_cgraph.png" border="0" usemap="#d7/d6e/a00190_ab348ad8f89d70692400d7602e3a824bf_cgraph" alt=""/></div>
+<map name="d7/d6e/a00190_ab348ad8f89d70692400d7602e3a824bf_cgraph" id="d7/d6e/a00190_ab348ad8f89d70692400d7602e3a824bf_cgraph">
+<area shape="rect" id="node2" href="../../d6/d7d/a00161.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="246,32,373,61"/><area shape="rect" id="node7" href="../../db/dd9/a00179.html#a87b4cd1adb002c1987c1537130e8ee31" title="gk_ikvsorti" alt="" coords="260,85,359,115"/><area shape="rect" id="node3" href="../../db/dd9/a00179.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="423,5,518,35"/><area shape="rect" id="node6" href="../../d6/d7d/a00161.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="421,59,520,88"/><area shape="rect" id="node4" href="../../db/d44/a00162.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="755,7,847,36"/><area shape="rect" id="node5" href="../../db/dd9/a00179.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="568,32,707,61"/></map>
 </div>
 </p>
 
@@ -605,8 +339,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">mcore.c</a></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:40 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">itemsets.c</a></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:25 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

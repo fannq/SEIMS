@@ -1,7 +1,0 @@
-<map id="ModelMain::Output" name="ModelMain::Output">
-<area shape="rect" id="node2" href="$d6/d2c/a00072.html#ab0c2bcd87797bff74be13dfb72a57710" title="get start time time_t " alt="" coords="219,5,429,35"/>
-<area shape="rect" id="node3" href="$d6/d2c/a00072.html#a42dd1b1b4254b741a00822ebd6d5e2e8" title="Get end time time_t. " alt="" coords="221,59,427,88"/>
-<area shape="rect" id="node4" href="$d6/d2c/a00072.html#a6c98c805a69f47e95575c103508dff0a" title="Add 1D time series data result to. " alt="" coords="223,113,425,159"/>
-<area shape="rect" id="node5" href="$d6/d2c/a00072.html#a796b76b5523eba12dbc1e3e972ca9aa1" title="Aggregate the 2D raster data from the given data parameter using the given method type..." alt="" coords="227,183,421,230"/>
-<area shape="rect" id="node6" href="$d6/d2c/a00072.html#ae374a8bb064ce806e48f1de099a48271" title="Aggregate the data from the given data parameter using the given method type. " alt="" coords="211,255,437,284"/>
-</map>

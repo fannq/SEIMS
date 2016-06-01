@@ -1,0 +1,10 @@
+<map id="SetupCtrl" name="SetupCtrl">
+<area shape="rect" id="node2" href="$db/dd9/a00179.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="158,21,253,50"/>
+<area shape="rect" id="node3" href="$db/d44/a00162.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="529,21,621,50"/>
+<area shape="rect" id="node5" href="$d6/d82/a00243.html#a2c75ede1a41b19cb3705b998aba3200b" title="PrintCtrl" alt="" coords="165,125,245,154"/>
+<area shape="rect" id="node6" href="$d6/d82/a00243.html#a279ffe27d8412909f9117b5ca4721dce" title="CheckParams" alt="" coords="144,178,267,208"/>
+<area shape="rect" id="node7" href="$d6/d82/a00243.html#ab44b3384fa925eae532b7bcc825159d7" title="FreeCtrl" alt="" coords="165,232,245,261"/>
+<area shape="rect" id="node4" href="$db/dd9/a00179.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="315,21,453,50"/>
+<area shape="rect" id="node8" href="$d0/d2f/a00259.html#a0176e7569d59bfac1b0fc2d2fa9ac2f9" title="FreeWorkSpace" alt="" coords="315,232,453,261"/>
+<area shape="rect" id="node9" href="$db/dd9/a00179.html#acecd8b70b01b2b365695f034967c9536" title="gk_mcoreDestroy" alt="" coords="501,232,648,261"/>
+</map>

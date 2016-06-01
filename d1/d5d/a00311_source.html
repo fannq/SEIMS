@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/TauDEM/PeukerDouglas.cpp Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/TauDEM/partition.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,263 +111,134 @@ $(document).ready(function(){initNavTree('d1/d5d/a00311_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PeukerDouglas.cpp</div>  </div>
+<div class="title">partition.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*  PeukerDouglas function that operates on an elevation grid and outputs an </span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  indicator (1,0) grid of upward curved grid cells according to the Peuker and </span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Douglas algorithm.</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">     </span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  David Tarboton</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  Utah State University  </span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  May 23, 2010 </span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*  Copyright (C) 2010  David Tarboton, Utah State University</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">This program is free software; you can redistribute it and/or</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">modify it under the terms of the GNU General Public License </span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">version 2, 1991 as published by the Free Software Foundation.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">This program is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">A copy of the full GNU General Public License is included in file </span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">gpl.html. This is also available at:</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">http://www.gnu.org/copyleft/gpl.html</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">or from:</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">The Free Software Foundation, Inc., 59 Temple Place - Suite 330, </span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">Boston, MA  02111-1307, USA.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">If you wish to use or incorporate this program (or parts of it) into </span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">other software that does not meet the GNU General Public License </span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">conditions contact the author to request permission.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">David G. Tarboton  </span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">Utah State University </span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">8200 Old Main Hill </span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">Logan, UT 84322-8200 </span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">USA </span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">http://www.engineering.usu.edu/dtarb/ </span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">email:  dtarb@usu.edu </span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">*/</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*  Taudem tdpartition header </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  David Tarboton, Kim Schreuders, Dan Watson</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Utah State University  </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  May 23, 2010</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*  Copyright (C) 2009  David Tarboton, Utah State University</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">This program is free software; you can redistribute it and/or</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">modify it under the terms of the GNU General Public License </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">version 2, 1991 as published by the Free Software Foundation.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">A copy of the full GNU General Public License is included in file </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">gpl.html. This is also available at:</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">http://www.gnu.org/copyleft/gpl.html</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">or from:</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">The Free Software Foundation, Inc., 59 Temple Place - Suite 330, </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">Boston, MA  02111-1307, USA.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">If you wish to use or incorporate this program (or parts of it) into </span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">other software that does not meet the GNU General Public License </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">conditions contact the author to request permission.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">David G. Tarboton  </span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">Utah State University </span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">8200 Old Main Hill </span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">Logan, UT 84322-8200 </span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">USA </span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">http://www.engineering.usu.edu/dtarb/ </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">email:  dtarb@usu.edu </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//  This software is distributed from http://hydrology.usu.edu/taudem/</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//  This software is distributed from http://hydrology.usu.edu/taudem/</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;mpi.h&gt;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;commonLib.h&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;linearpart.h&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;createpart.h&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;tiffIO.h&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;ctime&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;commonLib.h&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#ifndef PARTITION_H</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PARTITION_H</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>tdpartition{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">long</span> totalx, totaly;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">long</span> nx, ny;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">double</span> dx, dy;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> peukerdouglas(<span class="keywordtype">char</span> *felfile, <span class="keywordtype">char</span> *ssfile,<span class="keywordtype">float</span> *p)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    MPI_Init(NULL,NULL);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> rank,size;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    MPI_Comm_rank(MCW,&amp;rank);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    MPI_Comm_size(MCW,&amp;size);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(rank==0)printf(<span class="stringliteral">&quot;PeukerDouglas version %s\n&quot;</span>,TDVERSION);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">double</span> begint = MPI_Wtime();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">long</span> x,y;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> k,ik,jk,jomax,iomax,bound;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">float</span> ndve,emax;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">float</span>* ndveptr;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                <span class="comment">/* Read elevation headers */</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    tiffIO felev(felfile, FLOAT_TYPE);          <span class="comment">//input  elevation  </span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">long</span> totalX = felev.getTotalX();            <span class="comment">//Globabl x and y</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">long</span> totalY = felev.getTotalY();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">double</span> dx = felev.getdx();              <span class="comment">//cell x and y</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">double</span> dy = felev.getdy();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//if(rank==0)</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//  {</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">//      float timeestimate=(1e-7*totalX*totalY/pow((double) size,1))/60+1;  // Time estimate in minutes</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">//      fprintf(stderr,&quot;This run may take on the order of %.0f minutes to complete.\n&quot;,timeestimate);</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//      fprintf(stderr,&quot;This estimate is very approximate. \nRun time is highly uncertain as it depends on the complexity of the input data \nand speed and memory of the computer. This estimate is based on our testing on \na dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.\n&quot;);</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//      fflush(stderr);</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//  }</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    ndveptr =  (<span class="keywordtype">float</span>*)felev.getNodata();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    ndve = *ndveptr;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                <span class="comment">//Create partition and read data</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    tdpartition *elev;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    elev = CreateNewPartition(felev.getDatatype(), totalX, totalY, dx, dy, felev.getNodata());</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">int</span> elevnx = elev-&gt;getnx();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> elevny = elev-&gt;getny();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">int</span> globalxstart, globalystart;             </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    elev-&gt;localToGlobal(0, 0, globalxstart, globalystart);  </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    felev.read((<span class="keywordtype">long</span>)globalxstart, (<span class="keywordtype">long</span>)globalystart, (<span class="keywordtype">long</span>)elevny, (<span class="keywordtype">long</span>)elevnx, elev-&gt;getGridPointer());</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">//Record time reading files</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">double</span> readt = MPI_Wtime();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//Create empty partition to store new information</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    tdpartition *selev;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    selev = CreateNewPartition(FLOAT_TYPE, totalX, totalY, dx, dy, felev.getNodata());<span class="comment">//selev is to smooth the elevation</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">//Create empty partition to store new information</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    tdpartition *ss;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">short</span> ssnodata =-2;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    ss = CreateNewPartition(SHORT_TYPE, totalX, totalY, dx, dy, ssnodata);<span class="comment">//-2 nodata value</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">// SHARE elev to populate the borders</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    elev-&gt;share();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                            </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">float</span> floatTemp1;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                <span class="comment">//--Smooth the Grid--</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">for</span>(y=0; y&lt;elevny; y++){</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">for</span>(x=0; x &lt;elevnx; x++)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                <span class="comment">//  NEED function in linearpart to evaluate whether is on edge. </span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                <span class="comment">//  Suggestion **-&gt;isOnEdge(x,y) to return true if on edge of global domain or adjacent to a no data value, otherwise to return false.</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                <span class="comment">//  FIX code below to if on a global edge or adjacent to a no-data value do first &quot;if block&quot;</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;          <span class="keywordflow">if</span>(rank == 0 &amp;&amp; y == 0 || rank == (size-1) &amp;&amp; y == (elevny-1) )</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;          {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;              selev-&gt;setData(x,y,elev-&gt;getData(x, y,floatTemp1 ));</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;              ss-&gt;setData(x,y,(<span class="keywordtype">short</span>)0);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;          }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span>(x == 0 || x == (elevnx-1) ||  elev-&gt;isNodata(x,y))</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;          {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;              selev-&gt;setData(x,y,elev-&gt;getData(x, y,floatTemp1 ));</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;              ss-&gt;setData(x,y,(<span class="keywordtype">short</span>)0);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;          }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;          {                         <span class="comment">//  THIS is for all the remainder of cells</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            ss-&gt;setData((<span class="keywordtype">long</span>)x, (<span class="keywordtype">long</span>)y, (<span class="keywordtype">short</span>)1);                                <span class="comment">// Initializing to 1 for all non edge grid cells</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                            </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordtype">float</span> elevwsum = p[0] * elev-&gt;getData(x, y, floatTemp1 );</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordtype">float</span> wsum=p[0];</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordflow">if</span>(p[1] &gt; 0.)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;              <span class="keywordflow">for</span>(k=1; k&lt;=7; k=k+2)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;              {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <span class="keywordflow">if</span>(!elev-&gt;isNodata(x+d1[k],y+d2[k]))</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                {             </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                  elevwsum +=  elev-&gt;getData(x+d1[k],y+d2[k],floatTemp1) * (p[1]);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                  wsum += p[1];</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                }                 </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;              }</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">if</span>(p[2] &gt; 0.)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;              <span class="keywordflow">for</span>(k=2; k&lt;=8; k=k+2)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;              {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keywordflow">if</span>(!elev-&gt;isNodata(x+d1[k],y+d2[k]))</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                  elevwsum +=  elev-&gt;getData(x+d1[k],y+d2[k],floatTemp1) *p[2];</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                  wsum += p[2];</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                }                 </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;              }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            elevwsum=elevwsum/wsum;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            selev-&gt;setData(x,y,elevwsum);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;           }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;         }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }           </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">//-- Put smoothed elevations back in elevation grid--</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">for</span>(y=0; y &lt; elevny; y++)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;         <span class="keywordflow">for</span>(x=0; x &lt; elevnx; x++)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;         {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            elev-&gt;setData(x,y,selev-&gt;getData(x,y,floatTemp1));</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;         }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    elev-&gt;share();                          </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">//--Calculate Streams--</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keywordflow">for</span>(y=-1; y &lt; elevny; y++){</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;          <span class="keywordflow">for</span>(x=0; x &lt; elevnx-1; x++)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;          {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;              emax =elev-&gt;getData(x,y,floatTemp1); </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;              iomax=0;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;              jomax=0;   </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;              bound=0;                      <span class="comment">/*  .false.  */</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                                    <span class="comment">/*  --FIRST PASS FLAG MAX ELEVATION IN GROUP OF FOUR  */</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;              <span class="keywordflow">for</span>(ik=0; ik&lt;2; ik++)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                  <span class="keywordflow">for</span>(jk=1-ik; jk &lt; 2; jk++)</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                  {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                      <span class="keywordflow">if</span>(elev-&gt;isNodata(x+jk,y+ik))</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                         bound= 1; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(elev-&gt;getData(x+jk,y+ik,floatTemp1) &gt; emax)</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                      {</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                          emax=floatTemp1;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                          iomax=ik;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                          jomax=jk;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                      }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                  }</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                            <span class="comment">/*  c---Unflag max pixel */</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;             ss-&gt;setData(x+jomax,y+iomax,(<span class="keywordtype">short</span>)0);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="comment">/*  c---Unflag pixels where the group of 4 touches a boundary  */</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;              <span class="keywordflow">if</span>(bound == 1)</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;              {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                <span class="keywordflow">for</span>(ik=0; ik &lt; 2; ik++)</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                  <span class="keywordflow">for</span>(jk=0; jk&lt; 2; jk++)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                  {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    ss-&gt;setData(x+jk,y+ik,(<span class="keywordtype">short</span>)0);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                  }</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;              }<span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                                        <span class="comment">/*  i.e. unflag flats.  */</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                <span class="keywordflow">for</span>(ik=0; ik &lt; 2; ik++)</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                  <span class="keywordflow">for</span>(jk=0; jk&lt; 2; jk++)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                  {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                     <span class="keywordflow">if</span>(elev-&gt;getData(x+jk,y+ik,floatTemp1) == emax)</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                     {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                        ss-&gt;setData(x+jk,y+ik,(<span class="keywordtype">short</span>)0);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                     }</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                  }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;              }</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;          }</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }                                                           </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">//Stop timer</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">double</span> computet = MPI_Wtime();</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    tiffIO outelev(ssfile,SHORT_TYPE,&amp;ssnodata, felev);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    outelev.write((<span class="keywordtype">long</span>)globalxstart, (<span class="keywordtype">long</span>)globalystart, (<span class="keywordtype">long</span>)elevny, (<span class="keywordtype">long</span>)elevnx, ss-&gt;getGridPointer());</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordtype">double</span> writet = MPI_Wtime();</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">double</span> dataRead, compute, write, total,temp;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        dataRead = readt-begint;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        compute = computet-readt;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        write = writet-computet;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        total = writet - begint;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        MPI_Allreduce (&amp;dataRead, &amp;temp, 1, MPI_DOUBLE, MPI_SUM, MCW);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        dataRead = temp/size;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        MPI_Allreduce (&amp;compute, &amp;temp, 1, MPI_DOUBLE, MPI_SUM, MCW);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        compute = temp/size;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        MPI_Allreduce (&amp;write, &amp;temp, 1, MPI_DOUBLE, MPI_SUM, MCW);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        write = temp/size;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        MPI_Allreduce (&amp;total, &amp;temp, 1, MPI_DOUBLE, MPI_SUM, MCW);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        total = temp/size;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">if</span>( rank == 0)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                printf(<span class="stringliteral">&quot;Processors: %d\nRead time: %f\nCompute time: %f\nWrite time: %f\nTotal time: %f\n&quot;</span>,</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                  size , dataRead, compute, write,total);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    MPI_Finalize();</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        tdpartition(){}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">virtual</span> ~tdpartition(){}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isInPartition(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>) = 0;  <span class="comment">// Returns true if (x,y) is in partition</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> hasAccess(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>) = 0;      <span class="comment">// Returns true if (x,y) is in or on borders of partition</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isNodata(<span class="keywordtype">long</span> x, <span class="keywordtype">long</span> y) = 0; <span class="comment">// //Returns true if grid element (x,y) is equal to noData.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> share() = 0;  <span class="comment">// Shares border information between adjacent processes.  Border information is stored in the &quot;topBorder&quot; and &quot;bottomBorder&quot; arrays of each process.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> passBorders() = 0; <span class="comment">// Swaps border information between adjacent processes.  In this way, no data is overwritten.  If this function is called a second time, the original state is restored.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> addBorders() = 0;  <span class="comment">// Swaps border information between adjacent processes, then adds the values from received borders to the local copies.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> clearBorders() = 0; <span class="comment">// Clears borders (sets them to zero)</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> ringTerm(<span class="keywordtype">int</span> isFinished) = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> globalToLocal(<span class="keywordtype">int</span> globalX, <span class="keywordtype">int</span> globalY, <span class="keywordtype">int</span> &amp;localX, <span class="keywordtype">int</span> &amp;localY) = 0; <span class="comment">// Converts global coordinates (for the whole grid) to local coordinates (for this partition).  Function returns TRUE only if the coordinates are contained in this partition.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> localToGlobal(<span class="keywordtype">int</span> localX, <span class="keywordtype">int</span> localY, <span class="keywordtype">int</span> &amp;globalX, <span class="keywordtype">int</span> &amp;globalY) = 0; <span class="comment">// Converts local coordinates (for this partition) to the whole grid.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> getGridXY(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> *i, <span class="keywordtype">int</span> *j) = 0; <span class="comment">// </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> transferPack(<span class="keywordtype">int</span>*, <span class="keywordtype">int</span>*, <span class="keywordtype">int</span>*, <span class="keywordtype">int</span>*) = 0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">int</span> getnx(){<span class="keywordflow">return</span> nx;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> getny(){<span class="keywordflow">return</span> ny;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">int</span> gettotalx(){<span class="keywordflow">return</span> totalx;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">int</span> gettotaly(){<span class="keywordflow">return</span> totaly;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">double</span> getdx(){<span class="keywordflow">return</span> dx;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">double</span> getdy(){<span class="keywordflow">return</span> dy;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">int</span> *before1;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">int</span> *before2;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">int</span> *after1;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">int</span> *after2;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">//There are multiple copies of these functions so that classes that inherit</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">//from tdpartition can be template classes.  These classes MUST declare as</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">//their template type one of the types declared for these functions.</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>* getGridPointer(){<span class="keywordflow">return</span> (<span class="keywordtype">void</span>*)NULL;} </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setToNodata(<span class="keywordtype">long</span> x, <span class="keywordtype">long</span> y) = 0; <span class="comment">//Sets the element in the grid to noData.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> init(<span class="keywordtype">long</span> totalx, <span class="keywordtype">long</span> totaly, <span class="keywordtype">double</span> dx_in, <span class="keywordtype">double</span> dy_in, MPI_Datatype MPIt, <span class="keywordtype">short</span> nd){}  <span class="comment">//Takes the total number of rows and columns in the ENTIRE grid to be partitioned,</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                                                                                                <span class="comment">//dx and dy for the grid, MPI datatype</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> init(<span class="keywordtype">long</span> totalx, <span class="keywordtype">long</span> totaly, <span class="keywordtype">double</span> dx_in, <span class="keywordtype">double</span> dy_in, MPI_Datatype MPIt, <span class="keywordtype">long</span> nd){}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> init(<span class="keywordtype">long</span> totalx, <span class="keywordtype">long</span> totaly, <span class="keywordtype">double</span> dx_in, <span class="keywordtype">double</span> dy_in, MPI_Datatype MPIt, <span class="keywordtype">float</span> nd){}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">short</span> getData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">short</span>&amp;){   <span class="comment">//Returns the element in the grid with coordinate (x,y).</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            printf(<span class="stringliteral">&quot;Attempt to access short grid with incorrect data type\n&quot;</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            MPI_Abort(MCW,41);<span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">long</span> getData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">long</span>&amp;){</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            printf(<span class="stringliteral">&quot;Attempt to access long grid with incorrect data type\n&quot;</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            MPI_Abort(MCW,42);<span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">float</span> getData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">float</span>&amp;){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            printf(<span class="stringliteral">&quot;Attempt to access float grid with incorrect data type\n&quot;</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            MPI_Abort(MCW,43);<span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">short</span>){}<span class="comment">//Sets the element in the grid to the specified value.</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">long</span>){}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">float</span>){}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> addToData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">short</span>){}<span class="comment">//Increments the element in the grid by the specified value.</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> addToData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">long</span>){}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> addToData(<span class="keywordtype">long</span>, <span class="keywordtype">long</span>, <span class="keywordtype">float</span>){}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_de4c123db9a00eb1452e6ec6a9e67c00.html">TauDEM</a></li><li class="navelem"><b>PeukerDouglas.cpp</b></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:38 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_de4c123db9a00eb1452e6ec6a9e67c00.html">TauDEM</a></li><li class="navelem"><b>partition.h</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

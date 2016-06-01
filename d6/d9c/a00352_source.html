@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/subbasin_delineation.py Source File</title>
+<title>SEIMS-2016: preprocess/soil_texture.py Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,175 +111,111 @@ $(document).ready(function(){initNavTree('d6/d9c/a00352_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">subbasin_delineation.py</div>  </div>
+<div class="title">soil_texture.py</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">#! /usr/bin/env python</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#coding=utf-8</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">## @Subbasin delineation based on TauDEM</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># </span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">#  InitStream, GetOutlet, SubbasinDelineation</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> os, sys</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> TauDEM <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> osr,ogr</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">from</span> osr <span class="keyword">import</span> SpatialReference</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">from</span> gen_dinf <span class="keyword">import</span> GenerateDinf</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> numpy</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">def </span>GenerateCellLatRaster():</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ds = ReadRaster(WORKING_DIR + os.sep + <span class="stringliteral">&quot;taudir&quot;</span> + os.sep + filledDem)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    src_srs = ds.srs</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    dst_srs = osr.SpatialReference()</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    dst_srs.ImportFromEPSG(4326) <span class="comment">## WGS84</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    dst_wkt = dst_srs.ExportToWkt()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    transform = osr.CoordinateTransformation(src_srs, dst_srs)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    point_ll = ogr.CreateGeometryFromWkt(<span class="stringliteral">&quot;POINT (%f %f)&quot;</span> % (ds.xMin, ds.yMin))</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    point_ur = ogr.CreateGeometryFromWkt(<span class="stringliteral">&quot;POINT (%f %f)&quot;</span> % (ds.xMax, ds.yMax))</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    point_ll.Transform(transform)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    point_ur.Transform(transform)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    lowerLat = point_ll.GetY()</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    upLat = point_ur.GetY()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    rows = ds.nRows</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    cols = ds.nCols</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    data = ds.data</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    dataLat = numpy.copy(data)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    deltaLat = (upLat - lowerLat) / float(rows)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> row <span class="keywordflow">in</span> range(rows):</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">for</span> col <span class="keywordflow">in</span> range(cols):</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> dataLat[row][col] != ds.noDataValue:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                dataLat[row][col] = upLat - (row + 0.5) * deltaLat</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    WriteGTiffFile(WORKING_DIR + os.sep + <span class="stringliteral">&quot;taudir&quot;</span> + os.sep + cellLat,rows,cols,dataLat,\</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                   ds.geotrans,ds.srs,ds.noDataValue,GDT_Float32)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">#print lowerLat,upLat</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">def </span>SubbasinDelineation(np, workingDir, dem, outlet, threshold, mpiexeDir=None,exeDir=None):</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(workingDir):</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        os.mkdir(workingDir)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    statusFile = workingDir + os.sep + <span class="stringliteral">&quot;status_SubbasinDelineation.txt&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    fStatus = open(statusFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    tauDir = workingDir + os.sep + <span class="stringliteral">&quot;taudir&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.exists(tauDir):</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        os.mkdir(tauDir)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    status = <span class="stringliteral">&quot;Fill DEM...&quot;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (10, status))</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">print</span> Fill(np, tauDir, dem, filledDem, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    status = <span class="stringliteral">&quot;Calculating D8 and Dinf flow direction...&quot;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (20, status))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">print</span> FlowDirD8(np, tauDir, filledDem, flowDir, slope, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">print</span> GenerateDinf(np, tauDir, filledDem, flowDirDinf, slopeDinf, dirCodeDinf, weightDinf,mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    status = <span class="stringliteral">&quot;Generating stream skeleton...&quot;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (30, status))</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">print</span> StreamSkeleton(np, tauDir, filledDem, streamSkeleton,mpiexeDir=mpiexeDir, exeDir=exeDir)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)    </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    status = <span class="stringliteral">&quot;D8 flow accumulation...&quot;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (40, status))</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">print</span> FlowAccD8(np, tauDir, flowDir, acc,outlet=<span class="keywordtype">None</span>, streamSkeleton=<span class="keywordtype">None</span>, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    status = <span class="stringliteral">&quot;Generating stream raster initially...&quot;</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (50, status))</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> threshold != 0:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">print</span> StreamRaster(np, tauDir, acc, streamRaster, threshold, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        accD8 = tauDir+os.sep+acc</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        maxAccum, minAccum, meanAccum, STDAccum = GetRasterStat(accD8)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">print</span> StreamRaster(np, tauDir, acc, streamRaster, meanAccum, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    status = <span class="stringliteral">&quot;Moving outlet to stream...&quot;</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (60, status))</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">print</span> MoveOutlet(np, tauDir, flowDir, streamRaster, outlet, modifiedOutlet, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    status = <span class="stringliteral">&quot;Flow accumulation with outlet...&quot;</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (70, status))</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">print</span> FlowAccD8(np, tauDir, flowDir, acc, modifiedOutlet, streamSkeleton, mpiexeDir=mpiexeDir, exeDir=exeDir)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> threshold == 0:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        status = <span class="stringliteral">&quot;Drop analysis to select optimal threshold...&quot;</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (75, status))</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        fStatus.flush()</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> meanAccum - STDAccum &lt; 0:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            minthresh = meanAccum</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            minthresh = meanAccum - STDAccum</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        maxthresh = meanAccum + STDAccum</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        numthresh = 20</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        logspace = <span class="stringliteral">&#39;true&#39;</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        drpFile = <span class="stringliteral">&#39;drp.txt&#39;</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">print</span> DropAnalysis(np,tauDir,filledDem,flowDir,acc,acc,modifiedOutlet,minthresh,maxthresh,numthresh,logspace,drpFile, mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        drpf = open(drpFile,<span class="stringliteral">&quot;</span><span class="stringliteral">r&quot;)</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="stringliteral">        tempContents=drpf.read()</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="stringliteral">        (beg,threshold)=tempContents.rsplit(</span><span class="stringliteral">&#39; &#39;</span>,1)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">print</span> threshold</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        drpf.close()</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    status = <span class="stringliteral">&quot;Generating stream raster...&quot;</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (80, status))</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">print</span> StreamRaster(np, tauDir, acc, streamRaster, float(threshold), mpiexeDir=mpiexeDir,exeDir=exeDir)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    status = <span class="stringliteral">&quot;Generating stream net...&quot;</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    fStatus.write(<span class="stringliteral">&quot;%d,%s\n&quot;</span> % (90, status))</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    fStatus.flush()</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">print</span> StreamNet(np, tauDir, filledDem, flowDir, acc, streamRaster, modifiedOutlet, streamOrder, chNetwork, chCoord, streamNet, subbasin, mpiexeDir=mpiexeDir, exeDir=exeDir)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;[Output], %s, %s&quot;</span> % (workingDir, status)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    fStatus.write(<span class="stringliteral">&quot;100,subbasin delineation is finished!&quot;</span>)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    fStatus.close()</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">## Get spatial reference from Source DEM file</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    ds = gdal.Open(dem)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    projWkt = ds.GetProjection()</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    srs = SpatialReference()</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    srs.ImportFromWkt(projWkt)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">## Write Projection Configuration file</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    configFile = workingDir + os.sep + <span class="stringliteral">&#39;ProjConfig.txt&#39;</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    f = open(configFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    f.write(dem + <span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    f.write(str(threshold) + <span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    projWkt = ds.GetProjection()</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    srs = SpatialReference()</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    srs.ImportFromWkt(projWkt)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    proj4Str = srs.ExportToProj4()</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    f.write(proj4Str + <span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    f.close()</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">## Convert to WGS84 (EPSG:4326)</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    GenerateCellLatRaster()</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> os</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">from</span> osgeo <span class="keyword">import</span> gdal</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">from</span> numpy <span class="keyword">import</span> zeros</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">from</span> util <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">from</span> text <span class="keyword">import</span> *</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span>GetTexture(clay, silt, sand):</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">#silt = 100 - sand - clay</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (clay &gt;= 40 <span class="keywordflow">and</span> silt &lt;= 40 <span class="keywordflow">and</span> sand &lt;= 45):</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">return</span> [12, 1, 0.22] <span class="comment"># clay / nian tu</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 40 <span class="keywordflow">and</span> silt &gt;= 40):</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> [11, 1, 0.26] <span class="comment"># silt caly / fen nian tu</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 35) <span class="keywordflow">and</span> (sand &gt;= 45):</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> [10, 1, 0.28] <span class="comment"># sandy clay / sha nian tu</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 25 <span class="keywordflow">and</span> sand &lt;= 45 <span class="keywordflow">and</span> sand &gt;= 20):</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> [9, 2, 0.3] <span class="comment"># clay loam / nian rang tu</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 25 <span class="keywordflow">and</span> sand &lt;= 20):</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> [8, 2, 0.32] <span class="comment"># silt clay loam / fen zhi nian rang tu</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 20 <span class="keywordflow">and</span> silt &lt;= 30 <span class="keywordflow">and</span> sand &gt;= 45):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> [7, 2, 0.2] <span class="comment"># sandy clay loam / sha zhi nian rang tu</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">elif</span> (clay &gt;= 10) <span class="keywordflow">and</span> (silt &gt;= 30) <span class="keywordflow">and</span> (silt &lt;= 50) <span class="keywordflow">and</span> (sand &lt;= 50):</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> [6, 3, 0.3] <span class="comment"># loam / rang tu</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">elif</span> (silt &gt;= 50 <span class="keywordflow">and</span> silt &lt;= 80) <span class="keywordflow">or</span> (clay &gt;= 15 <span class="keywordflow">and</span> silt &gt;= 80):</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> [4, 3, 0.38] <span class="comment"># silt loam / fen zhi rang tu</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">elif</span> (silt &gt;= 80 <span class="keywordflow">and</span> clay &lt;= 15):</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> [5, 3, 0.34] <span class="comment"># silt / fen tu</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">elif</span> (clay &lt;= 10 <span class="keywordflow">and</span> sand &lt;= 50) <span class="keywordflow">or</span> (sand &gt;= 50 <span class="keywordflow">and</span> sand &lt;= 80):</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> [3, 4, 0.13] <span class="comment"># sandy loam / sha zhi rang tu</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">elif</span> (sand &lt;= 90):</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> [2, 4, 0.04] <span class="comment"># loamy sand / rang zhi sha tu</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> [1, 4, 0.02] <span class="comment"># sand / sha tu</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">## Deprecated by LJ, 2016-5-21</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">def </span>SoilTexture(workingDir):</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">## TODO: these should be defined elsewhere</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    sandFile = workingDir + os.sep + <span class="stringliteral">&quot;sand_1.tif&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    clayFile = workingDir + os.sep + <span class="stringliteral">&quot;clay_1.tif&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    sandRaster = ReadRaster(sandFile)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    clayRaster = ReadRaster(clayFile)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    nCols = sandRaster.nCols</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    nRows = sandRaster.nRows</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    noDataValue = sandRaster.noDataValue</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    dataSand = sandRaster.data</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    dataClay = clayRaster.data</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    st = zeros((nRows, nCols)) <span class="comment"># soil texture code</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    hg = zeros((nRows, nCols)) <span class="comment"># hydrological group</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    usleK_array = zeros((nRows, nCols)) <span class="comment"># USLE K factor</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nRows):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span> j <span class="keywordflow">in</span> range(nCols):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">if</span> abs(dataSand[i][j] - noDataValue) &lt; DELTA:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                st[i][j] = DEFAULT_NODATA</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                hg[i][j] = DEFAULT_NODATA</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                usleK_array[i][j] = DEFAULT_NODATA</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                values = GetTexture(dataClay[i][j], 100 - dataClay[i][j]- dataSand[i][j],dataSand[i][j])</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">#values = GetTexture(dataClay[i][j]*100, dataSand[i][j]*100)</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                st[i][j] = values[0]</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                hg[i][j] = values[1]</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                usleK_array[i][j] = values[2]</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    textureFile = workingDir + os.sep + soilTexture</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    WriteGTiffFile(textureFile, nRows, nCols, st, sandRaster.geotrans,\</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    hgFile = workingDir + os.sep + hydroGroup</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    WriteGTiffFile(hgFile, nRows, nCols, hg, sandRaster.geotrans,\</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    kFile = workingDir + os.sep + usleK</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    WriteGTiffFile(kFile, nRows, nCols, usleK_array, sandRaster.geotrans,\</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                          sandRaster.srs, -9999, gdal.GDT_Float32)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">print</span> <span class="stringliteral">&quot;Soil texture is generated.&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">## TextureIndex, HydroGroup, USLE_K factor</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> [textureFile, hgFile, kFile]</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"># if __name__ == &quot;__main__&quot;:</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">#     print GetTexture(60, 30)</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">#     print GetTexture(50, 5)</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">#     print GetTexture(36, 55)</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">#     print GetTexture(36, 30)</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">#     print GetTexture(36, 10)</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">#     print GetTexture(25, 60)</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">#     print GetTexture(15, 45)</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">#     print GetTexture(10, 20)</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">#     print GetTexture(5, 5)</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">#     print GetTexture(10, 60)</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">#     print GetTexture(5, 85)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">#     print GetTexture(5, 92)</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>subbasin_delineation.py</b></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:38 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><b>soil_texture.py</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

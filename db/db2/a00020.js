@@ -1,11 +1,9 @@
 var a00020 =
 [
-    [ "clsSiteData", "db/db2/a00020.html#a042557ea95dc146aa0a03bac2c88821b", null ],
-    [ "~clsSiteData", "db/db2/a00020.html#ac4ab57c4491e44ec60351551a40965ed", null ],
-    [ "addDataTypeMongo", "db/db2/a00020.html#adfb501124ee05dca18201a6e6f242aa5", null ],
-    [ "checkData", "db/db2/a00020.html#a61b2e9e67cf6c9922058894a85ebf032", null ],
-    [ "getHydroClimateData", "db/db2/a00020.html#a68427407df83e49e9b20fcca0a9b97a3", null ],
-    [ "readSiteBasicInfo", "db/db2/a00020.html#ab4991c290ec91a6f4ca77514b2f7f0b1", null ],
-    [ "m_databasePath", "db/db2/a00020.html#ad964d12db5efdac326428c2fc1430997", null ],
-    [ "m_timeSerieseData", "db/db2/a00020.html#a748df1d01df2a500dd830de51fe092d1", null ]
+    [ "clsSimpleTxtData", "db/db2/a00020.html#a9890dc862e7f48c11d634165a9820553", null ],
+    [ "~clsSimpleTxtData", "db/db2/a00020.html#a0cb6a4ddde29491222b60ce5d94c0e45", null ],
+    [ "dump", "db/db2/a00020.html#a6b54efebcd02f985015177e44f3de4be", null ],
+    [ "getData", "db/db2/a00020.html#a3631ad13cb1773ca283015c078ef7229", null ],
+    [ "m_data", "db/db2/a00020.html#ac60fad8ef1dcc286a7b87e825714b3f9", null ],
+    [ "m_row", "db/db2/a00020.html#a5d47df1c4be351606574455954384264", null ]
 ];

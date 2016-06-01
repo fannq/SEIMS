@@ -1,21 +1,13 @@
 var a00069 =
 [
-    [ "PETHargreaves", "d4/d31/a00069.html#a1e16d6b82e69dc19bb20bb582ea1a9be", null ],
-    [ "~PETHargreaves", "d4/d31/a00069.html#ab9f47b70950c988d3d9b6d59c6cf54a0", null ],
-    [ "CheckInputData", "d4/d31/a00069.html#a7e04f825331f418ccf131194dd4eb48c", null ],
-    [ "CheckInputSize", "d4/d31/a00069.html#a00bd74f194c86eae40b0d95cd4bba6a7", null ],
-    [ "Execute", "d4/d31/a00069.html#aaf05ab866192717802d14fa26189224b", null ],
-    [ "Get1DData", "d4/d31/a00069.html#af5e4b87dc5fcf0804b8adabcc085e70b", null ],
-    [ "Set1DData", "d4/d31/a00069.html#ab588ffc7c5abc04603910f951801f79b", null ],
-    [ "SetValue", "d4/d31/a00069.html#a6d353a208f981a5b9b048c506e7d227c", null ],
-    [ "m_cellLat", "d4/d31/a00069.html#a43f65cf89a3ffaeb6bc62e207dbaa34a", null ],
-    [ "m_HCoef_pet", "d4/d31/a00069.html#acaf6d54c4471fe0a6d6e4b5af8918e36", null ],
-    [ "m_jday", "d4/d31/a00069.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6", null ],
-    [ "m_nCells", "d4/d31/a00069.html#a2f3849549d587e5dde7f7cfcbc74cdca", null ],
-    [ "m_pet", "d4/d31/a00069.html#a7bb48f6000aaef40a221a51a5e267816", null ],
-    [ "m_petFactor", "d4/d31/a00069.html#a8727d0b39c3f9db1c3c4db8f9809616d", null ],
-    [ "m_srMax", "d4/d31/a00069.html#afaf194cefac4110a11600c8e6504c655", null ],
-    [ "m_tMax", "d4/d31/a00069.html#adf77f62f87e78a9f1a76091fdeb21705", null ],
-    [ "m_tMean", "d4/d31/a00069.html#ac314113751262beca529b1180a166763", null ],
-    [ "m_tMin", "d4/d31/a00069.html#a5df9ae68bd6846c98a389fa4126f9227", null ]
+    [ "Percolation_DARCY", "d4/d31/a00069.html#a84f0b196ef639dbea5ce342c529b2034", null ],
+    [ "~Percolation_DARCY", "d4/d31/a00069.html#a60667d5bb9b95854bdb040db602676ef", null ],
+    [ "CheckInputData", "d4/d31/a00069.html#abb6090f6b3d55346fca32d2d3a898f87", null ],
+    [ "CheckInputSize", "d4/d31/a00069.html#a143d4b94fb76af864497e1967b03c766", null ],
+    [ "Execute", "d4/d31/a00069.html#a7077d8ca7383647ba502ae4642cef522", null ],
+    [ "Get1DData", "d4/d31/a00069.html#adf099bc54de41d7170d0c8c220eaaa79", null ],
+    [ "Set1DData", "d4/d31/a00069.html#ab03be89de87565cab283227e101b4b4d", null ],
+    [ "SetValue", "d4/d31/a00069.html#a71b3bfe33c9cdd7d43af1bea3315306c", null ],
+    [ "m_CellWidth", "d4/d31/a00069.html#a643470992487d07f02262402488f8a7d", null ],
+    [ "m_nCells", "d4/d31/a00069.html#a4739225f554d4e88e458d3c5d4144704", null ]
 ];

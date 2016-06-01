@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/TauDEM/initneighbor.h Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/TauDEM/flood.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,21 +111,19 @@ $(document).ready(function(){initNavTree('d0/d61/a00302_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">initneighbor.h</div>  </div>
+<div class="title">flood.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keywordtype">void</span> initNeighborDinfup(tdpartition* neighbor,tdpartition* flowData,queue&lt;node&gt; *que,</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;                      <span class="keywordtype">int</span> nx,<span class="keywordtype">int</span> ny,<span class="keywordtype">int</span> useOutlets, <span class="keywordtype">int</span> *outletsX,<span class="keywordtype">int</span> *outletsY,<span class="keywordtype">long</span> numOutlets);</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keywordtype">void</span> initNeighborD8up(tdpartition* neighbor,tdpartition* flowData,queue&lt;node&gt; *que,</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;                      <span class="keywordtype">int</span> nx,<span class="keywordtype">int</span> ny,<span class="keywordtype">int</span> useOutlets, <span class="keywordtype">int</span> *outletsX,<span class="keywordtype">int</span> *outletsY,<span class="keywordtype">long</span> numOutlets);  </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keywordtype">int</span> flood( <span class="keywordtype">char</span>* demfile, <span class="keywordtype">char</span>* felfile, <span class="keywordtype">char</span> *fdrfile, <span class="keywordtype">int</span> usefdr,<span class="keywordtype">bool</span> verbose, </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;           <span class="keywordtype">bool</span> is_4Point,<span class="keywordtype">bool</span> use_mask,<span class="keywordtype">char</span> *maskfile);</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_de4c123db9a00eb1452e6ec6a9e67c00.html">TauDEM</a></li><li class="navelem"><b>initneighbor.h</b></li>
-    <li class="footer">Generated on Tue May 31 2016 08:42:38 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_de4c123db9a00eb1452e6ec6a9e67c00.html">TauDEM</a></li><li class="navelem"><b>flood.h</b></li>
+    <li class="footer">Generated on Wed Jun 1 2016 13:55:23 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
