@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: doc/TODO.md Source File</title>
+<title>SEIMS-2016: doc/EcoModulesDesign.md Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,207 +111,65 @@ $(document).ready(function(){initNavTree('df/d98/a00107.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">doc/TODO.md</div>  </div>
+<div class="title">doc/EcoModulesDesign.md</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;TODO LISTS</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;=======</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;生态模块设计</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;-----</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"># 1. SEIMS模块</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">## 功能模块</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">### 气象数据类</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;+ TSD_RD    读取站点时间序列数据</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;+ ITP       泰森多边形插值</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">### 土壤温度类</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;+ STP_FP    Finn Plauborg Method</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;+ STP_CJ    TODO: Method used in SWAT (solt.f)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">### 蒸散发类</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;+ PET_H</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;+ PET_PT</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;+ PET_PM</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">### 截留类</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"># 1.代码注释工作</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">## 1.1已完成模块</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;+ Base模块组下面的Util（遗留MetadataInfo没有注释）、data、</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;SWAT模型采用了简化的EPIC模型，SEIMS将其借鉴并重新组织。</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;在《SWAT Theory 2009》中关于生态（植被生长）部分主要为第5部分——Land Cover/Plant，和第6部分的第1章节——General Management，下面根据该书的章节顺序，整理了对应的源码文件：</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;+ Section 5: Land Cover/Plant</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    + 5:1 Growth Cycle</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    + 5:2 Optimal Growth</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ```</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    1. plantmod.f: 计算总植物生物量和根系生物量的日尺度潜在生长量，计算LAI</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    2. swu.f: 计算植被潜在蒸发量在根系中的分布、基于土壤可获得水量计算植被实际用水量，并估计水胁迫因子</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ```</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    + 5:3 Actual Growth</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ```</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    3. grow.f: 考虑水、温度、养分对植被的胁迫作用，校正植被生物量、LAI、冠层高度的计算</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    其中，调用tstr.f计算温度胁迫，调用nup.f计算氮吸收（如果作物为豆科作物，调用nfix.f计算氮固定，调用nuts.f计算氮磷胁迫），调用npup.f计算磷吸收，调用氮元素自动施肥</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ```</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    + 5:4 Crop Yield</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    + SEIMS 模块计划</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        + 植被潜在蒸腾（Priestley-Taylor 和 Hargreaves 蒸散发计算方法）、潜在/实际土壤蒸发量。目前SEIMS模型中有`PET_PT, PET_H, PET_PM`,需要看是直接将植被蒸腾计算添加进现有模块还是重新设置模块。 涉及到的SWAT源码为`etpot.f, etact.f` --- **计划 2016-4-21 完成**</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        + </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;+ Modules 模块组</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    + Climate 模块组 </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"># 2.代码整理工作</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">## 2.1Data模块</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;弃用列表</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;+ Section 6: Management Practices</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    + 6:1 General Management</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        ```</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        operatn.f, sched_mgt.f (包括plantop.f, dormant.f, harvkillop.f, harvestop.f, killip.f, tillmix.f, graze.f等)`</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        施肥相关 fert.f, confert.f</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        ```</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;+ SQLite相关</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    + <a class="code" href="../../d2/de7/a00014.html">clsHydroClimateData</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        SWAT中，每个HRU对应一个`.mgt`文件，定义管理措施，对应于Access数据库中，Management Scheduled Operations对应于`mgt2`表，而常规管理措施对应于`mgt1`表。</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        SEIMS沿用一张表设置管理措施的方式。但是输入数据的准备比较麻烦，目前SWAT Editor设置管理措施也很不方便。</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"># 3.功能补充</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">## 3.1模型结构</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;+ 1. 土壤数据问题</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;目前土壤数据的的输入为机械组成和有机质含量的TIFF，这样做可扩展性太差。而且，土层默认为2层，程序中有些地方明确写死为2层，比如`MongoUtil.cpp`里的`Read2DSoilAttr`函数，这样不够合理。应改为可支持多层土壤层数。</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;+ 2.</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;&gt; 2016-5-18 已完成 `DT_Rater2D`的读写，详见`clsRaterData`类</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;&gt; 2016-5-21 已完成多层土壤理化性质的计算，但是，对于设置层数大于3，但是没有对应层数属性的情况，暂未考虑，SWAT中有计算，所以以后考虑加上！</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;&gt; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;+ 2. 河道数据结构</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;目前有两个河道相关的AddParameter，即Tag_ReachParameter和Tag_RchParam，但是读取的均是reaches表。因此，有必要进行合并，用一个clsReach类替代。</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">## TODO by Zhu</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">### KINWAVSED_CH模块</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;+ 1. Tag_ReachParameter问题</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">### KINWAVSED_OL模块</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;+ 1. mdi.AddInput(<span class="stringliteral">&quot;QRECH&quot;</span>, <span class="stringliteral">&quot;m3/s&quot;</span>, <span class="stringliteral">&quot;Flux in the downslope boundary of cells&quot;</span>, <span class="stringliteral">&quot;Module&quot;</span>,<a class="code" href="../../de/d84/a00447.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a>); QRECH变量名与MUSK_CH中河道出口流量冲突，而且DimensionType也不相符</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;+ </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">### MUSLE_AS模块</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;+ 1. SEDTOCH和SEDTOCH_T单位到底是吨还是千克？，是DT_Raster1D还是DT_Array1D</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;+ SEDR_VCD中AddInput原写的是tons</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">### SEDR_VCD模块</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;SWAT 最新版中内置了4种泥沙河道汇流模拟方法，后续可以补充</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;+ 1. CHSB  Get2DData 注释掉了，WHY？</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">### SplashEro_Park模块</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span>+ 1. <span class="keywordtype">float</span> m_Ccoe;并未使用，是否删掉</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">### CH_DW模块</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span>+ 1. m_manningScalingFactor 模块初始化时赋值为1，但是SetValue中依然有，是否需要在数据库中添加？</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;+ </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">### CH_MSK模块</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span>+ 1. TWO_THIRDS(2.f/3.f), m_msk_x(0.2f), m_vScalingFactor（即<span class="stringliteral">&quot;VelocityScalingFactor&quot;</span>）(3.0f), m_chS0(0.f), m_beta(5.0f/3), m_delta(1e-6f)，，模块初始化时赋值，是否需要在数据库中添加？</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;+ 2. 与其他几个河道汇流模块类似，m_diagonal到底应该用ArcGIS的流向编码还是TauDEM的呢？</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">### GWA_RE和GW_RSVR什么关系？</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span>为什么会有2个reservoir method的地下水模块</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">### HS_WB模块</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span>+ 1. Get2DData中，*nCols=17？ HOW TO FIX？</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">### IKW_CH模块</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span>+ 1. “QRECH” 为何在Get1DData和Get2DData中均有？</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">### IKW_OL模块</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor"></span>+ 1. m_FlowLen</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">### 单位转换问题</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;有必要在util模块中加入多个单位之间转换的代码。</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">### RootDepth和SoilDepth的问题</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span>+ 1. 之前代码中认为rootDepth即为soilDepth，这是不对的，目前数据准备提供了soilDepth，具体模块还未改过来，如IKW_IF模块</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">### ValueToString()</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span>+ 1. 许多模块中都有一个函数toString()，用于将float转换为string输出，造成代码冗余，TODO：均用util下的ValueToString()替换，该函数为模板函数</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;+ </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">## TODO by Gao</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">##1.代码整理</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor"></span>+ 1 nReach等变量赋值问题</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    + 未直接赋值，通过相关变量间接赋值，</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    + 模块：Hydrology_longterm - <a class="code" href="../../de/d8c/a00036.html">IKW_REACH</a></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    + 模块：Hydrology_longterm - <a class="code" href="../../d6/d97/a00045.html">IUH_IF</a></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    + 模块：Hydrology_longterm - IUH_OF</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;+ 2 DT_Array2D变量及所在模块</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;模块|子模块|变量名|类型</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;---|---|---|---</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;Hydrology_longterm|GWA_RE|VAR_PERCO|AddInput</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;Hydrology_longterm|GWA_RE|VAR_SOMO|AddInput</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;Hydrology_longterm|PEI_PI|VAR_SOMO|AddInput</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;Hydrology_longterm|PEI_STR|VAR_SOMO|AddInput</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;Hydrology_longterm|<a class="code" href="../../d9/da4/a00078.html">SET_LM</a>|VAR_SOMO|AddInput</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;Hydrology_longterm|<a class="code" href="../../db/dab/a00089.html">SOL_WB</a>|VAR_PERCO|AddInput</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;Hydrology_longterm|<a class="code" href="../../db/dab/a00089.html">SOL_WB</a>|VAR_SOMO|AddInput</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;Hydrology_longterm|<a class="code" href="../../db/dab/a00089.html">SOL_WB</a>|VAR_SSRU|AddInput</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;Hydrology_longterm|<a class="code" href="../../d4/d7d/a00093.html">SSR_DA</a>|VAR_SOMO|AddInput</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;Hydrology_longterm|<a class="code" href="../../d9/df8/a00096.html">SUR_CN</a>|VAR_SOMO|AddOutput</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;+ 3 变量定义不明确问题</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    + Hydrology_longterm - <a class="code" href="../../de/d8c/a00036.html">IKW_REACH</a>: VAR_QOUTLET &amp; VAR_QSOUTLET</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    + Hydrology_longterm - <a class="code" href="../../de/d8c/a00036.html">IKW_REACH</a>: VAR_MSF &amp; <a class="code" href="../../d9/d2e/a00056.html">MUSK_CH</a>: VAR_VSF</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;+ 4 add-()与set-()、get-()中变量不一致的问题</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    + Hydrology_longterm - <a class="code" href="../../de/d8c/a00036.html">IKW_REACH</a>: VAR_QUPREACH</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    + Hydrology_longterm - <a class="code" href="../../d4/d7d/a00093.html">SSR_DA</a>: Tag_FLOWIN_PERCENTAGE_D8</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;+ 5 变量单位不明确问题</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    + Hydrology_longterm - SON_DD: VAR_C_SNOW</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    + Hydrology_longterm - SON_DD: VAR_C_RAIN</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    + Hydrology_longterm - SON_SP: VAR_C_SNOW6 (&quot;mm/oC/day&quot;)</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    + Hydrology_longterm - SON_SP: VAR_C_SNOW12 (&quot;mm/oC/day&quot;)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">###   file.out</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#### Snow accumulate and melt</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor"></span><a class="code" href="../../df/d5d/a00084.html">SNO_DD</a> is required, <a class="code" href="../../da/d2a/a00086.html">SNO_WB</a> dependent on <a class="code" href="../../df/d5d/a00084.html">SNO_DD</a>, and <a class="code" href="../../df/d13/a00085.html">SNO_SP</a> dependent on <a class="code" href="../../da/d2a/a00086.html">SNO_WB</a></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="ttc" id="a00093_html"><div class="ttname"><a href="../../d4/d7d/a00093.html">SSR_DA</a></div><div class="ttdoc">– </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d36/a00650_source.html#l00022">SSR_DA.h:22</a></div></div>
-<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">MUSK_CH</a></div><div class="ttdoc">Overland routing using 4-point implicit finite difference method. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db1/a00622_source.html#l00054">MUSK_CH.h:54</a></div></div>
-<div class="ttc" id="a00447_html_gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9"><div class="ttname"><a href="../../de/d84/a00447.html#gac6cf78ef837450cfb19495fe34976b8cad9e8210986a8dd3cafa6432f32c6ece9">DT_Array2D</a></div><div class="ttdoc">2D array </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/a00447_source.html#l00080">MetadataInfoConst.h:80</a></div></div>
-<div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">SUR_CN</a></div><div class="ttdoc">SCS Curve Number Method to calculate infiltration and excess precipitation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2a/a00654_source.html#l00047">SUR_CN.h:47</a></div></div>
-<div class="ttc" id="a00084_html"><div class="ttname"><a href="../../df/d5d/a00084.html">SNO_DD</a></div><div class="ttdoc">Calculate snow melt by Degree-Day method. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/a00638_source.html#l00030">SNO_DD.h:30</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">clsHydroClimateData</a></div><div class="ttdoc">Hydrological climate data class. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d65/a00458_source.html#l00030">clsHydroClimateData.h:30</a></div></div>
-<div class="ttc" id="a00078_html"><div class="ttname"><a href="../../d9/da4/a00078.html">SET_LM</a></div><div class="ttdoc">Calculate soil Temperature. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddc/a00636_source.html#l00023">SET_LM.h:23</a></div></div>
-<div class="ttc" id="a00086_html"><div class="ttname"><a href="../../da/d2a/a00086.html">SNO_WB</a></div><div class="ttdoc">Calculate snow water balance. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dcf/a00642_source.html#l00032">SNO_WB.h:32</a></div></div>
-<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">IUH_IF</a></div><div class="ttdoc">IUH overland method to calculate interflow routing. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d85/a00618_source.html#l00046">IUH_IF.h:46</a></div></div>
-<div class="ttc" id="a00089_html"><div class="ttname"><a href="../../db/dab/a00089.html">SOL_WB</a></div><div class="ttdoc">Soil water balance. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0f/a00644_source.html#l00026">SOL_WB.h:26</a></div></div>
-<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">SNO_SP</a></div><div class="ttdoc">Calculate snow melt by snowpack daily method from SWAT. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/a00640_source.html#l00030">SNO_SP.h:30</a></div></div>
-<div class="ttc" id="a00036_html"><div class="ttname"><a href="../../de/d8c/a00036.html">IKW_REACH</a></div><div class="ttdoc">Overland routing using 4-point implicit finite difference method. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db5/a00616_source.html#l00042">IKW_REACH.h:42</a></div></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        &gt; 需要设计一种简便的方法设置每种土地利用的管理措施（或者加上其他限制条件）。</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        &gt; TODO: ManagementType.txt中新加了一个`FIELDS`列，用于整理每种管理措施需要填写的属性列表</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>TODO.md</b></li>
-    <li class="footer">Generated on Wed Jun 1 2016 13:55:22 for SEIMS-2016 by
+    <li class="navelem"><b>EcoModulesDesign.md</b></li>
+    <li class="footer">Generated on Thu Jun 2 2016 07:49:55 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

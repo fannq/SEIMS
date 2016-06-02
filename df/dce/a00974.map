@@ -1,5 +1,4 @@
-<map id="src/modules/hydrology_longterm/SNO_SP/SNO_SP.h" name="src/modules/hydrology_longterm/SNO_SP/SNO_SP.h">
-<area shape="rect" id="node4" href="$d4/dd3/a00428_source.html" title="api.h" alt="" coords="141,101,197,131"/>
-<area shape="rect" id="node5" href="$d9/d69/a00451.html" title="Parent class for all modules in SEIMS. " alt="" coords="101,179,264,208"/>
-<area shape="rect" id="node6" href="$d9/d10/a00449.html" title="Define ModelException class. " alt="" coords="107,256,257,285"/>
+<map id="src/modules/hydrology_longterm/MUSK_CH/MUSK_CH.h" name="src/modules/hydrology_longterm/MUSK_CH/MUSK_CH.h">
+<area shape="rect" id="node7" href="$dd/d63/a00455.html" title="Parent class for all modules in SEIMS. " alt="" coords="366,101,529,131"/>
+<area shape="rect" id="node8" href="$da/dc3/a00453.html" title="Define ModelException class. " alt="" coords="306,179,456,208"/>
 </map>

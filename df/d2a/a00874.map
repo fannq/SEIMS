@@ -1,5 +1,4 @@
-<map id="src/base/data/Measurement.cpp" name="src/base/data/Measurement.cpp">
-<area shape="rect" id="node2" href="$d3/d29/a00419.html" title="Measurement class to store HydroClimate site data. " alt="" coords="169,83,300,112"/>
-<area shape="rect" id="node6" href="$de/d87/a00456.html" title="Utilities class to handle string, date time and file. " alt="" coords="407,83,471,112"/>
-<area shape="rect" id="node14" href="$d9/d10/a00449.html" title="Define ModelException class. " alt="" coords="546,83,696,112"/>
+<map id="src/base/data/clsReach.cpp" name="src/base/data/clsReach.cpp">
+<area shape="rect" id="node2" href="$da/d9c/a00413.html" title="Class to store reach related parameters from REACHES table. " alt="" coords="5,83,107,112"/>
+<area shape="rect" id="node4" href="$d9/d69/a00451.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="33,160,201,189"/>
 </map>

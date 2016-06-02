@@ -1,3 +1,4 @@
-<map id="Muskingum" name="Muskingum">
-<area shape="rect" id="node2" href="$d8/d53/a00081.html" title="Base module for all simulation modules in SEIMS. " alt="" coords="22,5,207,333"/>
+<map id="Measurement" name="Measurement">
+<area shape="rect" id="node2" href="$d9/d73/a00060.html" title="Not Regular hydroclimate data. " alt="" coords="5,347,237,501"/>
+<area shape="rect" id="node3" href="$db/df8/a00076.html" title="Regular hydroclimate data, e.g., daily data. " alt="" coords="263,355,471,493"/>
 </map>

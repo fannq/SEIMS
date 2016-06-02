@@ -1,24 +1,28 @@
 var a00787 =
 [
-    [ "PETHargreaves", "d2/db1/a00070.html", [
-      [ "PETHargreaves", "d2/db1/a00070.html#a1e16d6b82e69dc19bb20bb582ea1a9be", null ],
-      [ "~PETHargreaves", "d2/db1/a00070.html#ab9f47b70950c988d3d9b6d59c6cf54a0", null ],
-      [ "CheckInputData", "d2/db1/a00070.html#a7e04f825331f418ccf131194dd4eb48c", null ],
-      [ "CheckInputSize", "d2/db1/a00070.html#a00bd74f194c86eae40b0d95cd4bba6a7", null ],
-      [ "Execute", "d2/db1/a00070.html#aaf05ab866192717802d14fa26189224b", null ],
-      [ "Get1DData", "d2/db1/a00070.html#af5e4b87dc5fcf0804b8adabcc085e70b", null ],
-      [ "Set1DData", "d2/db1/a00070.html#ab588ffc7c5abc04603910f951801f79b", null ],
-      [ "SetValue", "d2/db1/a00070.html#a6d353a208f981a5b9b048c506e7d227c", null ],
-      [ "m_cellLat", "d2/db1/a00070.html#a43f65cf89a3ffaeb6bc62e207dbaa34a", null ],
-      [ "m_HCoef_pet", "d2/db1/a00070.html#acaf6d54c4471fe0a6d6e4b5af8918e36", null ],
-      [ "m_jday", "d2/db1/a00070.html#a2d0197e1fb2c7dc9a9b392ea0d0a2de6", null ],
-      [ "m_nCells", "d2/db1/a00070.html#a2f3849549d587e5dde7f7cfcbc74cdca", null ],
-      [ "m_pet", "d2/db1/a00070.html#a7bb48f6000aaef40a221a51a5e267816", null ],
-      [ "m_petFactor", "d2/db1/a00070.html#a8727d0b39c3f9db1c3c4db8f9809616d", null ],
-      [ "m_srMax", "d2/db1/a00070.html#afaf194cefac4110a11600c8e6504c655", null ],
-      [ "m_tMax", "d2/db1/a00070.html#adf77f62f87e78a9f1a76091fdeb21705", null ],
-      [ "m_tMean", "d2/db1/a00070.html#ac314113751262beca529b1180a166763", null ],
-      [ "m_tMin", "d2/db1/a00070.html#a5df9ae68bd6846c98a389fa4126f9227", null ]
-    ] ],
-    [ "MetadataInformation", "d8/d7f/a00787.html#ga0087c853569e2c94d58c3499365662e9", null ]
+    [ "ReservoirMethod", "d1/d09/a00077.html", [
+      [ "CheckInputData", "d1/d09/a00077.html#a5ae22da6507f47127eee77a003bc77dd", null ],
+      [ "CheckInputSize", "d1/d09/a00077.html#a336c08f825e74672af6ad0efbcb5a64f", null ],
+      [ "Execute", "d1/d09/a00077.html#ac9526924c03bf3d631a2bc6a595f3a6e", null ],
+      [ "Get1DData", "d1/d09/a00077.html#a87abf432eaa500eb30d037c7a73d94dc", null ],
+      [ "Get2DData", "d1/d09/a00077.html#a3e0802a4b8c1ebdb4d66ed6249e08a14", null ],
+      [ "Set1DData", "d1/d09/a00077.html#a08b3d21d4df5aab9774cef4ad7dcd6a1", null ],
+      [ "Set2DData", "d1/d09/a00077.html#abbb9e2c2175606135f66dd68adfc10f0", null ],
+      [ "SetValue", "d1/d09/a00077.html#a05f0a35444ad4d8debd7e64a79ee335d", null ],
+      [ "m_Base_ex", "d1/d09/a00077.html#a8306ed95e7505ccb2d7908ee93238a36", null ],
+      [ "m_CellWidth", "d1/d09/a00077.html#a961d8802de37f9412bf6454725f95b89", null ],
+      [ "m_D_ED", "d1/d09/a00077.html#a3efc0eb8420f7ebdbfd88c231627cd3e", null ],
+      [ "m_D_EI", "d1/d09/a00077.html#a20a0a91604172206e1b9763182a8e923", null ],
+      [ "m_D_ES", "d1/d09/a00077.html#a81f7f8ea0e6254bc7098e4e7f75f031f", null ],
+      [ "m_D_PET", "d1/d09/a00077.html#a7f81ffd996f2733af7a2c0bf43971bdf", null ],
+      [ "m_dp_co", "d1/d09/a00077.html#ac7f7721f70b05466ae2c501e58eed598", null ],
+      [ "m_GW0", "d1/d09/a00077.html#aaf6217afdea218d53fd4665aa9c77c85", null ],
+      [ "m_GWMAX", "d1/d09/a00077.html#a7edda44ccdda0029bb4af931dd81e236", null ],
+      [ "m_Kg", "d1/d09/a00077.html#a41b6cfc16190964b8270f3e3ae66e0bd", null ],
+      [ "m_nCells", "d1/d09/a00077.html#aa83af229513cc0581609b5ab3e2421f3", null ],
+      [ "m_perc", "d1/d09/a00077.html#a1a1874fe716515842b80dfb7b69f2ebb", null ],
+      [ "m_petSubbasin", "d1/d09/a00077.html#a140e0ddde21f4138888fb4dba8fa5eb4", null ],
+      [ "m_Slope", "d1/d09/a00077.html#a41ab7cc58cdac85b1390df9aeac351e7", null ],
+      [ "m_TimeStep", "d1/d09/a00077.html#a98ec57ecc2e1e2da55722fda7fe57f68", null ]
+    ] ]
 ];

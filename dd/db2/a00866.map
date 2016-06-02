@@ -1,4 +1,4 @@
-<map id="src/base/data/clsReach.cpp" name="src/base/data/clsReach.cpp">
-<area shape="rect" id="node2" href="$d2/db6/a00411.html" title="Class to store reach related parameters from REACHES table. " alt="" coords="5,83,107,112"/>
-<area shape="rect" id="node4" href="$de/d84/a00447.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="33,160,201,189"/>
+<map id="src/base/data/base_VariableData.cpp" name="src/base/data/base_VariableData.cpp">
+<area shape="rect" id="node2" href="$de/de8/a00405.html" title="Base class used to store input and output variable datasets. " alt="" coords="5,101,179,131"/>
+<area shape="rect" id="node4" href="$d9/d69/a00451.html" title="Define some const variables used by MetadataInfo class. " alt="" coords="69,179,237,208"/>
 </map>

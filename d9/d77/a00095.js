@@ -1,14 +1,18 @@
 var a00095 =
 [
-    [ "StringList", "d9/d77/a00095.html#ab92785f26e12fce6ecc9797c6f4e2090", null ],
-    [ "~StringList", "d9/d77/a00095.html#a1c7bf7a04fa791e1b5504fb96355efa9", null ],
-    [ "Add", "d9/d77/a00095.html#a39d7276a511637ca2bbf01b9375f2a5e", null ],
-    [ "Append", "d9/d77/a00095.html#a335f0ecc2c08af9a96a5b412eeb14090", null ],
-    [ "At", "d9/d77/a00095.html#a82d4957073abf405e92934c69a4adf6c", null ],
-    [ "Clear", "d9/d77/a00095.html#a0129bfe44ed9c9a5839c5c8688a4bdc6", null ],
-    [ "Contains", "d9/d77/a00095.html#a69e219abaa4afe8023ae9e0d00b8abc3", null ],
-    [ "Count", "d9/d77/a00095.html#a897d79a72fab72faec233a10667c7c5d", null ],
-    [ "Insert", "d9/d77/a00095.html#aea2bfd74ecef6c8698d5094cdb183a64", null ],
-    [ "operator=", "d9/d77/a00095.html#a1d1858fa95ef9d5b991e59b36bbd5426", null ],
-    [ "Resize", "d9/d77/a00095.html#a91e4c52c28c9bf1126e9932f3ceb42e7", null ]
+    [ "CheckInputData", "d9/d77/a00095.html#a29f26f507ac8de13c87bea923a56da3e", null ],
+    [ "CheckInputSize", "d9/d77/a00095.html#a42444ffc54bdeb8635f24fbdf7344f05", null ],
+    [ "Execute", "d9/d77/a00095.html#a0195f8cf037b999f77e5cf8e088d52c9", null ],
+    [ "Get1DData", "d9/d77/a00095.html#ac756f0e15cc5c592e7574c5b24a89f40", null ],
+    [ "Get2DData", "d9/d77/a00095.html#ac3e40e3902cc1c267482adba303628fa", null ],
+    [ "Set1DData", "d9/d77/a00095.html#a0786095ba8901acfb7ca5d1fda1a6567", null ],
+    [ "Set2DData", "d9/d77/a00095.html#a89ed13b7a44786bbc8e9159067bf1798", null ],
+    [ "SetValue", "d9/d77/a00095.html#a66fe875cc59a91ad8f5bc10dde880b5f", null ],
+    [ "m_chWidth", "d9/d77/a00095.html#a0aac74d9c64a8300e19055e2a610f98c", null ],
+    [ "m_flowInIndex", "d9/d77/a00095.html#aeb83a74b81a4396c22908250bca4dde9", null ],
+    [ "m_flowInPercentage", "d9/d77/a00095.html#aa6e331bbb13e1fc15774ff1314ab521c", null ],
+    [ "m_nSoilLayers", "d9/d77/a00095.html#aca00c0d010ba3d0d9368aa7c41ee20fa", null ],
+    [ "m_routingLayers", "d9/d77/a00095.html#a6e6cc919de4e57a3a7410cfe328302e1", null ],
+    [ "m_subbasin", "d9/d77/a00095.html#af03ef7a3bd8d6f5bff1be4e1a35d2741", null ],
+    [ "m_upSoilDepth", "d9/d77/a00095.html#a75c0c5610e6af33708281d24f102b1dc", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: src/main/main_omp/invoke.h Source File</title>
+<title>SEIMS-2016: src/main/main_mpi/parallel_empty_process.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,75 +111,45 @@ $(document).ready(function(){initNavTree('d9/dea/a00478_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">invoke.h</div>  </div>
+<div class="title">parallel_empty_process.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/dea/a00478.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;tinyxml.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//#include &lt;io.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd5/a00432.html">ParamInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d7e/a00434.html">PrintInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dd6/a00415.html">DBManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//#include &quot;SiteInfo.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/df8/a00440.html">Settings.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d34/a00442.html">SettingsInput.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dea/a00444.html">SettingsOutput.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dc3/a00453.html">StringList.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dc5/a00480.html">ModelMain.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d10/a00449.html">ModelException.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">string</span>  <a class="code" href="../../d9/dea/a00478.html#a89098bf0d17da01d8b2eaacb6fd64910">_GetApplicationPath</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span>    <a class="code" href="../../d9/dea/a00478.html#ad3d8bcdff3d27765cce06c5f636f1413">checkDatabase</a>(mongoc_client_t* conn, <span class="keywordtype">string</span> dbName);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span>    <a class="code" href="../../d9/dea/a00478.html#a83f7b83eb10d3c2527bb0982fd09570d">checkProject</a>(<span class="keywordtype">string</span> projectPath);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span>    <a class="code" href="../../d9/dea/a00478.html#a3ad387de0f7a57b7400b28d07b1f7876">checkTable</a>(vector&lt;string&gt;&amp; tableNameList, <span class="keywordtype">string</span> dbName, <span class="keyword">const</span> <span class="keywordtype">char</span>* tableName);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">bool</span>    <a class="code" href="../../d9/dea/a00478.html#abc4f83a78d50228ab7614c4345a751a6">isIPAddress</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *ip);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">bool</span>    <a class="code" href="../../d9/dea/a00478.html#aa9081eb4e822aa3e844ba284c7cc93ee">isPathExists</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span>    <a class="code" href="../../d9/dea/a00478.html#a7f98e977e40d00100e9af61c7c01ccd4">MainMongoDB</a>(<span class="keywordtype">string</span>,<span class="keywordtype">char</span>*,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<a class="code" href="../../d5/d68/a00747.html#gac6f61231d36d327c1c46e9d46c47b9a6">LayeringMethod</a>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//void  testMainSQLite(string,int,int,LayeringMethod); // Deprecated</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//void  testBMP();</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//void  testModule();</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//void  testSettingInput();</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//void  testSettingOutput();</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//void  testRaster();</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="ttc" id="a00444_html"><div class="ttname"><a href="../../d3/dea/a00444.html">SettingsOutput.h</a></div><div class="ttdoc">Setting Outputs for SEIMS. </div></div>
-<div class="ttc" id="a00415_html"><div class="ttname"><a href="../../d0/dd6/a00415.html">DBManager.h</a></div><div class="ttdoc">Database manager for Sqlite. </div></div>
-<div class="ttc" id="a00478_html_a7f98e977e40d00100e9af61c7c01ccd4"><div class="ttname"><a href="../../d9/dea/a00478.html#a7f98e977e40d00100e9af61c7c01ccd4">MainMongoDB</a></div><div class="ttdeci">void MainMongoDB(string, char *, int, int, int, LayeringMethod)</div><div class="ttdoc">SEIMS main invoke entrance using MongoDB. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00141">invoke.cpp:141</a></div></div>
-<div class="ttc" id="a00442_html"><div class="ttname"><a href="../../db/d34/a00442.html">SettingsInput.h</a></div><div class="ttdoc">Setting Inputs for SEIMS. </div></div>
-<div class="ttc" id="a00478_html_ad3d8bcdff3d27765cce06c5f636f1413"><div class="ttname"><a href="../../d9/dea/a00478.html#ad3d8bcdff3d27765cce06c5f636f1413">checkDatabase</a></div><div class="ttdeci">void checkDatabase(mongoc_client_t *conn, string dbName)</div><div class="ttdoc">Check database to make sure the collections (tables) are provided. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00062">invoke.cpp:62</a></div></div>
-<div class="ttc" id="a00478_html_a83f7b83eb10d3c2527bb0982fd09570d"><div class="ttname"><a href="../../d9/dea/a00478.html#a83f7b83eb10d3c2527bb0982fd09570d">checkProject</a></div><div class="ttdeci">void checkProject(string projectPath)</div><div class="ttdoc">Check project directory for the required input files. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00076">invoke.cpp:76</a></div></div>
-<div class="ttc" id="a00478_html_a89098bf0d17da01d8b2eaacb6fd64910"><div class="ttname"><a href="../../d9/dea/a00478.html#a89098bf0d17da01d8b2eaacb6fd64910">_GetApplicationPath</a></div><div class="ttdeci">string _GetApplicationPath()</div><div class="ttdoc">Get the root path of the current executable (i.e., seims_omp or seims). </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00026">invoke.cpp:26</a></div></div>
-<div class="ttc" id="a00478_html_abc4f83a78d50228ab7614c4345a751a6"><div class="ttname"><a href="../../d9/dea/a00478.html#abc4f83a78d50228ab7614c4345a751a6">isIPAddress</a></div><div class="ttdeci">bool isIPAddress(const char *ip)</div><div class="ttdoc">Is valid IP address? </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00089">invoke.cpp:89</a></div></div>
-<div class="ttc" id="a00434_html"><div class="ttname"><a href="../../d1/d7e/a00434.html">PrintInfo.h</a></div><div class="ttdoc">Class to store and manage the PRINT information from the file.out file. </div></div>
-<div class="ttc" id="a00432_html"><div class="ttname"><a href="../../d9/dd5/a00432.html">ParamInfo.h</a></div><div class="ttdoc">Class to store parameter item information. </div></div>
-<div class="ttc" id="a00449_html"><div class="ttname"><a href="../../d9/d10/a00449.html">ModelException.h</a></div><div class="ttdoc">Define ModelException class. </div></div>
-<div class="ttc" id="a00747_html_gac6f61231d36d327c1c46e9d46c47b9a6"><div class="ttname"><a href="../../d5/d68/a00747.html#gac6f61231d36d327c1c46e9d46c47b9a6">LayeringMethod</a></div><div class="ttdeci">LayeringMethod</div><div class="ttdoc">Grid layering method for parallel computing. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00021">util.h:21</a></div></div>
-<div class="ttc" id="a00478_html_a3ad387de0f7a57b7400b28d07b1f7876"><div class="ttname"><a href="../../d9/dea/a00478.html#a3ad387de0f7a57b7400b28d07b1f7876">checkTable</a></div><div class="ttdeci">void checkTable(vector&lt; string &gt; &amp;tableNameList, string dbName, const char *tableName)</div><div class="ttdoc">Check table exists or not. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00049">invoke.cpp:49</a></div></div>
-<div class="ttc" id="a00440_html"><div class="ttname"><a href="../../de/df8/a00440.html">Settings.h</a></div><div class="ttdoc">Settings class to store the settings information from Configuration files. </div></div>
-<div class="ttc" id="a00478_html_aa9081eb4e822aa3e844ba284c7cc93ee"><div class="ttname"><a href="../../d9/dea/a00478.html#aa9081eb4e822aa3e844ba284c7cc93ee">isPathExists</a></div><div class="ttdeci">bool isPathExists(const char *path)</div><div class="ttdoc">Is file path existed? </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dca/a00477_source.html#l00128">invoke.cpp:128</a></div></div>
-<div class="ttc" id="a00453_html"><div class="ttname"><a href="../../da/dc3/a00453.html">StringList.h</a></div><div class="ttdoc">String list related class. </div></div>
-<div class="ttc" id="a00480_html"><div class="ttname"><a href="../../d9/dc5/a00480.html">ModelMain.h</a></div><div class="ttdoc">Control the simulation of SEIMS. </div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;ReadData.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;mpi.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;util.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define WORK_TAG 0</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MASTER_RANK 0</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SLAVE0_RANK 1 </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_UPSTREAM 4</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MSG_LEN 5</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef linux</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEP &quot;\\&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SEP &quot;/&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//#define DEBUG_OUTPUT</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> MasterProcess(map&lt;int, Subbasin*&gt;&amp; subbasinMap, set&lt;int&gt;&amp; groupSet, <span class="keyword">const</span> <span class="keywordtype">char</span>* outputFile);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> CalculateProcess(<span class="keywordtype">int</span> rank, <span class="keywordtype">int</span> nSlaves, MPI_Comm slaveComm, </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">string</span>&amp; projectPath, <span class="keywordtype">string</span>&amp; modulePath, <span class="keyword">const</span> <span class="keywordtype">char</span>* host, <span class="keywordtype">int</span> port , <span class="keyword">const</span> <span class="keywordtype">char</span>* dbName, <span class="keywordtype">int</span> nThreads, <a class="code" href="../../d8/d4e/a00754.html#gac6f61231d36d327c1c46e9d46c47b9a6">LayeringMethod</a> layeringMethod);</div>
+<div class="ttc" id="a00754_html_gac6f61231d36d327c1c46e9d46c47b9a6"><div class="ttname"><a href="../../d8/d4e/a00754.html#gac6f61231d36d327c1c46e9d46c47b9a6">LayeringMethod</a></div><div class="ttdeci">LayeringMethod</div><div class="ttdoc">Grid layering method for parallel computing. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00021">util.h:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_4594e9aa377feebada7b877d79ee74dc.html">main</a></li><li class="navelem"><a class="el" href="../../dir_ec129a0ae27569175b993da0ebe57df5.html">main_omp</a></li><li class="navelem"><a class="el" href="../../d9/dea/a00478.html">invoke.h</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 13:55:24 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_c2c4d1c77b6241db2686f54ad705687b.html">src</a></li><li class="navelem"><a class="el" href="../../dir_4594e9aa377feebada7b877d79ee74dc.html">main</a></li><li class="navelem"><a class="el" href="../../dir_bafd484dc62ea1577e5115a72364dd33.html">main_mpi</a></li><li class="navelem"><b>parallel_empty_process.h</b></li>
+    <li class="footer">Generated on Thu Jun 2 2016 07:49:57 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,19 +1,9 @@
 var a00081 =
 [
-    [ "SimulationModule", "d8/d53/a00081.html#aa9934866122995dc98611de6515f47c5", null ],
-    [ "~SimulationModule", "d8/d53/a00081.html#a75fc67bcf8bc5a1dc0eb467af5a9861c", null ],
-    [ "Execute", "d8/d53/a00081.html#a686c39c1c4894cc144699ba0681d509d", null ],
-    [ "Get1DData", "d8/d53/a00081.html#ad834fe6ed6d11b333fd34e1ff605ebb7", null ],
-    [ "Get2DData", "d8/d53/a00081.html#ab6dc960ad0a7bd7714e9644b64dc0acb", null ],
-    [ "GetTimeStepType", "d8/d53/a00081.html#a272481bef46db20353da33e95a5f5426", null ],
-    [ "GetValue", "d8/d53/a00081.html#aafd60bc9d4176a0cf64af01aed881980", null ],
-    [ "ResetSubTimeStep", "d8/d53/a00081.html#a1a3a7bd2ff8748ec360e9464c358500b", null ],
-    [ "Set1DData", "d8/d53/a00081.html#aba2d6fc2b0e4f8ccf202e0752c45d55c", null ],
-    [ "Set2DData", "d8/d53/a00081.html#a497fa950bc9c4d85cfb1ae13d83f06c9", null ],
-    [ "SetDataType", "d8/d53/a00081.html#ada9172c6eaa09a831a727dfba7da1c0d", null ],
-    [ "SetDate", "d8/d53/a00081.html#a20bb3a6443b9bd60a0c5a22d18deafa2", null ],
-    [ "SetTheadNumber", "d8/d53/a00081.html#a46191d743a839a5290fd42d318b500d0", null ],
-    [ "SetValue", "d8/d53/a00081.html#afcfef6ce1ce8761a961f694e3a7969bb", null ],
-    [ "m_date", "d8/d53/a00081.html#aabd631c05d3e74aa9970f7415f2f5de7", null ],
-    [ "m_tsCounter", "d8/d53/a00081.html#adee1865c86a9761af76cec98cac30a44", null ]
+    [ "Settings", "d8/d53/a00081.html#a3714d5ef1ba032f74183aacb77fd711a", null ],
+    [ "~Settings", "d8/d53/a00081.html#ae79d9331e3fa87d009ef089b8dade21c", null ],
+    [ "LoadSettingsFromFile", "d8/d53/a00081.html#ac9dd22ed739c4c396bf9cc2f8edf7787", null ],
+    [ "Value", "d8/d53/a00081.html#a7f5d6a01b9ae2afb3b11c9a2a1c64705", null ],
+    [ "m_settingFileName", "d8/d53/a00081.html#a3500ad45ec6280654665da4acefef9ab", null ],
+    [ "m_Settings", "d8/d53/a00081.html#aad392017fd9b84f3d07dbab78d2911d3", null ]
 ];

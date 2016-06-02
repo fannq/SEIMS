@@ -1,3 +1,7 @@
-<map id="MUSLE_AS" name="MUSLE_AS">
-<area shape="rect" id="node1" href="$d9/d77/a00756.html" title="Erosion related modules. " alt="" coords="5,4,83,33"/>
+<map id="Nutrient" name="Nutrient">
+<area shape="rect" id="node1" href="$dd/d07/a00811.html" title="Daily nitrogen and phosphorus mineralization and immobilization. " alt="" coords="267,5,351,35"/>
+<area shape="rect" id="node2" href="$d2/d87/a00759.html" title="All functional modules in SEIMS. " alt="" coords="5,85,88,115"/>
+<area shape="rect" id="node3" href="$d4/dfd/a00810.html" title="Calculate the atmospheric deposition of nitrogen, include nitrate and ammonia. " alt="" coords="264,59,355,88"/>
+<area shape="rect" id="node5" href="$d8/db7/a00812.html" title="Simulates the loss of nitrate and phosphorus via surface runoff, lateral flow, tile flow..." alt="" coords="265,112,354,141"/>
+<area shape="rect" id="node6" href="$de/d9d/a00813.html" title="Nutrient removed and lost in surface runoff. " alt="" coords="274,165,345,195"/>
 </map>

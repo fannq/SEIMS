@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/pqueue.c Source File</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/omp.c Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,31 +111,43 @@ $(document).ready(function(){initNavTree('d7/da0/a00198_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">pqueue.c</div>  </div>
+<div class="title">omp.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/da0/a00198.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*************************************************************************/</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">   18</a></span>&#160;<span class="preprocessor">#define key_gt(a, b) ((a) &gt; (b))</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span>GK_MKPQUEUE(gk_ipq,   gk_ipq_t,   gk_ikv_t,   <span class="keywordtype">int</span>,      gk_idx_t, gk_ikvmalloc,   INT_MAX,    <a class="code" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;GK_MKPQUEUE(gk_i32pq, gk_i32pq_t, gk_i32kv_t, int32_t,  gk_idx_t, gk_i32kvmalloc, INT32_MAX,  <a class="code" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;GK_MKPQUEUE(gk_i64pq, gk_i64pq_t, gk_i64kv_t, int64_t,  gk_idx_t, gk_i64kvmalloc, INT64_MAX,  <a class="code" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;GK_MKPQUEUE(gk_fpq,   gk_fpq_t,   gk_fkv_t,   <span class="keywordtype">float</span>,    gk_idx_t, gk_fkvmalloc,   FLT_MAX,    <a class="code" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;GK_MKPQUEUE(gk_dpq,   gk_dpq_t,   gk_dkv_t,   <span class="keywordtype">double</span>,   gk_idx_t, gk_dkvmalloc,   DBL_MAX,    <a class="code" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;GK_MKPQUEUE(gk_idxpq, gk_idxpq_t, gk_idxkv_t, gk_idx_t, gk_idx_t, gk_idxkvmalloc, GK_IDX_MAX, <a class="code" href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a>)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#undef key_gt</span></div>
-<div class="ttc" id="a00198_html_a89b02dbc0bd6ec64351eff7c65c6440e"><div class="ttname"><a href="../../d7/da0/a00198.html#a89b02dbc0bd6ec64351eff7c65c6440e">key_gt</a></div><div class="ttdeci">#define key_gt(a, b)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/da0/a00198_source.html#l00018">pqueue.c:18</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 1997, Regents of the University of Minnesota</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * omp.c</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * This file contains &quot;fake&quot; implementations of OpenMP&#39;s runtime libraries</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;GKlib.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifdef GK_NOOPENMP  </span><span class="comment">/* remove those for now */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#if !defined(_OPENMP)</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="keywordtype">void</span> omp_set_num_threads(<span class="keywordtype">int</span> num_threads) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> omp_get_num_threads(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> omp_get_max_threads(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">int</span> omp_get_thread_num(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> omp_get_num_procs(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> omp_in_parallel(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> omp_set_dynamic(<span class="keywordtype">int</span> num_threads) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> omp_get_dynamic(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> omp_set_nested(<span class="keywordtype">int</span> nested) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> omp_get_nested(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../d7/da0/a00198.html">pqueue.c</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 13:55:23 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><b>omp.c</b></li>
+    <li class="footer">Generated on Thu Jun 2 2016 07:49:56 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

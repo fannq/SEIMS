@@ -1,12 +1,13 @@
 var a00086 =
 [
-    [ "SNO_WB", "da/d2a/a00086.html#abcf4471d143e9362a56afbc7f97bfe7a", null ],
-    [ "~SNO_WB", "da/d2a/a00086.html#a439603fa8b0fb6338748c73ee9bba2e0", null ],
-    [ "Execute", "da/d2a/a00086.html#adcd3db4af0fe481140345a0b188871da", null ],
-    [ "Get1DData", "da/d2a/a00086.html#ae99983c22de777796eff611ab8390a5e", null ],
-    [ "GetValue", "da/d2a/a00086.html#a973d02d674a080fa6030f11c18f8b7c6", null ],
-    [ "initalOutputs", "da/d2a/a00086.html#ab3fa635f5a2bdadcd051dd7dffd6a9a8", null ],
-    [ "Set1DData", "da/d2a/a00086.html#ac5b765a9566894e0acfac3c19453b6b5", null ],
-    [ "SetValue", "da/d2a/a00086.html#a396999211170f869ea24ba192f5b26fe", null ],
-    [ "m_nCells", "da/d2a/a00086.html#a16bf7ef02b2a4d4af6a1c26ccb00bdfb", null ]
+    [ "SNO_DD", "da/d2a/a00086.html#a42868fa2a41c1c7ebca190788d287552", null ],
+    [ "~SNO_DD", "da/d2a/a00086.html#a3293ee28c91ecfe39321247a27760c7f", null ],
+    [ "Execute", "da/d2a/a00086.html#aa566a3707230b0aeb25403e973908977", null ],
+    [ "Get1DData", "da/d2a/a00086.html#ade2b88b62c896967edfb4cf106c0254c", null ],
+    [ "initalOutputs", "da/d2a/a00086.html#ab673b5185ab7500ebc98fe146553e927", null ],
+    [ "Set1DData", "da/d2a/a00086.html#a8bc8d5119d374db49e35287fe6203f4e", null ],
+    [ "SetValue", "da/d2a/a00086.html#abb864b216b39376a7bbc49217d4dde26", null ],
+    [ "m_nCells", "da/d2a/a00086.html#a87f0b15b96ce0a086e00332a96f1d10f", null ],
+    [ "m_SA", "da/d2a/a00086.html#a9672e0f416cbb4fc7795d79cf04cb9a2", null ],
+    [ "m_SM", "da/d2a/a00086.html#af2b774eceb4a247dc829f4861daed384", null ]
 ];

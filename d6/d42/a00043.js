@@ -6,7 +6,6 @@ var a00043 =
     [ "Set1DData", "d6/d42/a00043.html#a7676d223b94b251957ca9235ec9b9cc3", null ],
     [ "Set2DData", "d6/d42/a00043.html#a26ec2ce42972a4e1a74b0fd29216e0ec", null ],
     [ "SetDataType", "d6/d42/a00043.html#a5666e43cb827b034dce25fc3a3c7fe17", null ],
-    [ "SetDate", "d6/d42/a00043.html#abdc206003ffca32c245eeec8c02c084c", null ],
     [ "SetValue", "d6/d42/a00043.html#aad86893b90040736fb2fb89218d8047f", null ],
     [ "m_dem", "d6/d42/a00043.html#aeae240b941897dd8230f07f3269a4880", null ],
     [ "m_hStations", "d6/d42/a00043.html#ab489ea7ca16ae03ef50699b0781a6e82", null ],

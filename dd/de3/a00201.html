@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/test/rw.c File Reference</title>
+<title>SEIMS-2016: preprocess/cpp_src/metis-5.1.0-pk/GKlib/random.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -111,194 +111,55 @@ $(document).ready(function(){initNavTree('dd/de3/a00201.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">rw.c File Reference</div>  </div>
+<div class="title">random.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A simple frequent itemset discovery program to test GKlib's routines.  
+<p>Various routines for providing portable 32 and 64 bit random number generators.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;GKlib.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for rw.c:</div>
+Include dependency graph for random.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dea/a00829.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2test_2rw_8c" alt=""/></div>
-<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2test_2rw_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2test_2rw_8c">
-<area shape="rect" id="node2" href="../../d7/d25/a00182_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../dc/de6/a00167.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../d8/d64/a00181.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d0/d81/a00180.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../de/d53/a00169.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../dd/da7/a00168.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d1/d0d/a00171.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d5/dcb/a00170.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../dd/d4c/a00177.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d6/dfb/a00172.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../d7/d3f/a00173.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d8/df1/a00174.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../de/d45/a00175.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../d5/de9/a00176.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d9/d90/a00178.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../db/dd9/a00179.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
+<div class="center"><img src="../../dd/d70/a00835.png" border="0" usemap="#preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2random_8c" alt=""/></div>
+<map name="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2random_8c" id="preprocess_2cpp__src_2metis-5_81_80-pk_2_g_klib_2random_8c">
+<area shape="rect" id="node2" href="../../d2/d94/a00184_source.html" title="GKlib.h" alt="" coords="1719,117,1792,147"/><area shape="rect" id="node3" href="../../de/d53/a00169.html" title="This file contains various architecture&#45;specific declerations. " alt="" coords="222,195,313,224"/><area shape="rect" id="node25" href="../../dc/d52/a00183.html" title="This file contains basic scalar datatype used in GKlib. " alt="" coords="1923,195,2021,224"/><area shape="rect" id="node26" href="../../d7/d25/a00182.html" title="This file contains various datastructures used/provided by GKlib. " alt="" coords="2045,195,2144,224"/><area shape="rect" id="node27" href="../../d1/d0d/a00171.html" title="This file contains definitions of external variables created by GKlib. " alt="" coords="2169,195,2281,224"/><area shape="rect" id="node28" href="../../d5/dcb/a00170.html" title="This file contains various constants definitions. " alt="" coords="2307,195,2397,224"/><area shape="rect" id="node29" href="../../d7/d3f/a00173.html" title="This file contains various macros. " alt="" coords="2422,195,2535,224"/><area shape="rect" id="node30" href="../../d6/dfb/a00172.html" title="This file contains GNU&#39;s externs/structs/prototypes. " alt="" coords="2559,195,2664,224"/><area shape="rect" id="node31" href="../../db/dd9/a00179.html" title="Templates for the qsort routine. " alt="" coords="2689,195,2796,224"/><area shape="rect" id="node32" href="../../d8/df1/a00174.html" title="Templates for BLAS&#45;like routines. " alt="" coords="2821,195,2932,224"/><area shape="rect" id="node33" href="../../de/d45/a00175.html" title="Templates for memory allocation routines. " alt="" coords="2957,195,3096,224"/><area shape="rect" id="node34" href="../../d5/de9/a00176.html" title="Templates for priority queues. " alt="" coords="3120,195,3255,224"/><area shape="rect" id="node35" href="../../dd/d4c/a00177.html" title="Templates for priority queues that do not utilize locators and as such they can use different types o..." alt="" coords="3281,195,3425,224"/><area shape="rect" id="node36" href="../../d9/d90/a00178.html" title="Templates for portable random number generation. " alt="" coords="3451,195,3585,224"/><area shape="rect" id="node37" href="../../d0/d81/a00180.html" title="Templates for various utility routines. " alt="" coords="3611,195,3721,224"/><area shape="rect" id="node38" href="../../d8/d64/a00181.html" title="This file contains function prototypes. " alt="" coords="3746,195,3843,224"/></map>
 </div>
 </div>
 <p><a href="../../dd/de3/a00201_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html">params_t</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a26e9eb9179a727d896d5524a20dd80fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html#a26e9eb9179a727d896d5524a20dd80fd">CMD_NITER</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a26e9eb9179a727d896d5524a20dd80fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2270624f104a1d261314dd112e4a1d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html#a2270624f104a1d261314dd112e4a1d1d">print_init_info</a> (<a class="el" href="../../d9/db3/a00066.html">params_t</a> *params, gk_csr_t *mat)</td></tr>
-<tr class="separator:a2270624f104a1d261314dd112e4a1d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702976a4c55992ddbfc1918ec1b70943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html#a702976a4c55992ddbfc1918ec1b70943">print_final_info</a> (<a class="el" href="../../d9/db3/a00066.html">params_t</a> *params)</td></tr>
-<tr class="separator:a702976a4c55992ddbfc1918ec1b70943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e7ce196a2f8882777957bf898739f6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db3/a00066.html">params_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html#a0e7ce196a2f8882777957bf898739f6f">parse_cmdline</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0e7ce196a2f8882777957bf898739f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9493cf6b5b4bf33f152f2f37c87a3ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html#ae9493cf6b5b4bf33f152f2f37c87a3ac">gk_randinit</a> (uint64_t seed)</td></tr>
+<tr class="separator:ae9493cf6b5b4bf33f152f2f37c87a3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple frequent itemset discovery program to test GKlib's routines. </p>
-<dl class="section date"><dt>Date</dt><dd>6/12/2008 </dd></dl>
+<div class="textblock"><p>Various routines for providing portable 32 and 64 bit random number generators. </p>
+<dl class="section date"><dt>Date</dt><dd>Started 5/17/2007 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>George </dd></dl>
-<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: rw.c 11387 2012-01-21 23:36:23Z karypis $ </pre> </dd></dl>
+<dl class="section version"><dt>Version</dt><dd><pre class="fragment">$Id: random.c 11793 2012-04-04 21:03:02Z karypis $ </pre> </dd></dl>
 
-<p>Definition in file <a class="el" href="../../dd/de3/a00201_source.html">rw.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a26e9eb9179a727d896d5524a20dd80fd"></a>
+<p>Definition in file <a class="el" href="../../dd/de3/a00201_source.html">random.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ae9493cf6b5b4bf33f152f2f37c87a3ac"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CMD_NITER&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Constants </p>
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00028">28</a> of file <a class="el" href="../../dd/de3/a00201_source.html">rw.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
+          <td class="memname">void gk_randinit </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>the entry point </p>
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00103">103</a> of file <a class="el" href="../../dd/de3/a00201_source.html">rw.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/de3/a00201_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#dd/de3/a00201_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
-<map name="dd/de3/a00201_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="dd/de3/a00201_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" id="node2" href="../../dd/de3/a00201.html#a0e7ce196a2f8882777957bf898739f6f" title="parse_cmdline" alt="" coords="125,95,251,124"/><area shape="rect" id="node9" href="../../d6/d7d/a00161.html#a8ebc19fe9a291bdf67677ebdaae56592" title="gk_csr_Read" alt="" coords="129,254,247,283"/><area shape="rect" id="node14" href="../../dd/de3/a00201.html#a2270624f104a1d261314dd112e4a1d1d" title="print_init_info" alt="" coords="129,307,247,336"/><area shape="rect" id="node15" href="../../d3/db1/a00200.html#a5f79542ae883d026565a71bab5bca8d4" title="gk_rw_PageRank" alt="" coords="113,360,263,390"/><area shape="rect" id="node16" href="../../d6/d7d/a00161.html#ac3736361b8d6b391356f273c960c203b" title="gk_csr_Free" alt="" coords="133,414,243,443"/><area shape="rect" id="node18" href="../../dd/de3/a00201.html#a702976a4c55992ddbfc1918ec1b70943" title="print_final_info" alt="" coords="125,467,251,496"/><area shape="rect" id="node3" href="../../db/dd9/a00179.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="538,255,633,284"/><area shape="rect" id="node6" href="../../d9/d38/a00166.html#abb224612ca0aae2d39bd87f6146bd67d" title="Parse command&#45;line arguments with only long options. " alt="" coords="315,42,485,71"/><area shape="rect" id="node7" href="../../db/dd9/a00179.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="354,95,446,124"/><area shape="rect" id="node8" href="../../db/d44/a00162.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="367,148,433,178"/><area shape="rect" id="node4" href="../../db/d44/a00162.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="870,307,962,336"/><area shape="rect" id="node5" href="../../db/dd9/a00179.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="683,255,821,284"/><area shape="rect" id="node10" href="../../d6/d7d/a00161.html#a82b885bbed5bd18c26629c35ce5d37e4" title="gk_csr_Create" alt="" coords="337,308,463,338"/><area shape="rect" id="node12" href="../../db/dd9/a00179.html#ad8263f64108434d7ebab9799b5ab9632" title="gk_getline" alt="" coords="352,255,448,284"/><area shape="rect" id="node13" href="../../d0/d48/a00165.html#a739112cb142f2e96d6952140c66cd31c" title="gk_getfilestats" alt="" coords="338,202,462,231"/><area shape="rect" id="node11" href="../../d6/d7d/a00161.html#a47a303d88c3316bd821219cae39d0461" title="gk_csr_Init" alt="" coords="536,308,635,338"/><area shape="rect" id="node17" href="../../d6/d7d/a00161.html#a9646f29b0605ba264bf373c441a6826d" title="gk_csr_FreeContents" alt="" coords="313,414,487,443"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a0e7ce196a2f8882777957bf898739f6f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">params_t</a>* parse_cmdline </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This is the entry point of the command-line argument parser </p>
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00240">240</a> of file <a class="el" href="../../dd/de3/a00201_source.html">rw.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/de3/a00201_a0e7ce196a2f8882777957bf898739f6f_cgraph.png" border="0" usemap="#dd/de3/a00201_a0e7ce196a2f8882777957bf898739f6f_cgraph" alt=""/></div>
-<map name="dd/de3/a00201_a0e7ce196a2f8882777957bf898739f6f_cgraph" id="dd/de3/a00201_a0e7ce196a2f8882777957bf898739f6f_cgraph">
-<area shape="rect" id="node2" href="../../db/dd9/a00179.html#aba6f76f5c67b9b7e9c2e45988d3d3e9d" title="gk_malloc" alt="" coords="401,28,495,57"/><area shape="rect" id="node5" href="../../d9/d38/a00166.html#abb224612ca0aae2d39bd87f6146bd67d" title="Parse command&#45;line arguments with only long options. " alt="" coords="181,26,352,56"/><area shape="rect" id="node6" href="../../db/dd9/a00179.html#af62038e97ca55f14ec2557a01bd85ca2" title="Duplicates a string. " alt="" coords="221,80,313,109"/><area shape="rect" id="node7" href="../../db/d44/a00162.html#a56d0f2cc40cd8633a784582d6200d8b5" title="errexit" alt="" coords="233,133,300,162"/><area shape="rect" id="node3" href="../../db/d44/a00162.html#a4c320c13bcdc9967613253ef4c73f59f" title="gk_errexit" alt="" coords="731,28,823,57"/><area shape="rect" id="node4" href="../../db/dd9/a00179.html#a3777d3929aad6ae5e17b76656cd6797b" title="gk_gkmcoreAdd" alt="" coords="544,53,683,82"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a702976a4c55992ddbfc1918ec1b70943"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_final_info </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">params_t</a> *&#160;</td>
-          <td class="paramname"><em>params</em></td><td>)</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>seed</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function prints final statistics </p>
+<p>Create the various random number functions</p>
+<p>GKlib's built in random number generator for portability across different architectures </p>
 
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00227">227</a> of file <a class="el" href="../../dd/de3/a00201_source.html">rw.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2270624f104a1d261314dd112e4a1d1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_init_info </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">params_t</a> *&#160;</td>
-          <td class="paramname"><em>params</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">gk_csr_t *&#160;</td>
-          <td class="paramname"><em>mat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Function prototypes</p>
-<p>This function prints run parameters </p>
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00206">206</a> of file <a class="el" href="../../dd/de3/a00201_source.html">rw.c</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00071">71</a> of file <a class="el" href="../../dd/de3/a00201_source.html">random.c</a>.</p>
 
 </div>
 </div>
@@ -307,8 +168,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../dir_727261e497349a1838e9b65de4041ecc.html">test</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">rw.c</a></li>
-    <li class="footer">Generated on Wed Jun 1 2016 13:55:25 for SEIMS-2016 by
+    <li class="navelem"><a class="el" href="../../dir_743149a2e5a84f022a66541396b6824d.html">preprocess</a></li><li class="navelem"><a class="el" href="../../dir_c5a603dc4ef604e616567644c9e0432f.html">cpp_src</a></li><li class="navelem"><a class="el" href="../../dir_048b13060e2705604b4729f1a5962393.html">metis-5.1.0-pk</a></li><li class="navelem"><a class="el" href="../../dir_3bfcf74b0031534c42619350a2fd7cb2.html">GKlib</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">random.c</a></li>
+    <li class="footer">Generated on Thu Jun 2 2016 07:49:59 for SEIMS-2016 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

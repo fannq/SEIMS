@@ -1,10 +1,7 @@
 var a00089 =
 [
-    [ "CheckInputData", "db/dab/a00089.html#a6b803bd6fb3e800c8732336b517ed123", null ],
-    [ "CheckInputSize", "db/dab/a00089.html#a731a81b1e33e9937e436a4f2e93647cb", null ],
-    [ "Execute", "db/dab/a00089.html#ada3f026f8225a51403194aebbf517555", null ],
-    [ "Get2DData", "db/dab/a00089.html#a56e2a3a62bc26f117657bd28fc133b0e", null ],
-    [ "Set1DData", "db/dab/a00089.html#a8ee8d124c758fdff0a080f64363f28b4", null ],
-    [ "Set2DData", "db/dab/a00089.html#a76b655af13eec0552b7f8b63713a0016", null ],
-    [ "SetValue", "db/dab/a00089.html#a54589e2c16713af0532519393be022bc", null ]
+    [ "SoilLAYERS", "db/dab/a00089.html#aebcdb0d86793bdef8396bdd88ff7830c", null ],
+    [ "Sol_FOP", "db/dab/a00089.html#ae8db26addf6a2bd398e8a723547a747a", null ],
+    [ "Sol_ZMX", "db/dab/a00089.html#a139c00c26fe40a4b20da2f464b60f039", null ],
+    [ "USLE_K", "db/dab/a00089.html#af8c81e9411f94c5796a41885d25f4772", null ]
 ];

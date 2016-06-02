@@ -1,8 +1,5 @@
-<map id="src/Deprecated/base_data/clsSiteData.cpp" name="src/Deprecated/base_data/clsSiteData.cpp">
-<area shape="rect" id="node2" href="$de/dcb/a00462.html" title="Read hydrological or meteorological site data. " alt="" coords="131,101,247,131"/>
-<area shape="rect" id="node9" href="$de/d87/a00456.html" title="Utilities class to handle string, date time and file. " alt="" coords="729,101,793,131"/>
-<area shape="rect" id="node16" href="$d7/d9f/a00454.html" title="Predefined string constants used in the code. " alt="" coords="1265,101,1324,131"/>
-<area shape="rect" id="node17" href="$d9/d10/a00449.html" title="Define ModelException class. " alt="" coords="1009,101,1159,131"/>
-<area shape="rect" id="node4" href="$df/d38/a00468.html" title="Class to store the site information from the Hydroclimate database stations table. " alt="" coords="307,179,396,208"/>
-<area shape="rect" id="node6" href="$da/d65/a00458.html" title="Hydrological climate data class. " alt="" coords="96,179,283,208"/>
+<map id="src/base/util/StringList.cpp" name="src/base/util/StringList.cpp">
+<area shape="rect" id="node2" href="$d1/dbd/a00457.html" title="String list related class. " alt="" coords="59,83,161,112"/>
+<area shape="rect" id="node5" href="$da/d1e/a00149_source.html" title="util.h" alt="" coords="187,83,241,112"/>
+<area shape="rect" id="node7" href="$da/d65/a00458.html" title="Predefined string constants used in the code. " alt="" coords="274,160,333,189"/>
 </map>
